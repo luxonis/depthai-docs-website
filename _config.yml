@@ -1,0 +1,17 @@
+# Site settings
+title:
+email:
+author:
+description:
+url:
+kramdown:  
+  parse_block_html: true
+highlighter: rouge
+
+# Build settings
+permalink: :title/
+sass:
+  sass_dir: css
+collections:
+  datasets:
+    output: true

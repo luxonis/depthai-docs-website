@@ -1,0 +1,23 @@
+<div class="sidebar-sticky">
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">
+    <img src="/images/depthai_logo.png" alt="DepthAI">
+  </a>
+
+  <ul class="nav flex-column">
+    {% assign sorted = (site.html_pages | sort: 'order') %}
+    {% for p in sorted %}
+        <li class="nav-item">
+          <a class="nav-link {% if p.url == page.url %}active{% endif %}" href="{{ p.url }}">
+            {% if p.toc_title %}
+              {{ p.toc_title }}
+            {% else %}
+              {{ p.title }}
+            {% endif %}
+          </a>
+          {% if p.url == page.url and page.url != '/blog/' %}
+            <div id="toc"></div>
+          {% endif %}
+        </li>
+    {% endfor %}
+  </ul>
+</div>
