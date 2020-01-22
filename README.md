@@ -18,4 +18,4 @@ Start via `foreman start`. By default, the server runs at http://127.0.0.1:4000.
 
 ## Deploying
 
-TODO
+`git push` the `master` branch to deploy via [Netlify](https://www.netlify.com/).
