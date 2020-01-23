@@ -12,13 +12,13 @@ order: 2
 
 DepthAI is available in three editions. Jump to instructions for your board:
 
-* [RaspberryPi Compute Module]()
-* [Raspberry Pi HAT Edition]()
-* [USB3 Edition]()
+* [RaspberryPi Compute Module](#pi_compute)
+* [Raspberry Pi HAT Edition](#pi_hat)
+* [USB3 Edition](#usb)
 
 Troubleshooting tips are available in our [FAQ](/faq).
 
-<h2>RaspberryPi Compute Module</h2>
+<h2 id="pi_compute">RaspberryPi Compute Module</h2>
 
 <img src="/images/depthai-edition-rpi.jpg"/>
 
@@ -42,7 +42,7 @@ An embedded WiFi module is not included on the board. To connect to a WiFi netwo
 
 The board includes an Ethernet port. Connecting an Ethernet cable to the port will enable Internet access.
 
-<h2>Raspberry Pi HAT Edition</h2>
+<h2 id="pi_hat">Raspberry Pi HAT Edition</h2>
 
 <img src="/images/depthai-edition-rpi-hat.jpg"/>
 
@@ -54,7 +54,7 @@ The Raspberry Pi HAT Edition mounts to a Raspberry Pi as a HAT (Hardware Attache
 * Modular color camera
 * Stereo camera pair
 
-<h2>USB3 Edition</h2>
+<h2 id="usb">USB3 Edition</h2>
 
 <img src="/images/depthai-edition-usb.jpg"/>
 
@@ -71,27 +71,27 @@ Use DepthAI with any platform that runs OpenVINO (Mac OS X, many Linux variants 
 
 Follow the steps below to install the software required to run DepthAI and calibrate your stereo cameras.
 
-<h3 class="step"><span>1</span> Connect your host to the DepthAI USB carrier board</h3>
+<h3 class="step js-toc-ignore"><span>1</span> Connect your host to the DepthAI USB carrier board</h3>
 
 Connect the the USB...
 
-<h3 class="step"><span>2</span> Connect the DepthAI USB power supply (included)</h3>
+<h3 class="step js-toc-ignore"><span>2</span> Connect the DepthAI USB power supply (included)</h3>
 
 Connection power...
 
-<h3 class="step"><span>3</span> Install OpenVINO</h3>
+<h3 class="step js-toc-ignore"><span>3</span> Install OpenVINO</h3>
 
 OpenVINO instructions, etc...
 
-<h3 class="step"><span>4</span> Install Python DepthAI module</h3>
+<h3 class="step js-toc-ignore"><span>4</span> Install Python DepthAI module</h3>
 
 `pip install depthai`, download a .so, etc.
 
-<h3 class="step"><span>5</span> Calibrate Stereo Cameras</h3>
+<h3 class="step js-toc-ignore"><span>5</span> Calibrate Stereo Cameras</h3>
 
 TODO - current instructions on [GitHub](https://github.com/Luxonis-Brandon/DepthAI/tree/master/python-api#disparity-depth-calibration).
 
-<h3 class="step"><span>6</span> Download and run DepthAI Python examples</h3>
+<h3 class="step js-toc-ignore"><span>6</span> Download and run DepthAI Python examples</h3>
 
 We'll execute a DepthAI example Python script to ensure your setup is configured correctly. Follow these steps to test DepthAI:
 

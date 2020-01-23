@@ -12,5 +12,10 @@ tocbot.init({
   headingSelector: 'h2, h3',
   orderedList: false,
   extraListClasses: 'toc-list-mods',
-  collapseDepth: 6
+  collapseDepth: 6,
+  headingLabelCallback: removeStepNumbers
 });
+
+function removeStepNumbers(string) {
+  return string.replace(/^\d+\s/,'')
+}

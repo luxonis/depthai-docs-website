@@ -8,6 +8,7 @@
 $body_color: #333;
 $heading_color: #2a2f45;
 $border_color: #e3e8ee;
+$active_nav_color: #5469d4;
 
 body {
   font-size: 16px;
@@ -228,19 +229,19 @@ main {
         padding: 8px 1rem;
       }
       &.active .nav-link, .nav-link.active {
-        color: initial;
+        color: $active_nav_color;
       }
     }
 
     .nav-item {
       a {
-        color: $body_color;
+        color: #555;
         &:hover {
           color: $heading_color;
           text-decoration: none;
         }
         &.is-active-link {
-          color: initial;
+          color: $active_nav_color;
           font-weight: initial;
         }
 
@@ -258,6 +259,13 @@ main {
 
       .toc-list-item {
         padding: 8px 0;
+        white-space: nowrap;
+
+overflow: hidden;
+
+text-overflow: ellipsis;
+
+width: 95%;
       }
 
       .toc-list {
