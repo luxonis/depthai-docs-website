@@ -4,7 +4,7 @@ email:
 author:
 description:
 url:
-kramdown:  
+kramdown:
   parse_block_html: true
 highlighter: rouge
 
@@ -15,3 +15,6 @@ sass:
 collections:
   datasets:
     output: true
+
+# For LetsEncrypt
+include: [.well-known]
