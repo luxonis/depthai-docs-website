@@ -9,6 +9,7 @@ $body_color: #333;
 $heading_color: #2a2f45;
 $border_color: #e3e8ee;
 $active_nav_color: #5469d4;
+$code_background: #f8f9fa;
 
 body {
   font-size: 16px;
@@ -19,6 +20,12 @@ body {
 pre {
   color: inherit;
   padding: 15px;
+  background: $code_background;
+
+  code {
+    white-space: inherit;
+    background: transparent;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -343,6 +350,13 @@ figure {
   font-size: 12px;
   td:first-child {
     white-space: nowrap;
+  }
+}
+
+main {
+  li {
+    margin-top: 10px;
+    margin-bottom: 10px;
   }
 }
 
