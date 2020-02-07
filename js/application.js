@@ -13,8 +13,16 @@ tocbot.init({
   orderedList: false,
   extraListClasses: 'toc-list-mods',
   collapseDepth: 6,
+  headingObjectCallback: tocTitleOrContent,
   headingLabelCallback: removeStepNumbers
 });
+
+function tocTitleOrContent(object, ele) {
+  console.log(object,ele)
+  var tocTitle = ele.getAttribute("data-toc-title")
+  if (tocTitle) object.textContent = tocTitle
+  return object
+}
 
 function removeStepNumbers(string) {
   return string.replace(/^\d+\s/,'')

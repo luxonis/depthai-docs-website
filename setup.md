@@ -16,19 +16,21 @@ DepthAI is available in three editions. Jump to instructions for your board:
 * [Raspberry Pi HAT Edition](#pi_hat)
 * [USB3 Edition](#usb)
 
-Troubleshooting tips are available in our [FAQ](/faq).
+Troubleshooting tips are available in our [Troubleshooting](/troubleshooting) area.
 
 <h2 id="pi_compute">RaspberryPi Compute Module</h2>
 
 <img src="/images/depthai-edition-rpi.jpg"/>
 
-No additional software or hardware configuration is needed with this carrier board. To get started:
+No additional software must be installed awith this carrier board. To get started:
 
 1. Connect to an external display via the HDMI port.
 2. Connect a keyboard and mouse via the USB port.
 3. Connect the included power supply.
+4. After the Pi boots, [upgrade your DepthAI API to the latest](http://localhost:4000/setup/#api_upgrade).
 
-On boot, the Pi will run a Python demo script using the DepthAI and OpenCV that shows object detection and depth perception.
+On boot, the Pi will run [a Python test script](https://github.com/luxonis/depthai-python-extras/blob/master/test.py) using DepthAI and OpenCV that shows object detection and depth perception.
+
 
 <h3 class="js-toc-ignore">Internet Connectivity</h3>
 
@@ -98,6 +100,41 @@ We'll execute a DepthAI example Python script to ensure your setup is configured
 1. Start a terminal session.
 2. Run `git clone https://github.com/luxonis/depthai-python`. This downloads the Python module source code which includes an `/examples` folder.
 3. Run `python3 examples/test.py`. The script launches a window, starts the cameras, and annotates the video output with object detection and depth perception data. Ensure the cameras are pointed at you (it should identify you as a person).
+
+{:i #api_setup}
+## DepthAI Python API
+
+<h3 id="api_install" data-toc-title="Installation">Installing the DepthAI API</h3>
+
+The DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repository. This will change to a standard `pip install` in the future.
+
+To get started:
+
+1. If you aren't using the RPi model, checkout the [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub rep:
+    ```
+    git clone https://github.com/luxonis/depthai-python-extras.git
+    ```
+    Using the RPi Compute edition? The repository has been checked to `~/Desktop/depthai-python-extras`.
+2. Make the checked out repo globally available:
+    ```
+    pip install -e depthai-python-extras
+    ```
+
+<h3 id="api_upgrade" data-toc-title="Upgrading">Upgrading the DepthAI API</h3>
+
+
+To upgrade your DepthAI Python API to the latest version:
+
+1. `cd` to your local copy of our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) repository. If you are using the RPi Compute edition, the repository has already been checked out to `~/Desktop/depthai-python-extras`.
+2. Pull the latest changes:
+    ```
+    git pull
+    ```
+3. Ensure `depthai-python-extras` is available to all of your Python scripts:
+    ```
+    pip install -e depthai-python-extras
+    ```
+
 
 <h2 id="calibration">Camera Calibration</h2>
 
