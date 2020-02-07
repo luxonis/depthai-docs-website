@@ -29,7 +29,12 @@ No additional software must be installed awith this carrier board. To get starte
 3. Connect the included power supply.
 4. After the Pi boots, [upgrade your DepthAI API to the latest](http://localhost:4000/setup/#api_upgrade).
 
-On boot, the Pi will run [a Python test script](https://github.com/luxonis/depthai-python-extras/blob/master/test.py) using DepthAI and OpenCV that shows object detection and depth perception.
+On boot, the Pi will run [a Python test script](https://github.com/luxonis/depthai-python-extras/blob/master/test.py) that displays a video stream annotated with object localization metadata:
+
+{: style="max-width:50%"}
+![object localization demo](/images/object_localization.png)
+
+In the screenshot above, DepthAI identified a tv monitor (1.286 m from the camera) and a chair (3.711 m from the camera). See [the list of object labels](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt) on GitHub.
 
 
 <h3 class="js-toc-ignore">Internet Connectivity</h3>
