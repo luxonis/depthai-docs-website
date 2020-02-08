@@ -4,7 +4,7 @@ email:
 author:
 description:
 url:
-kramdown:  
+kramdown:
   parse_block_html: true
 highlighter: rouge
 
@@ -13,5 +13,5 @@ permalink: :title/
 sass:
   sass_dir: css
 collections:
-  datasets:
+  tutorials:
     output: true

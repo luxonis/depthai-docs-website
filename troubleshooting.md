@@ -15,7 +15,7 @@ rm /home/pi/.config/autostart/runai.desktop
 ```
 <hr/>
 
-
+{: #device_reset}
 ### I'm seeing `depthai: Error initalizing xlink` errors and DepthAI fails to run.
 
 The Myriad X needs to be reset. Click the "MODULE RST" or "RST" button on your carrier board.
