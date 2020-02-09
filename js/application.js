@@ -17,6 +17,7 @@ tocbot.init({
   headingLabelCallback: labelModifier
 });
 
+// AnchorJS - https://milanaryal.com.np/adding-hover-anchor-links-to-header-on-github-pages-using-jekyll/
 (function () {
   'use strict';
 

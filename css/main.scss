@@ -12,9 +12,9 @@ $active_nav_color: #5469d4;
 $code_background: #f8f9fa;
 
 body {
-  font-size: 16px;
+  font-size: 18px;
   color: $body_color;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
 pre {
@@ -30,7 +30,7 @@ pre {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 300;
+  font-weight: 500;
   color: $heading_color;
   letter-spacing: .63px;
   font-family: 'Roboto'
@@ -38,11 +38,11 @@ h1, h2, h3, h4, h5, h6 {
 
 
 h1 {
-  font-size: 31px;
+  font-size: 2em;
 }
 
 h2 {
-  font-size: 24px;
+  font-size: 1.5em;
   padding-top: 20px;
   margin-top: 40px;
   margin-bottom: 20px;
@@ -53,7 +53,7 @@ h3 {
     font-size: 20px;
     margin-top: 40px;
     margin-bottom: 20px;
-    color: #4f566b !important;
+    // color: #4f566b !important;
     // text-transform: uppercase;
     // font-weight: 600 !important;
 }
@@ -230,11 +230,21 @@ main {
     }
 
     .nav-item {
+
+      font-size: 1rem;
       > a {
-        font-weight: 500;
       }
       .nav-link {
         padding: 8px 1rem;
+        &:before {
+            content: "›";
+            vertical-align: top;
+            padding-right: 5px;
+            font-size: 1rem;
+        }
+        &.active:before {
+          content: "⌄"
+        }
       }
       &.active .nav-link, .nav-link.active {
         color: $active_nav_color;
@@ -265,14 +275,19 @@ main {
       padding-left: 30px;
       list-style-type: none;
 
+
       .toc-list-item {
         padding: 8px 0;
         white-space: nowrap;
 
-overflow: hidden;
+        &:before {
+          content: "•";
+          color: gray;
+          padding-right: 10px;
+        }
 
+// overflow: hidden;
 text-overflow: ellipsis;
-
 width: 95%;
       }
 
