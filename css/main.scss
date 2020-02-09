@@ -8,7 +8,7 @@
 $body_color: #333;
 $heading_color: #2a2f45;
 $border_color: #e3e8ee;
-$active_nav_color: #5469d4;
+$active_nav_color: #000;
 $code_background: #f8f9fa;
 
 body {
@@ -232,8 +232,7 @@ main {
     .nav-item {
 
       font-size: 1rem;
-      > a {
-      }
+
       .nav-link {
         padding: 8px 1rem;
         &:before {
@@ -253,14 +252,15 @@ main {
 
     .nav-item {
       a {
-        color: #555;
+        color: #777;
         &:hover {
           color: $heading_color;
           text-decoration: none;
         }
         &.is-active-link {
           color: $active_nav_color;
-          font-weight: initial;
+          font-weight: bold;
+          // font-weight: initial;
         }
 
       }
