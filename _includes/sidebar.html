@@ -6,6 +6,9 @@
   <ul class="nav flex-column">
     {% assign sorted = (site.html_pages | sort: 'order') %}
     {% for p in sorted %}
+      {% if p.toc_title == 'Tutorials' %}
+        {% continue %}
+      {% else %}
         <li class="nav-item">
           <a class="nav-link {% if p.url == page.url %}active{% endif %}" href="{{ p.url }}">
             {% if p.toc_title %}
@@ -18,6 +21,7 @@
             <div id="toc"></div>
           {% endif %}
         </li>
+      {% endif %}
     {% endfor %}
   </ul>
 

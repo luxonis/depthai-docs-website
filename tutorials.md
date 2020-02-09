@@ -11,8 +11,8 @@ order: 3
 {: class="lead" }
 Start building with our annotated Python code walkthroughs.
 
-## Hello World
+{% for p in site.tutorials %}
+  <h2>[{{ p.toc_title }}]({{p.url}})</h2>
 
-Stream video from the DepthAI cameras to your monitor.
-
-## Object Localization
+  {{p.description}}
+{% endfor %}
