@@ -14,7 +14,7 @@ tocbot.init({
   extraListClasses: 'toc-list-mods',
   collapseDepth: 6,
   headingObjectCallback: tocTitleOrContent,
-  headingLabelCallback: removeStepNumbers
+  headingLabelCallback: labelModifier
 });
 
 function tocTitleOrContent(object, ele) {
@@ -24,6 +24,17 @@ function tocTitleOrContent(object, ele) {
   return object
 }
 
+function labelModifier(string) {
+  var string = removeStepNumbers(string)
+  var string = shortenMethodNames(string)
+  return string
+}
+
 function removeStepNumbers(string) {
   return string.replace(/^\d+\s/,'')
+}
+
+function shortenMethodNames(string) {
+  // "depthai.init_device(cmd_file_path) → bool" => "depthai.init_device"
+  return string.replace(/\([\w=,]*\)\s*→\s*\w+/,'')
 }
