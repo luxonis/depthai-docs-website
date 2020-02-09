@@ -17,6 +17,15 @@ tocbot.init({
   headingLabelCallback: labelModifier
 });
 
+(function () {
+  'use strict';
+
+  anchors.options.placement = 'left';
+
+  anchors.add('main > h2, main > h3, main > h4, main > h5, main > h6');
+
+})();
+
 function tocTitleOrContent(object, ele) {
   console.log(object,ele)
   var tocTitle = ele.getAttribute("data-toc-title")
