@@ -174,10 +174,6 @@ nav#nav_search {
 main {
   margin-top: 15px;
 
-  ul {
-    max-width: 600px
-  }
-
   p {
     max-width: 700px;
     line-height: 180%;
@@ -373,6 +369,15 @@ main {
   li {
     margin-top: 10px;
     margin-bottom: 10px;
+    max-width: 700px;
+  }
+}
+
+.alert {
+  i {
+    vertical-align: top;
+    padding-top: 3px;
+    color: red;
   }
 }
 
@@ -452,5 +457,3 @@ main {
 .bs-callout-info h4 {
     color: #5bc0de;
 }
-
-/** setup device **/

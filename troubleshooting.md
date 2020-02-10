@@ -6,9 +6,9 @@ description: Tips for common DepthAI issues.
 order: 6
 ---
 
-### How do I disable the pre-installed startup demo on the RPi Compute Edition?
+### How can the startup demo on the RPi Compute Edition be disabled?
 
-The demo autostart file needs to be deleted:
+Delete the autostart file:
 
 ```
 rm /home/pi/.config/autostart/runai.desktop

@@ -12,17 +12,24 @@ Instructions for installing, upgrading, and using the DepthAI Python API.
 
 <h2 id="api_install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+  Using the RPi Compute edition? <strong>Skip this step.</strong><br/>
+  <span class="small">The repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
+</div>
+
 The DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repository. This will change to a standard `pip install` in the future.
 
 The DepthAI API requires Python 3.
 
 To get started:
 
-1. If you aren't using the RPi model, checkout the [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub rep:
+1. Checkout the [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub rep:
     ```
     git clone https://github.com/luxonis/depthai-python-extras.git
     ```
-    Using the RPi Compute edition? The repository has been checked to `~/Desktop/depthai-python-extras`.
 2. Make the checked out repo globally available:
     ```
     pip install -e depthai-python-extras
@@ -33,14 +40,15 @@ To get started:
 
 To upgrade your DepthAI Python API to the latest version:
 
-1. `cd` to your local copy of our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) repository. If you are using the RPi Compute edition, the repository has already been checked out to `~/Desktop/depthai-python-extras`.
+1. `cd` to your local copy of our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) repository.<br/>
+If you are using the RPi Compute edition, the repository has already been checked out to `~/Desktop/depthai-python-extras`.
 2. Pull the latest changes:
     ```
     git pull
     ```
 3. Ensure `depthai-python-extras` is available to all of your Python scripts:
     ```
-    pip install -e depthai-python-extras
+    pip install -e .
     ```
 
 
