@@ -15,28 +15,25 @@ Use DepthAI with any platform that runs OpenVINO (Mac OS X, many Linux variants 
 
 ## Requirements
 
-* Host OS that runs OpenVINO
-* Modular color camera
-* Stereo camera pair
+* An OpenVINO-supported operating system
+* Cameras
+  * Modular color camera
+  * [Stereo camera pair](/products/stereo_camera_pair/) (if depth is required)
 * USB3C cable
 * USB3C port on the host
 * Python 3 installed on host
 
 ## Setup
 
-Follow the steps below to install the software required to run DepthAI and calibrate your stereo cameras.
+Follow the steps below to setup your DepthAI device.
 
 <h3 class="step js-toc-ignore"><span>1</span> Connect your host to the DepthAI USB carrier board</h3>
 
-Connect the the USB...
-
 <h3 class="step js-toc-ignore"><span>2</span> Connect the DepthAI USB power supply (included)</h3>
-
-Connection power...
 
 <h3 class="step js-toc-ignore"><span>3</span> Install OpenVINO</h3>
 
-OpenVINO instructions, etc...
+[Follow the guide for your operating system](https://docs.openvinotoolkit.org/latest/index.html) on openvinotoolkit.org.
 
 <h3 class="step js-toc-ignore"><span>4</span> Install the Python DepthAI API</h3>
 
@@ -44,6 +41,7 @@ OpenVINO instructions, etc...
 
 <h3 class="step js-toc-ignore"><span>5</span> Calibrate Stereo Cameras</h3>
 
+Have the stereo camera pair? Use the DepthAI [calibration script](/products/stereo_camera_pair/#calibration).
 
 
 <h3 class="step js-toc-ignore"><span>6</span> Download and run DepthAI Python examples</h3>
