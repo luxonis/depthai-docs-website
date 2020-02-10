@@ -25,6 +25,25 @@
     {% endfor %}
   </ul>
 
+  <h6 class="sidebar-heading muted">Products</h6>
+  <ul class="nav flex-column">
+    {% assign sorted = (site.products | sort: 'order') %}
+    {% for p in sorted %}
+    <li class="nav-item {% if p.url == page.url %}active{% endif %}">
+      <a class="nav-link" href="{{ p.url }}">
+        {% if p.toc_title %}
+          {{ p.toc_title }}
+        {% else %}
+          {{ p.title }}
+        {% endif %}
+      </a>
+      {% if p.url == page.url %}
+      <div id="toc"></div>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
+
   <h6 class="sidebar-heading muted">Tutorials</h6>
   <ul class="nav flex-column">
     {% for p in site.tutorials %}

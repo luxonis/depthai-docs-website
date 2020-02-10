@@ -10,33 +10,32 @@ order: 1
 
 <p class="lead">Learn how to setup your DepthAI device, view tutorials, code samples, and more.</p>
 
-<img src="/images/depthai-editions.jpg" alt="DepthAI Editions">
-
-
-<h2 id="introduction">Introduction</h2>
-
 <p>
   DepthAI brings <em>true realtime</em> depth perception, object detection, and object tracking to the Raspberry Pi. The DepthAI platform leverages Intel's <a href="https://www.movidius.com/MyriadX">Myraid X VPU</a>...
 </p>
 
-<h2 id="editions">DepthAI Editions</h2>
+<!-- <img src="/images/depthai-editions.jpg" alt="DepthAI Editions"> -->
 
-DepthAI is available in three editions:
+<h2>Setup your device</h2>
 
-<ul>
-  <li>RaspberryPi Compute Module</li>
-<li>Raspberry Pi HAT Edition</li>
-<li>USB3 Edition</li>
-</ul>
-
-<h3>RaspberryPi Compute Module</h3>
-
-blah
-
-<h3>Raspberry Pi HAT Edition</h3>
-
-blah
-
-<h3>USB3 Edition</h3>
-
-blah
+<div class="container setup_device_container">
+  <div class="row">
+    {% assign sorted = (site.products | sort: 'order') %}
+    {% for p in sorted %}
+      <div class="col-sm-4 d-flex align-items-stretch">
+        <div class="card p-2 mb-4">
+          <img class="card-img-top" src="{{p.screenshot}}" alt="{{p.toc_title}}">
+          <div class="card-body">
+            <h5 class="card-title">{{ p.toc_title }}</h5>
+            <p class="small text-muted">
+              {{p.description}}
+            </p>
+          </div>
+          <footer class="footer p-3">
+            <a href="{{ p.url}}#setup" class="btn btn-primary btn-block">Get Started ›</a>
+          </footer>
+        </div> <!-- card -->
+      </div> <!-- col -->
+    {% endfor %}
+  </div><!-- row -->
+</div>

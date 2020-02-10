@@ -15,3 +15,5 @@ sass:
 collections:
   tutorials:
     output: true
+  products:
+    output: true
