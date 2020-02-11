@@ -13,8 +13,7 @@ tocbot.init({
   orderedList: false,
   extraListClasses: 'toc-list-mods',
   collapseDepth: 6,
-  headingObjectCallback: tocTitleOrContent,
-  headingLabelCallback: labelModifier
+  headingObjectCallback: tocTitleOrContent
 });
 
 // AnchorJS - https://milanaryal.com.np/adding-hover-anchor-links-to-header-on-github-pages-using-jekyll/
@@ -28,20 +27,22 @@ tocbot.init({
 })();
 
 function tocTitleOrContent(object, ele) {
-  console.log(object,ele)
   var tocTitle = ele.getAttribute("data-toc-title")
-  if (tocTitle) object.textContent = tocTitle
+  if (tocTitle) {
+    object.textContent = tocTitle
+  } else {
+    object.textContent = textContent(ele)
+  }
+  object.textContent = shortenMethodNames(object.textContent)
   return object
 }
 
-function labelModifier(string) {
-  var string = removeStepNumbers(string)
-  var string = shortenMethodNames(string)
-  return string
-}
-
-function removeStepNumbers(string) {
-  return string.replace(/^\d+\s/,'')
+function textContent(ele) {
+  return $(ele).clone()    //clone the element
+    .children() //select all the children
+    .remove()   //remove all the children
+    .end()  //again go back to selected element
+    .text();
 }
 
 function shortenMethodNames(string) {
