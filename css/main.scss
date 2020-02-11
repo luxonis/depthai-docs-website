@@ -36,6 +36,15 @@ h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto'
 }
 
+h2 {
+  i {
+    opacity: 0.3;
+    vertical-align: top;
+    font-size: 0.7em !important;
+    padding-top: 0.4em;
+  }
+}
+
 
 h1 {
   font-size: 2em;
@@ -378,6 +387,26 @@ main {
     vertical-align: top;
     padding-top: 3px;
     color: red;
+  }
+}
+
+/***************** getting started *****************/
+
+.questions_container {
+  .card {
+    h5 {
+      img {
+        height: 24px;
+        vertical-align: middle;
+      }
+      i {
+        vertical-align: middle;
+      }
+      img, i {
+        opacity: 0.3;
+        margin-right: 5px;
+      }
+    }
   }
 }
 
