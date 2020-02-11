@@ -23,6 +23,15 @@ Use DepthAI with any platform that runs OpenVINO (Mac OS X, many Linux variants 
 * USB3C port on the host
 * Python 3 installed on host
 
+{: #in_box}
+## What's in the box?
+
+* {{page.title}} Carrier Board
+* USB3C cable (6 ft.)
+* Power Supply
+
+
+
 ## Setup
 
 Follow the steps below to setup your DepthAI device.
