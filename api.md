@@ -10,7 +10,7 @@ order: 5
 
 Instructions for installing, upgrading, and using the DepthAI Python API.
 
-<h2 id="api_install" data-toc-title="Installation">Installing the DepthAI API</h2>
+<h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
 <div class="alert alert-primary" role="alert">
 <i class="material-icons">
@@ -35,7 +35,7 @@ To get started:
     pip install -e depthai-python-extras
     ```
 
-<h2 id="api_upgrade" data-toc-title="Upgrading">Upgrading the DepthAI API</h2>
+<h2 id="upgrade" data-toc-title="Upgrading">Upgrading the DepthAI API</h2>
 
 
 To upgrade your DepthAI Python API to the latest version:
@@ -51,9 +51,10 @@ If you are using the RPi Compute edition, the repository has already been checke
     pip install -e .
     ```
 
-
+{: #reference }
 ## API Reference
 
+{: #depthai_init_device}
 ### depthai.init_device(cmd_file_path) → bool
 
 Initializes the DepthAI device, returning `True` if the device was successfully initialized and `False` otherwise.
@@ -70,6 +71,7 @@ import consts.resource_paths
 res = depthai.init_device(consts.resource_paths.device_cmd_fpath)
 ```
 
+{: #depthai_create_pipeline}
 ### depthai.create_pipeline(config=dict) → Pipeline
 
 Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful and `False` otherwise.

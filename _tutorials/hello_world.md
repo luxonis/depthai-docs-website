@@ -12,7 +12,7 @@ Learn how to use the DepthAI Python API to display a color video stream.
 
 ## Getting Started
 
-Before we begin, [download](/setup#api_install) and [upgrade](/setup#api_upgrade) the `depthai-python-extras` GitHub repository. The DepthAI API requires Python 3.
+Before we begin, [download](/api#install) and [upgrade](/api#upgrade) the `depthai-python-extras` GitHub repository. The DepthAI API requires Python 3.
 
 ## Code Overview
 

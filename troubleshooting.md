@@ -6,6 +6,7 @@ description: Tips for common DepthAI issues.
 order: 6
 ---
 
+{: #disable_demo data-toc-title="Disable the startup demo"}
 ### How can the startup demo on the RPi Compute Edition be disabled?
 
 Delete the autostart file:
@@ -15,7 +16,7 @@ rm /home/pi/.config/autostart/runai.desktop
 ```
 <hr/>
 
-{: #device_reset}
+{: #device_reset data-toc-title="Reset the Myriad X"}
 ### I'm seeing `depthai: Error initalizing xlink` errors and DepthAI fails to run.
 
 The Myriad X needs to be reset. Click the "MODULE RST" or "RST" button on your carrier board.
@@ -31,6 +32,7 @@ raspi-gpio set 33 dl  # drive low to allow Myriad X to run
 
 <hr/>
 
+{: #slow_calibration data-toc-title="Slow camera calibration"}
 ### Why is the Camera Calibration running slow?
 
 Poor photo conditions [can dramatically impact the image processing time](https://stackoverflow.com/questions/51073309/why-does-the-camera-calibration-in-opencv-python-takes-more-than-30-minutes) during the camera calibration. Under normal conditions, it should take 1 second or less to find the chessboard corners per-image on an RPi but this exceed 20 seconds per-image in poor conditions. Tips on setting up proper photo conditions:
