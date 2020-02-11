@@ -1,6 +1,12 @@
 <div id="footer" class="container">
   <div class="row">
     <div class="col">
+      <a href=https://github.com/{{ site.github_username }}/{{ site.git_repo }}/blob/master/{{ page.path }} class="git_button">
+        <img src="/images/github.png" alt="GitHub" />
+        Edit on GitHub
+      </a>
+    </div>
+    <div class="col">
       <div style="{% if page.layout == "default" %} float:right {% endif %}">
         © 2020 Luxonis Inc. All rights reserved.<br/>
         <a href="mailto:support@luxonis.com">support@luxonis.com</a>
