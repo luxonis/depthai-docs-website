@@ -1,7 +1,7 @@
 ---
 layout: default
 title: DepthAI USB3
-toc_title: USB3 with Modular Cameras
+toc_title: USB3 | Modular Cameras
 screenshot: /images/products/depthai-edition-usb.jpg
 description: DepthAI for the host of your choice, with modular cameras for easy integration onto/into your platform and custom stereo baselines.
 order: 2
