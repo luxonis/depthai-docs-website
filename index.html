@@ -14,8 +14,6 @@ order: 1
   DepthAI is an embedded computer vision platform that helps you build apps with <em>true realtime</em> object detection, depth perception, and object tracking. DepthAI offloads AI, depth vision, and more to the Myraid X, freeing your host to process application-specific data.
 </p>
 
-<!-- <img src="/images/depthai-editions.jpg" alt="DepthAI Editions"> -->
-
 <h2 id="get_started">
   <i class="material-icons">build</i>
   Setup your device
@@ -23,7 +21,7 @@ order: 1
 
 <div class="container setup_device_container">
   <div class="row">
-    {% assign sorted = (site.products | sort: 'order') %}
+    {% assign sorted = site.products | where: "show_on_home", "true" | sort: 'order' %}
     {% for p in sorted %}
       <div class="col-sm-4 d-flex align-items-stretch">
         <div class="card p-2 mb-4">

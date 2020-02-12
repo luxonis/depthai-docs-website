@@ -5,6 +5,7 @@ toc_title: USB3
 screenshot: /images/products/depthai-edition-usb.jpg
 description: DepthAI for the host of your choice. Runs on anything that runs OpenVINO.
 order: 2
+show_on_home: true
 ---
 
 # {{page.title}}
