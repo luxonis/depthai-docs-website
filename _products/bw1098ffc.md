@@ -1,9 +1,9 @@
 ---
 layout: default
 title: DepthAI USB3
-toc_title: USB3
+toc_title: USB3 with Modular Cameras
 screenshot: /images/products/depthai-edition-usb.jpg
-description: DepthAI for the host of your choice. Runs on anything that runs OpenVINO.
+description: DepthAI for the host of your choice, with modular cameras for easy integration onto/into your platform and custom stereo baselines.
 order: 2
 show_on_home: true
 ---
