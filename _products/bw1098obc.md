@@ -1,9 +1,9 @@
 ---
 layout: default
 title: DepthAI USB3 with integrated cameras
-toc_title: USB3 w/cameras
+toc_title: USB3 | Onboard Cameras
 screenshot: /images/products/depthai-edition-usb3-cameras.png
-description: DepthAI for the host of your choice with an included color camera module and dual-global-shutter 720p mono camera modules.
+description: DepthAI for the host of your choice with onboard 12MP color camera module and dual-global-shutter 720p mono syncrhronized stereo pair.
 order: 2
 show_on_home: true
 ---
