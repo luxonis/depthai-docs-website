@@ -23,6 +23,23 @@ Use DepthAI with any platform that runs OpenVINO (Mac OS X, many Linux variants 
 * USB3C port on the host
 * Python 3 installed on host
 
+## Board Layout
+
+![USB Layout](/images/products/labeled/1098ffc.jpg)
+
+<table class="table table-sm">
+<tbody>
+<tr>
+<td>A. 5 V IN</td><td>E. Left Camera Port</td></tr>
+<tr>
+<td>B. USB3C</td><td>F. DepthAI Module</td></tr>
+<tr>
+<td>C. Right Camera Port</td><td>G. Myriad X GPIO Access</td></tr>
+<tr>
+<td>D. Color Camera Port</td><td></td></tr>
+</tbody>
+</table>
+
 {: #in_box}
 ## What's in the box?
 
@@ -36,31 +53,22 @@ Use DepthAI with any platform that runs OpenVINO (Mac OS X, many Linux variants 
 
 Follow the steps below to setup your DepthAI device.
 
-<h3 class="step js-toc-ignore"><span>1</span> Connect your host to the DepthAI USB carrier board</h3>
+<h3 class="step js-toc-ignore"><span>1</span> Connect your host to the DepthAI USB carrier board.</h3>
 
-<h3 class="step js-toc-ignore"><span>2</span> Connect the DepthAI USB power supply (included)</h3>
+<h3 class="step js-toc-ignore"><span>2</span> Connect the DepthAI USB power supply (included).</h3>
 
-<h3 class="step js-toc-ignore"><span>3</span> Install OpenVINO</h3>
+<h3 class="step js-toc-ignore"><span>3</span> Install OpenVINO.</h3>
 
 [Follow the guide for your operating system](https://docs.openvinotoolkit.org/latest/index.html) on openvinotoolkit.org.
 
-<h3 class="step js-toc-ignore"><span>4</span> Install the Python DepthAI API</h3>
+<h3 class="step js-toc-ignore"><span>4</span> Install the Python DepthAI API.</h3>
 
 [See our instructions](/api#install).
 
-<h3 class="step js-toc-ignore"><span>5</span> Calibrate Stereo Cameras</h3>
+<h3 class="step js-toc-ignore"><span>5</span> Calibrate Stereo Cameras.</h3>
 
 Have the stereo camera pair? Use the DepthAI [calibration script](/products/stereo_camera_pair/#calibration).
 
+<h3 class="step js-toc-ignore"><span>6</span> Download and run DepthAI Python examples.</h3>
 
-<h3 class="step js-toc-ignore"><span>6</span> Download and run DepthAI Python examples</h3>
-
-We'll execute a DepthAI example Python script to ensure your setup is configured correctly. Follow these steps to test DepthAI:
-
-1. Start a terminal session.
-2. Access your local copy of of the `depthai-python-extras` from step 4.
-    ```
-    cd [depthai-python-extras repo from step 4]
-    ```
-3. Run `python3 examples/test.py`.<br/>
-    The script launches a window, starts the cameras, and annotates the video output with object detection and depth perception data. Ensure the cameras are pointed at you (it should identify you as a person).
+{% include test_step.md %}
