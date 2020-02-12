@@ -13,6 +13,18 @@ order: 2
 
 {{page.description}}
 
+## Specifications
+
+* 720p, 120 Hz Video
+* Synchronized Global Shutter
+* Excellent Low-light
+* Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
+* 1280 x 720 pixels
+* 83 DFOV°
+* Lens Size: 1/2.3 inch
+* AutoFocus: 19.6 cm - ∞
+* F-number: 2.2
+
 ## Calibration
 
 For better depth image quality, perform a stereo camera calibration. Follow these steps:
@@ -69,4 +81,4 @@ After capturing images for all of the polygon positions, the calibration image p
 
 <h3 class="step" id="test_depth"><span>6</span> Test depth</h3>
 
-Run `python3 test.py` from the top-level of your local copy of the `depthai-python-extras` GitHub repo. This displays the depth color video stream as well as an annotated object localization stream.
+{% include test_step.md %}
