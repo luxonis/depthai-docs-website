@@ -47,12 +47,4 @@ Use the DepthAI [calibration script](/products/stereo_camera_pair/#calibration).
 
 <h3 class="step js-toc-ignore"><span>6</span> Download and run DepthAI Python examples</h3>
 
-We'll execute a DepthAI example Python script to ensure your setup is configured correctly. Follow these steps to test DepthAI:
-
-1. Start a terminal session.
-2. Access your local copy of of the `depthai-python-extras` from step 4.
-    ```
-    cd [depthai-python-extras repo from step 4]
-    ```
-3. Run `python3 examples/test.py`.<br/>
-    The script launches a window, starts the cameras, and annotates the video output with object detection and depth perception data. Ensure the cameras are pointed at you (it should identify you as a person).
+{% include test_step.md %}
