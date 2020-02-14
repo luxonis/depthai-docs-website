@@ -1,5 +1,14 @@
 # Luxonis DepthAI Docs Website
 
+## How to contribute
+
+The DepthAI docs are designed to be easily updated. See an issue? Follow these steps:
+
+* While on a https://docs.luxonis.com page with an issue, scroll down to the footer.
+* Click the "Edit on GitHub" link. This takes you the page source.
+* For simple changes (like a typo), _anyone_ can edit the page directly on GitHub and submit a PR. Repository contributors with write access can also commit changes directly to `master`. However, use caution: `master` is auto-deployed on changes so limit direct commits to minor changes and use PRs for more significant updates.
+* For complex changes (like adding a new page to the site), follow the "Local Development" steps below.
+
 ## Local Development
 
 The site is powered by [Jekyll](https://jekyllrb.com/).
