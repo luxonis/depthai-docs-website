@@ -12,13 +12,13 @@ show_on_home: true
 
 ![screenshot]({{page.screenshot}})
 
-Use DepthAI with any platform that runs OpenVINO (Mac OS X, many Linux variants including Ubuntu, Yocto, etc., and Windows 10). Since the AI/vision processing is done on the Myriad X, a typical desktop could handle tens of DepthAIs plugged in (the effective limit is how many USB ports the host can handle).
+Use DepthAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could handle tens of DepthAIs plugged in (the effective limit is how many USB ports the host can handle).
 
 ## Requirements
 
-* An OpenVINO-supported operating system
+* Ubuntu 18.04 or Raspbian 10
 * Cameras
-  * Modular color camera
+  * [Modular color camera](/products/color_camera)
   * [Stereo camera pair](/products/stereo_camera_pair/) (if depth is required)
 * USB3C cable
 * USB3C port on the host
