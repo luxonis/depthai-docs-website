@@ -5,7 +5,7 @@ We'll execute a DepthAI example Python script to ensure your setup is configured
     ```
     cd [depthai-python-extras repo]
     ```
-3. Run `python3 examples/test.py`.<br/>
+3. Run `python3 test.py`.<br/>
     The script launches a window, starts the cameras, and displays a video stream annotated with object localization metadata:
 
     {: style="max-width:50%"}
