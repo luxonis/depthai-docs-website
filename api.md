@@ -16,7 +16,7 @@ Instructions for installing, upgrading, and using the DepthAI Python API.
 <i class="material-icons">
 error
 </i>
-  Using the RPi Compute edition? <strong>Skip this step.</strong><br/>
+  Using the RPi Compute edition or a pre-flashed DepthAI µSD card? <strong>Skip this step.</strong><br/>
   <span class="small">The repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
@@ -37,11 +37,18 @@ To get started:
 
 <h2 id="upgrade" data-toc-title="Upgrading">Upgrading the DepthAI API</h2>
 
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+  Using the RPi Compute edition or a pre-flashed DepthAI µSD card?<br/>
+  <span class="small">The repository has been checked out to `~/Desktop/depthai-python-extras`.</span>
+</div>
+
 
 To upgrade your DepthAI Python API to the latest version:
 
-1. `cd` to your local copy of our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) repository.<br/>
-If you are using the RPi Compute edition, the repository has already been checked out to `~/Desktop/depthai-python-extras`.
+1. `cd` to your local copy of our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) repository.
 2. Pull the latest changes:
     ```
     git pull

@@ -76,10 +76,21 @@ h4 {
   margin-top: 30px;
 }
 
+/***** steps ******/
+
+body {
+  counter-reset: step;
+}
+
 .step {
   span {
     color: #8898aa;
     padding-right: 4px;
+
+    &:before {
+      counter-increment: step;
+      content: counter(step);
+    }
   }
 }
 

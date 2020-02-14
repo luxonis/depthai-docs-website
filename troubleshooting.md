@@ -42,3 +42,14 @@ Poor photo conditions [can dramatically impact the image processing time](https:
 * Reduce the amount of motion blur by trying to hold the checkerboard as still as possible.
 
 <hr/>
+
+{: #python_api_permission_denied data-toc-title-"pip install - permission denied"}
+### [Errno 13] Permission denied: '/usr/local/lib/python3.7/dist-packages/...'
+
+If `pip install` fails with a `Permission denied` error, your user likely doesn't have permission to install packages in the system-wide path. Try installing in your user's home directory instead by adding the `--user` option. For example:
+
+```
+pip install -e depthai-python-extras --user
+```
+
+[More information on Stackoverflow](https://stackoverflow.com/questions/31512422/pip-install-failing-with-oserror-errno-13-permission-denied-on-directory).

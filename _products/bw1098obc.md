@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DepthAI USB3 with integrated cameras
+title: DepthAI USB3 with onboard cameras
 toc_title: USB3 | Onboard Cameras
 screenshot: /images/products/depthai-edition-usb3-cameras.png
 description: DepthAI for the host of your choice, with an onboard color camera module and global-shutter synchronized stereo pair.
@@ -10,7 +10,7 @@ show_on_home: true
 
 # {{page.title}}
 
-![{{page.toc_title}}]({{page.screenshot}})
+![screenshot]({{page.screenshot}})
 
 ## Requirements
 
@@ -30,22 +30,22 @@ show_on_home: true
 
 Follow the steps below to setup your DepthAI device.
 
-<h3 class="step js-toc-ignore"><span>1</span> Connect your host to the DepthAI USB carrier board</h3>
+<h3 class="step js-toc-ignore"><span></span> Connect your host to the DepthAI USB carrier board</h3>
 
-<h3 class="step js-toc-ignore"><span>2</span> Connect the DepthAI USB power supply (included)</h3>
+<h3 class="step js-toc-ignore"><span></span> Connect the DepthAI USB power supply (included)</h3>
 
-<h3 class="step js-toc-ignore"><span>3</span> Install OpenVINO</h3>
+<h3 class="step js-toc-ignore"><span></span> Install OpenVINO</h3>
 
 [Follow the guide for your operating system](https://docs.openvinotoolkit.org/latest/index.html) on openvinotoolkit.org.
 
-<h3 class="step js-toc-ignore"><span>4</span> Install the Python DepthAI API</h3>
+<h3 class="step js-toc-ignore"><span></span> Install the Python DepthAI API</h3>
 
 [See our instructions](/api#install).
 
-<h3 class="step js-toc-ignore"><span>5</span> Calibrate Stereo Cameras</h3>
+<h3 class="step js-toc-ignore"><span></span> Calibrate Stereo Cameras</h3>
 
 Use the DepthAI [calibration script](/products/stereo_camera_pair/#calibration).
 
-<h3 class="step js-toc-ignore"><span>6</span> Download and run DepthAI Python examples</h3>
+<h3 class="step js-toc-ignore"><span></span> Download and run DepthAI Python examples</h3>
 
 {% include test_step.md %}

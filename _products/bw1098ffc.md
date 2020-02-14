@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DepthAI USB3
+title: DepthAI USB3 | Modular Cameras
 toc_title: USB3 | Modular Cameras
 screenshot: /images/products/depthai-edition-usb.jpg
 description: DepthAI for the host of your choice, with modular cameras for easy integration onto/into your platform and custom stereo baselines.
@@ -10,7 +10,7 @@ show_on_home: true
 
 # {{page.title}}
 
-![{{page.toc_title}}]({{page.screenshot}})
+![screenshot]({{page.screenshot}})
 
 Use DepthAI with any platform that runs OpenVINO (Mac OS X, many Linux variants including Ubuntu, Yocto, etc., and Windows 10). Since the AI/vision processing is done on the Myriad X, a typical desktop could handle tens of DepthAIs plugged in (the effective limit is how many USB ports the host can handle).
 
@@ -54,22 +54,22 @@ Use DepthAI with any platform that runs OpenVINO (Mac OS X, many Linux variants 
 
 Follow the steps below to setup your DepthAI device.
 
-<h3 class="step js-toc-ignore"><span>1</span> Connect your host to the DepthAI USB carrier board.</h3>
+<h3 class="step js-toc-ignore"><span></span> Connect your host to the DepthAI USB carrier board.</h3>
 
-<h3 class="step js-toc-ignore"><span>2</span> Connect the DepthAI USB power supply (included).</h3>
+<h3 class="step js-toc-ignore"><span></span> Connect the DepthAI USB power supply (included).</h3>
 
-<h3 class="step js-toc-ignore"><span>3</span> Install OpenVINO.</h3>
+<h3 class="step js-toc-ignore"><span></span> Install OpenVINO.</h3>
 
 [Follow the guide for your operating system](https://docs.openvinotoolkit.org/latest/index.html) on openvinotoolkit.org.
 
-<h3 class="step js-toc-ignore"><span>4</span> Install the Python DepthAI API.</h3>
+<h3 class="step js-toc-ignore"><span></span> Install the Python DepthAI API.</h3>
 
 [See our instructions](/api#install).
 
-<h3 class="step js-toc-ignore"><span>5</span> Calibrate Stereo Cameras.</h3>
+<h3 class="step js-toc-ignore"><span></span> Calibrate Stereo Cameras.</h3>
 
 Have the stereo camera pair? Use the DepthAI [calibration script](/products/stereo_camera_pair/#calibration).
 
-<h3 class="step js-toc-ignore"><span>6</span> Download and run DepthAI Python examples.</h3>
+<h3 class="step js-toc-ignore"><span></span> Download and run DepthAI Python examples.</h3>
 
 {% include test_step.md %}
