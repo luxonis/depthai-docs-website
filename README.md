@@ -17,7 +17,7 @@ The site is powered by [Jekyll](https://jekyllrb.com/).
 
 Run `bundle` to install Ruby gem dependencies.
 
-## Dependencies
+### Dependencies
 
 Ruby v2.6.2.
 
@@ -25,6 +25,6 @@ Ruby v2.6.2.
 
 Start via `foreman start`. By default, the server runs at http://127.0.0.1:4000.
 
-## Deploying
+### Deploying
 
 `git push` the `master` branch to deploy via [Netlify](https://www.netlify.com/).
