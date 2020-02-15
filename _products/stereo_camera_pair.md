@@ -68,7 +68,7 @@ Argument reference:
 For example, the arguments for the 1098OBC look like the following if the square size is 2.35 cm:
 ```
 python3 calibrate.py -s 2.35 \
-co '{"board_config": {"left_to_right_distance_cm": 7.5}}'
+-co '{"board_config": {"left_to_right_distance_cm": 7.5}}'
 ```
 
 Run `python3 calibrate.py --help` for a full list of arguments and usage examples.`
