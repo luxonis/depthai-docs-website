@@ -6,6 +6,7 @@ screenshot: /images/products/depthai-edition-usb3-cameras.png
 description: DepthAI for the host of your choice, with an onboard color camera module and global-shutter synchronized stereo pair.
 order: 2
 show_on_home: true
+test_args: "-co '{\"board_config\": {\"left_to_right_distance_cm\": 7.5}}'"
 ---
 
 # {{page.title}}
@@ -56,4 +57,4 @@ This sets the distance between the stereo cameras to their distance on the board
 
 <h3 class="step js-toc-ignore"><span></span> Download and run DepthAI Python examples</h3>
 
-{% include test_step.md %}
+{% include test_step.md param="arg" %}
