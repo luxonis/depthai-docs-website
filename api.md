@@ -119,3 +119,14 @@ pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
     'ai': {'blob_file': consts.resource_paths.blob_fpath}
 })
 ```
+
+## Stream Latency
+
+Expected stream display latencies (tested on the RPi Compute Edition):
+
+* `metaout`,`previewout`: 115 ms
+* `left`, `right`: 400 ms
+* `depth_sipp`: 400 ms
+
+
+Displaying more streams increases the average latency. On an RPi, using five streams results in latency between 550 - 700 ms.
