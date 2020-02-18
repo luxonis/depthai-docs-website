@@ -89,7 +89,7 @@ Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful a
     <br/>Example key/values for the config:
     ```py
     {
-      # ['previewout', 'metaout', 'left', 'right', 'disparity', 'depth_sipp']
+      # ['previewout', 'metaout', 'left', 'right', 'depth_sipp']
       # If "left" is used, it must be in the first position.
       'streams': ['previewout','metaout'],
       'depth':
