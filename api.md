@@ -10,6 +10,14 @@ order: 5
 
 Instructions for installing, upgrading, and using the DepthAI Python API.
 
+{: #python_version data-toc-title="Python Versions"}
+## Supported Python Versions
+
+The DepthAI API requires the following Python versions:
+
+* Ubuntu - Python 3.6
+* Raspbian - Python 3.7
+
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
 <div class="alert alert-primary" role="alert">
@@ -21,8 +29,6 @@ error
 </div>
 
 The DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repository. This will change to a standard `pip install` in the future.
-
-The DepthAI API requires Python 3.
 
 To get started:
 
