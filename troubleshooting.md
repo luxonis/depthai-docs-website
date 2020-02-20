@@ -17,7 +17,7 @@ rm /home/pi/.config/autostart/runai.desktop
 <hr/>
 
 {: #device_reset data-toc-title="Reset the Myriad X"}
-### I'm seeing `depthai: Error initalizing xlink` errors and DepthAI fails to run.
+### `depthai: Error initalizing xlink` errors and DepthAI fails to run.
 
 The Myriad X needs to be reset. Click the "MODULE RST" or "RST" button on your carrier board.
 
@@ -29,6 +29,22 @@ raspi-gpio set 33 dh  # drive high to reset Myriad X
 sleep 1
 raspi-gpio set 33 dl  # drive low to allow Myriad X to run
 ```
+
+<hr/>
+
+{: #depthai_import_error}
+### ImportError: No module named 'depthai'
+
+This indicates that the `depthai.*.so` file could not be loaded. There are a handful of reasons this can fail:
+
+1. Is the DepthAI API [installed](api/#install)? Verify that it appears when you type:
+    ```
+    pip3 list | grep depthai
+    ```
+2. Are you using a [supported Python version](/api/#python_version) for your operating system? Check that your Python version is [supported](/api/#python_version):
+    ```
+    python3 --version
+    ```
 
 <hr/>
 

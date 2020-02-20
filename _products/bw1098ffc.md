@@ -22,7 +22,7 @@ Use DepthAI on your existing host. Since the AI/vision processing is done on the
   * [Stereo camera pair](/products/stereo_camera_pair/) (if depth is required)
 * USB3C cable
 * USB3C port on the host
-* Python 3 installed on host
+* [A supported Python version](/api/#python_version) on the host
 
 ## Board Layout
 
