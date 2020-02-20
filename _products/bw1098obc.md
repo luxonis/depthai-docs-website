@@ -20,7 +20,7 @@ Use DepthAI on your existing host. Since the AI/vision processing is done on the
 * Ubuntu 18.04 or Raspbian 10
 * USB3C cable
 * USB3C port on the host
-* Python 3.6 installed on host
+* [A supported Python version](/api/#python_version) on the host
 
 {: #in_box}
 ## What's in the box?
