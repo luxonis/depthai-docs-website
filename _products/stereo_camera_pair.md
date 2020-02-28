@@ -81,4 +81,16 @@ After capturing images for all of the polygon positions, the calibration image p
 
 <h3 class="step" id="test_depth"><span></span> Test depth</h3>
 
-{% include test_step.md %}
+We'll view the depth stream to ensure the cameras are calibrated correctly:
+
+1. Start a terminal session.
+2. Access your local copy of `depthai-python-extras`.
+    ```
+    cd [depthai-python-extras repo]
+    ```
+3. Run `python3 test.py -co '{"streams": ["left","depth_sipp"]}'`.<br/>
+    The script launches a window, starts the cameras, and displays a depth video stream:
+
+    ![object localization demo](/images/depth.png)
+
+    In the screenshot above, the hand is closer to the camera.
