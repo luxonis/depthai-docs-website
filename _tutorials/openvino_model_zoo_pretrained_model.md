@@ -24,6 +24,7 @@ The [Open Model Zoo](https://github.com/opencv/open_model_zoo) is a library of f
 
 DepthAI is able to run many of the object detection models in the Zoo.
 
+{: data-toc-title="DepthAI API"}
 ## Install or upgrade the DepthAI API
 
 [Download](/api#install) and [upgrade](/api#upgrade) the `depthai-python-extras` GitHub repository. The DepthAI API requires Python 3.
@@ -56,6 +57,7 @@ Verify that you see `releases_2019_R2` in your output. If you do, move on. If yo
 
 ![openvino_version](/images/openvino_version.png)
 
+{: data-toc-title="Model Downloader"}
 ## Check if the Model Downloader is installed
 
 When installing OpenVINO, you can choose to perform a smaller installer to save disk space. This custom install may not include the model downloader script. Lets check if the downloader was installed. In a terminal session, type the following:
@@ -73,7 +75,7 @@ __Move on if you see the output below__:
 
 __Didn't see any output?__ Don't fret if `downloader.py` isn't found. We'll install this below.
 
-
+{: data-toc-title="Install"}
 ### Install Open Model Zoo Downloader
 
 If the downloader tools weren't found, we'll install the tools by cloning the [Open Model Zoo Repo](https://github.com/opencv/open_model_zoo/blob/2019_R2/tools/downloader/README.md) and installing the tool dependencies.
@@ -91,6 +93,7 @@ python3 -mpip install --user -r ./requirements.in
 
 This clones the repo into a `~/open_model_zoo` directory, checks out the required `2019_R2` version, and installs the downloader dependencies.
 
+{: data-toc-title="Setup Downloader env var."}
 ## Create an OPEN_MODEL_DOWNLOADER environment variable
 
 Typing the full path to `downloader.py` can use a lot of keystrokes. In an effort to extend your keyboard life, let's store the path to this script in an environment variable.
@@ -121,6 +124,7 @@ echo $OPEN_MODEL_DOWNLOADER
 /home/pi/open_model_zoo/tools/downloader/downloader.py
 ```
 
+{: data-toc-title="Download the model"}
 ## Download the face-detection-retail-0004 model
 
 We've installed everything we need to download models from the Open Model Zoo! We'll now use the [Model Downloader](https://github.com/opencv/open_model_zoo/blob/2019_R2/tools/downloader/README.md) to download the `face-detection-retail-0004` model files. Run the following in your terminal:
@@ -248,6 +252,7 @@ What do these values mean?
 * `property_key_mapping` - Maps the properties to friendly names we can access when running model inference in our too-be-created Python script.
 * `output_properties_type` - We're using a model with `f16` precision.
 
+{: data-toc-title="Run the model"}
 ## Run and display the model output
 
 With both `blob` and a `json` blob config file, we're ready to roll! We'll create a Python script to display the results of our face detections in realtime.
@@ -278,7 +283,7 @@ Execute the script to see an annotated video stream of face detections:
 python3 2-face-detection-retail-0004.py
 ```
 
-## An overview of the flow
+## Reviewing the flow
 
 The flow we walked through above works for other pre-trained object detection models in the Open Model Zoo:
 
