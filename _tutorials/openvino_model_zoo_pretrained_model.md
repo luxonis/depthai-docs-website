@@ -8,15 +8,15 @@ order: 3
 
 # {{ page.title }}
 
-In this tutorial, you'll learn how to run the pre-trained [face-detection-retail-0004](https://github.com/opencv/open_model_zoo/blob/2019_R2/intel_models/face-detection-retail-0004/description/face-detection-retail-0004.md)  OpenVINO model on DepthAI. This model is available via the [Open Model Zoo](https://github.com/opencv/open_model_zoo).
+In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you to the OpenVINO toolset, the Open Model Zoo (where we'll download the [face-detection-retail-0004](https://github.com/opencv/open_model_zoo/blob/2019_R2/intel_models/face-detection-retail-0004/description/face-detection-retail-0004.md) model), and show you how to generate the files needed to run model inference on your DepthAI board.
 
 ![model image](/images/tutorials/pretrained_model/face-detection-retail-0001.png)
 
-This model is a face detector using SqueezeNet light (half-channels) as a backbone. Running this model on DepthAI directly versus your computer will dramatically increase the frame-rate, allowing you to use a lower-powered host (like a Raspberry Pi) and/or build a richer application experience as the host CPU isn't used for model inference.
+Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introduction of why we need these tools.
 
 ## What is OpenVINO?
 
-[OpenVINO](https://docs.openvinotoolkit.org/) is a free toolkit that converts a deep learning model into a format that can run on Intel Hardware. DepthAI uses this toolkit as our boards utilize the Intel MyriadX chip to perform model inference. Why add this extra step and not just run models directly on your computer? Performance: Frames Per Second (FPS) can easily be improved by 25x or more when running model inference on the MyriadX-powered DepthAI.
+Under-the-hood, DepthAI uses the Intel MyriadX chip to perform high-speed model inference. However, you can't just dump your neural net into the chip and get high-performance for free. That's where [OpenVINO](https://docs.openvinotoolkit.org/) comes in. OpenVINO is a free toolkit that converts a deep learning model into a format that runs on Intel Hardware. Once the model is converted, it's common to see Frames Per Second (FPS) improve by 25x or more. Are a couple of small steps worth a 25x FPS increase? Often, the answer is yes!
 
 ## What is the Open Model Zoo?
 
@@ -60,7 +60,7 @@ Verify that you see `releases_2019_R2` in your output. If you do, move on. If yo
 {: data-toc-title="Model Downloader"}
 ## Check if the Model Downloader is installed
 
-When installing OpenVINO, you can choose to perform a smaller installer to save disk space. This custom install may not include the model downloader script. Lets check if the downloader was installed. In a terminal session, type the following:
+When installing OpenVINO, you can choose to perform a smaller install to save disk space. This custom install may not include the model downloader script. Lets check if the downloader was installed. In a terminal session, type the following:
 
 ```
 find /opt/intel/ -iname downloader.py
@@ -162,6 +162,8 @@ The MyriadX chip used on our DepthAI board does not use the IR format files dire
 * `face-detection-retail-0004.blob` - We'll create this file with the `myriad_compile` command.
 * `face-detection-retail-0004.json` - A `blob_file_config` file in JSON format. This describes the format of the output tensors.
 
+We'll start by creating the `blob` file.
+
 ### Locate myriad_compile
 
 Let's find where `myriad_compile` is located. In your terminal, run:
@@ -261,14 +263,14 @@ If you haven't created a `depthai-tutorials` folder yet, lets do that:
 
 ```
 cd ~
-mkdir depthai-tutorials
-cd depthai-tutorials
+mkdir -p depthai-tutorials/2-face-detection-retail/
+cd depthai-tutorials/2-face-detection-retail/
 ```
 
-Download this ready-to-go script for running the `face-detection-retail-0004` model:
+Download [this ready-to-go script](https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py) for running the `face-detection-retail-0004` model:
 
 ```
-wget -O 2-face-detection-retail-0004.py INSERT_GITHUB_URL
+wget https://raw.githubusercontent.com/luxonis/depthai-tutorials/master/2-face-detection-retail/face-detection-retail-0004.py
 ```
 
 The script assumes the `blob` and `json` files are located in the directory we used in this tutorial:
@@ -280,12 +282,18 @@ The script assumes the `blob` and `json` files are located in the directory we u
 Execute the script to see an annotated video stream of face detections:
 
 ```
-python3 2-face-detection-retail-0004.py
+python3 face-detection-retail-0004.py
 ```
+
+You should see output annotated output similar to:
+
+![model image](/images/tutorials/pretrained_model/previewout.png)
+
+Substitute your face for mine, of course.
 
 ## Reviewing the flow
 
-The flow we walked through above works for other pre-trained object detection models in the Open Model Zoo:
+The flow we walked through works for other pre-trained object detection models in the Open Model Zoo:
 
 1. Download the model:
     ```
@@ -296,4 +304,4 @@ The flow we walked through above works for other pre-trained object detection mo
     $MYRIAD_COMPILE -m [INSERT PATH TO MODEL XML FILE] -ip U8 -VPU_MYRIAD_PLATFORM VPU_MYRIAD_2480 -VPU_NUMBER_OF_SHAVES 4 -VPU_NUMBER_OF_CMX_SLICES 4
     ```
 3. Create a [JSON config file](#blob_file_config) based on the model output.
-4. Write a script utilizing the DepthAI API, specifying the path to the blob file and its config via the `blob_file` and `blob_file_config` Pipeline config settings.
+4. Write a script (similar [to this](https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py)) utilizing the DepthAI API, specifying the path to the blob file and its config via the `blob_file` and `blob_file_config` Pipeline config settings.
