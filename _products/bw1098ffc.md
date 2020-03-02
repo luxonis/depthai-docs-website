@@ -60,7 +60,7 @@ Follow the steps below to setup your DepthAI device.
 
 <h3 class="step js-toc-ignore"><span></span> Install OpenVINO.</h3>
 
-[Follow the guide for your operating system](https://docs.openvinotoolkit.org/latest/index.html) on openvinotoolkit.org.
+{% include openvino_step.md %}
 
 <h3 class="step js-toc-ignore"><span></span> Install the Python DepthAI API.</h3>
 
