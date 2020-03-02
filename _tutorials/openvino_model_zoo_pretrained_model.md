@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DepthAI Tutorial - Use a Pre-trained OpenVINO model
+title: DepthAI Tutorial - How to use a Pre-trained OpenVINO model
 toc_title: Pre-trained OpenVINO model
 description: Stream Video from your DepthAI onto your monitor display.
 order: 3
