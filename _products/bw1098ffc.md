@@ -10,6 +10,8 @@ show_on_home: true
 
 # {{page.title}}
 
+{% include model_number.md %}
+
 ![screenshot]({{page.screenshot}})
 
 Use DepthAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could handle tens of DepthAIs plugged in (the effective limit is how many USB ports the host can handle).
