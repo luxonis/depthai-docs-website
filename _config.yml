@@ -3,7 +3,7 @@ title:
 email:
 author:
 description:
-url:
+url: https://docs.luxonis.com
 kramdown:
   parse_block_html: true
 highlighter: rouge
