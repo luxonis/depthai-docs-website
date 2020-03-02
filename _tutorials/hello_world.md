@@ -151,4 +151,4 @@ Run the script. Press the 'Q' key with focus on the video stream (not your termi
 python3 1-hello-world.py
 ```
 
-You're on your way! You can find the [complete code for this tutorial on GitHub]().
+You're on your way! You can find the [complete code for this tutorial on GitHub](https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/1-hello_world.py).
