@@ -1,8 +1,8 @@
 ---
 layout: default
-title: DepthAI Tutorial - How to use a Pre-trained OpenVINO model
+title: DepthAI Tutorial - Use a Pre-trained OpenVINO model
 toc_title: Pre-trained OpenVINO model
-description: Stream Video from your DepthAI onto your monitor display.
+description: Learn how to detect faces in realtime - even on a low-powered Raspberry Pi - with a pre-trained model.
 order: 3
 ---
 
