@@ -11,7 +11,7 @@ order: 3
 
 In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you to the OpenVINO toolset, the Open Model Zoo (where we'll download the [face-detection-retail-0004](https://github.com/opencv/open_model_zoo/blob/2019_R2/intel_models/face-detection-retail-0004/description/face-detection-retail-0004.md) model), and show you how to generate the files needed to run model inference on your DepthAI board.
 
-![model image](/images/tutorials/pretrained_model/previewout.png)
+![model image](/images/tutorials/pretrained_model/previewout2.png)
 
 Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introduction of why we need these tools.
 
