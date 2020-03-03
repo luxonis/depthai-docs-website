@@ -6,6 +6,8 @@ description: Tips for common DepthAI issues.
 order: 6
 ---
 
+# DepthAI Troubleshooting
+
 {: #disable_demo data-toc-title="Disable the startup demo"}
 ### How can the startup demo on the RPi Compute Edition be disabled?
 
