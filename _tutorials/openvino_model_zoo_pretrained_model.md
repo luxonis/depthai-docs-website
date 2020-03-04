@@ -25,10 +25,9 @@ The [Open Model Zoo](https://github.com/opencv/open_model_zoo) is a library of f
 
 DepthAI is able to run many of the object detection models in the Zoo.
 
-{: data-toc-title="DepthAI API"}
-## Install or upgrade the DepthAI API
+## Dependencies
 
-[Download](/api#install) and [upgrade](/api#upgrade) the `depthai-python-extras` GitHub repository. The DepthAI API requires Python 3.
+This tutorial has the same dependencies as the [Hello World Tutorial](/tutorials/hello_world#dependencies) with one addition: OpenVINO version `2019_R2`. We'll verify your OpenVINO install below.
 
 ## Verify your OpenVINO install
 
@@ -260,13 +259,25 @@ What do these values mean?
 
 With both `blob` and a `json` blob config file, we're ready to roll! We'll create a Python script to display the results of our face detections in realtime.
 
-If you haven't created a `depthai-tutorials` folder yet, lets do that:
+### Setup the Python script directory
+If you haven't created a `{{site.tutorials_dir}}` folder yet, lets do that:
 
 ```
 cd ~
-mkdir -p depthai-tutorials/2-face-detection-retail/
-cd depthai-tutorials/2-face-detection-retail/
+mkdir -p {{site.tutorials_dir}}/2-face-detection-retail
+cd {{site.tutorials_dir}}/2-face-detection-retail
 ```
+
+### Install pip dependencies
+
+We need to import a small number of packages to run our Python script. Download and install the requirements for this tutorial:
+
+```
+wget https://raw.githubusercontent.com/luxonis/depthai-tutorials/master/2-face-detection-retail/requirements.txt
+pip3 install --user -r requirements.txt
+```
+
+### Download our script
 
 Download [this ready-to-go script](https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py) for running the `face-detection-retail-0004` model:
 
