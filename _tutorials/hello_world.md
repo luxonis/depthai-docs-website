@@ -35,7 +35,7 @@ touch {{site.tutorials_dir}}/1-hello-world/hello-world.py
 cd {{site.tutorials_dir}}/1-hello-world
 ```
 
-What's with the `-working` suffix in parent directory name? Our tutorials are available on GitHub via the [depthai-tutorials](https://github.com/luxonis/depthai-tutorials) repository. We're appending `-working` so you can distinguish between your work and our finished tutorials (should you choose to download those).
+What's with the `-practice` suffix in parent directory name? Our tutorials are available on GitHub via the [depthai-tutorials](https://github.com/luxonis/depthai-tutorials) repository. We're appending `-practice` so you can distinguish between your work and our finished tutorials (should you choose to download those).
 
 
 ## Install pip dependencies
