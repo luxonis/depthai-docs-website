@@ -50,9 +50,32 @@ function shortenMethodNames(string) {
   return string.replace(/\([\w=,]*\)\s*→\s*\w+/,'')
 }
 
-// Open External Links in a new tab
-$(document).ready(function() {
+function isScrolledIntoView(elem) {
+    var docViewTop = $(window).scrollTop();
+    var docViewBottom = docViewTop + $(window).height();
 
+    var elemTop = $(elem).offset().top;
+    var elemBottom = elemTop + $(elem).height();
+
+    return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+}
+
+function activeSection() {
+  var els = document.getElementsByClassName("is-active-link")
+  if (els) return els[0]
+}
+
+function scrollSidebarToActiveSection() {
+  var el = activeSection();
+  if (!el) return;
+  if (isScrolledIntoView(el)) return;
+  el.scrollIntoView()
+}
+
+$(document).ready(function() {
+  scrollSidebarToActiveSection();
+
+  // Open External Links in a new tab
    $("a[href^=http]").each(function(){
 
       var excludes = [
