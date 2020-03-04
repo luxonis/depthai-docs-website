@@ -71,7 +71,7 @@ find ~ -iname downloader.py
 __Move on if you see the output below__:
 
 ```
-/opt/intel//openvino_2019.2.242/deployment_tools/open_model_zoo/tools/downloader/downloader.py
+/opt/intel/openvino_2019.2.242/deployment_tools/open_model_zoo/tools/downloader/downloader.py
 ```
 
 __Didn't see any output?__ Don't fret if `downloader.py` isn't found. We'll install this below.
@@ -89,7 +89,7 @@ git clone https://github.com/opencv/open_model_zoo.git
 cd open_model_zoo
 git checkout tags/2019_R2
 cd tools/downloader
-python3 -mpip install --user -r ./requirements.in
+python3 -m pip install --user -r ./requirements.in
 ```
 
 This clones the repo into a `~/open_model_zoo` directory, checks out the required `2019_R2` version, and installs the downloader dependencies.
