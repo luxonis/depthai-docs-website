@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DepthAI Tutorial - Hello World
+title: Tutorial - DepthAI Hello World
 toc_title: Hello World
 description: Stream Video from your DepthAI onto your monitor display.
 order: 3
