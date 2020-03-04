@@ -38,7 +38,7 @@ To get started:
     ```
 2. Make the checked out repo globally available:
     ```
-    pip3 install -e depthai-python-extras
+    pip3 install --user -e depthai-python-extras
     ```
 
 <h2 id="upgrade" data-toc-title="Upgrading">Upgrading the DepthAI API</h2>
@@ -61,7 +61,7 @@ To upgrade your DepthAI Python API to the latest version:
     ```
 3. Ensure `depthai-python-extras` is available to all of your Python scripts:
     ```
-    pip3 install -e .
+    pip3 install --user -e .
     ```
 
 {: #reference }

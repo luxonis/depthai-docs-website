@@ -10,29 +10,60 @@ order: 3
 
 Learn how to use the DepthAI Python API to display a color video stream.
 
-## Getting Started
+## Dependencies
 
-Before we begin, [download](/api#install) and [upgrade](/api#upgrade) the `depthai-python-extras` GitHub repository. The DepthAI API requires Python 3.
+Let's get your development environment setup first. This tutorial uses:
+
+* Python 3.6 (Ubuntu) or Python 3.7 (Raspbian).
+* The Python DepthAI API. [Install](/api#install) or [upgrade](/api#upgrade).
+* The `cv2` Python module (version `4.1.1-openvino` ) distributed with [OpenVINO](https://docs.openvinotoolkit.org/2019_R2/).
+
+This tutorial also uses a couple of `pip` packages. We'll [install these](#install-pip-dependencies) in just a bit.
 
 ## Code Overview
 
-The `depthai` Python module provides access to your board's 4K 60 Hz color camera. We'll display a video stream from this camera to your desktop. You can find the [complete source code for this tutorial on GitHub]().
+The `depthai` Python module provides access to your board's 4K 60 Hz color camera. We'll display a video stream from this camera to your desktop. You can find the [complete source code for this tutorial on GitHub](https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world).
 
 ## File Setup
 
 Setup the following file structure on your computer:
 
 ```
-mkdir depthai-tutorials
-touch depthai-tutorials/1-hello-world.py
-cd depthai-tutorials
+cd ~
+mkdir -p {{site.tutorials_dir}}/1-hello-world
+touch {{site.tutorials_dir}}/1-hello-world/hello-world.py
+cd {{site.tutorials_dir}}/1-hello-world
 ```
 
-Open `1-hello-world.py` in your code editor.
+What's with the `-working` suffix in parent directory name? Our tutorials are available on GitHub via the [depthai-tutorials](https://github.com/luxonis/depthai-tutorials) repository. We're appending `-working` so you can distinguish between your work and our finished tutorials (should you choose to download those).
 
-## Install and import dependencies
 
-To display the DepthAI color video stream we need to import a small number of packages. Run `pip3 install numpy` to install the `numpy` package.
+## Install pip dependencies
+
+To display the DepthAI color video stream we need to import a small number of packages. Download and install the requirements for this tutorial:
+
+```
+wget https://raw.githubusercontent.com/luxonis/depthai-tutorials/master/1-hello-world/requirements.txt
+pip3 install --user -r requirements.txt
+```
+
+If you see the following error:
+
+```
+Could not install packages due to an EnvironmentError: 404 Client Error: Not Found for url: https://pypi.org/simple/depthai-extras/
+```
+
+...it's likely that the `depthai-extras` module (the [DepthAI API](/api)) wasn't installed in editable mode. To install:
+
+```
+cd [INSERT depthai-python-extras-repo]
+pip3 install --user -e .
+```
+
+## Test your environment
+
+Let's verify we're able to load all of our dependencies. Open the `hello-world.py` file you [created earlier](#file-setup) in your code editor. Copy and paste the following into `hello-world.py`:
+
 
 ```py
 import numpy as np # numpy - manipulate the packet data returned by depthai
@@ -44,7 +75,7 @@ import consts.resource_paths # load paths to depthai resources
 Try running the script and ensure it executes without error:
 
 ```
-python3 1-hello-world.py
+python3 hello-world.py
 ```
 
 If you see the following error:
@@ -53,12 +84,7 @@ If you see the following error:
 ModuleNotFoundError: No module named `depthai`
 ```
 
-...it's likely that the `depthai-extras` module wasn't installed in editable mode. To install:
-
-```
-cd [INSERT depthai-python-extras-repo]
-pip3 install -e .
-```
+...follow [these steps in our troubleshooting section](http://localhost:4000/troubleshooting/#depthai_import_error).
 
 ## Initialize the DepthAI Device
 
@@ -148,7 +174,7 @@ del p
 Run the script. Press the 'Q' key with focus on the video stream (not your terminal) to exit:
 
 ```
-python3 1-hello-world.py
+python3 hello-world.py
 ```
 
 You're on your way! You can find the [complete code for this tutorial on GitHub](https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/1-hello_world.py).
