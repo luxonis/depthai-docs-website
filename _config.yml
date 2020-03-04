@@ -23,3 +23,5 @@ collections:
 github_username: luxonis
 git_repo: depthai-docs-website
 slack_url: https://join.slack.com/t/luxonis-community/shared_invite/enQtOTM2MzU1ODgwNzA4LTE1YjU2MDMyYzljMDhmZjkwZTIzN2Y1N2UxY2IzNmExNzY4YWI3NzI5MDk3ZmE1M2M1MTJmOTY0ZGI2Y2E1NGM
+
+tutorials_dir: depthai-tutorials-practice
