@@ -73,7 +73,7 @@ pip3 install -e depthai-python-extras --user
 [More information on Stackoverflow](https://stackoverflow.com/questions/31512422/pip-install-failing-with-oserror-errno-13-permission-denied-on-directory).
 
 
-### The DepthAI device show up under /dev/video* like web cameras do.
+### The DepthAI device does *not* show up under /dev/video* like web cameras do.
 
 The USB device enumeration could be checked with lsusb | grep 03e7  . It should print:
 
