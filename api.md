@@ -34,11 +34,13 @@ To get started:
 
 0. Make DepthAI accessible over USB:
 
-a. Run this command:
+    a. Run this command:
+
     ```
     echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
     ```
-b. Reset or reconnect (USB) the DepthAI device.
+    
+    b. Reset or reconnect (USB) the DepthAI device.
 
 1. Checkout the [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub rep:
     ```
