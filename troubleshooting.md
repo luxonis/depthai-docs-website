@@ -76,6 +76,7 @@ pip3 install -e depthai-python-extras --user
 ### The DepthAI device show up under /dev/video* like web cameras do.
 
 The USB device enumeration could be checked with lsusb | grep 03e7  . It should print:
+
 `03e7:2485 after reset (bootloader running);`  
 `03e7:f63b after the application was loaded.`
 
