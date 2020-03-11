@@ -135,3 +135,14 @@ pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
     'ai': {'blob_file': consts.resource_paths.blob_fpath}
 })
 ```
+
+
+{: #compile_api }
+## Compiling the DepthAI API
+
+The DepthAI API is open source so can be compiled for platforms for which we have not yet build shared libaries for the Python API.
+
+To compile the Python API from scratch, please follow the instructions on our Github here:
+https://github.com/luxonis/depthai-api
+
+
