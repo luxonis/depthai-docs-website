@@ -34,7 +34,7 @@ To get started:
 
 0. Make DepthAI accessible over USB:
 
-    a. Run this command:
+    a. Run this command (which sets up the udev rules):
 
     ```
     echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
