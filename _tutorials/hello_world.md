@@ -84,7 +84,7 @@ If you see the following error:
 ModuleNotFoundError: No module named `depthai`
 ```
 
-...follow [these steps in our troubleshooting section](http://localhost:4000/troubleshooting/#depthai_import_error).
+...follow [these steps in our troubleshooting section](/troubleshooting/#depthai_import_error).
 
 ## Initialize the DepthAI Device
 
