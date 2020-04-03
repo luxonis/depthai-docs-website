@@ -9,7 +9,7 @@ order: 3
 
 # {{ page.title }}
 
-In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you to the OpenVINO toolset, the Open Model Zoo (where we'll download the [face-detection-retail-0004](https://github.com/opencv/open_model_zoo/blob/2019_R2/intel_models/face-detection-retail-0004/description/face-detection-retail-0004.md) model), and show you how to generate the files needed to run model inference on your DepthAI board.
+In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you to the OpenVINO toolset, the Open Model Zoo (where we'll download the [face-detection-retail-0004](https://github.com/opencv/open_model_zoo/blob/2019_R3/models/intel/face-detection-retail-0004/description/face-detection-retail-0004.md) model), and show you how to generate the files needed to run model inference on your DepthAI board.
 
 ![model image](/images/tutorials/pretrained_model/previewout2.png)
 
@@ -27,7 +27,7 @@ DepthAI is able to run many of the object detection models in the Zoo.
 
 ## Dependencies
 
-This tutorial has the same dependencies as the [Hello World Tutorial](/tutorials/hello_world#dependencies) with one addition: OpenVINO version `2019_R2`. We'll verify your OpenVINO install below.
+This tutorial has the same dependencies as the [Hello World Tutorial](/tutorials/hello_world#dependencies) with one addition: OpenVINO version `2019_R3`. We'll verify your OpenVINO install below.
 
 ## Verify your OpenVINO install
 
@@ -36,10 +36,10 @@ This tutorial has the same dependencies as the [Hello World Tutorial](/tutorials
 error
 </i>
   Using the RPi Compute edition or a pre-flashed DepthAI µSD card? <strong>Skip this step.</strong><br/>
-  <span class="small">OpenVINO version `2019_R2` has been pre-installed.</span>
+  <span class="small">OpenVINO version `2019_R3` has been pre-installed.</span>
 </div>
 
-DepthAI requires OpenVINO version `2019_R2`. Let's verify that this version is installed on your host. Check your version by running the following from a terminal session:
+DepthAI requires OpenVINO version `2019_R3`. Let's verify that this version is installed on your host. Check your version by running the following from a terminal session:
 
 ```
 cat /opt/intel/openvino/inference_engine/version.txt
@@ -48,12 +48,12 @@ cat /opt/intel/openvino/inference_engine/version.txt
 You should see output similar to:
 
 ```
-Thu Jul 18 19:41:35 MSK 2019
-f5827d4773ebbe727c9acac5f007f7d94dd4be4e
-releases_2019_R2_InferenceEngine_27579
+Mon Sep 16 23:38:25 MSK 2019
+cb6cad9663aea3d282e0e8b3e0bf359df665d5d0
+releases_2019_R3_InferenceEngine_30677
 ```
 
-Verify that you see `releases_2019_R2` in your output. If you do, move on. If you are on a different version, goto the [OpenVINO site](https://docs.openvinotoolkit.org/2019_R2/index.html) and download the `2019_R2` version for your OS:
+Verify that you see `releases_2019_R3` in your output. If you do, move on. If you are on a different version, goto the [OpenVINO site](https://docs.openvinotoolkit.org/2019_R3/index.html) and download the `2019_R3` version for your OS:
 
 ![openvino_version](/images/openvino_version.png)
 
@@ -70,7 +70,7 @@ find ~ -iname downloader.py
 __Move on if you see the output below__:
 
 ```
-/opt/intel/openvino_2019.2.242/deployment_tools/open_model_zoo/tools/downloader/downloader.py
+/opt/intel/openvino/deployment_tools/open_model_zoo/tools/downloader/downloader.py
 ```
 
 __Didn't see any output?__ Don't fret if `downloader.py` isn't found. We'll install this below.
@@ -78,7 +78,7 @@ __Didn't see any output?__ Don't fret if `downloader.py` isn't found. We'll inst
 {: data-toc-title="Install"}
 ### Install Open Model Zoo Downloader
 
-If the downloader tools weren't found, we'll install the tools by cloning the [Open Model Zoo Repo](https://github.com/opencv/open_model_zoo/blob/2019_R2/tools/downloader/README.md) and installing the tool dependencies.
+If the downloader tools weren't found, we'll install the tools by cloning the [Open Model Zoo Repo](https://github.com/opencv/open_model_zoo/blob/2019_R3/tools/downloader/README.md) and installing the tool dependencies.
 
 Start a terminal session and run the following commands in your terminal:
 
@@ -86,12 +86,12 @@ Start a terminal session and run the following commands in your terminal:
 cd ~
 git clone https://github.com/opencv/open_model_zoo.git
 cd open_model_zoo
-git checkout tags/2019_R2
+git checkout tags/2019_R3
 cd tools/downloader
 python3 -m pip install --user -r ./requirements.in
 ```
 
-This clones the repo into a `~/open_model_zoo` directory, checks out the required `2019_R2` version, and installs the downloader dependencies.
+This clones the repo into a `~/open_model_zoo` directory, checks out the required `2019_R3` version, and installs the downloader dependencies.
 
 {: data-toc-title="Setup Downloader env var."}
 ## Create an OPEN_MODEL_DOWNLOADER environment variable
@@ -101,7 +101,7 @@ Typing the full path to `downloader.py` can use a lot of keystrokes. In an effor
 Run the following in your terminal:
 
 ```
-OPEN_MODEL_DOWNLOADER='INSERT PATH TO YOUR downloader.py SCRIPT'
+export OPEN_MODEL_DOWNLOADER='INSERT PATH TO YOUR downloader.py SCRIPT'
 ```
 
 Where `INSERT PATH TO YOUR downloader.py SCRIPT` can be found via:
@@ -114,7 +114,7 @@ find ~ -iname downloader.py
 For example, if you are using the RPi Compute and installed `open_model_zoo` yourself:
 
 ```
-OPEN_MODEL_DOWNLOADER='/home/pi/open_model_zoo/tools/downloader/downloader.py'
+export OPEN_MODEL_DOWNLOADER='/home/pi/open_model_zoo/tools/downloader/downloader.py'
 ```
 
 Verify this was set correctly:
@@ -127,7 +127,7 @@ echo $OPEN_MODEL_DOWNLOADER
 {: data-toc-title="Download the model"}
 ## Download the face-detection-retail-0004 model
 
-We've installed everything we need to download models from the Open Model Zoo! We'll now use the [Model Downloader](https://github.com/opencv/open_model_zoo/blob/2019_R2/tools/downloader/README.md) to download the `face-detection-retail-0004` model files. Run the following in your terminal:
+We've installed everything we need to download models from the Open Model Zoo! We'll now use the [Model Downloader](https://github.com/opencv/open_model_zoo/blob/2019_R3/tools/downloader/README.md) to download the `face-detection-retail-0004` model files. Run the following in your terminal:
 
 ```
 $OPEN_MODEL_DOWNLOADER --name face-detection-retail-0004 --output_dir ~/open_model_zoo_downloads/
@@ -184,7 +184,7 @@ On an Intel-based architecture, `armv7l` will be `intel64`.
 Since it's such a long path, let's store the `myriad_compile` executable in an environment variable (just like `OPEN_MODEL_DOWNLOADER`). On an RPi:
 
 ```
-MYRIAD_COMPILE='/opt/intel/openvino/deployment_tools/inference_engine/lib/armv7l/myriad_compile'
+export MYRIAD_COMPILE='/opt/intel/openvino/deployment_tools/inference_engine/lib/armv7l/myriad_compile'
 ```
 
 ### Run myriad_compile
@@ -196,9 +196,9 @@ $MYRIAD_COMPILE -m ~/open_model_zoo_downloads/Retail/object_detection/face/sqnet
 You should see:
 
 ```
-Inference Engine:
-	API version ............ 2.0
-	Build .................. custom_releases/2019/R2_f5827d4773ebbe727c9acac5f007f7d94dd4be4e
+Inference Engine: 
+	API version ............ 2.1
+	Build .................. custom_releases/2019/R3_cb6cad9663aea3d282e0e8b3e0bf359df665d5d0
 	Description ....... API
 Done
 ```
