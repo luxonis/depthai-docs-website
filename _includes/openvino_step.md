@@ -1,3 +1,6 @@
+OpenVINO is only required if you intend to do model conversion and/or train your own model.
+The DepthAI examples will run without OpenVINO having been installed.
+
 [Follow the guide for your operating system](https://docs.openvinotoolkit.org/2019_R2/index.html) on openvinotoolkit.org.
 
 DepthAI requires OpenVINO version `2019_R3`. You can specify this version on the OpenVINO download page:
