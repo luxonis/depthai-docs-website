@@ -17,6 +17,7 @@ The DepthAI API requires the following Python versions:
 
 * Ubuntu - Python 3.6
 * Raspbian - Python 3.7
+* Mac OS X - Compile from source ([See OS X instructions](/api#compile_api)).
 
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
@@ -138,8 +139,18 @@ pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
 ```
 
 
+{: #compile_api_osx }
+## Compiling the DepthAI API for Mac OS X with HomeBrew
+
+The DepthAI API is open source so can be compiled for OS X, with some light modifications.
+We're working to improve our build scripts to make this easier.  For now, use the instructions below,
+and feel free to contribute PRs to improve the build process on OS X.
+
+
+
+
 {: #compile_api }
-## Compiling the DepthAI API
+## Compiling the DepthAI API for Other Platforms
 
 The DepthAI API is open source so can be compiled for platforms for which we have not yet build shared libaries for the Python API.
 
