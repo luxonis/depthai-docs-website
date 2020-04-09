@@ -47,15 +47,15 @@ Yes, every model can be used, including:
  
  We even have some basic ROS support going as well which can be used on the Pi also.
  
- ## Is DepthAI and uAI easy to use with Raspberry Pi? 
+## Is DepthAI and uAI easy to use with Raspberry Pi? 
  
- Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
+Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
  
- ## Can I use multiple DepthAI with one host? 
+## Can I use multiple DepthAI with one host? 
  
- Yes.  DepthAI is architected to put as-little-as-possible burden on the host.
- So even with a Raspberry Pi you can run a handful of DepthAI with the Pi and not burden the Pi CPU.
+Yes.  DepthAI is architected to put as-little-as-possible burden on the host.
+So even with a Raspberry Pi you can run a handful of DepthAI with the Pi and not burden the Pi CPU.
  
- See [here](https://docs.luxonis.com/tutorials/multiple_depthai/) for instructions on how to do so.
+See [here](https://docs.luxonis.com/tutorials/multiple_depthai/) for instructions on how to do so.
 
 
