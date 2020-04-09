@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tutorial - Multiple DepthAI per Host
-toc_title: Multi DepthAI Use
+toc_title: Multi DepthAI Per Host
 description: Use Multiple DepthAI on a Single Host
 order: 3
 ---
