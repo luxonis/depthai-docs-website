@@ -30,7 +30,7 @@ sudo udevadm control --reload-rules && udevadm trigger
 ### 4. Run the example script, `test.py`:
 `python3 test.py`
 
-### Enjoy real-time spatialAI.  
+### 5. Enjoy real-time spatialAI.  
 What objects are, and where, in physical space:
 
 ![spatial_AI](/images/spatialai.jpg)
@@ -45,6 +45,7 @@ Yes, every model can be used, including:
  - USB3C with Modular Cameras [BW1098FFC](https://shop.luxonis.com/products/depthai-usb3-edition)
  - uAI (microAI) Single Camera [BW1093](https://shop.luxonis.com/collections/all/products/bw1093)
  
+ We even have some basic ROS support going as well which can be used on the Pi also.
  
  ## Is DepthAI and uAI easy to use with Raspberry Pi? 
  
