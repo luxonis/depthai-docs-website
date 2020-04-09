@@ -24,7 +24,7 @@ See [here](/api) if you have not yet installed the DepthAI Python API on your sy
 ## Update to the latest from Github
 `git pull https://github.com/luxonis/depthai-python-extras.git`
 
-## Discovering DepthAI USB Port Mapping
+## Discover DepthAI-USB Port Mapping
 The DepthAI multi-device support is currently done by selecting the USB port into which the DepthAI is plugged in.
 
 If you'd like to associate a given DepthAI device with specific code (e.g. neural model) to be run on it, it is recommended
