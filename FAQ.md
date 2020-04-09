@@ -13,6 +13,7 @@ order: 6
 It's pretty simple, and the bare requirements are fairly slim.  For a stock Ubuntu 18.04 machine the total steps 
 required to get going are:
 #### 1. Run these commands
+
 ```sudo apt install git
 sudo apt install python3-pip
 pip3 install numpy
