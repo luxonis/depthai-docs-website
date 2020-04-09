@@ -138,24 +138,24 @@ pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
 })
 ```
 
-
-{: #compile_api_osx }
-## Compiling the DepthAI API for Mac OS X with HomeBrew
-
-The DepthAI API is open source so can be compiled for OS X, with some light modifications.
-We're working to improve our build scripts to make this easier.  For now, use the instructions below,
-and feel free to contribute PRs to improve the build process on OS X.
-
-
-
-
 {: #compile_api }
 ## Compiling the DepthAI API for Other Platforms
 
 The DepthAI API is open source so can be compiled for platforms for which we have not yet build shared libaries for the Python API.
 
-To compile the Python API from scratch, please follow the instructions on our Github here:
+To compile the Python API from scratch, please follow the instructions on our Github here: [depthai-api](https://github.com/luxonis/depthai-api)
 
-[depthai-api](https://github.com/luxonis/depthai-api)
+{: #compile_api_osx }
+## Compiling the DepthAI API for Mac OS X with HomeBrew
+
+The DepthAI API can be compiled from source for OS X, with some light modifications.
+We're working to improve our build scripts to make this easier.  For now, use the instructions below,
+and feel free to contribute PRs to improve the build process on OS X.
+
+[Mac OS X Setup and Compilation Instructions](https://docs.google.com/document/d/15NcdEKgfQb5Azhx6I67To6ew-RK7M2ezpTXSEVs5Hmk/edit?usp=sharing)
+
+
+
+
 
 
