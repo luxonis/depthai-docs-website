@@ -32,12 +32,12 @@ to plug in one device at a time, and then use the following command to determine
 `python3 test.py -dev list`
 
 Example results for 2x DepthAI on a system:
-`...
+```...
 XLink initialized.
 Detected 2 device(s):
   2-ma2480     on USB port: 1
-  1.1-ma2480   on USB port: 2.1`
-  
+  1.1-ma2480   on USB port: 2.1
+```
 ## Selecting a Specific DepthAI device to be used.
 
 From the Detected devices(s) above, use the following command to select the device you would like to use with your code.
