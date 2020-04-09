@@ -60,13 +60,17 @@ See [here](https://docs.luxonis.com/tutorials/multiple_depthai/) for instruction
 
 ## Can I train my own Models for DepthAI?
 
-Yes.  We have a Google Collab notebook you can even use for this.  See [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/24)
+Yes.  
+
+We have a Google Collab notebook you can even use for this.  See [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/24)
 
 And we'll be writing up a tutorial in the Tutorials section in the near future.
 
 ## Do I need Depth data to train my own custom Model for DepthAI?
 
-No.  That's the beauty of DepthAI.  It takes standard object detectors (2D, pixel space) and fuses
+No.  
+
+That's the beauty of DepthAI.  It takes standard object detectors (2D, pixel space) and fuses
 these neural networks with stereo disparity depth to give you 3D results in physical space.
 
 Now, could you train a model to take advantage of depth information?  Yes, and it would likely be even
@@ -76,7 +80,7 @@ layers instead of 3 (1 for each grayscale, 3 for the color R, G, B).
 
 ## If I train my own network, which Neural Operations are supported by DepthAI?
 
-See the `VPU` section [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_Supported_Devices.html)
+See the `VPU` section [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_Supported_Devices.html).
 
 Anything that's supported there uner `VPU` will work on DepthAI.  It's worth noting that we haven't tested all of these
 permutations though.
