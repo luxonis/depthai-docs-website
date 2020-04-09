@@ -18,7 +18,8 @@ sudo apt install python3-pip
 pip3 install numpy
 pip3 install opencv-python
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-sudo udevadm control --reload-rules && udevadm trigger```
+sudo udevadm control --reload-rules && udevadm trigger
+```
 
 #### 2. Plug in DepthAI power and USB (for uAI USB is also its power)
 #### 3. Clone [depthai-python-extras](https://github.com/luxonis/depthai-python-extras)
