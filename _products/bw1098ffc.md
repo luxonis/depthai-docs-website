@@ -60,7 +60,7 @@ Follow the steps below to setup your DepthAI device.
 
 <h3 class="step js-toc-ignore"><span></span> Connect the DepthAI USB power supply (included).</h3>
 
-<h3 class="step js-toc-ignore"><span></span> Install OpenVINO.</h3>
+<h3 class="step js-toc-ignore"><span></span> [Optional] Install OpenVINO.</h3>
 
 {% include openvino_step.md %}
 
