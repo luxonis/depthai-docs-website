@@ -14,7 +14,8 @@ It's pretty simple, and the bare requirements are fairly slim.  For a stock Ubun
 required to get going are:
 #### 1. Run these commands
 
-```sudo apt install git
+```
+sudo apt install git
 sudo apt install python3-pip
 pip3 install numpy
 pip3 install opencv-python
