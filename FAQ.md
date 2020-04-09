@@ -58,4 +58,33 @@ So even with a Raspberry Pi you can run a handful of DepthAI with the Pi and not
  
 See [here](https://docs.luxonis.com/tutorials/multiple_depthai/) for instructions on how to do so.
 
+## Can I train my own Models for DepthAI?
+
+Yes.  We have a Google Collab notebook you can even use for this.  See [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/24)
+
+And we'll be writing up a tutorial in the Tutorials section in the near future.
+
+## Do I need Depth data to train my own custom Model for DepthAI?
+
+No.  That's the beauty of DepthAI.  It takes standard object detectors (2D, pixel space) and fuses
+these neural networks with stereo disparity depth to give you 3D results in physical space.
+
+Now, could you train a model to take advantage of depth information?  Yes, and it would likely be even
+more accurate than the 2D version.  To do so, record all the streams (left, right, and color) and
+retrain on all of those (which would require modifying the front-end of say MobileNet-SSD to allow 5 
+layers instead of 3 (1 for each grayscale, 3 for the color R, G, B).
+
+## If I train my own network, which Neural Operations are supported by DepthAI?
+
+See the `VPU` section [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_Supported_Devices.html)
+
+Anything that's supported there uner `VPU` will work on DepthAI.  It's worth noting that we haven't tested all of these
+permutations though.
+
+## What network backbones are supported on DepthAI?
+
+All the networks listed [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_MYRIAD.html) are supported by DepthAI.  
+
+We haven't tested all of them though.  So if you have a problem, contact us and we'll figure it out.
+
 
