@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tutorial - DepthAI Mac OS X Installation
-toc_title: Hello World
+toc_title: Mac OS X Installation
 description: Get DepthAI Installed on Mac OS X with HomeBrew.
 order: 3
 ---
