@@ -8,11 +8,11 @@ order: 6
 
 # DepthAI FAQs
 
-### How hard is it to get DepthAI running from scratch?
+## How hard is it to get DepthAI running from scratch?
 
 It's pretty simple, and the bare requirements are fairly slim.  For a stock Ubuntu 18.04 machine the total steps 
 required to get going are:
-#### 1. Run these commands
+### 1. Run these commands
 
 ```
 sudo apt install git
@@ -23,19 +23,19 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/ud
 sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-#### 2. Plug in DepthAI power and USB (for uAI USB is also its power)
-#### 3. Clone [depthai-python-extras](https://github.com/luxonis/depthai-python-extras)
+### 2. Plug in DepthAI power and USB (for uAI USB is also its power)
+### 3. Clone [depthai-python-extras](https://github.com/luxonis/depthai-python-extras)
 `git clone https://github.com/luxonis/depthai-python-extras`
 
-#### 4. Run the example script, `test.py`:
+### 4. Run the example script, `test.py`:
 `python3 test.py`
 
-#### Enjoy real-time spatialAI.  
+### Enjoy real-time spatialAI.  
 What objects are, and where, in physical space:
 
 ![spatial_AI](/images/spatialai.jpg)
 
-### Can all the models be used with the Raspberry Pi?
+## Can all the models be used with the Raspberry Pi?
 
 Yes, every model can be used, including:
 
@@ -45,11 +45,12 @@ Yes, every model can be used, including:
  - USB3C with Modular Cameras [BW1098FFC](https://shop.luxonis.com/products/depthai-usb3-edition)
  - uAI (microAI) Single Camera [BW1093](https://shop.luxonis.com/collections/all/products/bw1093)
  
- ### Is DepthAI and uAI easy to use with Raspberry Pi? 
+ 
+ ## Is DepthAI and uAI easy to use with Raspberry Pi? 
  
  Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
  
- ### Can I use multiple DepthAI with one host? 
+ ## Can I use multiple DepthAI with one host? 
  
  Yes.  DepthAI is architected to put as-little-as-possible burden on the host.
  So even with a Raspberry Pi you can run a handful of DepthAI with the Pi and not burden the Pi CPU.
