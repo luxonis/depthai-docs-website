@@ -27,7 +27,7 @@ sudo udevadm control --reload-rules && udevadm trigger
 ### 3. Clone [depthai-python-extras](https://github.com/luxonis/depthai-python-extras)
 `git clone https://github.com/luxonis/depthai-python-extras`
 
-### 4. Run the example script, `test.py`:
+### 4. Run the example script:
 `python3 test.py`
 
 ### 5. Enjoy real-time spatialAI.  
