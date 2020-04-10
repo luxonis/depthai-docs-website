@@ -95,7 +95,7 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 
 Yes.  
 
-Find the STEP files and dimensions of the models [here](https://drive.google.com/drive/folders/17_Jb8R2bP6SoC9XdsPu4yXKJGm-01PSE?usp=sharing)
+Find the STEP files and dimensions of the models [here](https://drive.google.com/drive/folders/17_Jb8R2bP6SoC9XdsPu4yXKJGm-01PSE?usp=sharing).
 
 We're planning on releasing the full Altium designs of all the carrier boards (BW1097, BW1098OBC, BW1098FFC, BW1094, etc.) but we just haven't gotten around to it yet.  In the meantime if you need them, ping us on Github, Slack, or email and we'll get them to you.
 
