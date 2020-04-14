@@ -23,7 +23,7 @@ DepthAI is supported on other platforms but pre-built python modules are not inc
 * Mac OS X - Compile from source ([See OS X instructions](/api#compile_api)).
 * Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
 
-## System Dependencies & Quick Test
+## System Dependencies
 The dependencies for DepthAI are pretty light, and most developers will already have them on their development machines.  In case you don't, here are the dependencies for each operating system, including checking out and running test.py to make sure DepthAI is running properly with your system.
 
 ### Ubuntu and Raspbian
@@ -33,7 +33,6 @@ pip3 install numpy opencv-python --user
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && udevadm trigger
 git clone https://github.com/luxonis/depthai-python-extras.git
-python3 test.py
 ```
 ### Mac OS X
 ```
@@ -45,9 +44,15 @@ cd depthai-python-extras
 git submodule update --init
 ./depthai-api/install_dependencies.sh
 ./depthai-api/build_py_module.sh
+```
+## Quick Test
+After installing the system dependencies above and checking out and/or building DepthAI for your platform, running `python3 test.py` from within depthai-python-extras is a quick test to make sure everything is working:
+
+```
 python3 test.py
 ```
-Running `python3 test.py` at the end should result in a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)).
+
+If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)).
 
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
