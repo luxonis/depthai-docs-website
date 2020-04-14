@@ -176,7 +176,16 @@ You should see a small preview window with overlays for any items for which the 
 {: #compile_linux }
 ### Building from Source for Other Linux Distros
 
-To compile the Python API from scratch, it may be necessary, depending on the configuration of the machine, to install build essentials such as cmake, gcc, g++, etc. as well as libusb, opencv, python3 (including `pip3 install numpy opencv-python --user`) per your Linux distro package manager (or build these from source as needed) prior to attempting to build DepthAI from source.
+To compile the Python API from scratch, it may be necessary, depending on the configuration of the machine, to install build essentials such as through your Linux distro's package manager, or building them from source if needed, in order for building the DepthAI python module from source to be successful.
+* cmake
+* gcc
+* g++
+* libusb
+* opencv
+* python3
+  * including `pip3 install numpy opencv-python --user`
+  
+It's worth noting that cmake, gcc, g++, etc. can often be installed via something like `build-essential` (as in Ubuntu).
 
 Once these dependencies are installed (which may already be the case), use the following commands to build the pymodule from source and test it:
 
@@ -190,8 +199,3 @@ python3 test.py
 ```
 
 Same here, you should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person', 'car', 'dog' and strangely, 'sheep'.
-
-
-
-
-
