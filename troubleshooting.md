@@ -83,3 +83,23 @@ The USB device enumeration could be checked with lsusb | grep 03e7  . It should 
 No `/dev/video*` nodes are created. 
 
 DepthAI implements VSC (Vendor Specific Class) protocol, and libusb is used for communication.
+
+### Intermittent Connectivity with Long (2 meter) USB3 Cables
+
+- We've found that some hosts have trouble with USB3 + long cables (2 meter).  It seems to have something do do with the USB controller on the host side.  
+- Other hosts have no problem at all and run for days (tested well over 3 days on some), even with long cables (tested w/ a total length of a bit over 8 feet).  For example, all Apple computers we've tested with have never exhibited the problem.
+- Ubuntu 16.04 has an independent USB3 issue, seemingly only on new machines though.  We think this has to do w/ Ubuntu 16.04 being EOLed prior or around when these new machines having hit the market.  For example, on this computer ([here](https://pcpartpicker.com/list/KTDFQZ)) has rampant USB3 disconnect issues under Ubuntu 16.04 (with a 1 meter cable), but has none under Ubuntu 18.04 (with a 1 meter cable).
+
+So unfortunately we discovered this after we shipped with long USB3 cables (2 meter cables) with DepthAI units.
+
+So if you have see this problem with your host, potentially 3 options:
+1. Switch to a shorter USB3 cable (say 1 meter) will very likely make the problem disappear.  [These](https://www.amazon.com/gp/product/B07S4G4L4Z/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1) 1 meter (3.3 ft.) cables are a nice length and are now what we ship with DepthAI USB3 variants.
+2. Force USB2 mode with `--force_usb2` option (examples below).  This will allow use of the long cable still, and many DepthAI usecases do not necessitate USB3 communication bandwidth - USB2 is plenty.
+3. Upgrade from Ubuntu 16.04 to Ubuntu 18.04.
+
+We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not Ubuntu 18.04/16.04 or Raspbian, please compile DepthAI from source (see [here](https://github.com/luxonis/depthai-python-extras#python-modules) for instructions).
+
+#### Forcing USB2 Communication
+`python3 test.py --force_usb2`
+Or, the shorter form:
+`python3 test.py -usb2`
