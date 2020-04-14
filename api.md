@@ -20,9 +20,17 @@ The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10
 
 DepthAI is supported on other platforms but pre-built python modules are not included, so need to be built from source.  Below is a quick summary of what's been tried by Luxonis staff and DepthAI users:
 
-* Mac OS X - Compile from source ([See OS X instructions](#compile_api_osx)).
+* Mac OS X - Compile from source, instructions (here](#mac-os-x).
 * Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
 * Other Linux Distros - Compile from source, instructions [here](/api#compile_api)
+
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+  Using the RPi Compute edition or a pre-flashed DepthAI µSD card? <strong>Skip this step.</strong><br/>
+  <span class="small">The repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
+</div>
 
 ## System Dependencies
 The dependencies for DepthAI are pretty light, and most developers will already have them on their development machines.  In case you don't, here are the dependencies for each operating system, including checking out and running test.py to make sure DepthAI is running properly with your system.
@@ -34,8 +42,9 @@ pip3 install numpy opencv-python --user
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && udevadm trigger
 git clone https://github.com/luxonis/depthai-python-extras.git
+cd depthai-python-extras
 ```
-{: #compile_api_osx }
+
 ### Mac OS X
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" #install HomeBrew
@@ -59,14 +68,6 @@ python3 test.py
 If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)).
 
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
-
-<div class="alert alert-primary" role="alert">
-<i class="material-icons">
-error
-</i>
-  Using the RPi Compute edition or a pre-flashed DepthAI µSD card? <strong>Skip this step.</strong><br/>
-  <span class="small">The repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
-</div>
 
 The DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repository. This will change to a standard `pip install` in the future.
 
