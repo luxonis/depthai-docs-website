@@ -30,7 +30,7 @@ DepthAI is supported on other platforms but but need to be built from source as 
 error
 </i>
   Using the RPi Compute Edition or a pre-flashed DepthAI Raspberry Pi µSD card? <strong>Skip this step.</strong><br/>
-  <span class="small">All dependencies are already installed and the repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
+  <span class="small">All dependencies are installed and the repository is checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
 The dependencies for DepthAI are pretty light.   
