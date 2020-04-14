@@ -69,13 +69,13 @@ If all goes well a small window video display with overlays for any items for wh
 
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
-The DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repository. This will change to a standard `pip install` in the future.
+Since we are not yet using a standard `pip install` (we will be in the near future), the DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repository. 
 
+So it is necessary to instruct pip to install this repo globally available.  Do so with the command below:
 
-2. Make the checked out repo globally available:
-    ```
-    pip3 install --user -e depthai-python-extras
-    ```
+```
+pip3 install --user -e depthai-python-extras
+```
 
 <h2 id="upgrade" data-toc-title="Upgrading">Upgrading the DepthAI API</h2>
 
