@@ -15,10 +15,10 @@ Instructions for installing, upgrading, and using the DepthAI Python API.
 
 The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10
 
-* Ubuntu 18.04 - Python 3.6 (`depthai.cpython-36m-x86_64-linux-gnu.so`)
-* Raspbian - Python 3.7 (`depthai.cpython-37m-arm-linux-gnueabihf.so`)
+* Ubuntu 18.04 - Python 3.6
+* Raspbian - Python 3.7
 
-DepthAI is supported on other platforms but pre-built python modules are not included, so need to be built from source.  Below is a quick summary of what's been tried by Luxonis staff and DepthAI users:
+DepthAI is supported on other platforms but but need to be built from source as pre-built python modules are not included by default.  Below is a quick summary of what's been tried by Luxonis staff and DepthAI users:
 
 * Mac OS X - Compile from source, instructions (here](#mac-os-x).
 * Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
@@ -33,7 +33,7 @@ error
   <span class="small">All dependencies are already installed and the repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
-The dependencies for DepthAI are pretty light, and most developers will already have them on their development machines.  In case you don't, here are the dependencies for each operating system, including checking out and running test.py to make sure DepthAI is running properly with your system.
+The dependencies for DepthAI are pretty light.   
 
 ### Ubuntu and Raspbian
 ```
@@ -59,7 +59,7 @@ git submodule update --init
 
 ## Quick Test
 
-Running `python3 test.py` from within depthai-python-extras is a quick test to make sure everything is working:
+Run `python3 test.py` from within depthai-python-extras to make sure everything is working:
 
 ```
 python3 test.py
@@ -71,23 +71,7 @@ If all goes well a small window video display with overlays for any items for wh
 
 The DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repository. This will change to a standard `pip install` in the future.
 
-To get started:
 
-0. Make DepthAI accessible over USB:
-
-    a. Run these commands (which set up the udev rules):
-
-    ```
-    echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-    sudo udevadm control --reload-rules && udevadm trigger
-    ```
-    
-    b. Reset or reconnect (USB) the DepthAI device.
-
-1. Checkout the [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub rep:
-    ```
-    git clone https://github.com/luxonis/depthai-python-extras.git
-    ```
 2. Make the checked out repo globally available:
     ```
     pip3 install --user -e depthai-python-extras
