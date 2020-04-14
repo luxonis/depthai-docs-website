@@ -24,6 +24,7 @@ DepthAI is supported on other platforms but pre-built python modules are not inc
 * Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
 * Other Linux Distros - Compile from source, instructions [here](/api#compile_api)
 
+## Install System Dependencies
 <div class="alert alert-primary" role="alert">
 <i class="material-icons">
 error
@@ -32,7 +33,6 @@ error
   <span class="small">All dependencies are already installed and the repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
-## System Dependencies
 The dependencies for DepthAI are pretty light, and most developers will already have them on their development machines.  In case you don't, here are the dependencies for each operating system, including checking out and running test.py to make sure DepthAI is running properly with your system.
 
 ### Ubuntu and Raspbian
