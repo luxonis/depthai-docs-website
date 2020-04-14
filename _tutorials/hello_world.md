@@ -16,7 +16,7 @@ Let's get your development environment setup first. This tutorial uses:
 
 * Python 3.6 (Ubuntu) or Python 3.7 (Raspbian).
 * The Python DepthAI API. [Install](/api#install) or [upgrade](/api#upgrade).
-* The `cv2` Python module (version `4.1.1-openvino` ) distributed with [OpenVINO](https://docs.openvinotoolkit.org/2019_R3/).
+* The `cv2` Python module and numpy.  
 
 This tutorial also uses a couple of `pip` packages. We'll [install these](#install-pip-dependencies) in just a bit.
 
@@ -43,8 +43,7 @@ What's with the `-practice` suffix in parent directory name? Our tutorials are a
 To display the DepthAI color video stream we need to import a small number of packages. Download and install the requirements for this tutorial:
 
 ```
-wget https://raw.githubusercontent.com/luxonis/depthai-tutorials/master/1-hello-world/requirements.txt
-pip3 install --user -r requirements.txt
+pip3 install numpy opencv-python --user
 ```
 
 If you see the following error:
