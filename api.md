@@ -143,7 +143,12 @@ pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
 
 The DepthAI API is open source so can be compiled for platforms for which we have not yet build shared libaries for the Python API.
 
-To compile the Python API from scratch, please follow the instructions on our Github here: [depthai-api](https://github.com/luxonis/depthai-api)
+To compile the Python API from scratch, please follow the instructions on our Github [here](https://github.com/luxonis/depthai-python-extras#python-modules).
+```
+git submodule update --init
+./depthai-api/install_dependencies.sh
+./depthai-api/build_py_module.sh
+```
 
 {: #compile_api_osx }
 ## Compiling the DepthAI API for Mac OS X with HomeBrew
