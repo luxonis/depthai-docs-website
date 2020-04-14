@@ -28,8 +28,7 @@ error
   Using the RPi Compute Edition or a pre-flashed DepthAI Raspberry Pi µSD card? <strong>Skip this step.</strong><br/>
   <span class="small">All dependencies are installed and the repository is checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
-
-The dependencies for DepthAI are pretty light.   
+ 
 
 ### Ubuntu and Raspbian
 ```
