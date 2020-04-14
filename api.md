@@ -13,16 +13,12 @@ Instructions for installing, upgrading, and using the DepthAI Python API.
 {: #python_version data-toc-title="Python Versions"}
 ## Supported Platforms
 
-The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10
+The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10 for the following Python versions:
 
 * Ubuntu 18.04 - Python 3.6
 * Raspbian - Python 3.7
 
-DepthAI is supported on other platforms but but need to be built from source as pre-built python modules are not included by default.  Below is a quick summary of what's been tried by Luxonis staff and DepthAI users:
-
-* Mac OS X - Compile from source, instructions (here](#mac-os-x).
-* Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
-* Other Linux Distros - Compile from source, instructions [here](/api#compile_api)
+DepthAI is supported on other platforms and Python versions but the pymodule needs to be built from source.  See [here](/api#compile-api) to do so.  
 
 ## Install System Dependencies
 <div class="alert alert-primary" role="alert">
@@ -43,18 +39,6 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/ud
 sudo udevadm control --reload-rules && udevadm trigger
 git clone https://github.com/luxonis/depthai-python-extras.git
 cd depthai-python-extras
-```
-
-### Mac OS X
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" #install HomeBrew
-brew install coreutils python3 cmake libusb wget opencv #install python and developer tools
-pip3 install numpy opencv-python --user
-git clone https://github.com/luxonis/depthai-python-extras.git
-cd depthai-python-extras
-git submodule update --init
-./depthai-api/install_dependencies.sh
-./depthai-api/build_py_module.sh
 ```
 
 ## Quick Test
@@ -165,17 +149,48 @@ pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
 {: #compile_api }
 ## Compiling the DepthAI API for Other Platforms
 
-The DepthAI API is open source so can be compiled for platforms for which we have not yet build shared libaries for the Python API.
+The DepthAI API is open source so can be compiled for various permutations of platforms and Python3 versions.
 
-To compile the Python API from scratch, please follow the instructions on our Github [here](https://github.com/luxonis/depthai-python-extras#python-modules).
+Below is a quick summary of what's been tried by Luxonis staff and DepthAI users:
+
+* Mac OS X - Compile from source, instructions [below](#mac-os-x).
+* Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
+* Other Linux Distros - Check if the Ubuntu pymodule works (by using `ldd` to check for broken dependencies), or compile from source [below](/api#compile_linux).
+
+
+
+### Mac OS X
+Assuming a stock Mac OS X install, DepthAI can be installed and tested with the following commands, thanks to [HomeBrew](https://brew.sh/)
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" #install HomeBrew
+brew install coreutils python3 cmake libusb wget opencv #install python and developer tools
+pip3 install numpy opencv-python --user
+git clone https://github.com/luxonis/depthai-python-extras.git
+cd depthai-python-extras
+git submodule update --init
+./depthai-api/install_dependencies.sh
+./depthai-api/build_py_module.sh
+python3 test.py
+```
+You should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person' and strangely, 'sheep'.
+
+{: #compile_linux }
+### Building from Source for Other Linux Distros
+
+To compile the Python API from scratch, it may be necessary, depending on the configuration of the machine, to install build essentials such as cmake, gcc, g++, etc. as well as libusb, opencv, python3 (including `pip3 install numpy opencv-python --user`) per your Linux distro package manager (or build these from source as needed) prior to attempting to build DepthAI from source.
+
+Once these dependencies are installed (which may already be the case), use the following commands to build the pymodule from source and test it:
+
 ```
 git clone https://github.com/luxonis/depthai-python-extras.git
 cd depthai-python-extras
 git submodule update --init
 ./depthai-api/install_dependencies.sh
 ./depthai-api/build_py_module.sh
+python3 test.py
 ```
 
+Same here, you should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person', 'car', 'dog' and strangely, 'sheep'.
 
 
 
