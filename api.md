@@ -28,8 +28,8 @@ DepthAI is supported on other platforms but pre-built python modules are not inc
 <i class="material-icons">
 error
 </i>
-  Using the RPi Compute edition or a pre-flashed DepthAI µSD card? <strong>Skip this step.</strong><br/>
-  <span class="small">The repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
+  Using the RPi Compute Edition or a pre-flashed DepthAI Raspberry Pi µSD card? <strong>Skip this step.</strong><br/>
+  <span class="small">All dependencies are already installed and the repository has already been checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
 ## System Dependencies
