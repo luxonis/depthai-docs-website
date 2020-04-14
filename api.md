@@ -20,8 +20,9 @@ The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10
 
 DepthAI is supported on other platforms but pre-built python modules are not included, so need to be built from source.  Below is a quick summary of what's been tried by Luxonis staff and DepthAI users:
 
-* Mac OS X - Compile from source ([See OS X instructions](/api#compile_api)).
+* Mac OS X - Compile from source ([See OS X instructions](#compile_api_osx)).
 * Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
+* Other Linux Distros - Compile from source, instructions [here](/api#compile_api)
 
 ## System Dependencies
 The dependencies for DepthAI are pretty light, and most developers will already have them on their development machines.  In case you don't, here are the dependencies for each operating system, including checking out and running test.py to make sure DepthAI is running properly with your system.
@@ -34,6 +35,7 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/ud
 sudo udevadm control --reload-rules && udevadm trigger
 git clone https://github.com/luxonis/depthai-python-extras.git
 ```
+{: #compile_api_osx }
 ### Mac OS X
 ```
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" #install HomeBrew
@@ -45,8 +47,10 @@ git submodule update --init
 ./depthai-api/install_dependencies.sh
 ./depthai-api/build_py_module.sh
 ```
+
 ## Quick Test
-After installing the system dependencies above and checking out and/or building DepthAI for your platform, running `python3 test.py` from within depthai-python-extras is a quick test to make sure everything is working:
+
+Running `python3 test.py` from within depthai-python-extras is a quick test to make sure everything is working:
 
 ```
 python3 test.py
@@ -180,19 +184,12 @@ The DepthAI API is open source so can be compiled for platforms for which we hav
 
 To compile the Python API from scratch, please follow the instructions on our Github [here](https://github.com/luxonis/depthai-python-extras#python-modules).
 ```
+git clone https://github.com/luxonis/depthai-python-extras.git
+cd depthai-python-extras
 git submodule update --init
 ./depthai-api/install_dependencies.sh
 ./depthai-api/build_py_module.sh
 ```
-
-{: #compile_api_osx }
-## Compiling the DepthAI API for Mac OS X with HomeBrew
-
-The DepthAI API can be compiled from source for OS X, with some light modifications.
-We're working to improve our build scripts to make this easier.  For now, use the instructions below,
-and feel free to contribute PRs to improve the build process on OS X.
-
-[Mac OS X Setup and Compilation Instructions](https://docs.google.com/document/d/15NcdEKgfQb5Azhx6I67To6ew-RK7M2ezpTXSEVs5Hmk/edit?usp=sharing)
 
 
 
