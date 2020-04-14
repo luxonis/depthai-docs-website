@@ -11,13 +11,43 @@ order: 5
 Instructions for installing, upgrading, and using the DepthAI Python API.
 
 {: #python_version data-toc-title="Python Versions"}
-## Supported Python Versions
+## Supported Platforms
 
-The DepthAI API requires the following Python versions:
+The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10
 
-* Ubuntu - Python 3.6
-* Raspbian - Python 3.7
+* Ubuntu 18.04 - Python 3.6 (`depthai.cpython-36m-x86_64-linux-gnu.so`)
+* Raspbian - Python 3.7 (`depthai.cpython-37m-arm-linux-gnueabihf.so`)
+
+DepthAI is supported on other platforms but pre-built python modules are not included, so need to be built from source.  Below is a quick summary of what's been tried by Luxonis staff and DepthAI users:
+
 * Mac OS X - Compile from source ([See OS X instructions](/api#compile_api)).
+* Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
+
+## System Dependencies & Quick Test
+The dependencies for DepthAI are pretty light, and most developers will already have them on their development machines.  In case you don't, here are the dependencies for each operating system, including checking out and running test.py to make sure DepthAI is running properly with your system.
+
+* Ubuntu and Raspbian
+```
+sudo apt install git python3-pip
+pip3 install numpy opencv-python --user
+echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
+sudo udevadm control --reload-rules && udevadm trigger
+git clone https://github.com/luxonis/depthai-python-extras.git
+python3 test.py
+```
+* Mac OS X
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" #install HomeBrew
+brew install coreutils python3 cmake libusb wget opencv #install python and developer tools
+pip3 install numpy opencv-python --user
+git clone https://github.com/luxonis/depthai-python-extras.git
+cd depthai-python-extras
+git submodule update --init
+./depthai-api/install_dependencies.sh
+./depthai-api/build_py_module.sh
+python3 test.py
+```
+Running `python3 test.py` at the end should result in a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)).
 
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
