@@ -97,9 +97,9 @@ So if you have see this problem with your host, potentially 3 options:
 2. Force USB2 mode with `--force_usb2` option (examples below).  This will allow use of the long cable still, and many DepthAI usecases do not necessitate USB3 communication bandwidth - USB2 is plenty.
 3. Upgrade from Ubuntu 16.04 to Ubuntu 18.04.
 
-We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not Ubuntu 18.04/16.04 or Raspbian, please compile DepthAI from source (see [here](https://github.com/luxonis/depthai-python-extras#python-modules) for instructions).
-
 #### Forcing USB2 Communication
 `python3 test.py --force_usb2`
 Or, the shorter form:
 `python3 test.py -usb2`
+
+We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not Ubuntu 18.04/16.04 or Raspbian, please compile DepthAI from source (see [here](https://github.com/luxonis/depthai-python-extras#python-modules) for instructions).
