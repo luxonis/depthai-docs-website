@@ -101,15 +101,15 @@ python3 test.py -co '{"ai":{
 ```
 Now you'll see the proper label:
 
-![model_image](/images/tutorials/pretrained_model/facelabeled.png)
+![model_image](/images/tutorials/pretrained_model/pfs.png)
 
 Substitute your face for mine, of course.
 
 Now take some time to play around with the model.  You can for example check how far away the model can detect your face:
-![model_image](/images/tutorials/pretrained_model/facemiddistance.png)
-![model_image](/images/tutorials/pretrained_model/facelongdistance.png)
+![model_image](/images/tutorials/pretrained_model/pfm.png)
+![model_image](/images/tutorials/pretrained_model/pfl.png)
 
-In the latter image you can see that I'm quite back-lit, which is one of the main challenges in face detection (and other feature detection). In this case, it's likely limiting the maximum range for which a face can be detected.  From the testing above, for a confidence threshold of 50%, this range appears to be about 20 feet.  
+In the latter image you can see that I'm quite back-lit, which is one of the main challenges in face detection (and other feature detection). In this case, it's likely limiting the maximum range for which a face can be detected.  From the testing above, for a confidence threshold of 50%, this range appears to be about 20 feet.  You could get longer range out of the same model by reducing the model confidence threshold (by changing from `0.5` [here](https://github.com/luxonis/depthai/blob/cdb902179590f0e7b684dde994369e137794a2ef/depthai.py#L233)) at the cost of increased probability of false positives.
 
 Another limiting factor is that this is a relatively low-resolution model (300x300 pixels), so faces get fairly small fairly fast at a distance.  So let's try another face detection model that uses a higher resolution.  
 
