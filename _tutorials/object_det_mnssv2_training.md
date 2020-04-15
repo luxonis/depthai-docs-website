@@ -1,6 +1,6 @@
 ---
 layout: default
-title: # How to train a Custom Object Detector using Mobilenet SSD v2
+title: How to train a Custom Object Detector using Mobilenet SSD v2
 toc_title: Custom Object Detector Training Demo
 description: Learn how to detect objects of your choice in real time!
 order: 4
