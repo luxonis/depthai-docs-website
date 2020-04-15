@@ -77,3 +77,18 @@ With your dataset prepared and labeled, use the following Google Colab network t
 
 [https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD](https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD)
 
+### Step 5: Use OpenVINO on Your Local Computer Convert the Model
+
+Once you have a model, you can use OpenVINO on your local computer to convert this model and run it on DepthAI.
+
+See [here](https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format) for instructions.
+
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+  Using the RPi Compute Edition or a pre-flashed DepthAI Raspberry Pi µSD card? <strong>OpenVINO is pre-installed.</strong><br/>
+  <span class="small">So you can convert the model with this pre-installed OpenVINO instance.</span>
+</div>
+ 
+
