@@ -119,7 +119,7 @@ The flow we walked through works for other pre-trained object detection models i
 
 Simply change the paths above to run the other models there, adding the correct labels (or funny ones, should you choose).
 
-Let's try out `face-detection-adas-0004`, which is intended for detecting faces inside the cabin of a vehicle. (ADAS stands for Advanced Driver-Assistance Systems)
+Let's try out `face-detection-adas-0001`, which is intended for detecting faces inside the cabin of a vehicle. (ADAS stands for Advanced Driver-Assistance Systems)
 
 ```
 python3 test.py -co '{"ai":{
@@ -128,9 +128,9 @@ python3 test.py -co '{"ai":{
 "calc_dist_to_bb":false }}'
 ```
 
-![model_image](/images/tutorials/pretrained_model/face-detection-adas-0001.png)
+![model_image](/images/tutorials/pretrained_model/adas3.png)
 
-So this model actually has a shorter detection distance than the smaller model.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
+So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
 
 So let's try out some other face detection models instead, which also uses a higher-resolution neural network input, but also is likely to be trained for detecting faces at a further distance from the camera.
 
