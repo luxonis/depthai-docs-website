@@ -60,7 +60,7 @@ This will then run the a typical demo MobileNetv1 SSD object detector trained on
 
 I ran this on my iMac (OS X setup [here](https://docs.luxonis.com/api/#mac-os-x)) with a [microAI](https://shop.luxonis.com/products/bw1093) sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
 
-![iMac](/images/tutorials/pretrained_model/uai-tvmonitor.png)
+![iMac](/images/tutorials/pretrained_model/tvmonitor.png)
 
 Now that we've got this verified, let's move on to trying out other models, starting with `face-detection-retail-0004`.
 
