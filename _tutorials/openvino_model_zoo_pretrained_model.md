@@ -113,7 +113,7 @@ In the latter image you can see that I'm quite back-lit, which is one of the mai
 
 Another limiting factor is that this is a relatively low-resolution model (300x300 pixels), so faces get fairly small fairly fast at a distance.  So let's try another face detection model that uses a higher resolution.  
 
-## Trying other models
+## Trying Other Models
 
 The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)).
 
