@@ -1,12 +1,13 @@
 ---
 layout: default
-title: Tutorial - Object Detector Training with Mobilenet SSD v2
+title: Tutorial - Custom Object Detector Training
 toc_title: Custom Object Detector Training Demo
 description: Learn how to detect objects of your choice in real time!
 order: 4
 ---
 
 # {{ page.title }}
+
 
 Need to use DepthAI to detect objects which **aren't already available in the [OpenVINO Model Zoo](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)** or for which there **isn't** already a **model online**?
 
@@ -17,6 +18,8 @@ In this tutorial you will learn how to train a **custom object detector** for us
 At the end of this tutorial **you** will have trained this same model and have it running on DepthAI:
 
 [![Alt text](https://img.youtube.com/vi/0ToLVHW9oVw/0.jpg)](https://www.youtube.com/watch?v=0ToLVHW9oVw)
+
+This tutorial trains MobileNet SSD v2, which is a popular object detector based on the [SSD: Single Shot MultiBox Detector](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11), implemented with a [MobileNetv2 backbone](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html) from Google.
 
 ### Step 0: Trial Run with Canned Data Set
 
