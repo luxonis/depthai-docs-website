@@ -8,15 +8,17 @@ order: 4
 
 # {{ page.title }}
 
+### Step 0: Trial Run with Canned Data Set
 
-If you want to get an idea about how this works before diving right in, run the following Colab Notebook that will train on images included in the repo cloned in the notebook:
+To get an idea about how this works before diving right in, run the following Colab Notebook that will train on images included in the repo cloned in the notebook.
+
+This will allow you to step through the whole flow, see training work and example inference, before attempting your own dataset.
 
 [https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi](https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi)
 
-
 To use your own images for training read below:
 
-### Step 1: Find images of the objects of interest
+### Step 1: Find or Generate Images of the Objects of Interest
 
 - you can take photos or download them from google images
 - for the three fruit model trained as an example in this repo we have 240 training images. the number of images needed depends on the type and number of objects you wish to detect. for simple objects in simple scenes even a few tens suffice
@@ -32,21 +34,33 @@ If you need help resizing before annotating, you can use the notebook below to r
 [https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq](https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq)
 
 
-### Step 2: Annotate the images
-- to annotate the images use https://github.com/tzutalin/labelImg
+### Step 2: Annotate the Images to Generate Ground Truth
 
+In this step you will generate what is called 'ground truth data' by labeling the images.
+
+- You can either label the images yourself using [labelImg](https://github.com/tzutalin/labelImg)
 *Tip: use shortcuts (`w`: draw box, `d`: next file, `a`: previous file, etc.) to accelerate the annotation.*
 
+- Or you can use an image labeling service like [basic.ai](https://www.basic.ai/)
 
-### Step 3: Organize the images for training
-- randomly select approximately 20% of your images and place them in a `test` folder together with the corresponding `.xml.` annotation files
-- place the remaining images in a `train` folder together with their annotations 
-- select a few extra images with no annotations to be used as an evaluation after the training is complete and place them in a `final_test_folder`
-- upload the three folders to your google drive
+We've done both.  For quick prototyping and initial training we just label ourselves, as you can label a couple hundred images in an hour or so once you get good with the tool.
 
-### Step 4: Open the Colab Notebook for Custom Data
+Then as we refine and really want to dial-in a model, we use [basic.ai](https://www.basic.ai/) to get thousands of images labeled with ground truth.
 
-Follow the instructions in the notebook:
+
+### Step 3: Organize the Images for Training
+
+To train the network, you want to set aside some of the ground-truth images that can be used to evaluate the performance of the trainging run.  That is to say, you don't want to use all of your dataset for training, as then you won't be able to effectively asses how training is running - as testing the network on the images it was trained on will not give you a realistic view of how the network will perform in the real world.
+
+To do so:
+1. Randomly select approximately 20% of your images and place them in a `test` folder together with the corresponding `.xml.` annotation files.
+2. Place the remaining images in a `train` folder together with their annotations.
+3. Select a few extra images with no annotations to be used as an evaluation after the training is complete and place them in a `final_test_folder`
+4. Upload the three folders to your google drive
+
+### Step 4: Train a Network on Your Custom Data
+
+With your dataset prepared and labeled, use the following Google Colab network to perform the training.
 
 [https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD](https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD)
 
