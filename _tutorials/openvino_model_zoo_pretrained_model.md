@@ -38,13 +38,13 @@ error
   <span class="small">All dependencies are installed and the repository is checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
-### Run face-detection-retail-04 model
+## Run face-detection-retail-0004
 
 The depthai.py file can be modified directly to you do your bidding, or you can simply pass arguments to it for which models you want to run.  
 
 For simplicity we will do the latter, simply passing arguments so that DepthAI runs the `face-detection-retail-04` instead of the model run by default which is specified in `depthai-python-extras/consts/resource_paths.py` [here](https://github.com/luxonis/depthai-python-extras/blob/master/consts/resource_paths.py).
 
-Before switching to using the `face-detection-retail` let's take a baby step and give these command line options a spin.  In this case we'll just pass in the same neural network that default runs when running `python3 test.py`, just to make sure we're doign it right:
+Before switching to using the `face-detection-retail-0004` let's take a baby step and give these command line options a spin.  In this case we'll just pass in the same neural network that default runs when running `python3 test.py`, just to make sure we're doing it right:
 
 ```
 python3 test.py -co '{"ai":{
@@ -92,14 +92,44 @@ Change this to:
 blob_labels_fpath = relative_to_abs_path('../resources/nn/object_detection_4shave/labels_for_face-detection.txt')
 ```
 
-And now run command above again.  Now you'll see the proper label:
+And now the same command above again now that the location for the labels has been changed in `resource_paths.py`:
+```
+python3 test.py -co '{"ai":{
+"blob_file": "resources/nn/object_detection_4shave/face-detection-retail-0004.blob",
+"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
+"calc_dist_to_bb":false }}'
+```
+Now you'll see the proper label:
 
-![model_image](/images/tutorials/pretrained_model/correct-face.png)
+![model_image](/images/tutorials/pretrained_model/pfs.png)
 
 Substitute your face for mine, of course.
 
-## Trying other models
+Now take some time to play around with the model.  You can for example check how far away the model can detect your face:
+![model_image](/images/tutorials/pretrained_model/pfm.png)
+![model_image](/images/tutorials/pretrained_model/pfl.png)
 
-The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn))
+In the latter image you can see that I'm quite back-lit, which is one of the main challenges in face detection (and other feature detection). In this case, it's likely limiting the maximum range for which a face can be detected.  From the testing above, for a confidence threshold of 50%, this range appears to be about 20 feet.  You could get longer range out of the same model by reducing the model confidence threshold (by changing from `0.5` [here](https://github.com/luxonis/depthai/blob/cdb902179590f0e7b684dde994369e137794a2ef/depthai.py#L233)) at the cost of increased probability of false positives.
+
+Another limiting factor is that this is a relatively low-resolution model (300x300 pixels), so faces get fairly small fairly fast at a distance.  So let's try another face detection model that uses a higher resolution.  
+
+## Trying Other Models
+
+The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)).
 
 Simply change the paths above to run the other models there, adding the correct labels (or funny ones, should you choose).
+
+Let's try out `face-detection-adas-0001`, which is intended for detecting faces inside the cabin of a vehicle. (ADAS stands for Advanced Driver-Assistance Systems)
+
+```
+python3 test.py -co '{"ai":{
+"blob_file": "resources/nn/object_detection_4shave/face-detection-adas-0001.blob",
+"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
+"calc_dist_to_bb":false }}'
+```
+
+![model_image](/images/tutorials/pretrained_model/adas3.png)
+
+So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
+
+That's all for now.  We'll update this article with more information soon, including with setting `"calc_dist_to_bb":false` to `true` so that the full xyz position in meters is returned.  (It would be in here already but COVID-19 is causing some hardware shortages so all I have on-hand currently is a single-camera microAI variant.)
