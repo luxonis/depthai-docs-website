@@ -8,7 +8,13 @@ order: 4
 
 # {{ page.title }}
 
-In this tutorial you will learn how to train a custom object detector for use on DepthAI.  An example which was quickly trained using this technique is shown below:
+Need to use DepthAI to detect objects which **aren't already available in the [OpenVINO Model Zoo](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)** or for which there **isn't** already a **model online**?
+
+Well, you're in luck:
+
+In this tutorial you will learn how to train a **custom object detector** for use on **DepthAI** for real-time spatialAI - where these objects are in physical space (x, y, and z, in meters), and what they are (.e.g 'Apple').  
+
+At the end of this tutorial **you** will have trained this same model and have it running on DepthAI:
 
 [![Alt text](https://img.youtube.com/vi/0ToLVHW9oVw/0.jpg)](https://www.youtube.com/watch?v=0ToLVHW9oVw)
 
