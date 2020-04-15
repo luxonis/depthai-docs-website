@@ -18,7 +18,7 @@ The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10 for t
 * Ubuntu 18.04 - Python 3.6
 * Raspbian - Python 3.7
 
-DepthAI is supported on other platforms and Python versions but the pymodule needs to be built from source.  See [here](#compile-api) to do so.  
+DepthAI is supported on other platforms and Python versions but the pymodule needs to be built from source.  See [here](#compile_api) to do so.  
 
 ## Install System Dependencies
 <div class="alert alert-primary" role="alert">
