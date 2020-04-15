@@ -96,10 +96,6 @@ And now run command above again.  Now you'll see the proper label:
 
 ![model_image](/images/tutorials/pretrained_model/correct-face.png)
 
-You should see output annotated output similar to:
-
-![model image](/images/tutorials/pretrained_model/previewout.png)
-
 Substitute your face for mine, of course.
 
 ## Trying other models
