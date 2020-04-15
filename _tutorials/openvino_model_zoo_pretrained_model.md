@@ -38,15 +38,19 @@ error
   <span class="small">All dependencies are installed and the repository is checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
-### Run face-detection-retail-04 model
+### Run `face-detection-retail-04` model
 
 The depthai.py file can be modified directly to you do your bidding, or you can simply pass arguments to it for which models you want to run.  
 
 For simplicity we will do the latter, simply passing arguments so that DepthAI runs the `face-detection-retail-04` instead of the model run by default which is specified in `depthai-python-extras/consts/resource_paths.py` [here](https://github.com/luxonis/depthai-python-extras/blob/master/consts/resource_paths.py).
 
-```
-python3 test.py -co asdgagdfaef
+Before using `face-detection-retail` let's try out this command
 
+```
+python3 test.py -co '{"ai":{
+"blob_file": "resources/nn/object_detection_4shave/mobilenet_ssd.blob",
+"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
+"calc_dist_to_bb":false }}'
 ```
 
 Execute the script to see an annotated video stream of face detections:
