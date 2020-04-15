@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Custom Object Detector Training Tutorial
+title: # How to train a Custom Object Detector using Mobilenet SSD v2
 toc_title: Custom Object Detector Training Demo
 description: Learn how to detect objects of your choice in real time!
 order: 4
@@ -8,7 +8,6 @@ order: 4
 
 # {{ page.title }}
 
-# How to train a Custom Object Detector using Mobilenet SSD v2
 
 If you want to get an idea about how this works before diving right in, run the following Colab Notebook that will train on images included in the repo cloned in the notebook:
 
