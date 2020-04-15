@@ -8,6 +8,10 @@ order: 4
 
 # {{ page.title }}
 
+In this tutorial you will learn how to train a custom object detector for use on DepthAI.  An example which was quickly trained using this technique is shown below:
+
+[![Alt text](https://img.youtube.com/vi/0ToLVHW9oVw/0.jpg)](https://www.youtube.com/watch?v=0ToLVHW9oVw)
+
 ### Step 0: Trial Run with Canned Data Set
 
 To get an idea about how this works before diving right in, run the following Colab Notebook that will train on images included in the repo cloned in the notebook.
