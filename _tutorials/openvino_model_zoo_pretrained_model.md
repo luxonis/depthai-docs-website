@@ -72,6 +72,7 @@ python3 test.py -co '{"ai":{
 "calc_dist_to_bb":false }}'
 ```
 Execute the script to see an annotated video stream of face detections:
+
 ![model image](/images/tutorials/pretrained_model/aeroplane_face.png)
 
 But that's not right!  Maybe a *strange* looking face, but calling it an aeroplane?  There must be an error here.
