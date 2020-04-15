@@ -46,7 +46,8 @@
 
   <h6 class="sidebar-heading muted">Tutorials</h6>
   <ul class="nav flex-column">
-    {% for p in site.tutorials %}
+    {% assign sorted = (site.tutorials | sort: 'order') %}
+    {% for p in sorted %}
     <li class="nav-item {% if p.url == page.url %}active{% endif %}">
       <a class="nav-link" href="{{ p.url }}">
         {% if p.toc_title %}
