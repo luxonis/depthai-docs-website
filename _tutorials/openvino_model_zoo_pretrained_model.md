@@ -38,17 +38,35 @@ error
   <span class="small">All dependencies are installed and the repository is checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
-### Run `face-detection-retail-04` model
+### Run face-detection-retail-04 model
 
 The depthai.py file can be modified directly to you do your bidding, or you can simply pass arguments to it for which models you want to run.  
 
 For simplicity we will do the latter, simply passing arguments so that DepthAI runs the `face-detection-retail-04` instead of the model run by default which is specified in `depthai-python-extras/consts/resource_paths.py` [here](https://github.com/luxonis/depthai-python-extras/blob/master/consts/resource_paths.py).
 
-Before using `face-detection-retail` let's try out this command
+Before switching to using the `face-detection-retail` let's take a baby step and give these command line options a spin.  In this case we'll just pass in the same neural network that default runs when running `python3 test.py`, just to make sure we're doign it right:
 
 ```
 python3 test.py -co '{"ai":{
 "blob_file": "resources/nn/object_detection_4shave/mobilenet_ssd.blob",
+"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
+"calc_dist_to_bb":false }}'
+```
+This will then run the a typical demo MobileNetv1 SSD object detector trained on the [PASCAL 2007 VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) classes, which are:
+* Person: person
+* Animal: bird, cat, cow, dog, horse, sheep
+* Vehicle: aeroplane, bicycle, boat, bus, car, motorbike, train
+* Indoor: bottle, chair, dining table, potted plant, sofa, tv/monitor
+
+I ran this on my iMac (OS X setup [here](https://docs.luxonis.com/api/#mac-os-x)) with a [microAI](https://shop.luxonis.com/products/bw1093) sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
+
+![iMac](/image/tutorials/pretrained_model/uai-tvmonitor.png)
+
+Now that we've got this verified, let's move on to trying out other models, starting with `face-detection-retail-04`.
+
+```
+python3 test.py -co '{"ai":{
+"blob_file": "resources/nn/object_detection_4shave/face-detection-retail-04",
 "blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
 "calc_dist_to_bb":false }}'
 ```
