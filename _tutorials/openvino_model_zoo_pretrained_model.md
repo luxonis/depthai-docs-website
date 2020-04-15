@@ -75,19 +75,26 @@ Execute the script to see an annotated video stream of face detections:
 
 ![model image](/images/tutorials/pretrained_model/aeroplane_face.png)
 
-But that's not right!  Maybe a *strange* looking face, but calling it an aeroplane?  There must be an error here.
+But that's not right!  Maybe a *strange* looking face, but calling it an aeroplane?  There **must be an error** here.
 
-Alas, we didn't change the labels used by the network.  To do this, modify the following Python file:
-`depthai-python-extras/consts/resource_paths.py`
+Alas, we didn't change the **labels** used by the network.  To do this, modify the following Python file:
+```
+depthai-python-extras/consts/resource_paths.py
+```
 
 You'll see therein the location of the labels path ([here](https://github.com/luxonis/depthai-python-extras/blob/cdb902179590f0e7b684dde994369e137794a2ef/consts/resource_paths.py#L14)):
-`blob_labels_fpath = relative_to_abs_path('../resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt')`
+```
+blob_labels_fpath = relative_to_abs_path('../resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt')
+```
 
 Change this to:
-`blob_labels_fpath = relative_to_abs_path('../resources/nn/object_detection_4shave/labels_for_face-detection.txt')`
+```
+blob_labels_fpath = relative_to_abs_path('../resources/nn/object_detection_4shave/labels_for_face-detection.txt')
+```
 
 And now run command above again.  Now you'll see the proper label:
 
+![model_image](/images/tutorials/pretrained_model/correct-face.png)
 
 You should see output annotated output similar to:
 
@@ -99,4 +106,4 @@ Substitute your face for mine, of course.
 
 The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn))
 
-Simply change the paths above to run the other models there.
+Simply change the paths above to run the other models there, adding the correct labels (or funny ones, should you choose).
