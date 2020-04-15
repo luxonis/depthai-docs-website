@@ -11,7 +11,7 @@ order: 4
 
 If you want to get an idea about how this works before diving right in, run the following Colab Notebook that will train on images included in the repo cloned in the notebook:
 
-https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi
+[https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi](https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi)
 
 
 To use your own images for training read below:
@@ -29,7 +29,7 @@ To use your own images for training read below:
 
 If you need help resizing before annotating, you can use the notebook below to resize on your google drive:
 
-https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq
+[https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq](https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq)
 
 
 ### Step 2: Annotate the images
@@ -48,5 +48,5 @@ https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq
 
 Follow the instructions in the notebook:
 
-https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD
+[https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD](https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD)
 
