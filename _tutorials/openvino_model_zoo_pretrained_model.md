@@ -92,14 +92,54 @@ Change this to:
 blob_labels_fpath = relative_to_abs_path('../resources/nn/object_detection_4shave/labels_for_face-detection.txt')
 ```
 
-And now run command above again.  Now you'll see the proper label:
+And now the same command above again now that the location for the labels has been changed in `resource_paths.py`:
+```
+python3 test.py -co '{"ai":{
+"blob_file": "resources/nn/object_detection_4shave/face-detection-retail-0004.blob",
+"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
+"calc_dist_to_bb":false }}'
+```
+Now you'll see the proper label:
 
-![model_image](/images/tutorials/pretrained_model/correct-face.png)
+![model_image](/images/tutorials/pretrained_model/facelabeled.png)
 
 Substitute your face for mine, of course.
 
+Now take some time to play around with the model.  You can for example check how far away the model can detect your face:
+![model_image](/images/tutorials/pretrained_model/facemiddistance.png)
+![model_image](/images/tutorials/pretrained_model/facelongdistance.png)
+
+In the latter image you can see that I'm quite back-lit, which is one of the main challenges in face detection (and other feature detection). In this case, it's likely limiting the maximum range for which a face can be detected.  From the testing above, for a confidence threshold of 50%, this range appears to be about 20 feet.  
+
+Another limiting factor is that this is a relatively low-resolution model (300x300 pixels), so faces get fairly small fairly fast at a distance.  So let's try another face detection model that uses a higher resolution.  
+
 ## Trying other models
 
-The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn))
+The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)).
 
 Simply change the paths above to run the other models there, adding the correct labels (or funny ones, should you choose).
+
+Let's try out `face-detection-adas-0004`, which is intended for detecting faces inside the cabin of a vehicle. (ADAS stands for Advanced Driver-Assistance Systems)
+
+```
+python3 test.py -co '{"ai":{
+"blob_file": "resources/nn/object_detection_4shave/face-detection-adas-0001.blob",
+"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
+"calc_dist_to_bb":false }}'
+```
+
+![model_image](/images/tutorials/pretrained_model/face-detection-adas-0001.png)
+
+So this model actually has a shorter detection distance than the smaller model.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
+
+So let's try out some other face detection models instead, which also uses a higher-resolution neural network input, but also is likely to be trained for detecting faces at a further distance from the camera.
+
+For example this [`face-detection-0106`](face-detection-0106) model from the OpenVINO model zoo is 640x640 input resolution (so over 4.5x the number of pixels).
+
+
+```
+python3 test.py -co '{"ai":{
+"blob_file": "resources/nn/object_detection_4shave/face-detection-0106.blob",
+"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
+"calc_dist_to_bb":false }}'
+```
