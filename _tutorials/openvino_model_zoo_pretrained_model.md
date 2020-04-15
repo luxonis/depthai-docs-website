@@ -4,7 +4,7 @@ title: Tutorial - How to use a Pre-trained OpenVINO model on DepthAI
 toc_title: Pre-trained OpenVINO model
 description: Learn how to detect faces in realtime - even on a low-powered Raspberry Pi - with a pre-trained model.
 og_image_path: "/images/tutorials/pretrained_model/previewout.png"
-order: 3
+order: 2
 ---
 
 # {{ page.title }}
