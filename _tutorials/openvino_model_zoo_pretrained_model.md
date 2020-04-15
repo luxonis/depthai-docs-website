@@ -132,14 +132,4 @@ python3 test.py -co '{"ai":{
 
 So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
 
-So let's try out some other face detection models instead, which also uses a higher-resolution neural network input, but also is likely to be trained for detecting faces at a further distance from the camera.
-
-For example this [`face-detection-0106`](face-detection-0106) model from the OpenVINO model zoo is 640x640 input resolution (so over 4.5x the number of pixels).
-
-
-```
-python3 test.py -co '{"ai":{
-"blob_file": "resources/nn/object_detection_4shave/face-detection-0106.blob",
-"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
-"calc_dist_to_bb":false }}'
-```
+That's all for now.  We'll update this article with more information soon, including with setting `"calc_dist_to_bb":false` to `true` so that the full xyz position in meters is returned.  (It would be in here already but COVID-19 is causing some hardware shortages so all I have on-hand currently is a single-camera microAI variant.)
