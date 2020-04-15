@@ -38,13 +38,13 @@ error
   <span class="small">All dependencies are installed and the repository is checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
-### Run face-detection-retail-04 model
+## Run face-detection-retail-0004
 
 The depthai.py file can be modified directly to you do your bidding, or you can simply pass arguments to it for which models you want to run.  
 
 For simplicity we will do the latter, simply passing arguments so that DepthAI runs the `face-detection-retail-04` instead of the model run by default which is specified in `depthai-python-extras/consts/resource_paths.py` [here](https://github.com/luxonis/depthai-python-extras/blob/master/consts/resource_paths.py).
 
-Before switching to using the `face-detection-retail` let's take a baby step and give these command line options a spin.  In this case we'll just pass in the same neural network that default runs when running `python3 test.py`, just to make sure we're doign it right:
+Before switching to using the `face-detection-retail-0004` let's take a baby step and give these command line options a spin.  In this case we'll just pass in the same neural network that default runs when running `python3 test.py`, just to make sure we're doing it right:
 
 ```
 python3 test.py -co '{"ai":{
