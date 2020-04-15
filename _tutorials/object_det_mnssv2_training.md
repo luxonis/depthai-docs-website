@@ -1,4 +1,14 @@
-# How to train an Object Detector using Mobilenet SSD v2
+---
+layout: default
+title: Custom Object Detector Training Tutorial
+toc_title: Custom Object Detector Training Demo
+description: Learn how to detect objects of your choice in real time!
+order: 4
+---
+
+# {{ page.title }}
+
+# How to train a Custom Object Detector using Mobilenet SSD v2
 
 If you want to get an idea about how this works before diving right in, run the following Colab Notebook that will train on images included in the repo cloned in the notebook:
 
@@ -7,7 +17,7 @@ https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi
 
 To use your own images for training read below:
 
-### Step 1: Find images of the objects
+### Step 1: Find images of the objects of interest
 
 - you can take photos or download them from google images
 - for the three fruit model trained as an example in this repo we have 240 training images. the number of images needed depends on the type and number of objects you wish to detect. for simple objects in simple scenes even a few tens suffice
