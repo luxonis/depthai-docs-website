@@ -132,4 +132,33 @@ python3 test.py -co '{"ai":{
 
 So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
 
-That's all for now.  We'll update this article with more information soon, including with setting `"calc_dist_to_bb":false` to `true` so that the full xyz position in meters is returned.  (It would be in here already but COVID-19 is causing some hardware shortages so all I have on-hand currently is a single-camera microAI variant.)
+So what happens when you change `"calc_dist_to_bb":false` to `true`?
+
+You get the **full 3D position** of the **detected object**, in this case, my face.  
+
+So that the full xyz position in meters is returned.  See below.
+
+## Spatial AI - Augmenting the Model with 3D Postion
+
+So by default DepthAI is set to return the full 3D position.  So in the command above, we actually specify for it to not be calculated with `"calc_dist_to_bb":false`.
+
+So let's run that same command, but with that line omitted, such that 3D results are returned (and displayed):
+
+```
+python3 test.py -co '{"ai":{
+"blob_file": "resources/nn/object_detection_4shave/face-detection-adas-0001.blob",
+"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json"}}'
+```
+
+![model_image](/images/tutorials/pretrained_model/fdwd.png)
+
+And there you find the 3D position of my mug!
+
+You can than choose other models, change the labels, and you're off - getting real-time 3D position for the class of interest.
+
+Play with the feature and please share demos that you come up with (especially if you make a robot that stalks your cat) on [discuss.luxonis.com](https://discuss.luxonis.com/) and if you run into any issues, please ping us on our [Github](https://github.com/luxonis/depthai).
+
+And if you find any errors in these documents, click the [Edit on Github](https://github.com/luxonis/depthai-docs-website/blob/master/_tutorials/openvino_model_zoo_pretrained_model.md) on the bottom of this page to give us the correction!
+
+
+
