@@ -4,7 +4,7 @@ title: Tutorial - How Convert OpenVINO IR Model to Run on DepthAI
 toc_title: OpenVINO Model Conversion
 description: Learn how to convert OpenVINO IR models into the format required to run on DepthAI
 og_image_path: "/images/tutorials/pretrained_model/previewout.png"
-order: 3
+order: 6
 ---
 
 # {{ page.title }}
@@ -86,7 +86,7 @@ Start a terminal session and run the following commands in your terminal:
 cd ~
 git clone https://github.com/opencv/open_model_zoo.git
 cd open_model_zoo
-git checkout tags/2019_R3
+git checkout tags/2020.1
 cd tools/downloader
 python3 -m pip install --user -r ./requirements.in
 ```
