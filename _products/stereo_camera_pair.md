@@ -45,7 +45,7 @@ cd depthai-python-extras
 
 <h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Print chessboard calibration image.</h3>
 
-[![Print this chessboard calibration image](https://raw.githubusercontent.com/luxonis/depthai-python-extras/master/resources/calibration-chess-board.png)](https://raw.githubusercontent.com/luxonis/depthai-python-extras/master/resources/calibration-chess-board.png)
+[![Print this chessboard calibration image](https://github.com/luxonis/depthai/blob/master/resources/patternnew.png)](https://github.com/luxonis/depthai/blob/master/resources/patternnew.png)
 
 The entire board should fit on a single piece of paper (scale to fit).
 
