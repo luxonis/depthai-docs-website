@@ -101,9 +101,9 @@ python3 test.py -dd -cnn face-detection-adas-0001
 
 So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
 
-So what happens what is this `-dd` option we've been running?  Why is that there?  
+So what is this `-dd` option we've been running?  Why is that there?  
 
-It's there because we wanted to save the best for last.  It stands for disable depth (and has the long-form option `--disable_depth`).  So if you remove that, DepthAI will now calculate the 3D position of the object being detected (a face in this example, but it works for any object detector.)
+It's there because we wanted to save the best for last.  It stands for disable depth (and has the long-form option `--disable_depth`).  So if you remove that, DepthAI will now calculate the 3D position of the object being detected (a face in this example, but it works for any object detector.)  (And if you're using microAI, leave it there, as microAI is monocular only - no depth information.)
 
 So you get the **full 3D position** of the **detected object**, in this case, my face.  
 
