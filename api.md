@@ -164,9 +164,9 @@ Assuming a stock Mac OS X install, DepthAI can be installed and tested with the 
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" #install HomeBrew
 brew install coreutils python3 cmake libusb wget opencv #install python and developer tools
 pip3 install numpy opencv-python --user
-git clone https://github.com/luxonis/depthai-python-extras.git
+git clone https://github.com/luxonis/depthai.git
 cd depthai-python-extras
-git submodule update --init
+git submodule update --init --recursive
 ./depthai-api/install_dependencies.sh
 ./depthai-api/build_py_module.sh
 python3 test.py
@@ -190,29 +190,12 @@ It's worth noting that cmake, gcc, g++, etc. can often be installed via somethin
 Once these dependencies are installed (which may already be the case), use the following commands to build the pymodule from source and test it:
 
 ```
-git clone https://github.com/luxonis/depthai-python-extras.git
+git clone https://github.com/luxonis/depthai.git
 cd depthai-python-extras
-git submodule update --init
+git submodule update --init --recursive
 ./depthai-api/install_dependencies.sh
 ./depthai-api/build_py_module.sh
 python3 test.py
 ```
 
 Same here, you should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person', 'car', 'dog' and strangely, 'sheep'.
-
-### Re-Building from Source with Specific Branches/etc.
-
-When rebuilding the source say for a specific branch of experimental feature, it may be necessary to run `git submodule update --recursive` after `git submodule update --init` to make sure everything is fully updated.
-
-Full command flow below:
-
-```
-git clone https://github.com/luxonis/depthai-python-extras.git
-git checkout branch_name # replace branch_name with the branch you are checking out
-cd depthai-python-extras
-git submodule update --init
-git submodule update --recursive
-./depthai-api/install_dependencies.sh
-./depthai-api/build_py_module.sh
-python3 test.py
-```
