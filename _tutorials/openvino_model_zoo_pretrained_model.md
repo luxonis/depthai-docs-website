@@ -9,6 +9,10 @@ order: 2
 
 # {{ page.title }}
 
+**WARNING**: We just pushed an update to our Github that makes all of this way easier.  We are in the process of updating this article accordingly.
+
+In the meantime, the instructions below will not work with our current Master of our Github.  We're updating it today 22 April 2020. (2:27pm MT)
+
 In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you to the OpenVINO model zoo and running models from this 'zoo'.  
 
 ![model image](/images/tutorials/pretrained_model/previewout2.png)
