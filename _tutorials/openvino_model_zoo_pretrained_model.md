@@ -75,7 +75,7 @@ Execute the script to see an annotated video stream of face detections:
 
 It's that easy.  Substitute your face for mine, of course.
 
-And if you'd like to try other models, just peruse (here)[https://github.com/luxonis/depthai/tree/master/resources/nn] and run them by their name, just like above.
+And if you'd like to try other models, just peruse [here](https://github.com/luxonis/depthai/tree/master/resources/nn) and run them by their name, just like above.
 
 Now take some time to play around with the model.  You can for example check how far away the model can detect your face:
 ![model_image](/images/tutorials/pretrained_model/pfm.png)
