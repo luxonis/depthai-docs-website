@@ -25,9 +25,9 @@ Under-the-hood, DepthAI uses the Intel MyriadX chip to perform high-speed model 
 
 The [Open Model Zoo](https://github.com/opencv/open_model_zoo) is a library of freely-available pre-trained models.  Side note: in machine learning/AI the name for a collection of pre-trained models is called a 'model zoo'. The Zoo also contains scripts for downloading those models into a compile-ready format to run on DepthAI.
 
-DepthAI is able to run many of the object detection models in the Zoo, and several are pre-included in the DepthAI Github.   repository.  We will be using one such model in this tutorial, is face-detection-retail-0004 (pre-compiled [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/face-detection-retail-0004.blob) on our Github, and [here](https://docs.openvinotoolkit.org/2020.1/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html).
+DepthAI is able to run many of the object detection models in the Zoo, and several are pre-included in the DepthAI Github.   repository.  We will be using one such model in this tutorial, is face-detection-retail-0004 (pre-compiled [here](https://github.com/luxonis/depthai/tree/master/resources/nn/face-detection-retail-0004) on our Github, and [here](https://docs.openvinotoolkit.org/2020.1/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html)on the OpenVINO model zoo).
 
-We'll cover converting OpenVINO models to run on DepthAI in a later article.  For now, you can find the models we've pre-converted [here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn) and brief instructions on how to do so [here](https://github.com/luxonis/depthai-python-extras#conversion-of-existing-trained-models-into-intel-movidius-binary-format)
+We'll cover converting OpenVINO models to run on DepthAI in a later article.  For now, you can find the models we've pre-converted [here](https://github.com/luxonis/depthai/tree/master/resources/nn) and brief instructions on how to do so [here](https://github.com/luxonis/depthai-python-extras#conversion-of-existing-trained-models-into-intel-movidius-binary-format)
 
 ## Dependencies
 
