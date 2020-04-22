@@ -36,28 +36,28 @@ sudo apt install git python3-pip
 pip3 install numpy opencv-python --user
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && udevadm trigger
-git clone https://github.com/luxonis/depthai-python-extras.git
-cd depthai-python-extras
+git clone https://github.com/luxonis/depthai.git
+cd depthai
 ```
 
 ## Quick Test
 
-Run `python3 test.py` from within depthai-python-extras to make sure everything is working:
+Run `python3 test.py` from within depthai to make sure everything is working:
 
 ```
 python3 test.py
 ```
 
-If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)).
+If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)).
 
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
-Since we are not yet using a standard `pip install` (we will be in the near future), the DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repository. 
+Since we are not yet using a standard `pip install` (we will be in the near future), the DepthAI Python Module and extras (utilities, examples, and tutorials) are installed by checking out our [depthai](https://github.com/luxonis/depthai) GitHub repository. 
 
 So it is necessary to instruct pip to install this repo globally available.  Do so with the command below:
 
 ```
-pip3 install --user -e depthai-python-extras
+pip3 install --user -e depthai
 ```
 
 <h2 id="upgrade" data-toc-title="Upgrading">Upgrading the DepthAI API</h2>
@@ -67,18 +67,18 @@ pip3 install --user -e depthai-python-extras
 error
 </i>
   Using the RPi Compute edition or a pre-flashed DepthAI µSD card?<br/>
-  <span class="small">The repository has been checked out to `~/Desktop/depthai-python-extras`.</span>
+  <span class="small">The repository has been checked out to `~/Desktop/depthai`.</span>
 </div>
 
 
 To upgrade your DepthAI Python API to the latest version:
 
-1. `cd` to your local copy of our [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) repository.
+1. `cd` to your local copy of our [depthai](https://github.com/luxonis/depthai) repository.
 2. Pull the latest changes:
     ```
     git pull
     ```
-3. Ensure `depthai-python-extras` is available to all of your Python scripts:
+3. Ensure `depthai` is available to all of your Python scripts:
     ```
     pip3 install --user -e .
     ```
@@ -165,13 +165,13 @@ Assuming a stock Mac OS X install, DepthAI can be installed and tested with the 
 brew install coreutils python3 cmake libusb wget opencv #install python and developer tools
 pip3 install numpy opencv-python --user
 git clone https://github.com/luxonis/depthai.git
-cd depthai-python-extras
+cd depthai
 git submodule update --init --recursive
 ./depthai-api/install_dependencies.sh
 ./depthai-api/build_py_module.sh
 python3 test.py
 ```
-You should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person' and strangely, 'sheep'.
+You should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person' and strangely, 'sheep'.
 
 {: #compile_linux }
 ### Building from Source for Other Linux Distros
@@ -191,11 +191,11 @@ Once these dependencies are installed (which may already be the case), use the f
 
 ```
 git clone https://github.com/luxonis/depthai.git
-cd depthai-python-extras
+cd depthai
 git submodule update --init --recursive
 ./depthai-api/install_dependencies.sh
 ./depthai-api/build_py_module.sh
 python3 test.py
 ```
 
-Same here, you should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person', 'car', 'dog' and strangely, 'sheep'.
+Same here, you should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person', 'car', 'dog' and strangely, 'sheep'.
