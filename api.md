@@ -169,7 +169,7 @@ Assuming a stock Mac OS X install, DepthAI can be installed and tested with the 
 #### Install Python and Other Developer Tools
 (If they're also not already installed)
 ```
-brew install coreutils python3 cmake libusb wget opencv #install python and developer tools
+brew install coreutils python3 cmake libusb wget opencv
 pip3 install numpy opencv-python --user
 ```
 And now you're ready to clone the DepthAI Github and build DepthAI for Mac OS X.
