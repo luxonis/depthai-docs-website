@@ -93,9 +93,56 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 
 Yes.  
 
-Find the STEP files and dimensions of the models [here](https://drive.google.com/drive/folders/17_Jb8R2bP6SoC9XdsPu4yXKJGm-01PSE?usp=sharing).
+The full designs (including source Altium files) for all the carrier boards are in our `depthai-hardware` Github:
 
-We're planning on releasing the full Altium designs of all the carrier boards (BW1097, BW1098OBC, BW1098FFC, BW1094, etc.) but we just haven't gotten around to it yet.  In the meantime if you need them, ping us on Github, Slack, or email and we'll get them to you.
+ - [depthai-hardware](https://github.com/luxonis/depthai-hardware)
+ 
+## How do I Get H.264 Videos to Play on My Mac?
+
+One option is to use the following ffmpeg technique:
+
+### Install ffmpeg
+```
+brew install ffmpeg
+```
+### Make an ffmpeg Conversion Script
+Make a new file called `transcode_h264.sh` and make it executable: 
+```
+touch transcode_h264.sh
+chmod +x transcode_h264.sh
+```
+Add the following commands to `transcode_h264.sh`:
+```
+ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 /tmp/pass1 && \
+ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 -movflags +faststart -tune zerolatency "$1.mp4"
+```
+You can do this by copying the text above, and issuing the following commands with vim:
+```
+vim transcode_h264.sh
+i
+```
+Hit CMD + v
+Hit esc
+```
+:wq
+```
+Hit enter
+
+### Use the Conversion Script
+
+```
+./transcode_h264.sh myvid.mov
+```
+
+You'll get a nice, fairly small, Mac-friendly and share-able video.
+
+### [Optional] Add the Conversion Script to Your Path
+
+```
+cp transcode_h264.sh /usr/local/bin/transcode_h264
+```
+Now you can juse use `transcode_h264.sh` in any directory!
+
 
 
 
