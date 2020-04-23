@@ -160,10 +160,22 @@ Below is a quick summary of what's been tried by Luxonis staff and DepthAI users
 
 ### Mac OS X
 Assuming a stock Mac OS X install, DepthAI can be installed and tested with the following commands, thanks to [HomeBrew](https://brew.sh/).
+
+#### Install HomeBrew
+(If it's not installed already)
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" #install HomeBrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
+```
+#### Install Python and Other Developer Tools
+(If they're also not already installed)
+```
 brew install coreutils python3 cmake libusb wget opencv #install python and developer tools
 pip3 install numpy opencv-python --user
+```
+And now you're ready to clone the DepthAI Github and build DepthAI for Mac OS X.
+
+#### Build DepthAI and Test for Mac OS X:
+```
 git clone https://github.com/luxonis/depthai.git
 cd depthai
 git submodule update --init --recursive
