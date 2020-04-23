@@ -155,8 +155,29 @@ The minimum distance for depth perception is `focal_length * base_line_dist / 96
 
 For the depth data, 65535 is a special value, meaning that that distance is unknown.
 
+## How Do I Display Multiple Streams?
+To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for deph results (`depth_sipp`), use the following command:
 
+```
+python3 test.py -s metaout previewout depth_sipp
+```
+The available streams are:
+ - `metaout` # Meta data results from the neural network
+ - `previewout` # Small preview stream from the color camera
+ - `left` # Left grayscale camera ()
+ - `right` # Right grayscale camera (marked `R` or `RIGHT` on the board)
+ - `depth_sipp` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
+ - `disparity` # Raw disparity
+ - `depth_color_h` # Depth colorized on the host.
 
+## How Do I Limit The FrameRate Per Stream?
 
+So the simple way to select streams is to just use the `-s` option.  But in some cases (say when you have a slow host or only USB2 connection -and- you want to display a lot of streams) it may be necessary to limit the framerate of streams to not overwhelm the host/USB2 with too much data.
 
+So to set streams to a specific framerate to reduce the USB2 load and host load, use the following over-ride command structure, which allows you to set the framerate per stream.
 
+The following example sets the `depth_sipp` stream to 8 FPS and the `previewout` to 12 FPS:
+
+`python3 test.py -co '{"streams": [{"name": "depth_sipp", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
+
+You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.  
