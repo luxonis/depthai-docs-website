@@ -98,8 +98,7 @@ The full designs (including source Altium files) for all the carrier boards are 
  - [depthai-hardware](https://github.com/luxonis/depthai-hardware)
  
 ## How do I Get H.264 Videos to Play on My Mac?
-
-One option is to use the following ffmpeg technique:
+The h.264 videos which DepthAI and uAI encode do not work by default on Mac OS X.  You can always upload them to Youtube/Google Photos/etc. and they'll play their.  BUT, if you want them to work directly on your Mac, you can do the following conversion using ffmpeg through HomeBrew:
 
 ### Install ffmpeg
 ```
