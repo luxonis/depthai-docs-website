@@ -122,6 +122,7 @@ vim transcode_h264.sh
 i
 ```
 Hit CMD + v
+
 Hit esc
 ```
 :wq
