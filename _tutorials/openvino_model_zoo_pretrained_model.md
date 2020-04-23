@@ -9,8 +9,6 @@ order: 2
 
 # {{ page.title }}
 
-**UPDATE**: We refactored the command-line structure of DepthAI today (22 April 2020) to be WAY easier... and the below article reflects that.  So if you've used this tutorial before, you'll be pleasantly surprised with the simplicity of the commands now.
-
 In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you to the OpenVINO model zoo and running models from this 'zoo'.  
 
 ![model image](/images/tutorials/pretrained_model/previewout2.png)
@@ -42,7 +40,7 @@ error
 This tutorial has the same dependencies as the [Hello World Tutorial](/tutorials/hello_world#dependencies) - that the DepthAI API has been installed and is accessible on the system.  See [here](https://docs.luxonis.com/api/) if you have not yet installed the API.
 
 
-## Run face-detection-retail-0004
+## Run DepthAI Default Model
 
 The depthai.py file can be modified directly to you do your bidding, or you can simply pass arguments to it for which models you want to run.  
 
@@ -62,6 +60,8 @@ This will then run the a typical demo MobileNetv1 SSD object detector trained on
 I ran this on my iMac (OS X setup [here](https://docs.luxonis.com/api/#mac-os-x)) with a [microAI](https://shop.luxonis.com/products/bw1093) sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
 
 ![iMac](/images/tutorials/pretrained_model/tvmonitor.png)
+
+## Run `face-detection-retail-0004`
 
 Now that we've got this verified, let's move on to trying out other models, starting with `face-detection-retail-0004`.
 
