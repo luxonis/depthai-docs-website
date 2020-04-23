@@ -145,10 +145,14 @@ Now you can juse use `transcode_h264.sh` in any directory!
 
 ## What are the Minimum and Maximum Depth Visible by DepthAI?
 
+Depth data from DepthAI is returned in uint16 format.  To interpret this depth into meters, use the following conversions.  
+
 In terms of numerically-limited max distance (i.e. not limited by the practicalities of physics), the actual furthest distance is
 `focal_length * base_line_dist` in meters, *1000 in mm, where `focal_length = orig_frame_w / (2.f * std::tan(fov / 2 / 180.f * pi));`
 
 And the minimum distance for depth perception is `focal_length * base_line_dist/96`, as 96 is the standard maximum disparity search used by DepthAI.
+
+For the depth data, 65535 is a special value, meaning that that distance is unknown.
 
 
 
