@@ -181,3 +181,21 @@ The following example sets the `depth_sipp` stream to 8 FPS and the `previewout`
 `python3 test.py -co '{"streams": [{"name": "depth_sipp", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
 
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.  
+
+## What Are The Stream Latencies?
+
+So these are fairly informally measured, and likely take into account latency of the monitors/etc. used to test these on, but here are our initial results:
+
+measured | requested | avg latency, ms
+-- | -- | --
+left | left | 100
+left | left, right | 270
+left | left, right, depth_sipp | 380
+left | left, right, depth_sipp, metaout, previewout | 420
+previewout | previewout | 65
+previewout | metaout, previewout | 100
+previewout | left, right, depth_sipp, metaout, previewout | 950
+metaout | metaout | 300
+metaout | metaout, previewout | 300
+metaout | left, right, depth_sipp, metaout, previewout | 1900
+
