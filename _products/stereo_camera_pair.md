@@ -29,13 +29,13 @@ order: 2
 
 For better depth image quality, perform a stereo camera calibration. Follow these steps:
 
-<h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai-python-extras](https://github.com/luxonis/depthai) GitHub repo.</h3>
+<h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
 <div class="alert alert-primary" role="alert">
 <i class="material-icons">
 error
 </i>
-  Already installed `depthai-python-extras`? <strong>Skip this step.</strong><br/>
+  Already installed `depthai`? <strong>Skip this step.</strong><br/>
 </div>
 
 ```
@@ -77,16 +77,16 @@ Run `python3 calibrate.py --help` for a full list of arguments and usage example
 
 Left and right video streams are displayed, each containing a polygon overlay. Hold up the printed chessboard so that the whole of the checkerboard is displayed within both video streams. Match the orientation of the overlayed polygon and press [SPACEBAR] to capture an image. The checkerboard pattern does not need to match the polygon exactly, but it is important to use the polygon as a guideline for angling and location relative to the camera. There are 13 required polygon positions.
 
-After capturing images for all of the polygon positions, the calibration image processing step will begin. If successful, a calibration file will be created at `depthai-python-extras/resources/depthai.calib`. This file is loaded by default via the `calib_fpath` variable within `consts/resource_paths.py`.
+After capturing images for all of the polygon positions, the calibration image processing step will begin. If successful, a calibration file will be created at `depthai/resources/depthai.calib`. This file is loaded by default via the `calib_fpath` variable within `consts/resource_paths.py`.
 
 <h3 class="step" id="test_depth"><span></span> Test depth</h3>
 
 We'll view the depth stream to ensure the cameras are calibrated correctly:
 
 1. Start a terminal session.
-2. Access your local copy of `depthai-python-extras`.
+2. Access your local copy of `depthai`.
     ```
-    cd [depthai-python-extras repo]
+    cd [depthai repo]
     ```
 3. Run `python3 test.py -co '{"streams": ["left","depth_sipp"]}'`.<br/>
     The script launches a window, starts the cameras, and displays a depth video stream:
