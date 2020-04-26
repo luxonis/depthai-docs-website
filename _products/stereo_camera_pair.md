@@ -29,7 +29,7 @@ order: 2
 
 For better depth image quality, perform a stereo camera calibration. Follow these steps:
 
-<h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai-python-extras](https://github.com/luxonis/depthai-python-extras) GitHub repo.</h3>
+<h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai-python-extras](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
 <div class="alert alert-primary" role="alert">
 <i class="material-icons">
@@ -39,8 +39,8 @@ error
 </div>
 
 ```
-git checkout https://github.com/luxonis/depthai-python-extras.git
-cd depthai-python-extras
+git checkout https://github.com/luxonis/depthai.git
+cd depthai
 ```
 
 <h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Print chessboard calibration image.</h3>
