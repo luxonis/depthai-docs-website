@@ -27,7 +27,9 @@ order: 2
 
 ## Calibration
 
-For better depth image quality, perform a stereo camera calibration. Follow these steps:
+For a better depth image quality, perform a stereo camera calibration. For the DepthAI RPi Compute Module Edition and USB3C Onboard Camera Edition, the units come pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something), or if the calibration quality has started to fade over use/handling.:
+  
+Follow these steps to calibrate any of your DepthAI units ([BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), and/or [BW1094](https://docs.luxonis.com/products/bw1094/)):
 
 <h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
@@ -83,7 +85,9 @@ python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih
 ```
 python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1097 -ih
 ```
-### BW1098FFC (USB3 Modular Camera Edition):
+
+{: #modular_cameras }
+### BW1098FFC (USB3 Modular Camera Edition) or BW1094 (Raspberry Pi HAT):
 Use one of the board `*.json` files from [here](https://github.com/luxonis/depthai/tree/master/resources/boards) to define the baseline between the stereo cameras, and between the left camera and the color camera, replacing the items in brackets below.
 
 * Swap left/right (i.e. which way are the cameras facing, set to `true` or `false`
@@ -133,7 +137,7 @@ Left and right video streams are displayed, each containing a polygon overlay. H
 
 After capturing images for all of the polygon positions, the calibration image processing step will begin. If successful, a calibration file will be created at `depthai/resources/depthai.calib`. This file is loaded by default via the `calib_fpath` variable within `consts/resource_paths.py`.
 
-<h3 class="step" id="test_depth"><span></span> Test depth</h3>
+<h3 class="step" id="test_depth"><span></span> Test depth.</h3>
 
 We'll view the depth stream to ensure the cameras are calibrated correctly:
 
@@ -148,3 +152,43 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
     ![object localization demo](/images/depth.png)
 
     In the screenshot above, the hand is closer to the camera.
+    
+<h3 class="step" id="test_depth"><span></span> Write calibration and board parameters to on-board eeprom.</h3>
+
+If your are happy with the depth quality above, you can write it to the on-board eeprom on DephtAI so that the calibration stick with DepthAI (all designs which have stereo-depth support have on-board eeprom for this purpose).
+
+To write the calibration and associated board information to to EEPROM on DepthAI, use the following command:
+
+```
+python3 test.py -brd [BOARD] -e
+```
+Where `[BOARD]` is either `BW1097` (Raspberry Pi Compute Module Edition), `BW1098OBC` (USB3 Onboard Camera Edition) or a custom board file (as in [here](#modular_cameras)), all case-insensitive.
+
+So for example to write the (updated) calibration and board information to your BW1098OBC, use the following command:
+```
+python3 test.py -brd bw1098obc -e
+```
+
+And to verify what is written to EEPROM on your DepthAI, you can see check the output whenever running DetphAI, simply with"
+```
+python3 test.py
+
+```
+And look for `EEPROM data:` in the prints in the terminal after running the above command:
+```
+EEPROM data: valid (v2)
+  Board name     : BW1098OBC
+  Board rev      : R0M0E0
+  HFOV L/R       : 71.86 deg
+  HFOV RGB       : 68.7938 deg
+  L-R   distance : 7.5 cm
+  L-RGB distance : 3.75 cm
+  L/R swapped    : yes
+  L/R crop region: top
+  Calibration homography:
+    1.002324,   -0.004016,   -0.552212,
+    0.001249,    0.993829,   -1.710247,
+    0.000008,   -0.000010,    1.000000,
+```
+
+
