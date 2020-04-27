@@ -183,8 +183,9 @@ The following example sets the `depth_sipp` stream to 8 FPS and the `previewout`
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.  
 
 ## What Are The Stream Latencies?
+When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from a photo hitting an image sensor to when the results are available to a user, the `photon-to-results` latency.  
 
-So these are fairly informally measured, and likely take into account latency of the monitors/etc. used to test these on, but here are our initial results:
+So the following results are an approximation of this `photon-to-results` latency, and are likely an over-estimate as we tested by actually seeing when results were updated on a monitor, and the monitor itself has some latency, so the results below are likely an over-estimate, and are overestimated by whatever the latency of the monitor is that we used during the test.  They give, however, a decent worst-case latency:
 
 measured | requested | avg latency, ms
 -- | -- | --
@@ -199,3 +200,24 @@ metaout | metaout | 300
 metaout | metaout, previewout | 300
 metaout | left, right, depth_sipp, metaout, previewout | 1900
 
+## What Information is Stored on the DepthAI Boards
+Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
+
+So each hardware model which has stereo cameras (e.g. [BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), and [BW1094](https://docs.luxonis.com/products/bw1094/)) has the capability to store the calibration data and field-of-view, stereo basline (`L-R distance`) and relative location of the color camera to the stereo cameras (`L-RGB distance`) as well as camera orientation (`L/R swapped`).  To retrieve this information, simply run `python3 test.py` and look for `EEPROM data:`.  Example of information pulled from a [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) is below:
+```
+EEPROM data: valid (v2)
+  Board name     : BW1098OBC
+  Board rev      : R0M0E0
+  HFOV L/R       : 71.86 deg
+  HFOV RGB       : 68.7938 deg
+  L-R   distance : 7.5 cm
+  L-RGB distance : 3.75 cm
+  L/R swapped    : yes
+  L/R crop region: top
+  Calibration homography:
+    1.002324,   -0.004016,   -0.552212,
+    0.001249,    0.993829,   -1.710247,
+    0.000008,   -0.000010,    1.000000,
+```
+
+Current (as of April 2020) DepthAI boards with on-board stereo cameras ([BW1097](https://docs.luxonis.com/products/bw1097/) and [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
