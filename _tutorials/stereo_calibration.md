@@ -1,8 +1,8 @@
 ---
 layout: default
-title: Tutorial - Multiple DepthAI per Host
-toc_title: Multiple DepthAI per Host
-description: Use Multiple DepthAI on a Single Host
+title: Tutorial - Stereo (re-)Calibration
+toc_title: Stereo (re-)Calibration
+description: How to (re-)Calibrate DepthAI
 order: 4
 ---
 
