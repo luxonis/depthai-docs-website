@@ -25,4 +25,6 @@ order: 2
 * AutoFocus: 19.6 cm - ∞
 * F-number: 2.2
 
+## Stereo Calibration
+
 {% include stereo_calibration.md %}
