@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tutorial - Stereo (re-)Calibration
-toc_title: Stereo (re-)Calibration
+toc_title: Stereo Calibration
 description: How to (re-)Calibrate DepthAI
 order: 4
 ---
