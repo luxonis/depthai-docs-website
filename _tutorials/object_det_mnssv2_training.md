@@ -13,7 +13,7 @@ Need to use DepthAI to detect objects which **aren't already available in the [O
 
 Well, you're in luck:
 
-In this tutorial you will learn how to train a **custom object detector** for use on **DepthAI** for real-time spatialAI - where these objects are in physical space (x, y, and z, in meters), and what they are (.e.g 'Apple').  
+In this tutorial you will learn how to train a **custom object detector** for use on **DepthAI** for real-time spatialAI - where these objects are in physical space (x, y, and z, in meters), and what they are (e.g. 'Apple').  
 
 At the end of this tutorial **you** will have trained this same model and have it running on DepthAI:
 
