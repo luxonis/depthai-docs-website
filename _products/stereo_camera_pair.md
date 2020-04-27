@@ -3,7 +3,7 @@ layout: default
 title: 720p, 120 Hz Global Shutter Modular Stereo Camera Pair
 toc_title: Stereo Camera Pair
 screenshot: /images/products/stereo-cameras.jpg
-description: For applications where Depth + AI are needed, we have modular, high-frame-rate, excellent-depth-quality cameras which can be separated to a baseline of up to 12 inches (30.5 cm).
+description: For applications where Depth + AI are needed, we have modular, high-frame-rate, excellent-depth-quality cameras which can be separated to a baseline of up to 30 cm).
 order: 2
 ---
 
@@ -26,8 +26,11 @@ order: 2
 * F-number: 2.2
 
 ## Calibration
+For the modular camera editions of DepthAI ([BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/) and [BW1094](https://docs.luxonis.com/products/bw1094/)) it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application. 
 
-For better depth image quality, perform a stereo camera calibration. Follow these steps:
+For the DepthAI RPi Compute Module Edition and USB3C Onboard Camera Edition, the units come pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something), or if the calibration quality has started to fade over use/handling.:
+  
+Follow these steps to calibrate any of your DepthAI units (including [BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), and/or [BW1094](https://docs.luxonis.com/products/bw1094/)):
 
 <h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
@@ -54,24 +57,80 @@ The entire board should fit on a single piece of paper (scale to fit).
 Replace the placeholder argument values with valid entries:
 
 ```
-python3 calibrate.py -s [SQUARE_SIZE_IN_CM] \
--co '{"board_config": {"swap_left_and_right_cameras": [true|false], "left_to_right_distance_cm": [distance]}}'
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd [BOARD]
 ```
 
 Argument reference:
 
-* `--SQUARE_SIZE_CM`: Measure the square size of the printed chessboard in centimeters.
-* `--CONFIG_OVERWRITE`: A JSON-formatted pipeline config object that overrides the default config. This JSON object contains two keys that may need to be provided depending on your DepthAI board:
-    * `swap_left_and_right_cameras` (default = `true`): Ignore this option for the 1097 and 1098OBC models. Otherwise, specify `true` if the cameras faces backward and `false` if the cameras face forward.
-    * `left_to_right_distance_cm` (default = `9.0`): The distance between the stereo cameras. Ignore this option for the 1097 model and use `7.5` for the 1098OBC.
+* `-s SQUARE_SIZE_IN_CM`, `--square_size_cm SQUARE_SIZE_IN_CM`: Measure the square size of the printed chessboard in centimeters.
+* `-brd BOARD`, `--board BOARD`: BW1097, BW1098OBC - Board type from resources/boards/ (not case-sensitive). Or path to a custom .json board config. Mutually exclusive with [-fv -b -w], which allow manual specification of field of view, baseline, and camera orientation (swapped or not-swapped).
+
+Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].  
 
 For example, the arguments for the 1098OBC look like the following if the square size is 2.35 cm:
 ```
-python3 calibrate.py -s 2.35 \
--co '{"board_config": {"left_to_right_distance_cm": 7.5}}'
+python3 calibrate.py -s 2.35 -brd bw1098obc
+```
+And note that mirroring the display when calibrating is often useful (so that the directions of motion don't seem backwards).  When seeing ourselves, we're used to seeing ourselves backwards (because that's what we see in a mirror), so do so, use the `-ih` option as below:
+```
+python3 calibrate.py -s 2.35 -brd bw1098obc -ih
 ```
 
-Run `python3 calibrate.py --help` for a full list of arguments and usage examples.`
+So when we're running calibration internally we almost always use the `-ih` option, so we'll include it on all the following example commands:
+
+### BW1098OBC (USB3 Onboard Camera Edition)):
+```
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih
+```
+### BW1097 (RPi Compute Module Edition):
+```
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1097 -ih
+```
+
+{: #modular_cameras }
+### BW1098FFC (USB3 Modular Camera Edition) or BW1094 (Raspberry Pi HAT):
+Use one of the board `*.json` files from [here](https://github.com/luxonis/depthai/tree/master/resources/boards) to define the baseline between the stereo cameras, and between the left camera and the color camera, replacing the items in brackets below.
+
+* Swap left/right (i.e. which way are the cameras facing, set to `true` or `false`
+* The `BASELINE` in centimeters between grayscale left/right cameras
+* The distance `RGBLEFT` separation between the `Left` grayscale camera and the color camera, in centimeters.
+
+```
+{
+    "board_config":
+    {
+        "name": "ACME01",
+        "revision": "V1.2",
+        "swap_left_and_right_cameras": [true | false],
+        "left_fov_deg": 71.86,
+        "rgb_fov_deg": 68.7938,
+        "left_to_right_distance_cm": [BASELINE],
+        "left_to_rgb_distance_cm": [RGBLEFT]
+    }
+}
+```
+So for example if you setup your BW1098OBC with a stereo baseline of 20cm, with the color camera exactly between the two grayscale cameras, and the same orientation of the cameras as the BW1097, uses the following JSON:
+
+```
+{
+    "board_config":
+    {
+        "name": "ACME01",
+        "revision": "V1.2",
+        "swap_left_and_right_cameras": true,
+        "left_fov_deg": 71.86,
+        "rgb_fov_deg": 68.7938,
+        "left_to_right_distance_cm": 20,
+        "left_to_rgb_distance_cm": 10
+    }
+}
+```
+Then, run calibration with this board name:
+```
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd ACME01 -ih
+```
+
+Run `python3 calibrate.py -h` (or `-h`) for a full list of arguments and usage examples.
 
 <h3 class="step" data-toc-title="Capture images" id="capture_images"><span></span> Position the chessboard and capture images.</h3>
 
@@ -79,7 +138,7 @@ Left and right video streams are displayed, each containing a polygon overlay. H
 
 After capturing images for all of the polygon positions, the calibration image processing step will begin. If successful, a calibration file will be created at `depthai/resources/depthai.calib`. This file is loaded by default via the `calib_fpath` variable within `consts/resource_paths.py`.
 
-<h3 class="step" id="test_depth"><span></span> Test depth</h3>
+<h3 class="step" id="test_depth"><span></span> Test depth.</h3>
 
 We'll view the depth stream to ensure the cameras are calibrated correctly:
 
@@ -94,3 +153,42 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
     ![object localization demo](/images/depth.png)
 
     In the screenshot above, the hand is closer to the camera.
+    
+<h3 class="step" id="test_depth"><span></span> Write calibration and board parameters to on-board eeprom.</h3>
+
+If your are happy with the depth quality above, you can write it to the on-board eeprom on DephtAI so that the calibration stick with DepthAI (all designs which have stereo-depth support have on-board eeprom for this purpose).
+
+To write the calibration and associated board information to to EEPROM on DepthAI, use the following command:
+
+```
+python3 test.py -brd [BOARD] -e
+```
+Where `[BOARD]` is either `BW1097` (Raspberry Pi Compute Module Edition), `BW1098OBC` (USB3 Onboard Camera Edition) or a custom board file (as in [here](#modular_cameras)), all case-insensitive.
+
+So for example to write the (updated) calibration and board information to your BW1098OBC, use the following command:
+```
+python3 test.py -brd bw1098obc -e
+```
+
+And to verify what is written to EEPROM on your DepthAI, you can see check the output whenever running DetphAI, simply with"
+```
+python3 test.py
+```
+And look for `EEPROM data:` in the prints in the terminal after running the above command:
+```
+EEPROM data: valid (v2)
+  Board name     : BW1098OBC
+  Board rev      : R0M0E0
+  HFOV L/R       : 71.86 deg
+  HFOV RGB       : 68.7938 deg
+  L-R   distance : 7.5 cm
+  L-RGB distance : 3.75 cm
+  L/R swapped    : yes
+  L/R crop region: top
+  Calibration homography:
+    1.002324,   -0.004016,   -0.552212,
+    0.001249,    0.993829,   -1.710247,
+    0.000008,   -0.000010,    1.000000,
+```
+
+If anything looks incorrect, you can calibrate again and/or change board information and overwrite the stored eeprom information and calibration data using the `-brd` and `-e` flags as above.
