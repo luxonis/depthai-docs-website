@@ -3,7 +3,7 @@ layout: default
 title: 720p, 120 Hz Global Shutter Modular Stereo Camera Pair
 toc_title: Stereo Camera Pair
 screenshot: /images/products/stereo-cameras.jpg
-description: For applications where Depth + AI are needed, we have modular, high-frame-rate, excellent-depth-quality cameras which can be separated to a baseline of up to 12 inches (30.5 cm).
+description: For applications where Depth + AI are needed, we have modular, high-frame-rate, excellent-depth-quality cameras which can be separated to a baseline of up to 30 cm).
 order: 2
 ---
 
@@ -26,10 +26,11 @@ order: 2
 * F-number: 2.2
 
 ## Calibration
+For the modular camera editions of DepthAI ([BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/) and [BW1094](https://docs.luxonis.com/products/bw1094/)) it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application. 
 
-For a better depth image quality, perform a stereo camera calibration. For the DepthAI RPi Compute Module Edition and USB3C Onboard Camera Edition, the units come pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something), or if the calibration quality has started to fade over use/handling.:
+For the DepthAI RPi Compute Module Edition and USB3C Onboard Camera Edition, the units come pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something), or if the calibration quality has started to fade over use/handling.:
   
-Follow these steps to calibrate any of your DepthAI units ([BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), and/or [BW1094](https://docs.luxonis.com/products/bw1094/)):
+Follow these steps to calibrate any of your DepthAI units (including [BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), and/or [BW1094](https://docs.luxonis.com/products/bw1094/)):
 
 <h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
@@ -172,7 +173,6 @@ python3 test.py -brd bw1098obc -e
 And to verify what is written to EEPROM on your DepthAI, you can see check the output whenever running DetphAI, simply with"
 ```
 python3 test.py
-
 ```
 And look for `EEPROM data:` in the prints in the terminal after running the above command:
 ```
@@ -191,4 +191,4 @@ EEPROM data: valid (v2)
     0.000008,   -0.000010,    1.000000,
 ```
 
-
+If anything looks incorrect, you can calibrate again and/or change board information and overwrite the stored eeprom information and calibration data using the `-brd` and `-e` flags as above.
