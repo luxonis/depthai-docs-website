@@ -1,8 +1,6 @@
 For the modular camera editions of DepthAI ([BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/) and [BW1094](https://docs.luxonis.com/products/bw1094/)) it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application. 
 
-For the DepthAI RPi Compute Module Edition and USB3C Onboard Camera Edition, the units come pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something), or if the calibration quality has started to fade over use/handling.:
-  
-Follow these steps to calibrate any of your DepthAI units (including [BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), and/or [BW1094](https://docs.luxonis.com/products/bw1094/)):
+For the DepthAI RPi Compute Module Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)) and USB3C Onboard Camera Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)), the units come pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something), or if the calibration quality has started to fade over use/handling.
 
 <h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
@@ -20,9 +18,11 @@ cd depthai
 
 <h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Print chessboard calibration image.</h3>
 
+Either print the calibration checkerboard onto a flat surface, or display the checkerboard on a flat (not curved!) monitor.
+
 [![Print this chessboard calibration image](https://raw.githubusercontent.com/luxonis/depthai/master/resources/patternnew.png)](https://raw.githubusercontent.com/luxonis/depthai/master/resources/patternnew.png)
 
-The entire board should fit on a single piece of paper (scale to fit).
+The entire board should fit on a single piece of paper (scale to fit).  And if displaying on a monitor, full-screen the image with a white background.
 
 <h3 class="step" data-toc-title="Start Calibration Script" id="start_calibration_script"><span></span> Start the calibration script.</h3>
 
@@ -50,17 +50,17 @@ python3 calibrate.py -s 2.35 -brd bw1098obc -ih
 
 So when we're running calibration internally we almost always use the `-ih` option, so we'll include it on all the following example commands:
 
-### BW1098OBC (USB3 Onboard Camera Edition)):
+#### BW1098OBC (USB3 Onboard Camera Edition)):
 ```
 python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih
 ```
-### BW1097 (RPi Compute Module Edition):
+#### BW1097 (RPi Compute Module Edition):
 ```
 python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1097 -ih
 ```
 
 {: #modular_cameras }
-### BW1098FFC (USB3 Modular Camera Edition) or BW1094 (Raspberry Pi HAT):
+#### BW1098FFC (USB3 Modular Camera Edition) or BW1094 (Raspberry Pi HAT):
 Use one of the board `*.json` files from [here](https://github.com/luxonis/depthai/tree/master/resources/boards) to define the baseline between the stereo cameras, and between the left camera and the color camera, replacing the items in brackets below.
 
 * Swap left/right (i.e. which way are the cameras facing, set to `true` or `false`
@@ -106,7 +106,11 @@ Run `python3 calibrate.py -h` (or `-h`) for a full list of arguments and usage e
 
 <h3 class="step" data-toc-title="Capture images" id="capture_images"><span></span> Position the chessboard and capture images.</h3>
 
-Left and right video streams are displayed, each containing a polygon overlay. Hold up the printed chessboard so that the whole of the checkerboard is displayed within both video streams. Match the orientation of the overlayed polygon and press [SPACEBAR] to capture an image. The checkerboard pattern does not need to match the polygon exactly, but it is important to use the polygon as a guideline for angling and location relative to the camera. There are 13 required polygon positions.
+Left and right video streams are displayed, each containing a polygon overlay. 
+
+Hold up the printed chessboard (or laptop with the image displayed on the screen) so that the whole of the checkerboard is displayed within both video streams. 
+
+Match the orientation of the overlayed polygon and press [SPACEBAR] to capture an image. The checkerboard pattern does not need to match the polygon exactly, but it is important to use the polygon as a guideline for angling and location relative to the camera. There are 13 required polygon positions.
 
 After capturing images for all of the polygon positions, the calibration image processing step will begin. If successful, a calibration file will be created at `depthai/resources/depthai.calib`. This file is loaded by default via the `calib_fpath` variable within `consts/resource_paths.py`.
 
