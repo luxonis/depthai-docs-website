@@ -1,8 +1,8 @@
 For the modular camera editions of DepthAI ([BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/) and [BW1094](https://docs.luxonis.com/products/bw1094/)) it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application. 
 
-For the DepthAI RPi Compute Module Edition and USB3C Onboard Camera Edition, the units come pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something), or if the calibration quality has started to fade over use/handling.:
+For the DepthAI RPi Compute Module Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)) and USB3C Onboard Camera Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)), the units come pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something), or if the calibration quality has started to fade over use/handling.:
   
-Follow these steps to calibrate any of your DepthAI units (including [BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), and/or [BW1094](https://docs.luxonis.com/products/bw1094/)):
+Follow these steps to (re-)calibrate any of your DepthAI units.  
 
 <h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
