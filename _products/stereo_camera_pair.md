@@ -54,24 +54,78 @@ The entire board should fit on a single piece of paper (scale to fit).
 Replace the placeholder argument values with valid entries:
 
 ```
-python3 calibrate.py -s [SQUARE_SIZE_IN_CM] \
--co '{"board_config": {"swap_left_and_right_cameras": [true|false], "left_to_right_distance_cm": [distance]}}'
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd [BOARD]'
 ```
 
 Argument reference:
 
-* `--SQUARE_SIZE_CM`: Measure the square size of the printed chessboard in centimeters.
-* `--CONFIG_OVERWRITE`: A JSON-formatted pipeline config object that overrides the default config. This JSON object contains two keys that may need to be provided depending on your DepthAI board:
-    * `swap_left_and_right_cameras` (default = `true`): Ignore this option for the 1097 and 1098OBC models. Otherwise, specify `true` if the cameras faces backward and `false` if the cameras face forward.
-    * `left_to_right_distance_cm` (default = `9.0`): The distance between the stereo cameras. Ignore this option for the 1097 model and use `7.5` for the 1098OBC.
+* `-s SQUARE_SIZE_IN_CM`, `--square_size_cm SQUARE_SIZE_IN_CM`: Measure the square size of the printed chessboard in centimeters.
+* `-brd BOARD`, `--board BOARD`: BW1097, BW1098OBC - Board type from resources/boards/ (not case-sensitive). Or path to a custom .json board config. Mutually exclusive with [-fv -b -w], which allow manual specification of field of view, baseline, and camera orientation (swapped or not-swapped).
+
+Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].  
 
 For example, the arguments for the 1098OBC look like the following if the square size is 2.35 cm:
 ```
-python3 calibrate.py -s 2.35 \
--co '{"board_config": {"left_to_right_distance_cm": 7.5}}'
+python3 calibrate.py -s 2.35 -brd bw1098obc'
+```
+And note that mirroring the display when calibrating is often useful (so that the directions of motion don't seem backwards).  When seeing ourselves, we're used to seeing ourselves backwards (because that's what we see in a mirror), so do so, use the `-ih` option as below:
+```
+python3 calibrate.py -s 2.35 -brd bw1098obc -ih'
 ```
 
-Run `python3 calibrate.py --help` for a full list of arguments and usage examples.`
+So when we're running calibration internally we almost always use the `-ih` option, so we'll include it on all the following example commands:
+
+### BW1098OBC (USB3 Onboard Camera Edition)):
+```
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih'
+```
+### BW1097 (RPi Compute Module Edition):
+```
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1097 -ih'
+```
+### BW1098FFC (USB3 Modular Camera Edition):
+Use one of the board `*.json` files from [here](https://github.com/luxonis/depthai/tree/master/resources/boards) to define the baseline between the stereo cameras, and between the left camera and the color camera, replacing the items in brackets below.
+
+* Swap left/right (i.e. which way are the cameras facing, set to `true` or `false`
+* The `BASELINE` in centimeters between grayscale left/right cameras
+* The distance `RGBLEFT` separation between the `Left` grayscale camera and the color camera, in centimeters.
+
+```
+{
+    "board_config":
+    {
+        "name": "ACME01",
+        "revision": "V1.2",
+        "swap_left_and_right_cameras": [true | false],
+        "left_fov_deg": 71.86,
+        "rgb_fov_deg": 68.7938,
+        "left_to_right_distance_cm": [BASELINE],
+        "left_to_rgb_distance_cm": [RGBLEFT]
+    }
+}
+```
+So for example if you setup your BW1098OBC with a stereo baseline of 20cm, with the color camera exactly between the two grayscale cameras, and the same orientation of the cameras as the BW1097, uses the following JSON:
+
+```
+{
+    "board_config":
+    {
+        "name": "ACME01",
+        "revision": "V1.2",
+        "swap_left_and_right_cameras": true,
+        "left_fov_deg": 71.86,
+        "rgb_fov_deg": 68.7938,
+        "left_to_right_distance_cm": 20,
+        "left_to_rgb_distance_cm": 10
+    }
+}
+```
+Then, run calibration with this board name:
+```
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd ACME01 -ih'
+```
+
+Run `python3 calibrate.py -h` (or `-h`) for a full list of arguments and usage examples.`
 
 <h3 class="step" data-toc-title="Capture images" id="capture_images"><span></span> Position the chessboard and capture images.</h3>
 
