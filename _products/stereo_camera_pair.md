@@ -54,7 +54,7 @@ The entire board should fit on a single piece of paper (scale to fit).
 Replace the placeholder argument values with valid entries:
 
 ```
-python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd [BOARD]'
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd [BOARD]
 ```
 
 Argument reference:
@@ -66,22 +66,22 @@ Retrieve the size of the squares from the calibration target by measuring them w
 
 For example, the arguments for the 1098OBC look like the following if the square size is 2.35 cm:
 ```
-python3 calibrate.py -s 2.35 -brd bw1098obc'
+python3 calibrate.py -s 2.35 -brd bw1098obc
 ```
 And note that mirroring the display when calibrating is often useful (so that the directions of motion don't seem backwards).  When seeing ourselves, we're used to seeing ourselves backwards (because that's what we see in a mirror), so do so, use the `-ih` option as below:
 ```
-python3 calibrate.py -s 2.35 -brd bw1098obc -ih'
+python3 calibrate.py -s 2.35 -brd bw1098obc -ih
 ```
 
 So when we're running calibration internally we almost always use the `-ih` option, so we'll include it on all the following example commands:
 
 ### BW1098OBC (USB3 Onboard Camera Edition)):
 ```
-python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih'
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih
 ```
 ### BW1097 (RPi Compute Module Edition):
 ```
-python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1097 -ih'
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1097 -ih
 ```
 ### BW1098FFC (USB3 Modular Camera Edition):
 Use one of the board `*.json` files from [here](https://github.com/luxonis/depthai/tree/master/resources/boards) to define the baseline between the stereo cameras, and between the left camera and the color camera, replacing the items in brackets below.
@@ -122,10 +122,10 @@ So for example if you setup your BW1098OBC with a stereo baseline of 20cm, with 
 ```
 Then, run calibration with this board name:
 ```
-python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd ACME01 -ih'
+python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd ACME01 -ih
 ```
 
-Run `python3 calibrate.py -h` (or `-h`) for a full list of arguments and usage examples.`
+Run `python3 calibrate.py -h` (or `-h`) for a full list of arguments and usage examples.
 
 <h3 class="step" data-toc-title="Capture images" id="capture_images"><span></span> Position the chessboard and capture images.</h3>
 
