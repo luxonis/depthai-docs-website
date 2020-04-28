@@ -180,7 +180,16 @@ The following example sets the `depth_sipp` stream to 8 FPS and the `previewout`
 
 `python3 test.py -co '{"streams": [{"name": "depth_sipp", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
 
-You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.  
+You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.
+
+## How Do I Force USB2 Mode?
+
+USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
+
+To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line option as below:
+```
+python3 test.py -fusb2
+```
 
 ## What Are The Stream Latencies?
 When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from a photo hitting an image sensor to when the results are available to a user, the `photon-to-results` latency.  
