@@ -190,6 +190,7 @@ To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line opt
 ```
 python3 test.py -fusb2
 ```
+Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29), which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
 
 ## What Are The Stream Latencies?
 When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from a photo hitting an image sensor to when the results are available to a user, the `photon-to-results` latency.  
