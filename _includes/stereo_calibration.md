@@ -2,8 +2,8 @@
 <i class="material-icons">
 error
 </i>
-  Using the RPi Compute Edition (BW1097) or DepthAI Onboard Cameras Edition? <strong>Your unit comes pre-calibrated.</strong><br/>
-  <span class="small">You're ready to go with the factory calibration!.</span>
+  Using the RPi Compute Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)) or USB3 Onboard Cameras Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/))? <strong>Your unit comes pre-calibrated.</strong><br/>
+  <span class="small">You're ready to go with the factory calibration!</span>
 </div>
 
 For the modular camera editions of DepthAI ([BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/) and [BW1094](https://docs.luxonis.com/products/bw1094/)) it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application. 
