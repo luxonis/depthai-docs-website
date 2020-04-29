@@ -12,7 +12,7 @@ order: 6
 
 It's pretty simple, and the bare requirements are fairly slim.  For a stock Ubuntu 18.04 machine the total steps 
 required to get going are:
-<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Run these commands. </h3>
+<h3 class="step" data-toc-title="Install Dependencies" id="install_dependencies"><span></span> Run these commands. </h3>
 
 ```
 sudo apt install git python3-pip
@@ -21,15 +21,15 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/ud
 sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Plug in DepthAI power and USB (for uAI USB is also its power). </h3>
+<h3 class="step" data-toc-title="Plug In DepthAI" id="plugin"><span></span> Plug in DepthAI power and USB (for uAI USB is also its power). </h3>
 
-<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Clone depthai repo from Github. </h3>
+<h3 class="step" data-toc-title="Cone DepthAI Github" id="clone_repo"><span></span> Clone depthai repo from Github. </h3>
 `git clone https://github.com/luxonis/depthai-python-extras`
 
-<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Run the test/demonstration script. </h3>
+<h3 class="step" data-toc-title="Run test.py" id="run_example"><span></span> Run the test/demonstration script. </h3>
 `python3 test.py`
 
-<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Enjoy real-time spatialAI. </h3>
+<h3 class="step" data-toc-title="Enjoy Spatial AI" id="enjoy_spatialai"><span></span> Enjoy real-time spatialAI. </h3>
 What objects are, and where, in physical space:
 
 ![spatial_AI](/images/spatialai.jpg)
