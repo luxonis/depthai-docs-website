@@ -2,7 +2,7 @@
 layout: default
 title: Frequently Asked Questions
 toc_title: FAQ
-description: Common questions when first learning about or using DepthAI/uAI.
+description: Common questions and How-Tos when first learning about or using DepthAI/uAI.
 order: 6
 ---
 
@@ -12,7 +12,7 @@ order: 6
 
 It's pretty simple, and the bare requirements are fairly slim.  For a stock Ubuntu 18.04 machine the total steps 
 required to get going are:
-### 1. Run these commands
+<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Run these commands. </h3>
 
 ```
 sudo apt install git python3-pip
@@ -21,14 +21,15 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/ud
 sudo udevadm control --reload-rules && udevadm trigger
 ```
 
-### 2. Plug in DepthAI power and USB (for uAI USB is also its power)
-### 3. Clone [depthai-python-extras](https://github.com/luxonis/depthai-python-extras)
+<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Plug in DepthAI power and USB (for uAI USB is also its power). </h3>
+
+<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Clone depthai repo from Github. </h3>
 `git clone https://github.com/luxonis/depthai-python-extras`
 
-### 4. Run the example script:
+<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Run the test/demonstration script. </h3>
 `python3 test.py`
 
-### 5. Enjoy real-time spatialAI.  
+<h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Enjoy real-time spatialAI. </h3>
 What objects are, and where, in physical space:
 
 ![spatial_AI](/images/spatialai.jpg)
