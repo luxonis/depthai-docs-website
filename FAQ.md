@@ -61,9 +61,8 @@ See [here](https://docs.luxonis.com/tutorials/multiple_depthai/) for instruction
 
 Yes.  
 
-We have a Google Collab notebook you can even use for this.  See [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/24)
+We have a tutorial around Google Collab notebooks you can even use for this.  See [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)
 
-And we'll be writing up a tutorial in the Tutorials section in the near future.
 
 ## Do I need Depth data to train my own custom Model for DepthAI?
 
