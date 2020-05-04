@@ -168,13 +168,28 @@ The available streams are:
  - `right` # Right grayscale camera (marked `R` or `RIGHT` on the board)
  - `depth_sipp` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
  - `disparity` # Raw disparity
- - `depth_color_h` # Depth colorized on the host.
+ - `depth_color_h` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
 
 ## How Do I Limit The FrameRate Per Stream?
 
 So the simple way to select streams is to just use the `-s` option.  But in some cases (say when you have a slow host or only USB2 connection -and- you want to display a lot of streams) it may be necessary to limit the framerate of streams to not overwhelm the host/USB2 with too much data.
 
-So to set streams to a specific framerate to reduce the USB2 load and host load, use the following over-ride command structure, which allows you to set the framerate per stream.
+So to set streams to a specific framerate to reduce the USB2 load and host load, simply specify the stream with `-s streamname` with a comma and FPS after the stream name like `-s streamname,FPS`.  
+
+So for limiting `depth_color_h` to 5 FPS, use the following command:
+```
+python3 test.py -s depth_color_h,5
+```
+And this works equally for multiple streams:
+```
+python3 test.py -s left,2 right,2 previewout depth_color_h,5
+```
+
+It's worth noting that the framerate limiting works best for lower rates.  So if you're say trying to hit 25FPS, it's best to just leave no frame-rate specified and let the system go to full 30FPS instead.  
+
+Specifying no limit will default to 30FPS.
+
+One can also use the following over-ride command structure, which allows you to set the framerate per stream.
 
 The following example sets the `depth_sipp` stream to 8 FPS and the `previewout` to 12 FPS:
 
