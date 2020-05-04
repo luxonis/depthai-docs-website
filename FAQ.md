@@ -153,6 +153,10 @@ Where `frame_width` is the horizontal resolution of the sensors, by default 1280
 
 The minimum distance for depth perception is `focal_length * base_line_dist / 96`, as 96 is the standard maximum disparity search used by DepthAI.
 
+So for DepthAI units with onboard cameras, this works out to the following minimum depths:
+ - DepthAI RPi Compute Module Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)): 0.68m
+ - USB3C Onboard Camera Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)): 1.0m
+
 For the depth data, 65535 is a special value, meaning that that distance is unknown.
 
 ## How Do I Display Multiple Streams?
