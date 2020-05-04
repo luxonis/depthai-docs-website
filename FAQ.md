@@ -96,52 +96,6 @@ Yes.
 The full designs (including source Altium files) for all the carrier boards are in our `depthai-hardware` Github:
 
  - [depthai-hardware](https://github.com/luxonis/depthai-hardware)
- 
-## How do I Get H.264 Videos to Play on My Mac?
-The h.264 videos which DepthAI and uAI encode do not work by default on Mac OS X.  You can always upload them to Youtube/Google Photos/etc. and they'll play their.  BUT, if you want them to work directly on your Mac, you can do the following conversion using ffmpeg through HomeBrew:
-
-### Install ffmpeg
-```
-brew install ffmpeg
-```
-### Make an ffmpeg Conversion Script
-Make a new file called `transcode_h264.sh` and make it executable: 
-```
-touch transcode_h264.sh
-chmod +x transcode_h264.sh
-```
-Add the following commands to `transcode_h264.sh`:
-```
-ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 /tmp/pass1 && \
-ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 -movflags +faststart -tune zerolatency "$1.mp4"
-```
-You can do this by copying the text above, and issuing the following commands with vim:
-```
-vim transcode_h264.sh
-i
-```
-Hit CMD + v
-
-Hit esc
-```
-:wq
-```
-Hit enter
-
-### Use the Conversion Script
-
-```
-./transcode_h264.sh myvid.mov
-```
-
-You'll get a nice, fairly small, Mac-friendly and share-able video.
-
-### [Optional] Add the Conversion Script to Your Path
-
-```
-cp transcode_h264.sh /usr/local/bin/transcode_h264
-```
-Now you can juse use `transcode_h264.sh` in any directory!
 
 ## What are the Minimum and Maximum Depth Visible by DepthAI?
 
@@ -201,6 +155,49 @@ The following example sets the `depth_sipp` stream to 8 FPS and the `previewout`
 
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.
 
+## How do I Record Video with DepthAI?
+
+DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai.py` script shows and example of how to access this functionality.  
+
+To leverage this functionality from the command line, use the `-v` (or `--video`) command line argument as below:
+```
+python3 test.py -v [path/to/video.h264]
+```
+
+To then play the video in mp4/mkv format use the following muxing command:
+```
+ffmpeg -framerate 30 -i [path/to/video.h264] -c copy [outputfile.mp4/mkv]
+```
+
+By default there are keyframes every 1 second which resolve the previous issues with traversing the video as well as provide the capability to start recording anytime (worst case 1 second of video is lost if just missed the keyframe)
+
+When running test.py, one can record a jpeg of the current frame by hitting `c` on the keyboard.  
+
+Additional options can be configured in the video encoding system by adding a `video_config` section to the JSON config of the DepthAI pipeline builder, [here](https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342), an example of which is [here](https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342).
+
+```
+config = {
+...
+    'video_config':
+    {
+        'rateCtrlMode': 'cbr', # Options: 'cbr' / 'vbr' (constant bit rate or variable bit rate)
+        'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main'
+        'bitrate': 8000000, # When using CBR
+        'maxBitrate': 8000000, # When using CBR
+        'keyframeFrequency': 30, # In number of frames
+        'numBFrames': 0,
+        'quality': 80 # (0 - 100%) When using VBR
+    }
+...
+}
+```
+
+the options above are all current options. Not all must be set.
+
+If `video_config` member is NOT present in config dictionary then default is used:
+> Default video encoder configuration:
+> H264_HIGH, constant bitrate @ 8500Kbps, keyframe every 30 frames (once per second), num B frames: 0
+
 ## How Do I Force USB2 Mode?
 
 USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
@@ -250,3 +247,49 @@ EEPROM data: valid (v2)
 ```
 
 Current (as of April 2020) DepthAI boards with on-board stereo cameras ([BW1097](https://docs.luxonis.com/products/bw1097/) and [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
+
+## How do I Get H.264 Videos to Play on My Mac?
+The h.264 videos which DepthAI and uAI encode do not work by default on Mac OS X.  You can always upload them to Youtube/Google Photos/etc. and they'll play their.  BUT, if you want them to work directly on your Mac, you can do the following conversion using ffmpeg through HomeBrew:
+
+### Install ffmpeg
+```
+brew install ffmpeg
+```
+### Make an ffmpeg Conversion Script
+Make a new file called `transcode_h264.sh` and make it executable: 
+```
+touch transcode_h264.sh
+chmod +x transcode_h264.sh
+```
+Add the following commands to `transcode_h264.sh`:
+```
+ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 /tmp/pass1 && \
+ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 -movflags +faststart -tune zerolatency "$1.mp4"
+```
+You can do this by copying the text above, and issuing the following commands with vim:
+```
+vim transcode_h264.sh
+i
+```
+Hit CMD + v
+
+Hit esc
+```
+:wq
+```
+Hit enter
+
+### Use the Conversion Script
+
+```
+./transcode_h264.sh myvid.mov
+```
+
+You'll get a nice, fairly small, Mac-friendly and share-able video.
+
+### [Optional] Add the Conversion Script to Your Path
+
+```
+cp transcode_h264.sh /usr/local/bin/transcode_h264
+```
+Now you can juse use `transcode_h264.sh` in any directory!
