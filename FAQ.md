@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Frequently Asked Questions
-toc_title: FAQ & How-To
+toc_title: FAQs & How-To
 description: Common questions and How-Tos when first learning about or using DepthAI/uAI.
 order: 6
 ---
@@ -102,16 +102,21 @@ The full designs (including source Altium files) for all the carrier boards are 
 Depth data from DepthAI is returned in uint16 format.  To interpret this depth into meters, use the following conversions.  
 
 In terms of numerically-limited max distance (i.e. not limited by the practicalities of physics), the actual furthest distance is
-`focal_length * base_line_dist` in meters, *1000 in mm, where `focal_length = frame_width / (2.f * std::tan(fov / 2 / 180.f * pi));`
+`focal_length * base_line_dist` in meters, *1000 in mm, where `focal_length = frame_width [pixels]  / (2 * tan(fov / 2 / 180 * pi));`
 Where `frame_width` is the horizontal resolution of the sensors, by default 1280 pixels.
 
-The minimum distance for depth perception is `focal_length * base_line_dist / 96`, as 96 is the standard maximum disparity search used by DepthAI.
+The minimum distance for depth perception (in meters) is: 
+`min_distance = focal_length * base_line_dist / 96`
+Where 96 is the standard maximum disparity search used by DepthAI.
+
+For DepthAI, the HFOV of the the grayscale global shutter cameras is 71.86 degrees (this can be found on your board, see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai), so the focal length is:
+`focal_length = 1280/(2*tan(71.86/2/180*pi)) = 883.15` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk01Ip7jrSxOqilDQiCjN7zb9XwoRQA%3A1588619495817&ei=52iwXpiqMYv3-gSBy4SQDw&q=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzoECAAQR1CI0BZY-MkYYPDNGGgAcAJ4AIABWogBjgmSAQIxNJgBAKABAaoBB2d3cy13aXo&sclient=psy-ab&ved=0ahUKEwjYuezl9JrpAhWLu54KHYElAfIQ4dUDCAw&uact=5)
 
 So for DepthAI units with onboard cameras, this works out to the following minimum depths:
- - DepthAI RPi Compute Module Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)): 0.68m
- - USB3C Onboard Camera Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)): 1.0m
+ - DepthAI RPi Compute Module Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)): `min_distance = 883.15*.09/96 = 0.827m` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.09%2F96&oq=883.15*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CBjg5YnZAOYMylDmgAcAB4AIABX4gBjwOSAQE1mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5))
+ - USB3C Onboard Camera Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)): `min_distance = 883.15*.075/96 = 0.689m` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.075%2F96&oq=883.15*.075%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1DtSVjkSmDVS2gAcAB4AIABYYgBywKSAQE0mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5))
 
-For the depth data, 65535 is a special value, meaning that that distance is unknown.
+And for depth data, the value is stored in `uint16`, where the max value of `uint16` of 65535 is a special value, meaning that that distance is unknown.
 
 ## How Do I Display Multiple Streams?
 To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for deph results (`depth_sipp`), use the following command:
