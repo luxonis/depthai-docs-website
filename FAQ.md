@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Frequently Asked Questions
-toc_title: FAQ
+toc_title: FAQ & How-To
 description: Common questions and How-Tos when first learning about or using DepthAI/uAI.
 order: 6
 ---
