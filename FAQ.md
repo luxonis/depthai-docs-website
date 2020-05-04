@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Frequently Asked Questions
-toc_title: FAQ & How-To
+toc_title: FAQs & How-To
 description: Common questions and How-Tos when first learning about or using DepthAI/uAI.
 order: 6
 ---
@@ -96,64 +96,29 @@ Yes.
 The full designs (including source Altium files) for all the carrier boards are in our `depthai-hardware` Github:
 
  - [depthai-hardware](https://github.com/luxonis/depthai-hardware)
- 
-## How do I Get H.264 Videos to Play on My Mac?
-The h.264 videos which DepthAI and uAI encode do not work by default on Mac OS X.  You can always upload them to Youtube/Google Photos/etc. and they'll play their.  BUT, if you want them to work directly on your Mac, you can do the following conversion using ffmpeg through HomeBrew:
-
-### Install ffmpeg
-```
-brew install ffmpeg
-```
-### Make an ffmpeg Conversion Script
-Make a new file called `transcode_h264.sh` and make it executable: 
-```
-touch transcode_h264.sh
-chmod +x transcode_h264.sh
-```
-Add the following commands to `transcode_h264.sh`:
-```
-ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 /tmp/pass1 && \
-ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 -movflags +faststart -tune zerolatency "$1.mp4"
-```
-You can do this by copying the text above, and issuing the following commands with vim:
-```
-vim transcode_h264.sh
-i
-```
-Hit CMD + v
-
-Hit esc
-```
-:wq
-```
-Hit enter
-
-### Use the Conversion Script
-
-```
-./transcode_h264.sh myvid.mov
-```
-
-You'll get a nice, fairly small, Mac-friendly and share-able video.
-
-### [Optional] Add the Conversion Script to Your Path
-
-```
-cp transcode_h264.sh /usr/local/bin/transcode_h264
-```
-Now you can juse use `transcode_h264.sh` in any directory!
 
 ## What are the Minimum and Maximum Depth Visible by DepthAI?
 
 Depth data from DepthAI is returned in uint16 format.  To interpret this depth into meters, use the following conversions.  
 
 In terms of numerically-limited max distance (i.e. not limited by the practicalities of physics), the actual furthest distance is
-`focal_length * base_line_dist` in meters, *1000 in mm, where `focal_length = frame_width / (2.f * std::tan(fov / 2 / 180.f * pi));`
+`focal_length * base_line_dist` in meters, *1000 in mm, where `focal_length = frame_width [pixels]  / (2 * tan(fov / 2 / 180 * pi));`
 Where `frame_width` is the horizontal resolution of the sensors, by default 1280 pixels.
 
-The minimum distance for depth perception is `focal_length * base_line_dist / 96`, as 96 is the standard maximum disparity search used by DepthAI.
+The minimum distance for depth perception (in meters) is: 
+`min_distance = focal_length * base_line_dist / 96`
+Where 96 is the standard maximum disparity search used by DepthAI.
 
-For the depth data, 65535 is a special value, meaning that that distance is unknown.
+For DepthAI, the HFOV of the the grayscale global shutter cameras is 71.86 degrees (this can be found on your board, see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai), so the focal length is
+`focal_length = 1280/(2*tan(71.86/2/180*pi)) = 883.15` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk01Ip7jrSxOqilDQiCjN7zb9XwoRQA%3A1588619495817&ei=52iwXpiqMYv3-gSBy4SQDw&q=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzoECAAQR1CI0BZY-MkYYPDNGGgAcAJ4AIABWogBjgmSAQIxNJgBAKABAaoBB2d3cy13aXo&sclient=psy-ab&ved=0ahUKEwjYuezl9JrpAhWLu54KHYElAfIQ4dUDCAw&uact=5)).
+
+So for DepthAI units with onboard cameras, this works out to the following minimum depths:
+ - DepthAI RPi Compute Module Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)): 
+ `min_distance = 883.15*.09/96 = 0.827m` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.09%2F96&oq=883.15*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CBjg5YnZAOYMylDmgAcAB4AIABX4gBjwOSAQE1mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5))
+ - USB3C Onboard Camera Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)): 
+ `min_distance = 883.15*.075/96 = 0.689m` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.075%2F96&oq=883.15*.075%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1DtSVjkSmDVS2gAcAB4AIABYYgBywKSAQE0mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5))
+
+And for depth data, the value is stored in `uint16`, where the max value of `uint16` of 65535 is a special value, meaning that that distance is unknown.
 
 ## How Do I Display Multiple Streams?
 To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for deph results (`depth_sipp`), use the following command:
@@ -164,7 +129,7 @@ python3 test.py -s metaout previewout depth_sipp
 The available streams are:
  - `metaout` # Meta data results from the neural network
  - `previewout` # Small preview stream from the color camera
- - `left` # Left grayscale camera ()
+ - `left` # Left grayscale camera (marked `L` or `LEFT` on the board)
  - `right` # Right grayscale camera (marked `R` or `RIGHT` on the board)
  - `depth_sipp` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
  - `disparity` # Raw disparity
@@ -196,6 +161,48 @@ The following example sets the `depth_sipp` stream to 8 FPS and the `previewout`
 `python3 test.py -co '{"streams": [{"name": "depth_sipp", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
 
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.
+
+## How do I Record Video with DepthAI?
+
+DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai.py` script shows and example of how to access this functionality.  
+
+To leverage this functionality from the command line, use the `-v` (or `--video`) command line argument as below:
+```
+python3 test.py -v [path/to/video.h264]
+```
+
+To then play the video in mp4/mkv format use the following muxing command:
+```
+ffmpeg -framerate 30 -i [path/to/video.h264] -c copy [outputfile.mp4/mkv]
+```
+
+By default there are keyframes every 1 second which resolve the previous issues with traversing the video as well as provide the capability to start recording anytime (worst case 1 second of video is lost if just missed the keyframe)
+
+When running test.py, one can record a jpeg of the current frame by hitting `c` on the keyboard.  
+
+Additional options can be configured in the video encoding system by adding a `video_config` section to the JSON config of the DepthAI pipeline builder, [here](https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342), an example of which is [here](https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342).
+
+```
+config = {
+...
+    'video_config':
+    {
+        'rateCtrlMode': 'cbr', # Options: 'cbr' / 'vbr' (constant bit rate or variable bit rate)
+        'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main'
+        'bitrate': 8000000, # When using CBR
+        'maxBitrate': 8000000, # When using CBR
+        'keyframeFrequency': 30, # In number of frames
+        'numBFrames': 0,
+        'quality': 80 # (0 - 100%) When using VBR
+    }
+...
+}
+```
+The options above are all current options exposed for video encoding and not all must be set.
+
+If `video_config` member is **NOT** present in config dictionary then default is used:
+> Default video encoder configuration:
+> H264_HIGH, constant bitrate @ 8500Kbps, keyframe every 30 frames (once per second), num B frames: 0
 
 ## How Do I Force USB2 Mode?
 
@@ -246,3 +253,49 @@ EEPROM data: valid (v2)
 ```
 
 Current (as of April 2020) DepthAI boards with on-board stereo cameras ([BW1097](https://docs.luxonis.com/products/bw1097/) and [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
+
+## How do I Get H.264 Videos to Play on My Mac?
+The h.264 videos which DepthAI and uAI encode do not work by default on Mac OS X.  You can always upload them to Youtube/Google Photos/etc. and they'll play their.  BUT, if you want them to work directly on your Mac, you can do the following conversion using ffmpeg through HomeBrew:
+
+### Install ffmpeg
+```
+brew install ffmpeg
+```
+### Make an ffmpeg Conversion Script
+Make a new file called `transcode_h264.sh` and make it executable: 
+```
+touch transcode_h264.sh
+chmod +x transcode_h264.sh
+```
+Add the following commands to `transcode_h264.sh`:
+```
+ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 /tmp/pass1 && \
+ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 -movflags +faststart -tune zerolatency "$1.mp4"
+```
+You can do this by copying the text above, and issuing the following commands with vim:
+```
+vim transcode_h264.sh
+i
+```
+Hit CMD + v
+
+Hit esc
+```
+:wq
+```
+Hit enter
+
+### Use the Conversion Script
+
+```
+./transcode_h264.sh myvid.mov
+```
+
+You'll get a nice, fairly small, Mac-friendly and share-able video.
+
+### [Optional] Add the Conversion Script to Your Path
+
+```
+cp transcode_h264.sh /usr/local/bin/transcode_h264
+```
+Now you can juse use `transcode_h264.sh` in any directory!
