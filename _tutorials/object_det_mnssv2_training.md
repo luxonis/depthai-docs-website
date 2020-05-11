@@ -63,10 +63,10 @@ Then as we refine and really want to dial-in a model, we use [basic.ai](https://
 
 ### Step 3: Organize the Images for Training
 
-To train the network, you want to set aside some of the ground-truth images that can be used to evaluate the performance of the trainging run.  That is to say, you don't want to use all of your dataset for training, as then you won't be able to effectively asses how training is running - as testing the network on the images it was trained on will not give you a realistic view of how the network will perform in the real world.
+To train the network, you want to set aside some of the ground-truth images that can be used to evaluate the performance of the trainging run.  That is to say, you don't want to use all of your dataset for training, as then you won't be able to effectively assess how training is running - as testing the network on the images it was trained on will not give you a realistic view of how the network will perform in the real world.
 
 To do so:
-1. Randomly select approximately 20% of your images and place them in a `test` folder together with the corresponding `.xml.` annotation files.
+1. Randomly select approximately 20% of your images and place them in a `test` folder together with the corresponding `.xml.` annotation files. If your dataset is small, select only 5-10% of images for the `test` folder.
 2. Place the remaining images in a `train` folder together with their annotations.
 3. Select a few extra images with no annotations to be used as an evaluation after the training is complete and place them in a `final_test_folder`
 4. Upload the three folders to your google drive
@@ -74,12 +74,41 @@ To do so:
 ### Step 4: Train a Network on Your Custom Data
 
 With your dataset prepared and labeled, use the following Google Colab network to perform the training.
+The notebook will also help you convert the Tensorflow trained model to a blob file that will run on the DepthAI modules.
+Download the blob file to use it in the next step.
 
 [https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD](https://drive.google.com/open?id=1p1KEb37RS3h5HvjxSzcByeCmWdhdYBOD)
 
-### Step 5: Use OpenVINO on Your Local Computer Convert the Model
+### Step 5: Run your model in DepthAI
 
-Once you have a model, you can use OpenVINO on your local computer to convert this model and run it on DepthAI.
+Now we use the model trained at step 4, in its .blob format, to run it on DepthAI.
+In your DepthAI folder, go to the `resources/nn directory`. There you will see a folder called `mobilenet-ssd`. Since your model is also a mobilenet ssd, make a copy of that folder and rename it as you see fit for your model. If you trained a model for dog breeds, you could call it dog_detective.
+Enter the folder and delete the mobilenet-ssd.blob. Paste here your own blob from above and give it the same name as the folder, i.e. 'dog_detective.blob'. Also rename the .json files to match the folder and blob name, i.e. 'dog_detective.json' and 'dog_detective_depth.json'.
+
+In both the .json files you will see a category called labels. Those are the default mobilenet-ssd labels trained on Pascal '07 dataset. 
+Modify the labels according to the labels for your trained model. So if you had 4 dog breeds in the dog_detective, write those 4 breeds in the order you have them in your training data labels. Of course, remove all the unnecessary labels, except for "background". This label must remain and always on top. You should end up with "background" + your labels, i.e. 5 labels in total for the dog_detective.
+If the model consistently predicts a poodle as a husky for example, it most likely means your labels are not in the correct order. Don't worry, just change the order of the labels to match the detections.
+
+Remember, you have to change the labels in both .json files. 
+
+You are ready to run your very own trained model on DepthAI. 
+Open a terminal in your DepthAI directory and run:
+
+`python3 test.py -cnn <your folder name>` i.e. 
+`python3 test.py -cnn dog_detective`
+
+If you wish to disable the spatial measurements associated with the detected objects, run the comand with the '-dd' (disable depth) flag.
+
+`python3 test.py -dd -cnn <your folder name>`
+
+Enjoy!
+
+For questions/comments please [contact us](https://docs.luxonis.com/support/)!
+
+
+### Step 4.5: Alternative way to obtain the .blob
+
+Once you have an Intermediate Representation of your model from the colab notebook( the .xml and .bin files), you can also use OpenVINO on your local computer to convert this model and run it on DepthAI (insted of using the server in the notebook).
 
 See [here](https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format) for instructions.
 
