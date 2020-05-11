@@ -183,7 +183,7 @@ git submodule update --init --recursive
 ./depthai-api/build_py_module.sh
 python3 test.py
 ```
-You should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person' and strangely, 'sheep'.
+You should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json)), including 'person' and strangely, 'sheep'.
 
 {: #compile_linux }
 ### Building from Source for Other Linux Distros
@@ -210,5 +210,5 @@ git submodule update --init --recursive
 python3 test.py
 ```
 
-Same here, you should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)), including 'person', 'car', 'dog' and strangely, 'sheep'.
+Same here, you should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json)), including 'person', 'car', 'dog' and strangely, 'sheep'.
 
