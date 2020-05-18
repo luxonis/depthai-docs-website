@@ -37,17 +37,20 @@ error
 ### Raspbian
 Many folks will have a lot of the following installed, but this details how to go from a fresh Raspbian install (the one with `and recommended software` [here](https://www.raspberrypi.org/downloads/raspbian/) was tested.
 
-With a fresh install, below are the following dependencies needed to get DepthAI (and megaAI) up and running:
+With a fresh install, below are the following dependencies needed to get DepthAI (and megaAI) up and running.  Make sure to connect your Pi to the internet to run the following commands:
 ```
 sudo apt update
 sudo apt upgrade
 sudo apt install python3-opencv
-
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && sudo udevadm trigger
 git clone https://github.com/luxonis/depthai.git
 cd depthai
 ```
+
+Note that the longest part of this process will be updating and upgrading the Pi via `apt`.
+
+After running these commands, jump to [Quick Test](#quicktest) below to run your DepthAI for the first time on your Raspberry Pi.
 
 ### Ubuntu 
 ```
@@ -59,6 +62,7 @@ git clone https://github.com/luxonis/depthai.git
 cd depthai
 ```
 
+{: #quicktest}
 ## Quick Test
 
 Run `python3 test.py` from within depthai to make sure everything is working:
