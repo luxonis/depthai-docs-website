@@ -17,8 +17,12 @@ The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10 for t
 
 * Ubuntu 18.04 - Python 3.6
 * Raspbian - Python 3.7
+* Mac OS X - Since Homebrew installation settings/permutations vary so much, we currently force build from source, see [here](#macos) to do so.
+* Windows 10 - Currently experimental, but works.  See [here](https://discuss.luxonis.com/d/39-depthai-sneak-peak-into-windows-support)
 
-DepthAI is supported on other platforms and Python versions but the pymodule needs to be built from source.  See [here](#compile_api) to do so.  
+Since the DepthAI codebase is open source, it can be built from source on all sorts of other platforms.  See [here](#compile_api) to do so. We also are soon releasing a variant which doesn't even require the host to be running an operating system or even have USB support.  
+
+We'll be supporting SPI, I2C, and/or UART communication to processors like the MSP430, STM32, and so forth (and will have a set of reference libaries for SPI, I2C, and UART for the Raspberry Pi, which helps debugging when integrating custom applications with DepthAI over these interfaces).
 
 ## Install System Dependencies
 <div class="alert alert-primary" role="alert">
@@ -157,8 +161,8 @@ Below is a quick summary of what's been tried by Luxonis staff and DepthAI users
 * Other Linux Distros - Check if the Ubuntu pymodule works (by using `ldd` to check for broken dependencies), or compile from source [below](/api#compile_linux).
 
 
-
-### Mac OS X
+{: #macos}
+### macOS (Mac OS X)
 Assuming a stock Mac OS X install, DepthAI can be installed and tested with the following commands, thanks to [HomeBrew](https://brew.sh/).
 
 #### Install HomeBrew
