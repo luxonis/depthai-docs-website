@@ -15,8 +15,6 @@ Watching the video below will give you the steps needed to calibrate your own De
 
 [![DepthAI Calibration Example](http://img.youtube.com/vi/lF01f0p1oZM/0.jpg)](https://www.youtube.com/watch?v=lF01f0p1oZM "DepthAI Calibration")
 
-https://youtu.be/lF01f0p1oZM
-
 <h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
 <div class="alert alert-primary" role="alert">
