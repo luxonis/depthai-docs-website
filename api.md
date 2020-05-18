@@ -34,7 +34,22 @@ error
 </div>
  
 
-### Ubuntu and Raspbian
+### Raspbian
+Many folks will have a lot of the following installed, but this details how to go from a fresh Raspbian install (the one with `and recommended software` [here](https://www.raspberrypi.org/downloads/raspbian/) was tested.
+
+With a fresh install, below are the following dependencies needed to get DepthAI (and megaAI) up and running:
+```
+sudo apt update
+sudo apt upgrade
+sudo apt install python3-opencv
+
+echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
+git clone https://github.com/luxonis/depthai.git
+cd depthai
+```
+
+### Ubuntu 
 ```
 sudo apt install git python3-pip
 pip3 install numpy opencv-python --user
