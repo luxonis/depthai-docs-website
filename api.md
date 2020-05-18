@@ -15,14 +15,12 @@ Instructions for installing, upgrading, and using the DepthAI Python API.
 
 The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10 for the following Python versions:
 
-* Ubuntu 18.04 - Python 3.6
-* Raspbian - Python 3.7
-* Mac OS X - Since Homebrew installation settings/permutations vary so much, we currently force build from source, see [here](#macos) to do so.
-* Windows 10 - Currently experimental, but works.  See [here](https://discuss.luxonis.com/d/39-depthai-sneak-peak-into-windows-support)
-
-Since the DepthAI codebase is open source, it can be built from source on all sorts of other platforms.  See [here](#compile_api) to do so. We also are soon releasing a variant which doesn't even require the host to be running an operating system or even have USB support.  
-
-We'll be supporting SPI, I2C, and/or UART communication to processors like the MSP430, STM32, and so forth (and will have a set of reference libaries for SPI, I2C, and UART for the Raspberry Pi, which helps debugging when integrating custom applications with DepthAI over these interfaces).
+* [Ubuntu 18.04](#ubuntu) - Python 3.6
+* [Raspbian](#raspbian) - Python 3.7
+* [macOS](#macos) (Mac OS X) - Homebrew installation settings/permutations vary quite a bit so we currently require build from source for macOS, see [here](#macos) to do so.
+* [Windows 10](https://discuss.luxonis.com/d/39-depthai-sneak-peak-into-windows-support) - Currently experimental (as of 18 May 2020). 
+* [Other Systems](#compile_api) - The DepthAI codebase is open source, so it can be built from source on all sorts of other platforms.  See [here] to do so. We also are soon releasing a variant which doesn't even require the host to be running an operating system or even have USB support.  
+* Embedded Platforms - We're working on supporting SPI, I2C, and/or UART communication to processors like the MSP430, STM32, and so forth (and will have a set of reference libaries for SPI, I2C, and UART for the Raspberry Pi, which helps debugging when integrating custom applications with DepthAI over these interfaces).
 
 ## Install System Dependencies
 <div class="alert alert-primary" role="alert">
@@ -33,9 +31,9 @@ error
   <span class="small">All dependencies are installed and the repository is checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
  
-
+{: #raspbian}
 ### Raspbian
-Many folks will have a lot of the following installed, but this details how to go from a fresh Raspbian install (the one with `and recommended software` [here](https://www.raspberrypi.org/downloads/raspbian/) was tested.
+Many folks will have a lot of the following installed, but this details how to go from a fresh Raspbian install (the one with *and recommended software* [here](https://www.raspberrypi.org/downloads/raspbian/) was tested.
 
 With a fresh install, below are the following dependencies needed to get DepthAI (and megaAI) up and running.  Make sure to connect your Pi to the internet to run the following commands:
 ```
@@ -52,6 +50,7 @@ Note that the longest part of this process will be updating and upgrading the Pi
 
 After running these commands, jump to [Quick Test](#quicktest) below to run your DepthAI for the first time on your Raspberry Pi.
 
+{: #ubuntu}
 ### Ubuntu 
 ```
 sudo apt install git python3-pip
