@@ -35,7 +35,7 @@ error
 sudo apt install git python3-pip
 pip3 install numpy opencv-python --user
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-sudo udevadm control --reload-rules && udevadm trigger
+sudo udevadm control --reload-rules && sudo udevadm trigger
 git clone https://github.com/luxonis/depthai.git
 cd depthai
 ```
