@@ -25,7 +25,7 @@ It's a matter of minutes to be up and running with the power of Spatial AI, on t
 The command to get the above output is `python3 test.py -s metaout previewout depth_sipp -ff -bb`.
 
 Here is a single-camera version (megaAI) running with `pytyon3 test.py -dd` (to disable showing depth info):
-![megaAI Legos](lego.png)
+![megaAI Legos](/images/lego.png)
 
 ## Can all the models be used with the Raspberry Pi?
 
