@@ -10,45 +10,40 @@ order: 6
 
 ## How hard is it to get DepthAI running from scratch?
 
-It's pretty simple, and the bare requirements are fairly slim.  For a stock Ubuntu 18.04 machine the total steps 
-required to get going are:
-<h3 class="step" data-toc-title="Install Dependencies" id="install_dependencies"><span></span> Run these commands. </h3>
+Not hard.  Usually DepthAI is up/running on your platform within a couple minutes (most of which is download time). 
 
-```
-sudo apt install git python3-pip
-pip3 install numpy opencv-python
-echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-sudo udevadm control --reload-rules && udevadm trigger
-```
+The requirements are Python and OpenCV (which are great to have on your system anyway!). see [here](https://docs.luxonis.com/api/#python_version) for supported platforms and how to get up/running with them.  
 
-<h3 class="step" data-toc-title="Plug In DepthAI" id="plugin"><span></span> Plug in DepthAI power and USB (for uAI USB is also its power). </h3>
+Raspbian, Ubuntu, macOS, Windows, and many others are supported and are easy to get up/running. 
 
-<h3 class="step" data-toc-title="Cone DepthAI Github" id="clone_repo"><span></span> Clone depthai repo from Github. </h3>
-`git clone https://github.com/luxonis/depthai-python-extras`
+For Install on various platforms are [here](https://docs.luxonis.com/api/#python_version).
 
-<h3 class="step" data-toc-title="Run test.py" id="run_example"><span></span> Run the test/demonstration script. </h3>
-`python3 test.py`
+It's a matter of minutes to be up and running with the power of Spatial AI, on the platform of your choice.  Below is DepthAI running on my Mac.
 
-<h3 class="step" data-toc-title="Enjoy Spatial AI" id="enjoy_spatialai"><span></span> Enjoy real-time spatialAI. </h3>
-What objects are, and where, in physical space:
+[![Spatial AI](https://img.youtube.com/vi/SWDQekolM8o/0.jpg)](https://www.youtube.com/watch?v=SWDQekolM8o "DepthAI on Mac")
 
-![spatial_AI](/images/spatialai.jpg)
+The command to get the above output is `python3 test.py -s metaout previewout depth_sipp -ff -bb`.
+
+Here is a single-camera version (megaAI) running with `pytyon3 test.py -dd` (to disable showing depth info):
+![megaAI Legos](/images/lego.png)
 
 ## Can all the models be used with the Raspberry Pi?
 
 Yes, every model can be used, including:
 
- - Raspberry Pi Compute Module Edition ([BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) - this one has a built-in Raspberry Pi Compute Module 3B+
+ - Raspberry Pi Compute Module Edition ([BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) - this one has a built-in Raspberry Pi Compute Module 3B+)
  - Raspberry Pi HAT (BW1094) - this can also be used with other hosts as its interface is USB3
  - USB3C with Onboard Cameras [BW1098OBC](https://shop.luxonis.com/collections/all/products/bw10980bc)
  - USB3C with Modular Cameras [BW1098FFC](https://shop.luxonis.com/products/depthai-usb3-edition)
- - uAI (microAI) Single Camera [BW1093](https://shop.luxonis.com/collections/all/products/bw1093)
+ - megaAI (microAI) Single Camera [BW1093](https://shop.luxonis.com/collections/all/products/bw1093)
  
  We even have some basic ROS support going as well which can be used on the Pi also.
  
-## Is DepthAI and uAI easy to use with Raspberry Pi? 
+## Is DepthAI and megaAI easy to use with Raspberry Pi? 
  
 Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
+
+See [here](https://docs.luxonis.com/api/#raspbian) to get up and running quickly!
  
 ## Can I use multiple DepthAI with one host? 
  
