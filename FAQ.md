@@ -20,7 +20,7 @@ For Install on various platforms are [here](https://docs.luxonis.com/api/#python
 
 It's a matter of minutes to be up and running with the power of Spatial AI, on the platform of your choice.  Below is DepthAI running on my Mac.
 
-[![Spatial AI](http://img.youtube.com/vi/SWDQekolM8o/0.jpg)](https://www.youtube.com/watch?v=SWDQekolM8o "DepthAI on Mac")
+[![Spatial AI](https://img.youtube.com/vi/SWDQekolM8o/0.jpg)](https://www.youtube.com/watch?v=SWDQekolM8o "DepthAI on Mac")
 https://youtu.be/SWDQekolM8o
 
 ## Can all the models be used with the Raspberry Pi?
