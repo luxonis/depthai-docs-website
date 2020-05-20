@@ -208,8 +208,11 @@ python3 test.py
 You should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json)), including 'person' and strangely, 'sheep'.
 
 {: #compile_linux }
-### Building from Source for Other Linux Distros
+### Building DepthAI from Source 
 
+If you are using non-standard Python versions (such as an older Python on an older OS), or are modifying the DepthAI API yourself, or for whatever reason you need to build from source, it's fairly straightforward to so so.
+
+#### Install Developer Tools
 To compile the Python API from scratch, it may be necessary, depending on the configuration of the machine, to install build essentials such as through your Linux distro's package manager, or building them from source if needed, in order for building the DepthAI python module from source to be successful.
 * cmake
 * gcc
@@ -223,6 +226,7 @@ It's worth noting that cmake, gcc, g++, etc. can often be installed via somethin
 
 Once these dependencies are installed (which may already be the case), use the following commands to build the pymodule from source and test it:
 
+#### Build DepthAI from Source
 ```
 git clone https://github.com/luxonis/depthai.git
 cd depthai
