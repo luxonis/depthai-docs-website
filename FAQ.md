@@ -316,8 +316,13 @@ Now you can juse use `transcode_h264.sh` in any directory!
 
 ## What are the Highest Resolutions and Recording FPS Possible with DepthAI and megaAI?
 
-12MP (4056x3040) : 21.09fps (390MB/s) on Gen1, 41.2fps (762MB/s) on Gen2
-4K   (3840x2160) : 30.01fps (373MB/s) on Gen1, 60.0fps (746MB/s) on Gen2
+Raw/Uncompressed:
+ - 12MP (4056x3040) : 21.09fps (390MB/s) on Gen1 USB3, 41.2fps (762MB/s) on Gen2 USB3
+ - 4K   (3840x2160) : 30.01fps (373MB/s) on Gen1 USB3, 60.0fps (746MB/s) on Gen2 USB3
+
+Encoded:
+ - 12MP (4056x3040) : JPEG Pictures/Stills
+ - 4K   (3840x2160) : 30.00fps (3.125MB/s) 
 
 With h.265 (HEVC) encoding, the max resolution is 4K at 30FPS.  With the default encoding settings in DepthAI/megaAI, this brings the throughput down from 373MB/s (raw/unencoded) to 3.125MB/s.  Pretty cool 100:1 compression.  And example video encoded on DepthAI [BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) (Raspberry Pi Compute Module Edition) is below:
 
