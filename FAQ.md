@@ -316,14 +316,20 @@ Now you can juse use `transcode_h264.sh` in any directory!
 
 ## What are the Highest Resolutions and Recording FPS Possible with DepthAI and megaAI?
 
-Raw/Uncompressed:
- - 12MP (4056x3040) : 21.09fps (390MB/s) on Gen1 USB3, 41.2fps (762MB/s) on Gen2 USB3
- - 4K   (3840x2160) : 30.01fps (373MB/s) on Gen1 USB3, 60.0fps (746MB/s) on Gen2 USB3
+megaAI can be used to stream raw/uncompressed video with USB3.  Gen1 USB3 is capable of 5gbps and Gen2 USB3 is capable of 10gbps.  DepthAI and megaAI are capable of both Gen1 and Gen2 USB3 - but not all USB3 hosts will support Gen2, so check your hosts specifications to see if Gen2 rates are possible.
+
+| Resolution          | USB3 Gen1 (5gbps)      | USB3 Gen2 (10gbps)   |
+|:--------------------:-----------------------:|---------------------:|
+| 12MP (4056x3040)    | 21.09fps (390MB/s)     | 41.2fps (762MB/s)    |
+| 4K   (3840x2160)    | 30.01fps (373MB/s)     | 60.0fps (746MB/s)    |
+
+
+DepthAI and megaAI can do h.264 and h.265 (HEVC) encoding on-device. The max resolution/rate is 4K at 30FPS.  With the default encoding settings in DepthAI/megaAI, this brings the throughput down from 373MB/s (raw/unencoded 4K/30) to 3.125MB/s (h.265/HEVC at 25mbps bit rate).  An example video encoded on DepthAI [BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) (Raspberry Pi Compute Module Edition) is below:
+
+[![4K Video on DepthAI with Raspberry Pi 3B](https://img.youtube.com/vi/vEq7LtGbECs/0.jpg)](https://www.youtube.com/watch?v=vEq7LtGbECs "4K 30FPS video in 3.125MB/s")
+
+It's worth noting that all DepthAI and megaAI products share the same color camera specs and encoding capabilities.  So footage filmed on a DepthAI unit with the color camera will be identical to that taken with a megaAI unit.
 
 Encoded:
  - 12MP (4056x3040) : JPEG Pictures/Stills
  - 4K   (3840x2160) : 30.00fps (3.125MB/s) 
-
-With h.265 (HEVC) encoding, the max resolution is 4K at 30FPS.  With the default encoding settings in DepthAI/megaAI, this brings the throughput down from 373MB/s (raw/unencoded) to 3.125MB/s.  Pretty cool 100:1 compression.  And example video encoded on DepthAI [BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) (Raspberry Pi Compute Module Edition) is below:
-
-[![4K Video on DepthAI with Raspberry Pi 3B](https://img.youtube.com/vi/vEq7LtGbECs/0.jpg)](https://www.youtube.com/watch?v=vEq7LtGbECs "4K 30FPS video in 3.125MB/s")
