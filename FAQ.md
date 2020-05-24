@@ -268,6 +268,13 @@ EEPROM data: valid (v2)
 
 Current (as of April 2020) DepthAI boards with on-board stereo cameras ([BW1097](https://docs.luxonis.com/products/bw1097/) and [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
 
+## What is the Field of View of DepthAI and megaAI?
+
+DepthAI and megaAI use the same 12MP RGB Camera module based on the IMX378.
+
+ * 12MP RGB Horizontal Field of View (HFOV): 68.7938 deg
+ * 1MP Global Shutter Grayscale Cmera Horizontal Field of View (HFOV): 71.86 deg
+
 ## How do I Get H.264 Videos to Play on My Mac?
 The h.264 videos which DepthAI and uAI encode do not work by default on Mac OS X.  You can always upload them to Youtube/Google Photos/etc. and they'll play their.  BUT, if you want them to work directly on your Mac, you can do the following conversion using ffmpeg through HomeBrew:
 
