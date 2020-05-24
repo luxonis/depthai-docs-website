@@ -71,9 +71,10 @@ To do so:
 3. Select a few extra images with no annotations to be used as an evaluation after the training is complete and place them in a `final_test_folder`
 4. Upload the three folders to your google drive
 
-### Step 4: Train a Network on Your Custom Data [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb)
+### Step 4: Train a Network on Your Custom Data
 
-With your dataset prepared and labeled, use this Google Colab network to perform the training.
+With your dataset prepared and labeled, use this Google Colab network to perform the training:
+([![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb))
 The notebook will also help you convert the Tensorflow trained model to a blob file that will run on the DepthAI modules.
 Download the blob file to use it in the next step.
 
