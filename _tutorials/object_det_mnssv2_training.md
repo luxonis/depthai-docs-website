@@ -21,13 +21,11 @@ At the end of this tutorial **you** will have trained this same model and have i
 
 This tutorial trains MobileNet SSD v2, which is a popular object detector based on the [SSD: Single Shot MultiBox Detector](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11), implemented with a [MobileNetv2 backbone](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html) from Google.
 
-### Step 0: Trial Run with Canned Data Set
+### Step 0: Trial Run with Canned Data Set [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_Demo_Training.ipynb)
 
 To get an idea about how this works before diving right in, run the following Colab Notebook that will train on images included in the repo cloned in the notebook.
 
-This will allow you to step through the whole flow, see training work and example inference, before attempting your own dataset.
-
-[https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi](https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi)
+This will allow you to step through the whole flow, including seeing training work and running example inference, before attempting your own dataset.
 
 To use your own images for training read below:
 
@@ -42,12 +40,7 @@ To use your own images for training read below:
 - the training images do not have to be that size, but should be fairly uniformly sized
 - for best performance and speed resize all images to e.g. `(800x 600)` or `(600x600)`
 
-If you need help resizing before annotating, you can use the notebook below to resize on your google drive:
-
-([![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb))
-
-[https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq](https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq)
-
+If you need help resizing before annotating, you can use the notebook below to resize on your google drive: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb)
 
 ### Step 2: Annotate the Images to Generate Ground Truth
 
