@@ -21,15 +21,13 @@ At the end of this tutorial **you** will have trained this same model and have i
 
 This tutorial trains MobileNet SSD v2, which is a popular object detector based on the [SSD: Single Shot MultiBox Detector](https://towardsdatascience.com/review-ssd-single-shot-detector-object-detection-851a94607d11), implemented with a [MobileNetv2 backbone](https://ai.googleblog.com/2018/04/mobilenetv2-next-generation-of-on.html) from Google.
 
-### Step 0: Trial Run with Canned Data Set
+### Step 0: Trial Run with Canned Data Set [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_Demo_Training.ipynb)
 
 To get an idea about how this works before diving right in, run the following Colab Notebook that will train on images included in the repo cloned in the notebook.
 
-This will allow you to step through the whole flow, see training work and example inference, before attempting your own dataset.
+This will allow you to step through the whole flow, including seeing training work and running example inference, before attempting your own dataset.
 
-[https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi](https://drive.google.com/open?id=1SvTS8i3ea1Xj6DqpYZwSS5ibyvoyj5fi)
-
-To use your own images for training read below:
+To use your own images for custom training continue on below.
 
 ### Step 1: Find or Generate Images of the Objects of Interest
 
@@ -42,10 +40,7 @@ To use your own images for training read below:
 - the training images do not have to be that size, but should be fairly uniformly sized
 - for best performance and speed resize all images to e.g. `(800x 600)` or `(600x600)`
 
-If you need help resizing before annotating, you can use the notebook below to resize on your google drive:
-
-[https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq](https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq)
-
+If you need help resizing before annotating, you can use this `GDrive-Resize.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb) to resize on your images in google drive.
 
 ### Step 2: Annotate the Images to Generate Ground Truth
 
@@ -71,11 +66,12 @@ To do so:
 3. Select a few extra images with no annotations to be used as an evaluation after the training is complete and place them in a `final_test_folder`
 4. Upload the three folders to your google drive
 
-### Step 4: Train a Network on Your Custom Data
+### Step 4: Train a Network on Your Custom Data [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb)
 
-With your dataset prepared and labeled, use this Google Colab network to perform the training:
-([![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb))
-The notebook will also help you convert the Tensorflow trained model to a blob file that will run on the DepthAI modules.
+With your dataset prepared and labeled, use this Google Colab network to perform the training.
+
+The notebook will also help you convert the Tensorflow trained model to a blob file that will run on the DepthAI and megaAI models.
+
 Download the blob file to use it in the next step.
 
 ### Step 5: Run your model in DepthAI
