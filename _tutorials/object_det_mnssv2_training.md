@@ -27,7 +27,7 @@ To get an idea about how this works before diving right in, run the following Co
 
 This will allow you to step through the whole flow, including seeing training work and running example inference, before attempting your own dataset.
 
-To use your own images for training read below:
+To use your own images for custom training continue on below.
 
 ### Step 1: Find or Generate Images of the Objects of Interest
 
@@ -40,7 +40,7 @@ To use your own images for training read below:
 - the training images do not have to be that size, but should be fairly uniformly sized
 - for best performance and speed resize all images to e.g. `(800x 600)` or `(600x600)`
 
-If you need help resizing before annotating, you can use the notebook below to resize on your google drive: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb)
+If you need help resizing before annotating, you can use this `GDrive-Resize.ipynb` notebook [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb) to resize on your images in google drive.
 
 ### Step 2: Annotate the Images to Generate Ground Truth
 
