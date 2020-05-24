@@ -44,6 +44,8 @@ To use your own images for training read below:
 
 If you need help resizing before annotating, you can use the notebook below to resize on your google drive:
 
+([![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb))
+
 [https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq](https://drive.google.com/open?id=1t1voebiZ42Bu7_3IEIWdZEURw9o3J7Cq)
 
 
