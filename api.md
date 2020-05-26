@@ -238,3 +238,10 @@ python3 test.py
 
 Same here, you should see a small preview window with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json)), including 'person', 'car', 'dog' and strangely, 'sheep'.
 
+#### Re-building DepthAI from Source from a Specific (Experimental) Branch
+The following commands are somewhat overkill, but ensure everything is fully updated for the experimental build.  And the main delay comes the --recursive update.  Once you've done this once on a machine though, it shouldn't take long excepting if there are huge upstream dependency changes.
+
+```
+git checkout [commit-hash or branch_name] --recurse-submodules=yes -f
+git submodule update --init --recursive && ./depthai-api/install_dependencies.sh && ./depthai-api/build_py_module.sh --clean
+```
