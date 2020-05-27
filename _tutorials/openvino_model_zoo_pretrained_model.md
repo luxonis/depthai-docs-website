@@ -87,7 +87,7 @@ Another limiting factor is that this is a relatively low-resolution model (300x3
 
 ## Trying Other Models
 
-The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)), which include:
+The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)), which includes:
  - face detection for retail (`face-detection-retail-0004`)
  - face detection for driver assistance (`face-detection-adas-0001`)
  - facial landmarks, simple (`landmarks-regression-retail-0009`)
