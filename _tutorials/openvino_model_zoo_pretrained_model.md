@@ -88,14 +88,16 @@ Another limiting factor is that this is a relatively low-resolution model (300x3
 ## Trying Other Models
 
 The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)), which include:
- - face detection for retail and driver-assistance
- - facial landmarts, simple and advanced (35-point)
- - age recognition
- - emotions recognition
- - pedestrian detection for driver-assistance
- - pedestrian detection for retail environments
- - vehicle detection for driver-assistance
- - behicle and license plate detection
+ - face detection for retail (run using `-cnn face-detection-retail-0004`)
+ - face detection for driver assistance (ADAS, run using `-cnn face-detection-adas-0001`)
+ - facial landmarks, simple (run using `-cnn landmarks-regression-retail-0009`)
+ - facial landmarksand, advanced (35-point, run using `-cnn facial-landmarks-35-adas-0002`)
+ - age recognition (run with `-cnn age-gender-recognition-retail-0013`)
+ - emotions recognition (run using `-cnn age-gender-recognition-retail-0013`)
+ - pedestrian detection for driver-assistance (run using `-cnn pedestrian-detection-adas-0002`)
+ - pedestrian detection for retail environments (run using `-cnn person-detection-retail-0013`)
+ - vehicle detection for driver-assistance (run using `-cnn vehicle-detection-adas-0002`)
+ - behicle and license plate detection (run using `-cnn vehicle-license-plate-detection-barrier-0106`)
 
 Simply change the paths above to run the other models there, adding the correct labels (or funny ones, should you choose).
 
