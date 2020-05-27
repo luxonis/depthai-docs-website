@@ -25,7 +25,7 @@ The [Open Model Zoo](https://github.com/opencv/open_model_zoo) is a library of f
 
 DepthAI is able to run many of the object detection models in the Zoo, and several are pre-included in the DepthAI Github.   repository.  We will be using one such model in this tutorial, is face-detection-retail-0004 (pre-compiled [here](https://github.com/luxonis/depthai/tree/master/resources/nn/face-detection-retail-0004) on our Github, and [here](https://docs.openvinotoolkit.org/2020.1/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html) on the OpenVINO model zoo).
 
-We'll cover converting OpenVINO models to run on DepthAI in a later article.  For now, you can find the models we've pre-converted [here](https://github.com/luxonis/depthai/tree/master/resources/nn) and brief instructions on how to do so [here](https://github.com/luxonis/depthai-python-extras#conversion-of-existing-trained-models-into-intel-movidius-binary-format)
+We'll cover converting OpenVINO models to run on DepthAI in a later article.  For now, you can find the models we've pre-converted [here](https://github.com/luxonis/depthai/tree/master/resources/nn) and brief instructions on how to do so [here](https://github.com/luxonis/depthai-python-extras#conversion-of-existing-trained-models-into-intel-movidius-binary-format).
 
 ## Dependencies
 
@@ -87,7 +87,15 @@ Another limiting factor is that this is a relatively low-resolution model (300x3
 
 ## Trying Other Models
 
-The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)).
+The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)), which include:
+ - face detection for retail and driver-assistance
+ - facial landmarts, simple and advanced (35-point)
+ - age recognition
+ - emotions recognition
+ - pedestrian detection for driver-assistance
+ - pedestrian detection for retail environments
+ - vehicle detection for driver-assistance
+ - behicle and license plate detection
 
 Simply change the paths above to run the other models there, adding the correct labels (or funny ones, should you choose).
 
