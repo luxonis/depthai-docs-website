@@ -143,7 +143,7 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
 
     In the screenshot above, the hand is closer to the camera.
     
-<h3 class="step" id="test_depth"><span></span> Write calibration and board parameters to on-board eeprom.</h3>
+<h3 class="step" id="write_to_eeprom"><span></span> Write calibration and board parameters to on-board eeprom.</h3>
 
 If your are happy with the depth quality above, you can write it to the on-board eeprom on DephtAI so that the calibration stick with DepthAI (all designs which have stereo-depth support have on-board eeprom for this purpose).
 
