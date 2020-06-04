@@ -25,7 +25,7 @@ error
 </div>
 
 ```
-git checkout https://github.com/luxonis/depthai.git
+git clone https://github.com/luxonis/depthai.git
 cd depthai
 ```
 
