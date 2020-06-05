@@ -340,3 +340,26 @@ It's worth noting that all DepthAI and megaAI products share the same color came
 Encoded:
  - 12MP (4056x3040) : JPEG Pictures/Stills
  - 4K   (3840x2160) : 30.00fps (3.125MB/s) 
+ 
+## What is the hyperfocal distance of the auto-focus color camera?
+ 
+The hyperfocal distance is important, as it's the distance beyond which everything is in good focus.  Some refer to this as 'infinity focus' colloquially.  
+
+The 'hyperfocal distance' (H) of DepthAI/megaAI's color camera module is quite close because of it's f.no and focal length.  
+
+From WIKIPEDIA, [here](https://en.wikipedia.org/wiki/Hyperfocal_distance)), the hyperfocal distance is as follows:
+
+~[](/images/hyperfocal.png)
+
+Where:
+f = 4.52mm  (the 'effective focal length' of the camera module)
+N = 2.0 (+/- 5%, FWIW)
+c = C=0.00578mm (see here, someone spelling it out for the 1/2.3" format, which is the sensor format of the IMX378)
+
+So H = (4.52mm)^2/(2.0 * 0.00578mm) + 4.52mm ~= 1,772mm, or **1.772 meters** (**5.8 feet**).  
+
+We are using the effective focal length, and since we're not optics experts, we're not 100% sure if this is appropriate here, but the total height of the color module is 6.05mm, so using that as a worst-case focal length, this still puts the hyperfocal distance at **10.4 feet**.
+
+So what does this mean for your application?  
+
+Anything further than 10 feet away from DepthAI/megaAI will be in focus when the focus is set to 10 feet or beyond.  In other words, as long as you don't have something closer than 10 feet which the camera is trying to focus on, everything 10 feet or beyond will be in focus.
