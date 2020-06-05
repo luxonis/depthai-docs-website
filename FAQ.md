@@ -352,9 +352,10 @@ From WIKIPEDIA, [here](https://en.wikipedia.org/wiki/Hyperfocal_distance), the h
 ![](/images/hyperfocal.png)
 
 Where:
-f = 4.52mm  (the 'effective focal length' of the camera module)
-N = 2.0 (+/- 5%, FWIW)
-c = C=0.00578mm (see here, someone spelling it out for the 1/2.3" format, which is the sensor format of the IMX378)
+
+ - f = 4.52mm  (the 'effective focal length' of the camera module)
+ - N = 2.0 (+/- 5%, FWIW)
+ - c = C=0.00578mm (see [here](https://sites.google.com/site/doftesting/), someone spelling it out for the 1/2.3" format, which is the sensor format of the IMX378)
 
 So H = (4.52mm)^2/(2.0 * 0.00578mm) + 4.52mm ~= 1,772mm, or **1.772 meters** (**5.8 feet**).  
 
