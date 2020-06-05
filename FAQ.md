@@ -348,7 +348,7 @@ DepthAI and megaAI support continuous video autofocus ('2' below, where the syst
 Example usage is shown in `depthai.py`.  When running `python3 test.py` (which symlink calls `depthai.py`) the functionality can be used by keyboard command while the program is running:
  
  - '1' to change autofocus mode to auto
-  - 'f' to trigger autofocus
+   - 'f' to trigger autofocus
  - '2' to change autofocus mode to continuous video
 
 ## What is the Hyperfocal Histance of the Auto-Focus Color Camera?
