@@ -135,7 +135,7 @@ If it is of interest in your application, we can implement a system called `exte
 So if you have the need for this shorter minimum distance, reach out to us on slack, email, or discuss.luxonis.com to let us know.  It's on our roadmap but we haven't yet seen a need for it, so we haven't prioritized implementing it (yet!).
 
 ## How Do I Display Multiple Streams?
-To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for deph results (`depth_sipp`), use the following command:
+To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_sipp`), use the following command:
 
 ```
 python3 test.py -s metaout previewout depth_sipp
