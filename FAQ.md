@@ -341,7 +341,17 @@ Encoded:
  - 12MP (4056x3040) : JPEG Pictures/Stills
  - 4K   (3840x2160) : 30.00fps (3.125MB/s) 
  
-## What is the hyperfocal distance of the auto-focus color camera?
+## What Auto-Focus Modes Are Supported?
+
+DepthAI and megaAI support continuous video autofocus ('2' below, where the system is constantly autonomously searching for the best focus) and also and `auto` mode ('1' below) which waits to focus until directed by the host.
+
+Example usage is shown in `depthai.py`.  When running `python3 test.py` (which symlink calls `depthai.py`) the functionality can be used by keyboard command while the program is running:
+ 
+ - '1' to change autofocus mode to auto
+  - 'f' to trigger autofocus
+ - '2' to change autofocus mode to continuous video
+
+## What is the Hyperfocal Histance of the Auto-Focus Color Camera?
  
 The hyperfocal distance is important, as it's the distance beyond which everything is in good focus.  Some refer to this as 'infinity focus' colloquially.  
 
