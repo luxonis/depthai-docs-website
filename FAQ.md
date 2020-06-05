@@ -347,9 +347,9 @@ The hyperfocal distance is important, as it's the distance beyond which everythi
 
 The 'hyperfocal distance' (H) of DepthAI/megaAI's color camera module is quite close because of it's f.no and focal length.  
 
-From WIKIPEDIA, [here](https://en.wikipedia.org/wiki/Hyperfocal_distance)), the hyperfocal distance is as follows:
+From WIKIPEDIA, [here](https://en.wikipedia.org/wiki/Hyperfocal_distance), the hyperfocal distance is as follows:
 
-~[](/images/hyperfocal.png)
+![](/images/hyperfocal.png)
 
 Where:
 f = 4.52mm  (the 'effective focal length' of the camera module)
