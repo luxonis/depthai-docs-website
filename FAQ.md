@@ -363,3 +363,7 @@ We are using the effective focal length, and since we're not optics experts, we'
 So what does this mean for your application?  
 
 Anything further than 10 feet away from DepthAI/megaAI will be in focus when the focus is set to 10 feet or beyond.  In other words, as long as you don't have something closer than 10 feet which the camera is trying to focus on, everything 10 feet or beyond will be in focus.
+
+P.S.:
+And in terms of history of these sorts of modules, one of the reasons auto-focus was added to these cell phone cameras was to handle close-in focus scenarios (not far-out focus, as that was handled by the hyperfocal distance).  In fact the first cell phone camera modules were all fixed-focus where the hope/goal was that the hyperfocal distance was close-in enough for most applications.  On such case where that assumption wasn't true was bar-code scanning.  In fact [Occipital](https://occipital.com/) started a business a bit over a decade ago specializing in doing the real-time deconvolutions necessary to allow these fixed-focused (and low-resolution) phones to scan barcodes (it was called 'Red Laser').  The phones were really low resolution back then - and fixed focus - so there just weren't enough pixels to make out the barcode when the camera were at the hyperfocal distance (or further), so the core tech of Occipital's Red Laser was to do the image deconvolution necessary to read the barcode even though the resultant image was well out of focus.  
+
