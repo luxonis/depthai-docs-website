@@ -31,7 +31,9 @@ cd depthai
 
 <h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Print chessboard calibration image.</h3>
 
-Either print the calibration checkerboard onto a flat surface, or display the checkerboard on a flat (not curved!) monitor.
+Either print the calibration checkerboard onto a flat surface, or display the checkerboard on a flat (not curved!) monitor.  Note that if you do print the calibration target, take care to make sure it is attached to a flat surface and is flat and free of wrinkles and/or 'waves'.
+
+Often, using a monitor to display the calibration target is easier/faster.
 
 [![Print this chessboard calibration image](https://raw.githubusercontent.com/luxonis/depthai/master/resources/patternnew.png)](https://raw.githubusercontent.com/luxonis/depthai/master/resources/patternnew.png)
 
