@@ -340,3 +340,58 @@ It's worth noting that all DepthAI and megaAI products share the same color came
 Encoded:
  - 12MP (4056x3040) : JPEG Pictures/Stills
  - 4K   (3840x2160) : 30.00fps (3.125MB/s) 
+ 
+## What Auto-Focus Modes Are Supported?
+
+DepthAI and megaAI support continuous video autofocus ('2' below, where the system is constantly autonomously searching for the best focus) and also and `auto` mode ('1' below) which waits to focus until directed by the host.  (PR which adds this functionality is [here](https://github.com/luxonis/depthai/pull/114).)
+
+Example usage is shown in `depthai.py`.  When running `python3 test.py` (which symlink calls `depthai.py`) the functionality can be used by keyboard command while the program is running:
+ 
+ - '1' to change autofocus mode to auto
+   - 'f' to trigger autofocus
+ - '2' to change autofocus mode to continuous video
+
+## What is the Hyperfocal Histance of the Auto-Focus Color Camera?
+ 
+The hyperfocal distance is important, as it's the distance beyond which everything is in good focus.  Some refer to this as 'infinity focus' colloquially.  
+
+The 'hyperfocal distance' (H) of DepthAI/megaAI's color camera module is quite close because of it's f.no and focal length.  
+
+From WIKIPEDIA, [here](https://en.wikipedia.org/wiki/Hyperfocal_distance), the hyperfocal distance is as follows:
+
+![](/images/hyperfocal.png)
+
+Where:
+
+ - f = 4.52mm  (the 'effective focal length' of the camera module)
+ - N = 2.0 (+/- 5%, FWIW)
+ - c = C=0.00578mm (see [here](https://sites.google.com/site/doftesting/), someone spelling it out for the 1/2.3" format, which is the sensor format of the IMX378)
+
+So H = (4.52mm)^2/(2.0 * 0.00578mm) + 4.52mm ~= 1,772mm, or **1.772 meters** (**5.8 feet**).  
+
+We are using the effective focal length, and since we're not optics experts, we're not 100% sure if this is appropriate here, but the total height of the color module is 6.05mm, so using that as a worst-case focal length, this still puts the hyperfocal distance at **10.4 feet**.
+
+So what does this mean for your application?  
+
+Anything further than 10 feet away from DepthAI/megaAI will be in focus when the focus is set to 10 feet or beyond.  In other words, as long as you don't have something closer than 10 feet which the camera is trying to focus on, everything 10 feet or beyond will be in focus.
+
+P.S.:
+And in terms of history of these sorts of modules, one of the reasons auto-focus was added to these cell phone cameras was to handle close-in focus scenarios (not far-out focus, as that was handled by the hyperfocal distance).  In fact the first cell phone camera modules were all fixed-focus where the hope/goal was that the hyperfocal distance was close-in enough for most applications.  On such case where that assumption wasn't true was bar-code scanning.  In fact [Occipital](https://occipital.com/) started a business a bit over a decade ago specializing in doing the real-time deconvolutions necessary to allow these fixed-focused (and low-resolution) phones to scan barcodes (it was called 'Red Laser').  The phones were really low resolution back then - and fixed focus - so there just weren't enough pixels to make out the barcode when the camera were at the hyperfocal distance (or further), so the core tech of Occipital's Red Laser was to do the image deconvolution necessary to read the barcode even though the resultant image was well out of focus.  
+
+## Am I able to attached alternate lenses to the camera? What sort of mounting system? S mount? C mount?
+
+The color camera on megaAI and DepthAI is a fully-integrated camera module, so the lense, auto-focus, auto-focus motor etc. are all self-contained and none of it is replaceable or serviceable.  You'll see it's all very small.  It's the same sort of camera you would find in a high-end smart phone.  
+
+That said, we have seen users attach the same sort of optics that they would to smartphones to widen field of view, zoom, etc.  The auto-focus seems to work appropriately through these adapters.  For example a team member has tested the Occipital *Wide Vision Lens* [here](https://store.structure.io/buy/accessories) to work with both megaAI and DepthAI color cameras.  (We have not yet tried on the grayscale cameras.)
+
+Also, see [below](#rpi_hq) for using DepthAI FFC with the RPi HQ Camera to enable use of C- and CS-mount lenses.
+
+{: #rpi_hq }
+## Can I Use DepthAI with the New RPi HQ Camera?
+
+DepthAI FFC Edition (BW1098FFC model [here](https://shop.luxonis.com/products/depthai-usb3-edition)) also works via an adapter board with the Raspberry Pi HQ camera (IMX477 based), which then does work with a ton of C- and CS-mount lenses (see [here](https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/)).  And see [here](https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER) for the adapter board for DepthAI FFC Edition.
+
+![RPi HQ with DepthAI FFC](https://github.com/luxonis/depthai-hardware/raw/master/BW0253_R0M0E0_RPIHQ_ADAPTER/Images/RPI_HQ_CAM_SYSTEM_2020-May-14_08-35-31PM-000_CustomizedView42985702451.png)
+
+This is a particularly interesting application of DepthAI, as it allows the RPi HQ camera to be encoded to h.265 4K video (and 12MP stills) even with a Raspberry Pi 1 or Raspberry Pi Zero - because DepthAI does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera directly, can only do 1080p video and not 4K video recording).
+
