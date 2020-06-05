@@ -399,8 +399,8 @@ This is a particularly interesting application of DepthAI, as it allows the RPi 
 
 The DepthAI Raspberry Pi Compute Module Edition (RPi CME or BW1097 for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
 
- - Idle: 2.5W
- - DepthAI Full-Out: 6W
+ - Idle: 2.5W (0.5A @ 5V)
+ - DepthAI Full-Out: 6W (1.2A @ 5V)
 
 Below is a quick video showing this:
 [![BW1097 Power Use](https://img.youtube.com/vi/zQtSzhGR6Xg/0.jpg)](https://www.youtube.com/watch?v=zQtSzhGR6Xg "RPi CME Power Use")
