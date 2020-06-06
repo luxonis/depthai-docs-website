@@ -351,7 +351,7 @@ Example usage is shown in `depthai.py`.  When running `python3 test.py` (which s
    - 'f' to trigger autofocus
  - '2' to change autofocus mode to continuous video
 
-## What is the Hyperfocal Histance of the Auto-Focus Color Camera?
+## What is the Hyperfocal Distance of the Auto-Focus Color Camera?
  
 The hyperfocal distance is important, as it's the distance beyond which everything is in good focus.  Some refer to this as 'infinity focus' colloquially.  
 
