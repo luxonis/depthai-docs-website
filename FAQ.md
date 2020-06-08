@@ -404,3 +404,34 @@ The DepthAI Raspberry Pi Compute Module Edition (RPi CME or BW1097 for short) co
 
 Below is a quick video showing this:
 [![BW1097 Power Use](https://img.youtube.com/vi/zQtSzhGR6Xg/0.jpg)](https://www.youtube.com/watch?v=zQtSzhGR6Xg "RPi CME Power Use")
+
+## Where are the Githubs?  Is DepthAI Open Source?
+
+DepthAI is an open-source platform across a variety of (stacks) including hardware (electrical and mechanical_, software, and machine-learning training using Google Colab.
+
+See below for the pertinent Githubs:
+
+ - [https://github.com/luxonis/depthai-hardware](https://github.com/luxonis/depthai-hardware) - DepthAI hardware designs themselves.
+ - [https://github.com/luxonis/depthai](https://github.com/luxonis/depthai) - Python Interface and Examples
+ - [https://github.com/luxonis/depthai-api](https://github.com/luxonis/depthai-api) - C++ Core and C++ API
+ - [https://github.com/luxonis/depthai-ml-training](https://github.com/luxonis/depthai-ml-training) - Online AI/ML training leveraging Google Colab (so it's free)
+ - [https://github.com/luxonis/depthai-experiments](https://github.com/luxonis/depthai-experiments) - Experiments showing how to use DepthAI.  
+ 
+## Where are Product Brochures and/or Datasheets?
+
+__Brochures__:
+
+ - Editions Summary [here](https://drive.google.com/open?id=1z7QiCn6SF3Yx977oH41Kcq68Ay6e9h3_)
+ - System on Module (BW1099) [here](https://drive.google.com/open?id=1WQMhlh-5Z1YKm4u4i_SVPKxRwgPlfNr8)
+ - USB3 Modular Cameras Edition (BW1098FFC) [here](https://drive.google.com/open?id=1-OWgbJvrdlzRVKtnXDdVKLL9Oba5Nhx3)
+ - USB3 Onboard Cameras Edition (BW1098OBC) [here](https://drive.google.com/open?id=1g0bQDLNnpVC_1-AGaPmC8BaXtGaNNdTR)
+ - Raspberry Pi Compute Edition Module (BW1097) [here](https://drive.google.com/open?id=1QmPQ58NkaxO_Tz1Uzj9LlZcsyZ4Vw7hi)
+ - Raspberry Pi HAT (BW1094) [here](https://drive.google.com/open?id=1QrpV8GXMevqj_ikDJVpaJioXM8axdUEJ)
+
+__Datasheets__:
+
+We have not yet made datasheets for current models (we've been too focused on technical implementations tasks), but we have made a datasheet for the coming PoE version of DepthAI/megaAI:
+
+ - PoE Modular Cameras Edition (BW2098FFC) [here](https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing)
+ 
+
