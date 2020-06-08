@@ -417,7 +417,7 @@ See below for the pertinent Githubs:
  - [https://github.com/luxonis/depthai-ml-training](https://github.com/luxonis/depthai-ml-training) - Online AI/ML training leveraging Google Colab (so it's free)
  - [https://github.com/luxonis/depthai-experiments](https://github.com/luxonis/depthai-experiments) - Experiments showing how to use DepthAI.  
  
- ## Where are Product Brochures and/or Datasheets?
+## Where are Product Brochures and/or Datasheets?
 
 __Brochures__:
 
