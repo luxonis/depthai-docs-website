@@ -411,11 +411,11 @@ DepthAI is an open-source platform across a variety of (stacks) including hardwa
 
 See below for the pertinent Githubs:
 
- - https://github.com/luxonis/depthai-hardware - DepthAI hardware designs themselves.
- - https://github.com/luxonis/depthai - Python Interface and Examples
- - https://github.com/luxonis/depthai-api - C++ Core and C++ API
- - https://github.com/luxonis/depthai-ml-training - Online AI/ML training leveraging Google Colab (so it's free)
- - https://github.com/luxonis/depthai-experiments - Experiments showing how to use DepthAI.  
+ - [https://github.com/luxonis/depthai-hardware](https://github.com/luxonis/depthai-hardware) - DepthAI hardware designs themselves.
+ - [https://github.com/luxonis/depthai](https://github.com/luxonis/depthai) - Python Interface and Examples
+ - [https://github.com/luxonis/depthai-api](https://github.com/luxonis/depthai-api) - C++ Core and C++ API
+ - [https://github.com/luxonis/depthai-ml-training](https://github.com/luxonis/depthai-ml-training) - Online AI/ML training leveraging Google Colab (so it's free)
+ - [https://github.com/luxonis/depthai-experiments](https://github.com/luxonis/depthai-experiments) - Experiments showing how to use DepthAI.  
  
  ## Where are Product Brochures and/or Datasheets?
 
