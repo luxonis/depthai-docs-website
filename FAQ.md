@@ -466,7 +466,7 @@ Below is a quick video showing this:
 
 ## Where are the Githubs?  Is DepthAI Open Source?
 
-DepthAI is an open-source platform across a variety of (stacks) including hardware (electrical and mechanical_, software, and machine-learning training using Google Colab.
+DepthAI is an open-source platform across a variety of stacks, including hardware (electrical and mechanical), software, and machine-learning training using Google Colab.
 
 See below for the pertinent Githubs:
 
