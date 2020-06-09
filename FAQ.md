@@ -6,21 +6,48 @@ description: Common questions and How-Tos when first learning about or using Dep
 order: 6
 ---
 
-# DepthAI FAQs
-
 # DepthAI FAQs & How-To
+
+## Why Does DepthAI Exist?
+
+In trying to solve an Embedded [Spatial AI](#spatialai) problem ([here](https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian) we discovered that although the perfect chip existed to solve this problem (the Myriad X), no platform existed which allowed its use in this way.  
+
+So we built the platform. 
+
+That platform is DepthAI - the hardware, firmware, software ecosystem that provides turnkey embedded [Spatial AI](#spatialai).
 
 ## What is DepthAI?
 
-DepthAI is the Embedded Spatial AI platform.  It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
+DepthAI is an Embedded Spatial AI platform.  It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
 
-DepthAI can be used with off-the-shelf models (see how [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (see how [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
+It can be used with off-the-shelf models (see how [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (see how [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
 
-Below is DepthAI being run with a [PASCAL VOC 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) model downloaded from OpenVINO and a custom model trained by a student at the University of Colorado, respectively.  The latter is used by a robot which autonomously picks and sorts strawberries by ripeness.
-![Spatial AI](https://www.crowdsupply.com/img/3231/depthai-mvp-person-chair_jpg_project-body.jpg)
+Here is DepthAI is used by a robot which autonomously picks and sorts strawberries by ripeness.  
 ![Spatial AI Strawberry Example](/images/Strawberry.png)
+It was trained to do so over the course of a weekend using our free online training resources.
 
-DepthAI is also open-source (including hardware).  This is done so that companies (and even individuals) can prototype and productize solutions autonomously without Luxonis involvement.  (We are happy to help, though, should that be off interest.)  See the summary of our (MIT-Licensed) Githubs [below](#githubs), which include open-source hardware, firmware, software, and machine-learning training.
+DepthAI is also open-source (including hardware).  This is done so that companies (and even individuals) can prototype and productize solutions quickly, autonomously, and at low risk.  
+
+See the summary of our (MIT-Licensed) Githubs [below](#githubs), which include open-source hardware, firmware, software, and machine-learning training.
+
+{: #spatialai }
+## What is SpatialAI?  What is 3D Object Localization?
+
+First, it is necessary to define what '[Object Detection](https://pjreddie.com/darknet/yolo/)' is:
+![Object Detection](https://www.crowdsupply.com/img/7c80/depthai-dog-porch-ai_png_project-body.jpg)
+
+It is the technical term for finding the bounding box of an object of interest, in pixel space (i.e. pixel coordinates), in an image.
+
+3D Object Localization, is all about finding such objects in physical space, instead of pixel space.  This is useful when trying to real-time measure or interact with the physical world.  
+
+Below is a visualization to showcase the difference between Object Detection and 3D Object Localization:
+
+[![Spatial AI](https://img.youtube.com/vi/2J5YFehJ3N4/0.jpg)](https://www.youtube.com/watch?v=2J5YFehJ3N4 "Spatial AI Visualization")
+(Click on the image to pull up the YouTube video.)
+
+Spatial AI is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them 3D context.  So in other words, it's not limited to object detectors being extended to 3D object localizers.  Other network types can be extended as well, including any network which returns results in pixel space.
+
+An example of such an extension is using a facial landmark detector on DepthAI.  With a normal camera this network returns the 2D coordinates of all 45 facial landmarks (countours of eyes, ears, mouth, eybrows, etc.)  Using this same network with DepthAI, each of these 45 facial landmarks is now a 3D point in physical space instead of 2D points in pixel space.
 
 ## What is megaAI?
 
@@ -29,14 +56,16 @@ The monocular (single-camera) version of DepthAI is megaAI.  Because not all sol
 We named it `mega` because it's tiny:
 ![megaAI](https://www.crowdsupply.com/img/8182/megaai-quarter-original_png_project-body.jpg)
 
+megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Githubs), it is simply the tiny single-camera variant.
 
-## How hard is it to get DepthAI running from scratch?
+
+## How hard is it to get DepthAI running from scratch?  What Platforms are Supported?
 
 Not hard.  Usually DepthAI is up/running on your platform within a couple minutes (most of which is download time). 
 
 The requirements are Python and OpenCV (which are great to have on your system anyway!). see [here](https://docs.luxonis.com/api/#python_version) for supported platforms and how to get up/running with them.  
 
-Raspbian, Ubuntu, macOS, Windows, and many others are supported and are easy to get up/running. 
+**Raspbian, Ubuntu, macOS, Windows,** and many others are supported and are easy to get up/running. 
 
 For Install on various platforms are [here](https://docs.luxonis.com/api/#python_version).
 
@@ -49,6 +78,12 @@ The command to get the above output is `python3 test.py -s metaout previewout de
 Here is a single-camera version (megaAI) running with `pytyon3 test.py -dd` (to disable showing depth info):
 ![megaAI Legos](/images/lego.png)
 
+## Is DepthAI and megaAI easy to use with Raspberry Pi? 
+ 
+Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
+
+See [here](https://docs.luxonis.com/api/#raspbian) to get up and running quickly!
+
 ## Can all the models be used with the Raspberry Pi?
 
 Yes, every model can be used, including:
@@ -60,12 +95,6 @@ Yes, every model can be used, including:
  - megaAI (microAI) Single Camera [BW1093](https://shop.luxonis.com/collections/all/products/bw1093)
  
  We even have some basic ROS support going as well which can be used on the Pi also.
- 
-## Is DepthAI and megaAI easy to use with Raspberry Pi? 
- 
-Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
-
-See [here](https://docs.luxonis.com/api/#raspbian) to get up and running quickly!
  
 ## Can I use multiple DepthAI with one host? 
  
