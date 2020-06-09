@@ -10,7 +10,7 @@ order: 6
 
 ## Why Does DepthAI Exist?
 
-In trying to solve an Embedded [Spatial AI](#spatialai) problem ([here](https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian) we discovered that although the perfect chip existed to solve this problem (the Myriad X), no platform existed which allowed its use in this way.  
+In trying to solve an Embedded [Spatial AI](#spatialai) problem (details [here](https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian)), we discovered that there were no tools to do so.  The perfect chip existed (which is great), but there was no platform (hardware, firmware, or software) which allowed the chip to be used to solve such an Embedded Spatial AI problem.
 
 So we built the platform. 
 
@@ -18,7 +18,7 @@ That platform is DepthAI - the hardware, firmware, software ecosystem that provi
 
 ## What is DepthAI?
 
-DepthAI is an Embedded Spatial AI platform.  It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
+DepthAI is *the* Embedded Spatial AI platform.  It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
 
 It can be used with off-the-shelf models (see how [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (see how [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
 
