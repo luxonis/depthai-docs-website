@@ -18,13 +18,16 @@ That platform is DepthAI - the hardware, firmware, software ecosystem that provi
 
 ## What is DepthAI?
 
-DepthAI is *the* Embedded Spatial AI platform.  It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
+DepthAI is *the* Embedded Spatial AI platform.  
 
-It can be used with off-the-shelf models (see how [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (see how [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
+It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
 
-Here is DepthAI is used by a robot which autonomously picks and sorts strawberries by ripeness.  
+It can be used with off-the-shelf models (how-to [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (how-to [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
+
+An example of a custom-trained model is below, where DepthAI is used by a robot to autonomously pick and sort strawberries by ripeness.  
 ![Spatial AI Strawberry Example](/images/Strawberry.png)
-It was trained to do so over the course of a weekend using our free online training resources.
+
+It was trained to do so over the course of a weekend, by a student (for a student project), using our free online training resources.
 
 DepthAI is also open-source (including hardware).  This is done so that companies (and even individuals) can prototype and productize solutions quickly, autonomously, and at low risk.  
 
@@ -43,7 +46,8 @@ It is the technical term for finding the bounding box of an object of interest, 
 Below is a visualization to showcase the difference between Object Detection and 3D Object Localization:
 
 [![Spatial AI](https://img.youtube.com/vi/2J5YFehJ3N4/0.jpg)](https://www.youtube.com/watch?v=2J5YFehJ3N4 "Spatial AI Visualization")
-(Click on the image to pull up the YouTube video.)
+
+(Click on the imageabove to pull up the YouTube video.)
 
 Spatial AI is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them 3D context.  So in other words, it's not limited to object detectors being extended to 3D object localizers.  Other network types can be extended as well, including any network which returns results in pixel space.
 
@@ -72,6 +76,8 @@ For Install on various platforms are [here](https://docs.luxonis.com/api/#python
 It's a matter of minutes to be up and running with the power of Spatial AI, on the platform of your choice.  Below is DepthAI running on my Mac.
 
 [![Spatial AI](https://img.youtube.com/vi/SWDQekolM8o/0.jpg)](https://www.youtube.com/watch?v=SWDQekolM8o "DepthAI on Mac")
+
+(Click on the imageabove to pull up the YouTube video.)
 
 The command to get the above output is `python3 test.py -s metaout previewout depth_sipp -ff -bb`.
 
