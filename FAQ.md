@@ -6,15 +6,70 @@ description: Common questions and How-Tos when first learning about or using Dep
 order: 6
 ---
 
-# DepthAI FAQs
+# DepthAI FAQs & How-To
 
-## How hard is it to get DepthAI running from scratch?
+## Why Does DepthAI Exist?
+
+In trying to solve an Embedded [Spatial AI](#spatialai) problem (details [here](https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian)), we discovered that there were no tools to do so.  The perfect chip existed (which is great), but there was no platform (hardware, firmware, or software) which allowed the chip to be used to solve such an Embedded Spatial AI problem.
+
+So we built the platform. 
+
+That platform is DepthAI - the hardware, firmware, software ecosystem that provides turnkey embedded [Spatial AI](#spatialai).
+
+## What is DepthAI?
+
+DepthAI is *the* Embedded Spatial AI platform.  
+
+It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
+
+It can be used with off-the-shelf models (how-to [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (how-to [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
+
+An example of a custom-trained model is below, where DepthAI is used by a robot to autonomously pick and sort strawberries by ripeness.  
+![Spatial AI Strawberry Example](/images/Strawberry.png)
+
+It was trained to do so over the course of a weekend, by a student (for a student project), using our free online training resources.
+
+DepthAI is also open-source (including hardware).  This is done so that companies (and even individuals) can prototype and productize solutions quickly, autonomously, and at low risk.  
+
+See the summary of our (MIT-Licensed) Githubs [below](#githubs), which include open-source hardware, firmware, software, and machine-learning training.
+
+{: #spatialai }
+## What is SpatialAI?  What is 3D Object Localization?
+
+First, it is necessary to define what '[Object Detection](https://pjreddie.com/darknet/yolo/)' is:
+![Object Detection](https://www.crowdsupply.com/img/7c80/depthai-dog-porch-ai_png_project-body.jpg)
+
+It is the technical term for finding the bounding box of an object of interest, in pixel space (i.e. pixel coordinates), in an image.
+
+3D Object Localization, is all about finding such objects in physical space, instead of pixel space.  This is useful when trying to real-time measure or interact with the physical world.  
+
+Below is a visualization to showcase the difference between Object Detection and 3D Object Localization:
+
+[![Spatial AI](https://img.youtube.com/vi/2J5YFehJ3N4/0.jpg)](https://www.youtube.com/watch?v=2J5YFehJ3N4 "Spatial AI Visualization")
+
+(Click on the imageabove to pull up the YouTube video.)
+
+Spatial AI is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them 3D context.  So in other words, it's not limited to object detectors being extended to 3D object localizers.  Other network types can be extended as well, including any network which returns results in pixel space.
+
+An example of such an extension is using a facial landmark detector on DepthAI.  With a normal camera this network returns the 2D coordinates of all 45 facial landmarks (countours of eyes, ears, mouth, eybrows, etc.)  Using this same network with DepthAI, each of these 45 facial landmarks is now a 3D point in physical space instead of 2D points in pixel space.
+
+## What is megaAI?
+
+The monocular (single-camera) version of DepthAI is megaAI.  Because not all solutions to embedded AI/CV problems require spatial information.  
+
+We named it `mega` because it's tiny:
+![megaAI](https://www.crowdsupply.com/img/8182/megaai-quarter-original_png_project-body.jpg)
+
+megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Githubs), it is simply the tiny single-camera variant.
+
+
+## How hard is it to get DepthAI running from scratch?  What Platforms are Supported?
 
 Not hard.  Usually DepthAI is up/running on your platform within a couple minutes (most of which is download time). 
 
 The requirements are Python and OpenCV (which are great to have on your system anyway!). see [here](https://docs.luxonis.com/api/#python_version) for supported platforms and how to get up/running with them.  
 
-Raspbian, Ubuntu, macOS, Windows, and many others are supported and are easy to get up/running. 
+**Raspbian, Ubuntu, macOS, Windows,** and many others are supported and are easy to get up/running. 
 
 For Install on various platforms are [here](https://docs.luxonis.com/api/#python_version).
 
@@ -22,10 +77,18 @@ It's a matter of minutes to be up and running with the power of Spatial AI, on t
 
 [![Spatial AI](https://img.youtube.com/vi/SWDQekolM8o/0.jpg)](https://www.youtube.com/watch?v=SWDQekolM8o "DepthAI on Mac")
 
+(Click on the imageabove to pull up the YouTube video.)
+
 The command to get the above output is `python3 test.py -s metaout previewout depth_sipp -ff -bb`.
 
 Here is a single-camera version (megaAI) running with `pytyon3 test.py -dd` (to disable showing depth info):
 ![megaAI Legos](/images/lego.png)
+
+## Is DepthAI and megaAI easy to use with Raspberry Pi? 
+ 
+Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
+
+See [here](https://docs.luxonis.com/api/#raspbian) to get up and running quickly!
 
 ## Can all the models be used with the Raspberry Pi?
 
@@ -38,12 +101,6 @@ Yes, every model can be used, including:
  - megaAI (microAI) Single Camera [BW1093](https://shop.luxonis.com/collections/all/products/bw1093)
  
  We even have some basic ROS support going as well which can be used on the Pi also.
- 
-## Is DepthAI and megaAI easy to use with Raspberry Pi? 
- 
-Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
-
-See [here](https://docs.luxonis.com/api/#raspbian) to get up and running quickly!
  
 ## Can I use multiple DepthAI with one host? 
  
@@ -404,6 +461,8 @@ The DepthAI Raspberry Pi Compute Module Edition (RPi CME or BW1097 for short) co
 
 Below is a quick video showing this:
 [![BW1097 Power Use](https://img.youtube.com/vi/zQtSzhGR6Xg/0.jpg)](https://www.youtube.com/watch?v=zQtSzhGR6Xg "RPi CME Power Use")
+
+{: #githubs }
 
 ## Where are the Githubs?  Is DepthAI Open Source?
 
