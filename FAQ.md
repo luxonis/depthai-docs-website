@@ -462,6 +462,8 @@ The DepthAI Raspberry Pi Compute Module Edition (RPi CME or BW1097 for short) co
 Below is a quick video showing this:
 [![BW1097 Power Use](https://img.youtube.com/vi/zQtSzhGR6Xg/0.jpg)](https://www.youtube.com/watch?v=zQtSzhGR6Xg "RPi CME Power Use")
 
+{: #githubs }
+
 ## Where are the Githubs?  Is DepthAI Open Source?
 
 DepthAI is an open-source platform across a variety of (stacks) including hardware (electrical and mechanical_, software, and machine-learning training using Google Colab.
