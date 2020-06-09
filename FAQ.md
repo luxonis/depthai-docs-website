@@ -236,15 +236,15 @@ So the following results are an approximation of this `photon-to-results` latenc
 measured | requested | avg latency, ms
 -- | -- | --
 left | left | 100
-left | left, right | 270
-left | left, right, depth_sipp | 380
-left | left, right, depth_sipp, metaout, previewout | 420
+left | left, right | 100
+left | left, right, depth_sipp | 100
+left | left, right, depth_sipp, metaout, previewout | 100
 previewout | previewout | 65
 previewout | metaout, previewout | 100
-previewout | left, right, depth_sipp, metaout, previewout | 950
+previewout | left, right, depth_sipp, metaout, previewout | 100
 metaout | metaout | 300
 metaout | metaout, previewout | 300
-metaout | left, right, depth_sipp, metaout, previewout | 1900
+metaout | left, right, depth_sipp, metaout, previewout | 300
 
 ## What Information is Stored on the DepthAI Boards
 Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
