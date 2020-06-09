@@ -14,15 +14,13 @@ In trying to solve an Embedded [Spatial AI](#spatialai) problem (details [here](
 
 So we built the platform. 
 
-That platform is DepthAI - the hardware, firmware, software ecosystem that provides turnkey embedded [Spatial AI](#spatialai).
-
 ## What is DepthAI?
 
-DepthAI is *the* Embedded Spatial AI platform.  
+DepthAI is *the* Embedded Spatial AI platform, composted of an open-source hardware, firmware, software ecosystem that provides turnkey embedded [Spatial AI](#spatialai) and hardware-accelerated computer vision.
 
 It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
 
-It can be used with off-the-shelf models (how-to [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (how-to [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
+It can be used with off-the-shelf AI models (how-to [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (how-to [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
 
 An example of a custom-trained model is below, where DepthAI is used by a robot to autonomously pick and sort strawberries by ripeness.  
 ![Spatial AI Strawberry Example](/images/Strawberry.png)
