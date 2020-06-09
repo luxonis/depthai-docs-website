@@ -8,6 +8,28 @@ order: 6
 
 # DepthAI FAQs
 
+# DepthAI FAQs & How-To
+
+## What is DepthAI?
+
+DepthAI is the Embedded Spatial AI platform.  It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.  
+
+DepthAI can be used with off-the-shelf models (see how [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)) or with custom models using our completely-free training flow (see how [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)).
+
+Below is DepthAI being run with a [PASCAL VOC 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) model downloaded from OpenVINO and a custom model trained by a student at the University of Colorado, respectively.  The latter is used by a robot which autonomously picks and sorts strawberries by ripeness.
+![Spatial AI](https://www.crowdsupply.com/img/3231/depthai-mvp-person-chair_jpg_project-body.jpg)
+![Spatial AI Strawberry Example](/images/Strawberry.png)
+
+DepthAI is also open-source (including hardware).  This is done so that companies (and even individuals) can prototype and productize solutions autonomously without Luxonis involvement.  (We are happy to help, though, should that be off interest.)  See the summary of our (MIT-Licensed) Githubs [below](#githubs), which include open-source hardware, firmware, software, and machine-learning training.
+
+## What is megaAI?
+
+The monocular (single-camera) version of DepthAI is megaAI.  Because not all solutions to embedded AI/CV problems require spatial information.  
+
+We named it `mega` because it's tiny:
+![megaAI](https://www.crowdsupply.com/img/8182/megaai-quarter-original_png_project-body.jpg)
+
+
 ## How hard is it to get DepthAI running from scratch?
 
 Not hard.  Usually DepthAI is up/running on your platform within a couple minutes (most of which is download time). 
