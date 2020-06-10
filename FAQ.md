@@ -54,12 +54,14 @@ An example of such an extension is using a facial landmark detector on DepthAI. 
 ## What is megaAI?
 
 The monocular (single-camera) version of DepthAI is megaAI.  Because not all solutions to embedded AI/CV problems require spatial information.  
+[![Luxonis megaAI](https://img.youtube.com/vi/JbVkNUfiPrE/0.jpg)](https://www.youtube.com/watch?v=JbVkNUfiPrE "megaAI Promo Video")
 
 We named it `mega` because it's tiny:
 ![megaAI](https://www.crowdsupply.com/img/8182/megaai-quarter-original_png_project-body.jpg)
 
 megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Githubs), it is simply the tiny single-camera variant.
 
+You can buy megaAI from our distributors and also our online store [here](https://shop.luxonis.com/products/bw1093)
 
 ## How hard is it to get DepthAI running from scratch?  What Platforms are Supported?
 
@@ -491,6 +493,7 @@ __Brochures__:
  - USB3 Onboard Cameras Edition (BW1098OBC) [here](https://drive.google.com/open?id=1g0bQDLNnpVC_1-AGaPmC8BaXtGaNNdTR)
  - Raspberry Pi Compute Edition Module (BW1097) [here](https://drive.google.com/open?id=1QmPQ58NkaxO_Tz1Uzj9LlZcsyZ4Vw7hi)
  - Raspberry Pi HAT (BW1094) [here](https://drive.google.com/open?id=1QrpV8GXMevqj_ikDJVpaJioXM8axdUEJ)
+ - megaAI (BW1093)[here](https://drive.google.com/open?id=1ji3K_Q3XdExdID94rHVSL7MvAV2bwKC9)
 
 __Datasheets__:
 
