@@ -60,7 +60,7 @@ We named it `mega` because it's tiny:
 
 megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Githubs), it is simply the tiny single-camera variant.
 
-You can buy megaAI from our distributors and also our online store [here](https://shop.luxonis.com/products/bw1093)
+You can buy megaAI from our distributors and also our online store [here](https://shop.luxonis.com/products/bw1093).
 
 ## How hard is it to get DepthAI running from scratch?  What Platforms are Supported?
 
