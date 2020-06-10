@@ -54,7 +54,6 @@ An example of such an extension is using a facial landmark detector on DepthAI. 
 ## What is megaAI?
 
 The monocular (single-camera) version of DepthAI is megaAI.  Because not all solutions to embedded AI/CV problems require spatial information.  
-[![Luxonis megaAI](https://img.youtube.com/vi/JbVkNUfiPrE/0.jpg)](https://www.youtube.com/watch?v=JbVkNUfiPrE "megaAI Promo Video")
 
 We named it `mega` because it's tiny:
 ![megaAI](https://www.crowdsupply.com/img/8182/megaai-quarter-original_png_project-body.jpg)
