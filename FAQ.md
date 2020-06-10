@@ -451,8 +451,8 @@ DepthAI FFC Edition (BW1098FFC model [here](https://shop.luxonis.com/products/de
 This is a particularly interesting application of DepthAI, as it allows the RPi HQ camera to be encoded to h.265 4K video (and 12MP stills) even with a Raspberry Pi 1 or Raspberry Pi Zero - because DepthAI does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera directly, can only do 1080p video and not 4K video recording).
 
 Here are some quick images and videos of it in use:
-![RPi HQ Camera Support in DepthAI](https://cdn.hackaday.io/images/775661591761050468.png)
 ![RPi HQ Camera Support in DepthAI](https://cdn.hackaday.io/images/9159701591761513514.JPG)
+![RPi HQ Camera Support in DepthAI](https://cdn.hackaday.io/images/775661591761050468.png)
 [![RPi HQ Camera Support in DepthAI](https://img.youtube.com/vi/KsK-XakrpK8/0.jpg)](https://www.youtube.com/watch?v=KsK-XakrpK8 "RPi HQ Camera Support in DepthAI")
 
 You can buy this adapter kit for the DepthAI FFC Edition (BW1098FFC) here: [https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit](https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit)
