@@ -250,6 +250,7 @@ By default there are keyframes every 1 second which resolve the previous issues 
 
 When running test.py, one can record a jpeg of the current frame by hitting `c` on the keyboard.  
 
+### Video Encoding Options 
 Additional options can be configured in the video encoding system by adding a `video_config` section to the JSON config of the DepthAI pipeline builder, [here](https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342), an example of which is [here](https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342).
 
 ```
