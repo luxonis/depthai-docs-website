@@ -492,7 +492,7 @@ __Brochures__:
  - USB3 Onboard Cameras Edition (BW1098OBC) [here](https://drive.google.com/open?id=1g0bQDLNnpVC_1-AGaPmC8BaXtGaNNdTR)
  - Raspberry Pi Compute Edition Module (BW1097) [here](https://drive.google.com/open?id=1QmPQ58NkaxO_Tz1Uzj9LlZcsyZ4Vw7hi)
  - Raspberry Pi HAT (BW1094) [here](https://drive.google.com/open?id=1QrpV8GXMevqj_ikDJVpaJioXM8axdUEJ)
- - megaAI (BW1093)[here](https://drive.google.com/open?id=1ji3K_Q3XdExdID94rHVSL7MvAV2bwKC9)
+ - megaAI (BW1093) [here](https://drive.google.com/open?id=1ji3K_Q3XdExdID94rHVSL7MvAV2bwKC9)
 
 __Datasheets__:
 
