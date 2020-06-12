@@ -78,7 +78,7 @@ python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1097 -ih
 #### BW1098FFC (USB3 Modular Camera Edition) or BW1094 (Raspberry Pi HAT):
 Use one of the board `*.json` files from [here](https://github.com/luxonis/depthai/tree/master/resources/boards) to define the baseline between the stereo cameras, and between the left camera and the color camera, replacing the items in brackets below.
 
-* Swap left/right (i.e. which way are the cameras facing, set to `true` or `false`
+* Swap left/right (i.e. which way are the cameras facing, set to `true` or `false`)
 * The `BASELINE` in centimeters between grayscale left/right cameras
 * The distance `RGBLEFT` separation between the `Left` grayscale camera and the color camera, in centimeters.
 
