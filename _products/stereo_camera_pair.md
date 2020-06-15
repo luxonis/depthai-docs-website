@@ -22,7 +22,7 @@ order: 2
 * 1280 x 720 pixels
 * 83 DFOV°
 * Lens Size: 1/2.3 inch
-* AutoFocus: 19.6 cm - ∞
+* Fixed Focus: 19.6 cm - ∞
 * F-number: 2.2
 
 ## Stereo Calibration
