@@ -43,7 +43,7 @@ It is the technical term for finding the bounding box of an object of interest, 
 
 Below is a visualization to showcase the difference between Object Detection and 3D Object Localization:
 
-[![Spatial AI](https://img.youtube.com/vi/2J5YFehJ3N4/0.jpg)](https://www.youtube.com/watch?v=2J5YFehJ3N4 "Spatial AI Visualization")
+[![Spatial AI](https://i.imgur.com/ABacp7x.png)](https://www.youtube.com/watch?v=2J5YFehJ3N4 "Spatial AI Visualization")
 
 (Click on the imageabove to pull up the YouTube video.)
 
@@ -74,7 +74,7 @@ For Install on various platforms are [here](https://docs.luxonis.com/api/#python
 
 It's a matter of minutes to be up and running with the power of Spatial AI, on the platform of your choice.  Below is DepthAI running on my Mac.
 
-[![Spatial AI](https://img.youtube.com/vi/SWDQekolM8o/0.jpg)](https://www.youtube.com/watch?v=SWDQekolM8o "DepthAI on Mac")
+[![Spatial AI](https://i.imgur.com/9C9zOx5.png)](https://www.youtube.com/watch?v=SWDQekolM8o "DepthAI on Mac")
 
 (Click on the imageabove to pull up the YouTube video.)
 
@@ -384,7 +384,7 @@ megaAI can be used to stream raw/uncompressed video with USB3.  Gen1 USB3 is cap
 
 DepthAI and megaAI can do h.264 and h.265 (HEVC) encoding on-device. The max resolution/rate is 4K at 30FPS.  With the default encoding settings in DepthAI/megaAI, this brings the throughput down from 373MB/s (raw/unencoded 4K/30) to 3.125MB/s (h.265/HEVC at 25mbps bit rate).  An example video encoded on DepthAI [BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) (Raspberry Pi Compute Module Edition) is below:
 
-[![4K Video on DepthAI with Raspberry Pi 3B](https://img.youtube.com/vi/vEq7LtGbECs/0.jpg)](https://www.youtube.com/watch?v=vEq7LtGbECs "4K 30FPS video in 3.125MB/s")
+[![4K Video on DepthAI with Raspberry Pi 3B](https://i.imgur.com/xjBEPKc.jpg)](https://www.youtube.com/watch?v=vEq7LtGbECs "4K 30FPS video in 3.125MB/s")
 
 It's worth noting that all DepthAI and megaAI products share the same color camera specs and encoding capabilities.  So footage filmed on a DepthAI unit with the color camera will be identical to that taken with a megaAI unit.
 
@@ -464,7 +464,7 @@ This is a particularly interesting application of DepthAI, as it allows the RPi 
 Here are some quick images and videos of it in use:
 ![RPi HQ Camera Support in DepthAI](https://cdn.hackaday.io/images/9159701591761513514.JPG)
 ![RPi HQ Camera Support in DepthAI](https://cdn.hackaday.io/images/775661591761050468.png)
-[![RPi HQ Camera Support in DepthAI](https://img.youtube.com/vi/KsK-XakrpK8/0.jpg)](https://www.youtube.com/watch?v=KsK-XakrpK8 "RPi HQ Camera Support in DepthAI")
+[![RPi HQ Camera Support in DepthAI](https://i.imgur.com/AbCHQgW.jpg)](https://www.youtube.com/watch?v=KsK-XakrpK8 "RPi HQ Camera Support in DepthAI")
 
 You can buy this adapter kit for the DepthAI FFC Edition (BW1098FFC) here: [https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit](https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit)
 
