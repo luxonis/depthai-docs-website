@@ -476,7 +476,7 @@ The DepthAI Raspberry Pi Compute Module Edition (RPi CME or BW1097 for short) co
  - DepthAI Full-Out: 6W (1.2A @ 5V)
 
 Below is a quick video showing this:
-[![BW1097 Power Use](https://img.youtube.com/vi/zQtSzhGR6Xg/0.jpg)](https://www.youtube.com/watch?v=zQtSzhGR6Xg "RPi CME Power Use")
+[![BW1097 Power Use](https://i.imgur.com/7f6jQ4o.png)](https://www.youtube.com/watch?v=zQtSzhGR6Xg "RPi CME Power Use")
 
 {: #githubs }
 
