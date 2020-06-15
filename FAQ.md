@@ -148,13 +148,7 @@ The full designs (including source Altium files) for all the carrier boards are 
 
  - [depthai-hardware](https://github.com/luxonis/depthai-hardware)
 
-## What are the Minimum and Maximum Depth Visible by DepthAI?
-
-Depth data from DepthAI is returned in uint16 format.  To interpret this depth into meters, use the following conversions.  
-
-In terms of numerically-limited max distance (i.e. not limited by the practicalities of physics), the actual furthest distance is
-`focal_length * base_line_dist` in meters, *1000 in mm, where `focal_length = frame_width [pixels]  / (2 * tan(fov / 2 / 180 * pi));`
-Where `frame_width` is the horizontal resolution of the sensors, by default 1280 pixels.
+## What are the Minimum Depths Visible by DepthAI?
 
 The minimum distance for depth perception (in meters) is: 
 `min_distance = focal_length * base_line_dist / 96`
