@@ -435,6 +435,21 @@ Anything further than 10 feet away from DepthAI/megaAI will be in focus when the
 P.S.:
 And in terms of history of these sorts of modules, one of the reasons auto-focus was added to these cell phone cameras was to handle close-in focus scenarios (not far-out focus, as that was handled by the hyperfocal distance).  In fact the first cell phone camera modules were all fixed-focus where the hope/goal was that the hyperfocal distance was close-in enough for most applications.  On such case where that assumption wasn't true was bar-code scanning.  In fact [Occipital](https://occipital.com/) started a business a bit over a decade ago specializing in doing the real-time deconvolutions necessary to allow these fixed-focused (and low-resolution) phones to scan barcodes (it was called 'Red Laser').  The phones were really low resolution back then - and fixed focus - so there just weren't enough pixels to make out the barcode when the camera were at the hyperfocal distance (or further), so the core tech of Occipital's Red Laser was to do the image deconvolution necessary to read the barcode even though the resultant image was well out of focus.  
 
+## What Are the Specifications of the Global Shutter Grayscale Cameras?
+
+The stereo pair is composed of synchronized global shutter OV9282-based camera modules.  Below are their specifications:
+ - Effective Focal Length (EFL): 2.55
+ - F-number (F.NO): 2.2 +/- 5%
+ - Field of View (FOV):
+   - Diagonal (DFOV): 83.76 deg.
+   - Horizontal (HFOV): 71.86 deg.
+   - Vertical (VFOV): 56.74 deg.
+ - Distortion: < 1%
+ - Lens Size: 1/4 inch
+ - Focusing: Fixed Focus, 0.196 meter (hyperfocal distance) to infinity
+ - Resolution: 1280 x 800 pixel
+ - Pixel Size: 3x3 micrometer (um)
+
 ## Am I able to attached alternate lenses to the camera? What sort of mounting system? S mount? C mount?
 
 The color camera on megaAI and DepthAI is a fully-integrated camera module, so the lense, auto-focus, auto-focus motor etc. are all self-contained and none of it is replaceable or serviceable.  You'll see it's all very small.  It's the same sort of camera you would find in a high-end smart phone.  
