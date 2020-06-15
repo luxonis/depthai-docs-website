@@ -13,7 +13,7 @@ Below is a quick video showing the (re-) calibration of the [BW1097](https://doc
 
 Watching the video below will give you the steps needed to calibrate your own DepthAI.  And for more information/details on calibration options, please see the steps below and also `./calibrate.py --help` which will print out all of the calibration options.
 
-[![DepthAI Calibration Example](https://img.youtube.com/vi/lF01f0p1oZM/0.jpg)](https://www.youtube.com/watch?v=lF01f0p1oZM "DepthAI Calibration")
+[![DepthAI Calibration Example](https://i.imgur.com/oJm0s8o.jpg)](https://www.youtube.com/watch?v=lF01f0p1oZM "DepthAI Calibration")
 
 <h3 class="step" data-toc-title="Install Python API" id="calibrate_install_api"><span></span> Checkout the [depthai](https://github.com/luxonis/depthai) GitHub repo.</h3>
 
