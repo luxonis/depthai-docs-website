@@ -92,7 +92,6 @@ The flow we walked through works for other pre-trained object detection models i
  - face detection for driver assistance (`face-detection-adas-0001`)
  - facial landmarks, simple (`landmarks-regression-retail-0009`)
  - facial landmarksand, advanced (`facial-landmarks-35-adas-0002`)
- - age recognition (`age-gender-recognition-retail-0013`)
  - emotions recognition (`emotions-recognition-retail-0003`)
  - pedestrian detection for driver-assistance (`pedestrian-detection-adas-0002`)
  - pedestrian detection for retail environments (`person-detection-retail-0013`)
