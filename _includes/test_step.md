@@ -1,9 +1,9 @@
 We'll execute a DepthAI example Python script to ensure your setup is configured correctly. Follow these steps to test DepthAI:
 
 1. Start a terminal session.
-2. Access your local copy of `depthai-python-extras`.
+2. Access your local copy of `depthai`.
     ```
-    cd [depthai-python-extras repo]
+    cd [depthai repo]
     ```
 3. Run `python3 test.py {{page.test_args}}`.<br/>
     The script launches a window, starts the cameras, and displays a video stream annotated with object localization metadata:
