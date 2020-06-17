@@ -48,7 +48,7 @@ Follow the steps below to setup your DepthAI device.
 Use the DepthAI [calibration script](/products/stereo_camera_pair/#calibration) with the following argument:
 
 ```
--co '{"board_config": {"left_to_right_distance_cm": 7.5}}'
+-brd bw1098obc
 ```
 
 This sets the distance between the stereo cameras to their distance on the board.
