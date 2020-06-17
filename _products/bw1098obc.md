@@ -41,7 +41,7 @@ Follow the steps below to setup your DepthAI device.
 
 <h3 class="step js-toc-ignore"><span></span> Install the Python DepthAI API</h3>
 
-[See our instructions](/api#install).
+[See our instructions](/api#python_version).
 
 <h3 class="step js-toc-ignore"><span></span> Calibrate Stereo Cameras</h3>
 
