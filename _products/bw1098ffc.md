@@ -69,7 +69,7 @@ Note when looking at the connectors, the blue stripe should be facing up.
 
 <h3 class="step js-toc-ignore"><span></span> Install the Python DepthAI API.</h3>
 
-[See our instructions](/api#install).
+[See our instructions](/api#python_version).
 
 <h3 class="step js-toc-ignore"><span></span> Calibrate Stereo Cameras.</h3>
 
