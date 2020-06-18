@@ -10,7 +10,7 @@ order: 6
 
 ## Why Does DepthAI Exist?
 
-In trying to solve an Embedded [Spatial AI](#spatialai) problem (details [here](https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian)), we discovered that there were no tools to do so.  The perfect chip existed (which is great), but there was no platform (hardware, firmware, or software) which allowed the chip to be used to solve such an Embedded Spatial AI problem.
+In trying to solve an Embedded [Spatial AI](#spatialai) problem (details [here](https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian)), we discovered that although the perfect chip existed, there was no platform (hardware, firmware, or software) which allowed the chip to be used to solve such an Embedded Spatial AI problem.
 
 So we built the platform. 
 
