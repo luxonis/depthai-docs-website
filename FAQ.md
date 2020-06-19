@@ -198,13 +198,15 @@ The available streams are:
  - `disparity` # Raw disparity
  - `depth_color_h` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
  
-### Is it possible to have access to the raw stereo pair stream on the host?
+### Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
  
- Yes, to get the raw stereo pair stream on the host use the following command:
+Yes, to get the raw stereo pair stream on the host use the following command:
  `python3 test.py -s left right`
  
- This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as below:
+This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as below:
  ![RAW Stereo Pair Streams](https://i.imgur.com/oKVrZAV.jpg)
+ 
+And you can configure the streams via the DepthAI as per [here](https://github.com/luxonis/depthai/blob/3942201d67fe7955370e615aa88045cd8f2211bf/depthai.py#L299).
 
 ## How Do I Limit The FrameRate Per Stream?
 
@@ -294,7 +296,7 @@ metaout | metaout | 300
 metaout | metaout, previewout | 300
 metaout | left, right, depth_sipp, metaout, previewout | 300
 
-## Is it Possible to uUe the RGB camera and/or the Stereo Pair as a Regular UVC camera?
+## Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Camera?
 
 Yes, but currently not on our roadmap.  
 
@@ -411,7 +413,8 @@ Encoded:
  - 12MP (4056x3040) : JPEG Pictures/Stills
  - 4K   (3840x2160) : 30.00fps (3.125MB/s) 
  
-## What Auto-Focus Modes Are Supported?
+{: #autofocus }
+## What Auto-Focus Modes Are Supported?  Is it Possible to Control Auto-Focus From the Host?
 
 DepthAI and megaAI support continuous video autofocus ('2' below, where the system is constantly autonomously searching for the best focus) and also and `auto` mode ('1' below) which waits to focus until directed by the host.  (PR which adds this functionality is [here](https://github.com/luxonis/depthai/pull/114).)
 
@@ -420,6 +423,8 @@ Example usage is shown in `depthai.py`.  When running `python3 test.py` (which s
  - '1' to change autofocus mode to auto
    - 'f' to trigger autofocus
  - '2' to change autofocus mode to continuous video
+ 
+ And you can see the reference DepthAI API call [here](https://github.com/luxonis/depthai/blob/3942201d67fe7955370e615aa88045cd8f2211bf/depthai.py#L524)
 
 ## What is the Hyperfocal Distance of the Auto-Focus Color Camera?
  
@@ -444,6 +449,19 @@ We are using the effective focal length, and since we're not optics experts, we'
 So what does this mean for your application?  
 
 Anything further than 10 feet away from DepthAI/megaAI will be in focus when the focus is set to 10 feet or beyond.  In other words, as long as you don't have something closer than 10 feet which the camera is trying to focus on, everything 10 feet or beyond will be in focus. 
+
+## Is it Possible to Control the Exposure and White Balance and Auto-Focus (3A) Settings of the RGB Camera From the Host?
+
+### Auto-Focus (AF)
+See [here](#autofocus) for details on controlling auto-focus/focus.
+
+### Exposure (AE)
+This is not yet exposed via the DepthAI API but we have it on our internal roadmap currently as item 23, where the top 4 are currently under development (and another 9 are soaking in testing/PR)..  So I'd say we'd have it in ~3-4 months based on current trajectory.  
+
+It's something we can prioritize if needed though.  Frame duration (us), exposure time (us), sensitivity (iso), brightness, are some that I see in there in addition to things like locking the exposure/etc.
+
+### White Balance (AWB)
+This will be implemented at the same time as exposure and will be included.  AWB lock, AWB modes.  We will post more information as we dig into this task.
 
 ## What Are the Specifications of the Global Shutter Grayscale Cameras?
 
@@ -507,6 +525,10 @@ See below for the pertinent Githubs:
  - [https://github.com/luxonis/depthai-api](https://github.com/luxonis/depthai-api) - C++ Core and C++ API
  - [https://github.com/luxonis/depthai-ml-training](https://github.com/luxonis/depthai-ml-training) - Online AI/ML training leveraging Google Colab (so it's free)
  - [https://github.com/luxonis/depthai-experiments](https://github.com/luxonis/depthai-experiments) - Experiments showing how to use DepthAI.  
+ 
+## Can I Use and IMU With DepthAI?
+
+Yes, our BW1099 ([here](https://shop.luxonis.com/collections/all/products/bw1099)) has support for the Bosch BM160.  Please reach out to us if this is of interest.  We do not yet have support for this IMU in the DepthAI API, but we have done proof-of-concepts and could make this a standard feature through the API if it is of interest.
  
 ## Where are Product Brochures and/or Datasheets?
 
