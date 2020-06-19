@@ -197,6 +197,14 @@ The available streams are:
  - `depth_sipp` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
  - `disparity` # Raw disparity
  - `depth_color_h` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
+ 
+ ### Is it possible to have access to the raw stereo pair stream on the host?
+ 
+ Yes, to get the raw stereo pair stream on the host use the following command:
+ `python3 test.py -s left right`
+ 
+ This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as below:
+ ![RAW Stereo Pair Streams](https://i.imgur.com/oKVrZAV.jpg)
 
 ## How Do I Limit The FrameRate Per Stream?
 
