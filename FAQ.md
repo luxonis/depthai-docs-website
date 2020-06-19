@@ -302,7 +302,7 @@ Yes, but currently not on our roadmap. 
 
 The `why` is our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see [here](https://docs.luxonis.com/api/#python_version)).
 
-However we could implement support for 3 UVC endpoints (so showing up as 3 UVC cameras), on for eadh of the 3 cameras.  
+However we could implement support for 3 UVC endpoints (so showing up as 3 UVC cameras), on for each of the 3 cameras.  
 
 We've prototyped 2x w/ internal proof of concept (but grayscale) but have not yet tried 3 but it would probably work.    We could support a UVC stream per camera if it is of interest.  
 
