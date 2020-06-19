@@ -548,4 +548,12 @@ We have not yet made datasheets for current models (we've been too focused on te
 
  - PoE Modular Cameras Edition (BW2098FFC) [here](https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing)
  
+## How Do I Talk to an Engineer?
+ 
+At Luxonis we firmly believe in the value of customers being able to communicate directly with our engineers.  It helps our engineering efficiency.  And it does so by making us make the things that matter, in the ways that matter (i.e. usability in the right ways), for actual customers.
+
+As such, we have many mechanisms to allow direct communication:
+ - [Luxonis Community Slack](https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw).  Use this for real-time communication with our engineers.  We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
+ - [Luxonis Github](https://github.com/luxonis).  Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports.  We usually respond within a couple ours (and often w/in a couple minutes).  For a summary of our Githubs, see [here](#githubs)
+ - [discuss.luxonis.com](https://discuss.luxonis.com/).  Use this for starting any public discussions, ideas, product requests, support requests etc. or generally to engage with the Luxonis Community.  While you're there, check out this awesome visual-assistance device being made with DepthAI for the visually-impaire, [here](https://discuss.luxonis.com/d/40-questions-re-depthai-usb3-ffc-edition-cameras/44)
 
