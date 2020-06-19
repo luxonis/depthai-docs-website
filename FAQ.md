@@ -198,7 +198,7 @@ The available streams are:
  - `disparity` # Raw disparity
  - `depth_color_h` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
  
- ### Is it possible to have access to the raw stereo pair stream on the host?
+### Is it possible to have access to the raw stereo pair stream on the host?
  
  Yes, to get the raw stereo pair stream on the host use the following command:
  `python3 test.py -s left right`
@@ -276,16 +276,6 @@ If `video_config` member is **NOT** present in config dictionary then default is
 > Default video encoder configuration:
 > H264_HIGH, constant bitrate @ 8500Kbps, keyframe every 30 frames (once per second), num B frames: 0
 
-## How Do I Force USB2 Mode?
-
-USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
-
-To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line option as below:
-```
-python3 test.py -fusb2
-```
-Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29), which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
-
 ## What Are The Stream Latencies?
 When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from a photo hitting an image sensor to when the results are available to a user, the `photon-to-results` latency.  
 
@@ -303,6 +293,28 @@ previewout | left, right, depth_sipp, metaout, previewout | 100
 metaout | metaout | 300
 metaout | metaout, previewout | 300
 metaout | left, right, depth_sipp, metaout, previewout | 300
+
+## Is it Possible to uUe the RGB camera and/or the Stereo Pair as a Regular UVC camera?
+
+Yes, but currently not on our roadmap.  
+
+The `why` is our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see [here](https://docs.luxonis.com/api/#python_version)).
+
+However we could implement support for 3 UVC endpoints (so showing up as 3 UVC cameras), on for eadh of the 3 cameras.  
+
+We've prototyped 2x w/ internal proof of concept (but grayscale) but have not yet tried 3 but it would probably work.    We could support a UVC stream per camera if it is of interest.  
+
+So if you would like this functionality please feel free to make a Github issue feature request [here](https://github.com/luxonis/depthai/issues), make a topic on [discuss.luxonis.com](https://discuss.luxonis.com/), or bring it up in our [Community Slack](https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw).
+
+## How Do I Force USB2 Mode?
+
+USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
+
+To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line option as below:
+```
+python3 test.py -fusb2
+```
+Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29), which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
 
 ## What Information is Stored on the DepthAI Boards
 Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
