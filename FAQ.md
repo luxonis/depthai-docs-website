@@ -197,6 +197,16 @@ The available streams are:
  - `depth_sipp` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
  - `disparity` # Raw disparity
  - `depth_color_h` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
+ 
+### Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
+ 
+Yes, to get the raw stereo pair stream on the host use the following command:
+ `python3 test.py -s left right`
+ 
+This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as below:
+ ![RAW Stereo Pair Streams](https://i.imgur.com/oKVrZAV.jpg)
+ 
+And you can configure the streams via the DepthAI as per [here](https://github.com/luxonis/depthai/blob/3942201d67fe7955370e615aa88045cd8f2211bf/depthai.py#L299).
 
 ## How Do I Limit The FrameRate Per Stream?
 
@@ -268,16 +278,6 @@ If `video_config` member is **NOT** present in config dictionary then default is
 > Default video encoder configuration:
 > H264_HIGH, constant bitrate @ 8500Kbps, keyframe every 30 frames (once per second), num B frames: 0
 
-## How Do I Force USB2 Mode?
-
-USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
-
-To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line option as below:
-```
-python3 test.py -fusb2
-```
-Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29), which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
-
 ## What Are The Stream Latencies?
 When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from a photo hitting an image sensor to when the results are available to a user, the `photon-to-results` latency.  
 
@@ -295,6 +295,28 @@ previewout | left, right, depth_sipp, metaout, previewout | 100
 metaout | metaout | 300
 metaout | metaout, previewout | 300
 metaout | left, right, depth_sipp, metaout, previewout | 300
+
+## Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Camera?
+
+Yes, but currently not on our roadmap.  
+
+The `why` is our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see [here](https://docs.luxonis.com/api/#python_version)).
+
+However we could implement support for 3 UVC endpoints (so showing up as 3 UVC cameras), on for each of the 3 cameras.  
+
+We've prototyped 2x w/ internal proof of concept (but grayscale) but have not yet tried 3 but it would probably work.    We could support a UVC stream per camera if it is of interest.  
+
+So if you would like this functionality please feel free to make a Github issue feature request [here](https://github.com/luxonis/depthai/issues), make a topic on [discuss.luxonis.com](https://discuss.luxonis.com/), or bring it up in our [Community Slack](https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw).
+
+## How Do I Force USB2 Mode?
+
+USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
+
+To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line option as below:
+```
+python3 test.py -fusb2
+```
+Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29), which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
 
 ## What Information is Stored on the DepthAI Boards
 Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
@@ -391,7 +413,8 @@ Encoded:
  - 12MP (4056x3040) : JPEG Pictures/Stills
  - 4K   (3840x2160) : 30.00fps (3.125MB/s) 
  
-## What Auto-Focus Modes Are Supported?
+{: #autofocus }
+## What Auto-Focus Modes Are Supported?  Is it Possible to Control Auto-Focus From the Host?
 
 DepthAI and megaAI support continuous video autofocus ('2' below, where the system is constantly autonomously searching for the best focus) and also and `auto` mode ('1' below) which waits to focus until directed by the host.  (PR which adds this functionality is [here](https://github.com/luxonis/depthai/pull/114).)
 
@@ -400,6 +423,8 @@ Example usage is shown in `depthai.py`.  When running `python3 test.py` (which s
  - '1' to change autofocus mode to auto
    - 'f' to trigger autofocus
  - '2' to change autofocus mode to continuous video
+ 
+ And you can see the reference DepthAI API call [here](https://github.com/luxonis/depthai/blob/3942201d67fe7955370e615aa88045cd8f2211bf/depthai.py#L524)
 
 ## What is the Hyperfocal Distance of the Auto-Focus Color Camera?
  
@@ -424,6 +449,19 @@ We are using the effective focal length, and since we're not optics experts, we'
 So what does this mean for your application?  
 
 Anything further than 10 feet away from DepthAI/megaAI will be in focus when the focus is set to 10 feet or beyond.  In other words, as long as you don't have something closer than 10 feet which the camera is trying to focus on, everything 10 feet or beyond will be in focus. 
+
+## Is it Possible to Control the Exposure and White Balance and Auto-Focus (3A) Settings of the RGB Camera From the Host?
+
+### Auto-Focus (AF)
+See [here](#autofocus) for details on controlling auto-focus/focus.
+
+### Exposure (AE)
+This is not yet exposed via the DepthAI API but we have it on our internal roadmap currently as item 23, where the top 4 are currently under development (and another 9 are soaking in testing/PR)..  So I'd say we'd have it in ~3-4 months based on current trajectory.  
+
+It's something we can prioritize if needed though.  Frame duration (us), exposure time (us), sensitivity (iso), brightness, are some that I see in there in addition to things like locking the exposure/etc.
+
+### White Balance (AWB)
+This will be implemented at the same time as exposure and will be included.  AWB lock, AWB modes.  We will post more information as we dig into this task.
 
 ## What Are the Specifications of the Global Shutter Grayscale Cameras?
 
@@ -488,6 +526,10 @@ See below for the pertinent Githubs:
  - [https://github.com/luxonis/depthai-ml-training](https://github.com/luxonis/depthai-ml-training) - Online AI/ML training leveraging Google Colab (so it's free)
  - [https://github.com/luxonis/depthai-experiments](https://github.com/luxonis/depthai-experiments) - Experiments showing how to use DepthAI.  
  
+## Can I Use and IMU With DepthAI?
+
+Yes, our BW1099 ([here](https://shop.luxonis.com/collections/all/products/bw1099)) has support for the Bosch BM160.  Please reach out to us if this is of interest.  We do not yet have support for this IMU in the DepthAI API, but we have done proof-of-concepts and could make this a standard feature through the API if it is of interest.
+ 
 ## Where are Product Brochures and/or Datasheets?
 
 __Brochures__:
@@ -506,4 +548,12 @@ We have not yet made datasheets for current models (we've been too focused on te
 
  - PoE Modular Cameras Edition (BW2098FFC) [here](https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing)
  
+## How Do I Talk to an Engineer?
+ 
+At Luxonis we firmly believe in the value of customers being able to communicate directly with our engineers.  It helps our engineering efficiency.  And it does so by making us make the things that matter, in the ways that matter (i.e. usability in the right ways), for actual customers.
+
+As such, we have many mechanisms to allow direct communication:
+ - [Luxonis Community Slack](https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw).  Use this for real-time communication with our engineers.  We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
+ - [Luxonis Github](https://github.com/luxonis).  Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports.  We usually respond within a couple ours (and often w/in a couple minutes).  For a summary of our Githubs, see [here](#githubs).
+ - [discuss.luxonis.com](https://discuss.luxonis.com/).  Use this for starting any public discussions, ideas, product requests, support requests etc. or generally to engage with the Luxonis Community.  While you're there, check out this awesome visual-assistance device being made with DepthAI for the visually-impaire, [here](https://discuss.luxonis.com/d/40-questions-re-depthai-usb3-ffc-edition-cameras).
 
