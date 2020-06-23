@@ -50,6 +50,10 @@ Spatial AI is then the super-set of such 2D-equivalent neural networks being ext
 
 An example of such an extension is using a facial landmark detector on DepthAI.  With a normal camera this network returns the 2D coordinates of all 45 facial landmarks (countours of eyes, ears, mouth, eybrows, etc.)  Using this same network with DepthAI, each of these 45 facial landmarks is now a 3D point in physical space instead of 2D points in pixel space.
 
+## What Hardware Acceleration Exists in DepthAI and/or megaAI?
+
+ -[ ] Neural Inference
+
 ## What is megaAI?
 
 The monocular (single-camera) version of DepthAI is megaAI.  Because not all solutions to embedded AI/CV problems require spatial information.  
@@ -253,6 +257,10 @@ By default there are keyframes every 1 second which resolve the previous issues 
 
 When running test.py, one can record a jpeg of the current frame by hitting `c` on the keyboard.  
 
+An example video encoded on DepthAI [BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) (Raspberry Pi Compute Module Edition) is below.  All DepthAI and megaAI units have the same 4K color camera, so will have equivalent performance to the video below.
+
+[![4K Video on DepthAI with Raspberry Pi 3B](https://i.imgur.com/xjBEPKc.jpg)](https://www.youtube.com/watch?v=vEq7LtGbECs "4K 30FPS video in 3.125MB/s")
+
 ### Video Encoding Options 
 Additional options can be configured in the video encoding system by adding a `video_config` section to the JSON config of the DepthAI pipeline builder, [here](https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342), an example of which is [here](https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342).
 
@@ -346,52 +354,6 @@ DepthAI and megaAI use the same 12MP RGB Camera module based on the IMX378.
 
  * 12MP RGB Horizontal Field of View (HFOV): 68.7938 deg
  * 1MP Global Shutter Grayscale Cmera Horizontal Field of View (HFOV): 71.86 deg
-
-## How do I Get H.264 Videos to Play on My Mac?
-The h.264 videos which DepthAI and uAI encode do not work by default on Mac OS X.  You can always upload them to Youtube/Google Photos/etc. and they'll play their.  BUT, if you want them to work directly on your Mac, you can do the following conversion using ffmpeg through HomeBrew:
-
-### Install ffmpeg
-```
-brew install ffmpeg
-```
-### Make an ffmpeg Conversion Script
-Make a new file called `transcode_h264.sh` and make it executable: 
-```
-touch transcode_h264.sh
-chmod +x transcode_h264.sh
-```
-Add the following commands to `transcode_h264.sh`:
-```
-ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 /tmp/pass1 && \
-ffmpeg -an -i "$1" -vf scale=-1:406 -vcodec libx264 -preset veryslow -crf 23 -maxrate 1200k -bufsize 2500k -pix_fmt yuv420p -profile:v baseline -level 3.1 -f mp4 -movflags +faststart -tune zerolatency "$1.mp4"
-```
-You can do this by copying the text above, and issuing the following commands with vim:
-```
-vim transcode_h264.sh
-i
-```
-Hit CMD + v
-
-Hit esc
-```
-:wq
-```
-Hit enter
-
-### Use the Conversion Script
-
-```
-./transcode_h264.sh myvid.mov
-```
-
-You'll get a nice, fairly small, Mac-friendly and share-able video.
-
-### [Optional] Add the Conversion Script to Your Path
-
-```
-cp transcode_h264.sh /usr/local/bin/transcode_h264
-```
-Now you can juse use `transcode_h264.sh` in any directory!
 
 ## What are the Highest Resolutions and Recording FPS Possible with DepthAI and megaAI?
 
