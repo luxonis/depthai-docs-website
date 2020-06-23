@@ -50,10 +50,6 @@ Spatial AI is then the super-set of such 2D-equivalent neural networks being ext
 
 An example of such an extension is using a facial landmark detector on DepthAI.  With a normal camera this network returns the 2D coordinates of all 45 facial landmarks (countours of eyes, ears, mouth, eybrows, etc.)  Using this same network with DepthAI, each of these 45 facial landmarks is now a 3D point in physical space instead of 2D points in pixel space.
 
-## What Hardware Acceleration Exists in DepthAI and/or megaAI?
-
- -[ ] Neural Inference
-
 ## What is megaAI?
 
 The monocular (single-camera) version of DepthAI is megaAI.  Because not all solutions to embedded AI/CV problems require spatial information.  
@@ -142,6 +138,35 @@ permutations though.
 All the networks listed [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_MYRIAD.html) are supported by DepthAI.  
 
 We haven't tested all of them though.  So if you have a problem, contact us and we'll figure it out.
+
+## What Hardware Acceleration Exists in DepthAI and/or megaAI?
+
+#### Available in DepthAI API Today:
+ - Neural Inference (e.g. object detection, image classification, etc., including two-stage)
+ - Stereo Depth (including median filtering)
+ - 3D Object Localization (augmenting 2D object detectors with 3D position in meters)
+ - Object Tracking (including in 3D space)
+ - H.264 and H.265 Encoding (HEVC, 1080p & 4K Video)
+ - JPEG Encoding
+ - MJPEG Encoding
+ - Warp/Dewarp
+
+The above features are available in the Luxonis Pipeline Builder Gen1 (see example [here](https://docs.luxonis.com/api/#parameters-1)).  See [Pipeline Builder Gen2](#pipelinegen2) for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
+ 
+#### On our Roadmap (i.e. next ~4 months will be in our API)
+ - AprilTags
+ - Feature Tracking
+ - Motion Estimation (including background subraction)
+ - Edge Detection
+ - Harris Filtering
+ - Arbitrary crop/rescale/reforma and ROI return
+
+{: #pipelinegen2 }
+#### Pipeline Builder Gen2
+
+We have been working on a 2nd-generation pipeline builder which will incorporate many of the features below on our roadmap into a graphical drag/drop AI/CV pipeline which will then run entirely on DepthAI and return results of interest to the host.  
+
+This allows multi-stage neural networks to be pieced together in conjunction with CV functions (such as motion estimation or Harris filtering) and logical rules, all of which run on DepthAI/megaAI without any load on the host.  
 
 ## Are CAD Files Available?
 
