@@ -187,9 +187,9 @@ There are two ways to use DepthAI for 3D object detection and/or using neural in
 ### Monocular Neural Inference fused with Stereo Depth
 In this mode, the AI (object detection) is run on the left, right, or RGB camera, and the results are fused with stereo disparity depth, based on semi global matching (SGBM).  The minimum depth is limited by the maximum disparity search, which is by default 96, but is extendable to 192 in extended disparity modes (see [Extended Disparity](#extended_disparity) below).
 
-To calculate the minimum distance in this mode, use the following formula, where min_distance is in meters [m]: 
+To calculate the minimum distance in this mode, use the following formula, where base_line_dist and min_distance are in meters [m]: 
 `min_distance = focal_length * base_line_dist / 96`
-Where 96 is the standard maximum disparity search used by DepthAI and so for extended disparity (192 pixels), the minimum distance in meters is:
+Where 96 is the standard maximum disparity search used by DepthAI and so for extended disparity (192 pixels), the minimum distance is:
 `min_distance = focal_length * base_line_dist / 192`
 
 For DepthAI, the HFOV of the the grayscale global shutter cameras is 71.86 degrees (this can be found on your board, see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai), so the focal length is
