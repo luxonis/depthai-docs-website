@@ -179,31 +179,65 @@ The full designs (including source Altium files) for all the carrier boards are 
 
 ## What are the Minimum Depths Visible by DepthAI?
 
-The minimum distance for depth perception (in meters) is: 
+There are two ways to use DepthAI for 3D object detection and/or using neural information to get real-time 3D position of features (e.g. facial landmarks):
+
+1. Monocular Neural Inference fused with Stereo Depth
+2. Stereo Neural Inference
+
+### Monocular Neural Inference fused with Stereo Depth
+In this mode, the AI (object detection) is run on the left, right, or RGB camera, and the results are fused with stereo disparity depth, based on semi global matching (SGBM).  The minimum depth is limited by the maximum disparity search, which is by default 96, but is extendable to 192 in extended disparity modes (see [Extended Disparity](#extended_disparity) below).
+
+To calculate the minimum distance in this mode, use the following formula, where min_distance is in meters [m]: 
 `min_distance = focal_length * base_line_dist / 96`
-Where 96 is the standard maximum disparity search used by DepthAI.
+Where 96 is the standard maximum disparity search used by DepthAI and so for extended disparity (192 pixels), the minimum distance in meters is:
+`min_distance = focal_length * base_line_dist / 192`
 
 For DepthAI, the HFOV of the the grayscale global shutter cameras is 71.86 degrees (this can be found on your board, see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai), so the focal length is
 `focal_length = 1280/(2*tan(71.86/2/180*pi)) = 883.15` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk01Ip7jrSxOqilDQiCjN7zb9XwoRQA%3A1588619495817&ei=52iwXpiqMYv3-gSBy4SQDw&q=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzoECAAQR1CI0BZY-MkYYPDNGGgAcAJ4AIABWogBjgmSAQIxNJgBAKABAaoBB2d3cy13aXo&sclient=psy-ab&ved=0ahUKEwjYuezl9JrpAhWLu54KHYElAfIQ4dUDCAw&uact=5)).
 
-(And for depth data, the value is stored in `uint16`, where the max value of `uint16` of 65535 is a special value, meaning that that distance is unknown.)
+(And for disparity depth data, the value is stored in `uint16`, where the max value of `uint16` of 65535 is a special value, meaning that that distance is unknown.)
+
+### Stereo Neural Inference
+In this mode, the neural inference (object detection, landmark detection, etc.) is run on the left *and* right cameras to produce stereo inference results.  Unlike monocular neural inference fused with stereo depth - there is no max disparity search limit - so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the stereo cameras themselves and (b) the hyperfocal distance of the cameras.  
+
+The hyperfocal distance of the global shutter synchronized stereo pair is 19.6cm.  So objects closer than 19.6cm will appear out of focus.  This is effectively the minimum distance for this mode of operation, as in most cases (except for very wide stereo baselines with the [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/)), this minimum distance is higher than the minimum distance as a result of the stereo camera field of views.
+
+To calculate the minimum distance for this mode of operation, use the following formula:
+
+`min_distance = max(tan(90-HFOV/2)*base_line_dist/2, 19.6)`
+
+This formula implements the maximum of the HFOV-imposed minimum distance, and 19.6cm, which is the hyperfocal-distance-imposed minimum distance.
 
 ### Onboard Camera Minimum Depths
+Below are the minimum depth perception possible in the disparity disparity depth and stereo neural inference modes.
 
+#### Monocular Neural Inference fused with Stereo Depth Mode
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
  - DepthAI RPi Compute Module Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)) the minimum depth is **0.827** meters: 
  `min_distance = 883.15*.09/96 = 0.827m` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.09%2F96&oq=883.15*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CBjg5YnZAOYMylDmgAcAB4AIABX4gBjwOSAQE1mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5))
  - USB3C Onboard Camera Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)) is **0.689** meters: 
  `min_distance = 883.15*.075/96 = 0.689m` (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.075%2F96&oq=883.15*.075%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1DtSVjkSmDVS2gAcAB4AIABYYgBywKSAQE0mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5))
+
+#### Stereo Neural Inference Mode
+For DepthAI units with onboard cameras, all models ([BW1097](https://docs.luxonis.com/products/bw1097/) and [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)) are limited by the hyperfocal distance of the stereo cameras, so their minimum depth is **0.196** meters.
  
 ### Modular Camera Minimum Depths:
+Below are the minimum depth perception possible in the disparity disparity depth and stereo neural inference modes.
 
+#### Monocular Neural Inference fused with Stereo Depth Mode
 For DepthAI units which use modular cameras, the minimum baseline is 2.5cm (see image below) which means the minimum perceivable depth **0.229** meters (calculation [here](https://www.google.com/search?safe=off&sxsrf=ALeKk03VQroLoaCAm-e1y0jif-halRfWyQ%3A1588621013147&ei=1W6wXsLICMv4-gS7s7iADg&q=883.15*.025%2F96&oq=883.15*.025%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CLyekBWNTJ6QFgm8vpAWgAcAB4AIABa4gBzgKSAQMzLjGYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwiCh6-5-prpAhVLvJ4KHbsZDuAQ4dUDCAw&uact=5)).
 
 The minimum baseline is set simply by how close the two boards can be spaced before they physically interfere:
 ![min_spacing](/images/min_distance_modular_cameras.jpg)
 
-### Extended Disparity:
+#### Stereo Neural Inference Mode
+For any stereo baseline under 29cm, the minimum depth is dictacted by the hyperfocal distance (the distance above which objects are in focus) of 19.6cm.
+
+For stereo baselines wider than 29cm, the minimum depth is limited by the horizontal field of view (HFOV):
+`min_distance = tan(90-HFOV/2)*base_line_dist/2`
+
+{: #extended_disparity }
+### Extended Disparity Depth Mode:
 
 If it is of interest in your application, we can implement a system called `extended disparity` which affords a closer minimum distance for the given baseline.  This increases the maximum disparity search from 96 to 192.  So this cuts the minimum perceivable distance in half (given that the minimum distance is now `focal_length * base_line_dist / 192` instead of `focal_length * base_line_dist / 96`.)
 
@@ -211,7 +245,7 @@ If it is of interest in your application, we can implement a system called `exte
   - USB3C Onboard Camera Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/)) is **0.345** meters
   - Modular Cameras at Mimumum Spacing (e.g. [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/)) is **0.115** meters
   
-So if you have the need for this shorter minimum distance, reach out to us on slack, email, or discuss.luxonis.com to let us know.  It's on our roadmap but we haven't yet seen a need for it, so we haven't prioritized implementing it (yet!).
+So if you have the need for this shorter minimum distance when using monocular neural inference fused with disparity depth, reach out to us on slack, email, or discuss.luxonis.com to let us know.  It's on our roadmap but we haven't yet seen a need for it, so we haven't prioritized implementing it (yet!).
 
 ## How Do I Display Multiple Streams?
 To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_sipp`), use the following command:
