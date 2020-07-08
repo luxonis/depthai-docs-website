@@ -142,11 +142,12 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 ## What Hardware Acceleration Exists in DepthAI and/or megaAI?
 
 #### Available in DepthAI API Today:
- - Neural Inference (e.g. object detection, image classification, etc., including two-stage)
+ - Neural Inference (e.g. object detection, image classification, etc., including two-stage, e.g. [here](https://youtu.be/uAfGulcDWSk))
  - Stereo Depth (including median filtering)
- - 3D Object Localization (augmenting 2D object detectors with 3D position in meters)
- - Object Tracking (including in 3D space)
- - H.264 and H.265 Encoding (HEVC, 1080p & 4K Video)
+ - Stereo Inference (with two-stage, e.g. [here](https://youtu.be/eEnDW0WQ3bo)
+ - 3D Object Localization (augmenting 2D object detectors with 3D position in meters, e.g. [here](https://youtu.be/cJr4IpGMSLA) and [here](https://youtu.be/SWDQekolM8o))
+ - Object Tracking (e.g. [here](https://vimeo.com/422965770), including in 3D space)
+ - H.264 and H.265 Encoding (HEVC, 1080p & 4K Video, e.g. [here](https://youtu.be/vEq7LtGbECs))
  - JPEG Encoding
  - MJPEG Encoding
  - Warp/Dewarp
@@ -154,10 +155,12 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 The above features are available in the Luxonis Pipeline Builder Gen1 (see example [here](https://docs.luxonis.com/api/#parameters-1)).  See [Pipeline Builder Gen2](#pipelinegen2) for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
  
 #### On our Roadmap (i.e. next ~4 months will be in our API)
- - Pipleline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions)
- - AprilTags
+ - Pipleline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details [here](https://github.com/luxonis/depthai/issues/136))
+ - AprilTags (PR [here](https://github.com/luxonis/depthai/pull/139))
  - Feature Tracking
- - Motion Estimation (including background subraction)
+ - Motion Estimation
+ - Background Subtraction
+ - Lossless zoom (from 12MP full to 4K, 1080p, or 720p)
  - Edge Detection
  - Harris Filtering
  - Arbitrary crop/rescale/reforma and ROI return
