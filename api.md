@@ -39,7 +39,7 @@ With a fresh install, below are the following dependencies needed to get DepthAI
 ```
 sudo apt update
 sudo apt upgrade
-sudo apt install python3-opencv
+sudo apt install python3-opencv libcurl4
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && sudo udevadm trigger
 git clone https://github.com/luxonis/depthai.git
@@ -53,7 +53,7 @@ After running these commands, jump to [Quick Test](#quicktest) below to run your
 {: #ubuntu}
 ### Ubuntu 
 ```
-sudo apt install git python3-pip
+sudo apt install git python3-pip libcurl4
 pip3 install numpy opencv-python --user
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && sudo udevadm trigger
@@ -220,7 +220,7 @@ Assuming a stock Mac OS X install, DepthAI can be installed and tested with the 
 #### Install Python and Other Developer Tools
 (If they're also not already installed)
 ```
-brew install coreutils python3 cmake libusb wget opencv
+brew install coreutils python3 cmake libusb wget opencv curl
 pip3 install numpy opencv-python --user
 ```
 And now you're ready to clone the DepthAI Github and build DepthAI for Mac OS X.
@@ -248,6 +248,7 @@ To compile the Python API from scratch, it may be necessary, depending on the co
 * g++
 * libusb
 * opencv
+* libcurl4-openssl-dev
 * python3
   * including `pip3 install numpy opencv-python --user`
   
