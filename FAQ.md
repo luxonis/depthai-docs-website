@@ -143,7 +143,7 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 
 #### Available in DepthAI API Today:
  - Neural Inference (e.g. object detection, image classification, etc., including two-stage, e.g. [here](https://youtu.be/uAfGulcDWSk))
- - Stereo Depth (including median filtering)
+ - Stereo Depth (including median filtering) (e.g. [here](https://youtu.be/sO1EU5AUq4U))
  - Stereo Inference (with two-stage, e.g. [here](https://youtu.be/eEnDW0WQ3bo)
  - 3D Object Localization (augmenting 2D object detectors with 3D position in meters, e.g. [here](https://youtu.be/cJr4IpGMSLA) and [here](https://youtu.be/SWDQekolM8o))
  - Object Tracking (e.g. [here](https://vimeo.com/422965770), including in 3D space)
