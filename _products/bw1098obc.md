@@ -17,6 +17,29 @@ test_args: "-co '{\"board_config\": {\"left_to_right_distance_cm\": 7.5}}'"
 
 Use DepthAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could handle tens of DepthAIs plugged in (the effective limit is how many USB ports the host can handle).
 
+## Color Camera Specifications
+
+* 4K, 60 Hz Video
+* 12 MP Stills
+* Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
+* 4056 x 3040 pixels
+* 81 DFOV°
+* Lens Size: 1/2.3 inch
+* AutoFocus: 8 cm - ∞
+* F-number: 2.0
+
+## Stereo Camera Specifications
+
+* 720p, 120 Hz Video
+* Synchronized Global Shutter
+* Excellent Low-light
+* Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
+* 1280 x 720 pixels
+* 83 DFOV°
+* Lens Size: 1/2.3 inch
+* Fixed Focus: 19.6 cm - ∞
+* F-number: 2.2
+
 ## Requirements
 
 * Ubuntu 18.04 or Raspbian 10
