@@ -61,14 +61,18 @@ In this mode the neural network is run in parallel on both the left and right st
 
 In both of these cases, standard neural networks can be used.  There is no need for the neural networks to be trained with 3D data. 
 
-DepthAI automatically provides the 3D results in both cases using standard 2D-trained networks.  See [here](#nodepthrequired) for more details.  And these modes have different minimum depths, see [here](#mindepths) for details.  
+DepthAI automatically provides the 3D results in both cases using standard 2D-trained networks, as detailed [here](#nodepthrequired).  These modes have differing minimum depth-perception limits, detailed [here](#mindepths).  
 
 ### Monocular Neural Inference fused with Stereo Depth
-In this mode, DepthAI runs object detection on a single cameras (user's choice: left, right, or RGB) and the results are fused with the stereo disparity depth results.  The stereo disparity results are produced in parallel, and in real-time on DepthAI (based on semi global matching (SGBM)).  
+In this mode, DepthAI runs object detection on a single cameras (user's choice: left, right, or RGB) and the results are fused with the stereo disparity depth results.  The stereo disparity results are produced in parallel and in real-time on DepthAI (based on semi global matching (SGBM)).  
 
 DepthAI automatically fuses the disparity depth results with the object detector results and uses this depth data for each object in conjunction with the known intrinsics of the calibrated cameras to reproject the 3D position of the detected object in physical space (X, Y, Z coordinates in meters).  
 
 And all of these calculations are done onboard to DepthAI without any processing load to any other systems.  This technique is great for object detectors as it provides the physical location of the centroid of the object - and takes advantage of the fact that most objects are usually many pixels so the disparity depth results can be averaged to produce a more accurate location.
+
+A visualization of this mode is below.  In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream (`./depthai -s metaout depth_sipp -bb` is the command used to produce this video):
+
+[![Monocular AI plus Stereo Depth for Spatial AI](https://i.imgur.com/zTSyQpo.png)](https://www.youtube.com/watch?v=sO1EU5AUq4U "Monocular AI plus Disparity Depth")
 
 ### Stereo Neural Inference
 In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.  The disparity of the results are then trianglulated with the calibrated camera intrinsics (programmed into the EEPROM of each DepthAI unit) to give 3D position of all the detected features.
