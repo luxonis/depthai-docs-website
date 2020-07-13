@@ -70,9 +70,11 @@ DepthAI automatically fuses the disparity depth results with the object detector
 
 And all of these calculations are done onboard to DepthAI without any processing load to any other systems.  This technique is great for object detectors as it provides the physical location of the centroid of the object - and takes advantage of the fact that most objects are usually many pixels so the disparity depth results can be averaged to produce a more accurate location.
 
-A visualization of this mode is below.  In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream (`./depthai -s metaout depth_sipp -bb` is the command used to produce this video):
+A visualization of this mode is below.  
 
 [![Monocular AI plus Stereo Depth for Spatial AI](https://i.imgur.com/zTSyQpo.png)](https://www.youtube.com/watch?v=sO1EU5AUq4U "Monocular AI plus Disparity Depth")
+
+In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream (`./depthai -s metaout depth_sipp -bb` is the command used to produce this video):
 
 ### Stereo Neural Inference
 In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.  The disparity of the results are then trianglulated with the calibrated camera intrinsics (programmed into the EEPROM of each DepthAI unit) to give 3D position of all the detected features.
@@ -86,6 +88,19 @@ Examples include:
  - Finding 3D pose of a person or a vehicle.  
 
 Again, this mode does not require the neural networks to be trained with depth data.  DepthAI takes standard, off-the-shelf 2D networks (which are significantly more common) and uses this stereo inference to produce accurate 3D results.
+
+An example of stereo neural inference is below. 
+
+[![Spatial AI](https://i.imgur.com/3kjFMt6.png)](https://www.youtube.com/watch?v=eEnDW0WQ3bo "DepthAI parallel multi-stage inference")
+
+And this is actuall an interesting case as it demonstrates two things on DepthAI:
+1. Stereo inference (i.e. running the neural network(s) running on both the left and right cameras in parallel)
+2. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
+
+The command used to run this on DepthAI is 
+`./depthai.py -cam left_right -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -dd`.
+
+Where `cam` specifies to run the neural network on both cameras, `-cnn` specifies the first-stage network to run (face detection, in this case), `-cnn2` specifies the second-stage network (facial landmark detection, in this case), and `-dd` disables running disparity depth calculations (since they are unused in this mode).
 
 ### Notes
 It is worth noting that monocular neural inference fused with stereo depth is possible for networks like facial-landmark detectors, pose estimators, etc. that return single-pixel locations (instead of for example bounding boxes of semantically-labeled pixels), but stereo neural inference is advised for these types of networks better results as unlink object detectors (where the object usually covers many pixels, typically hundreds)
