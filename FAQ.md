@@ -54,30 +54,34 @@ An example of such an extension is using a facial landmark detector on DepthAI. 
 
 There are two ways to use DepthAI to get Spatial AI results:
 
-1. Monocular Neural Inference fused with Stereo Depth.  That is, running an AI model on a single camera and fusing the results with disparity depth results.  The left, right, or RGB camera can be used to run the neural inference.
-2. Stereo Neural Inference.  That is, running the neural network in parallel on both the left and right stereo cameras to produce 3D position data directly with the neural network.
+1. **Monocular Neural Inference fused with Stereo Depth.**  
+In this mode the neural network is run on a single camera and fusing the results with disparity depth results.  The left, right, or RGB camera can be used to run the neural inference.
+2. **Stereo Neural Inference.**  
+In this mode the neural network is run in parallel on both the left and right stereo cameras to produce 3D position data directly with the neural network.
 
-In both of these cases, standard neural networks can be used.  There is no need for the neural networks to be trained with 3D data... DepthAI automatically provides the 3D element in both cases.  See [here](#nodepthrequired) for more details.  And these modes have different minimum depths.  See [here](#mindepths) for details.  
+In both of these cases, standard neural networks can be used.  There is no need for the neural networks to be trained with 3D data. 
+
+DepthAI automatically provides the 3D results in both cases using standard 2D-trained networks.  See [here](#nodepthrequired) for more details.  And these modes have different minimum depths, see [here](#mindepths) for details.  
 
 ### Monocular Neural Inference fused with Stereo Depth
-In this mode, the object detection is on a single cameras (user's choice: left, right, or RGB) and the results are fused with the stereo disparity depth results.  The stereo disparity results are produced in parallel, and in real-time on DepthAI (based on semi global matching (SGBM)).  
+In this mode, DepthAI runs object detection on a single cameras (user's choice: left, right, or RGB) and the results are fused with the stereo disparity depth results.  The stereo disparity results are produced in parallel, and in real-time on DepthAI (based on semi global matching (SGBM)).  
 
 DepthAI automatically fuses the disparity depth results with the object detector results and uses this depth data for each object in conjunction with the known intrinsics of the calibrated cameras to reproject the 3D position of the detected object in physical space (X, Y, Z coordinates in meters).  
 
 And all of these calculations are done onboard to DepthAI without any processing load to any other systems.  This technique is great for object detectors as it provides the physical location of the centroid of the object - and takes advantage of the fact that most objects are usually many pixels so the disparity depth results can be averaged to produce a more accurate location.
 
 ### Stereo Neural Inference
-Stereo neural inference affords accurate 3D Spatial AI for networks which produce single-pixel locations of features such as facial landmark estimation, pose estimation, or other meta-data which provides feature locations like this.
+In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.  The disparity of the results are then trianglulated with the calibrated camera intrinsics (programmed into the EEPROM of each DepthAI unit) to give 3D position of all the detected features.
+
+This **stereo neural inference** mode affords accurate 3D Spatial AI for networks which produce single-pixel locations of features such as facial landmark estimation, pose estimation, or other meta-data which provides feature locations like this.
 
 Examples include:
 
  - Finding the 3D locations of eyes on a face.
  - Finding the 3D locations of features on a product.
  - Finding 3D pose of a person or a vehicle.  
- 
-The technique used here is to run the neural network in parallel on both the right and left stereo cameras to produce neural inference results for both cameras.  These results are then trianglulated with the calibrated camera intrinsics (programmed into the EEPROM of each DepthAI unit) to give 3D position of all the detected features.
 
-Again, this mode does not require the neural networks to be trained with depth data.  DepthAI takes standard, off-the-shelf 2D networks (which are WAY more common) and uses this stereo inference to produce accurate 3D results.
+Again, this mode does not require the neural networks to be trained with depth data.  DepthAI takes standard, off-the-shelf 2D networks (which are significantly more common) and uses this stereo inference to produce accurate 3D results.
 
 ### Notes
 It is worth noting that monocular neural inference fused with stereo depth is possible for networks like facial-landmark detectors, pose estimators, etc. that return single-pixel locations (instead of for example bounding boxes of semantically-labeled pixels), but stereo neural inference is advised for these types of networks better results as unlink object detectors (where the object usually covers many pixels, typically hundreds)
