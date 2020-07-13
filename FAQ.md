@@ -81,11 +81,13 @@ In this mode DepthAI runs the neural network in parallel on both the left and ri
 
 This **stereo neural inference** mode affords accurate 3D Spatial AI for networks which produce single-pixel locations of features such as facial landmark estimation, pose estimation, or other meta-data which provides feature locations like this.
 
-Examples include:
+Examples include finding the 3D locations of:
 
- - Finding the 3D locations of eyes on a face.
- - Finding the 3D locations of features on a product.
- - Finding 3D pose of a person or a vehicle.  
+ - Facial landmarks (eyes, ears, nose, edges of mouth, etc.)
+ - Features on a product (screw holes, blemishes, etc.)
+ - Joints on a person (e.g. elbow, knees, hips, etc.)
+ - Features on a vehicle (e.g. mirrors, headlights, etc.)
+ - Pests or disease on a plant (i.e. features that are too small for object detection + stereo depth)
 
 Again, this mode does not require the neural networks to be trained with depth data.  DepthAI takes standard, off-the-shelf 2D networks (which are significantly more common) and uses this stereo inference to produce accurate 3D results.
 
