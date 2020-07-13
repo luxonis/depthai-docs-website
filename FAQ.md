@@ -39,7 +39,7 @@ First, it is necessary to define what '[Object Detection](https://pjreddie.com/d
 
 It is the technical term for finding the bounding box of an object of interest, in pixel space (i.e. pixel coordinates), in an image.
 
-3D Object Localization, is all about finding such objects in physical space, instead of pixel space.  This is useful when trying to real-time measure or interact with the physical world.  
+3D Object Localization (or 3D Object Detection), is all about finding such objects in physical space, instead of pixel space.  This is useful when trying to real-time measure or interact with the physical world.  
 
 Below is a visualization to showcase the difference between Object Detection and 3D Object Localization:
 
@@ -49,6 +49,63 @@ Below is a visualization to showcase the difference between Object Detection and
 Spatial AI is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them 3D context.  So in other words, it's not limited to object detectors being extended to 3D object localizers.  Other network types can be extended as well, including any network which returns results in pixel space.
 
 An example of such an extension is using a facial landmark detector on DepthAI.  With a normal camera this network returns the 2D coordinates of all 45 facial landmarks (countours of eyes, ears, mouth, eybrows, etc.)  Using this same network with DepthAI, each of these 45 facial landmarks is now a 3D point in physical space instead of 2D points in pixel space.
+
+## How Does DepthAI Provide Spatial AI Results?
+
+There are two ways to use DepthAI to get Spatial AI results:
+
+1. **Monocular Neural Inference fused with Stereo Depth.**  
+In this mode the neural network is run on a single camera and fusing the results with disparity depth results.  The left, right, or RGB camera can be used to run the neural inference.
+2. **Stereo Neural Inference.**  
+In this mode the neural network is run in parallel on both the left and right stereo cameras to produce 3D position data directly with the neural network.
+
+In both of these cases, standard neural networks can be used.  There is no need for the neural networks to be trained with 3D data. 
+
+DepthAI automatically provides the 3D results in both cases using standard 2D-trained networks, as detailed [here](#nodepthrequired).  These modes have differing minimum depth-perception limits, detailed [here](#mindepths).  
+
+### Monocular Neural Inference fused with Stereo Depth
+In this mode, DepthAI runs object detection on a single cameras (user's choice: left, right, or RGB) and the results are fused with the stereo disparity depth results.  The stereo disparity results are produced in parallel and in real-time on DepthAI (based on semi global matching (SGBM)).  
+
+DepthAI automatically fuses the disparity depth results with the object detector results and uses this depth data for each object in conjunction with the known intrinsics of the calibrated cameras to reproject the 3D position of the detected object in physical space (X, Y, Z coordinates in meters).  
+
+And all of these calculations are done onboard to DepthAI without any processing load to any other systems.  This technique is great for object detectors as it provides the physical location of the centroid of the object - and takes advantage of the fact that most objects are usually many pixels so the disparity depth results can be averaged to produce a more accurate location.
+
+A visualization of this mode is below.  
+
+[![Monocular AI plus Stereo Depth for Spatial AI](https://i.imgur.com/zTSyQpo.png)](https://www.youtube.com/watch?v=sO1EU5AUq4U "Monocular AI plus Disparity Depth")
+
+In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`./depthai -s metaout depth_sipp -bb` is the command used to produce this video):
+
+### Stereo Neural Inference
+In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.  The disparity of the results are then trianglulated with the calibrated camera intrinsics (programmed into the EEPROM of each DepthAI unit) to give 3D position of all the detected features.
+
+This **stereo neural inference** mode affords accurate 3D Spatial AI for networks which produce single-pixel locations of features such as facial landmark estimation, pose estimation, or other meta-data which provides feature locations like this.
+
+Examples include finding the 3D locations of:
+
+ - Facial landmarks (eyes, ears, nose, edges of mouth, etc.)
+ - Features on a product (screw holes, blemishes, etc.)
+ - Joints on a person (e.g. elbow, knees, hips, etc.)
+ - Features on a vehicle (e.g. mirrors, headlights, etc.)
+ - Pests or disease on a plant (i.e. features that are too small for object detection + stereo depth)
+
+Again, this mode does not require the neural networks to be trained with depth data.  DepthAI takes standard, off-the-shelf 2D networks (which are significantly more common) and uses this stereo inference to produce accurate 3D results.
+
+An example of stereo neural inference is below. 
+
+[![Spatial AI](https://i.imgur.com/3kjFMt6.png)](https://www.youtube.com/watch?v=eEnDW0WQ3bo "DepthAI parallel multi-stage inference")
+
+And this is actuall an interesting case as it demonstrates two things on DepthAI:
+1. Stereo inference (i.e. running the neural network(s) running on both the left and right cameras in parallel)
+2. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
+
+The command used to run this on DepthAI is 
+`./depthai.py -cam left_right -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -dd`.
+
+Where `cam` specifies to run the neural network on both cameras, `-cnn` specifies the first-stage network to run (face detection, in this case), `-cnn2` specifies the second-stage network (facial landmark detection, in this case), and `-dd` disables running disparity depth calculations (since they are unused in this mode).
+
+### Notes
+It is worth noting that monocular neural inference fused with stereo depth is possible for networks like facial-landmark detectors, pose estimators, etc. that return single-pixel locations (instead of for example bounding boxes of semantically-labeled pixels), but stereo neural inference is advised for these types of networks better results as unlink object detectors (where the object usually covers many pixels, typically hundreds)
 
 ## What is megaAI?
 
@@ -113,7 +170,7 @@ Yes.
 
 We have a tutorial around Google Collab notebooks you can even use for this.  See [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)
 
-
+{: #nodepthrequired }
 ## Do I need Depth data to train my own custom Model for DepthAI?
 
 No.  
@@ -179,6 +236,8 @@ Yes.
 The full designs (including source Altium files) for all the carrier boards are in our `depthai-hardware` Github:
 
  - [depthai-hardware](https://github.com/luxonis/depthai-hardware)
+
+{: #mindepths}
 
 ## What are the Minimum Depths Visible by DepthAI?
 
