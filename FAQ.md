@@ -189,7 +189,7 @@ layers instead of 3 (1 for each grayscale, 3 for the color R, G, B).
 
 See the `VPU` section [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_Supported_Devices.html).
 
-Anything that's supported there uner `VPU` will work on DepthAI.  It's worth noting that we haven't tested all of these
+Anything that's supported there under `VPU` will work on DepthAI.  It's worth noting that we haven't tested all of these
 permutations though.
 
 ## What network backbones are supported on DepthAI?
