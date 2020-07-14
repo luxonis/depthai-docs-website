@@ -55,7 +55,7 @@ An example of such an extension is using a facial landmark detector on DepthAI. 
 There are two ways to use DepthAI to get Spatial AI results:
 
 1. **Monocular Neural Inference fused with Stereo Depth.**  
-In this mode the neural network is run on a single camera and fusing the results with disparity depth results.  The left, right, or RGB camera can be used to run the neural inference.
+In this mode the neural network is run on a single camera and fused with disparity depth results.  The left, right, or RGB camera can be used to run the neural inference.
 2. **Stereo Neural Inference.**  
 In this mode the neural network is run in parallel on both the left and right stereo cameras to produce 3D position data directly with the neural network.
 
