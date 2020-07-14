@@ -19,7 +19,7 @@ Use DepthAI on your existing host. Since the AI/vision processing is done on the
 
 ## Color Camera Specifications
 
-* 4K, 60 Hz Video
+* 4K, 60 Hz Video (max 4K/30fps encoded h.265)
 * 12 MP Stills
 * 4056 x 3040 pixels
 * 81 DFOV°
