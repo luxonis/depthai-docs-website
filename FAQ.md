@@ -170,7 +170,7 @@ See [here](https://docs.luxonis.com/tutorials/multiple_depthai/) for instruction
 
 Yes.  
 
-We have a tutorial around Google Collab notebooks you can even use for this.  See [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)
+We have a tutorial around Google Colab notebooks you can even use for this.  See [here](https://docs.luxonis.com/tutorials/object_det_mnssv2_training/)
 
 {: #nodepthrequired }
 ## Do I need Depth data to train my own custom Model for DepthAI?
