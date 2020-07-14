@@ -21,9 +21,9 @@ Use DepthAI on your existing host. Since the AI/vision processing is done on the
 
 * 4K, 60 Hz Video
 * 12 MP Stills
-* Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
 * 4056 x 3040 pixels
 * 81 DFOV°
+* 68.8 HFOV°
 * Lens Size: 1/2.3 inch
 * AutoFocus: 8 cm - ∞
 * F-number: 2.0
@@ -33,9 +33,9 @@ Use DepthAI on your existing host. Since the AI/vision processing is done on the
 * 720p, 120 Hz Video
 * Synchronized Global Shutter
 * Excellent Low-light
-* Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
 * 1280 x 720 pixels
 * 83 DFOV°
+* 71.8 HFOV°
 * Lens Size: 1/2.3 inch
 * Fixed Focus: 19.6 cm - ∞
 * F-number: 2.2
