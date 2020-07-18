@@ -35,7 +35,8 @@ Use DepthAI on your existing host. Since the AI/vision processing is done on the
 * Excellent Low-light
 * 1280 x 720 pixels
 * 83 DFOV°
-* 71.8 HFOV°
+* 71 HFOV°
+* 56 VFOV°
 * Lens Size: 1/2.3 inch
 * Fixed Focus: 19.6 cm - ∞
 * F-number: 2.2
