@@ -40,6 +40,7 @@ Use DepthAI on your existing host. Since the AI/vision processing is done on the
 * Lens Size: 1/2.3 inch
 * Fixed Focus: 19.6 cm - ∞
 * F-number: 2.2
+* Sensor Dynamic Range: 68dB
 
 ## Requirements
 
