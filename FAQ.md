@@ -316,14 +316,15 @@ So if you have the need for this shorter minimum distance when using monocular n
 The maximum depth perception for 3D object detection is is practically limited by how far the object detector (or other neural network) can detect what it's looking for. We've found that OpenVINO people detectors work to about 22 meters or so. But generally this distance will be limited by how far away the object detector can detect objects, and then after that, the minimum angle difference between the objects.
 
 So if the object detector is not the limit, the maximum distance will be limited by the physics of the baseline and the number of pixels. So once an object is less than 0.056 degrees (which corresponds to 1 pixel difference) difference between one camera to the other, it is past the point where full-pixel disparity can be done.  The formula used to calculate this distance is an approximation, but is as follows:
-Dm = baseline/2 * tan_d(90 - HFOV / HPixels)
+ - Dm = (baseline/2) * tan_d(90 - HFOV / HPixels)
 
 For DepthAI HFOV = 71.86 degrees, and HPixels = 1280.  And for the BW1098OBC, the baseline is 7.5cm.
 
 So using this formula for existing models the *theoretical* max distance is:
 
- - BW1098OBC (OAK-D): 38.4 meters
- - BW1097: 46 meters
+ - BW1098OBC (OAK-D; 7.5cm baseline): 38.4 meters
+ - BW1097 (9cm baseline): 46 meters
+ - Custom baseline: Dm = (baseline/2) * tan_d(90 - 71.86 / 1280)
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
 
