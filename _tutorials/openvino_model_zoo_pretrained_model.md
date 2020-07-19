@@ -96,7 +96,7 @@ The flow we walked through works for other pre-trained object detection models i
  - pedestrian detection for driver-assistance (`pedestrian-detection-adas-0002`)
  - pedestrian detection for retail environments (`person-detection-retail-0013`)
  - vehicle detection for driver-assistance (`vehicle-detection-adas-0002`)
- - behicle and license plate detection (`vehicle-license-plate-detection-barrier-0106`)
+ - vehicle and license plate detection (`vehicle-license-plate-detection-barrier-0106`)
 
 Simply change the paths above to run the other models there, adding the correct labels (or funny ones, should you choose).
 
