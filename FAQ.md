@@ -203,7 +203,7 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 #### Available in DepthAI API Today:
  - Neural Inference (e.g. object detection, image classification, etc., including two-stage, e.g. [here](https://youtu.be/uAfGulcDWSk))
  - Stereo Depth (including median filtering) (e.g. [here](https://youtu.be/sO1EU5AUq4U))
- - Stereo Inference (with two-stage, e.g. [here](https://youtu.be/eEnDW0WQ3bo)
+ - Stereo Inference (with two-stage, e.g. [here](https://youtu.be/eEnDW0WQ3bo))
  - 3D Object Localization (augmenting 2D object detectors with 3D position in meters, e.g. [here](https://youtu.be/cJr4IpGMSLA) and [here](https://youtu.be/SWDQekolM8o))
  - Object Tracking (e.g. [here](https://vimeo.com/422965770), including in 3D space)
  - H.264 and H.265 Encoding (HEVC, 1080p & 4K Video, e.g. [here](https://youtu.be/vEq7LtGbECs))
@@ -214,7 +214,7 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 The above features are available in the Luxonis Pipeline Builder Gen1 (see example [here](https://docs.luxonis.com/api/#parameters-1)).  See [Pipeline Builder Gen2](#pipelinegen2) for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
  
 #### On our Roadmap (i.e. next ~4 months will be in our API)
- - Pipleline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details [here](https://github.com/luxonis/depthai/issues/136))
+ - Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details [here](https://github.com/luxonis/depthai/issues/136))
  - AprilTags (PR [here](https://github.com/luxonis/depthai/pull/139))
  - Feature Tracking
  - Motion Estimation
@@ -329,6 +329,10 @@ So using this formula for existing models the *theoretical* max distance is:
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
 
 After the [KickStarter campaign](https://www.kickstarter.com/projects/opencv/opencv-ai-kit/description) we will also be supporting sub-pixel, which will extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
+
+## What Is the Format of the Depth Data in `depth_sipp`?
+
+The output array is in uint16, with direct mapping to millimeters (mm).  So a value of 3,141 in the array is 3,141 mm, or 3.141 meters.  So this whole array is the z-dimension of each pixel off of the camera plane, where the `center of the universe` is the camera marked `RIGHT`.
 
 ## How Do I Display Multiple Streams?
 To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_sipp`), use the following command:
