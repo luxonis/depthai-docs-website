@@ -123,7 +123,8 @@ Initializes the DepthAI device, returning `True` if the device was successfully 
 ```py
 import depthai
 import consts.resource_paths
-res = depthai.init_device(consts.resource_paths.device_cmd_fpath)
+if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
+    raise RuntimeError("Error initializing device. Try to reset it.")
 ```
 
 {: #depthai_create_pipeline}
