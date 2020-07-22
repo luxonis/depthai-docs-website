@@ -71,7 +71,7 @@ Run `python3 test.py` from within depthai to make sure everything is working:
 python3 test.py
 ```
 
-If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)).
+If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L22)).
 
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
