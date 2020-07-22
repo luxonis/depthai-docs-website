@@ -19,7 +19,7 @@ The DepthAI API python module is prebuilt for Ubuntu 18.04 and Raspbian 10. For 
 * [Raspbian](#raspbian) - Python 3.7
 * [macOS](#macos) (Mac OS X) - Homebrew installation settings/permutations vary quite a bit so we currently require build from source for macOS, see [here](#macos) to do so.
 * [Windows 10](https://discuss.luxonis.com/d/39-depthai-sneak-peak-into-windows-support) - Currently experimental (as of 18 May 2020). 
-* [Other Operating Systems](#compile_api) - The DepthAI codebase is open source, so it can be built from source on all sorts of other platforms.  See [here] to do so. We also are soon releasing a variant which doesn't even require the host to be running an operating system or even have USB support.  
+* [Other Operating Systems](#compile_api) - The DepthAI codebase is open source, so it can be built from source on all sorts of other platforms.  See [here](#compile_api) to do so. We also are soon releasing a variant which doesn't even require the host to be running an operating system or even have USB support.  
 * Embedded Platforms - We're working on supporting SPI, I2C, and/or UART communication to processors like the MSP430, STM32, and so forth (and will have a set of reference libaries for SPI, I2C, and UART for the Raspberry Pi, which helps debugging when integrating custom applications with DepthAI over these interfaces).
 
 ## Install System Dependencies
@@ -33,7 +33,7 @@ error
  
 {: #raspbian}
 ### Raspbian
-Many folks will have a lot of the following installed, but this details how to go from a fresh Raspbian install (the one with *and recommended software* [here](https://www.raspberrypi.org/downloads/raspbian/) was tested.
+Many folks will have a lot of the following installed, but this details how to go from a fresh Raspbian install (the one with *and recommended software* [here](https://www.raspberrypi.org/downloads/raspbian/) was tested).
 
 With a fresh install, below are the following dependencies needed to get DepthAI (and megaAI) up and running.  Make sure to connect your Pi to the internet to run the following commands:
 ```
@@ -44,6 +44,7 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/ud
 sudo udevadm control --reload-rules && sudo udevadm trigger
 git clone https://github.com/luxonis/depthai.git
 cd depthai
+python3 -m pip install -r requirements.txt
 ```
 
 Note that the longest part of this process will be updating and upgrading the Pi via `apt`.
@@ -53,12 +54,12 @@ After running these commands, jump to [Quick Test](#quicktest) below to run your
 {: #ubuntu}
 ### Ubuntu 
 ```
-sudo apt install git python3-pip libcurl4
-pip3 install numpy opencv-python --user
+sudo apt install git python3-pip python3-opencv libcurl4
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && sudo udevadm trigger
 git clone https://github.com/luxonis/depthai.git
 cd depthai
+python3 -m pip install -r requirements.txt
 ```
 
 {: #quicktest}
@@ -70,7 +71,7 @@ Run `python3 test.py` from within depthai to make sure everything is working:
 python3 test.py
 ```
 
-If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt)).
+If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L22)).
 
 <h2 id="install" data-toc-title="Installation">Installing the DepthAI API</h2>
 
@@ -122,69 +123,82 @@ Initializes the DepthAI device, returning `True` if the device was successfully 
 ```py
 import depthai
 import consts.resource_paths
-res = depthai.init_device(consts.resource_paths.device_cmd_fpath)
+if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
+    raise RuntimeError("Error initializing device. Try to reset it.")
 ```
 
 {: #depthai_create_pipeline}
 ### depthai.create_pipeline(config=dict) → Pipeline
 
-Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful and `False` otherwise.
+Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful and `None` otherwise.
 
 #### Parameters
 
 * __config(dict)__ -  A `dict` of pipeline configuration settings.
     <br/>Example key/values for the config:
     ```py
-{
-    # Possible streams:
-    # ['left', 'right','previewout', 'metaout', 'depth_sipp', 'disparity', 'depth_color_h']
-    # If "left" is used, it must be in the first position.
-    # To test depth use:
-    # 'streams': [{'name': 'depth_sipp', "max_fps": 12.0}, {'name': 'previewout', "max_fps": 12.0}, ],
-    'streams': stream_list,
-    'depth':
     {
-        'calibration_file': consts.resource_paths.calib_fpath,
-        'padding_factor': 0.3,
-        'depth_limit_m': 10.0, # In meters, for filtering purpose during x,y,z calc
-        'confidence_threshold' : 0.5, #Depth is calculated for bounding boxes with confidence higher than this number 
-    },
-    'ai':
-    {
-        'blob_file': blob_file,
-        'blob_file_config': blob_file_config,
-        'calc_dist_to_bb': calc_dist_to_bb,
-        'keep_aspect_ratio': not args['full_fov_nn'],
-    },
-    # object tracker
-    'ot':
-    {
-        'max_tracklets'        : 20, #maximum 20 is supported
-        'confidence_threshold' : 0.5, #object is tracked only for detections over this threshold
-    },
-    'board_config':
-    {
-        'swap_left_and_right_cameras': args['swap_lr'], # True for 1097 (RPi Compute) and 1098OBC (USB w/onboard cameras)
-        'left_fov_deg': args['field_of_view'], # Same on 1097 and 1098OBC
-        'rgb_fov_deg': args['rgb_field_of_view'],
-        'left_to_right_distance_cm': args['baseline'], # Distance between stereo cameras
-        'left_to_rgb_distance_cm': args['rgb_baseline'], # Currently unused
-        'store_to_eeprom': args['store_eeprom'],
-        'clear_eeprom': args['clear_eeprom'],
-        'override_eeprom': args['override_eeprom'],
-    },
-    
-    #'video_config':
-    #{
-    #    'rateCtrlMode': 'cbr',
-    #    'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main'
-    #    'bitrate': 8000000, # When using CBR
-    #    'maxBitrate': 8000000, # When using CBR
-    #    'keyframeFrequency': 30,
-    #    'numBFrames': 0,
-    #    'quality': 80 # (0 - 100%) When using VBR
-    #}
-}
+        # Possible streams:
+        #   'left' - left mono camera preview
+        #   'right' - right mono camera preview
+        #   'previewout' - 4K color camera preview
+        #   'metaout' - CNN output tensors
+        #   'depth_raw' - the raw depth map, disparity converted to real life distance
+        #   'disparity' - disparity map, the diaparity between left and right cameras, in pixels
+        #   'disparity_color' - disparity map colorized
+        'streams': [
+            'left',  # if left is used, it must be in the first position
+            'right',
+            {'name': 'previewout', 'max_fps': 12.0},  # streams can be specified as objects with additional params
+            'metaout',
+            # depth-related streams
+            {'name': 'depth_raw', 'max_fps': 12.0},
+            {'name': 'disparity', 'max_fps': 12.0},
+            {'name': 'disparity_color', 'max_fps': 12.0},
+        ],
+        'depth':
+        {
+            'calibration_file': consts.resource_paths.calib_fpath,
+            'padding_factor': 0.3,
+            'depth_limit_m': 10.0, # In meters, for filtering purpose during x,y,z calc
+            'confidence_threshold' : 0.5, #Depth is calculated for bounding boxes with confidence higher than this number 
+        },
+        'ai':
+        {
+            'blob_file': blob_file,  # MyriadX CNN blob file path
+            'blob_file_config': blob_file_config,  # Configuration file for CNN output tensor mapping on host side
+            'calc_dist_to_bb': True,  # if True, will include depth information to CNN output tensor
+            'keep_aspect_ratio': not args['full_fov_nn'],
+        },
+        # object tracker
+        'ot':
+        {
+            'max_tracklets'        : 20, # maximum 20 is supported
+            'confidence_threshold' : 0.5, # object is tracked only for detections over this threshold
+        },
+        'board_config':
+        {
+            'swap_left_and_right_cameras': args['swap_lr'], # True for 1097 (RPi Compute) and 1098OBC (USB w/onboard cameras)
+            'left_fov_deg': args['field_of_view'], # Same on 1097 and 1098OBC
+            'rgb_fov_deg': args['rgb_field_of_view'],
+            'left_to_right_distance_cm': args['baseline'], # Distance between stereo cameras
+            'left_to_rgb_distance_cm': args['rgb_baseline'], # Currently unused
+            'store_to_eeprom': args['store_eeprom'],
+            'clear_eeprom': args['clear_eeprom'],
+            'override_eeprom': args['override_eeprom'],
+        },
+        
+        #'video_config':
+        #{
+        #    'rateCtrlMode': 'cbr',
+        #    'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main'
+        #    'bitrate': 8000000, # When using CBR
+        #    'maxBitrate': 8000000, # When using CBR
+        #    'keyframeFrequency': 30,
+        #    'numBFrames': 0,
+        #    'quality': 80 # (0 - 100%) When using VBR
+        #}
+    }
     ```
 
 #### Example
@@ -192,7 +206,10 @@ Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful a
 ```py
 pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
     'streams': ['previewout'],
-    'ai': {'blob_file': consts.resource_paths.blob_fpath}
+    'ai': {
+        'blob_file': consts.resource_paths.blob_fpath,
+        'blob_file_config': consts.resource_paths.blob_config_fpath
+    }
 })
 ```
 
@@ -205,6 +222,7 @@ Below is a quick summary of what's been tried by Luxonis staff and DepthAI users
 
 * Mac OS X - Compile from source, instructions [below](#mac-os-x).
 * Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
+* Manjaro/Arch - Works when [compiled from source](#compile_linux)
 * Other Linux Distros - Check if the Ubuntu pymodule works (by using `ldd` to check for broken dependencies), or compile from source [below](/api#compile_linux).
 
 
