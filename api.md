@@ -222,6 +222,7 @@ Below is a quick summary of what's been tried by Luxonis staff and DepthAI users
 
 * Mac OS X - Compile from source, instructions [below](#mac-os-x).
 * Linux Mint - Appears to work with Ubuntu 18.04 prebuilt python modules
+* Manjaro/Arch - Works when [compiled from source](#compile_linux)
 * Other Linux Distros - Check if the Ubuntu pymodule works (by using `ldd` to check for broken dependencies), or compile from source [below](/api#compile_linux).
 
 
