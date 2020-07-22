@@ -332,7 +332,11 @@ After the [KickStarter campaign](https://www.kickstarter.com/projects/opencv/ope
 
 ## What Is the Format of the Depth Data in `depth_sipp`?
 
-The output array is in uint16, with direct mapping to millimeters (mm).  So a value of 3,141 in the array is 3,141 mm, or 3.141 meters.  So this whole array is the z-dimension of each pixel off of the camera plane, where the `center of the universe` is the camera marked `RIGHT`.
+The output array is in uint16, so 0 to 65,535 with direct mapping to millimeters (mm).
+
+So a value of 3,141 in the array is 3,141 mm, or 3.141 meters.  So this whole array is the z-dimension of each pixel off of the camera plane, where the `center of the universe` is the camera marked `RIGHT`.
+
+And the specific value of 65,535 is a special value, meaning an invalid disparity/depth result. 
 
 ## How Do I Display Multiple Streams?
 To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_sipp`), use the following command:
