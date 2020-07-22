@@ -130,7 +130,7 @@ if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
 {: #depthai_create_pipeline}
 ### depthai.create_pipeline(config=dict) → Pipeline
 
-Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful and `False` otherwise.
+Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful and `None` otherwise.
 
 #### Parameters
 
