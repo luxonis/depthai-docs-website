@@ -192,7 +192,10 @@ Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful a
 ```py
 pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
     'streams': ['previewout'],
-    'ai': {'blob_file': consts.resource_paths.blob_fpath}
+    'ai': {
+        'blob_file': consts.resource_paths.blob_fpath,
+        'blob_file_config': consts.resource_paths.blob_config_fpath
+    }
 })
 ```
 
