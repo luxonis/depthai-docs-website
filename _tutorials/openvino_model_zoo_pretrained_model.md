@@ -110,7 +110,14 @@ python3 test.py -dd -cnn face-detection-adas-0001
 
 So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
 
-So what is this `-dd` option we've been running?  Why is that there?  
+And also you may notice networks like emotion recognition... those networks are actually intended to be run as a second stage network (as they are meant to be applied only to images that contain only faces).  So to use the emotions recognitions network, use the command below to tell DepthAI/megaAI to run it as the second stage:
+
+```
+./depthai.py -cnn face-detection-retail-0004 -cnn2 emotions-recognition-retail-0003 -dd -sh 12 -cmx 12 -nce 2
+````
+![Multi-stage inference](https://i.imgur.com/uqhdqJG.png)
+
+And what is this `-dd` option we've been running?  Why is that there?  
 
 It's there because we wanted to save the best for last.  It stands for disable depth (and has the long-form option `--disable_depth`).  So if you remove that, DepthAI will now calculate the 3D position of the object being detected (a face in this example, but it works for any object detector.)  (And if you're using microAI, leave it there, as microAI is monocular only - no depth information.)
 
@@ -138,5 +145,22 @@ Play with the feature and please share demos that you come up with (especially i
 
 And if you find any errors in these documents, click the [Edit on Github](https://github.com/luxonis/depthai-docs-website/blob/master/_tutorials/openvino_model_zoo_pretrained_model.md) on the bottom of this page to give us the correction!
 
+And it is possible to overlay these results on other streams.  For example below let's overlay the results directly onto the raw depth information (visualized in OpenCV HOT colormap):
 
+```
+python3 test.py -s metaout depth_raw -bb
+
+```
+
+![AI overlaid on the RAW (uint16) Depth Map](https://i.imgur.com/AjH1T2l.jpg)
+
+So the above techniques are what we call 'monocular neural inference fused with stereo disparity depth', which works well for objects, particularly bigger objects (like people, faces, etc.).  Below we'll use another technique, which we dub 'stereo neural inference' (or 'Stereo AI') which works well for smaller objects and also pixel-point features like facial landmarks and pose-estimator results, etc.
+
+![Stereo Neural inference mode](https://i.imgur.com/mKuzWI6.png)
+
+This can be run with the following command:
+```
+./depthai.py -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -cam left_right -dd -sh 12 -cmx 12 -nce 2 -monor 400 -monof 30
+```
+And note this is running both parallel neural inference (i.e. on both cameras) and also series neural inference (the landmarks-regression network is running on the results of the face detector).
 
