@@ -138,7 +138,7 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
     ```
     cd [depthai repo]
     ```
-3. Run `python3 test.py -s depth_sipp`.<br/>
+3. Run `python3 test.py -s depth_raw`.<br/>
     The script launches a window, starts the cameras, and displays a depth video stream:
 
     ![object localization demo](/images/depth.png)
