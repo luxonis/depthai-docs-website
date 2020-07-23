@@ -128,9 +128,9 @@ if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
 ```
 
 {: #depthai_create_pipeline}
-### depthai.create_pipeline(config=dict) → Pipeline
+### depthai.create_pipeline(config=dict) → CNNPipeline
 
-Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful and `None` otherwise.
+Initializes a DepthAI Pipeline, returning the created `CNNPipeline` if successful and `None` otherwise.
 
 #### Parameters
 
@@ -216,6 +216,218 @@ pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
     }
 })
 ```
+
+{: #depthai_cnnpipeline}
+### depthai.CNNPipeline
+
+Pipeline object using which the device is able to send it's result to the host. Created using [depthai.create_pipeline]
+
+* __get_available_data_packets() -> depthai.DataPacketList__
+
+    Returns only data packets produced by device itself, without CNN results
+
+* __get_available_nnet_and_data_packets() -> tuple[depthai.NNetPacketList, depthai.DataPacketList]__
+
+    Return both neural network results and data produced by device
+
+{: #depthai_nnetpacket}
+### depthai.NNetPacket
+
+Neural network results packet. It's not a single result, but a batch of results with additional metadata attached
+
+* __entries() -> depthai.TensorEntryContainer__
+
+    Returns list of depthai.TensorEntry over which you can iterate
+
+* __getMetadata() -> depthai.FrameMetadata__
+
+    Returns metadata object containing all proprietary data related to this packet 
+
+* __get_tensor(Union[int, str]) -> numpy.ndarray__
+
+    Returns raw output from specific tensor, which you can choose by index or by `output_tensor_name` property specified
+    in [blob config file](#creating-blob-configuration-file)
+    
+{: #depthai_datapacket}
+### depthai.DataPacket
+
+DepthAI data packet, containing information generated on the device. Unlike NNetPacket, it contains a single "result" 
+with source stream info
+
+* __getData() -> numpy.ndarray__
+
+    Returns the data as NumPy array, which you can e.x. display the data using OpenCV `imshow`.
+    
+    Used with streams that returns frames e.x. `previewout`, `left`, `right`, or encoded data e.x. `video`, `jpegout`.
+
+* __getDataAsStr() -> str__
+
+    Returns the data as a string, capable to be parsed further. 
+    
+    Used with streams that returns non-array results e.x. `meta_d2h` which returns JSON object
+
+* __getMetadata() -> depthai.FrameMetadata__
+
+    Returns metadata object containing all proprietary data related to this packet 
+
+* __getObjectTracker() -> ObjectTracker__
+
+    Returns result as an ObjectTracker instance, used only with packets from `object_tracker` stream
+
+* __size() -> int__
+
+    Returns packet data size
+
+* __stream_name: str__
+
+    Returns packet source stream. Used to determine the origin of the packet and therefore allows to handle the packets
+    correctly, applying proper handling based on this value
+
+## Preparing MyriadX blob file and it's config
+
+As you can see in [this example](#example-1), basic usage of `create_pipeline` method consists of specifying desired output
+streams and AI section, where you specify MyriadX blob and it's config.
+
+In this section, we'll describe how to obtain both `blob_file` and `blob_file_config`.
+
+### Obtaining MyriadX blob
+
+Since we're utilizing MyriadX VPU, your model needs to be compiled (or accurately - optimized and converted) into
+the MyriadX blob file, which will be sent to the device and executed.
+
+Easiest way to obtain this blob is to use our [online BlobConverter app](http://69.164.214.171:8080/). It has all
+tools needed for compilation so you don't need to setup anything - and you can even download a blob for the model
+from [OpenVINO model zoo](https://github.com/openvinotoolkit/open_model_zoo)
+
+If you'd like, you can also compile the blob yourself. You'll need to install [OpenVINO toolkit](https://docs.openvinotoolkit.org/latest/index.html),
+then use [Model Optimizer](https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html) and [Myriad Compiler](https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#myriad_platform_option)
+in order to obtain MyriadX blob. \n
+We've documented example usage of these compilers [here](https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format)
+    
+### Creating Blob configuration file
+    
+Config file is required to create a mapping between CNN output tensor and Python API on host side. \n
+Let's take a template config file (based on MobileNetSSD) and describe how to tune it to meet your CNN configuration
+
+```json
+{
+"tensors":
+[
+    {       
+        "output_tensor_name": TENSOR_NAME,
+        "output_dimensions": [1, 1, N_MAX_RESULTS, N_PROPERTIES],
+        "output_entry_iteration_index": 2,
+        "output_properties_dimensions": [3],
+        "property_key_mapping":
+        [
+            [],
+            [],
+            [],
+            ["id", "label", "confidence", "left", "top", "right", "bottom"]
+        ],
+        "output_properties_type": C_TYPE
+    }
+]
+}
+```
+
+* __TENSOR_NAME__ - is a custom name as a string that you choose for this specific tensor. Will come handy when we'll operate on multi-tensor outputs in networks like [age-gender-recognition-retail-0013](https://docs.openvinotoolkit.org/latest/omz_models_intel_age_gender_recognition_retail_0013_description_age_gender_recognition_retail_0013.html)
+* __N_MAX_SAMPLES__ - determines maximum number of results returned by network, usually set to __100__
+* __N_PROPERTIES__ - network-related number of output properties, it has to match the number of properties listed in `property_key_mapping`. Usually, for non-depth it will be __7__, and with depth info will be __10__ (as distances x, y and z are added)
+* __C_TYPE__ - type of the properties. You can choose any suitable and c-type correct string. Usually will be `f16`
+
+Please note, that `property_key_mapping` contains field names as string which you can change according to your preference, it's how you'll access the fields in the code.
+
+If your network returns N results (like MobilenetSSD which can return many bounding boxes), dimentions of `property_key_mapping` should match the network output dimentions.
+
+e.x. MobienetSSD returns results in array with dimentions `1, 1, N, 7`, so in `property_key_mapping` we have 4 arrays, each representing tensor dimentions, where we specify that in last dimention the fields are specified.
+
+However, if your network is not returning N results, but just single one, you can go ahead and skip the leading empty arrays.
+
+e.x. Age/Gender detector, one of the tensors returns results in array with dimentions `1, 2, 1, 1`, so in `property_key_mapping` we have a single array with two fields specified.
+
+#### Examples
+
+##### MobilenetSSD
+
+```json
+{
+    "tensors":
+    [
+        {       
+            "output_tensor_name": "out",
+            "output_dimensions": [1, 1, 100, 7],
+            "output_entry_iteration_index": 2,
+            "output_properties_dimensions": [3],
+            "property_key_mapping":
+            [
+                [],
+                [],
+                [],
+                ["id", "label", "confidence", "left", "top", "right", "bottom"]
+            ],
+            "output_properties_type": "f16"
+        }
+    ]
+}
+```
+
+##### MobilenetSSD with depth info
+
+```json
+{
+    "tensors":
+    [
+        {       
+            "output_tensor_name": "out",
+            "output_dimensions": [1, 1, 100, 10],
+            "output_entry_iteration_index": 2,
+            "output_properties_dimensions": [3],
+            "property_key_mapping":
+            [
+                [],
+                [],
+                [],
+                ["id", "label", "confidence", "left", "top", "right", "bottom", "distance_x", "distance_y", "distance_z"]
+            ],
+            "output_properties_type": "f16"
+        }
+    ]
+}
+```
+
+##### Age Gender recognition
+
+```json
+{
+    "tensors":
+    [
+        {       
+            "output_tensor_name": "out",
+            "output_dimensions": [1, 1, 1, 1],
+            "output_entry_iteration_index": 0,
+            "output_properties_dimensions": [0],
+            "property_key_mapping":
+            [
+                ["age"]
+            ],
+            "output_properties_type": "f16"
+        },
+	{       
+            "output_tensor_name": "out1",
+            "output_dimensions": [1, 2, 1, 1],
+            "output_entry_iteration_index": 0,
+            "output_properties_dimensions": [0],
+            "property_key_mapping":
+            [
+                ["female", "male"]
+            ],
+            "output_properties_type": "f16"
+       }
+    ]
+}
+```
+    
 
 {: #compile_api }
 ## Compiling the DepthAI API for Other Platforms
