@@ -146,6 +146,10 @@ Initializes a DepthAI Pipeline, returning the created `Pipeline` if successful a
         #   'depth_raw' - the raw depth map, disparity converted to real life distance
         #   'disparity' - disparity map, the diaparity between left and right cameras, in pixels
         #   'disparity_color' - disparity map colorized
+        #   'meta_d2h' - device metadata stream
+        #   'video' - H.264/H.265 encoded color camera frames
+        #   'jpegout' - JPEG encoded color camera frames
+        #   'object_tracker' - Object tracker results
         'streams': [
             'left',  # if left is used, it must be in the first position
             'right',
