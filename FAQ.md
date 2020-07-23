@@ -390,7 +390,7 @@ The following example sets the `depth_sipp` stream to 8 FPS and the `previewout`
 
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.
 
-## How do I Record Video with DepthAI?
+## How do I Record (or Encode) Video with DepthAI?
 
 DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai.py` script shows and example of how to access this functionality.  
 
@@ -598,6 +598,12 @@ The color camera on megaAI and DepthAI is a fully-integrated camera module, so t
 That said, we have seen users attach the same sort of optics that they would to smartphones to widen field of view, zoom, etc.  The auto-focus seems to work appropriately through these adapters.  For example a team member has tested the Occipital *Wide Vision Lens* [here](https://store.structure.io/buy/accessories) to work with both megaAI and DepthAI color cameras.  (We have not yet tried on the grayscale cameras.)
 
 Also, see [below](#rpi_hq) for using DepthAI FFC with the RPi HQ Camera to enable use of C- and CS-mount lenses.
+
+## Can I Power DepthAI Completely from USB?
+
+So USB3 (capable of 900mA) is capable of providing enough power for the DepthAI models.  However, USB2 (capable of 500mA) is not.  So on DepthAI models power is provided by the 5V barrel jack power to prevent situations where DepthAI is plugged into USB2 and intermittent behavior occurs because of insufficient power (i.e. brownout) of the USB2 supply.
+
+To power your DepthAI completely from USB (assuming you are confident your port can provide enough power), you can use this USB-A to barrel-jack adapter cable [here](https://www.amazon.com/gp/product/B01MZ0FWSK/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1).
 
 {: #rpi_hq }
 ## Can I Use DepthAI with the New RPi HQ Camera?
