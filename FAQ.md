@@ -74,7 +74,7 @@ A visualization of this mode is below.
 
 [![Monocular AI plus Stereo Depth for Spatial AI](https://i.imgur.com/zTSyQpo.png)](https://www.youtube.com/watch?v=sO1EU5AUq4U "Monocular AI plus Disparity Depth")
 
-In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`./depthai -s metaout depth_sipp -bb` is the command used to produce this video):
+In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`./depthai -s metaout depth_raw -bb` is the command used to produce this video):
 
 ### Stereo Neural Inference
 In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.  The disparity of the results are then trianglulated with the calibrated camera intrinsics (programmed into the EEPROM of each DepthAI unit) to give 3D position of all the detected features.
@@ -136,7 +136,7 @@ It's a matter of minutes to be up and running with the power of Spatial AI, on t
 
 (Click on the imageabove to pull up the YouTube video.)
 
-The command to get the above output is `python3 test.py -s metaout previewout depth_sipp -ff -bb`.
+The command to get the above output is `python3 test.py -s metaout previewout depth_raw -ff -bb`.
 
 Here is a single-camera version (megaAI) running with `pytyon3 test.py -dd` (to disable showing depth info):
 ![megaAI Legos](/images/lego.png)
@@ -330,7 +330,7 @@ But these theoretical maximums are not achievable in the real-world, as the disp
 
 After the [KickStarter campaign](https://www.kickstarter.com/projects/opencv/opencv-ai-kit/description) we will also be supporting sub-pixel, which will extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
 
-## What Is the Format of the Depth Data in `depth_sipp`?
+## What Is the Format of the Depth Data in `depth_raw`?
 
 The output array is in uint16, so 0 to 65,535 with direct mapping to millimeters (mm).
 
@@ -339,19 +339,21 @@ So a value of 3,141 in the array is 3,141 mm, or 3.141 meters.  So this whole ar
 And the specific value of 65,535 is a special value, meaning an invalid disparity/depth result. 
 
 ## How Do I Display Multiple Streams?
-To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_sipp`), use the following command:
+To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_raw`), use the following command:
 
 ```
-python3 test.py -s metaout previewout depth_sipp
+python3 test.py -s metaout previewout depth_raw
 ```
 The available streams are:
  - `metaout` # Meta data results from the neural network
  - `previewout` # Small preview stream from the color camera
  - `left` # Left grayscale camera (marked `L` or `LEFT` on the board)
  - `right` # Right grayscale camera (marked `R` or `RIGHT` on the board)
- - `depth_sipp` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
+ - `depth_raw` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
  - `disparity` # Raw disparity
- - `depth_color_h` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
+ - `disparity_color` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
+ - `meta_d2h` # Device die temperature (max temp should be < 105C)
+ - `object_tracker` # Object tracker results
  
 ### Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
  
@@ -384,9 +386,9 @@ Specifying no limit will default to 30FPS.
 
 One can also use the following over-ride command structure, which allows you to set the framerate per stream.
 
-The following example sets the `depth_sipp` stream to 8 FPS and the `previewout` to 12 FPS:
+The following example sets the `depth_raw` stream to 8 FPS and the `previewout` to 12 FPS:
 
-`python3 test.py -co '{"streams": [{"name": "depth_sipp", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
+`python3 test.py -co '{"streams": [{"name": "depth_raw", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
 
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.
 
@@ -446,14 +448,14 @@ measured | requested | avg latency, ms
 -- | -- | --
 left | left | 100
 left | left, right | 100
-left | left, right, depth_sipp | 100
-left | left, right, depth_sipp, metaout, previewout | 100
+left | left, right, depth_raw | 100
+left | left, right, depth_raw, metaout, previewout | 100
 previewout | previewout | 65
 previewout | metaout, previewout | 100
-previewout | left, right, depth_sipp, metaout, previewout | 100
+previewout | left, right, depth_raw, metaout, previewout | 100
 metaout | metaout | 300
 metaout | metaout, previewout | 300
-metaout | left, right, depth_sipp, metaout, previewout | 300
+metaout | left, right, depth_raw, metaout, previewout | 300
 
 ## Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Camera?
 
