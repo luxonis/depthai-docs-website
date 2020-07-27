@@ -100,7 +100,7 @@ And this is actuall an interesting case as it demonstrates two things on DepthAI
 2. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
 
 The command used to run this on DepthAI is 
-`./depthai.py -cam left_right -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -dd`.
+`python3 test.py -cam left_right -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -dd`
 
 Where `cam` specifies to run the neural network on both cameras, `-cnn` specifies the first-stage network to run (face detection, in this case), `-cnn2` specifies the second-stage network (facial landmark detection, in this case), and `-dd` disables running disparity depth calculations (since they are unused in this mode).
 

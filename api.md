@@ -208,7 +208,7 @@ Initializes a DepthAI Pipeline, returning the created `CNNPipeline` if successfu
 #### Example
 
 ```py
-pipeline = depthai.create_pipelinedepthai.create_pipeline(config={
+pipeline = depthai.create_pipeline(config={
     'streams': ['previewout'],
     'ai': {
         'blob_file': consts.resource_paths.blob_fpath,
@@ -306,16 +306,21 @@ We've documented example usage of these compilers [here](https://github.com/luxo
     
 ### Creating Blob configuration file
     
-Config file is required to create a mapping between CNN output tensor and Python API on host side. \n
-Let's take a template config file (based on MobileNetSSD) and describe how to tune it to meet your CNN configuration
+Config file is required to create a mapping between CNN output and Python API on host side. 
+Basically, whole configuration resolves around `tensors` array. One tensor represents one CNN output, so usually
+you'll have just one object in there, but if you'd like to use e.x. [age gender recognition](https://docs.openvinotoolkit.org/latest/omz_models_intel_age_gender_recognition_retail_0013_description_age_gender_recognition_retail_0013.html)
+you'll need to define two tenors
+
+
+Let's take a template config file (based on MobileNetSSD) and go through tensor object fields and describe them
 
 ```json
 {
 "tensors":
 [
     {       
-        "output_tensor_name": TENSOR_NAME,
-        "output_dimensions": [1, 1, N_MAX_RESULTS, N_PROPERTIES],
+        "output_tensor_name": "out",
+        "output_dimensions": [1, 1, 100, 7],
         "output_entry_iteration_index": 2,
         "output_properties_dimensions": [3],
         "property_key_mapping":
@@ -325,26 +330,25 @@ Let's take a template config file (based on MobileNetSSD) and describe how to tu
             [],
             ["id", "label", "confidence", "left", "top", "right", "bottom"]
         ],
-        "output_properties_type": C_TYPE
+        "output_properties_type": "f16"
     }
 ]
 }
 ```
 
-* __TENSOR_NAME__ - is a custom name as a string that you choose for this specific tensor. Will come handy when we'll operate on multi-tensor outputs in networks like [age-gender-recognition-retail-0013](https://docs.openvinotoolkit.org/latest/omz_models_intel_age_gender_recognition_retail_0013_description_age_gender_recognition_retail_0013.html)
-* __N_MAX_SAMPLES__ - determines maximum number of results returned by network, usually set to __100__
-* __N_PROPERTIES__ - network-related number of output properties, it has to match the number of properties listed in `property_key_mapping`. Usually, for non-depth it will be __7__, and with depth info will be __10__ (as distances x, y and z are added)
-* __C_TYPE__ - type of the properties. You can choose any suitable and c-type correct string. Usually will be `f16`
+* `output_tensor_name` - is a custom name as a string that you choose for this specific tensor. In the code, you can access a specific tensor by this name using [`get_tensor`](#depthai_nnetpacket) method ([example](https://github.com/luxonis/depthai/blob/master/depthai_helpers/tiny_yolo_v3_handler.py#L120))
+* `output_dimensions` - determines the dimensions of the CNN model output. If your model, e.x. [mobilenet-ssd](https://docs.openvinotoolkit.org/latest/omz_models_public_mobilenet_ssd_mobilenet_ssd.html), contains `N` as one of the output dimentions
+(specifying that it's dependent of the number of detected items), you should set this variable to a relatively high value - like in the example above, it's `100`
+* `output_entry_iteration_index` - if your network returns multiple results (just like mentioned above with mobilenet having `N` as a dimension), you can specify the index to iterate over. Since in our case we set `100` as third argument in array, iteration index should be set to `2` (third index)
+* `property_key_mapping` - contains field names as string which you can change according to your preference, it's how you'll access the fields in the code, it has to match the number of properties returned by your network. Taking mobilenet as an example, for non-depth it will be __7__, and with depth info will be __10__ (as distances x, y and z are added)
+* `output_properties_type` - c-type data type specifying size of the output variables
 
-Please note, that `property_key_mapping` contains field names as string which you can change according to your preference, it's how you'll access the fields in the code.
 
-If your network returns N results (like MobilenetSSD which can return many bounding boxes), dimentions of `property_key_mapping` should match the network output dimentions.
+If your network returns tensors with only one dimension other than `1`, you can ship the leading empty arrays (which are added to fit the output dimensions)
 
-e.x. MobienetSSD returns results in array with dimentions `1, 1, N, 7`, so in `property_key_mapping` we have 4 arrays, each representing tensor dimentions, where we specify that in last dimention the fields are specified.
+For instamce,  MobienetSSD returns results in array with dimensions `1, 1, N, 7`, so in `property_key_mapping` we have 4 leading arrays
 
-However, if your network is not returning N results, but just single one, you can go ahead and skip the leading empty arrays.
-
-e.x. Age/Gender detector, one of the tensors returns results in array with dimentions `1, 2, 1, 1`, so in `property_key_mapping` we have a single array with two fields specified.
+On the other hand, Age/Gender detector, one of the tensors returns results in array with dimensions `1, 2, 1, 1`, so in `property_key_mapping` we have a single array with two fields specified, no need to follow it with 3 empty leading arrays
 
 #### Examples
 
