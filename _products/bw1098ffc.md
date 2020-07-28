@@ -56,17 +56,20 @@ Use DepthAI on your existing host. Since the AI/vision processing is done on the
 
 Follow the steps below to setup your DepthAI device.
 
+
+<h3 class="step js-toc-ignore"><span></span> Connect your modular cameras.</h3>
+
+{% include ffc_connection.md %}
+
+Note when looking at the connectors, the blue stripe should be facing up.
+
 <h3 class="step js-toc-ignore"><span></span> Connect your host to the DepthAI USB carrier board.</h3>
 
 <h3 class="step js-toc-ignore"><span></span> Connect the DepthAI USB power supply (included).</h3>
 
-<h3 class="step js-toc-ignore"><span></span> [Optional] Install OpenVINO.</h3>
-
-{% include openvino_step.md %}
-
 <h3 class="step js-toc-ignore"><span></span> Install the Python DepthAI API.</h3>
 
-[See our instructions](/api#install).
+[See our instructions](/api#python_version).
 
 <h3 class="step js-toc-ignore"><span></span> Calibrate Stereo Cameras.</h3>
 

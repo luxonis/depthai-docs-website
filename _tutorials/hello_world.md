@@ -43,20 +43,19 @@ What's with the `-practice` suffix in parent directory name? Our tutorials are a
 To display the DepthAI color video stream we need to import a small number of packages. Download and install the requirements for this tutorial:
 
 ```
-pip3 install numpy opencv-python --user
+python3 -m pip install numpy opencv-python --user
 ```
 
-If you see the following error:
+## Install DepthAI package
 
-```
-Could not install packages due to an EnvironmentError: 404 Client Error: Not Found for url: https://pypi.org/simple/depthai-extras/
-```
+While direct install from PyPi is likely to come shortly, for now it's best to install depthai from source.
 
-...it's likely that the `depthai-extras` module (the [DepthAI API](/api)) wasn't installed in editable mode. To install:
-
+To do so, type in the following commands
 ```
-cd [INSERT depthai-python-extras-repo]
-pip3 install --user -e .
+git clone https://github.com/luxonis/depthai.git
+cd depthai
+python3 -m pip install -r requirements.txt
+python3 -m pip install --user -e .
 ```
 
 ## Test your environment
@@ -91,8 +90,7 @@ Start the DepthAI device:
 
 ```py
 if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-    print("Error initializing device. Try to reset it.")
-    exit(1)
+    raise RuntimeError("Error initializing device. Try to reset it.")
 ```
 
 If the device doesn't initialize, we'll exit the script here rather than throw a mysterious error later.
@@ -100,25 +98,23 @@ If the device doesn't initialize, we'll exit the script here rather than throw a
 Try running the script. You should see output similar to:
 
 ```
-Using Custom Calibration File: depthai.calib
-depthai: before xlink init;
-Device Found name 1.2-ma2480
-about to boot device with "cmd_file": /home/pi/Desktop/depthai-python-extras/depthai.cmd
-Device was booted with "cmd_file"
+No calibration file. Using Calibration Defaults.
 XLink initialized.
-Successfully initialized Xlink!
-I: [         0] [Scheduler00Thr] eventReader:203	eventReader thread started
-I: [         0] [Scheduler00Thr] eventSchedulerRun:573	Scheduler thread started
-Successfully connected to Device!
-...
-Reseting device: 0.
+Sending device firmware "cmd_file": /home/pi/Desktop/depthai/depthai.cmd
+Successfully connected to device.
+Loading config file
+Attempting to open stream config_d2h
+watchdog started 6000
+Successfully opened stream config_d2h with ID #0!
 ```
 
 If instead you see an error that looks like the following:
 
 ```
-depthai: Error initializing link;
-Error initializing device. Try to reset it.
+Traceback (most recent call last):
+  File "/home/pi/{{site.tutorials_dir}}/1-hello-world/hello-world.py", line 7, in <module>
+    raise RuntimeError("Error initializing device. Try to reset it.")
+RuntimeError: Error initializing device. Try to reset it.
 ```
 
 [Reset your DepthAI device](/troubleshooting#device_reset), then try again.
@@ -126,17 +122,20 @@ Error initializing device. Try to reset it.
 ## Create the DepthAI Pipeline
 
 Now we'll create our data pipeline using the `previewout` stream. This stream contains the data from the color camera.
+The model used in `ai` section is a MobileNetSSD with 20 different classes, see [here](https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json) for details
 
 ```py
 # Create the pipeline using the 'previewout' stream, establishing the first connection to the device.
-p = depthai.create_pipeline(config={
-    'streams': ['previewout'],
-    'ai': {'blob_file': consts.resource_paths.blob_fpath}
+pipeline = depthai.create_pipeline(config={
+    'streams': ['previewout', 'metaout'],
+    'ai': {
+        'blob_file': consts.resource_paths.blob_fpath,
+        'blob_file_config': consts.resource_paths.blob_config_fpath
+    }
 })
 
-if p is None:
-    print('Error creating pipeline.')
-    exit(2)
+if pipeline is None:
+    raise RuntimeError('Pipeline creation failed!')
 ```
 
 ## Display the video stream
@@ -144,10 +143,20 @@ if p is None:
 A DepthAI Pipeline generates a stream of data packets. Each `previewout` data packet contains a 3D array representing an image frame. We change the shape of the frame into a `cv2`-compatible format and display it.
 
 ```py
+entries_prev = []
+
 while True:
     # Retrieve data packets from the device.
     # A data packet contains the video frame data.
-    data_packets = p.get_available_data_packets()
+    nnet_packets, data_packets = pipeline.get_available_nnet_and_data_packets()
+
+    for _, nnet_packet in enumerate(nnet_packets):
+        entries_prev = []
+        for _, e in enumerate(nnet_packet.entries()):
+            if e[0]['id'] == -1.0 or e[0]['confidence'] == 0.0:
+                break
+            if e[0]['confidence'] > 0.5:
+                entries_prev.append(e[0])
 
     for packet in data_packets:
         # By default, DepthAI adds other streams (notably 'meta_2dh'). Only process `previewout`.
@@ -160,6 +169,13 @@ while True:
             data2 = data[2,:,:]
             frame = cv2.merge([data0, data1, data2])
 
+            img_h = frame.shape[0]
+            img_w = frame.shape[1]
+
+            for e in entries_prev:
+                pt1 = int(e['left'] * img_w), int(e['top'] * img_h)
+                pt2 = int(e['right'] * img_w), int(e['bottom'] * img_h)
+
             cv2.imshow('previewout', frame)
 
     if cv2.waitKey(1) == ord('q'):
@@ -167,7 +183,7 @@ while True:
 
 # The pipeline object should be deleted after exiting the loop. Otherwise device will continue working.
 # This is required if you are going to add code after exiting the loop.
-del p
+del pipeline
 ```
 
 Run the script. Press the 'Q' key with focus on the video stream (not your terminal) to exit:
@@ -176,4 +192,4 @@ Run the script. Press the 'Q' key with focus on the video stream (not your termi
 python3 hello-world.py
 ```
 
-You're on your way! You can find the [complete code for this tutorial on GitHub](https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/1-hello_world.py).
+You're on your way! You can find the [complete code for this tutorial on GitHub](https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/hello_world.py).

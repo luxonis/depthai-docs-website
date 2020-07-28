@@ -23,13 +23,12 @@ Under-the-hood, DepthAI uses the Intel MyriadX chip to perform high-speed model 
 
 The [Open Model Zoo](https://github.com/opencv/open_model_zoo) is a library of freely-available pre-trained models.  Side note: in machine learning/AI the name for a collection of pre-trained models is called a 'model zoo'. The Zoo also contains scripts for downloading those models into a compile-ready format to run on DepthAI.
 
-DepthAI is able to run many of the object detection models in the Zoo, and several are pre-included in the DepthAI Github.   repository.  We will be using one such model in this tutorial, is face-detection-retail-0004 (pre-compiled [here](https://github.com/luxonis/depthai-python-extras/blob/master/resources/nn/object_detection_4shave/face-detection-retail-0004.blob) on our Github, and [here](https://docs.openvinotoolkit.org/2020.1/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html).
+DepthAI is able to run many of the object detection models in the Zoo, and several are pre-included in the DepthAI Github.   repository.  We will be using one such model in this tutorial, is face-detection-retail-0004 (pre-compiled [here](https://github.com/luxonis/depthai/tree/master/resources/nn/face-detection-retail-0004) on our Github, and [here](https://docs.openvinotoolkit.org/2020.1/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html) on the OpenVINO model zoo).
 
-We'll cover converting OpenVINO models to run on DepthAI in a later article.  For now, you can find the models we've pre-converted [here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn) and brief instructions on how to do so [here](https://github.com/luxonis/depthai-python-extras#conversion-of-existing-trained-models-into-intel-movidius-binary-format)
+We'll cover converting OpenVINO models to run on DepthAI in a later article.  For now, you can find the models we've pre-converted [here](https://github.com/luxonis/depthai/tree/master/resources/nn) and brief instructions on how to do so [here](https://github.com/luxonis/depthai-python-extras#conversion-of-existing-trained-models-into-intel-movidius-binary-format).
 
 ## Dependencies
 
-This tutorial has the same dependencies as the [Hello World Tutorial](/tutorials/hello_world#dependencies) - that the DepthAI API has been installed and is accessible on the system.  See [here](https://docs.luxonis.com/api/) if you have not yet installed the API.
 <div class="alert alert-primary" role="alert">
 <i class="material-icons">
 error
@@ -38,19 +37,19 @@ error
   <span class="small">All dependencies are installed and the repository is checked out to `~/Desktop/depthai-python-extras`.</span>
 </div>
 
-## Run face-detection-retail-0004
+This tutorial has the same dependencies as the [Hello World Tutorial](/tutorials/hello_world#dependencies) - that the DepthAI API has been installed and is accessible on the system.  See [here](https://docs.luxonis.com/api/) if you have not yet installed the API.
+
+
+## Run DepthAI Default Model
 
 The depthai.py file can be modified directly to you do your bidding, or you can simply pass arguments to it for which models you want to run.  
 
-For simplicity we will do the latter, simply passing arguments so that DepthAI runs the `face-detection-retail-04` instead of the model run by default which is specified in `depthai-python-extras/consts/resource_paths.py` [here](https://github.com/luxonis/depthai-python-extras/blob/master/consts/resource_paths.py).
+For simplicity we will do the latter, simply passing arguments so that DepthAI runs the `face-detection-retail-0004` instead of the model run by default.
 
 Before switching to using the `face-detection-retail-0004` let's take a baby step and give these command line options a spin.  In this case we'll just pass in the same neural network that default runs when running `python3 test.py`, just to make sure we're doing it right:
 
 ```
-python3 test.py -co '{"ai":{
-"blob_file": "resources/nn/object_detection_4shave/mobilenet_ssd.blob",
-"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
-"calc_dist_to_bb":false }}'
+python3 test.py -dd
 ```
 This will then run the a typical demo MobileNetv1 SSD object detector trained on the [PASCAL 2007 VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) classes, which are:
 * Person: person
@@ -62,48 +61,21 @@ I ran this on my iMac (OS X setup [here](https://docs.luxonis.com/api/#mac-os-x)
 
 ![iMac](/images/tutorials/pretrained_model/tvmonitor.png)
 
+## Run `face-detection-retail-0004`
+
 Now that we've got this verified, let's move on to trying out other models, starting with `face-detection-retail-0004`.
 
-To use this model, simply change the "blob_file" path, as below:
+To use this model, simply specify the name of the model to be run with the `-cnn` flag, as below:
 ```
-python3 test.py -co '{"ai":{
-"blob_file": "resources/nn/object_detection_4shave/face-detection-retail-0004.blob",
-"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
-"calc_dist_to_bb":false }}'
+python3 test.py -dd -cnn face-detection-retail-0004
 ```
 Execute the script to see an annotated video stream of face detections:
 
-![model image](/images/tutorials/pretrained_model/aeroplane_face.png)
+![model image](/images/tutorials/pretrained_model/pfs.png)
 
-But that's not right!  Maybe a *strange* looking face, but calling it an aeroplane?  There **must be an error** here.
+It's that easy.  Substitute your face for mine, of course.
 
-Alas, we didn't change the **labels** used by the network.  To do this, modify the following Python file:
-```
-depthai-python-extras/consts/resource_paths.py
-```
-
-You'll see therein the location of the labels path ([here](https://github.com/luxonis/depthai-python-extras/blob/cdb902179590f0e7b684dde994369e137794a2ef/consts/resource_paths.py#L14)):
-```
-blob_labels_fpath = relative_to_abs_path('../resources/nn/object_detection_4shave/labels_for_mobilenet_ssd.txt')
-```
-
-Change this to:
-```
-blob_labels_fpath = relative_to_abs_path('../resources/nn/object_detection_4shave/labels_for_face-detection.txt')
-```
-
-And now the same command above again now that the location for the labels has been changed in `resource_paths.py`:
-```
-python3 test.py -co '{"ai":{
-"blob_file": "resources/nn/object_detection_4shave/face-detection-retail-0004.blob",
-"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
-"calc_dist_to_bb":false }}'
-```
-Now you'll see the proper label:
-
-![model_image](/images/tutorials/pretrained_model/pfs.png)
-
-Substitute your face for mine, of course.
+And if you'd like to try other models, just peruse [here](https://github.com/luxonis/depthai/tree/master/resources/nn) and run them by their name, just like above.
 
 Now take some time to play around with the model.  You can for example check how far away the model can detect your face:
 ![model_image](/images/tutorials/pretrained_model/pfm.png)
@@ -115,39 +87,52 @@ Another limiting factor is that this is a relatively low-resolution model (300x3
 
 ## Trying Other Models
 
-The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)).
+The flow we walked through works for other pre-trained object detection models in our repository ([here](https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn)), which includes:
+ - face detection for retail (`face-detection-retail-0004`)
+ - face detection for driver assistance (`face-detection-adas-0001`)
+ - facial landmarks, simple (`landmarks-regression-retail-0009`)
+ - facial landmarksand, advanced (`facial-landmarks-35-adas-0002`)
+ - emotions recognition (`emotions-recognition-retail-0003`)
+ - pedestrian detection for driver-assistance (`pedestrian-detection-adas-0002`)
+ - pedestrian detection for retail environments (`person-detection-retail-0013`)
+ - vehicle detection for driver-assistance (`vehicle-detection-adas-0002`)
+ - vehicle and license plate detection (`vehicle-license-plate-detection-barrier-0106`)
 
 Simply change the paths above to run the other models there, adding the correct labels (or funny ones, should you choose).
 
 Let's try out `face-detection-adas-0001`, which is intended for detecting faces inside the cabin of a vehicle. (ADAS stands for Advanced Driver-Assistance Systems)
 
 ```
-python3 test.py -co '{"ai":{
-"blob_file": "resources/nn/object_detection_4shave/face-detection-adas-0001.blob",
-"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json",
-"calc_dist_to_bb":false }}'
+python3 test.py -dd -cnn face-detection-adas-0001
 ```
 
 ![model_image](/images/tutorials/pretrained_model/adas3.png)
 
 So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
 
-So what happens when you change `"calc_dist_to_bb":false` to `true`?
+And also you may notice networks like emotion recognition... those networks are actually intended to be run as a second stage network (as they are meant to be applied only to images that contain only faces).  So to use the emotions recognitions network, use the command below to tell DepthAI/megaAI to run it as the second stage:
 
-You get the **full 3D position** of the **detected object**, in this case, my face.  
+```
+./depthai.py -cnn face-detection-retail-0004 -cnn2 emotions-recognition-retail-0003 -dd -sh 12 -cmx 12 -nce 2
+````
+![Multi-stage inference](https://i.imgur.com/uqhdqJG.png)
+
+And what is this `-dd` option we've been running?  Why is that there?  
+
+It's there because we wanted to save the best for last.  It stands for disable depth (and has the long-form option `--disable_depth`).  So if you remove that, DepthAI will now calculate the 3D position of the object being detected (a face in this example, but it works for any object detector.)  (And if you're using microAI, leave it there, as microAI is monocular only - no depth information.)
+
+So you get the **full 3D position** of the **detected object**, in this case, my face.  
 
 So that the full xyz position in meters is returned.  See below.
 
 ## Spatial AI - Augmenting the Model with 3D Postion
 
-So by default DepthAI is set to return the full 3D position.  So in the command above, we actually specify for it to not be calculated with `"calc_dist_to_bb":false`.
+So by default DepthAI is set to return the full 3D position.  So in the command above, we actually specify for it to not be calculated with `-dd` (or `--disable_depth`).
 
 So let's run that same command, but with that line omitted, such that 3D results are returned (and displayed):
 
 ```
-python3 test.py -co '{"ai":{
-"blob_file": "resources/nn/object_detection_4shave/face-detection-adas-0001.blob",
-"blob_file_config": "resources/nn/object_detection_4shave/object_detection.json"}}'
+python3 test.py -cnn face-detection-adas-0001
 ```
 
 ![model_image](/images/tutorials/pretrained_model/fdwd.png)
@@ -160,5 +145,22 @@ Play with the feature and please share demos that you come up with (especially i
 
 And if you find any errors in these documents, click the [Edit on Github](https://github.com/luxonis/depthai-docs-website/blob/master/_tutorials/openvino_model_zoo_pretrained_model.md) on the bottom of this page to give us the correction!
 
+And it is possible to overlay these results on other streams.  For example below let's overlay the results directly onto the raw depth information (visualized in OpenCV HOT colormap):
 
+```
+python3 test.py -s metaout depth_raw -bb
+
+```
+
+![AI overlaid on the RAW (uint16) Depth Map](https://i.imgur.com/AjH1T2l.jpg)
+
+So the above techniques are what we call 'monocular neural inference fused with stereo disparity depth', which works well for objects, particularly bigger objects (like people, faces, etc.).  Below we'll use another technique, which we dub 'stereo neural inference' (or 'Stereo AI') which works well for smaller objects and also pixel-point features like facial landmarks and pose-estimator results, etc.
+
+![Stereo Neural inference mode](https://i.imgur.com/mKuzWI6.png)
+
+This can be run with the following command:
+```
+./depthai.py -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -cam left_right -dd -sh 12 -cmx 12 -nce 2 -monor 400 -monof 30
+```
+And note this is running both parallel neural inference (i.e. on both cameras) and also series neural inference (the landmarks-regression network is running on the results of the face detector).
 

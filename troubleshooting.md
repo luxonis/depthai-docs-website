@@ -39,7 +39,7 @@ raspi-gpio set 33 dl  # drive low to allow Myriad X to run
 
 This indicates that the `depthai.*.so` file could not be loaded. There are a handful of reasons this can fail:
 
-1. Is the DepthAI API [installed](api/#install)? Verify that it appears when you type:
+1. Is the DepthAI API [installed](https://docs.luxonis.com/api/)? Verify that it appears when you type:
     ```
     pip3 list | grep depthai
     ```
