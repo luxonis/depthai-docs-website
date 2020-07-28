@@ -222,7 +222,8 @@ The above features are available in the Luxonis Pipeline Builder Gen1 (see examp
  - Lossless zoom (from 12MP full to 4K, 1080p, or 720p)
  - Edge Detection
  - Harris Filtering
- - Arbitrary crop/rescale/reforma and ROI return
+ - Arbitrary crop/rescale/reformat and ROI return
+ - OpenCL Support
 
 {: #pipelinegen2 }
 #### Pipeline Builder Gen2
