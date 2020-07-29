@@ -636,6 +636,13 @@ Below is a quick video showing this:
 
 {: #githubs }
 
+## What are `CSS` `MSS` `UPA` and `DSS` Returned By `meta_d2h`?
+
+ - CSS: CPU SubSystem (main cores)
+ - MSS: Media SubSystem
+ - UPA: Microprocessor(UP) Array -- Shaves
+ - DSS: DDR SubSystem
+
 ## Where are the Githubs?  Is DepthAI Open Source?
 
 DepthAI is an open-source platform across a variety of stacks, including hardware (electrical and mechanical), software, and machine-learning training using Google Colab.
