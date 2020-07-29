@@ -15,3 +15,4 @@ You can get help in a number of ways:
 * [Email support@luxonis.com](mailto:support@luxonis.com)
 * Join our [Slack Community]({{site.slack_url}}) for live assistance from us and devs like you.
 * Post a message to [our forum](https://discuss.luxonis.com/).
+* Submit an issue on [DepthAI repository](https://github.com/luxonis/depthai)
