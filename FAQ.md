@@ -608,6 +608,18 @@ So USB3 (capable of 900mA) is capable of providing enough power for the DepthAI 
 
 To power your DepthAI completely from USB (assuming you are confident your port can provide enough power), you can use this USB-A to barrel-jack adapter cable [here](https://www.amazon.com/gp/product/B01MZ0FWSK/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1).  And we often use DepthAI with this USB power bank [here](https://www.amazon.com/gp/product/B0194WDVHI/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1).
 
+{: #virtualbox }
+## How to use DepthAI under VirtualBox
+
+If you want to use VirtualBox to run the DepthAI source code, please make sure that you allow the
+VM to access the USB devices. Also, be aware that by default, it supports only USB 1.1 devices, and DepthAI
+operates in two stages:
+
+1. For showing up when plugged in. We use this endpoint to load the firmware onto the device, which is a usb-boot technique.  This device is USB2.
+2. For running the actual code. This shows up after USB booting and is USB3.
+
+In order to support the DepthAI modes, you need to download and install [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads)
+
 {: #rpi_hq }
 ## Can I Use DepthAI with the New RPi HQ Camera?
 
