@@ -1,10 +1,11 @@
 ---
 layout: default
-title: Sample - Object tracking
+title: Sample - Object tracking example usage on DepthAI
 toc_title: Object tracking
 description: Demo on how to utilize object_tracker stream 
 order: 4
 ---
+# {{ page.title }}
 
 ## Source code
 
