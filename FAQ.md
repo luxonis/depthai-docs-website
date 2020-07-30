@@ -646,7 +646,13 @@ The DepthAI Raspberry Pi Compute Module Edition (RPi CME or BW1097 for short) co
 Below is a quick video showing this:
 [![BW1097 Power Use](https://i.imgur.com/7f6jQ4o.png)](https://www.youtube.com/watch?v=zQtSzhGR6Xg "RPi CME Power Use")
 
-{: #githubs }
+## How Do I Get Shorter or Longer Flexible Flat Cables (FFC)?
+
+ - For the gray scale cameras, we use 0.5mm, 20-pin, same-side contact flex cables.
+ - For the RGB camera, we use a 0.5mm 26-pin, same-side contact flex cable.
+
+One can purchase Molex's 15166 series FFCs directly to support shorter or longer lengths. 
+Make sure you get **same-side* contacts (Molex calls this "**Type A**")
 
 ## What are `CSS` `MSS` `UPA` and `DSS` Returned By `meta_d2h`?
 
@@ -654,6 +660,8 @@ Below is a quick video showing this:
  - MSS: Media SubSystem
  - UPA: Microprocessor(UP) Array -- Shaves
  - DSS: DDR SubSystem
+
+{: #githubs }
 
 ## Where are the Githubs?  Is DepthAI Open Source?
 
@@ -669,7 +677,7 @@ See below for the pertinent Githubs:
  
 ## Can I Use and IMU With DepthAI?
 
-Yes, our BW1099 ([here](https://shop.luxonis.com/collections/all/products/bw1099)) has support for the Bosch BM160.  Please reach out to us if this is of interest.  We do not yet have support for this IMU in the DepthAI API, but we have done proof-of-concepts and could make this a standard feature through the API if it is of interest.
+Yes, our BW1099 ([here](https://shop.luxonis.com/collections/all/products/bw1099)) has support to talk to IMUs.  And we are in the process of making a future version of the BW1098OBC (as well as BW1092) which have built-in BNO085.  We do not yet have support for this IMU in the DepthAI API, but we have done proof-of-concepts and will be making this a standard feature through the API.
  
 ## Where are Product Brochures and/or Datasheets?
 
