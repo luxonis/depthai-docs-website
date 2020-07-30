@@ -1,16 +1,17 @@
 ---
 layout: default
-title: Sample - Selfie maker - see frames with your face and save them using spacebar
-toc_title: Color camera selfie maker
-description: This sample demonstrates how to crop the frames according to neural network output and store images to disk
-order: 2
+title: Sample - Mono selfie maker - see your face in two mono cameras and save them using spacebar
+toc_title: Mono cameras selfie maker
+description: This sample demonstrates how to crop the mono camera frames according to neural network output and store joined image to disk
+order: 3
 ---
-
 # {{ page.title }}
 
 This sample requires [TK library](https://docs.oracle.com/cd/E88353_01/html/E37842/libtk-3.html) to run (for opening file dialog)
 
 It also requires face detection model, see [this tutorial](/tutorials/converting_openvino_model) to see how to compile one
+
+__Stereo camera pair is required__ to run this example, it can either be [RPi Compute](products/bw1097/), [OAK-D](products/bw1098obc/) or any custom setup using [these cameras](/products/stereo_camera_pair/)
 
 ## Source code
 
@@ -23,18 +24,20 @@ if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
     raise RuntimeError("Error initializing device. Try to reset it.")
 
 pipeline = depthai.create_pipeline(config={
-    'streams': ['previewout', 'metaout'],
+    'streams': ['left', 'right', 'metaout'],
     'ai': {
         "blob_file": "/path/to/face-detection-retail-0004.blob",
         "blob_file_config": "/path/to/face-detection-retail-0004.json",
-    }
+    },
+    'camera': {'mono': {'resolution_h': 720, 'fps': 30}},
 })
 
 if pipeline is None:
     raise RuntimeError('Pipeline creation failed!')
 
 entries_prev = []
-face_frame = None
+face_frame_left = None
+face_frame_right = None
 
 while True:
     nnet_packets, data_packets = pipeline.get_available_nnet_and_data_packets()
@@ -48,12 +51,8 @@ while True:
                 entries_prev.append(e[0])
 
     for packet in data_packets:
-        if packet.stream_name == 'previewout':
-            data = packet.getData()
-            data0 = data[0, :, :]
-            data1 = data[1, :, :]
-            data2 = data[2, :, :]
-            frame = cv2.merge([data0, data1, data2])
+        if packet.stream_name == 'left' or packet.stream_name == 'right':
+            frame = packet.getData()
 
             img_h = frame.shape[0]
             img_w = frame.shape[1]
@@ -67,17 +66,22 @@ while True:
                 face_frame = frame[top:bottom, left:right]
                 if face_frame.size == 0:
                     continue
-                cv2.imshow('face', face_frame)
+                cv2.imshow(f'face-{packet.stream_name}', face_frame)
+                if packet.stream_name == 'left':
+                    face_frame_left = face_frame
+                else:
+                    face_frame_right = face_frame
 
     key = cv2.waitKey(1)
     if key == ord('q'):
         break
-    if key == ord(' ') and face_frame is not None:
+    if key == ord(' ') and face_frame_left is not None and face_frame_right is not None:
         from tkinter import Tk, messagebox
         from tkinter.filedialog import asksaveasfilename
         Tk().withdraw()
-        filepath = asksaveasfilename(defaultextension=".png", filetypes=(("Image files", "*.png"),("All Files", "*.*")))
-        cv2.imwrite(filepath, face_frame)
+        filename = asksaveasfilename(defaultextension=".png", filetypes=(("Image files", "*.png"),("All Files", "*.*")))
+        joined_frame = cv2.hconcat([face_frame_left, face_frame_right])
+        cv2.imwrite(filename, joined_frame)
         messagebox.showinfo("Success", "Image saved successfully!")
         Tk().destroy()
 
@@ -125,12 +129,29 @@ an error if invoked with empty frame.
 ```python
                 if face_frame.size == 0:
                     continue
-                cv2.imshow('face', face_frame)
+                cv2.imshow(f'face-{packet.stream_name}', face_frame)
+```
+
+Later on, as we're having two cameras operating same time, we're assigning the shown frame to either left or right face frame 
+variable, which will help us later during image saving
+
+```python
+                if packet.stream_name == 'left':
+                    face_frame_left = face_frame
+                else:
+                    face_frame_right = face_frame
 ```
 
 ### Storing the frame
 
-__To save the image__ we'll use just a single line of code, invoking `cv2.imwrite`.
+__To save the image__ we'll need to do two things:
+
+- Merge the face frames from both left and right cameras into one frame
+- Save the prepared frame to the disk
+
+Thankfully, OpenCV has it all sorted out, so for each point we'll use just a single line of code, 
+invoking `cv2.hconcat` for frames merging and `cv2.imwrite` to store the image
+
 Rest of the code, utilizing `tkinter` package, is optional and can be removed if you don't require
 user interaction to save the frame.
 
@@ -143,14 +164,15 @@ In this sample, we use `tkinter` for two dialog boxes:
     key = cv2.waitKey(1)
     if key == ord('q'):
         break
-    if key == ord(' ') and face_frame is not None:
+    if key == ord(' ') and face_frame_left is not None and face_frame_right is not None:
         from tkinter import Tk, messagebox
         from tkinter.filedialog import asksaveasfilename
-        Tk().withdraw()  # do not open root TK window
-        filepath = asksaveasfilename(defaultextension=".png", filetypes=(("Image files", "*.png"),("All Files", "*.*")))
-        cv2.imwrite(filepath, face_frame)  # save the image to user-specified path
-        messagebox.showinfo("Success", "Image saved successfully!")  # show confirmation dialog
-        Tk().destroy()  # destroy confirmation dialog
+        Tk().withdraw()
+        filename = asksaveasfilename(defaultextension=".png", filetypes=(("Image files", "*.png"),("All Files", "*.*")))
+        joined_frame = cv2.hconcat([face_frame_left, face_frame_right])
+        cv2.imwrite(filename, joined_frame)
+        messagebox.showinfo("Success", "Image saved successfully!")
+        Tk().destroy()
 ```
 
 ---
