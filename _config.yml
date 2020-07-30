@@ -17,6 +17,8 @@ collections:
     output: true
   products:
     output: true
+  examples:
+    output: true
 
 # Edit on GitHub
 # https://gist.github.com/Eeemil/e93ad054a73037f5bea3

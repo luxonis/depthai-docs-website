@@ -62,6 +62,25 @@
     </li>
   {% endfor %}
   </ul>
+
+  <h6 class="sidebar-heading muted">Code Samples</h6>
+  <ul class="nav flex-column">
+    {% assign sorted = (site.examples | sort: 'order') %}
+    {% for p in sorted %}
+    <li class="nav-item {% if p.url == page.url %}active{% endif %}">
+      <a class="nav-link" href="{{ p.url }}">
+        {% if p.toc_title %}
+          {{ p.toc_title }}
+        {% else %}
+          {{ p.title }}
+        {% endif %}
+      </a>
+      {% if p.url == page.url %}
+      <div id="toc"></div>
+      {% endif %}
+    </li>
+  {% endfor %}
+  </ul>
   <br/> <!-- trouble applying padding to sidebar ... needs some space when url address is shown -->
 
 </div>

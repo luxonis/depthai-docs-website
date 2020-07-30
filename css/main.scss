@@ -407,6 +407,10 @@ main {
     vertical-align: top;
     padding-top: 3px;
     color: red;
+
+    &.info {
+      color: #03a9f4;
+    }
   }
 }
 
