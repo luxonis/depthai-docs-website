@@ -54,7 +54,7 @@ After running these commands, jump to [Quick Test](#quicktest) below to run your
 {: #ubuntu}
 ### Ubuntu 
 ```
-sudo apt install git python3-pip python3-opencv libcurl4
+sudo apt install git python3-pip python3-opencv libcurl4 libatlas-base-dev libhdf5-dev libhdf5-serial-dev libatlas-base-dev libjasper-dev libqtgui4 libqt4-test
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && sudo udevadm trigger
 git clone https://github.com/luxonis/depthai.git
