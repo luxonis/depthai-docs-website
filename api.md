@@ -45,10 +45,10 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 git clone https://github.com/luxonis/depthai.git
 cd depthai
 python3 -m pip install -r requirements.txt
-sudo apt-get install libatlas-base-dev 
-sudo apt-get install libjasper-dev 
-sudo apt-get install libqtgui4 
-sudo apt-get install python3-pyqt5 
+sudo apt install libatlas-base-dev 
+sudo apt install libjasper-dev 
+sudo apt install libqtgui4 
+sudo apt install python3-pyqt5 
 sudo apt install libqt4-test
 ```
 
