@@ -372,13 +372,13 @@ So the simple way to select streams is to just use the `-s` option.  But in some
 
 So to set streams to a specific framerate to reduce the USB2 load and host load, simply specify the stream with `-s streamname` with a comma and FPS after the stream name like `-s streamname,FPS`.  
 
-So for limiting `depth_color_h` to 5 FPS, use the following command:
+So for limiting `depth_raw` to 5 FPS, use the following command:
 ```
-python3 test.py -s depth_color_h,5
+python3 test.py -s depth_raw,5
 ```
 And this works equally for multiple streams:
 ```
-python3 test.py -s left,2 right,2 previewout depth_color_h,5
+python3 test.py -s left,2 right,2 previewout depth_raw,5
 ```
 
 It's worth noting that the framerate limiting works best for lower rates.  So if you're say trying to hit 25FPS, it's best to just leave no frame-rate specified and let the system go to full 30FPS instead.  
@@ -509,6 +509,7 @@ DepthAI and megaAI use the same 12MP RGB Camera module based on the IMX378.
  * 12MP RGB Horizontal Field of View (HFOV): 68.7938 deg
  * 1MP Global Shutter Grayscale Cmera Horizontal Field of View (HFOV): 71.86 deg
 
+{: #maxfps }
 ## What are the Highest Resolutions and Recording FPS Possible with DepthAI and megaAI?
 
 megaAI can be used to stream raw/uncompressed video with USB3.  Gen1 USB3 is capable of 5gbps and Gen2 USB3 is capable of 10gbps.  DepthAI and megaAI are capable of both Gen1 and Gen2 USB3 - but not all USB3 hosts will support Gen2, so check your hosts specifications to see if Gen2 rates are possible.
@@ -528,6 +529,19 @@ It's worth noting that all DepthAI and megaAI products share the same color came
 Encoded:
  - 12MP (4056x3040) : JPEG Pictures/Stills
  - 4K   (3840x2160) : 30.00fps (3.125MB/s) 
+ 
+## How Much Compute Is Available?  How Much Neural Compute is Available?
+
+DepthAI and megaAI are built around the Intel Movidius Myriad X.  More details/background on this part are [here](https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf) and also [here](https://www.anandtech.com/show/11771/intel-announces-movidius-myriad-x-vpu) .
+
+A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabilities are below:
+ - Overall Compute: 4 Trillion Ops/sec (4 TOPS)
+ - Neural Compute Engines (2x total): 1.4 TOPS (neural compute only)
+ - SHAVES: 1 TOPS available for additional neural compute or other CV functions (e.g. through [OpenCL](https://docs.openvinotoolkit.org/2020.4/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html))
+ - 20+ dedicated hardware-accelerated computer vision blocks including disparity-depth, feature matching/tracking, optical flow, median filtering, harris filtering, WARP/de-warp, h.264/h.265/JPEG/MJPEG encoding, motion estimation, etc.
+ - 500+ million pixels/second total processing (see max resolution and framerates over USB [here](#maxfps))
+ - 450 GB/sec memory bandwidth
+ - 512 MB LPDDR4 (contact us for 1GB LPDDR version if of interest) 
  
 {: #autofocus }
 ## What Auto-Focus Modes Are Supported?  Is it Possible to Control Auto-Focus From the Host?
