@@ -145,7 +145,10 @@ Play with the feature and please share demos that you come up with (especially i
 
 And if you find any errors in these documents, click the [Edit on Github](https://github.com/luxonis/depthai-docs-website/blob/master/_tutorials/openvino_model_zoo_pretrained_model.md) on the bottom of this page to give us the correction!
 
-And it is possible to overlay these results on other streams.  For example below let's overlay the results directly onto the raw depth information (visualized in OpenCV HOT colormap):
+### Monocular Neural Inference fused with Stereo Depth
+We call this mode of spatial AI 'Monocular Neural Inference fused with Stereo Depth'.  To visualize how this mode works, it is helpful to overlay the neural inference bounding box over the depth results directly.
+
+To visualize this, let's overlay the results directly onto the raw depth information (visualized in OpenCV HOT colormap):
 
 ```
 python3 test.py -s metaout depth_raw -bb
@@ -154,7 +157,11 @@ python3 test.py -s metaout depth_raw -bb
 
 ![AI overlaid on the RAW (uint16) Depth Map](https://i.imgur.com/AjH1T2l.jpg)
 
-So the above techniques are what we call 'monocular neural inference fused with stereo disparity depth', which works well for objects, particularly bigger objects (like people, faces, etc.).  Below we'll use another technique, which we dub 'stereo neural inference' (or 'Stereo AI') which works well for smaller objects and also pixel-point features like facial landmarks and pose-estimator results, etc.
+So this 'monocular neural inference fused with stereo disparity depth' technique works well for objects, particularly bigger objects (like people, faces, etc.).  
+
+### Stereo Neural Inference
+
+Below we'll use another technique, which we dub 'stereo neural inference' (or 'Stereo AI') which works well for smaller objects and also pixel-point features like facial landmarks and pose-estimator results, etc.
 
 ![Stereo Neural inference mode](https://i.imgur.com/mKuzWI6.png)
 
