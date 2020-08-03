@@ -537,7 +537,7 @@ DepthAI and megaAI are built around the Intel Movidius Myriad X.  More details/b
 A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabilities are below:
  - Overall Compute: 4 Trillion Ops/sec (4 TOPS)
  - Neural Compute Engines (2x total): 1.4 TOPS (neural compute only)
- - SHAVES: 1 TOPS available for additional neural compute or other CV functions (e.g. through [OpenCL](https://docs.openvinotoolkit.org/2020.4/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html))
+ - 16x SHAVES: 1 TOPS available for additional neural compute or other CV functions (e.g. through [OpenCL](https://docs.openvinotoolkit.org/2020.4/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html))
  - 20+ dedicated hardware-accelerated computer vision blocks including disparity-depth, feature matching/tracking, optical flow, median filtering, harris filtering, WARP/de-warp, h.264/h.265/JPEG/MJPEG encoding, motion estimation, etc.
  - 500+ million pixels/second total processing (see max resolution and framerates over USB [here](#maxfps))
  - 450 GB/sec memory bandwidth
