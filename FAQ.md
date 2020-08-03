@@ -74,7 +74,7 @@ A visualization of this mode is below.
 
 [![Monocular AI plus Stereo Depth for Spatial AI](https://i.imgur.com/zTSyQpo.png)](https://www.youtube.com/watch?v=sO1EU5AUq4U "Monocular AI plus Disparity Depth")
 
-In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`./depthai -s metaout depth_raw -bb` is the command used to produce this video):
+In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`python3 test.py -s metaout depth_raw -bb` is the command used to produce this video):
 
 ### Stereo Neural Inference
 In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.  The disparity of the results are then trianglulated with the calibrated camera intrinsics (programmed into the EEPROM of each DepthAI unit) to give 3D position of all the detected features.
@@ -100,7 +100,7 @@ And this is actuall an interesting case as it demonstrates two things on DepthAI
 2. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
 
 The command used to run this on DepthAI is 
-`python3 test.py -cam left_right -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -dd`
+`python3 test.py -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -cam left_right -dd -sh 12 -cmx 12 -nce 2 -monor 400 -monof 30`
 
 Where `cam` specifies to run the neural network on both cameras, `-cnn` specifies the first-stage network to run (face detection, in this case), `-cnn2` specifies the second-stage network (facial landmark detection, in this case), and `-dd` disables running disparity depth calculations (since they are unused in this mode).
 
