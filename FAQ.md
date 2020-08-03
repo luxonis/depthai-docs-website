@@ -532,7 +532,7 @@ Encoded:
  
 ## How Much Compute Is Available?  How Much Neural Compute is Available?
 
-DepthAI and megaAI are built around the Intel Movidius Myriad X.  More details/background on this part are [here](https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf) and also [here](https://www.anandtech.com/show/11771/intel-announces-movidius-myriad-x-vpu) .
+DepthAI and megaAI are built around the Intel Movidius Myriad X.  More details/background on this part are [here](https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf) and also [here](https://www.anandtech.com/show/11771/intel-announces-movidius-myriad-x-vpu).
 
 A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabilities are below:
  - Overall Compute: 4 Trillion Ops/sec (4 TOPS)
