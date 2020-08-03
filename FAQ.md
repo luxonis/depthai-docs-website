@@ -620,6 +620,30 @@ operates in two stages:
 
 In order to support the DepthAI modes, you need to download and install [Oracle VM VirtualBox Extension Pack](https://www.virtualbox.org/wiki/Downloads)
 
+{: #parameters_upgrade }
+## How to increase NCE, SHAVES and CMX parameters?
+
+If you want to specify how many Neural Compute Engines (NCE) to use, or how many SHAVE cores, or how many
+Connection MatriX blocks, you can do this with the DepthAI.
+
+We have implemented the `-nce`, `-sh` and `-cmx` command line params in our example script. Just clone the 
+[DepthAI repository](https://github.com/luxonis/depthai) and do
+
+```
+./test.py -nce 2 -sh 14 -cmx 14
+```
+
+And it will run the default MobilenetSSD, compiled to use 2 NCEs, 14 SHAVEs and 14 CMXes. Note that
+these values __cannot be greater than the ones you can see here__, so you cannot use 15 SHAVEs or 3 NCEs.
+14 is the limit for both SHAVE and CMX parameters, and 2 is the limit for NCE.
+
+Under the hood, the test script uses OpenVINO compiler to receive a network to run, specifically setting
+up respectively `-VPU_MYRIAD_PLATFORM`, `-VPU_NUMBER_OF_SHAVES` and `-VPU_NUMBER_OF_CMX_SLICES` options.
+
+You can try it out yourself either by following [local OpenVINO model conversion tutorial](/tutorials/converting_openvino_model/)
+or by using our [online MyriadX blob converter](http://luxonis.com:8080/)
+
+
 {: #rpi_hq }
 ## Can I Use DepthAI with the New RPi HQ Camera?
 
