@@ -13,6 +13,18 @@ It also requires face detection model, see [this tutorial](/tutorials/converting
 
 __Stereo camera pair is required__ to run this example, it can either be [RPi Compute](products/bw1097/), [OAK-D](products/bw1098obc/) or any custom setup using [these cameras](/products/stereo_camera_pair/)
 
+## Demo
+
+__Capturing process__
+
+<video muted autoplay controls>
+    <source src="/images/samples/face_mono.mp4" type="video/mp4">
+</video>
+
+__Captured image__
+
+![captured](/images/samples/face_mono_selfie.png)
+
 ## Source code
 
 ```python
