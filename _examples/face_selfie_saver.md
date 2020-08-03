@@ -12,6 +12,18 @@ This sample requires [TK library](https://docs.oracle.com/cd/E88353_01/html/E378
 
 It also requires face detection model, see [this tutorial](/tutorials/converting_openvino_model) to see how to compile one
 
+## Demo
+
+__Capturing process__
+
+<video muted autoplay controls>
+    <source src="/images/samples/face_rgb.mp4" type="video/mp4">
+</video>
+
+__Captured image__
+
+![captured](/images/samples/face_rgb_selfie.png)
+
 ## Source code
 
 ```python

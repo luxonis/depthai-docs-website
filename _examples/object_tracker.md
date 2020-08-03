@@ -7,6 +7,12 @@ order: 4
 ---
 # {{ page.title }}
 
+## Demo
+
+<video muted autoplay controls>
+    <source src="/images/samples/tracking.mp4" type="video/mp4">
+</video>
+
 ## Source code
 
 ```python

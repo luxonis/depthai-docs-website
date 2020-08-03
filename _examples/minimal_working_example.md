@@ -8,6 +8,12 @@ order: 1
 
 # {{ page.title }}
 
+## Demo
+
+<video muted autoplay controls>
+    <source src="/images/samples/minimal.mp4" type="video/mp4">
+</video>
+
 ## Source code
 
 ```python
