@@ -690,7 +690,7 @@ Below is a quick video showing this:
  - For the RGB camera, we use a 0.5mm 26-pin, same-side contact flex cable.
 
 One can purchase Molex's 15166 series FFCs directly to support shorter or longer lengths. 
-Make sure you get **same-side* contacts (Molex calls this "**Type A**")
+Make sure you get **same-side* contacts, Molex calls this "**Type A**"
 
 ## What are `CSS` `MSS` `UPA` and `DSS` Returned By `meta_d2h`?
 
