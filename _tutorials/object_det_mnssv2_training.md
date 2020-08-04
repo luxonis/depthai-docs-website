@@ -4,6 +4,7 @@ title: Tutorial - Custom Object Detector Training
 toc_title: Custom Object Detector Training
 description: Learn how to detect objects of your choice in real time with DepthAI!
 order: 5
+published: false
 ---
 
 # {{ page.title }}
