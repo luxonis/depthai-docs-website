@@ -4,11 +4,18 @@ title: Tutorial - Custom Object Detector Training
 toc_title: Custom Object Detector Training
 description: Learn how to detect objects of your choice in real time with DepthAI!
 order: 5
-published: false
+hide: true
 ---
 
 # {{ page.title }}
 
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+  This tutorial is now updated and available as <strong><a href="https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb">Google Colab notebook</a></strong><br/>
+  <span>If you follow want to follow this tutorial instead, please keep in mind that some of the steps here might be outdated</span>
+</div>
 
 Need to use DepthAI to detect objects which **aren't already available in the [OpenVINO Model Zoo](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/)** or for which there **isn't** already a **model online**?
 
