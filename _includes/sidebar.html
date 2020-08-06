@@ -4,7 +4,7 @@
   </a>
 
   <ul class="nav flex-column">
-    {% assign sorted = (site.html_pages | sort: 'order') %}
+    {% assign sorted = (site.html_pages | sort: 'order' | where_exp: "item", "item.hide != true") %}
     {% for p in sorted %}
       {% if p.toc_title == 'Tutorials' %}
         {% continue %}
@@ -82,7 +82,9 @@
   {% endfor %}
   </ul>
 
-  <h6 class="sidebar-heading muted">Custom Training</h6>
+  <h6 class="sidebar-heading muted">
+    <a class="header-link" href="/training">Custom Training</a>
+  </h6>
   <ul class="nav flex-column">
     <li class="nav-item">
       <a class="nav-link" href="https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_Demo_Training.ipynb">

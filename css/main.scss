@@ -516,3 +516,11 @@ h1, h2, h3 {
     font-size: 20px !important;
   }
 }
+
+.header-link {
+  color: inherit;
+
+  &:hover {
+    color: inherit;
+  }
+}
