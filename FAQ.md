@@ -480,6 +480,14 @@ python3 test.py -fusb2
 ```
 Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29), which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
 
+## What is `NCS2 Mode`?
+
+All variants of DepthAI/megaAI come supporting what we call 'NCS2 mode'.  This allows megaAI and DepthAI to pretend to be an NCS2.
+
+So in fact, if you power your unit, plug it into a computer, and follow the instructions/examples/etc. of an NCS2 with OpenVINO, DepthAI/megaAI will behave identically.
+
+This allows you to try out examples from OpenVINO directly as if our hardware is an NCS2.  This can be useful when experimenting with models which are designed to operate on objects/items that you may not have available locally/physically.
+
 ## What Information is Stored on the DepthAI Boards
 Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
 
