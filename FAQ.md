@@ -213,7 +213,7 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 
 The above features are available in the Luxonis Pipeline Builder Gen1 (see example [here](https://docs.luxonis.com/api/#parameters-1)).  See [Pipeline Builder Gen2](#pipelinegen2) for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
  
-#### On our Roadmap (i.e. next ~4 months will be in our API)
+#### On our Roadmap (planned delivery December 2020)
  - Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details [here](https://github.com/luxonis/depthai/issues/136))
  - AprilTags (PR [here](https://github.com/luxonis/depthai/pull/139))
  - Feature Tracking
