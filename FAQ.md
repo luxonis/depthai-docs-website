@@ -406,7 +406,7 @@ In most cases this works well, but there is a risk (especially under high system
 
 So in that case, `getMetadata().getTimestamp()` returns the device time (in seconds, as float) and is also used in the stereo calibration script to synchronize the Left and Right frames:
 
-https://github.com/luxonis/depthai/blob/f26f8c6/calibrate.py#L114
+[https://github.com/luxonis/depthai/blob/f26f8c6/calibrate.py#L114](https://github.com/luxonis/depthai/blob/f26f8c6/calibrate.py#L114)
 
 The timestamp corresponds to the moment the frames are captured from the camera, and is forwarded through the pipeline.  And the method `getMetadata().getSequenceNum()` returns an incrementing number per camera frame. The same number is associated to the NN packet, so it could be an easier option to use, rather than comparing timestamps. The NN packet and Data packet sequence numbers should match.
 
