@@ -393,6 +393,29 @@ The following example sets the `depth_raw` stream to 8 FPS and the `previewout` 
 
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.
 
+## How do I Synchronize Streams and/or Meta Data (Neural Inference Results)
+
+The two methods `getTimeStamp()` and `getSequenceNum()` can be used to guarantee the synchronization on host side.
+
+The NNPackets and DataPackets are being sent separately from device side, and get into individual queues per stream on host side.
+The function `get_available_nnet_and_data_packets()` returns what's available in the queues at the moment the function is called (it could be that just one NN packet is unread, or just one frame packet).
+
+With the `-sync` option from depthai.py, we are doing a best effort on the device side (i.e. on the Myriad X) to synchronize NN and previewout, and send them in order: first the NN packet is being sent (and in depthai.py it gets  saved as the latest), then the previewout frame is being sent (and when received in depthai.py, the latest saved NN data is overlaid on).
+
+In most cases this works well, but there is a risk (especially under high system load on host side), that the packets may still get desynchronized, as the queues are handled by different threads (in the C++ library).
+
+So in that case, `getMetadata().getTimestamp()` returns the device time (in seconds, as float) and is also used in the stereo calibration script to synchronize the Left and Right frames:
+
+https://github.com/luxonis/depthai/blob/f26f8c6/calibrate.py#L114
+
+The timestamp corresponds to the moment the frames are captured from the camera, and is forwarded through the pipeline.  And the method `getMetadata().getSequenceNum()` returns an incrementing number per camera frame. The same number is associated to the NN packet, so it could be an easier option to use, rather than comparing timestamps. The NN packet and Data packet sequence numbers should match.
+
+Also, the left and right cameras will both have the same sequence number (timestamps will not be precisely the same, but few microseconds apart -- that's because the timestamp is assigned separately to each from different interrupt handlers. But the cameras are started at the same time using an I2C broadcast write, and also use the same MCLK source, so shouldn't drift).
+
+In this case we also need to check the camera source of the NN and Data packets. Currently, depthai.py uses getMetadata().getCameraName() for this purpose, that returns a string: `rgb`, `left` or `right` .
+
+It is also possible to use `getMetadata().getInstanceNum()`, that returns a number: 0, 1 or 2 , respectively.
+
 ## How do I Record (or Encode) Video with DepthAI?
 
 DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai.py` script shows and example of how to access this functionality.  
