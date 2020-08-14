@@ -400,7 +400,7 @@ The two methods `getTimeStamp()` and `getSequenceNum()` can be used to guarantee
 The NNPackets and DataPackets are being sent separately from device side, and get into individual queues per stream on host side.
 The function `get_available_nnet_and_data_packets()` returns what's available in the queues at the moment the function is called (it could be that just one NN packet is unread, or just one frame packet).
 
-With the `-sync` option from depthai.py, we are doing a best effort on the device side (i.e. on the Myriad X) to synchronize NN and previewout, and send them in order: first the NN packet is being sent (and in depthai.py it gets  saved as the latest), then the previewout frame is being sent (and when received in depthai.py, the latest saved NN data is overlaid on).
+With the `-sync` CLI option from depthai.py, we are doing a best effort on the device side (i.e. on the Myriad X) to synchronize NN and previewout, and send them in order: first the NN packet is being sent (and in depthai.py it gets  saved as the latest), then the previewout frame is being sent (and when received in depthai.py, the latest saved NN data is overlaid on).
 
 In most cases this works well, but there is a risk (especially under high system load on host side), that the packets may still get desynchronized, as the queues are handled by different threads (in the C++ library).
 
