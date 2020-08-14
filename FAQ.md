@@ -76,6 +76,7 @@ A visualization of this mode is below.
 
 In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`python3 test.py -s metaout depth_raw -bb` is the command used to produce this video):
 
+{: #stereo_inference}
 ### Stereo Neural Inference
 In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.  The disparity of the results are then trianglulated with the calibrated camera intrinsics (programmed into the EEPROM of each DepthAI unit) to give 3D position of all the detected features.
 
@@ -395,6 +396,22 @@ You can pick/choose whatever streams you want, and their frame rate, but pasting
 
 ## How do I Synchronize Streams and/or Meta Data (Neural Inference Results)
 
+The `-sync` option is used to synchronize the neural inference results and the frames on which they were run.  When this option is used, the device-side firmware makes a best effort to send metadata and frames in order of metadata first, immediately followed by the corresponding image.
+
+When running heavier stereo neural inference, particularly with high host load, this system can break down, and there are two options which can keep synchronization:
+1. Reduce the framerate of the cameras running the inference to the speed of the neural inference itself, or just below it.
+2. Or pull the timestamps or sequence numbers from the results (frames or metadata) and match them on the host.
+
+### Reducing the Camera Frame Rate
+
+In the case of neural models which cannot be executed at the full 30FPS, this can cause lack of synchronization, particularly if stereo neural inference is being run using these models in parallel on the left and right grayscale image sensors.
+
+A simple/easy way to regain synchronization is to reduce the framerate to match, or be just below, the framerate of the neural inference.  This can be accomplished via the command line with the using `-rgbf` and `-monof` commands.  
+
+So for example to run a default model with both the RGB and both grayscale cameras set to 24FPS, use the following command:
+`./depthai.py -rgbf 24 -monof 24 -sync`
+
+### Synchronizing on the host
 The two methods `getTimeStamp()` and `getSequenceNum()` can be used to guarantee the synchronization on host side.
 
 The NNPackets and DataPackets are being sent separately from device side, and get into individual queues per stream on host side.
