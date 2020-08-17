@@ -724,6 +724,16 @@ Here are some quick images and videos of it in use:
 
 You can buy this adapter kit for the DepthAI FFC Edition (BW1098FFC) here: [https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit](https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit)
 
+{: #rpi_zero }
+## Can I use DepthAI with Raspberry Pi Zero?
+
+Yes, DepthAI is fully functional on it, you can see the example below
+
+![pizerosetup](/images/pizerosetup.png)
+![pizeroruntime](/images/pizeroruntime.png)
+
+Thanks to Connor Christie for his help building this setup
+
 ## How Much Power Does the DepthAI RPi CME Consume?
 
 The DepthAI Raspberry Pi Compute Module Edition (RPi CME or BW1097 for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
