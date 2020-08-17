@@ -526,7 +526,9 @@ All variants of DepthAI/megaAI come supporting what we call 'NCS2 mode'.  This a
 
 So in fact, if you power your unit, plug it into a computer, and follow the instructions/examples/etc. of an NCS2 with OpenVINO, DepthAI/megaAI will behave identically.
 
-This allows you to try out examples from OpenVINO directly as if our hardware is an NCS2.  This can be useful when experimenting with models which are designed to operate on objects/items that you may not have available locally/physically.
+This allows you to try out examples from OpenVINO directly as if our hardware is an NCS2.  This can be useful when experimenting with models which are designed to operate on objects/items that you may not have available locally/physically.  It also allows running inference in programmatic ways for quality assurance, refining model performance, etc., as the images are pushed from the host, instead of pulled from the onboard camera in this mode.  
+
+DepthAI/megaAI will also support an additional host-communication mode in the [Gen2 Pipeline Builer](https://github.com/luxonis/depthai/issues/136), which will be available in December 2020.
 
 ## What Information is Stored on the DepthAI Boards
 Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
