@@ -732,7 +732,7 @@ Yes, DepthAI is fully functional on it, you can see the example below
 ![pizerosetup](/images/pizerosetup.png)
 ![pizeroruntime](/images/pizeroruntime.png)
 
-Thanks to Connor Christie for his help building this setup
+Thanks to [Connor Christie](https://github.com/ConnorChristie) for his help building this setup!
 
 ## How Much Power Does the DepthAI RPi CME Consume?
 
