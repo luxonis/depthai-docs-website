@@ -715,7 +715,7 @@ DepthAI FFC Edition (BW1098FFC model [here](https://shop.luxonis.com/products/de
 
 ![RPi HQ with DepthAI FFC](https://github.com/luxonis/depthai-hardware/raw/master/BW0253_R0M0E0_RPIHQ_ADAPTER/Images/RPI_HQ_CAM_SYSTEM_2020-May-14_08-35-31PM-000_CustomizedView42985702451.png)
 
-This is a particularly interesting application of DepthAI, as it allows the RPi HQ camera to be encoded to h.265 4K video (and 12MP stills) even with a Raspberry Pi 1 or Raspberry Pi Zero - because DepthAI does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera directly, can only do 1080p video and not 4K video recording).
+This is a particularly interesting application of DepthAI, as it allows the RPi HQ camera to be encoded to h.265 4K video (and 12MP stills) even with a Raspberry Pi 1 or [Raspberry Pi Zero](#rpi_zero) - because DepthAI does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera directly, can only do 1080p video and not 4K video recording).
 
 Here are some quick images and videos of it in use:
 ![RPi HQ Camera Support in DepthAI](https://cdn.hackaday.io/images/9159701591761513514.JPG)
@@ -727,7 +727,7 @@ You can buy this adapter kit for the DepthAI FFC Edition (BW1098FFC) here: [http
 {: #rpi_zero }
 ## Can I use DepthAI with Raspberry Pi Zero?
 
-Yes, DepthAI is fully functional on it, you can see the example below
+Yes, DepthAI is fully functional on it, you can see the example below:
 
 ![pizerosetup](/images/pizerosetup.png)
 ![pizeroruntime](/images/pizeroruntime.png)
