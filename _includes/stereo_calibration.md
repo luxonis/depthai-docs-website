@@ -96,7 +96,9 @@ Use one of the board `*.json` files from [here](https://github.com/luxonis/depth
     }
 }
 ```
-So for example if you setup your BW1098OBC with a stereo baseline of 20cm, with the color camera exactly between the two grayscale cameras, and the same orientation of the cameras as the BW1097, uses the following JSON:
+So for example if you setup your BW1098FFC with a stereo baseline of 2.5cm, with the color camera exactly between the two grayscale cameras, as shown below, use the JSON further below:
+
+![min_spacing](https://i.imgur.com/PAcVYjC.png)
 
 ```
 {
@@ -107,11 +109,13 @@ So for example if you setup your BW1098OBC with a stereo baseline of 20cm, with 
         "swap_left_and_right_cameras": true,
         "left_fov_deg": 71.86,
         "rgb_fov_deg": 68.7938,
-        "left_to_right_distance_cm": 20,
-        "left_to_rgb_distance_cm": 10
+        "left_to_right_distance_cm": 2.5,
+        "left_to_rgb_distance_cm": 2.5
     }
 }
 ```
+Note that in this orientation of of the cameras, `"swap_left_and_right_cameras"` is set to true.  
+
 Then, run calibration with this board name:
 ```
 python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd ACME01 -ih
