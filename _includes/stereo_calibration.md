@@ -110,7 +110,7 @@ So for example if you setup your BW1098FFC with a stereo baseline of 2.5cm, with
         "left_fov_deg": 71.86,
         "rgb_fov_deg": 68.7938,
         "left_to_right_distance_cm": 2.5,
-        "left_to_rgb_distance_cm": 2.5
+        "left_to_rgb_distance_cm": 5.0
     }
 }
 ```
