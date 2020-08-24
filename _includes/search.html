@@ -1,5 +1,15 @@
+<div id="mobile-sidebar" class="collapse">
+    <div class="nav-mobile-close-wrapper" data-toggle="collapse" href="#mobile-sidebar" aria-controls="mobile-sidebar">
+        <img src="/images/close.svg" class="nav-mobile-close"/>
+    </div>
+    {% include sidebar.html %}
+</div>
+<div class="overlay"></div>
 <nav id="nav_search">
-  <form>
-    <input type="search" placeholder="Search documentation... (coming soon)">
-  </form>
+    <div class="nav-hamburger-wrapper" data-toggle="collapse" href="#mobile-sidebar" aria-controls="mobile-sidebar">
+        <img src="/images/hamburger-menu.svg" class="nav-hamburger"/>
+    </div>
+    <form>
+        <input type="search" placeholder="Search documentation... (coming soon)">
+    </form>
 </nav>
