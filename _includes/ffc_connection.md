@@ -15,7 +15,7 @@ error
   Note when looking at the connectors, the blue stripe should be facing up.<br/>
 </div>
 
-![BW1098FFC modular camera top side](/images/product/modular-camera-sides.jpg)
+![BW1098FFC modular camera top side](/images/products/modular-camera-sides.jpg)
 
 <div class="alert alert-primary" role="alert">
 <i class="material-icons">
@@ -24,10 +24,4 @@ error
   Make sure that the FFC cables connect to the camera is on the top side of the final setup to avoid inverted images.<br/>
 </div>
 
-<div class="alert alert-primary" role="alert">
-<i class="material-icons">
-error
-</i>
-  Using the RPi Compute Edition ([BW1097](https://docs.luxonis.com/products/bw1097/)) or USB3 Onboard Cameras Edition ([BW1098OBC](https://docs.luxonis.com/products/bw1098obc/))? <strong>Your unit comes pre-calibrated.</strong><br/>
-</div>
 
