@@ -483,7 +483,7 @@ If `video_config` member is **NOT** present in config dictionary then default is
 ## What Are The Stream Latencies?
 When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from a photo hitting an image sensor to when the results are available to a user, the `photon-to-results` latency.  
 
-So the following results are an approximation of this `photon-to-results` latency, and are likely an over-estimate as we tested by actually seeing when results were updated on a monitor, and the monitor itself has some latency, so the results below are likely an over-estimate, and are overestimated by whatever the latency of the monitor is that we used during the test.  They give, however, a decent worst-case latency:
+So the following results are an approximation of this `photon-to-results` latency, and are likely an over-estimate as we tested by actually seeing when results were updated on a monitor, and the monitor itself has some latency, so the results below are likely overestimated by whatever the latency of the monitor is that we used during the test.  And we have also since done several optimizations since these measurements, so the latency could be quite a bit lower than these.  So take them as a worst-case estimate of latency:
 
 measured | requested | avg latency, ms
 -- | -- | --
