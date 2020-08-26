@@ -61,7 +61,6 @@ Follow the steps below to setup your DepthAI device.
 
 {% include ffc_connection.md %}
 
-Note when looking at the connectors, the blue stripe should be facing up.
 
 <h3 class="step js-toc-ignore"><span></span> Connect your host to the DepthAI USB carrier board.</h3>
 
