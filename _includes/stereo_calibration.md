@@ -98,8 +98,10 @@ Use one of the board `*.json` files from [here](https://github.com/luxonis/depth
 ```
 So for example if you setup your BW1098FFC with a stereo baseline of 2.5cm, with the color camera exactly between the two grayscale cameras, as shown below, use the JSON further below:
 
-![min_spacing](https://i.imgur.com/PAcVYjC.png)
+<!-- ![min_spacing](https://i.imgur.com/PAcVYjC.png) -->
 
+<!-- ![min_spacing](https://i.imgur.com/PAcVYjC.png) -->
+![min_spacing](/images/products/modular-stereo-cam-min-dist.png)
 ```
 {
     "board_config":

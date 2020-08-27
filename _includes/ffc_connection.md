@@ -8,4 +8,20 @@ Once the flexible flat cables are securely latched, you should see something lik
 
 ![BW1098FFC Connected to Modular Cameras](/images/1098ffc_connected.jpg)
 
-Note when looking at the connectors, the blue stripe should be facing up.
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+  Note when looking at the connectors, the blue stripe should be facing up.<br/>
+</div>
+
+![BW1098FFC modular camera top side](/images/products/modular-camera-sides.jpg)
+
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+  Make sure that the FFC cables connect to the camera is on the top side of the final setup to avoid inverted images and wrong `swap_left_and_right_cameras` setup.<br/>
+</div>
+
+
