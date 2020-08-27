@@ -21,7 +21,7 @@ error
 <i class="material-icons">
 error
 </i>
-  Make sure that the FFC cables connect to the camera is on the top side of the final setup to avoid inverted images.<br/>
+  Make sure that the FFC cables connect to the camera is on the top side of the final setup to avoid inverted images and wrong `swap_left_and_right_cameras` setup.<br/>
 </div>
 
 
