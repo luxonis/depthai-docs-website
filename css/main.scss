@@ -128,6 +128,30 @@ $tab_border_color: #dee2e6;
 }
 
 .navbar-brand {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-right: 20px;
+
+  select {
+    &, &:active, &:focus {
+      background: transparent;
+      border: none;
+    }
+    &::-ms-expand {
+      display: none;
+    }
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    font-size: 0.9rem;
+    font-weight: 300;
+
+    option image {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
   img {
     height: 25px;
   }
@@ -561,6 +585,9 @@ h1, h2, h3 {
 }
 
 @media (max-width: 768px) {
+  .navbar-brand {
+    padding-right: 60px;
+  }
   #mobile-sidebar {
     padding-left: 1.5rem;
     width: 100%;
@@ -575,7 +602,7 @@ h1, h2, h3 {
   .nav-mobile-close-wrapper {
     position: absolute;
     right: 40px;
-    top: 20px;
+    top: 4px;
     padding: 10px;
     z-index: 2;
 

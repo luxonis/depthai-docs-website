@@ -27,3 +27,13 @@ git_repo: depthai-docs-website
 slack_url: https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw
 
 tutorials_dir: depthai-tutorials-practice
+
+plugins:
+  - jekyll-multiple-languages-plugin
+
+whitelist:
+  - jekyll-multiple-languages-plugin
+
+enable_languages: false
+languages: ["en", "pl"]
+exclude_from_localizations: ["js", "images", "css"]

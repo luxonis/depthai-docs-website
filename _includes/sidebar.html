@@ -1,7 +1,17 @@
 <div class="sidebar-sticky">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="/">
-    <img src="/images/depthai_logo.png" alt="DepthAI">
-  </a>
+  <div class="navbar-brand">
+    <a href="/"><img src="/images/depthai_logo.png" alt="DepthAI"></a>
+    {% if site.enable_languages %}
+      <select id="lang-switch" onchange="location = this.value;">
+        <option value="" selected disabled hidden>Change language</option>
+        {% capture link1 %}{{ site.baseurl_root }}{{ page.url}}{% endcapture %}
+        <!--    TODO finish these images as CSS background images    -->
+        <option value="{{ link1 }}"><img src="/images/flags/united-kingdom-flag.svg" alt="flag-en"> English</option>
+        {% capture link2 %}{{ site.baseurl_root }}/pl{{ page.url }}{% endcapture %}
+        <option value="{{ link2 }}"><img src="/images/flags/poland-flag.svg" alt="flag-pl">Polski</option>
+      </select>
+    {% endif %}
+  </div>
 
   <ul class="nav flex-column">
     {% assign sorted = (site.html_pages | sort: 'order' | where_exp: "item", "item.hide != true") %}
