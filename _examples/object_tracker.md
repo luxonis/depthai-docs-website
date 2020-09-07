@@ -16,18 +16,16 @@ order: 4
 ## Source code
 
 ```python
-import consts.resource_paths
 import cv2
 import depthai
 
-if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-    raise RuntimeError("Error initializing device. Try to reset it.")
+device = depthai.Device('', False)
 
-p = depthai.create_pipeline(config={
+p = device.create_pipeline(config={
     "streams": ["previewout", "object_tracker"],
     "ai": {
-        "blob_file": consts.resource_paths.blob_fpath,
-        "blob_file_config": consts.resource_paths.blob_config_fpath,
+        "blob_file": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.blob",
+        "blob_file_config": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.json"
     },
     'ot': {
         'max_tracklets': 20,

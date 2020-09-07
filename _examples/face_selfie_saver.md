@@ -29,12 +29,10 @@ __Captured image__
 ```python
 import cv2
 import depthai
-import consts.resource_paths
 
-if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-    raise RuntimeError("Error initializing device. Try to reset it.")
+device = depthai.Device('', False)
 
-pipeline = depthai.create_pipeline(config={
+pipeline = device.create_pipeline(config={
     'streams': ['previewout', 'metaout'],
     'ai': {
         "blob_file": "/path/to/face-detection-retail-0004.blob",
@@ -94,6 +92,7 @@ while True:
         Tk().destroy()
 
 del pipeline
+del device
 ```
 
 ## Explanation

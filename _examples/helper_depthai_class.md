@@ -21,17 +21,15 @@ or run the DepthAI code in a subprocess (e.x. `Process(target=DepthAI().run).sta
 ```python
 from pathlib import Path
 
-import consts.resource_paths
 import cv2
 import depthai
 
 
 class DepthAI:
     def __init__(self):
-        if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-            raise RuntimeError("Error initializing device. Try to reset it.")
-
-        self.p = depthai.create_pipeline(config={
+        self.device = depthai.Device('', False)
+            
+        self.p = self.device.create_pipeline(config={
             "streams": ["metaout", "previewout"],
             "ai": {
                 "blob_file": "/path/to/model.blob",
@@ -78,7 +76,7 @@ class DepthAI:
                 break
 
         del self.p
-        depthai.deinit_device()
+        del self.device
 
 
 DepthAI().run()

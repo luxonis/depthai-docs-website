@@ -18,17 +18,15 @@ It's useful if you want to process the received frames further in your custom co
 ## Code
 
 ```python
-import consts.resource_paths
 import cv2
 import depthai
 
 
 class DepthAI:
     def __init__(self):
-        if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-            raise RuntimeError("Error initializing device. Try to reset it.")
-
-        self.p = depthai.create_pipeline(config={
+        self.device = depthai.Device('', False)
+        
+        self.p = self.device.create_pipeline(config={
             "streams": ["metaout", "previewout"],
             "ai": {
                 "blob_file": "/path/to/model.blob",
@@ -70,7 +68,7 @@ class DepthAI:
 
     def __del__(self):
         del self.p
-        depthai.deinit_device()
+        del self.device
 
 
 d = DepthAI()

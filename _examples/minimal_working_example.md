@@ -17,18 +17,16 @@ order: 1
 ## Source code
 
 ```python
-import consts.resource_paths
 import cv2
 import depthai
 
-if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-    raise RuntimeError("Error initializing device. Try to reset it.")
+device = depthai.Device('', False)
 
-p = depthai.create_pipeline(config={
+p = device.create_pipeline(config={
     "streams": ["metaout", "previewout"],
     "ai": {
-        "blob_file": consts.resource_paths.blob_fpath,
-        "blob_file_config": consts.resource_paths.blob_config_fpath
+        "blob_file": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.blob",
+        "blob_file_config": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.json"
     }
 })
 
@@ -71,7 +69,7 @@ while True:
         break
 
 del p
-depthai.deinit_device()
+del device
 ```
 
 ## Explanation
@@ -81,14 +79,13 @@ The code is divided into three phases: __initialization__, __processing results_
 __Initialization__ is done here, as it's initializing the device and making sure that the pipeline is created
 
 ```python
-if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-    raise RuntimeError("Error initializing device. Try to reset it.")
+device = depthai.Device('', False)
 
-p = depthai.create_pipeline(config={
+p = device.create_pipeline(config={
     "streams": ["metaout", "previewout"],
     "ai": {
-        "blob_file": "/path/to/model.blob",
-        "blob_file_config": "/path/to/config.json"
+        "blob_file": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.blob",
+        "blob_file_config": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.json"
     }
 })
 
@@ -96,11 +93,11 @@ if p is None:
     raise RuntimeError("Error initializing pipelne")
 ```
 
-__Deinitialization__ is basically only two lines of code, and whereas it's not necessary to include it, it's definetely recommended
+__Deinitialization__ is basically only two lines of code, and whereas it's not necessary to include it, it's definitely recommended
 
 ```python
 del p
-depthai.deinit_device()
+del device
 ```
 
 Now, the results processing consists of two phases - parsing nnet results and displaying the frames.
