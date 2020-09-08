@@ -347,15 +347,18 @@ Neural network results packet. It's not a single result, but a batch of results 
 
 #### Methods
 
-* __entries() -> depthai.TensorEntryContainer__
+{: #nnetpacket_entries}
+* [__entries__](#nnetpacket_entries})() -> depthai.TensorEntryContainer
 
     Returns list of depthai.TensorEntry over which you can iterate
 
-* __getMetadata() -> depthai.FrameMetadata__
+{: #nnetpacket_getmetadata}
+* [__getMetadata__](#nnetpacket_getmetadata)() -> [depthai.FrameMetadata](#metadata)
 
     Returns metadata object containing all proprietary data related to this packet 
 
-* __get_tensor(Union[int, str]) -> numpy.ndarray__
+{: #nnetpacket_gettensor}
+* [__get_tensor__](#nnetpacket_gettensor)(Union[int, str]) -> numpy.ndarray
 
     Returns raw output from specific tensor, which you can choose by index or by `output_tensor_name` property specified
     in [blob config file](#creating-blob-configuration-file)
@@ -368,31 +371,37 @@ with source stream info
 
 #### Methods
 
-* __getData() -> numpy.ndarray__
+{: #datapacket_getdata}
+* [__getData__](#datapacket_getdata)() -> numpy.ndarray
 
     Returns the data as NumPy array, which you can e.x. display the data using OpenCV `imshow`.
     
     Used with streams that returns frames e.x. `previewout`, `left`, `right`, or encoded data e.x. `video`, `jpegout`.
 
-* __getDataAsStr() -> str__
+{: #datapacket_getdataasstr}
+* [__getDataAsStr__](#datapacket_getdataasstr)() -> str
 
     Returns the data as a string, capable to be parsed further. 
     
     Used with streams that returns non-array results e.x. `meta_d2h` which returns JSON object
 
-* __getMetadata() -> depthai.FrameMetadata__
+{: #datapacket_getmetadata}
+* [__getMetadata__](#datapacket_getmetadata)() -> [depthai.FrameMetadata](#metadata)
 
     Returns metadata object containing all proprietary data related to this packet 
 
-* __getObjectTracker() -> ObjectTracker__
+{: #datapacket_getobjecttracker}
+* [__getObjectTracker__](#datapacket_getobjecttracker)() -> ObjectTracker
 
     Returns result as an ObjectTracker instance, used only with packets from `object_tracker` stream
 
-* __size() -> int__
+{: #datapacket_size}
+* [__size__](#datapacket_size)() -> int
 
     Returns packet data size
 
-* __stream_name: str__
+{: #datapacket_streamname}
+* [__stream_name__](#datapacket_streamname): str
 
     Returns packet source stream. Used to determine the origin of the packet and therefore allows to handle the packets
     correctly, applying proper handling based on this value
