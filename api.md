@@ -36,7 +36,7 @@ Our packages are distributed [via PyPi](https://pypi.org/project/depthai/), to i
 python3 -m pip install depthai
 ```
 
-## Install from source
+## Other installation methods
 
 To get the latest and yet unreleased features from our source code, you can go ahead and compile depthai package manually.
 
@@ -119,33 +119,58 @@ If all goes well a small window video display with overlays for any items for wh
 {: #reference }
 ## API Reference
 
-{: #depthai_init_device}
-### depthai.init_device(cmd_file_path) → bool
+{: #depthai_device}
+### depthai.Device
 
-Initializes the DepthAI device, returning `True` if the device was successfully initialized and `False` otherwise.
-
-#### Parameters
-
-* cmd_file_path(str) - The full path to the DepthAI `cmd` file.
+Represents the DepthAI device with the methods to interact with it
 
 #### Example
 
 ```py
 import depthai
-import consts.resource_paths
-if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-    raise RuntimeError("Error initializing device. Try to reset it.")
+device = depthai.Device('', False)
+pipeline = device.create_pipeline(config={
+    'streams': ['previewout', 'metaout'],
+    'ai': {
+        "blob_file": "/path/to/model.blob",
+        "blob_file_config": "/path/to/config.json",
+    },
+})
 ```
 
-{: #depthai_create_pipeline}
-### depthai.create_pipeline(config=dict) → CNNPipeline
+#### Methods
 
-Initializes a DepthAI Pipeline, returning the created `CNNPipeline` if successful and `None` otherwise.
+{: #device_init}
+* [__\_\_init\_\___](#device_init)(device_id: str, usb2_mode: bool) -> Device
+    
+    Standard and recomended way to set up the object.
+    
+    __device_id__ represents the USB port id that the device is connected to. If set to specific value (e.x. `"1"`) it will
+    look for the device in specific USB port, whereas if left empty - `''` - it will look for the device on all ports.
+    It's useful when we have more than one DepthAI devices connected and want to specify which one to use in the code
 
-#### Parameters
+    __usb2_mode__, being `True/False`, allows the DepthAI to communicate using USB2 protocol, not USB3. This lowers the 
+    throughput of the pipeline, but allows to use >1m USB cables for connection
+    
 
-* __config(dict)__ -  A `dict` of pipeline configuration settings.
-    <br/>Example key/values for the config:
+{: #device_init_debug}
+* [__\_\_init\_\___](#device_init_debug)(cmd_file: str, device_id: str) -> Device
+    
+    Development and debug way to initialize the DepthAI device.
+    
+    __cmd_file__ is a path to firmware `.cmd` file that will be loaded onto the device for boot.
+    
+    __device_id__ represents the USB port id that the device is connected to. If set to specific value (e.x. `"1"`) it will
+    look for the device in specific USB port, whereas if left empty - `''` - it will look for the device on all ports.    
+    It's useful when we have more than one DepthAI devices connected and want to specify which one to use in the code
+
+
+{: #device_create_pipeline}
+* [__create_pipeline__](#device_create_pipeline)(config: dict) -> [CNNPipeline](#cnnpipeline)
+
+    Initializes a DepthAI Pipeline, returning the created `CNNPipeline` if successful and `None` otherwise.
+
+    __config(dict)__ -  A `dict` of pipeline configuration settings. Example key/values for the config:
     ```py
     {
         # Possible streams:
@@ -215,35 +240,112 @@ Initializes a DepthAI Pipeline, returning the created `CNNPipeline` if successfu
     }
     ```
 
-#### Example
+{: #device_get_available_streams}
+* [__get_available_streams__](#device_get_available_streams)() -> List[str]
+    
+    Return a list of all streams supported by the DepthAI library. 
+    Requires `create_pipeline` to be run prior to this call,
+    otherwise it will return an empty array
+    
+    ```
+    >>> device.get_available_streams()
+    ['meta_d2h', 'left', 'right', 'disparity', 'depth_raw', 'metaout', 'previewout', 'jpegout', 'video', 'object_tracker']
+    ```
 
-```py
-pipeline = depthai.create_pipeline(config={
-    'streams': ['previewout'],
-    'ai': {
-        'blob_file': consts.resource_paths.blob_fpath,
-        'blob_file_config': consts.resource_paths.blob_config_fpath
-    }
-})
-```
+{: #device_get_nn_to_depth_bbox_mapping}
+* [__get_nn_to_depth_bbox_mapping__](#device_get_nn_to_depth_bbox_mapping)() -> dict
+    
+    Returns dict that allows to match the CNN output with the disparity info.
+    
+    Since the RGB camera has a 4K resolution and the neural networks accept only images with specific resolution
+    (like 300x300), the original image is cropped to meet the neural network requirements.
+    On the other side, the disparity frames returned by the neural network are in full resolution available on the mono cameras.
+    
+    To be able to determine where the CNN previewout image is on the disparity frame, this method should be used as it
+    specifies the offsets and dimensions to use.
+    
+    ```
+    >>> device.get_nn_to_depth_bbox_mapping()
+    {'max_h': 681, 'max_w': 681, 'off_x': 299, 'off_y': 59}
+    ```
 
-{: #depthai_cnnpipeline}
+{: #device_request_af_mode}
+* [__request_af_mode__](#device_request_af_mode)(mode: [AutofocusMode](#autofocus_mode))
+    
+    Return a list of all streams supported by the DepthAI library. 
+
+{: #device_request_af_trigger}
+* [__request_af_trigger__](#device_request_af_trigger)(mode: [AutofocusMode](#autofocus_mode))
+    
+    Return a list of all streams supported by the DepthAI library. 
+
+{: #device_request_jpeg}
+* [__request_jpeg__](#device_request_jpeg)()
+    
+    Capture a JPEG frame from the RGB camera and send it to `jpegout` stream. 
+    The frame is in full available resolution, not cropped to meet the CNN input dimensions.
+
+{: #device_send_disparity_confidence_threshold}
+* [__send_disparity_confidence_threshold__](#device_send_disparity_confidence_threshold)()
+    
+   Function to send disparity confidence threshold for StereoSGBM algorithm.
+   If the disparity value confidence is below the threshold, the value is marked as invalid disparity
+   and treated as background
+
+
+{: #autofocus_mode}
+### depthai.AutofocusMode
+
+An enum with all autofocus modes available
+
+#### Members
+
+{: #autofocus_auto}
+* [__AF_MODE_AUTO__](#autofocus_auto)
+    This mode sets the Autofocus to a manual mode, where you need to call [`request_af_trigger`](#request_af_trigger)
+    to start focusing procedure.
+{: #autofocus_continuous_picture}
+* [__AF_MODE_CONTINUOUS_PICTURE__](#autofocus_continuous_picture)
+    This mode adjusts the focus continually to provide the best in-focus image stream and should be used when the
+    camera is standing still while capturing. Focusing procedure is done as fast as possible.
+    
+    This is the defaut mode the DepthAI operates in.
+
+{: #autofocus_continuous_video}
+* [__AF_MODE_CONTINUOUS_VIDEO__](#autofocus_continuous_video)
+    This mode adjusts the focus continually to provide the best in-focus image stream and should be used when the
+    camera is trying to capture a smooth video steam. Focusing procedure is slower and avoids focus overshoots
+{: #autofocus_edof}
+* [__AF_MODE_EDOF__](#autofocus_edof)
+    This mode disables the autofocus. EDOF stands for Enhanced Depth of Field and is a digital focus.
+{: #autofocus_macro}
+* [__AF_MODE_MACRO__](#autofocus_macro)
+    It's the same operating mode as [AF_MODE_AUTO](#autofocus_auto)
+
+
+{: #cnnpipeline}
 ### depthai.CNNPipeline
 
 Pipeline object using which the device is able to send it's result to the host. Created using [depthai.create_pipeline]
 
-* __get_available_data_packets() -> depthai.DataPacketList__
+#### Methods
 
-    Returns only data packets produced by device itself, without CNN results
+{: #cnnpipeline_get_available_data_packets}
+* [__get_available_data_packets__](#cnnpipeline_get_available_data_packets)() -> List[[depthai.DataPacket](#datapacket)]
 
-* __get_available_nnet_and_data_packets() -> tuple[depthai.NNetPacketList, depthai.DataPacketList]__
+    Returns only data packets produced by the device itself, without CNN results
+
+{: #cnnpipeline_get_available_nnet_and_data_packets}
+* [__get_available_nnet_and_data_packets__](#cnnpipeline_get_available_nnet_and_data_packets)() -> tuple[List[[NNetPacket](#nnetpacket)], List[[depthai.DataPacket](#datapacket)]]
 
     Return both neural network results and data produced by device
 
-{: #depthai_nnetpacket}
+{: #nnetpacket}
 ### depthai.NNetPacket
 
 Neural network results packet. It's not a single result, but a batch of results with additional metadata attached
+
+#### Methods
 
 * __entries() -> depthai.TensorEntryContainer__
 
@@ -258,11 +360,13 @@ Neural network results packet. It's not a single result, but a batch of results 
     Returns raw output from specific tensor, which you can choose by index or by `output_tensor_name` property specified
     in [blob config file](#creating-blob-configuration-file)
     
-{: #depthai_datapacket}
+{: #datapacket}
 ### depthai.DataPacket
 
 DepthAI data packet, containing information generated on the device. Unlike NNetPacket, it contains a single "result" 
 with source stream info
+
+#### Methods
 
 * __getData() -> numpy.ndarray__
 
