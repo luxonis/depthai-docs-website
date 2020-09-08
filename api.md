@@ -397,6 +397,75 @@ with source stream info
     Returns packet source stream. Used to determine the origin of the packet and therefore allows to handle the packets
     correctly, applying proper handling based on this value
 
+{: #metadata}
+### depthai.FrameMetadata
+
+Metadata object attached to the packets sent via pipeline.
+
+#### Methods
+
+{: #metadata_getcameraname}
+* [__getCameraName__](#metadata_getcameraname)() -> str
+
+    Returns the name of the camera that produced the frame.
+    
+
+{: #metadata_getcategory}
+* [__getCategory__](#metadata_getcategory)() -> str
+
+    Returns the type of the packet, whether it's a regular frame or arrived from taking a still
+    
+
+{: #metadata_getframebytespp}
+* [__getFrameBytesPP__](#metadata_getframebytespp)() -> str
+
+    Returns number of bytes per pixel in the packet's frame
+    
+
+{: #metadata_getframeheight}
+* [__getFrameHeight__](#metadata_getframeheight)() -> int
+
+    Returns the height of the packet's frame
+    
+
+{: #metadata_getframewidth}
+* [__getFrameWidth__](#metadata_getframewidth)() -> int
+
+    Returns the width of the packet's frame
+    
+
+{: #metadata_getframetype}
+* [__getFrameType__](#metadata_getframetype)() -> int
+
+    Returns the type of the data that this packet contains.
+    
+
+{: #metadata_getinstancenum}
+* [__getInstanceNum__](#metadata_getinstancenum)() -> int
+
+    Returns the camera id that is the source of the current packet
+    
+
+{: #metadata_getsequencenum}
+* [__getSequenceNum__](#metadata_getsequencenum)() -> int
+
+    Sequence number is assigned for each frame produced by the camera.
+    It can be used to assure the frames are captured at the same time - e.x. if frames from left and right camera have
+    the same sequence number, you can assume they were taken at the same time
+    
+
+{: #metadata_getstride}
+* [__getStride__](#metadata_getstride)() -> int
+
+    Specifies number of bytes till the next row of pixels in the packet's frame
+    
+
+{: #metadata_gettimestamp}
+* [__getTimestamp__](#metadata_gettimestamp)() -> float
+
+    When packet is created, it is assigned a creation timestamp, which can be obtained using this method
+    
+
 ## Preparing MyriadX blob file and it's config
 
 As you can see in [this example](#example-1), basic usage of `create_pipeline` method consists of specifying desired output
