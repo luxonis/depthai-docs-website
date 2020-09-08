@@ -411,13 +411,13 @@ Metadata object attached to the packets sent via pipeline.
     
 
 {: #metadata_getcategory}
-* [__getCategory__](#metadata_getcategory)() -> str
+* [__getCategory__](#metadata_getcategory)() -> int
 
     Returns the type of the packet, whether it's a regular frame or arrived from taking a still
     
 
 {: #metadata_getframebytespp}
-* [__getFrameBytesPP__](#metadata_getframebytespp)() -> str
+* [__getFrameBytesPP__](#metadata_getframebytespp)() -> int
 
     Returns number of bytes per pixel in the packet's frame
     
