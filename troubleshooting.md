@@ -37,15 +37,15 @@ raspi-gpio set 33 dl  # drive low to allow Myriad X to run
 {: #depthai_import_error}
 ### ImportError: No module named 'depthai'
 
-This indicates that the `depthai.*.so` file could not be loaded. There are a handful of reasons this can fail:
+This indicates that the `depthai` was not found by your python interpreter. There are a handful of reasons this can fail:
 
 1. Is the DepthAI API [installed](https://docs.luxonis.com/api/)? Verify that it appears when you type:
     ```
-    pip3 list | grep depthai
+    python3 -m pip list | grep depthai
     ```
-2. Are you using a [supported Python version](/api/#python_version) for your operating system? Check that your Python version is [supported](/api/#python_version):
+2. Are you using a [supported operating system](/api/#supported_platforms) for your operating system? If not, you can always [install depthai from source](/api/#compile_api):
     ```
-    python3 --version
+    cat /etc/lsb-release
     ```
 
 <hr/>
@@ -64,10 +64,11 @@ Poor photo conditions [can dramatically impact the image processing time](https:
 {: #python_api_permission_denied data-toc-title-"pip install - permission denied"}
 ### [Errno 13] Permission denied: '/usr/local/lib/python3.7/dist-packages/...'
 
-If `pip3 install` fails with a `Permission denied` error, your user likely doesn't have permission to install packages in the system-wide path. Try installing in your user's home directory instead by adding the `--user` option. For example:
+If `python3 -m pip install` fails with a `Permission denied` error, your user likely doesn't have permission to install packages in the system-wide path. 
+Try installing in your user's home directory instead by adding the `--user` option. For example:
 
 ```
-pip3 install -e depthai-python-extras --user
+python3 -m pip install depthai --user
 ```
 
 [More information on Stackoverflow](https://stackoverflow.com/questions/31512422/pip-install-failing-with-oserror-errno-13-permission-denied-on-directory).
@@ -102,4 +103,4 @@ So if you have see this problem with your host, potentially 3 options:
 Or, the shorter form:
 `python3 test.py -usb2`
 
-We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not Ubuntu 18.04/16.04 or Raspbian, please compile DepthAI from source (see [here](https://github.com/luxonis/depthai-python-extras#python-modules) for instructions).
+We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not Ubuntu 18.04/16.04 or Raspbian, please compile DepthAI from source (see [here](/api/#compile_api) for instructions).

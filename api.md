@@ -10,7 +10,7 @@ order: 5
 
 Instructions for installing, upgrading, and using the DepthAI Python API.
 
-{: #python_version data-toc-title="Python Versions"}
+{: #supported_platforms data-toc-title="Supported platforms"}
 ## Supported Platforms
 
 The DepthAI API python module is prebuilt for Ubuntu, MaxOS and Windows. 
