@@ -475,6 +475,72 @@ Metadata object attached to the packets sent via pipeline.
     When packet is created, it is assigned a creation timestamp, which can be obtained using this method
     
 
+{: #objecttracker}
+### depthai.ObjectTracker
+
+Object representing current state of the tracker, obtained by calling [`getObjectTracker`](#datapacket_getobjecttracker)
+method on a packet from `object_tracker` stream
+
+#### Methods
+
+{: #objecttracker_getnrtracklets}
+* [__getNrTracklets__](#objecttracker_getnrtracklets)() -> int
+
+    Return the number of available tracklets
+    
+
+{: #objecttracker_gettracklet}
+* [__getTracklet__](#objecttracker_gettracklet)(tracklet_nr: int) -> [Tracklet](#tracklet})
+
+    Returns the tracklet with specified `tracklet_nr`. To check how many tracklets there are, please use
+    [`getNrTracklets`](#objecttracker_getnrtracklets) method
+
+
+{: #tracklet}
+### depthai.Tracklet
+
+Tracklet is representing a single tracked object, is produced by [`ObjectTracker`](##objecttracker) class.
+To obtain it, call [`getTracklet`](#objecttracker_gettracklet) method.
+
+#### Methods
+
+{: #tracklet_getid}
+* [__getId__](#tracklet_getid)() -> int
+
+    Return the tracklet id
+
+{: #tracklet_getlabel}
+* [__getLabel__](#tracklet_getlabel)() -> int
+
+    Return the tracklet label, being the neural network returned result. Used to identify a class of recognized objects
+
+
+{: #tracklet_getstatus}
+* [__getLabel__](#tracklet_getstatus)() -> str
+
+    Return the tracklet status - either __`NEW`__, __`TRACKED`__, or __`LOST`__.
+
+{: #tracklet_getleftcoord}
+* [__getLeftCoord__](#tracklet_getleftcoord)() -> int
+
+    Return the left coordinate of the bounding box of a tracked object
+
+{: #tracklet_getrightcoord}
+* [__getRightCoord__](#tracklet_getrightcoord)() -> int
+
+    Return the right coordinate of the bounding box of a tracked object
+
+{: #tracklet_gettopcoord}
+* [__getTopCoord__](#tracklet_gettopcoord)() -> int
+
+    Return the top coordinate of the bounding box of a tracked object
+
+{: #tracklet_getbottomcord}
+* [__getBottomCoord__](#tracklet_getbottomcoord)() -> int
+
+    Return the bottom coordinate of the bounding box of a tracked object
+   
+
 ## Preparing MyriadX blob file and it's config
 
 As you can see in [this example](#example-1), basic usage of `create_pipeline` method consists of specifying desired output

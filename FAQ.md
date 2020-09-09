@@ -125,11 +125,11 @@ You can buy megaAI from our distributors and also our online store [here](https:
 
 Not hard.  Usually DepthAI is up/running on your platform within a couple minutes (most of which is download time). 
 
-The requirements are Python and OpenCV (which are great to have on your system anyway!). see [here](https://docs.luxonis.com/api/#python_version) for supported platforms and how to get up/running with them.  
+The requirements are Python and OpenCV (which are great to have on your system anyway!). see [here](https://docs.luxonis.com/api/#supported_platforms) for supported platforms and how to get up/running with them.  
 
 **Raspbian, Ubuntu, macOS, Windows,** and many others are supported and are easy to get up/running. 
 
-For Install on various platforms are [here](https://docs.luxonis.com/api/#python_version).
+For Install on various platforms are [here](https://docs.luxonis.com/api/#compile_api).
 
 It's a matter of minutes to be up and running with the power of Spatial AI, on the platform of your choice.  Below is DepthAI running on my Mac.
 

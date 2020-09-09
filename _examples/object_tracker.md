@@ -76,7 +76,7 @@ while True:
         break
 
 del p
-depthai.deinit_device()
+del device
 ```
 
 ## Explanation
