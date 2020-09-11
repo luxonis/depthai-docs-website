@@ -299,7 +299,7 @@ To verify that the model is running correctly, let's modify a bit the program we
 In particular, let's change the `create_pipeline` invocation to load our model. __Remember to replace the paths to correct ones that you have!__
 
 ```diff
-pipeline = depthai.create_pipeline(config={
+pipeline = device.create_pipeline(config={
     'streams': ['previewout', 'metaout'],
     'ai': {
 -        'blob_file': consts.resource_paths.blob_fpath,

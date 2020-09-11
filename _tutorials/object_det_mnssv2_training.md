@@ -97,12 +97,12 @@ Remember, you have to change the labels in both .json files.
 You are ready to run your very own trained model on DepthAI. 
 Open a terminal in your DepthAI directory and run:
 
-`python3 test.py -cnn <your folder name>` i.e. 
-`python3 test.py -cnn dog_detective`
+`python3 depthai_demo.py -cnn <your folder name>` i.e. 
+`python3 depthai_demo.py -cnn dog_detective`
 
 If you wish to disable the spatial measurements associated with the detected objects, run the comand with the '-dd' (disable depth) flag.
 
-`python3 test.py -dd -cnn <your folder name>`
+`python3 depthai_demo.py -dd -cnn <your folder name>`
 
 Enjoy!
 

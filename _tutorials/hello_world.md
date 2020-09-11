@@ -15,14 +15,15 @@ Learn how to use the DepthAI Python API to display a color video stream.
 Let's get your development environment setup first. This tutorial uses:
 
 * Python 3.6 (Ubuntu) or Python 3.7 (Raspbian).
-* The Python DepthAI API. [Install](/api#install) or [upgrade](/api#upgrade).
-* The `cv2` Python module and numpy.  
+* The Python DepthAI API, see [how to install](/api#install).
+* The `cv2` and `numpy` Python modules.  
 
-This tutorial also uses a couple of `pip` packages. We'll [install these](#install-pip-dependencies) in just a bit.
 
 ## Code Overview
 
-The `depthai` Python module provides access to your board's 4K 60 Hz color camera. We'll display a video stream from this camera to your desktop. You can find the [complete source code for this tutorial on GitHub](https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world).
+The `depthai` Python module provides access to your board's 4K 60 Hz color camera. 
+We'll display a video stream from this camera to your desktop. 
+You can find the [complete source code for this tutorial on GitHub](https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world).
 
 ## File Setup
 
@@ -35,39 +36,32 @@ touch {{site.tutorials_dir}}/1-hello-world/hello-world.py
 cd {{site.tutorials_dir}}/1-hello-world
 ```
 
-What's with the `-practice` suffix in parent directory name? Our tutorials are available on GitHub via the [depthai-tutorials](https://github.com/luxonis/depthai-tutorials) repository. We're appending `-practice` so you can distinguish between your work and our finished tutorials (should you choose to download those).
+What's with the `-practice` suffix in parent directory name? Our tutorials are available on GitHub 
+via the [depthai-tutorials](https://github.com/luxonis/depthai-tutorials) repository. 
+We're appending `-practice` so you can distinguish between your work and our finished 
+tutorials (should you choose to download those).
 
 
 ## Install pip dependencies
 
-To display the DepthAI color video stream we need to import a small number of packages. Download and install the requirements for this tutorial:
+To display the DepthAI color video stream we need to import a small number of packages. 
+Download and install the requirements for this tutorial:
 
 ```
-python3 -m pip install numpy opencv-python --user
+python3 -m pip install numpy opencv-python depthai --user
 ```
 
-## Install DepthAI package
-
-While direct install from PyPi is likely to come shortly, for now it's best to install depthai from source.
-
-To do so, type in the following commands
-```
-git clone https://github.com/luxonis/depthai.git
-cd depthai
-python3 -m pip install -r requirements.txt
-python3 -m pip install --user -e .
-```
 
 ## Test your environment
 
-Let's verify we're able to load all of our dependencies. Open the `hello-world.py` file you [created earlier](#file-setup) in your code editor. Copy and paste the following into `hello-world.py`:
+Let's verify we're able to load all of our dependencies. Open the `hello-world.py` file you 
+[created earlier](#file-setup) in your code editor. Copy and paste the following into `hello-world.py`:
 
 
 ```py
 import numpy as np # numpy - manipulate the packet data returned by depthai
 import cv2 # opencv - display the video stream
 import depthai # access the camera and its data packets
-import consts.resource_paths # load paths to depthai resources
 ```
 
 Try running the script and ensure it executes without error:
@@ -89,11 +83,8 @@ ModuleNotFoundError: No module named `depthai`
 Start the DepthAI device:
 
 ```py
-if not depthai.init_device(consts.resource_paths.device_cmd_fpath):
-    raise RuntimeError("Error initializing device. Try to reset it.")
+device = depthai.Device('', False)
 ```
-
-If the device doesn't initialize, we'll exit the script here rather than throw a mysterious error later.
 
 Try running the script. You should see output similar to:
 
@@ -108,16 +99,7 @@ watchdog started 6000
 Successfully opened stream config_d2h with ID #0!
 ```
 
-If instead you see an error that looks like the following:
-
-```
-Traceback (most recent call last):
-  File "/home/pi/{{site.tutorials_dir}}/1-hello-world/hello-world.py", line 7, in <module>
-    raise RuntimeError("Error initializing device. Try to reset it.")
-RuntimeError: Error initializing device. Try to reset it.
-```
-
-[Reset your DepthAI device](/troubleshooting#device_reset), then try again.
+If instead you see an error, please [reset your DepthAI device](/troubleshooting#device_reset), then try again.
 
 ## Create the DepthAI Pipeline
 
@@ -126,11 +108,11 @@ The model used in `ai` section is a MobileNetSSD with 20 different classes, see 
 
 ```py
 # Create the pipeline using the 'previewout' stream, establishing the first connection to the device.
-pipeline = depthai.create_pipeline(config={
+pipeline = device.create_pipeline(config={
     'streams': ['previewout', 'metaout'],
     'ai': {
-        'blob_file': consts.resource_paths.blob_fpath,
-        'blob_file_config': consts.resource_paths.blob_config_fpath
+        'blob_file': "/path/to/mobilenet-ssd.blob",
+        'blob_file_config': "/path/to/mobilenet-ssd.json"
     }
 })
 
@@ -140,7 +122,9 @@ if pipeline is None:
 
 ## Display the video stream
 
-A DepthAI Pipeline generates a stream of data packets. Each `previewout` data packet contains a 3D array representing an image frame. We change the shape of the frame into a `cv2`-compatible format and display it.
+A DepthAI Pipeline generates a stream of data packets. Each `previewout` data packet contains a 
+3D array representing an image frame. 
+We change the shape of the frame into a `cv2`-compatible format and display it.
 
 ```py
 entries_prev = []
@@ -184,6 +168,7 @@ while True:
 # The pipeline object should be deleted after exiting the loop. Otherwise device will continue working.
 # This is required if you are going to add code after exiting the loop.
 del pipeline
+del device
 ```
 
 Run the script. Press the 'Q' key with focus on the video stream (not your terminal) to exit:

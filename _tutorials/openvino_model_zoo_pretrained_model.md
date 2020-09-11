@@ -46,10 +46,10 @@ The depthai.py file can be modified directly to you do your bidding, or you can 
 
 For simplicity we will do the latter, simply passing arguments so that DepthAI runs the `face-detection-retail-0004` instead of the model run by default.
 
-Before switching to using the `face-detection-retail-0004` let's take a baby step and give these command line options a spin.  In this case we'll just pass in the same neural network that default runs when running `python3 test.py`, just to make sure we're doing it right:
+Before switching to using the `face-detection-retail-0004` let's take a baby step and give these command line options a spin.  In this case we'll just pass in the same neural network that default runs when running `python3 depthai_demo.py`, just to make sure we're doing it right:
 
 ```
-python3 test.py -dd
+python3 depthai_demo.py -dd
 ```
 This will then run the a typical demo MobileNetv1 SSD object detector trained on the [PASCAL 2007 VOC](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) classes, which are:
 * Person: person
@@ -67,7 +67,7 @@ Now that we've got this verified, let's move on to trying out other models, star
 
 To use this model, simply specify the name of the model to be run with the `-cnn` flag, as below:
 ```
-python3 test.py -dd -cnn face-detection-retail-0004
+python3 depthai_demo.py -dd -cnn face-detection-retail-0004
 ```
 Execute the script to see an annotated video stream of face detections:
 
@@ -103,7 +103,7 @@ Simply change the paths above to run the other models there, adding the correct 
 Let's try out `face-detection-adas-0001`, which is intended for detecting faces inside the cabin of a vehicle. (ADAS stands for Advanced Driver-Assistance Systems)
 
 ```
-python3 test.py -dd -cnn face-detection-adas-0001
+python3 depthai_demo.py -dd -cnn face-detection-adas-0001
 ```
 
 ![model_image](/images/tutorials/pretrained_model/adas3.png)
@@ -132,7 +132,7 @@ So by default DepthAI is set to return the full 3D position.  So in the command 
 So let's run that same command, but with that line omitted, such that 3D results are returned (and displayed):
 
 ```
-python3 test.py -cnn face-detection-adas-0001
+python3 depthai_demo.py -cnn face-detection-adas-0001
 ```
 
 ![model_image](/images/tutorials/pretrained_model/fdwd.png)
@@ -151,7 +151,7 @@ We call this mode of spatial AI 'Monocular Neural Inference fused with Stereo De
 To visualize this, let's overlay the results directly onto the raw depth information (visualized in OpenCV HOT colormap):
 
 ```
-python3 test.py -s metaout depth_raw -bb
+python3 depthai_demo.py -s metaout depth_raw -bb
 
 ```
 

@@ -21,12 +21,13 @@ Watching the video below will give you the steps needed to calibrate your own De
 <i class="material-icons">
 error
 </i>
-  Already installed `depthai`? <strong>Skip this step.</strong><br/>
+  Already checked out `depthai`? <strong>Skip this step.</strong><br/>
 </div>
 
 ```
 git clone https://github.com/luxonis/depthai.git
 cd depthai
+python3 -m pip install -r requirements.txt
 ```
 
 <h3 class="step" data-toc-title="Print Chessboard" id="print_chessboard"><span></span> Print chessboard calibration image.</h3>
@@ -144,7 +145,7 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
     ```
     cd [depthai repo]
     ```
-3. Run `python3 test.py -s depth_raw -o`.<br/>
+3. Run `python3 depthai_demo.py -s depth_raw -o`.<br/>
     The script launches a window, starts the cameras, and displays a depth video stream:
 
     ![object localization demo](/images/depth.png)
@@ -158,18 +159,18 @@ If your are happy with the depth quality above, you can write it to the on-board
 To write the calibration and associated board information to to EEPROM on DepthAI, use the following command:
 
 ```
-python3 test.py -brd [BOARD] -e
+python3 depthai_demo.py -brd [BOARD] -e
 ```
 Where `[BOARD]` is either `BW1097` (Raspberry Pi Compute Module Edition), `BW1098OBC` (USB3 Onboard Camera Edition) or a custom board file (as in [here](#modular_cameras)), all case-insensitive.
 
 So for example to write the (updated) calibration and board information to your BW1098OBC, use the following command:
 ```
-python3 test.py -brd bw1098obc -e
+python3 depthai_demo.py -brd bw1098obc -e
 ```
 
 And to verify what is written to EEPROM on your DepthAI, you can see check the output whenever running DetphAI, simply with"
 ```
-python3 test.py
+python3 depthai_demo.py
 ```
 And look for `EEPROM data:` in the prints in the terminal after running the above command:
 ```

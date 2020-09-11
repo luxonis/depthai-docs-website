@@ -108,10 +108,10 @@ git clone https://github.com/luxonis/depthai.git
 cd depthai
 ```
 
-Now, run the test script from within depthai to make sure everything is working:
+Now, run the demo script from within depthai to make sure everything is working:
 
 ```
-python3 test.py
+python3 depthai_demo.py
 ```
 
 If all goes well a small window video display with overlays for any items for which the class exists in the example 20-class object detector (class list [here](https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L22)).

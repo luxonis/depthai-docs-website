@@ -74,7 +74,7 @@ A visualization of this mode is below.
 
 [![Monocular AI plus Stereo Depth for Spatial AI](https://i.imgur.com/zTSyQpo.png)](https://www.youtube.com/watch?v=sO1EU5AUq4U "Monocular AI plus Disparity Depth")
 
-In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`python3 test.py -s metaout depth_raw -bb` is the command used to produce this video):
+In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`python3 depthai_demo.py -s metaout depth_raw -bb` is the command used to produce this video):
 
 {: #stereo_inference}
 ### Stereo Neural Inference
@@ -101,7 +101,7 @@ And this is actuall an interesting case as it demonstrates two things on DepthAI
 2. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
 
 The command used to run this on DepthAI is 
-`python3 test.py -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -cam left_right -dd -sh 12 -cmx 12 -nce 2 -monor 400 -monof 30`
+`python3 depthai_demo.py -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -cam left_right -dd -sh 12 -cmx 12 -nce 2 -monor 400 -monof 30`
 
 Where `cam` specifies to run the neural network on both cameras, `-cnn` specifies the first-stage network to run (face detection, in this case), `-cnn2` specifies the second-stage network (facial landmark detection, in this case), and `-dd` disables running disparity depth calculations (since they are unused in this mode).
 
@@ -137,9 +137,9 @@ It's a matter of minutes to be up and running with the power of Spatial AI, on t
 
 (Click on the imageabove to pull up the YouTube video.)
 
-The command to get the above output is `python3 test.py -s metaout previewout depth_raw -ff -bb`.
+The command to get the above output is `python3 depthai_demo.py -s metaout previewout depth_raw -ff -bb`.
 
-Here is a single-camera version (megaAI) running with `pytyon3 test.py -dd` (to disable showing depth info):
+Here is a single-camera version (megaAI) running with `pytyon3 depthai_demo.py -dd` (to disable showing depth info):
 ![megaAI Legos](/images/lego.png)
 
 ## Is DepthAI and megaAI easy to use with Raspberry Pi? 
@@ -345,7 +345,7 @@ And the specific value of 65,535 is a special value, meaning an invalid disparit
 To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_raw`), use the following command:
 
 ```
-python3 test.py -s metaout previewout depth_raw
+python3 depthai_demo.py -s metaout previewout depth_raw
 ```
 The available streams are:
  - `metaout` # Meta data results from the neural network
@@ -361,7 +361,7 @@ The available streams are:
 ### Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
  
 Yes, to get the raw stereo pair stream on the host use the following command:
- `python3 test.py -s left right`
+ `python3 depthai_demo.py -s left right`
  
 This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as below:
  ![RAW Stereo Pair Streams](https://i.imgur.com/oKVrZAV.jpg)
@@ -376,11 +376,11 @@ So to set streams to a specific framerate to reduce the USB2 load and host load,
 
 So for limiting `depth_raw` to 5 FPS, use the following command:
 ```
-python3 test.py -s depth_raw,5
+python3 depthai_demo.py -s depth_raw,5
 ```
 And this works equally for multiple streams:
 ```
-python3 test.py -s left,2 right,2 previewout depth_raw,5
+python3 depthai_demo.py -s left,2 right,2 previewout depth_raw,5
 ```
 
 It's worth noting that the framerate limiting works best for lower rates.  So if you're say trying to hit 25FPS, it's best to just leave no frame-rate specified and let the system go to full 30FPS instead.  
@@ -391,7 +391,7 @@ One can also use the following over-ride command structure, which allows you to 
 
 The following example sets the `depth_raw` stream to 8 FPS and the `previewout` to 12 FPS:
 
-`python3 test.py -co '{"streams": [{"name": "depth_raw", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
+`python3 depthai_demo.py -co '{"streams": [{"name": "depth_raw", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
 
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.
 
@@ -440,7 +440,7 @@ DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - witho
 
 To leverage this functionality from the command line, use the `-v` (or `--video`) command line argument as below:
 ```
-python3 test.py -v [path/to/video.h264]
+python3 depthai_demo.py -v [path/to/video.h264]
 ```
 
 To then play the video in mp4/mkv format use the following muxing command:
@@ -450,7 +450,7 @@ ffmpeg -framerate 30 -i [path/to/video.h264] -c copy [outputfile.mp4/mkv]
 
 By default there are keyframes every 1 second which resolve the previous issues with traversing the video as well as provide the capability to start recording anytime (worst case 1 second of video is lost if just missed the keyframe)
 
-When running test.py, one can record a jpeg of the current frame by hitting `c` on the keyboard.  
+When running depthai_demo.py, one can record a jpeg of the current frame by hitting `c` on the keyboard.  
 
 An example video encoded on DepthAI [BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) (Raspberry Pi Compute Module Edition) is below.  All DepthAI and megaAI units have the same 4K color camera, so will have equivalent performance to the video below.
 
@@ -517,7 +517,7 @@ USB2 Communication may be desirable if you'd like to use extra-long USB cables a
 
 To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line option as below:
 ```
-python3 test.py -fusb2
+python3 depthai_demo.py -fusb2
 ```
 Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29), which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
 
@@ -534,7 +534,7 @@ DepthAI/megaAI will also support an additional host-communication mode in the [G
 ## What Information is Stored on the DepthAI Boards
 Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
 
-So each hardware model which has stereo cameras (e.g. [BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), and [BW1094](https://docs.luxonis.com/products/bw1094/)) has the capability to store the calibration data and field-of-view, stereo basline (`L-R distance`) and relative location of the color camera to the stereo cameras (`L-RGB distance`) as well as camera orientation (`L/R swapped`).  To retrieve this information, simply run `python3 test.py` and look for `EEPROM data:`.  Example of information pulled from a [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) is below:
+So each hardware model which has stereo cameras (e.g. [BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), and [BW1094](https://docs.luxonis.com/products/bw1094/)) has the capability to store the calibration data and field-of-view, stereo basline (`L-R distance`) and relative location of the color camera to the stereo cameras (`L-RGB distance`) as well as camera orientation (`L/R swapped`).  To retrieve this information, simply run `python3 depthai_demo.py` and look for `EEPROM data:`.  Example of information pulled from a [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) is below:
 ```
 EEPROM data: valid (v2)
   Board name     : BW1098OBC
@@ -599,7 +599,7 @@ A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabili
 
 DepthAI and megaAI support continuous video autofocus ('2' below, where the system is constantly autonomously searching for the best focus) and also and `auto` mode ('1' below) which waits to focus until directed by the host.  (PR which adds this functionality is [here](https://github.com/luxonis/depthai/pull/114).)
 
-Example usage is shown in `depthai.py`.  When running `python3 test.py` (which symlink calls `depthai.py`) the functionality can be used by keyboard command while the program is running:
+Example usage is shown in `depthai.py`.  When running `python3 depthai_demo.py` (which symlink calls `depthai.py`) the functionality can be used by keyboard command while the program is running:
  
  - '1' to change autofocus mode to auto
    - 'f' to trigger autofocus
@@ -695,7 +695,7 @@ We have implemented the `-nce`, `-sh` and `-cmx` command line params in our exam
 [DepthAI repository](https://github.com/luxonis/depthai) and do
 
 ```
-./test.py -nce 2 -sh 14 -cmx 14
+./depthai_demo.py -nce 2 -sh 14 -cmx 14
 ```
 
 And it will run the default MobilenetSSD, compiled to use 2 NCEs, 14 SHAVEs and 14 CMXes. Note that

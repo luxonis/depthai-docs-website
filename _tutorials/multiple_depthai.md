@@ -21,15 +21,12 @@ So in this case, everything is running on the (single) Raspberry Pi 3B+ which is
 You have already set up the Python API on your system (if you have a Raspberry Pi Compute Module it came pre-setup).  
 See [here](/api) if you have not yet installed the DepthAI Python API on your system.
 
-## Update to the latest from Github
-`git pull https://github.com/luxonis/depthai-python-extras.git`
-
 ## Discover DepthAI-USB Port Mapping
 The DepthAI multi-device support is currently done by selecting the USB port into which the DepthAI is plugged in.
 
 If you'd like to associate a given DepthAI device with specific code (e.g. neural model) to be run on it, it is recommended
 to plug in one device at a time, and then use the following command to determine which device is on which port:
-`python3 test.py -dev list`
+`python3 depthai_demo.py -dev list`
 
 Example results for 2x DepthAI on a system:
 ```...
@@ -42,17 +39,10 @@ Detected 2 device(s):
 
 From the Detected devices(s) above, use the following command to select the device you would like to use with your code.
 For example, if the first device is desirable from above (the device on USB port 1), use the following command:
-`python3 test.py -dev 1`
+`python3 depthai_demo.py -dev 1`
 
 And then similarly, to run the same script again on the other second device, run it with:
-`python3 test.py -dev 2.1`
-
-It's worth noting that test.py actually is a wrapper for depthai.py.  It has a watchdog functionality which catches any 
-library issues or other exceptions that may occur.  It calls depthai.py
-
-You can alternatively run without this watchdog functionality use depthai.py directly, as below:
-`python3 depthai.py -dev 1`
-`python3 depthai.py -dev 2.1`
+`python3 depthai_demo.py -dev 2.1`
 
 And you can use these scripts as a basis for your own modified versions, such that you can run differing neural models 
 on different DepthAI/uAI models.  

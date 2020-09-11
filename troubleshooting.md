@@ -99,8 +99,8 @@ So if you have see this problem with your host, potentially 3 options:
 3. Upgrade from Ubuntu 16.04 to Ubuntu 18.04.
 
 #### Forcing USB2 Communication
-`python3 test.py --force_usb2`
+`python3 depthai_demo.py --force_usb2`
 Or, the shorter form:
-`python3 test.py -usb2`
+`python3 depthai_demo.py -usb2`
 
 We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not Ubuntu 18.04/16.04 or Raspbian, please compile DepthAI from source (see [here](/api/#compile_api) for instructions).
