@@ -293,6 +293,36 @@ pipeline = device.create_pipeline(config={
    and treated as background
 
 
+{: #get_left_homography}
+* [__get_left_homography__](#get_left_homography)()
+    
+    Return a 3x3 homography matrix used to rectify the left stereo camera image. 
+
+{: #get_right_homography}
+* [__get_right_homography__](#get_right_homography)()
+    
+    Return a 3x3 homography matrix used to rectify the right stereo camera image. 
+
+{: #get_left_intrinsic}
+* [__get_left_intrinsic__](#get_left_intrinsic)()
+    
+    Return a 3x3 intrinisc calibration matrix of the left stereo camera.
+
+{: #get_right_intrinsic}
+* [__get_right_intrinsic__](#get_right_intrinsic)()
+    
+    Return a 3x3 intrinisc calibration matrix of the right stereo camera.
+
+{: #get_rotation}
+* [__get_rotation__](#get_rotation)()
+    
+    Return a 3x3 rotation matrix representing the rotation of the right stereo camera w.r.t left stereo camera. 
+
+{: #get_Translation}
+* [__get_Translation__](#get_Translation)()
+    
+    Return a 3x1 vector repesenting the position of the right stereo camera center w.r.t left stereo camera center.
+
 {: #autofocus_mode}
 ### depthai.AutofocusMode
 
