@@ -130,6 +130,14 @@ Embedded CV/AI requires all sorts of different shapes/sizes/permutations.  And s
  - megaAI (microAI) Single Camera ([BW1093](https://shop.luxonis.com/products/bw1093)) - This is just like the BW1098OBC, but for those who don't need depth information.  Single, small, plug-and-play USB3C AI/CV camera.
  - Raspberry Pi Compute Module Edition ([BW1097](https://shop.luxonis.com/products/depthai-rpi-compute-module-edition)) - this one has a built-in Raspberry Pi Compute Module 3B+.  So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
   - Embedded DepthAI with WiFi/BT ([BW1092](https://shop.luxonis.com/products/bw1092-pre-order)) - Currently this is in Alpha testing.  So only buy it if you are comfortable with working with bleeding-edge tech and want to help us refine this product.  It is the first 'standalone' version of DepthAI - so it has additional 128MB NOR flash, so it can boot on its own out of the NOR flash, and not host needs to be present to run.  In contrast, the BW1097 can also run on its own, but it is still booting over USB from the Raspberry Pi.  This BW1092, the Myriad X can run completely standalone and with no other devices.  The built-in ESP32 then provides easy/convenient WiFi/BT support as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
+  
+### System on Modules:
+For designing products around DepthAI, we offer system on modules.  You can then design your own variants, leveraging our [open source harware](https://github.com/luxonis/depthai-hardware).  There are three system on modules available:
+
+ 1. [BW1099](https://shop.luxonis.com/collections/all/products/bw1099) - USB-boot system on module.  For making devices which interface over USB to a host processor running Linux, MacOS, or Windows.  In this case, the host processor stores everything, and the BW1099 boots up over USB from the host.
+ 2. [BW1099EMB](https://shop.luxonis.com/collections/all/products/bw1099emb) - NOR-flash boot (also capable of USB-boot).  For making devices that run standalone, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
+ 3. [BW2099](https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing) - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors).  For making devices that run standalone and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE inferface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
+ 
 
 ## How hard is it to get DepthAI running from scratch?  What Platforms are Supported?
 
