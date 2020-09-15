@@ -121,6 +121,16 @@ megaAI uses all the same hardware, firmware, software, and training stacks as De
 
 You can buy megaAI from our distributors and also our online store [here](https://shop.luxonis.com/products/bw1093).
 
+## Which Model Should I Order?
+
+Embedded CV/AI requires all sorts of different shapes/sizes/permutations.  And so we have a variety of options to meet these needs.  Below is a quick/dirty summary for the ~10,000-foot view of the options:
+
+ - USB3C with Onboard Cameras [BW1098OBC](https://shop.luxonis.com/collections/all/products/bw10980bc) - Great for quickly using DepthAI with a computer.  All cameras are onboard, and it has a USB3C connection which can be used with any USB3 or USB2 host.  
+ - USB3C with Modular Cameras [BW1098FFC](https://shop.luxonis.com/products/depthai-usb3-edition) - Great for prototyping flexibility.  Since the cameras are modular, you can place them at various stereo baselines.  This flexibility comes with a trade - you have to figure out how/where you will mount them, and then once mounted, do a stereo calibration.  This is not a TON of work, but keep this in mind, that it's not 'plug and play' like other options - it's more for applications that require custom mounting, custom baseline, or custom orientation of the cameras.
+ - megaAI (microAI) Single Camera [BW1093](https://shop.luxonis.com/collections/all/products/bw1093) - This is just like the BW1098OBC, but for those who don't need depth information.  Single, small, plug-and-play USB3C AI/CV camera.
+ - Raspberry Pi Compute Module Edition ([BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) - this one has a built-in Raspberry Pi Compute Module 3B+.  So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
+  - Embedded DepthAI with WiFi/BT [BW1092](https://shop.luxonis.com/collections/all/products/bw1092-pre-order) - Currently this is in Alpha testing.  So only buy it if you are comfortable with working with bleeding-edge tech and want to help us refine this product.  It is the first 'standalone' version of DepthAI - so it has additional 128MB NOR flash, so it can boot on its own out of the NOR flash, and not host needs to be present to run.  In contrast, the BW1097 can also run on its own, but it is still booting over USB from the Raspberry Pi.  This BW1092, the Myriad X can run completely standalone and with no other devices.  The built-in ESP32 then provides easy/convenient WiFi/BT support as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
+
 ## How hard is it to get DepthAI running from scratch?  What Platforms are Supported?
 
 Not hard.  Usually DepthAI is up/running on your platform within a couple minutes (most of which is download time). 
@@ -152,7 +162,7 @@ See [here](https://docs.luxonis.com/api/#raspbian) to get up and running quickly
 
 Yes, every model can be used, including:
 
- - Raspberry Pi Compute Module Edition ([BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) - this one has a built-in Raspberry Pi Compute Module 3B+)
+ - Raspberry Pi Compute Module Edition ([BW1097](https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition) - this one has a built-in Raspberry Pi Compute Module 3B+
  - Raspberry Pi HAT (BW1094) - this can also be used with other hosts as its interface is USB3
  - USB3C with Onboard Cameras [BW1098OBC](https://shop.luxonis.com/collections/all/products/bw10980bc)
  - USB3C with Modular Cameras [BW1098FFC](https://shop.luxonis.com/products/depthai-usb3-edition)
