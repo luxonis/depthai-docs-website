@@ -176,6 +176,8 @@ pipeline = device.create_pipeline(config={
         # Possible streams:
         #   'left' - left mono camera preview
         #   'right' - right mono camera preview
+        #   'rectified_left' - left mono camera preview after stereo rectification 
+        #   'rectified_right' - right mono camera preview after stereo rectification 
         #   'previewout' - 4K color camera preview
         #   'metaout' - CNN output tensors
         #   'depth_raw' - the raw depth map, disparity converted to real life distance
@@ -318,11 +320,16 @@ pipeline = device.create_pipeline(config={
     
     Return a 3x3 rotation matrix representing the rotation of the right stereo camera w.r.t left stereo camera. 
 
-{: #get_Translation}
-* [__get_Translation__](#get_Translation)()
+{: #get_translation}
+* [__get_translation__](#get_translation)()
     
     Return a 3x1 vector repesenting the position of the right stereo camera center w.r.t left stereo camera center.
-
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+Note:
+</i>
+  if you have been using old build system and recently moved to the new build system then to enable `get_left_homography()`, `get_left_intrinsic()`, `get_right_intrinsic()`, `get_rotation()`, `get_translation()` you need to recalibrate your device by following the tutorial <strong><a href="https://docs.luxonis.com/tutorials/stereo_calibration/">here</a></strong><br/> However, get_right_homography() works even if you were using the old build without any extra effort.
+</div>
 {: #autofocus_mode}
 ### depthai.AutofocusMode
 
