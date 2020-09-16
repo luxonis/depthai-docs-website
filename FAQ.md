@@ -178,6 +178,13 @@ Yes, every model can be used, including:
  
  We even have some basic ROS support going as well which can be used on the Pi also.
  
+## Do DepthAI and megaAI Work on the Jetson/Xavier Series?
+
+Yes, DepthAI and megaAI work cleanly on all the Jetson/Xavier series, and installation is easy.  Jetson Nano, Jetson Tx1, Jetson Tx2, Jetson Xavier NX, Jetson AGX Xavier, etc. are all supported.  
+
+See below for DepthAI running on a Jetson Tx2 I have on my desk:
+![image](https://user-images.githubusercontent.com/32992551/93289854-a4cbcd00-f79c-11ea-8f37-4ea36d523dd2.png)
+ 
 ## Can I use multiple DepthAI with one host? 
  
 Yes.  DepthAI is architected to put as-little-as-possible burden on the host.
