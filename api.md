@@ -45,7 +45,7 @@ in most of the systems, but in case they are not, use the following instructions
 
 ```
 sudo apt-get update
-sudo apt-get install -y python3 python3-pip git libusb-1.0-0-dev build-essential
+sudo apt-get install -y python3 python3-pip git cmake libusb-1.0-0-dev build-essential
 ```
 
 ## Install from PyPi
@@ -113,6 +113,22 @@ git clone https://github.com/luxonis/depthai-python.git
 cd depthai-python
 git submodule update --init --recursive
 python3 setup.py develop  # you may need to add sudo if using system interpreter instead of virtual environment
+```
+
+If you want to use other branch (e.x. `develop`) than default (`main`), you can do so by typing
+
+```
+git checkout develop  # replace the "develop" with a desired branch name
+git submodule update --recursive
+python3 setup.py develop
+```
+
+Or, if you want to checkout a specific commit, type
+
+```
+git checkout <commit_sha>
+git submodule update --recursive
+python3 setup.py develop
 ```
 
 {: #quicktest}
