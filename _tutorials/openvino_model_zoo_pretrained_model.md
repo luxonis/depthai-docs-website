@@ -167,7 +167,7 @@ Below we'll use another technique, which we dub 'stereo neural inference' (or 'S
 
 This can be run with the following command:
 ```
-./depthai.py -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -cam left_right -dd -sh 12 -cmx 12 -nce 2 -monor 400 -monof 30
+./depthai_demo.py -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -cam left_right -dd -sh 12 -cmx 12 -nce 2 -monor 400 -monof 30
 ```
 And note this is running both parallel neural inference (i.e. on both cameras) and also series neural inference (the landmarks-regression network is running on the results of the face detector).
 
