@@ -231,18 +231,21 @@ How to integrate DepthAI/megaAI depends on whether the product you are building 
 We offer hardware to support all 3 cases, but firmware/software mauturity varies across the 3 modes:
 As of this writing case `1` is the most mature, using our [Python API](https://docs.luxonis.com/api/), case `2` is initially released by actively in development (see [here](https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code)), and case `3` will be supported in December 2020 (as part of Pipeline Builder Gen2 [here](https://github.com/luxonis/depthai/issues/136)).
 
+{: #withos}
 ### Case `1`: DepthAI/megaAI are a co-processor to a processor running Linux, MacOS, or Windows.
 
 In this case, DepthAI can be used in two modalities:
  - NCS2 Mode (USB, [here](https://docs.luxonis.com/faq/#what-is-ncs2-mode)) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a [BW1099](https://shop.luxonis.com/collections/all/products/bw1099).
  - DepthAI Mode (USB, using our USB API, [here](https://docs.luxonis.com/api/)) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
- 
+
+{: #withmicrocontroller}
 ### Case `2`: Using DepthAI with a MicroController like ESP32, ATTiny8, etc. 
  
 In this case, DepthAI boot off of internal flash on the [BW1099EMB](https://shop.luxonis.com/collections/all/products/bw1099emb) and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  We even have an embedded reference design for ESP32 ([BW1092](https://github.com/luxonis/depthai-hardware/issues/10)) available on our [store](https://shop.luxonis.com/collections/all/products/bw1092-pre-order).  We will also be open-sourcing this design after it is fully verified (contact us if you would like the design files before we open source it).
 
 The code-base/API for this is in active development, and a pre-release/Alpha version is available [here](https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code) as of this writing.
 
+{: #standalone}
 ### Case `3`: Using DepthAI as the Only Processor on a Device.
 
 This will be supported through running microPython directly on the [BW1099EMB](https://shop.luxonis.com/collections/all/products/bw1099emb) as nodes in the [Gen2 Pipeline Builder](Pipeline Builder Gen2 [here](https://github.com/luxonis/depthai/issues/136)).
@@ -255,6 +258,15 @@ The target date for this mode is December 2020.
 
  - BW1099: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the BW1099 over USB
  - BW1099EMB: USB boot or NOR-flash boot. This module can work with a host computer just like the BW1099, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the BW1092 (which comes with the BW1099EMB pre-installed).
+ 
+### Getting Started with Development
+
+Whether intending to use DepthAI with an [OS-capable host](#withos), a [microcontroller over SPI](#withmicrocontroller) (in development), or [completely standalone](#standalone) (targeted support December 2020) - we recommend starting with either NCS2 or DepthAI USB modes for prototype/test/etc. as it allows faster iteration/feedback on neural model performance/etc.  And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test). 
+
+In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before - and for now it will run only off of the image sensors (once the [Gen2 pipeline builder](https://github.com/luxonis/depthai/issues/136) is out, which is scheduled for December 2020, there will exist the capability to run everything off of host images/video with the DepthAI API).  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
+
+For common object detector formats (MobileNet-SSD, tinyYOLOv1/2/3, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode.  You can just literally replace the classes in example MobileNet-SSD or tinyYOLO examples we have.  For example for tinyYOLOv3, you can just change the labels from "mask", "no mask" and "no mask 2" to whatever your classes are from this example [here](https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo/tiny-yolo.json) and just change the blob file [here](https://github.com/luxonis/depthai/tree/main/resources/nn/tiny-yolo) to your blob file.  And the same thing is true for MobileNet-SSD [here](https://github.com/luxonis/depthai/tree/main/resources/nn/mobilenet-ssd).
+
 
 ## What Hardware Acceleration Exists in DepthAI and/or megaAI?
 
