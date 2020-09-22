@@ -112,6 +112,7 @@ To do so, first download the repository and then add the package to your python 
 git clone https://github.com/luxonis/depthai-python.git
 cd depthai-python
 git submodule update --init --recursive
+python3 -m pip install -r requirements.txt
 python3 setup.py develop  # you may need to add sudo if using system interpreter instead of virtual environment
 ```
 
