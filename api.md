@@ -28,6 +28,16 @@ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/ud
 sudo udevadm control --reload-rules && sudo udevadm trigger
 ```
 
+## Installing system dependencies
+
+Couple of basic system dependencies are required to run the DepthAI library. Most of them should be already installed
+in most of the systems, but in case they are not, use the following instructions to install them
+
+```
+sudo apt-get update
+sudo apt-get install -y python3 python3-pip git libusb-1.0-0-dev build-essential
+```
+
 ## Install from PyPi
 
 Our packages are distributed [via PyPi](https://pypi.org/project/depthai/), to install it in your environment use
@@ -91,7 +101,8 @@ To do so, first download the repository and then add the package to your python 
 ```
 git clone https://github.com/luxonis/depthai-python.git
 cd depthai-python
-python3 setup.py develop
+git submodule update --init --recursive
+python3 setup.py develop  # you may need to add sudo if using system interpreter instead of virtual environment
 ```
 
 {: #quicktest}
@@ -101,11 +112,12 @@ We have [`depthai`](https://github.com/luxonis/depthai) repository on our GitHub
 prepared neural networks you can use to make your prototyping faster. It also includes the test script, maintained by
 our contributors, that should help you verify if your setup was correct.
 
-First, clone the `depthai` repository
+First, clone the `depthai` repository and install its dependencies
 
 ```
 git clone https://github.com/luxonis/depthai.git
 cd depthai
+python3 -m pip install -r requirements.txt
 ```
 
 Now, run the demo script from within depthai to make sure everything is working:
