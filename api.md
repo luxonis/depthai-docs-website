@@ -90,6 +90,19 @@ To do so, use the command below - and be sure to replace the `<commit_sha>` with
 python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit_sha>
 ```
 
+### Using/Testing a Specific Branch/PR
+
+From time to time, it may be of interest to use a specific branch.  This may occur, for example, because we have listened to your feature request and implemented a quick implementation in a branch.  Or it could be to get early access to a feature that is soaking in our `develop` for stability purposes before being merged into `main`.
+
+So when working in the [depthai](https://github.com/luxonis/depthai) repository, using a branch can be accomplished with the following commands for the `branch_name`:
+
+```
+cd depthai
+git checkout branch_name
+python3 -m pip install -U pip
+python3 -m pip install -r requirements.txt
+```
+
 {: #compile_api}
 ### Install from source
 
