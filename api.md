@@ -16,16 +16,6 @@ Instructions for installing, upgrading, and using the DepthAI Python API.
 The DepthAI API python module is prebuilt for Ubuntu, MaxOS and Windows. 
 For other operating systems and/or Python versions, DepthAI can be [built from source](#compile_api).
 
-<div class="alert alert-primary" role="alert">
-<i class="material-icons info">
-contact_support
-</i>
-  Want an easier way to install the DepthAI? <strong><a href="/install_depthai.sh">Use all-in-one installation script</a></strong><br/>
-  <span class="small">
-  If using a supported operating system, the script will install all dependencies and the DepthAI itself
-  </span>
-</div>
-
 ## Enabling the USB device
 
 Since the DepthAI is a USB device, in order to communicate with it on the systems that use `udev` tool, you
