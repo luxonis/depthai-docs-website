@@ -261,7 +261,7 @@ The target date for this mode is December 2020.
  
 ### Getting Started with Development
 
-Whether intending to use DepthAI with an [OS-capable host](#withos), a [microcontroller over SPI](#withmicrocontroller) (in development), or [completely standalone](#standalone) (targeted support December 2020) - we recommend starting with either NCS2 or DepthAI USB modes for prototype/test/etc. as it allows faster iteration/feedback on neural model performance/etc.  And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test). 
+Whether intending to use DepthAI with an [OS-capable host](#withos), a [microcontroller over SPI](#withmicrocontroller) (in development), or [completely standalone](#standalone) (targeted support December 2020) - we recommend starting with either [NCS2 mode](#ncsmode) or with the [DepthAI USB API](https://docs.luxonis.com/api/) for prototype/test/etc. as it allows faster iteration/feedback on neural model performance/etc.  And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test). 
 
 In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before - and for now it will run only off of the image sensors (once the [Gen2 pipeline builder](https://github.com/luxonis/depthai/issues/136) is out, which is scheduled for December 2020, there will exist the capability to run everything off of host images/video with the DepthAI API).  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
 
@@ -589,6 +589,8 @@ To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line opt
 python3 depthai_demo.py -fusb2
 ```
 Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see [here](https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29), which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
+
+{: #ncsmode}
 
 ## What is `NCS2 Mode`?
 
