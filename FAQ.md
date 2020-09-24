@@ -192,6 +192,10 @@ So even with a Raspberry Pi you can run a handful of DepthAI with the Pi and not
  
 See [here](https://docs.luxonis.com/tutorials/multiple_depthai/) for instructions on how to do so.
 
+## Is DepthAI OpenVINO Compatible?
+
+Yes.  As of this writing, DepthAI is fully compatible with OpenVINO 2020.1.  We are in the process of upgrading to have compatibility with newer OpenVINO versions.
+
 ## Can I train my own Models for DepthAI?
 
 Yes.  
@@ -226,10 +230,18 @@ We haven't tested all of them though.  So if you have a problem, contact us and 
 
 ## How do I Integrate DepthAI into Our Product?
 
-How to integrate DepthAI/megaAI depends on whether the product you are building includes (`1`) a processor running an operating system (Linux, MacOS, or Windows) or (`2`) a microcontroller (MCU) with no operating system (or an RTOS like FreeRTOS) or (`3`) no other processor or microcontroller (i.e. DepthAI is the only processor in the system).
+How to integrate DepthAI/megaAI depends on whether the product you are building includes 
+(`1`) a processor running an operating system (Linux, MacOS, or Windows) or 
+(`2`) a microcontroller (MCU) with no operating system (or an RTOS like FreeRTOS) or 
+(`3`) no other processor or microcontroller (i.e. DepthAI is the only processor in the system).
 
 We offer hardware to support all 3 cases, but firmware/software mauturity varies across the 3 modes:
-As of this writing case `1` is the most mature, using our [Python API](https://docs.luxonis.com/api/), case `2` is initially released by actively in development (see [here](https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code)), and case `3` will be supported in December 2020 (as part of Pipeline Builder Gen2 [here](https://github.com/luxonis/depthai/issues/136)).
+As of this writing case 
+`1` is the most mature, using our [Python API](https://docs.luxonis.com/api/), case 
+`2` is initially released by actively in development (see [here](https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code)), and case 
+`3` will be supported in December 2020 (as part of Pipeline Builder Gen2 [here](https://github.com/luxonis/depthai/issues/136)).
+
+In all cases, DepthAI (and megaAI) are compatible with OpenVINO for neural models.  The only thing that changes between the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
 
 {: #withos}
 ### Case `1`: DepthAI/megaAI are a co-processor to a processor running Linux, MacOS, or Windows.
