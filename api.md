@@ -16,6 +16,17 @@ Instructions for installing, upgrading, and using the DepthAI Python API.
 The DepthAI API python module is prebuilt for Ubuntu, MaxOS and Windows. 
 For other operating systems and/or Python versions, DepthAI can be [built from source](#compile_api).
 
+## Installing system dependencies
+
+A couple of basic system dependencies are required to run the DepthAI library. Most of them should be already installed
+in most of the systems, but in case they are not, we prepared an install script that will make sure all dependencies are installed:
+
+```
+curl -fL http://docs.luxonis.com/install_dependencies.sh | bash
+```
+
+If using Windows, please use [this batch script](/install_dependencies.bat) for dependencies installation 
+
 ## Enabling the USB device
 
 Since the DepthAI is a USB device, in order to communicate with it on the systems that use `udev` tool, you
@@ -26,16 +37,6 @@ The following command will add a new udev rule to your system
 ```
 echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
 sudo udevadm control --reload-rules && sudo udevadm trigger
-```
-
-## Installing system dependencies
-
-Couple of basic system dependencies are required to run the DepthAI library. Most of them should be already installed
-in most of the systems, but in case they are not, use the following instructions to install them
-
-```
-sudo apt-get update
-sudo apt-get install -y python3 python3-pip git cmake libusb-1.0-0-dev build-essential
 ```
 
 ## Install from PyPi
