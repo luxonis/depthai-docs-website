@@ -95,11 +95,12 @@ python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit
 
 From time to time, it may be of interest to use a specific branch.  This may occur, for example, because we have listened to your feature request and implemented a quick implementation in a branch.  Or it could be to get early access to a feature that is soaking in our `develop` for stability purposes before being merged into `main`.
 
-So when working in the [depthai](https://github.com/luxonis/depthai) repository, using a branch can be accomplished with the following commands for the `branch_name`:
+So when working in the [depthai](https://github.com/luxonis/depthai) repository, using a branch can be accomplished with the following commands.  For this example, the `branch` that we will try out is `develop` (which is the branch we use to soak new features before merging them into `main`):
+
+Prior to running the following, you can either clone the respository independently (for not over-writing any of your local changes) or simply do a `git pull` first.
 
 ```
-cd depthai
-git checkout branch_name
+git checkout develop
 python3 -m pip install -U pip
 python3 -m pip install -r requirements.txt
 ```
