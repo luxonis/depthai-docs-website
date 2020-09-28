@@ -29,6 +29,4 @@ if ERRORLEVEL 1 (
 echo Python was detected, installing required packages and the DepthAI library...
 @echo on
 py -m pip install --upgrade pip
-pause
-py -c "import cv2;import depthai"
-pause
+set /p DUMMY=Installation successful, hit ENTER to exit...
