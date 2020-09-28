@@ -836,7 +836,7 @@ Below is a quick video showing this:
 One can purchase Molex's 15166 series FFCs directly to support shorter or longer lengths. 
 Make sure you get **same-side* contacts, Molex calls this "**Type A**"
 
-## What are `CSS` `MSS` `UPA` and `DSS` Returned By `meta_d2h`?
+## What are CSS MSS UPA and DSS Returned By meta_d2h?
 
  - CSS: CPU SubSystem (main cores)
  - MSS: Media SubSystem
