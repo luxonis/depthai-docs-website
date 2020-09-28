@@ -2,7 +2,11 @@
 
 set -e
 
-if [[ ! $(uname -m) =~ ^arm* ]]; then
+if [[ $(uname) == "Darwin" ]]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    brew install python3 git
+    python3 -m pip install -U pip
+elif [[ ! $(uname -m) =~ ^arm* ]]; then
   source /etc/lsb-release
   case "$DISTRIB_ID" in
   Ubuntu)
@@ -15,7 +19,6 @@ if [[ ! $(uname -m) =~ ^arm* ]]; then
     # https://stackoverflow.com/questions/55313610/importerror-libgl-so-1-cannot-open-shared-object-file-no-such-file-or-directo
     sudo apt-get install -y ffmpeg libsm6 libxext6 libgl1-mesa-glx
     python3 -m pip install --upgrade pip
-    python3 -m pip install -r https://raw.githubusercontent.com/luxonis/depthai/develop/requirements.txt
     ;;
   *) ;;
   esac
@@ -33,5 +36,4 @@ elif [[ $(uname -m) =~ ^arm* ]]; then
   # https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi/issues/18#issuecomment-433953426
   sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev
   python3 -m pip install --upgrade pip
-  python3 -m pip install -r https://raw.githubusercontent.com/luxonis/depthai/develop/requirements.txt
 fi
