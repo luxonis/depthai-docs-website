@@ -29,7 +29,6 @@ if ERRORLEVEL 1 (
 echo Python was detected, installing required packages and the DepthAI library...
 @echo on
 py -m pip install --upgrade pip
-py -m pip install -r https://raw.githubusercontent.com/luxonis/depthai/develop/requirements.txt
 pause
 py -c "import cv2;import depthai"
 pause
