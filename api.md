@@ -18,8 +18,8 @@ For other operating systems and/or Python versions, DepthAI can be [built from s
 
 ## Installing system dependencies
 
-Couple of basic system dependencies are required to run the DepthAI library. Most of them should be already installed
-in most of the systems, but in case they are not, we prepared an install script that will make sure all dependencies are installed
+A couple of basic system dependencies are required to run the DepthAI library. Most of them should be already installed
+in most of the systems, but in case they are not, we prepared an install script that will make sure all dependencies are installed:
 
 ```
 curl -fL http://docs.luxonis.com/install_dependencies.sh | bash
