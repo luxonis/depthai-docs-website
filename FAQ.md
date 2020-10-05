@@ -645,13 +645,13 @@ DepthAI and megaAI use the same 12MP RGB Camera module based on the IMX378.
  
 ## How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
 
-ArduCam is in the process of making a variety of camera modules specifically for DepthAI and megaAI, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
+[ArduCam](https://www.arducam.com/) is in the process of making a variety of camera modules specifically for DepthAI and megaAI, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
 
- - Original request for this [here](https://discourse.ros.org/t/opencv-ai-kit-oak/15406/17?u=luxonis-brandon)
  - M12-Mount IMX378 request [here](https://github.com/luxonis/depthai-hardware/issues/16)
  - M12-Mount OV9281 request [here](https://github.com/luxonis/depthai-hardware/issues/17)
  - Fish-Eye OV9281 (for better SLAM) request [here](https://github.com/luxonis/depthai-hardware/issues/15)
  - Global-Shutter Color Camera (OV9782) with same intrinsics as OV9282 grayscale [here](https://github.com/luxonis/depthai-hardware/issues/21)
+ - Original request for this [here](https://discourse.ros.org/t/opencv-ai-kit-oak/15406/17?u=luxonis-brandon)
 
 With these, there will be a variety of options for view angle, focal length, filtering (IR, no IR, NDVI, etc.) and image sensor formats.
 
