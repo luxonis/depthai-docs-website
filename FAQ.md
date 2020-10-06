@@ -356,7 +356,7 @@ Accordingly, to calculate the minimum distance for this mode of operation, use t
 This formula implements the maximum of the HFOV-imposed minimum distance, and 19.6cm, which is the hyperfocal-distance-imposed minimum distance.
 
 ### Onboard Camera Minimum Depths
-Below are the minimum depth perception possible in the disparity disparity depth and stereo neural inference modes.
+Below are the minimum depth perception possible in the disparity depth and stereo neural inference modes.
 
 #### Monocular Neural Inference fused with Stereo Depth Mode
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
@@ -414,13 +414,23 @@ But these theoretical maximums are not achievable in the real-world, as the disp
 
 After the [KickStarter campaign](https://www.kickstarter.com/projects/opencv/opencv-ai-kit/description) we will also be supporting sub-pixel, which will extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
 
-## What Is the Format of the Depth Data in `depth_raw`?
+## What Is the Format of the Depth Data in depth stream?
 
 The output array is in uint16, so 0 to 65,535 with direct mapping to millimeters (mm).
 
 So a value of 3,141 in the array is 3,141 mm, or 3.141 meters.  So this whole array is the z-dimension of each pixel off of the camera plane, where the `center of the universe` is the camera marked `RIGHT`.
 
 And the specific value of 65,535 is a special value, meaning an invalid disparity/depth result. 
+
+## How Do I Calculate Depth from Disparity?
+
+DepthAI does convert to depth onboard for both the `depth` stream and also for object detectors like MobileNet-SSD, YOLO, etc.
+
+But we also allow the actual disparity results to be retrieved so that if you would like to use the disparity map directly, you can.
+
+To calculate the depth map from the disparity map, it is (approximately) `baseline * focal / disparity`.  Where the baseline is 7.5cm for BW1098OBC, 4.0cm for BW1092, and 9.0cm for BW1097, and the focal length is `883.15` (`focal_length = 1280/(2*tan(71.86/2/180*pi)) = 883.15`) for all current DepthAI models.
+
+So for example, for a BW1092 (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (`depth = 40 * 883.14 / 60 = 588 mm (0.588m)`).
 
 ## How Do I Display Multiple Streams?
 To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_raw`), use the following command:
