@@ -235,7 +235,7 @@ How to integrate DepthAI/megaAI depends on whether the product you are building 
 (`2`) a microcontroller (MCU) with no operating system (or an RTOS like FreeRTOS) or 
 (`3`) no other processor or microcontroller (i.e. DepthAI is the only processor in the system).
 
-We offer hardware to support all 3 cases, but firmware/software mauturity varies across the 3 modes:
+We offer hardware to support all 3 use-cases, but firmware/software mauturity varies across the 3 modes:
 As of this writing case 
 `1` is the most mature, using our [Python API](https://docs.luxonis.com/api/), case 
 `2` is initially released by actively in development (see [here](https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code)), and case 
@@ -244,21 +244,21 @@ As of this writing case
 In all cases, DepthAI (and megaAI) are compatible with OpenVINO for neural models.  The only thing that changes between the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
 
 {: #withos}
-### Case `1`: DepthAI/megaAI are a co-processor to a processor running Linux, MacOS, or Windows.
+### Use-Case 1: DepthAI/megaAI are a co-processor to a processor running Linux, MacOS, or Windows.
 
 In this case, DepthAI can be used in two modalities:
  - NCS2 Mode (USB, [here](https://docs.luxonis.com/faq/#what-is-ncs2-mode)) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a [BW1099](https://shop.luxonis.com/collections/all/products/bw1099).
  - DepthAI Mode (USB, using our USB API, [here](https://docs.luxonis.com/api/)) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
 
 {: #withmicrocontroller}
-### Case `2`: Using DepthAI with a MicroController like ESP32, ATTiny8, etc. 
+### Use-Case 2: Using DepthAI with a MicroController like ESP32, ATTiny8, etc. 
  
 In this case, DepthAI boot off of internal flash on the [BW1099EMB](https://shop.luxonis.com/collections/all/products/bw1099emb) and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  We even have an embedded reference design for ESP32 ([BW1092](https://github.com/luxonis/depthai-hardware/issues/10)) available on our [store](https://shop.luxonis.com/collections/all/products/bw1092-pre-order).  We will also be open-sourcing this design after it is fully verified (contact us if you would like the design files before we open source it).
 
 The code-base/API for this is in active development, and a pre-release/Alpha version is available [here](https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code) as of this writing.
 
 {: #standalone}
-### Case `3`: Using DepthAI as the Only Processor on a Device.
+### Use-Case 3: Using DepthAI as the Only Processor on a Device.
 
 This will be supported through running microPython directly on the [BW1099EMB](https://shop.luxonis.com/collections/all/products/bw1099emb) as nodes in the [Gen2 Pipeline Builder](Pipeline Builder Gen2 [here](https://github.com/luxonis/depthai/issues/136)).
 
