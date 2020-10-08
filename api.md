@@ -47,100 +47,7 @@ Our packages are distributed [via PyPi](https://pypi.org/project/depthai/), to i
 python3 -m pip install depthai
 ```
 
-## Other installation methods
-
-To get the latest and yet unreleased features from our source code, you can go ahead and compile depthai package manually.
-
-### Dependencies to build from source
-- CMake > 3.2.0
-- Generation tool (Ninja, make, ...)
-- C/C++ compiler
-- libusb1 development package
-
-{: #debian}
-#### Ubuntu, Raspberry Pi OS, ... (Debian based systems)
-On Debian based systems (Raspberyy Pi OS, Ubuntu, ...) these can be acquired by running:
-```
-sudo apt-get -y install cmake libusb-1.0-0-dev build-essential
-```
-
-{: #macos}
-#### macOS (Mac OS X)
-
-Assuming a stock Mac OS X install, depthai-python library needs following dependencies
-
-- HomeBrew (If it's not installed already)
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
-```
-- Python, libusb, CMake, wget 
-```
-brew install coreutils python3 cmake libusb wget
-```
-And now you're ready to clone the depthai-python from Github and build it for Mac OS X.
-
-You can install them all with the following command (if using Ubuntu)
-
-### Install using GitHub commit
-
-Pip allows users to install the packages from specific commits, even if they are not yet released on PyPi.
-
-To do so, use the command below - and be sure to replace the `<commit_sha>` with the correct commit hash [from here](https://github.com/luxonis/depthai-python/commits)
-
-```
-python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit_sha>
-```
-
-### Using/Testing a Specific Branch/PR
-
-From time to time, it may be of interest to use a specific branch.  This may occur, for example, because we have listened to your feature request and implemented a quick implementation in a branch.  Or it could be to get early access to a feature that is soaking in our `develop` for stability purposes before being merged into `main`.
-
-So when working in the [depthai](https://github.com/luxonis/depthai) repository, using a branch can be accomplished with the following commands.  For this example, the `branch` that we will try out is `develop` (which is the branch we use to soak new features before merging them into `main`):
-
-Prior to running the following, you can either clone the respository independently (for not over-writing any of your local changes) or simply do a `git pull` first.
-
-```
-git checkout develop
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-```
-
-{: #compile_api}
-### Install from source
-
-If desired, you can also install the package from the source code itself - it will allow you to make the changes
-to the API and see them live in action.
-
-To do so, first download the repository and then add the package to your python interpreter in development mode
-
-```
-git clone https://github.com/luxonis/depthai-python.git
-cd depthai-python
-git submodule update --init --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-python3 setup.py develop  # you may need to add sudo if using system interpreter instead of virtual environment
-```
-
-If you want to use other branch (e.g. `develop`) than default (`main`), you can do so by typing
-
-```
-git checkout develop  # replace the "develop" with a desired branch name
-git submodule update --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-python3 setup.py develop
-```
-
-Or, if you want to checkout a specific commit, type
-
-```
-git checkout <commit_sha>
-git submodule update --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-python3 setup.py develop
-```
+For other installation options, see [Ohter Installation Options](#otherinstall).
 
 {: #quicktest}
 ## Test installation
@@ -893,4 +800,102 @@ Example of decoding for full `yolo-v3` and `tiny-yolo-v3` on host and device
 
 Example of decoding for `mobilenet` based networks on host and device
 * [mobilenet-decoding](https://github.com/luxonis/depthai/blob/develop/depthai_helpers/mobilenet_ssd_handler.py)
+
+
+{: #otherinstall}
+## Other installation methods
+
+To get the latest and yet unreleased features from our source code, you can go ahead and compile depthai package manually.
+
+### Dependencies to build from source
+- CMake > 3.2.0
+- Generation tool (Ninja, make, ...)
+- C/C++ compiler
+- libusb1 development package
+
+{: #debian}
+#### Ubuntu, Raspberry Pi OS, ... (Debian based systems)
+On Debian based systems (Raspberyy Pi OS, Ubuntu, ...) these can be acquired by running:
+```
+sudo apt-get -y install cmake libusb-1.0-0-dev build-essential
+```
+
+{: #macos}
+#### macOS (Mac OS X)
+
+Assuming a stock Mac OS X install, depthai-python library needs following dependencies
+
+- HomeBrew (If it's not installed already)
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
+```
+- Python, libusb, CMake, wget 
+```
+brew install coreutils python3 cmake libusb wget
+```
+And now you're ready to clone the depthai-python from Github and build it for Mac OS X.
+
+You can install them all with the following command (if using Ubuntu)
+
+### Install using GitHub commit
+
+Pip allows users to install the packages from specific commits, even if they are not yet released on PyPi.
+
+To do so, use the command below - and be sure to replace the `<commit_sha>` with the correct commit hash [from here](https://github.com/luxonis/depthai-python/commits)
+
+```
+python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit_sha>
+```
+
+### Using/Testing a Specific Branch/PR
+
+From time to time, it may be of interest to use a specific branch.  This may occur, for example, because we have listened to your feature request and implemented a quick implementation in a branch.  Or it could be to get early access to a feature that is soaking in our `develop` for stability purposes before being merged into `main`.
+
+So when working in the [depthai](https://github.com/luxonis/depthai) repository, using a branch can be accomplished with the following commands.  For this example, the `branch` that we will try out is `develop` (which is the branch we use to soak new features before merging them into `main`):
+
+Prior to running the following, you can either clone the respository independently (for not over-writing any of your local changes) or simply do a `git pull` first.
+
+```
+git checkout develop
+python3 -m pip install -U pip
+python3 -m pip install -r requirements.txt
+```
+
+{: #compile_api}
+### Install from source
+
+If desired, you can also install the package from the source code itself - it will allow you to make the changes
+to the API and see them live in action.
+
+To do so, first download the repository and then add the package to your python interpreter in development mode
+
+```
+git clone https://github.com/luxonis/depthai-python.git
+cd depthai-python
+git submodule update --init --recursive
+python3 -m pip install -U pip
+python3 -m pip install -r requirements.txt
+python3 setup.py develop  # you may need to add sudo if using system interpreter instead of virtual environment
+```
+
+If you want to use other branch (e.g. `develop`) than default (`main`), you can do so by typing
+
+```
+git checkout develop  # replace the "develop" with a desired branch name
+git submodule update --recursive
+python3 -m pip install -U pip
+python3 -m pip install -r requirements.txt
+python3 setup.py develop
+```
+
+Or, if you want to checkout a specific commit, type
+
+```
+git checkout <commit_sha>
+git submodule update --recursive
+python3 -m pip install -U pip
+python3 -m pip install -r requirements.txt
+python3 setup.py develop
+```
+
 
