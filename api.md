@@ -806,7 +806,7 @@ We've documented example usage of these compilers [here](https://github.com/luxo
     
 ### Creating Blob configuration file
     
-If config file is emitted there is no decoding done on device <==> `output_format` is set to `raw`. The decoding must be done on host side, by the user.
+If config file is not provided then there is no decoding done on device <==> `output_format` is set to `raw`. The decoding must be done on host side, by the user.
 
 Currently there is support to decode `Mobilenet-SSD` and `(tiny-)YOLO-v3` based networks on the device.
 For that config file is required with network specific parameters.
