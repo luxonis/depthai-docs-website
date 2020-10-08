@@ -873,8 +873,6 @@ To do so, first download the repository and then add the package to your python 
 git clone https://github.com/luxonis/depthai-python.git
 cd depthai-python
 git submodule update --init --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
 python3 setup.py develop  # you may need to add sudo if using system interpreter instead of virtual environment
 ```
 
@@ -883,8 +881,6 @@ If you want to use other branch (e.g. `develop`) than default (`main`), you can 
 ```
 git checkout develop  # replace the "develop" with a desired branch name
 git submodule update --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
 python3 setup.py develop
 ```
 
@@ -893,8 +889,6 @@ Or, if you want to checkout a specific commit, type
 ```
 git checkout <commit_sha>
 git submodule update --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
 python3 setup.py develop
 ```
 
