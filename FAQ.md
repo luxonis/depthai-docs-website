@@ -74,7 +74,7 @@ A visualization of this mode is below.
 
 [![Monocular AI plus Stereo Depth for Spatial AI](https://i.imgur.com/zTSyQpo.png)](https://www.youtube.com/watch?v=sO1EU5AUq4U "Monocular AI plus Disparity Depth")
 
-In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`python3 depthai_demo.py -s metaout depth_raw -bb` is the command used to produce this video):
+In this case the neural inference (20-class object detection per [here](https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model)) was run on the RGB camera and the results were overlaid onto the depth stream.  The depthai reference Python script can be used to out`python3 depthai_demo.py -s metaout depth -bb` is the command used to produce this video):
 
 {: #stereo_inference}
 ### Stereo Neural Inference
@@ -155,7 +155,7 @@ It's a matter of minutes to be up and running with the power of Spatial AI, on t
 
 (Click on the imageabove to pull up the YouTube video.)
 
-The command to get the above output is `python3 depthai_demo.py -s metaout previewout depth_raw -ff -bb`.
+The command to get the above output is `python3 depthai_demo.py -s metaout previewout depth -ff -bb`.
 
 Here is a single-camera version (megaAI) running with `pytyon3 depthai_demo.py -dd` (to disable showing depth info):
 ![megaAI Legos](/images/lego.png)
@@ -433,17 +433,17 @@ To calculate the depth map from the disparity map, it is (approximately) `baseli
 So for example, for a BW1092 (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (`depth = 40 * 883.14 / 60 = 588 mm (0.588m)`).
 
 ## How Do I Display Multiple Streams?
-To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth_raw`), use the following command:
+To specify which streams you would like displayed, use the `-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (`previewout`), and for depth results (`depth`), use the following command:
 
 ```
-python3 depthai_demo.py -s metaout previewout depth_raw
+python3 depthai_demo.py -s metaout previewout depth
 ```
 The available streams are:
  - `metaout` # Meta data results from the neural network
  - `previewout` # Small preview stream from the color camera
  - `left` # Left grayscale camera (marked `L` or `LEFT` on the board)
  - `right` # Right grayscale camera (marked `R` or `RIGHT` on the board)
- - `depth_raw` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
+ - `depth` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
  - `disparity` # Raw disparity
  - `disparity_color` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
  - `meta_d2h` # Device die temperature (max temp should be < 105C)
@@ -465,13 +465,13 @@ So the simple way to select streams is to just use the `-s` option.  But in some
 
 So to set streams to a specific framerate to reduce the USB2 load and host load, simply specify the stream with `-s streamname` with a comma and FPS after the stream name like `-s streamname,FPS`.  
 
-So for limiting `depth_raw` to 5 FPS, use the following command:
+So for limiting `depth` to 5 FPS, use the following command:
 ```
-python3 depthai_demo.py -s depth_raw,5
+python3 depthai_demo.py -s depth,5
 ```
 And this works equally for multiple streams:
 ```
-python3 depthai_demo.py -s left,2 right,2 previewout depth_raw,5
+python3 depthai_demo.py -s left,2 right,2 previewout depth,5
 ```
 
 It's worth noting that the framerate limiting works best for lower rates.  So if you're say trying to hit 25FPS, it's best to just leave no frame-rate specified and let the system go to full 30FPS instead.  
@@ -480,9 +480,9 @@ Specifying no limit will default to 30FPS.
 
 One can also use the following over-ride command structure, which allows you to set the framerate per stream.
 
-The following example sets the `depth_raw` stream to 8 FPS and the `previewout` to 12 FPS:
+The following example sets the `depth` stream to 8 FPS and the `previewout` to 12 FPS:
 
-`python3 depthai_demo.py -co '{"streams": [{"name": "depth_raw", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
+`python3 depthai_demo.py -co '{"streams": [{"name": "depth", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'`
 
 You can pick/choose whatever streams you want, and their frame rate, but pasting in additional `{"name": "streamname", "max_fps": FPS}` into the expression above.
 
@@ -581,14 +581,14 @@ measured | requested | avg latency, ms
 -- | -- | --
 left | left | 100
 left | left, right | 100
-left | left, right, depth_raw | 100
-left | left, right, depth_raw, metaout, previewout | 100
+left | left, right, depth | 100
+left | left, right, depth, metaout, previewout | 100
 previewout | previewout | 65
 previewout | metaout, previewout | 100
-previewout | left, right, depth_raw, metaout, previewout | 100
+previewout | left, right, depth, metaout, previewout | 100
 metaout | metaout | 300
 metaout | metaout, previewout | 300
-metaout | left, right, depth_raw, metaout, previewout | 300
+metaout | left, right, depth, metaout, previewout | 300
 
 ## Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Camera?
 
