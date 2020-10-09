@@ -223,9 +223,12 @@ pipeline = device.create_pipeline(config={
     ```py
     {
         # Possible streams:
+        #   'color' - 4K color camera preview
         #   'left' - left mono camera preview
         #   'right' - right mono camera preview
-        #   'previewout' - 4K color camera preview
+        #   'rectified_left' - rectified left camera preview
+        #   'rectified_right' - rectified right camera preview
+        #   'previewout' - neural network input preview
         #   'metaout' - CNN output tensors
         #   'depth' - the raw depth map, disparity converted to real life distance
         #   'disparity' - disparity map, the diaparity between left and right cameras, in pixels
@@ -298,7 +301,7 @@ pipeline = device.create_pipeline(config={
     
     ```
     >>> device.get_available_streams()
-    ['meta_d2h', 'left', 'right', 'disparity', 'depth', 'metaout', 'previewout', 'jpegout', 'video', 'object_tracker']
+    ['meta_d2h', 'color', 'left', 'right', 'rectified_left', 'rectified_right', 'disparity', 'depth', 'metaout', 'previewout', 'jpegout', 'video', 'object_tracker']
     ```
 
 {: #device_get_nn_to_depth_bbox_mapping}

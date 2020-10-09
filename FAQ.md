@@ -441,8 +441,11 @@ python3 depthai_demo.py -s metaout previewout depth
 The available streams are:
  - `metaout` # Meta data results from the neural network
  - `previewout` # Small preview stream from the color camera
+ - `color` # 4K color camera, biggest camera on the board with lens
  - `left` # Left grayscale camera (marked `L` or `LEFT` on the board)
  - `right` # Right grayscale camera (marked `R` or `RIGHT` on the board)
+ - `rectified_left` # [Rectified](https://en.wikipedia.org/wiki/Image_rectification) left camera frames
+ - `rectified_right` # [Rectified](https://en.wikipedia.org/wiki/Image_rectification) right camera frames
  - `depth` # Depth in `uint16` (see [here](https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai) for the format.
  - `disparity` # Raw disparity
  - `disparity_color` # Disparity colorized on the host (to give a `JET` colorized visualization of depth)
