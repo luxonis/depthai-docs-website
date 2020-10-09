@@ -27,7 +27,7 @@ curl -fL http://docs.luxonis.com/install_dependencies.sh | bash
 
 If using Windows, please use [this batch script](/install_dependencies.bat) for dependencies installation 
 
-## Enabling the USB device
+## Enabling the USB device (only on Linux)
 
 Since the DepthAI is a USB device, in order to communicate with it on the systems that use `udev` tool, you
 need to add the udev rules in order to make the device accessible.
@@ -47,100 +47,7 @@ Our packages are distributed [via PyPi](https://pypi.org/project/depthai/), to i
 python3 -m pip install depthai
 ```
 
-## Other installation methods
-
-To get the latest and yet unreleased features from our source code, you can go ahead and compile depthai package manually.
-
-### Dependencies to build from source
-- CMake > 3.2.0
-- Generation tool (Ninja, make, ...)
-- C/C++ compiler
-- libusb1 development package
-
-{: #debian}
-#### Ubuntu, Raspberry Pi OS, ... (Debian based systems)
-On Debian based systems (Raspberyy Pi OS, Ubuntu, ...) these can be acquired by running:
-```
-sudo apt-get -y install cmake libusb-1.0-0-dev build-essential
-```
-
-{: #macos}
-#### macOS (Mac OS X)
-
-Assuming a stock Mac OS X install, depthai-python library needs following dependencies
-
-- HomeBrew (If it's not installed already)
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
-```
-- Python, libusb, CMake, wget 
-```
-brew install coreutils python3 cmake libusb wget
-```
-And now you're ready to clone the depthai-python from Github and build it for Mac OS X.
-
-You can install them all with the following command (if using Ubuntu)
-
-### Install using GitHub commit
-
-Pip allows users to install the packages from specific commits, even if they are not yet released on PyPi.
-
-To do so, use the command below - and be sure to replace the `<commit_sha>` with the correct commit hash [from here](https://github.com/luxonis/depthai-python/commits)
-
-```
-python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit_sha>
-```
-
-### Using/Testing a Specific Branch/PR
-
-From time to time, it may be of interest to use a specific branch.  This may occur, for example, because we have listened to your feature request and implemented a quick implementation in a branch.  Or it could be to get early access to a feature that is soaking in our `develop` for stability purposes before being merged into `main`.
-
-So when working in the [depthai](https://github.com/luxonis/depthai) repository, using a branch can be accomplished with the following commands.  For this example, the `branch` that we will try out is `develop` (which is the branch we use to soak new features before merging them into `main`):
-
-Prior to running the following, you can either clone the respository independently (for not over-writing any of your local changes) or simply do a `git pull` first.
-
-```
-git checkout develop
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-```
-
-{: #compile_api}
-### Install from source
-
-If desired, you can also install the package from the source code itself - it will allow you to make the changes
-to the API and see them live in action.
-
-To do so, first download the repository and then add the package to your python interpreter in development mode
-
-```
-git clone https://github.com/luxonis/depthai-python.git
-cd depthai-python
-git submodule update --init --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-python3 setup.py develop  # you may need to add sudo if using system interpreter instead of virtual environment
-```
-
-If you want to use other branch (e.g. `develop`) than default (`main`), you can do so by typing
-
-```
-git checkout develop  # replace the "develop" with a desired branch name
-git submodule update --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-python3 setup.py develop
-```
-
-Or, if you want to checkout a specific commit, type
-
-```
-git checkout <commit_sha>
-git submodule update --recursive
-python3 -m pip install -U pip
-python3 -m pip install -r requirements.txt
-python3 setup.py develop
-```
+For other installation options, see [Ohter Installation Options](#otherinstall).
 
 {: #quicktest}
 ## Test installation
@@ -395,14 +302,12 @@ Pipeline object using which the device is able to send it's result to the host. 
 {: #nnetpacket}
 ### depthai.NNetPacket
 
+For any neural network inference output [__get_tensor__](#nnetpacket_gettensor) can be used. For the specific case of `Mobilenet-SSD`, `YOLO-v3` decoding can be done in the firmware. Decoded objects can be accessed through [__getDetectedObjects__](#getDetectedObjects) as well in addition to raw output to make the results of this commonly used networks easily accessible.
+See [__blob config file__](#creating-blob-configuration-file) for more details about different neural network output formats and how to choose between these formats.
+
 Neural network results packet. It's not a single result, but a batch of results with additional metadata attached
 
 #### Methods
-
-{: #nnetpacket_entries}
-* [__entries__](#nnetpacket_entries})() -> depthai.TensorEntryContainer
-
-    Returns list of depthai.TensorEntry over which you can iterate
 
 {: #nnetpacket_getmetadata}
 * [__getMetadata__](#nnetpacket_getmetadata)() -> [depthai.FrameMetadata](#metadata)
@@ -412,9 +317,207 @@ Neural network results packet. It's not a single result, but a batch of results 
 {: #nnetpacket_gettensor}
 * [__get_tensor__](#nnetpacket_gettensor)(Union[int, str]) -> numpy.ndarray
 
-    Returns raw output from specific tensor, which you can choose by index or by `output_tensor_name` property specified
-    in [blob config file](#creating-blob-configuration-file)
+    Can be used __ONLY__ when in [blob config file](#creating-blob-configuration-file) `output_format` is set to `raw`.
+    It returns a shaped numpy array for the specific network output tensor, based on the neural network's output layer information. 
     
+    For example: in case of `Mobilenet-SSD` it returns a `[1, 1, 100, 7]` shaped array, where `numpy.dtype` is `float16`.
+    
+    Example of usage:
+    `nnetpacket.get_tensor(0)` or `nnetpacket.get_tensor('detection_out')`
+
+{: #nnetpacket_getitem}
+* [__\_\_getitem\_\_(Union[int, str]__](#nnetpacket_getitem) -> numpy.ndarray
+
+    Same as [__get_tensor__](#nnetpacket_gettensor). 
+    
+    Example of usage for `Mobilenet-SSD`: 
+    
+    `nnetpacket[0]` or `nnetpacket['detection_out']`, where `'detection_out'` is the name of output layer in case of `Mobilenet-SSD`
+
+{: #getOutputsList}
+* [__getOutputsList__](#getOutputsList)() -> list
+
+    Returns all the output tensors in a list for the network.
+
+{: #getOutputsDict}
+* [__getOutputsDict__](#getOutputsDict)() -> dict
+
+    Returns all the output tensors in a dictionary for the network.
+    The `key` is the `name` of the output layer, the `value` is the `shaped numpy array`. 
+
+{: #getOutputLayersInfo}
+* [__getOutputLayersInfo__](#getOutputLayersInfo)() -> [depthai.TensorInfo](#TensorInfo)
+
+    Returns informations about the output layers for the network.
+
+{: #getInputLayersInfo}
+* [__getInputLayersInfo__](#getInputLayersInfo)() -> [depthai.TensorInfo](#TensorInfo)
+
+    Returns informations about the input layers for the network.
+
+{: #getDetectedObjects}
+* [__getDetectedObjects__](#getDetectedObjects)() -> [depthai.Detections](#Detections)
+
+    ONLY for detection networks (`Mobilenet-SSD`, `(tiny-)YOLO-v3` based networks)
+    Should be used __ONLY__ when in [blob config file](#creating-blob-configuration-file) `output_format` is set to `detection`.
+    Returns the detected objects in [Detections](#Detections) format. The network is decoded on device side.
+
+
+{: #TensorInfo}
+### depthai.TensorInfo
+
+Descriptor of the input/output layers/tensors of the network.
+
+When network is loaded the tensor info is automatically printed. 
+
+Can be printed using : `print(nnetpacket.getInputLayersInfo())` or `print(nnetpacket.getOutputLayersInfo())` at runtime.
+
+#### Attributes
+{: #name}
+* [__name__](#name) -> string
+
+    Name of the tensor.
+
+{: #dimensions}
+* [__dimensions__](#dimensions) -> list
+
+    Shape of tensor array. E.g. : `[__1, 1, 100, 7__]`
+
+{: #strides}
+* [__strides__](#strides) -> list
+
+    Strides of tensor array.
+
+{: #data_type}
+* [__data_type__](#data_type) -> string
+
+    Data type of tensor. E.g. : `float16`
+
+{: #offset}
+* [__offset__](#offset) -> int
+
+    Offset in the raw output array.
+
+{: #element_size}
+* [__element_size__](#element_size) -> int
+
+    Size in bytes of one element in the array.
+
+{: #index}
+* [__index__](#index) -> int
+
+    Index of the tensor. E.g. : in case of multiple inputs/outputs in the network it marks the order of input/output.
+
+#### Methods
+
+{: #get_dict}
+* [__get_dict__](#get_dict)() -> dict
+    
+    Returns TensorInfo in a dictionary where the `key` is the name of attribute.
+
+{: #get_dimension}
+* [__get_dimension__](#get_dimension)() -> [depthai.TensorInfo.Dimension](#Dimension)
+    
+    Returns the specific dimension of the tensor, for example: `tensor_info.get_dimension(depthai.TensorInfo.Dimension.WIDTH)` returns the `WIDTH` of tensor.
+
+
+{: #Detections}
+### depthai.Detections
+
+Container of neural network results decoded on device side.
+
+
+#### Example of accessing detections
+
+Assuming the detected objects are stored in `detections` object.
+
+
+* __Number of detections__
+
+    `detections.size()` or `len(detections)`
+
+* __Accessing the `x`-th detection__
+
+    `detections[`__x__`]`
+
+* __Iterating through all detections__
+
+    `for detection in detections:`
+
+    handle [detection](#Detection)
+
+{: #Detection}
+### depthai.Detection
+
+Detected object descriptor.
+
+#### Attributes
+{: #label}
+* [__label__](#label) -> int
+
+    Label id of the detected object.
+
+{: #confidence}
+* [__confidence__](#confidence) -> float
+
+    Confidence score of the detected object in interval [0, 1].
+
+{: #x_min}
+* [__x_min__](#x_min) -> float
+
+    Top left `X` coordinate of the detected bounding box. Normalized, in interval [0, 1].
+
+{: #y_min}
+* [__y_min__](#y_min) -> float
+
+    Top left `Y` coordinate of the detected bounding box. Normalized, in interval [0, 1].
+
+{: #x_max}
+* [__x_max__](#x_max) -> float
+
+    Bottom right `X` coordinate of the detected bounding box. Normalized, in interval [0, 1].
+
+{: #y_max}
+* [__y_max__](#y_max) -> float
+
+    Bottom right `Y` coordinate of the detected bounding box. Normalized, in interval [0, 1].
+
+{: #depth_x}
+* [__depth_x__](#depth_x) -> float
+
+    Distance to detected bounding box on `X` axis. Only when depth calculation is enabled (stereo cameras are present on board).
+
+{: #depth_y}
+* [__depth_y__](#depth_y) -> float
+
+    Distance to detected bounding box on `Y` axis. Only when depth calculation is enabled (stereo cameras are present on board).
+
+{: #depth_z}
+* [__depth_z__](#depth_z) -> float
+
+    Distance to detected bounding box on `Z` axis. Only when depth calculation is enabled (stereo cameras are present on board).
+
+#### Methods
+
+{: #get_dict}
+* [__get_dict__](#get_dict)() -> dict
+    
+    Returns detected object in a dictionary where the `key` is the name of attribute.
+
+{: #Dimension}
+### depthai.TensorInfo.Dimension
+
+Dimension descriptor of tensor shape.
+
+#### Values
+
+* __Union[W, WIDTH]__ -> Width
+* __Union[H, HEIGHT]__ -> Height
+* __Union[C, CHANNEL]__ -> Number of channels
+* __Union[N, B, NUMBER, BATCH]__ -> Number/Batch of inferences
+
+Note: `Dimension` is mostly meaningful for input tensors since not all neural network models respect the semantics of `Dimension` for output tensor. E.g. `Width` might not mean `Width`.
+
 {: #datapacket}
 ### depthai.DataPacket
 
@@ -616,128 +719,183 @@ We've documented example usage of these compilers [here](https://github.com/luxo
     
 ### Creating Blob configuration file
     
-Config file is required to create a mapping between CNN output and Python API on host side. 
-Basically, whole configuration resolves around `tensors` array. One tensor represents one CNN output, so usually
-you'll have just one object in there, but if you'd like to use e.x. [age gender recognition](https://docs.openvinotoolkit.org/latest/omz_models_intel_age_gender_recognition_retail_0013_description_age_gender_recognition_retail_0013.html)
-you'll need to define two tenors
+If config file is not provided then there is no decoding done on device => `output_format` is set to `raw`. The decoding must be done on host side, by the user.
 
+Currently there is support to decode `Mobilenet-SSD` and `(tiny-)YOLO-v3` based networks on the device.
+For that config file is required with network specific parameters.
 
-Let's take a template config file (based on MobileNetSSD) and go through tensor object fields and describe them
-
+Example for `tiny-yolo-v3` network:
 ```json
 {
-"tensors":
-[
-    {       
-        "output_tensor_name": "out",
-        "output_dimensions": [1, 1, 100, 7],
-        "output_entry_iteration_index": 2,
-        "output_properties_dimensions": [3],
-        "property_key_mapping":
+    "NN_config":
+    {
+        "output_format" : "detection",
+        "NN_family" : "YOLO",
+        "NN_specific_metadata" :
+        { 
+            "classes" : 80,
+            "coordinates" : 4,
+            "anchors" : [10,14, 23,27, 37,58, 81,82, 135,169, 344,319],
+            "anchor_masks" : 
+            {
+                "side26" : [1,2,3],
+                "side13" : [3,4,5]
+            },
+            "iou_threshold" : 0.5,
+            "confidence_threshold" : 0.5
+        }
+    },
+    "mappings":
+    {
+        "labels":
         [
-            [],
-            [],
-            [],
-            ["id", "label", "confidence", "left", "top", "right", "bottom"]
-        ],
-        "output_properties_type": "f16"
+            "person",
+            "bicycle",
+            "car",
+            ...
+        ]
     }
-]
 }
 ```
 
-* `output_tensor_name` - is a custom name as a string that you choose for this specific tensor. In the code, you can access a specific tensor by this name using [`get_tensor`](#depthai_nnetpacket) method ([example](https://github.com/luxonis/depthai/blob/master/depthai_helpers/tiny_yolo_v3_handler.py#L120))
-* `output_dimensions` - determines the dimensions of the CNN model output. If your model, e.x. [mobilenet-ssd](https://docs.openvinotoolkit.org/latest/omz_models_public_mobilenet_ssd_mobilenet_ssd.html), contains `N` as one of the output dimentions.
-(specifying that it's dependent of the number of detected items), you should set this variable to a relatively high value - like in the example above, it's `100`. If your network produces a fixed-size output, and you insert the dimensions that are higher than actual output, the DepthAI will crash. If less, it will work but sometimes won't produce results (depending on the network)
-* `output_entry_iteration_index` - if your network returns multiple results (just like mentioned above with mobilenet having `N` as a dimension), you can specify the index to iterate over. Since in our case we set `100` as third argument in array, iteration index should be set to `2` (third index).  You can set it to `0` if you don't need iteration.
-* `property_key_mapping` - contains field names as string which you can change according to your preference, it's how you'll access the fields in the code, it has to match the number of properties returned by your network. Taking mobilenet as an example, for non-depth it will be __7__, and with depth info will be __10__ (as distances x, y and z are added). If you don't need the mapping, you can set it to `[]`
-* `output_properties_type` - c-type data type specifying size of the output variables
+
+* `NN_config` - configuration for the network
+    * `output_format` 
+        * `"detection"` - decoding done on device, the received packet is in [Detections](#Detections) format
+        * `"raw"` - decoding done on host
+    * `NN_family` - `"YOLO"` or `"mobilenet`" 
+    * `NN_specific_metadata` - only for `"YOLO"`
+        * `classes` - number of classes
+        * `coordinates` - number of coordinates
+        * `anchors` - anchors for YOLO network
+        * `anchor_masks` - anchor mask for each output layer : `26x26`, `13x13` (+ `52x52` for full YOLO-v3)
+        * `iou_threshold` - intersection over union threshold for detected object
+        * `confidence_threshold` - score confidence threshold for detected object
+* `mappings`
+    * `labels` - label mapping for detected object ID
 
 
-If your network returns tensors with only one dimension other than `1`, you can ship the leading empty arrays (which are added to fit the output dimensions)
+Example decoding for `tiny-yolo-v3`, `yolo-v3`, `mobilenet-ssd` when output_format is set to `detection`:
+```
+nnet_packets, data_packets = p.get_available_nnet_and_data_packets(blocking=True)
+...
 
-For instamce,  MobienetSSD returns results in array with dimensions `1, 1, N, 7`, so in `property_key_mapping` we have 4 leading arrays
+in_layers = nnet_packet.getInputLayersInfo() #get input layer information
+# print(in_layers) #print input layer info for debugging
+input_width  = in_layers[0].get_dimension(depthai.TensorInfo.Dimension.W) #width of input image
+input_height = in_layers[0].get_dimension(depthai.TensorInfo.Dimension.H) #height of input image
 
-On the other hand, Age/Gender detector, one of the tensors returns results in array with dimensions `1, 2, 1, 1`, so in `property_key_mapping` we have a single array with two fields specified, no need to follow it with 3 empty leading arrays
+detections = nnet_packet.getDetectedObjects() #get detection container
+objects = list() #create empty list of filtered objects
 
-#### Examples
+for detection in detections:
+    detection_dict = detection.get_dict()
+    # scale normalized coordinates to image coordinates
+    detection_dict["x_min"] = int(detection_dict["x_min"] * input_width)
+    detection_dict["y_min"] = int(detection_dict["y_min"] * input_height)
+    detection_dict["x_max"] = int(detection_dict["x_max"] * input_width)
+    detection_dict["y_max"] = int(detection_dict["y_max"] * input_height)
+    objects.append(detection_dict)
 
-##### MobilenetSSD
-
-```json
-{
-    "tensors":
-    [
-        {       
-            "output_tensor_name": "out",
-            "output_dimensions": [1, 1, 100, 7],
-            "output_entry_iteration_index": 2,
-            "output_properties_dimensions": [3],
-            "property_key_mapping":
-            [
-                [],
-                [],
-                [],
-                ["id", "label", "confidence", "left", "top", "right", "bottom"]
-            ],
-            "output_properties_type": "f16"
-        }
-    ]
-}
+return objects
 ```
 
-##### MobilenetSSD with depth info
+Example of decoding for full `yolo-v3` and `tiny-yolo-v3` on host and device
+* [yolo-v3-decoding](https://github.com/luxonis/depthai/blob/develop/depthai_helpers/tiny_yolo_v3_handler.py)
 
-```json
-{
-    "tensors":
-    [
-        {       
-            "output_tensor_name": "out",
-            "output_dimensions": [1, 1, 100, 10],
-            "output_entry_iteration_index": 2,
-            "output_properties_dimensions": [3],
-            "property_key_mapping":
-            [
-                [],
-                [],
-                [],
-                ["id", "label", "confidence", "left", "top", "right", "bottom", "distance_x", "distance_y", "distance_z"]
-            ],
-            "output_properties_type": "f16"
-        }
-    ]
-}
+
+Example of decoding for `mobilenet` based networks on host and device
+* [mobilenet-decoding](https://github.com/luxonis/depthai/blob/develop/depthai_helpers/mobilenet_ssd_handler.py)
+
+
+{: #otherinstall}
+## Other installation methods
+
+To get the latest and yet unreleased features from our source code, you can go ahead and compile depthai package manually.
+
+### Dependencies to build from source
+- CMake > 3.2.0
+- Generation tool (Ninja, make, ...)
+- C/C++ compiler
+- libusb1 development package
+
+{: #debian}
+#### Ubuntu, Raspberry Pi OS, ... (Debian based systems)
+On Debian based systems (Raspberyy Pi OS, Ubuntu, ...) these can be acquired by running:
+```
+sudo apt-get -y install cmake libusb-1.0-0-dev build-essential
 ```
 
-##### Age Gender recognition
+{: #macos}
+#### macOS (Mac OS X)
 
-```json
-{
-    "tensors":
-    [
-        {       
-            "output_tensor_name": "out",
-            "output_dimensions": [1, 1, 1, 1],
-            "output_entry_iteration_index": 0,
-            "output_properties_dimensions": [0],
-            "property_key_mapping":
-            [
-                ["age"]
-            ],
-            "output_properties_type": "f16"
-        },
-	{       
-            "output_tensor_name": "out1",
-            "output_dimensions": [1, 2, 1, 1],
-            "output_entry_iteration_index": 0,
-            "output_properties_dimensions": [0],
-            "property_key_mapping":
-            [
-                ["female", "male"]
-            ],
-            "output_properties_type": "f16"
-       }
-    ]
-}
+Assuming a stock Mac OS X install, depthai-python library needs following dependencies
+
+- HomeBrew (If it's not installed already)
 ```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)" 
+```
+- Python, libusb, CMake, wget 
+```
+brew install coreutils python3 cmake libusb wget
+```
+And now you're ready to clone the depthai-python from Github and build it for Mac OS X.
+
+You can install them all with the following command (if using Ubuntu)
+
+### Install using GitHub commit
+
+Pip allows users to install the packages from specific commits, even if they are not yet released on PyPi.
+
+To do so, use the command below - and be sure to replace the `<commit_sha>` with the correct commit hash [from here](https://github.com/luxonis/depthai-python/commits)
+
+```
+python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit_sha>
+```
+
+### Using/Testing a Specific Branch/PR
+
+From time to time, it may be of interest to use a specific branch.  This may occur, for example, because we have listened to your feature request and implemented a quick implementation in a branch.  Or it could be to get early access to a feature that is soaking in our `develop` for stability purposes before being merged into `main`.
+
+So when working in the [depthai](https://github.com/luxonis/depthai) repository, using a branch can be accomplished with the following commands.  For this example, the `branch` that we will try out is `develop` (which is the branch we use to soak new features before merging them into `main`):
+
+Prior to running the following, you can either clone the respository independently (for not over-writing any of your local changes) or simply do a `git pull` first.
+
+```
+git checkout develop
+python3 -m pip install -U pip
+python3 -m pip install -r requirements.txt
+```
+
+{: #compile_api}
+### Install from source
+
+If desired, you can also install the package from the source code itself - it will allow you to make the changes
+to the API and see them live in action.
+
+To do so, first download the repository and then add the package to your python interpreter in development mode
+
+```
+git clone https://github.com/luxonis/depthai-python.git
+cd depthai-python
+git submodule update --init --recursive
+python3 setup.py develop  # you may need to add sudo if using system interpreter instead of virtual environment
+```
+
+If you want to use other branch (e.g. `develop`) than default (`main`), you can do so by typing
+
+```
+git checkout develop  # replace the "develop" with a desired branch name
+git submodule update --recursive
+python3 setup.py develop
+```
+
+Or, if you want to checkout a specific commit, type
+
+```
+git checkout <commit_sha>
+git submodule update --recursive
+python3 setup.py develop
+```
+
+
