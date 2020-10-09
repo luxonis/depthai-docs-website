@@ -17,7 +17,7 @@ You can get help in a number of ways:
 * Post a message to [our forum](https://discuss.luxonis.com/).
 * Submit an issue on [DepthAI repository](https://github.com/luxonis/depthai)
 
-{: fulfillmentpolicy}
+{: #fulfillmentpolicy}
 # REFUNDS AND RETURNS POLICY
 
 At Luxonis, we are customer-focused. Our success is only possible if our customers believe in the value of our products. If for any reason you are not satisfied with your purchase, please let us know and we will make it right.
