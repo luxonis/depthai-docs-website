@@ -299,6 +299,9 @@ Pipeline object using which the device is able to send it's result to the host. 
 {: #nnetpacket}
 ### depthai.NNetPacket
 
+For any neural network inference output [__get_tensor__](#nnetpacket_gettensor) can be used. For the specific case of `Mobilenet-SSD`, `YOLO-v3` decoding can be done in the firmware. Decoded objects can be accessed through [__getDetectedObjects__](#getDetectedObjects) as well in addition to raw output to make the results of this commonly used networks easily accessible.
+See [__blob config file__](#creating-blob-configuration-file) for more details about different neural network output formats and how to choose between these formats.
+
 Neural network results packet. It's not a single result, but a batch of results with additional metadata attached
 
 #### Methods
@@ -311,7 +314,7 @@ Neural network results packet. It's not a single result, but a batch of results 
 {: #nnetpacket_gettensor}
 * [__get_tensor__](#nnetpacket_gettensor)(Union[int, str]) -> numpy.ndarray
 
-    Can be used if in [blob config file](#creating-blob-configuration-file) `output_format` is set to `raw`.
+    Can be used __ONLY__ when in [blob config file](#creating-blob-configuration-file) `output_format` is set to `raw`.
     It returns a shaped numpy array for the specific network output tensor, based on the neural network's output layer information. 
     
     For example: in case of `Mobilenet-SSD` it returns a `[1, 1, 100, 7]` shaped array, where `numpy.dtype` is `float16`.
@@ -320,7 +323,7 @@ Neural network results packet. It's not a single result, but a batch of results 
     `nnetpacket.get_tensor(0)` or `nnetpacket.get_tensor('detection_out')`
 
 {: #nnetpacket_getitem}
-* [__[ Union[int, str] ]__](#nnetpacket_getitem) -> numpy.ndarray
+* [__\_\_getitem\_\_(Union[int, str]__](#nnetpacket_getitem) -> numpy.ndarray
 
     Same as [__get_tensor__](#nnetpacket_gettensor). 
     
@@ -353,7 +356,7 @@ Neural network results packet. It's not a single result, but a batch of results 
 * [__getDetectedObjects__](#getDetectedObjects)() -> [depthai.Detections](#Detections)
 
     ONLY for detection networks (`Mobilenet-SSD`, `(tiny-)YOLO-v3` based networks)
-    Should be used when in [blob config file](#creating-blob-configuration-file) `output_format` is set to `detection`.
+    Should be used __ONLY__ when in [blob config file](#creating-blob-configuration-file) `output_format` is set to `detection`.
     Returns the detected objects in [Detections](#Detections) format. The network is decoded on device side.
 
 
@@ -713,7 +716,7 @@ We've documented example usage of these compilers [here](https://github.com/luxo
     
 ### Creating Blob configuration file
     
-If config file is not provided then there is no decoding done on device <==> `output_format` is set to `raw`. The decoding must be done on host side, by the user.
+If config file is not provided then there is no decoding done on device => `output_format` is set to `raw`. The decoding must be done on host side, by the user.
 
 Currently there is support to decode `Mobilenet-SSD` and `(tiny-)YOLO-v3` based networks on the device.
 For that config file is required with network specific parameters.
