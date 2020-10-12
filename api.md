@@ -78,7 +78,9 @@ If all goes well a small window video display with overlays for any items for wh
 {: #depthai_device}
 ### depthai.Device
 
-Represents the DepthAI device with the methods to interact with it
+Represents the DepthAI device with the methods to interact with it.
+
+**NOTE**: Please be aware that all methods except [`get_available_streams`](#device_get_available_streams) require [`create_pipeline`](#device_create_pipeline) to be run first,
 
 #### Example
 
@@ -202,9 +204,7 @@ pipeline = device.create_pipeline(config={
 {: #device_get_available_streams}
 * [__get_available_streams__](#device_get_available_streams)() -> List[str]
     
-    Return a list of all streams supported by the DepthAI library. 
-    Requires `create_pipeline` to be run prior to this call,
-    otherwise it will return an empty array
+    Return a list of all streams supported by the DepthAI library.
     
     ```
     >>> device.get_available_streams()
