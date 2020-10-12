@@ -280,7 +280,7 @@ In DepthAI mode, theoretically anything that will run in NCS2 mode will run - bu
 For common object detector formats (MobileNet-SSD, tinyYOLOv1/2/3, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode.  You can just literally replace the classes in example MobileNet-SSD or tinyYOLO examples we have.  For example for tinyYOLOv3, you can just change the labels from "mask", "no mask" and "no mask 2" to whatever your classes are from this example [here](https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo/tiny-yolo.json) and just change the blob file [here](https://github.com/luxonis/depthai/tree/main/resources/nn/tiny-yolo) to your blob file.  And the same thing is true for MobileNet-SSD [here](https://github.com/luxonis/depthai/tree/main/resources/nn/mobilenet-ssd).
 
 
-## What Hardware Acceleration Exists in DepthAI and/or megaAI?
+## What Hardware-Accelerated Capabilities Exist in DepthAI and/or megaAI?
 
 #### Available in DepthAI API Today:
  - Neural Inference (e.g. object detection, image classification, etc., including two-stage, e.g. [here](https://youtu.be/uAfGulcDWSk))
@@ -297,7 +297,9 @@ The above features are available in the Luxonis Pipeline Builder Gen1 (see examp
  
 #### On our Roadmap (planned delivery December 2020)
  - Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details [here](https://github.com/luxonis/depthai/issues/136))
- - AprilTags (PR [here](https://github.com/luxonis/depthai/pull/139))
+ - Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), [here](https://github.com/luxonis/depthai/issues/163)
+ - SPI Support, [here](https://github.com/luxonis/depthai/issues/140)
+ - microPython Support, [here](https://github.com/luxonis/depthai/issues/207)
  - Feature Tracking
  - Motion Estimation
  - Background Subtraction
@@ -305,6 +307,7 @@ The above features are available in the Luxonis Pipeline Builder Gen1 (see examp
  - Edge Detection
  - Harris Filtering
  - Arbitrary crop/rescale/reformat and ROI return
+ - AprilTags (PR [here](https://github.com/luxonis/depthai/pull/139))
  - OpenCL Support
 
 {: #pipelinegen2 }
