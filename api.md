@@ -231,12 +231,12 @@ pipeline = device.create_pipeline(config={
 {: #device_request_af_mode}
 * [__request_af_mode__](#device_request_af_mode)(mode: [AutofocusMode](#autofocus_mode))
     
-    Return a list of all streams supported by the DepthAI library. 
+    Set the 4K RGB camera autofocus mode to one of the available [Autofocus modes](#autofocus_mode)
 
 {: #device_request_af_trigger}
 * [__request_af_trigger__](#device_request_af_trigger)(mode: [AutofocusMode](#autofocus_mode))
     
-    Return a list of all streams supported by the DepthAI library. 
+    Manually send trigger action to AutoFocus on 4k RGB camera
 
 {: #device_request_jpeg}
 * [__request_jpeg__](#device_request_jpeg)()
@@ -524,6 +524,14 @@ Note: `Dimension` is mostly meaningful for input tensors since not all neural ne
 DepthAI data packet, containing information generated on the device. Unlike NNetPacket, it contains a single "result" 
 with source stream info
 
+#### Attributes
+
+{: #datapacket_streamname}
+* [__stream_name__](#datapacket_streamname): str
+
+    Returns packet source stream. Used to determine the origin of the packet and therefore allows to handle the packets
+    correctly, applying proper handling based on this value
+
 #### Methods
 
 {: #datapacket_getdata}
@@ -554,12 +562,6 @@ with source stream info
 * [__size__](#datapacket_size)() -> int
 
     Returns packet data size
-
-{: #datapacket_streamname}
-* [__stream_name__](#datapacket_streamname): str
-
-    Returns packet source stream. Used to determine the origin of the packet and therefore allows to handle the packets
-    correctly, applying proper handling based on this value
 
 {: #metadata}
 ### depthai.FrameMetadata
