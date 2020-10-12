@@ -301,7 +301,8 @@ The above features are available in the Luxonis Pipeline Builder Gen1 (see examp
  - Improved Stereo Neural Inference Support
  - SPI Support, [here](https://github.com/luxonis/depthai/issues/140)
  - microPython Support, [here](https://github.com/luxonis/depthai/issues/207)
- - Feature Tracking
+ - Feature Tracking (including IMU-assisted feature tracking)
+ - Integrated IMU Support
  - Motion Estimation
  - Background Subtraction
  - Lossless zoom (from 12MP full to 4K, 1080p, or 720p)
