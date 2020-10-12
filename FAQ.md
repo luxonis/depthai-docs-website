@@ -298,6 +298,7 @@ The above features are available in the Luxonis Pipeline Builder Gen1 (see examp
 #### On our Roadmap (planned delivery December 2020)
  - Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details [here](https://github.com/luxonis/depthai/issues/136))
  - Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), [here](https://github.com/luxonis/depthai/issues/163)
+ - Improved Stereo Neural Inference Support
  - SPI Support, [here](https://github.com/luxonis/depthai/issues/140)
  - microPython Support, [here](https://github.com/luxonis/depthai/issues/207)
  - Feature Tracking
@@ -308,6 +309,7 @@ The above features are available in the Luxonis Pipeline Builder Gen1 (see examp
  - Harris Filtering
  - Arbitrary crop/rescale/reformat and ROI return
  - AprilTags (PR [here](https://github.com/luxonis/depthai/pull/139))
+ - Integrated Text Detection -> OCR Example pipeline
  - OpenCL Support
 
 {: #pipelinegen2 }
