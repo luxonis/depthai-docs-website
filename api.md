@@ -234,7 +234,7 @@ pipeline = device.create_pipeline(config={
     Set the 4K RGB camera autofocus mode to one of the available [Autofocus modes](#autofocus_mode)
 
 {: #device_request_af_trigger}
-* [__request_af_trigger__](#device_request_af_trigger)(mode: [AutofocusMode](#autofocus_mode))
+* [__request_af_trigger__](#device_request_af_trigger)()
     
     Manually send trigger action to AutoFocus on 4k RGB camera
 
