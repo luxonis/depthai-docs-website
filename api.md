@@ -381,7 +381,7 @@ Can be printed using : `print(nnetpacket.getInputLayersInfo())` or `print(nnetpa
 {: #dimensions}
 * [__dimensions__](#dimensions) -> list
 
-    Shape of tensor array. E.g. : `[__1, 1, 100, 7__]`
+    Shape of tensor array. E.g. : `[1, 1, 100, 7]`
 
 {: #strides}
 * [__strides__](#strides) -> list
@@ -416,7 +416,7 @@ Can be printed using : `print(nnetpacket.getInputLayersInfo())` or `print(nnetpa
     Returns TensorInfo in a dictionary where the `key` is the name of attribute.
 
 {: #get_dimension}
-* [__get_dimension__](#get_dimension)() -> [depthai.TensorInfo.Dimension](#Dimension)
+* [__get_dimension__](#get_dimension)([Dimension](#Dimension)) -> int
     
     Returns the specific dimension of the tensor, for example: `tensor_info.get_dimension(depthai.TensorInfo.Dimension.WIDTH)` returns the `WIDTH` of tensor.
 
