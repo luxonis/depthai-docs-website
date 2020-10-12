@@ -295,15 +295,25 @@ pipeline = device.create_pipeline(config={
    and treated as background
 
 
-{: #get_left_homography}
-* [__get_left_homography__](#get_left_homography)()
-    
-    Return a 3x3 homography matrix used to rectify the left stereo camera image. 
-
 {: #get_right_homography}
 * [__get_right_homography__](#get_right_homography)()
     
     Return a 3x3 homography matrix used to rectify the right stereo camera image. 
+    
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+Note: The following functions `get_left_homography()`, `get_left_intrinsic()`, `get_right_intrinsic()`, `get_rotation()`, and `get_translation()` require the latest calibration (dual-homography) technique.  If your device is calibrated with the old single-homography calibration system (all systems shipped prior to September 2020 use the single-homography calibration), you can pull off this calibration with the `get_right_homography()` function without any extra effort. 
+If your device is calibrated with the single-homography calibration and your would like to enable use of `get_left_homography()`, `get_left_intrinsic()`, `get_right_intrinsic()`, `get_rotation()`, `get_translation()` you would need to recalibrate your device by following the tutorial <strong><a href="https://docs.luxonis.com/tutorials/stereo_calibration/">here</a></strong><br/> 
+</div>
+
+{: #autofocus_mode}
+
+{: #get_left_homography}
+* [__get_left_homography__](#get_left_homography)()
+    
+    Return a 3x3 homography matrix used to rectify the left stereo camera image. 
 
 {: #get_left_intrinsic}
 * [__get_left_intrinsic__](#get_left_intrinsic)()
@@ -324,13 +334,7 @@ pipeline = device.create_pipeline(config={
 * [__get_translation__](#get_translation)()
     
     Return a 3x1 vector repesenting the position of the right stereo camera center w.r.t left stereo camera center.
-<div class="alert alert-primary" role="alert">
-<i class="material-icons">
-Note:
-</i>
-  if you have been using old build system and recently moved to the new build system then to enable `get_left_homography()`, `get_left_intrinsic()`, `get_right_intrinsic()`, `get_rotation()`, `get_translation()` you need to recalibrate your device by following the tutorial <strong><a href="https://docs.luxonis.com/tutorials/stereo_calibration/">here</a></strong><br/> However, get_right_homography() works even if you were using the old build without any extra effort.
-</div>
-{: #autofocus_mode}
+
 ### depthai.AutofocusMode
 
 An enum with all autofocus modes available
