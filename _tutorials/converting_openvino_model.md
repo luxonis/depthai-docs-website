@@ -303,7 +303,7 @@ pipeline = device.create_pipeline(config={
     'streams': ['previewout', 'metaout'],
     'ai': {
 -        'blob_file': consts.resource_paths.blob_fpath,
-+        'blob_file': "/root/open_model_zoo_downloads/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.bin",
++        'blob_file': "/root/open_model_zoo_downloads/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.blob",
 -        'blob_file_config': consts.resource_paths.blob_config_fpath
 +        'blob_file_config': "/root/open_model_zoo_downloads/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.json"
     }
