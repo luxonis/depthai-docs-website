@@ -217,14 +217,14 @@ layers instead of 3 (1 for each grayscale, 3 for the color R, G, B).
 
 ## If I train my own network, which Neural Operations are supported by DepthAI?
 
-See the `VPU` section [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_Supported_Devices.html).
+See the `VPU` section [here](https://docs.openvinotoolkit.org/2020.1/_docs_IE_DG_supported_plugins_Supported_Devices.html).
 
 Anything that's supported there under `VPU` will work on DepthAI.  It's worth noting that we haven't tested all of these
 permutations though.
 
 ## What network backbones are supported on DepthAI?
 
-All the networks listed [here](https://docs.openvinotoolkit.org/latest/_docs_IE_DG_supported_plugins_MYRIAD.html) are supported by DepthAI.  
+All the networks listed [here](https://docs.openvinotoolkit.org/2020.1/_docs_IE_DG_supported_plugins_MYRIAD.html) are supported by DepthAI.  
 
 We haven't tested all of them though.  So if you have a problem, contact us and we'll figure it out.
 
