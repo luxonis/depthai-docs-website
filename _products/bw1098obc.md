@@ -71,3 +71,7 @@ Follow the steps below to setup your DepthAI device.
 <h3 class="step js-toc-ignore"><span></span> Download and run DepthAI Python examples</h3>
 
 {% include test_step.md param="arg" %}
+
+<h3 class="step js-toc-ignore"><span></span> Explore Tutorials, Code Samples, and Custom Training</h3>
+
+Now that your DepthAI device is running, explore the tutorials, code samples, and free online custom training notebooks on the left of this docs page.
