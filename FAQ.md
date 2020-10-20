@@ -308,7 +308,7 @@ The above features are available in the Luxonis Pipeline Builder Gen1 (see examp
  - Lossless zoom (from 12MP full to 4K, 1080p, or 720p, [here](https://github.com/luxonis/depthai/issues/135))
  - Edge Detection ([here](https://github.com/luxonis/depthai/issues/247))
  - Harris Filtering ([here](https://github.com/luxonis/depthai/issues/248))
- - Arbitrary crop/rescale/reformat and ROI return
+ - Arbitrary crop/rescale/reformat and ROI return ([here](https://github.com/luxonis/depthai/issues/249))
  - AprilTags (PR [here](https://github.com/luxonis/depthai/pull/139))
  - Integrated Text Detection -> OCR Example pipeline
  - OpenCL Support (supported through OpenVINO)
