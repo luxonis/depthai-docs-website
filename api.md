@@ -316,21 +316,50 @@ Note: Requires dual-homography calibration.
 * [__get_left_intrinsic__](#get_left_intrinsic)()
     
     Return a 3x3 intrinisc calibration matrix of the left stereo camera.
+    
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+Note: Requires dual-homography calibration.
+</div>
+
 
 {: #get_right_intrinsic}
 * [__get_right_intrinsic__](#get_right_intrinsic)()
     
     Return a 3x3 intrinisc calibration matrix of the right stereo camera.
+    
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+Note: Requires dual-homography calibration.
+</div>
 
 {: #get_rotation}
 * [__get_rotation__](#get_rotation)()
     
     Return a 3x3 rotation matrix representing the rotation of the right stereo camera w.r.t left stereo camera. 
 
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+Note: Requires dual-homography calibration.
+</div>
+
 {: #get_translation}
 * [__get_translation__](#get_translation)()
     
     Return a 3x1 vector repesenting the position of the right stereo camera center w.r.t left stereo camera center.
+
+<div class="alert alert-primary" role="alert">
+<i class="material-icons">
+error
+</i>
+Note: Requires dual-homography calibration.
+</div>
 
 {: #autofocus_mode}
 ### depthai.AutofocusMode
