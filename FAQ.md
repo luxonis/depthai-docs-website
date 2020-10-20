@@ -553,6 +553,7 @@ EEPROM data: valid (v2)
 
 Current (those April 2020 and after) DepthAI boards with on-board stereo cameras ([BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), and [BW1092](https://shop.luxonis.com/collections/all/products/bw1092-pre-order) ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
 
+{: #dualhomography}
 ## Dual-Homography vs. Single-Homography Calibration
 
 As a result of some great feedback/insight from the [OpenCV Spatial AI Competition](https://opencv.org/opencv-spatial-ai-competition/) we discovered and implemented many useful features (summary [here](https://github.com/luxonis/depthai/issues/183)).
