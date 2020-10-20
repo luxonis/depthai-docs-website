@@ -532,7 +532,7 @@ This allows you to try out examples from OpenVINO directly as if our hardware is
 DepthAI/megaAI will also support an additional host-communication mode in the [Gen2 Pipeline Builer](https://github.com/luxonis/depthai/issues/136), which will be available in December 2020.
 
 ## What Information is Stored on the DepthAI Boards
-Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
+Initial Crowd Supply backers received boards which had literally nothing stored on them.  All information was loaded from the host to the board.  This includes the BW1097 ([here](https://docs.luxonis.com/products/bw1097/#setup)), which had the calibration stored on the included microSD card.
 
 So each hardware model which has stereo cameras (e.g. [BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098FFC](https://docs.luxonis.com/products/bw1098ffc/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), and [BW1094](https://docs.luxonis.com/products/bw1094/)) has the capability to store the calibration data and field-of-view, stereo basline (`L-R distance`) and relative location of the color camera to the stereo cameras (`L-RGB distance`) as well as camera orientation (`L/R swapped`).  To retrieve this information, simply run `python3 depthai_demo.py` and look for `EEPROM data:`.  Example of information pulled from a [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) is below:
 ```
@@ -551,7 +551,15 @@ EEPROM data: valid (v2)
     0.000008,   -0.000010,    1.000000,
 ```
 
-Current (as of April 2020) DepthAI boards with on-board stereo cameras ([BW1097](https://docs.luxonis.com/products/bw1097/) and [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/) ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
+Current (those April 2020 and after) DepthAI boards with on-board stereo cameras ([BW1097](https://docs.luxonis.com/products/bw1097/), [BW1098OBC](https://docs.luxonis.com/products/bw1098obc/), and [BW1092](https://shop.luxonis.com/collections/all/products/bw1092-pre-order) ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
+
+## Dual-Homography vs. Single-Homography Calibration
+
+As a result of some great feedback/insight from the [OpenCV Spatial AI Competition](https://opencv.org/opencv-spatial-ai-competition/) we discovered and implemented many useful features (summary [here](https://github.com/luxonis/depthai/issues/183)).
+
+Among those was the discovery that a dual-homography approach, although mathematically equivalent to a single-homography (as you can collapse the two homographies into one) actually outperforms single-homography in real-world practice.  
+
+As a result, we switched our calibration system in September 2020 to use dual-homography instead of single homography.  So any units produced after September 2020 include dual homography.  Any units with single homography can be recalibrated (see [here](https://docs.luxonis.com/tutorials/stereo_calibration/)) to use this updated dual-homography calibration.
 
 ## What is the Field of View of DepthAI and megaAI?
 
