@@ -321,7 +321,7 @@ Note: Requires [dual-homography calibration](/faq/#dualhomography).
 <i class="material-icons">
 error
 </i>
-Note: Requires dual-homography calibration.
+Note: Requires [dual-homography calibration](/faq/#dualhomography).
 </div>
 
 
@@ -334,19 +334,19 @@ Note: Requires dual-homography calibration.
 <i class="material-icons">
 error
 </i>
-Note: Requires dual-homography calibration.
+Note: Requires [dual-homography calibration](/faq/#dualhomography).
 </div>
 
 {: #get_rotation}
 * [__get_rotation__](#get_rotation)()
     
     Return a 3x3 rotation matrix representing the rotation of the right stereo camera w.r.t left stereo camera. 
-
+    
 <div class="alert alert-primary" role="alert">
 <i class="material-icons">
 error
 </i>
-Note: Requires dual-homography calibration.
+Note: Requires [dual-homography calibration](/faq/#dualhomography).
 </div>
 
 {: #get_translation}
@@ -358,7 +358,7 @@ Note: Requires dual-homography calibration.
 <i class="material-icons">
 error
 </i>
-Note: Requires dual-homography calibration.
+Note: Requires [dual-homography calibration](/faq/#dualhomography).
 </div>
 
 {: #autofocus_mode}
