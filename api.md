@@ -309,7 +309,7 @@ pipeline = device.create_pipeline(config={
 <i class="material-icons">
 error
 </i>
-Note: Requires dual-homography calibration.
+Note: Requires [dual-homography calibration](/faq/#dualhomography).
 </div>
 
 {: #get_left_intrinsic}
