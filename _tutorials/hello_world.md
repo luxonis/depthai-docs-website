@@ -134,13 +134,8 @@ while True:
     # A data packet contains the video frame data.
     nnet_packets, data_packets = pipeline.get_available_nnet_and_data_packets()
 
-    for _, nnet_packet in enumerate(nnet_packets):
-        entries_prev = []
-        for _, e in enumerate(nnet_packet.entries()):
-            if e[0]['id'] == -1.0 or e[0]['confidence'] == 0.0:
-                break
-            if e[0]['confidence'] > 0.5:
-                entries_prev.append(e[0])
+    for nnet_packet in nnet_packets:
+        entries_prev = list(nnet_packet.getDetectedObjects())
 
     for packet in data_packets:
         # By default, DepthAI adds other streams (notably 'meta_2dh'). Only process `previewout`.
@@ -157,8 +152,8 @@ while True:
             img_w = frame.shape[1]
 
             for e in entries_prev:
-                pt1 = int(e['left'] * img_w), int(e['top'] * img_h)
-                pt2 = int(e['right'] * img_w), int(e['bottom'] * img_h)
+                pt1 = int(e.x_min * img_w), int(e.y_min * img_h)
+                pt2 = int(e.x_max * img_w), int(e.y_max * img_h)
 
             cv2.imshow('previewout', frame)
 

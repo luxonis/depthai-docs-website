@@ -263,32 +263,19 @@ Copy and paste the following into `face-detection-retail-0004.json`:
 
 ```json
 {
-    "tensors":
-    [
-        {
-            "output_tensor_name": "out",
-            "output_dimensions": [1, 1, 100, 7],
-            "output_entry_iteration_index": 2,
-            "output_properties_dimensions": [3],
-            "property_key_mapping":
-            [
-                [],
-                [],
-                [],
-                ["id", "label", "confidence", "left", "top", "right", "bottom"]
-            ],
-            "output_properties_type": "f16"
-        }
-    ]
+    "NN_config": {
+        "output_format" : "detection",
+        "NN_family" : "mobilenet",
+        "confidence_threshold" : 0.5
+    }
 }
 ```
 
 What do these values mean?
 
-* `output_dimensions` - The neural net has an [output format](https://docs.openvinotoolkit.org/latest/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html#outputs) of `[1, 1, N, 7]` where `N` is the number of detected bounding boxes. Each detection has the format: `["id", "label", "confidence", "left", "top", "right", "bottom"]`. We specify `100` instead of `N` to indicate we'll handle up to 100 bounding boxes, which should be more than enough possible faces to detect.
-* `output_entry_iteration_index` - Indicates the array position we'll use to iterate over detections. `N` is in the 2nd position (index start = 0).
-* `property_key_mapping` - Maps the properties to friendly names we can access when running model inference in our too-be-created Python script.
-* `output_properties_type` - We're using a model with `f16` precision.
+* `output_format` - is either `detection` or `raw`. Detection tells the DepthAI to parse the NN results and make a detection objects out of them, which you can access by running `getDetectedObjects` method. Raw means "do not parse, I will handle the parsing on host", requiring you to parse raw tensors
+* `NN_family` - only needed when `output_format` is `detection`. Two supported NN families are right now `mobilenet` and `YOLO`
+* `confidence_threshold` - DepthAI will only return the results which confidence is above the threshold.
 
 {: data-toc-title="Run the model"}
 ## Run and display the model output
@@ -302,10 +289,10 @@ In particular, let's change the `create_pipeline` invocation to load our model. 
 pipeline = device.create_pipeline(config={
     'streams': ['previewout', 'metaout'],
     'ai': {
--        'blob_file': consts.resource_paths.blob_fpath,
-+        'blob_file': "/root/open_model_zoo_downloads/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.bin",
--        'blob_file_config': consts.resource_paths.blob_config_fpath
-+        'blob_file_config': "/root/open_model_zoo_downloads/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.json"
+-        'blob_file': "/path/to/mobilenet-ssd.blob",
++        'blob_file': "/path/to/open_model_zoo_downloads/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.blob",
+-        'blob_file_config': "/path/to/mobilenet-ssd.json"
++        'blob_file_config': "/path/to/open_model_zoo_downloads/intel/face-detection-retail-0004/FP16/face-detection-retail-0004.json"
     }
 })
 ```

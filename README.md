@@ -15,11 +15,15 @@ The site is powered by [Jekyll](https://jekyllrb.com/).
 
 ### Setup
 
-Run `bundle` to install Ruby gem dependencies.
+Install ruby:
+`sudo apt-get install ruby-full`
+
+Run `bundle install` to install Ruby gem dependencies.
 
 ### Dependencies
 
-Ruby v2.6.2.
+Ruby v2.6.2 or 2.7.0.
+Tested on Ubuntu 18.04 and 20.04.
 
 ### Running the local web server
 
