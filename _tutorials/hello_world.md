@@ -127,7 +127,7 @@ A DepthAI Pipeline generates a stream of data packets. Each `previewout` data pa
 We change the shape of the frame into a `cv2`-compatible format and display it.
 
 ```py
-entries_prev = []
+detections = []
 
 while True:
     # Retrieve data packets from the device.
@@ -135,7 +135,7 @@ while True:
     nnet_packets, data_packets = pipeline.get_available_nnet_and_data_packets()
 
     for nnet_packet in nnet_packets:
-        entries_prev = list(nnet_packet.getDetectedObjects())
+        detections = list(nnet_packet.getDetectedObjects())
 
     for packet in data_packets:
         # By default, DepthAI adds other streams (notably 'meta_2dh'). Only process `previewout`.
@@ -151,9 +151,9 @@ while True:
             img_h = frame.shape[0]
             img_w = frame.shape[1]
 
-            for e in entries_prev:
-                pt1 = int(e.x_min * img_w), int(e.y_min * img_h)
-                pt2 = int(e.x_max * img_w), int(e.y_max * img_h)
+            for detection in detections:
+                pt1 = int(detection.x_min * img_w), int(detection.y_min * img_h)
+                pt2 = int(detection.x_max * img_w), int(detection.y_max * img_h)
 
             cv2.imshow('previewout', frame)
 

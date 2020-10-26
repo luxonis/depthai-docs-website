@@ -224,7 +224,7 @@ permutations though.
 
 ## What network backbones are supported on DepthAI?
 
-All the networks listed [here](https://docs.openvinotoolkit.org/2020.1/_docs_IE_DG_supported_plugins_MYRIAD.html) are supported by DepthAI.  
+All the networks listed [here](https://docs.openvinotoolkit.org/2020.1/_docs_IE_DG_supported_plugins_MYRIAD.htmlM) are supported by DepthAI.  
 
 We haven't tested all of them though.  So if you have a problem, contact us and we'll figure it out.
 

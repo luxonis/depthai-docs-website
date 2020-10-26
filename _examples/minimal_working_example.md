@@ -33,18 +33,13 @@ p = device.create_pipeline(config={
 if p is None:
     raise RuntimeError("Error initializing pipelne")
 
-entries_prev = []
+detections = []
 
 while True:
     nnet_packets, data_packets = p.get_available_nnet_and_data_packets()
 
     for nnet_packet in nnet_packets:
-        entries_prev = []
-        for e in nnet_packet.entries():
-            if e[0]['id'] == -1.0 or e[0]['confidence'] == 0.0:
-                break
-            if e[0]['confidence'] > 0.5:
-                entries_prev.append(e[0])
+        detections = list(nnet_packet.getDetectedObjects())
 
     for packet in data_packets:
         if packet.stream_name == 'previewout':
@@ -57,9 +52,9 @@ while True:
             img_h = frame.shape[0]
             img_w = frame.shape[1]
 
-            for e in entries_prev:
-                pt1 = int(e['left'] * img_w), int(e['top'] * img_h)
-                pt2 = int(e['right'] * img_w), int(e['bottom'] * img_h)
+            for detection in detections:
+                pt1 = int(detection.x_min * img_w), int(detection.y_min * img_h)
+                pt2 = int(detection.x_max * img_w), int(detection.y_max * img_h)
 
                 cv2.rectangle(frame, pt1, pt2, (0, 0, 255), 2)
 
@@ -106,32 +101,19 @@ Now, the results processing consists of two phases - parsing nnet results and di
 Below, you'll se the part that's parsing the results from neural network
 
 ```python
-entries_prev = []
+detections = []
 
 while True:
     nnet_packets, data_packets = p.get_available_nnet_and_data_packets()
 
     for nnet_packet in nnet_packets:
-        entries_prev = []
-        for e in nnet_packet.entries():
-            if e[0]['id'] == -1.0 or e[0]['confidence'] == 0.0:
-                break
-            if e[0]['confidence'] > 0.5:
-                entries_prev.append(e[0])
+        detections = list(nnet_packet.getDetectedObjects())
 ```
 
-Here, we're using a little trick. Notice, that `entries_prev` is populated with only the correct entries,
-and is reset (set to `[]`) only when we receive a new nnet packet, because it's a first instruction in the for loop of `nnet_packets`.
+Neural network configuration we specified earlier, in `blob_file_config` field, allows DepthAI to prepare
+results in a correct format and remove incorrect entries (e.g. those with confidence below threshold).
 
-This way, if there are no new results from neural network, we keep the old ones and therefore the bounding boxes don't flick.
-
-Also, having this approach, we're sure that only one output of the neural network is displayed (if `nnet_packets` would contain two of them).
-
-Conditions `e[0]['id'] == -1.0 or e[0]['confidence'] == 0.0` eleminate the background noise that can be produced
-
-Condition `e[0]['confidence'] > 0.5` is our confidence threshold. You can modify `0.5` according to your needs and use case.
-
-The result of this processing step is populated (or empty) array `entries_prev`
+Each object in this array is a [Detection](/api/#Detection) instance, which we can easily use later in the code
 
 ### Displaying the frames
 
@@ -147,9 +129,9 @@ for packet in data_packets:
         img_h = frame.shape[0]
         img_w = frame.shape[1]
 
-        for e in entries_prev:
-            pt1 = int(e['left'] * img_w), int(e['top'] * img_h)
-            pt2 = int(e['right'] * img_w), int(e['bottom'] * img_h)
+        for detection in detections:
+            pt1 = int(detection.x_min * img_w), int(detection.y_min * img_h)
+            pt2 = int(detection.x_max * img_w), int(detection.y_max * img_h)
 
             cv2.rectangle(frame, pt1, pt2, (0, 0, 255), 2)
 
@@ -183,7 +165,7 @@ business logic requires.
 
 Since the position of the bounding boxes are returned from neural network as floats in range `(0, 1)`,
 which specify position of the point relative to it's width/height, we need to transform it into the actual point 
-on the image (which you can see as we're doing e.x. `int(e['left'] * img_w)`).
+on the image (which you can see as we're doing e.x. `int(detection.x_min * img_w)`).
 
 Next, using `cv2.rectangle`, we're printing the actual rectangle on the `frame`.
 Finally, when the frame is ready, we display it using `cv2.imshow` function.
@@ -192,9 +174,9 @@ Finally, when the frame is ready, we display it using `cv2.imshow` function.
 img_h = frame.shape[0]
 img_w = frame.shape[1]
 
-for e in entries_prev:
-    pt1 = int(e['left'] * img_w), int(e['top'] * img_h)
-    pt2 = int(e['right'] * img_w), int(e['bottom'] * img_h)
+for detection in detections:
+    pt1 = int(detection.x_min * img_w), int(detection.y_min * img_h)
+    pt2 = int(detection.x_max * img_w), int(detection.y_max * img_h)
 
     cv2.rectangle(frame, pt1, pt2, (0, 0, 255), 2)
 

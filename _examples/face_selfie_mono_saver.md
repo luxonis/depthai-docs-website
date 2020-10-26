@@ -45,7 +45,7 @@ pipeline = device.create_pipeline(config={
 if pipeline is None:
     raise RuntimeError('Pipeline creation failed!')
 
-entries_prev = []
+detections = []
 face_frame_left = None
 face_frame_right = None
 
@@ -53,12 +53,7 @@ while True:
     nnet_packets, data_packets = pipeline.get_available_nnet_and_data_packets()
 
     for nnet_packet in nnet_packets:
-        entries_prev = []
-        for e in nnet_packet.entries():
-            if e[0]['id'] == -1.0 or e[0]['confidence'] == 0.0:
-                break
-            if e[0]['confidence'] > 0.5:
-                entries_prev.append(e[0])
+        detections = list(nnet_packet.getDetectedObjects())
 
     for packet in data_packets:
         if packet.stream_name == 'left' or packet.stream_name == 'right':
@@ -67,11 +62,11 @@ while True:
             img_h = frame.shape[0]
             img_w = frame.shape[1]
 
-            for i, e in enumerate(entries_prev):
-                left = int(e['left'] * img_w)
-                top = int(e['top'] * img_h)
-                right = int(e['right'] * img_w)
-                bottom = int(e['bottom'] * img_h)
+            for detection in detections:
+                left = int(detection.x_min * img_w)
+                top = int(detection.y_min * img_h)
+                right = int(detection.x_max * img_w)
+                bottom = int(detection.y_max * img_h)
 
                 face_frame = frame[top:bottom, left:right]
                 if face_frame.size == 0:
@@ -108,7 +103,7 @@ contact_support
   <span class="small">DepthAI basics are explained in [minimal working code sample](/examples/minimal_working_example/#explanation) and [hello world tutorial](/tutorials/hello_world/).</span>
 </div>
 
-Our network returns bounding boxes of the faces it detects (we have them stored in `entries_prev` array).
+Our network returns bounding boxes of the faces it detects (we have them stored in `detections` array).
 So in this sample, we have to do two main things: __crop the frame__ to contain only the face and __save it__ to 
 the location specified by user.
 
@@ -120,10 +115,10 @@ two of them that determine start of the crop (`top` starts Y-axis crop and `left
 and another two as the end of the crop (`bottom` ends Y-axis crop and `right` ends X-axis crop)
 
 ```python
-                left = int(e['left'] * img_w)
-                top = int(e['top'] * img_h)
-                right = int(e['right'] * img_w)
-                bottom = int(e['bottom'] * img_h)
+                left = int(detection.x_min * img_w)
+                top = int(detection.y_min * img_h)
+                right = int(detection.x_max * img_w)
+                bottom = int(detection.y_max * img_h)
 ```
 
 Now, since our frame is in `HWC` format (Height, Width, Channels), we first crop the Y-axis (being height) and then the X-axis (being width).

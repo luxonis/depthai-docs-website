@@ -36,7 +36,6 @@ p = device.create_pipeline(config={
 if p is None:
     raise RuntimeError("Error initializing pipelne")
 
-entries_prev = []
 labels = ["background", "aeroplane", "bicycle", "bird", "boat", "bottle", "bus", "car", "cat", "chair", "cow", "diningtable", "dog", "horse", "motorbike", "person", "pottedplant", "sheep", "sofa", "train", "tvmonitor"]
 tracklets = None
 
