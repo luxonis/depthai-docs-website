@@ -893,11 +893,17 @@ DepthAI is an open-source platform across a variety of stacks, including hardwar
 
 See below for the pertinent Githubs:
 
+### Overall
  - [https://github.com/luxonis/depthai-hardware](https://github.com/luxonis/depthai-hardware) - DepthAI hardware designs themselves.
  - [https://github.com/luxonis/depthai](https://github.com/luxonis/depthai) - Python Interface and Examples
  - [https://github.com/luxonis/depthai-api](https://github.com/luxonis/depthai-api) - C++ Core and C++ API
  - [https://github.com/luxonis/depthai-ml-training](https://github.com/luxonis/depthai-ml-training) - Online AI/ML training leveraging Google Colab (so it's free)
- - [https://github.com/luxonis/depthai-experiments](https://github.com/luxonis/depthai-experiments) - Experiments showing how to use DepthAI.  
+ - [https://github.com/luxonis/depthai-experiments](https://github.com/luxonis/depthai-experiments) - Experiments showing how to use DepthAI. 
+ 
+### Embedded Use Case
+ - [https://github.com/luxonis/depthai-spi-library](https://github.com/luxonis/depthai-spi-library) - SPI interface library for Embedded (microcontroller) DepthAI application
+ - [https://github.com/luxonis/depthai-bootloader-shared](https://github.com/luxonis/depthai-bootloader-shared) - Bootloader source code which allows programming NOR flash of DepthAI to boot autonomously
+ - [https://github.com/luxonis/esp32-spi-message-demo](https://github.com/luxonis/esp32-spi-message-demo) - ESP32 Example applications for Embedded/ESP32 DepthAI use (e.g. with [BW1092](https://github.com/luxonis/depthai-hardware/tree/master/BW1092_ESP32_Embedded_WIFI_BT))
  
 ## Can I Use and IMU With DepthAI?
 
