@@ -17,7 +17,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'luxonis-docs'
+project = 'Luxonis Docs'
 copyright = '2020, Luxonis'
 author = 'Luxonis'
 
