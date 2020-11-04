@@ -13,11 +13,3 @@ Welcome to DepthAI's documentation!
    pages/api.rst
    pages/support.rst
 
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
