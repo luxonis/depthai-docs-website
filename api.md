@@ -673,7 +673,7 @@ To obtain it, call [`getTracklet`](#objecttracker_gettracklet) method.
 
 
 {: #tracklet_getstatus}
-* [__getLabel__](#tracklet_getstatus)() -> str
+* [__getStatus__](#tracklet_getstatus)() -> str
 
     Return the tracklet status - either __`NEW`__, __`TRACKED`__, or __`LOST`__.
 
