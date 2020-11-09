@@ -7,7 +7,7 @@ Supported Platforms
 ###################
 
 The DepthAI API python module is prebuilt for Ubuntu, MaxOS and Windows.
-For other operating systems and/or Python versions, DepthAI can be :ref:`built from source <todo>`.
+For other operating systems and/or Python versions, DepthAI can be :ref:`built from source <Other installation methods>`.
 
 Installing system dependencies
 ##############################
@@ -44,7 +44,7 @@ Our packages are distributed `via PyPi <https://pypi.org/project/depthai/>`_, to
 
   python3 -m pip install depthai
 
-For other installation options, see :ref:`other installation options <todo>`.
+For other installation options, see :ref:`other installation options <Other installation methods>`.
 
 Test installation
 #################
@@ -196,6 +196,8 @@ Dependencies to build from source
 - Generation tool (Ninja, make, ...)
 - C/C++ compiler
 - libusb1 development package
+
+.. _raspbian:
 
 Ubuntu, Raspberry Pi OS, ... (Debian based systems)
 ---------------------------------------------------

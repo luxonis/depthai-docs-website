@@ -32,6 +32,7 @@ release = '0.3.0.0'
 # ones.
 extensions = [
     "sphinx.ext.intersphinx",
+    "sphinx.ext.autosectionlabel",
     "sphinx_rtd_theme",
 ]
 

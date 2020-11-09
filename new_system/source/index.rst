@@ -11,5 +11,6 @@ Welcome to DepthAI's documentation!
    :caption: Contents:
 
    pages/api.rst
+   pages/faq.rst
    pages/support.rst
 
