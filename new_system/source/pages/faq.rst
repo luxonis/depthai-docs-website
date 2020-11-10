@@ -1,4 +1,4 @@
-DepthAI FAQs & How-To
+FAQs & How-To
 =====================
 
 Why Does DepthAI Exist?

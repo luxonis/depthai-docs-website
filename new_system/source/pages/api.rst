@@ -1,4 +1,4 @@
-DepthAI Python API
+Python API
 ==================
 
 Instructions for installing, upgrading, and using the DepthAI Python API.

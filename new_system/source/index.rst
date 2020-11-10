@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to DepthAI's documentation!
-========================================
+===================================
 
 .. toctree::
    :maxdepth: 2
@@ -13,4 +13,4 @@ Welcome to DepthAI's documentation!
    pages/api.rst
    pages/faq.rst
    pages/support.rst
-
+   pages/training.rst
