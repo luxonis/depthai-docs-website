@@ -236,7 +236,7 @@ To do so, use the command below - and be sure to replace the :code:`<commit_sha>
   python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit_sha>
 
 Using/Testing a Specific Branch/PR
-***************************
+**********************************
 
 From time to time, it may be of interest to use a specific branch.  This may occur, for example,
 because we have listened to your feature request and implemented a quick implementation in a branch.

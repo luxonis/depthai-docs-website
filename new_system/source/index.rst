@@ -13,4 +13,5 @@ Welcome to DepthAI's documentation!
    pages/api.rst
    pages/faq.rst
    pages/support.rst
+   pages/products.rst
    pages/training.rst

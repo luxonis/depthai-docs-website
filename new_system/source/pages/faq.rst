@@ -810,6 +810,7 @@ And we have also since done several optimizations since these measurements, so t
 .. list-table:: Worst-case estimates of stream latencies
   :widths: 25 50 25
   :header-rows: 1
+  :align: center
 
   * - measured
     - requested
@@ -957,6 +958,7 @@ DepthAI and MegaAI are capable of both Gen1 and Gen2 USB3 - but not all USB3 hos
 .. list-table::
   :widths: 33 33 33
   :header-rows: 1
+  :align: center
 
   * - Resolution
     - USB3 Gen1 (5gbps)
