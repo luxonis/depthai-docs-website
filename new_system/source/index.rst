@@ -23,7 +23,7 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="/_static/images/products/bw1097.jpg" alt="RPi Compute" />
+                  <img class="item-img" src="../_images/bw1097.jpg" alt="RPi Compute" />
                </div>
                <div class="item-body">
                   <h5 class="item-title">RPi Compute</h5>
@@ -40,7 +40,7 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="/_static/images/products/bw1094.jpg" alt="RPi HAT"/>
+                  <img class="item-img" src="../_images/bw1094.jpg" alt="RPi HAT"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">RPi HAT</h5>
@@ -59,7 +59,7 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="/_static/images/products/bw1098ffc.jpg" alt="USB3 | Modular Cameras"/>
+                  <img class="item-img" src="../_images/bw1098ffc.jpg" alt="USB3 | Modular Cameras"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">USB3 | Modular Cameras</h5>
@@ -76,7 +76,7 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="/_static/images/products/bw1098obc.png" alt="RPi HAT"/>
+                  <img class="item-img" src="../_images/bw1098obc.png" alt="RPi HAT"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">USB3 | Onboard Cameras</h5>
@@ -95,7 +95,7 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="/_static/images/products/bw1099.jpg" alt="System on Module"/>
+                  <img class="item-img" src="../_images/bw1099.jpg" alt="System on Module"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">System on Module</h5>
@@ -112,7 +112,7 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="/_static/images/products/bw1093.png" alt="MegaAI | Tiny but Mighty"/>
+                  <img class="item-img" src="../_images/bw1093.png" alt="MegaAI | Tiny but Mighty"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">MegaAI | Tiny but Mighty</h5>
