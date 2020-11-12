@@ -144,5 +144,28 @@ Please visit :ref:`Support` page to see how to reach out to us!
    pages/api.rst
    pages/faq.rst
    pages/support.rst
+   pages/troubleshooting.rst
    pages/products.rst
    pages/training.rst
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Tutorials:
+
+   pages/tutorials/hello_world.rst
+   pages/tutorials/pretrained_openvino.rst
+   pages/tutorials/multiple.rst
+   pages/tutorials/local_convert_openvino.rst
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Code samples:
+
+   pages/samples/minimal.rst
+   pages/samples/color_camera_selfie.rst
+   pages/samples/mono_camera_selfie.rst
+   pages/samples/object_tracker.rst
+   pages/samples/helper_depthai_class.rst
+   pages/samples/helper_depthai_generator.rst

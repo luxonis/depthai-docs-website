@@ -5,6 +5,10 @@
     margin-bottom: 50px;
 }
 
+video {
+    max-width: 100%;
+}
+
 .items-col {
     width: 50%
 }
