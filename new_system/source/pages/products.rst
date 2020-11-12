@@ -1,6 +1,8 @@
 Products
 ========
 
+.. _bw1097:
+
 BW1097 - RaspberryPi Compute Module
 ###################################
 
@@ -108,8 +110,14 @@ If you'd like to set up DetphAI on your own (say bigger) SD-Card, there are two 
     - `config.txt <https://drive.google.com/open?id=1cg8OZVFwq6NB1judrsUNV6T7YIcYX1eD>`_ - For enabling the 3.5mm headphone jack
 
 
+.. _bw1094:
+
 BW1094 - RaspberryPi Hat
 ########################
+
+
+.. image:: /_static/images/products/bw1094.jpg
+  :alt: RPi HAT Labeled
 
 The Raspberry Pi HAT Edition allows using the Raspberry Pi you already have and passes through the Pi GPIO so that these are still accessible and usable in your system(s). Its modular cameras allow mounting to your platform where you need them, up to six inches away from the HAT.
 
@@ -127,7 +135,7 @@ Board Layout
 ************
 
 
-.. image:: /_static/images/products/bw1094.jpg
+.. image:: /_static/images/products/bw1094-layout.jpg
   :alt: RPi HAT Labeled
 
 .. list-table:: Reference table
@@ -146,9 +154,9 @@ Board Layout
 What's in the box?
 ******************
 
-* BW1094 Carrier Board
-* Pre-flashed µSD card loaded with Raspbian 10 and DepthAI
-* USB3C cable (6 in.)
+- BW1094 Carrier Board
+- Pre-flashed µSD card loaded with Raspbian 10 and DepthAI
+- USB3C cable (6 in.)
 
 Setup
 *****
@@ -178,8 +186,13 @@ Follow the steps below to setup your DepthAI device.
     See :ref:`Verify installation`
 
 
+.. _bw1098ffc:
+
 BW1098FFC - USB3 with Modular Cameras
 #####################################
+
+.. image:: /_static/images/products/bw1098ffc.jpg
+  :alt: BW1098FFC
 
 Use DepthAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could
 handle tens of DepthAIs plugged in (the effective limit is how many USB ports the host can handle).
@@ -199,7 +212,7 @@ Requirements
 Board Layout
 ************
 
-.. image:: /_static/images/products/bw1098ffc.jpg
+.. image:: /_static/images/products/bw1098ffc-layout.jpg
   :alt: BW1098FFC layout
 
 .. list-table:: Reference table
@@ -218,9 +231,9 @@ Board Layout
 What's in the box?
 ******************
 
-* BW1098FFC Carrier Board
-* USB3C cable (6 ft.)
-* Power Supply
+- BW1098FFC Carrier Board
+- USB3C cable (6 ft.)
+- Power Supply
 
 
 Setup
@@ -272,6 +285,8 @@ Follow the steps below to setup your DepthAI device.
     See :ref:`Verify installation`
 
 
+.. _bw1098obc:
+
 BW1098OBC - USB3 with Onboard Cameras
 #####################################
 
@@ -290,9 +305,9 @@ Requirements
 What's in the box?
 ******************
 
-* BW1098OBC Carrier Board
-* USB3C cable (6 ft.)
-* Power Supply
+- BW1098OBC Carrier Board
+- USB3C cable (6 ft.)
+- Power Supply
 
 Setup
 *****
@@ -304,6 +319,9 @@ Follow the steps below to setup your DepthAI device.
 #. **Run example script**.
 
   See :ref:`Verify installation`
+
+
+.. _bw1099:
 
 BW1099 - System on Module
 #########################
@@ -342,6 +360,44 @@ These are in Altium Designer format.
 So if you use Altium Designer, you're in luck!  You can quickly/easily integrate the DepthAI SoM into your products with
 proven and up-to-date designs (the same designs you can buy `here <https://shop.luxonis.com/>`_).
 
+
+.. _bw1093:
+
+BW1093 - MegaAI 4K USB3 AI Camera
+#################################
+
+.. image:: /_static/images/products/bw1093.png
+  :alt: MegaAI 4K USB3 AI Camera
+
+Use megaAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could handle
+tens of megaAIs plugged in (the effective limit is how many USB ports the host can handle).
+
+And since megaAI can encode 1080p and 4K video (see :ref:`here <How do I Record (or Encode) Video with DepthAI?>`) you can now even save 4K video on a Pi Zero!
+
+Requirements
+************
+
+- USB3C cable
+- USB2 or USB3 port on the host
+
+What's in the box?
+******************
+
+- BW1098OBC Carrier Board
+- USB3C cable (6 ft.)
+
+Setup
+*****
+
+#. **Connect your host to the MegaAI**
+
+#. **Run example script**.
+
+  See :ref:`Verify installation`
+
+
+.. _color_camera:
+
 DepthAI Color Camera
 ####################
 
@@ -353,14 +409,17 @@ DepthAI Color Camera
 Specifications
 **************
 
-* 4K, 60 Hz Video
-* 12 MP Stills
-* Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
-* 4056 x 3040 pixels
-* 81 DFOV°
-* Lens Size: 1/2.3 inch
-* AutoFocus: 8 cm - ∞
-* F-number: 2.0
+- 4K, 60 Hz Video
+- 12 MP Stills
+- Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
+- 4056 x 3040 pixels
+- 81 DFOV°
+- Lens Size: 1/2.3 inch
+- AutoFocus: 8 cm - ∞
+- F-number: 2.0
+
+
+.. _mono_camera:
 
 DepthAI Mono Camera
 ###################
@@ -373,15 +432,15 @@ For applications where Depth + AI are needed, we have modular, high-frame-rate, 
 Specifications
 **************
 
-* 720p, 120 Hz Video
-* Synchronized Global Shutter
-* Excellent Low-light
-* Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
-* 1280 x 720 pixels
-* 83 DFOV°
-* Lens Size: 1/2.3 inch
-* Fixed Focus: 19.6 cm - ∞
-* F-number: 2.2
+- 720p, 120 Hz Video
+- Synchronized Global Shutter
+- Excellent Low-light
+- Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
+- 1280 x 720 pixels
+- 83 DFOV°
+- Lens Size: 1/2.3 inch
+- Fixed Focus: 19.6 cm - ∞
+- F-number: 2.2
 
 Calibration
 ###########

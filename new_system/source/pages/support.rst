@@ -1,5 +1,5 @@
 Support
-===============
+=======
 
 Running into issues or have questions? We’re here to help.
 

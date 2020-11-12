@@ -3,11 +3,142 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to DepthAI's documentation!
-===================================
+DepthAI's documentation
+=======================
+
+*Learn how to setup your DepthAI device, view tutorials, code samples, and more.*
+
+DepthAI is the embedded spatial AI platform that helps you build products with true realtime 3D object localization
+(think 3D object detection) and tracking. DepthAI offloads AI, depth vision and more - processed direct from built-in
+cameras - freeing your host to process application-specific data.
+
+Setup your device
+#################
+
+.. raw:: html
+
+   <div class="items-container">
+      <div class="items-row">
+         <!-- BW1097 -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="/_static/images/products/bw1097.jpg" alt="RPi Compute" />
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">RPi Compute</h5>
+                  <p class="item-descr">
+                     Complete DepthAI system including Raspberry Pi Compute Module, microSD card pre-loaded with Raspbian 10 and DepthAI Python interface.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="/pages/products.html#bw1097" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+         <!-- BW1094 -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="/_static/images/products/bw1094.jpg" alt="RPi HAT"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">RPi HAT</h5>
+                  <p class="item-descr">
+                     DepthAI HAT for Raspberry Pi (3, 3B+, and 4). Add your choice of cameras.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="/pages/products.html#bw1094" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+      </div>
+      <div class="items-row">
+         <!-- BW1098FFC -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="/_static/images/products/bw1098ffc.jpg" alt="USB3 | Modular Cameras"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">USB3 | Modular Cameras</h5>
+                  <p class="item-descr">
+                     DepthAI for the host of your choice, with modular cameras for easy integration onto/into your platform and custom stereo baselines.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="/pages/products.html#bw1098ffc" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+         <!-- BW1098OBC -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="/_static/images/products/bw1098obc.png" alt="RPi HAT"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">USB3 | Onboard Cameras</h5>
+                  <p class="item-descr">
+                     DepthAI for the host of your choice, with an onboard color camera module and global-shutter synchronized stereo pair.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="/pages/products.html#bw1098obc" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+      </div>
+      <div class="items-row">
+         <!-- BW1099 -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="/_static/images/products/bw1099.jpg" alt="System on Module"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">System on Module</h5>
+                  <p class="item-descr">
+                     Allows you to integrate the power of DepthAI into your own products.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="/pages/products.html#bw1099" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+         <!-- BW1098OBC -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="/_static/images/products/bw1093.png" alt="MegaAI | Tiny but Mighty"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">MegaAI | Tiny but Mighty</h5>
+                  <p class="item-descr">
+                     MegaAI is a tiny USB3 4K AI camera featuring 4K/30 h.265 encoding and powerful hardware accelerated ML/CV.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="/pages/products.html#bw1093" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+      </div>
+   </div>
+
+Got questions?
+##########
+
+We're always happy to help with code or other questions you might have.
+
+Please visit :ref:`Support` page to see how to reach out to us!
+
 
 .. toctree::
    :maxdepth: 1
+   :hidden:
    :caption: Contents:
 
    pages/api.rst
