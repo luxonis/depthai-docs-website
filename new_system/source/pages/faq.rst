@@ -23,7 +23,7 @@ or with custom models using our completely-free training flow (how-to `here <htt
 
 An example of a custom-trained model is below, where DepthAI is used by a robot to autonomously pick and sort strawberries by ripeness.
 
-.. image:: _static/images/faq/strawberry.png
+.. image:: /_static/images/faq/strawberry.png
   :alt: Spatial AI Strawberry Example
 
 It was trained to do so over the course of a weekend, by a student (for a student project), using our free online training resources.
@@ -244,7 +244,7 @@ The command to get the above output is
 
 Here is a single-camera version (megaAI) running with :code:`pytyon3 depthai_demo.py -dd` (to disable showing depth info):
 
-.. image:: _static/images/faq/lego.png
+.. image:: /_static/images/faq/lego.png
   :alt: DepthAI on Mac
   :target: https://www.youtube.com/watch?v=SWDQekolM8o
 
@@ -556,7 +556,7 @@ For DepthAI units which use modular cameras, the minimum baseline is 2.5cm (see 
 
 The minimum baseline is set simply by how close the two boards can be spaced before they physically interfere:
 
-.. image:: _static/images/faq/modular-stereo-cam-min-dist.png
+.. image:: /_static/images/faq/modular-stereo-cam-min-dist.png
   :alt: Jetson Tx2
 
 Stereo Neural Inference Mode
@@ -1027,7 +1027,7 @@ The 'hyperfocal distance' (H) of DepthAI/megaAI's color camera module is quite c
 
 From WIKIPEDIA, `here <https://en.wikipedia.org/wiki/Hyperfocal_distance>`_, the hyperfocal distance is as follows:
 
-.. image:: _static/images/faq/hyperfocal.png
+.. image:: /_static/images/faq/hyperfocal.png
   :alt: Hyperfocal Distance
 
 Where:
@@ -1185,10 +1185,10 @@ Can I use DepthAI with Raspberry Pi Zero?
 Yes, DepthAI is fully functional on it, you can see the example below:
 
 
-.. image:: _static/images/faq/pizerosetup.png
+.. image:: /_static/images/faq/pizerosetup.png
   :alt: pizerosetup
 
-.. image:: _static/images/faq/pizeroruntime.png
+.. image:: /_static/images/faq/pizeroruntime.png
   :alt: pizeroruntime
 
 Thanks to `Connor Christie <https://github.com/ConnorChristie>`_ for his help building this setup!

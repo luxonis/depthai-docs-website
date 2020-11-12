@@ -3,7 +3,7 @@ Multiple DepthAI per Host
 
 Learn how to use the DepthAI :code:`-dev` option to discover the DepthAI connected to your system, and use them individually.
 
-.. image:: _static/images/tutorials/multiple/setup.jpg
+.. image:: /_static/images/tutorials/multiple/setup.jpg
   :alt: face
 
 Shown on the left is Luxonis `uAI (BW1093) <https://shop.luxonis.com/products/bw1093>`_ which is actually plugged into
