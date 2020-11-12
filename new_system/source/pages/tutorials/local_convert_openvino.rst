@@ -6,7 +6,7 @@ low-powered Raspberry Pi. I'll introduce you to the OpenVINO toolset, the Open M
 `face-detection-retail-0004 <https://github.com/opencv/open_model_zoo/blob/2019_R3/models/intel/face-detection-retail-0004/description/face-detection-retail-0004.md>`_
 model), and show you how to generate the files needed to run model inference on your DepthAI board.
 
-.. image:: /_static/images/tutorials/local_convert_openvino/face.png
+.. image:: _static/images/tutorials/local_convert_openvino/face.png
   :alt: face
 
 Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introduction of why we need these tools.
@@ -82,7 +82,7 @@ You should see output similar to:
 Verify that you see :code:`releases_2020_1` in your output. If you do, move on. If you are on a different version,
 goto the `OpenVINO site <https://docs.openvinotoolkit.org/2019_R3/index.html>`_ and download the :code:`2020.1` version for your OS:
 
-.. image:: /_static/images/tutorials/local_convert_openvino/openvino_version.png
+.. image:: _static/images/tutorials/local_convert_openvino/openvino_version.png
   :alt: face
 
 Check if the Model Downloader is installed
@@ -322,7 +322,7 @@ And that's all!
 
 You should see output annotated output similar to:
 
-.. image:: /_static/images/tutorials/local_convert_openvino/face.png
+.. image:: _static/images/tutorials/local_convert_openvino/face.png
   :alt: face
 
 Reviewing the flow

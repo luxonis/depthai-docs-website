@@ -4,7 +4,7 @@ Use a Pre-trained OpenVINO model
 In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you
 to the OpenVINO model zoo and running models from this 'zoo'.
 
-.. image:: /_static/images/tutorials/pretrained_openvino/face-1.png
+.. image:: _static/images/tutorials/pretrained_openvino/face-1.png
   :alt: preview
 
 Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introduction of why we need these tools.
@@ -72,7 +72,7 @@ This will then run the a typical demo MobileNetv1 SSD object detector trained on
 
 I ran this on my iMac (OS X setup [here](https://docs.luxonis.com/api/#mac-os-x)) with a [microAI](https://shop.luxonis.com/products/bw1093) sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
 
-.. image:: /_static/images/tutorials/pretrained_openvino/tvmonitor.png
+.. image:: _static/images/tutorials/pretrained_openvino/tvmonitor.png
   :alt: iMac
 
 Run model
@@ -88,7 +88,7 @@ To use this model, simply specify the name of the model to be run with the :code
 
 Execute the script to see an annotated video stream of face detections:
 
-.. image:: /_static/images/tutorials/pretrained_openvino/face-2.png
+.. image:: _static/images/tutorials/pretrained_openvino/face-2.png
   :alt: face
 
 It's that easy.  Substitute your face for mine, of course.
@@ -98,10 +98,10 @@ and run them by their name, just like above.
 
 Now take some time to play around with the model.  You can for example check how far away the model can detect your face:
 
-.. image:: /_static/images/tutorials/pretrained_openvino/face-3.png
+.. image:: _static/images/tutorials/pretrained_openvino/face-3.png
   :alt: face
 
-.. image:: /_static/images/tutorials/pretrained_openvino/face-4.png
+.. image:: _static/images/tutorials/pretrained_openvino/face-4.png
   :alt: face
 
 In the latter image you can see that I'm quite back-lit, which is one of the main challenges in face detection
@@ -139,7 +139,7 @@ Let's try out :code:`face-detection-adas-0001`, which is intended for detecting 
 
   python3 depthai_demo.py -dd -cnn face-detection-adas-0001
 
-.. image:: /_static/images/tutorials/pretrained_openvino/face-5.png
+.. image:: _static/images/tutorials/pretrained_openvino/face-5.png
   :alt: face
 
 So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
@@ -178,7 +178,7 @@ So let's run that same command, but with that line omitted, such that 3D results
 
   python3 depthai_demo.py -cnn face-detection-adas-0001
 
-.. image:: /_static/images/tutorials/pretrained_openvino/face-6.png
+.. image:: _static/images/tutorials/pretrained_openvino/face-6.png
   :alt: face
 
 And there you find the 3D position of my mug!

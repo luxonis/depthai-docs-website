@@ -18,7 +18,7 @@ Demo
 
 **Captured image**
 
-.. image:: /_static/images/samples/face_rgb_selfie.png
+.. image:: _static/images/samples/face_rgb_selfie.png
   :alt: captured
 
 Source code

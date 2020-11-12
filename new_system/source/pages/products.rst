@@ -6,7 +6,7 @@ Products
 BW1097 - RaspberryPi Compute Module
 ###################################
 
-.. image:: /_static/images/products/bw1097.jpg
+.. image:: _static/images/products/bw1097.jpg
   :alt: RaspberryPi Compute Module
 
 The Raspberry Pi Compute Module Edition comes with everything needed: pre-calibrated stereo cameras on-board with a 4K,
@@ -21,10 +21,10 @@ Then you can modify the Python code with one-line changes, replacing the neural 
 Board Layout
 ************
 
-.. image:: /_static/images/products/bw1097-top.jpg
+.. image:: _static/images/products/bw1097-top.jpg
   :alt: 1097 top
 
-.. image:: /_static/images/products/bw1097-bottom.jpg
+.. image:: _static/images/products/bw1097-bottom.jpg
   :alt: 1097 bottom
 
 .. list-table:: Reference table
@@ -75,7 +75,7 @@ To get started:
 
     On boot, the Pi will run `a Python demo script <https://github.com/luxonis/depthai/blob/main/depthai_demo.py>`_ that displays a video stream annotated with object localization metadata:
 
-    .. image:: /_static/images/products/bw1097-detection.png
+    .. image:: _static/images/products/bw1097-detection.png
       :alt: 1097 top
 
     In the screenshot above, DepthAI identified a tv monitor (1.286 m from the camera) and a chair (3.711 m from the camera).
@@ -116,7 +116,7 @@ BW1094 - RaspberryPi Hat
 ########################
 
 
-.. image:: /_static/images/products/bw1094.jpg
+.. image:: _static/images/products/bw1094.jpg
   :alt: RPi HAT Labeled
 
 The Raspberry Pi HAT Edition allows using the Raspberry Pi you already have and passes through the Pi GPIO so that these are still accessible and usable in your system(s). Its modular cameras allow mounting to your platform where you need them, up to six inches away from the HAT.
@@ -135,7 +135,7 @@ Board Layout
 ************
 
 
-.. image:: /_static/images/products/bw1094-layout.jpg
+.. image:: _static/images/products/bw1094-layout.jpg
   :alt: RPi HAT Labeled
 
 .. list-table:: Reference table
@@ -191,7 +191,7 @@ Follow the steps below to setup your DepthAI device.
 BW1098FFC - USB3 with Modular Cameras
 #####################################
 
-.. image:: /_static/images/products/bw1098ffc.jpg
+.. image:: _static/images/products/bw1098ffc.jpg
   :alt: BW1098FFC
 
 Use DepthAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could
@@ -212,7 +212,7 @@ Requirements
 Board Layout
 ************
 
-.. image:: /_static/images/products/bw1098ffc-layout.jpg
+.. image:: _static/images/products/bw1098ffc-layout.jpg
   :alt: BW1098FFC layout
 
 .. list-table:: Reference table
@@ -255,7 +255,7 @@ Follow the steps below to setup your DepthAI device.
 
     Once the flexible flat cables are securely latched, you should see something like this:
 
-    .. image:: /_static/images/products/bw1098ffc-connected.jpg
+    .. image:: _static/images/products/bw1098ffc-connected.jpg
       :alt: BW1098FFC Connected to Modular Cameras
 
 
@@ -264,7 +264,7 @@ Follow the steps below to setup your DepthAI device.
       Note when looking at the connectors, the blue stripe should be facing up.
 
 
-    .. image:: /_static/images/products/modular-camera-sides.jpg
+    .. image:: _static/images/products/modular-camera-sides.jpg
       :alt: BW1098FFC modular camera top side
 
 
@@ -290,7 +290,7 @@ Follow the steps below to setup your DepthAI device.
 BW1098OBC - USB3 with Onboard Cameras
 #####################################
 
-.. image:: /_static/images/products/bw1098obc.png
+.. image:: _static/images/products/bw1098obc.png
   :alt: BW1098OBC
 
 Use DepthAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could
@@ -326,7 +326,7 @@ Follow the steps below to setup your DepthAI device.
 BW1099 - System on Module
 #########################
 
-.. image:: /_static/images/products/bw1099.jpg
+.. image:: _static/images/products/bw1099.jpg
   :alt: BW1099
 
 All DepthAI editions utilize the System on Module (SoM), which can also be used by itself to integrate into your own designs.
@@ -366,7 +366,7 @@ proven and up-to-date designs (the same designs you can buy `here <https://shop.
 BW1093 - MegaAI 4K USB3 AI Camera
 #################################
 
-.. image:: /_static/images/products/bw1093.png
+.. image:: _static/images/products/bw1093.png
   :alt: MegaAI 4K USB3 AI Camera
 
 Use megaAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could handle
@@ -401,7 +401,7 @@ Setup
 DepthAI Color Camera
 ####################
 
-.. image:: /_static/images/products/color-camera.jpg
+.. image:: _static/images/products/color-camera.jpg
   :alt: Color Camera
 
 4K, 60Hz video camera with 12 MP stills and 4056 x 3040 pixel resolution.
@@ -424,7 +424,7 @@ Specifications
 DepthAI Mono Camera
 ###################
 
-.. image:: /_static/images/products/mono-cameras.jpg
+.. image:: _static/images/products/mono-cameras.jpg
   :alt: Mono Cameras
 
 For applications where Depth + AI are needed, we have modular, high-frame-rate, excellent-depth-quality cameras which can be separated to a baseline of up to 30 cm).
@@ -562,7 +562,7 @@ define the baseline between the stereo cameras, and between the left camera and 
 So for example if you setup your BW1098FFC with a stereo baseline of 2.5cm, with the color camera exactly between
 the two grayscale cameras, as shown below, use the JSON further below:
 
-.. image:: /_static/images/products/mono-cameras-min-dist.png
+.. image:: _static/images/products/mono-cameras-min-dist.png
   :alt: Color Camera
 
 .. code-block:: json
@@ -625,7 +625,7 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
 
   The script launches a window, starts the cameras, and displays a depth video stream:
 
-  .. image:: /_static/images/products/calibration-depth.png
+  .. image:: _static/images/products/calibration-depth.png
     :alt: Depth projection
 
     In the screenshot above, the hand is closer to the camera.
@@ -698,7 +698,7 @@ We'll execute a DepthAI example Python script to ensure your setup is configured
 
   The script launches a window, starts the cameras, and displays a video stream annotated with object localization metadata:
 
-  .. image:: /_static/images/products/bw1097-detection.png
+  .. image:: _static/images/products/bw1097-detection.png
     :alt: Depth projection
 
   In the screenshot above, DepthAI identified a tv monitor (1.286 m from the camera) and a chair (3.711 m from the camera).
