@@ -157,6 +157,7 @@ Please visit :ref:`Support` page to see how to reach out to us!
    pages/tutorials/pretrained_openvino.rst
    pages/tutorials/multiple.rst
    pages/tutorials/local_convert_openvino.rst
+   pages/tutorials/windows_install.rst
 
 .. toctree::
    :maxdepth: 1
