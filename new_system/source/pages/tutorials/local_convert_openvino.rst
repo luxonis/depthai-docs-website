@@ -3,7 +3,7 @@ Local OpenVINO Model Conversion
 
 In this tutorial, you'll learn how to convert OpenVINO IR models into the format required to run on DepthAI, even on a
 low-powered Raspberry Pi. I'll introduce you to the OpenVINO toolset, the Open Model Zoo (where we'll download the
-`face-detection-retail-0004 <https://github.com/opencv/open_model_zoo/blob/2019_R3/models/intel/face-detection-retail-0004/description/face-detection-retail-0004.md>`_
+`face-detection-retail-0004 <https://github.com/opencv/open_model_zoo/blob/2019_R3/models/intel/face-detection-retail-0004/description/face-detection-retail-0004.md>`__
 model), and show you how to generate the files needed to run model inference on your DepthAI board.
 
 .. image:: /_static/images/tutorials/local_convert_openvino/face.png
@@ -16,14 +16,14 @@ What is OpenVINO?
 
 Under-the-hood, DepthAI uses the Intel tecnnology to perform high-speed model inference. However, you can't just dump
 your neural net into the chip and get high-performance for free. That's where
-`OpenVINO <https://docs.openvinotoolkit.org/>`_ comes in. OpenVINO is a free toolkit that converts a deep learning
+`OpenVINO <https://docs.openvinotoolkit.org/>`__ comes in. OpenVINO is a free toolkit that converts a deep learning
 model into a format that runs on Intel Hardware. Once the model is converted, it's common to see Frames Per Second
 (FPS) improve by 25x or more. Are a couple of small steps worth a 25x FPS increase? Often, the answer is yes!
 
 What is the Open Model Zoo?
 ###########################
 
-The `Open Model Zoo <https://github.com/opencv/open_model_zoo>`_ is a library of freely-available pre-trained models.
+The `Open Model Zoo <https://github.com/opencv/open_model_zoo>`__ is a library of freely-available pre-trained models.
 The Zoo also contains scripts for downloading those models into a compile-ready format to run on DepthAI.
 
 DepthAI is able to run many of the object detection models in the Zoo.
@@ -33,7 +33,7 @@ Install OpenVINO
 
 .. warning::
 
-  If you have OpenVINO installed or want to follow `official installation <https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html>`_, **skip this step**.
+  If you have OpenVINO installed or want to follow `official installation <https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html>`__, **skip this step**.
 
   Please note that the following install instructions are for **Ubuntu 18.04** OS, if you intend to use other OS, follow
   the official OpenVINO installation
@@ -80,7 +80,7 @@ You should see output similar to:
   releases_2020_1_InferenceEngine_37988
 
 Verify that you see :code:`releases_2020_1` in your output. If you do, move on. If you are on a different version,
-goto the `OpenVINO site <https://docs.openvinotoolkit.org/2019_R3/index.html>`_ and download the :code:`2020.1` version for your OS:
+goto the `OpenVINO site <https://docs.openvinotoolkit.org/2019_R3/index.html>`__ and download the :code:`2020.1` version for your OS:
 
 .. image:: /_static/images/tutorials/local_convert_openvino/openvino_version.png
   :alt: face
@@ -107,7 +107,7 @@ Install Open Model Zoo Downloader
 *********************************
 
 If the downloader tools weren't found, we'll install the tools by cloning the
-`Open Model Zoo Repo <https://github.com/openvinotoolkit/open_model_zoo/blob/2020.1/tools/downloader/README.md>`_ and
+`Open Model Zoo Repo <https://github.com/openvinotoolkit/open_model_zoo/blob/2020.1/tools/downloader/README.md>`__ and
 installing the tool dependencies.
 
 Start a terminal session and run the following commands in your terminal:
@@ -157,7 +157,7 @@ Download the face-detection-retail-0004 model
 #############################################
 
 We've installed everything we need to download models from the Open Model Zoo! We'll now use the
-`Model Downloader <https://github.com/opencv/open_model_zoo/blob/2019_R3/tools/downloader/README.md>`_ to download the
+`Model Downloader <https://github.com/opencv/open_model_zoo/blob/2019_R3/tools/downloader/README.md>`__ to download the
 :code:`face-detection-retail-0004` model files. Run the following in your terminal:
 
 .. code-block:: bash
@@ -345,6 +345,6 @@ The flow we walked through works for other pre-trained object detection models i
 #. :ref:`Create the blob config file` based on the model output.
 #. Use this model in your script
 
-You’re on your way! You can find the `complete code for this tutorial on GitHub. <https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py>`_
+You’re on your way! You can find the `complete code for this tutorial on GitHub. <https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py>`__
 
 

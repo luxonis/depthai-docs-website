@@ -6,8 +6,8 @@ Learn how to use the DepthAI :code:`-dev` option to discover the DepthAI connect
 .. image:: /_static/images/tutorials/multiple/setup.jpg
   :alt: face
 
-Shown on the left is Luxonis `uAI (BW1093) <https://shop.luxonis.com/products/bw1093>`_ which is actually plugged into
-a `Raspberry Pi Compute Module Edition (BW1097) <https://shop.luxonis.com/products/depthai-rpi-compute-module-edition>`_.
+Shown on the left is Luxonis `uAI (BW1093) <https://shop.luxonis.com/products/bw1093>`__ which is actually plugged into
+a `Raspberry Pi Compute Module Edition (BW1097) <https://shop.luxonis.com/products/depthai-rpi-compute-module-edition>`__.
 
 So in this case, everything is running on the (single) Raspberry Pi 3B+ which is in the back of the BW1097.
 
@@ -67,7 +67,7 @@ And since DepthAI does all the heavy lifting, you can usually use quite a
 few of them with very little burden to the host.
 
 And it's worth noting that you can always disable the video stream by only only requesting :code:`metaout`
-`here <https://github.com/luxonis/depthai-python-extras/blob/232d1e7529e0278b75192d0870a969b6c0e2d1ae/depthai.py#L104>`_.
+`here <https://github.com/luxonis/depthai-python-extras/blob/232d1e7529e0278b75192d0870a969b6c0e2d1ae/depthai.py#L104>`__.
 
 So if you're using the metadata to say, drive a robot or make decisions with code, and the video isn't needed,
 you can do this to substantially reduce the burden on the host - as since all the neural inference work is done on

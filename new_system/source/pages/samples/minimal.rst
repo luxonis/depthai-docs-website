@@ -113,7 +113,7 @@ Below, you'll se the part that's parsing the results from neural network
 Neural network configuration we specified earlier, in :code:`blob_file_config` field, allows DepthAI to prepare
 results in a correct format and remove incorrect entries (e.g. those with confidence below threshold).
 
-Each object in this array is a :ref:`Detection` instance, which we can easily use later in the code
+Each object in this array is a :class:`Detection` instance, which we can easily use later in the code
 
 Displaying the frames
 *********************

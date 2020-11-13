@@ -4,7 +4,7 @@ FAQs & How-To
 Why Does DepthAI Exist?
 #######################
 
-In trying to solve an Embedded :ref:`Spatial AI<spartialai>` problem (details `here <https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian>`_),
+In trying to solve an Embedded :ref:`Spatial AI<spartialai>` problem (details `here <https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian>`__),
 we discovered that although the perfect chip existed, there was no platform (hardware, firmware, or software) which
 allowed the chip to be used to solve such an Embedded Spatial AI problem.
 
@@ -18,8 +18,8 @@ provides turnkey embedded [Spatial AI](#spatialai) and hardware-accelerated comp
 
 It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.
 
-It can be used with off-the-shelf AI models (how-to `here <https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/>`_)
-or with custom models using our completely-free training flow (how-to `here <https://docs.luxonis.com/tutorials/object_det_mnssv2_training/>`_).
+It can be used with off-the-shelf AI models (how-to :ref:`here <Use a Pre-trained OpenVINO model>`)
+or with custom models using our completely-free training flow (how-to `here <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb>`__).
 
 An example of a custom-trained model is below, where DepthAI is used by a robot to autonomously pick and sort strawberries by ripeness.
 
@@ -39,7 +39,7 @@ See the summary of our (MIT-Licensed) Githubs :ref:`below <githubs>`, which incl
 What is SpatialAI?  What is 3D Object Localization?
 ###################################################
 
-First, it is necessary to define what '`Object Detection <https://pjreddie.com/darknet/yolo/>`_' is:
+First, it is necessary to define what '`Object Detection <https://pjreddie.com/darknet/yolo/>`__' is:
 
 .. image:: https://www.crowdsupply.com/img/7c80/depthai-dog-porch-ai_png_project-body.jpg
   :alt: Object Detection
@@ -103,7 +103,7 @@ A visualization of this mode is below.
   :target: https://www.youtube.com/watch?v=sO1EU5AUq4U
   :alt: Monocular AI plus Stereo Depth for Spatial AI
 
-In this case the neural inference (20-class object detection per `here <https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model>`_)
+In this case the neural inference (20-class object detection per :ref:`here <Run DepthAI Default Model>`)
 was run on the RGB camera and the results were overlaid onto the depth stream.
 The depthai reference Python script can be used to show this out (:code:`python3 depthai_demo.py -s metaout depth -bb` is the command used to produce this video):
 
@@ -179,29 +179,29 @@ We named it :code:`mega` because it's tiny:
 
 megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Githubs), it is simply the tiny single-camera variant.
 
-You can buy megaAI from our distributors and also our online store `here <https://shop.luxonis.com/products/bw1093>`_.
+You can buy megaAI from our distributors and also our online store `here <https://shop.luxonis.com/products/bw1093>`__.
 
 Which Model Should I Order?
 ###########################
 
 Embedded CV/AI requires all sorts of different shapes/sizes/permutations.  And so we have a variety of options to meet these needs.  Below is a quick/dirty summary for the ~10,000-foot view of the options:
 
-- **USB3C with Onboard Cameras** (`BW1098OBC <https://shop.luxonis.com/products/bw10980bc>`_) - Great for quickly using DepthAI with a computer.
+- **USB3C with Onboard Cameras** (`BW1098OBC <https://shop.luxonis.com/products/bw10980bc>`__) - Great for quickly using DepthAI with a computer.
   All cameras are onboard, and it has a USB3C connection which can be used with any USB3 or USB2 host.
 
-- **USB3C with Modular Cameras** (`BW1098FFC <https://shop.luxonis.com/products/depthai-usb3-edition>`_) - Great for prototyping flexibility.
+- **USB3C with Modular Cameras** (`BW1098FFC <https://shop.luxonis.com/products/depthai-usb3-edition>`__) - Great for prototyping flexibility.
   Since the cameras are modular, you can place them at various stereo baselines.  This flexibility comes with a trade -
   you have to figure out how/where you will mount them, and then once mounted, do a stereo calibration.
   This is not a TON of work, but keep this in mind, that it's not 'plug and play' like other options -
   it's more for applications that require custom mounting, custom baseline, or custom orientation of the cameras.
 
-- **MegaAI Single Camera** (`BW1093 <https://shop.luxonis.com/products/bw1093>`_) - This is just like the BW1098OBC,
+- **MegaAI Single Camera** (`BW1093 <https://shop.luxonis.com/products/bw1093>`__) - This is just like the BW1098OBC,
   but for those who don't need depth information.  Single, small, plug-and-play USB3C AI/CV camera.
 
-- **Raspberry Pi Compute Module Edition** (`BW1097 <https://shop.luxonis.com/products/depthai-rpi-compute-module-edition>`_) -
+- **Raspberry Pi Compute Module Edition** (`BW1097 <https://shop.luxonis.com/products/depthai-rpi-compute-module-edition>`__) -
   this one has a built-in Raspberry Pi Compute Module 3B+.  So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
 
-- **Embedded DepthAI with WiFi/BT** (`BW1092 <https://shop.luxonis.com/products/bw1092-pre-order>`_) - Currently this is in Alpha testing.
+- **Embedded DepthAI with WiFi/BT** (`BW1092 <https://shop.luxonis.com/products/bw1092-pre-order>`__) - Currently this is in Alpha testing.
   So only buy it if you are comfortable with working with bleeding-edge tech and want to help us refine this product.
   It is the first Embedded (i.e. SPI-interface) version of DepthAI - so it has additional 128MB NOR flash, so it can boot
   on its own out of the NOR flash, and not host needs to be present to run.  In contrast, the BW1097 can also run on its own,
@@ -212,11 +212,11 @@ System on Modules
 *****************
 
 For designing products around DepthAI, we offer system on modules.  You can then design your own variants, leveraging our
-`open source harware <https://github.com/luxonis/depthai-hardware>`_.  There are three system on modules available:
+`open source harware <https://github.com/luxonis/depthai-hardware>`__.  There are three system on modules available:
 
-#. `BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`_ - USB-boot system on module. For making devices which interface over USB to a host processor running Linux, MacOS, or Windows. In this case, the host processor stores everything, and the BW1099 boots up over USB from the host.
-#. `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`_ - NOR-flash boot (also capable of USB-boot). For making devices that run standalone, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
-#. `BW2099 <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`_ - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors).  For making devices that run standalone and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE inferface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
+#. `BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`__ - USB-boot system on module. For making devices which interface over USB to a host processor running Linux, MacOS, or Windows. In this case, the host processor stores everything, and the BW1099 boots up over USB from the host.
+#. `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ - NOR-flash boot (also capable of USB-boot). For making devices that run standalone, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
+#. `BW2099 <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__ - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors).  For making devices that run standalone and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE inferface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
 
 How hard is it to get DepthAI running from scratch?  What Platforms are Supported?
 ##################################################################################
@@ -262,11 +262,11 @@ Can all the models be used with the Raspberry Pi?
 
 Yes, every model can be used, including:
 
-- Raspberry Pi Compute Module Edition (`BW1097 <https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition>`_ - this one has a built-in Raspberry Pi Compute Module 3B+
-- Raspberry Pi HAT (`BW1094 <https://github.com/luxonis/depthai-hardware/tree/master/BW1094_DepthAI_HAT>`_) - this can also be used with other hosts as its interface is USB3
-- USB3C with Onboard Cameras `BW1098OBC <https://shop.luxonis.com/collections/all/products/bw10980bc>`_
-- USB3C with Modular Cameras `BW1098FFC <https://shop.luxonis.com/products/depthai-usb3-edition>`_
-- MegaAI Single Camera `BW1093 <https://shop.luxonis.com/collections/all/products/bw1093>`_
+- Raspberry Pi Compute Module Edition (`BW1097 <https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition>`__ - this one has a built-in Raspberry Pi Compute Module 3B+
+- Raspberry Pi HAT (`BW1094 <https://github.com/luxonis/depthai-hardware/tree/master/BW1094_DepthAI_HAT>`__) - this can also be used with other hosts as its interface is USB3
+- USB3C with Onboard Cameras `BW1098OBC <https://shop.luxonis.com/collections/all/products/bw10980bc>`__
+- USB3C with Modular Cameras `BW1098FFC <https://shop.luxonis.com/products/depthai-usb3-edition>`__
+- MegaAI Single Camera `BW1093 <https://shop.luxonis.com/collections/all/products/bw1093>`__
 
 We even have some basic ROS support going as well which can be used on the Pi also.
 
@@ -288,7 +288,7 @@ Can I use multiple DepthAI with one host?
 Yes.  DepthAI is architected to put as-little-as-possible burden on the host.
 So even with a Raspberry Pi you can run a handful of DepthAI with the Pi and not burden the Pi CPU.
 
-See `here <https://docs.luxonis.com/tutorials/multiple_depthai/>`_ for instructions on how to do so.
+See :ref:`here <Multiple DepthAI per Host>` for instructions on how to do so.
 
 Is DepthAI OpenVINO Compatible?
 ###############################
@@ -300,7 +300,7 @@ Can I train my own Models for DepthAI?
 
 Yes.
 
-We have a tutorial around Google Colab notebooks you can even use for this.  See `here <https://docs.luxonis.com/tutorials/object_det_mnssv2_training/>`_
+We have a tutorial around Google Colab notebooks you can even use for this.  See `here <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb>`__
 
 .. _nodepthrequired:
 
@@ -320,7 +320,7 @@ layers instead of 3 (1 for each grayscale, 3 for the color R, G, B).
 If I train my own network, which Neural Operations are supported by DepthAI?
 ############################################################################
 
-See the :code:`VPU` section `here <https://docs.openvinotoolkit.org/2020.1/_docs_IE_DG_supported_plugins_Supported_Devices.html>`_.
+See the :code:`VPU` section `here <https://docs.openvinotoolkit.org/2020.1/_docs_IE_DG_supported_plugins_Supported_Devices.html>`__.
 
 Anything that's supported there under :code:`VPU` will work on DepthAI.  It's worth noting that we haven't tested all of these
 permutations though.
@@ -328,7 +328,7 @@ permutations though.
 What network backbones are supported on DepthAI?
 ################################################
 
-All the networks listed `here <https://docs.openvinotoolkit.org/2020.1/_docs_IE_DG_supported_plugins_MYRIAD.html>`_ are supported by DepthAI.
+All the networks listed `here <https://docs.openvinotoolkit.org/2020.1/_docs_IE_DG_supported_plugins_MYRIAD.html>`__ are supported by DepthAI.
 
 We haven't tested all of them though.  So if you have a problem, contact us and we'll figure it out.
 
@@ -343,9 +343,9 @@ How to integrate DepthAI/megaAI depends on whether the product you are building 
 
 We offer hardware to support all 3 use-cases, but firmware/software mauturity varies across the 3 modes:
 
-#. the most mature, using our :ref:`Python API <DepthAI Python API>`
-#. initially released by actively in development (see `here <https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code>`_),
-#. supported in December 2020 (as part of Pipeline Builder Gen2 `here <https://github.com/luxonis/depthai/issues/136>`_).
+#. the most mature, using our :ref:`Python API <Python API>`
+#. initially released by actively in development (see `here <https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code>`__),
+#. supported in December 2020 (as part of Pipeline Builder Gen2 `here <https://github.com/luxonis/depthai/issues/136>`__).
 
 In all cases, DepthAI (and megaAI) are compatible with OpenVINO for neural models.  The only thing that changes between
 the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
@@ -357,24 +357,24 @@ Use-Case 1: DepthAI/megaAI are a co-processor to a processor running Linux, MacO
 
 In this case, DepthAI can be used in two modalities:
 
- - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`_.
- - DepthAI Mode (USB, using our USB API, :ref:`here <DepthAI Python API>`) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
+ - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`__.
+ - DepthAI Mode (USB, using our USB API, :ref:`here <Python API>`) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
 
 .. _withmicrocontroller:
 
 Use-Case 2: Using DepthAI with a MicroController like ESP32, ATTiny8, etc.
 **************************************************************************
 
-In this case, DepthAI boot off of internal flash on the `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`_ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  We even have an embedded reference design for ESP32 (`BW1092 <https://github.com/luxonis/depthai-hardware/issues/10>`_) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`_.  We will also be open-sourcing this design after it is fully verified (contact us if you would like the design files before we open source it).
+In this case, DepthAI boot off of internal flash on the `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  We even have an embedded reference design for ESP32 (`BW1092 <https://github.com/luxonis/depthai-hardware/issues/10>`__) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__.  We will also be open-sourcing this design after it is fully verified (contact us if you would like the design files before we open source it).
 
-The code-base/API for this is in active development, and a pre-release/Alpha version is available `here <https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code>`_ as of this writing.
+The code-base/API for this is in active development, and a pre-release/Alpha version is available `here <https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code>`__ as of this writing.
 
 .. _standalone:
 
 Use-Case 3: Using DepthAI as the Only Processor on a Device.
 ************************************************************
 
-This will be supported through running microPython directly on the `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`_ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`_.
+This will be supported through running microPython directly on the `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__.
 
 The microPython nodes are what will allow custom logic, driving I2C, SPI, GPIO, UART, etc. controls, allowing direct controls of actuators, direct reading of sensors, etc. from/to the pipeline of CV/AI functions.
 A target example is making an entire autonomous, visually-controlled robotic platform with DepthAI as the only processor in the system.
@@ -392,12 +392,12 @@ Getting Started with Development
 
 Whether intending to use DepthAI with an :ref:`OS-capable host <withos>`, a :ref:`microcontroller over SPI <withmicrocontroller>`
 (in development), or :ref:`completely standalone <standalone>` (targeted support December 2020) - we recommend starting with either
-:ref:`NCS2 mode <ncsmode>` or with the :ref:`DepthAI USB API <DepthAI Python API>` for prototype/test/etc. as it allows faster iteration/feedback on
+:ref:`NCS2 mode <ncsmode>` or with the :ref:`DepthAI USB API <Python API>` for prototype/test/etc. as it allows faster iteration/feedback on
 neural model performance/etc.  And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test).
 
-In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before - and for now it will run only off of the image sensors (once the `Gen2 pipeline builder <https://github.com/luxonis/depthai/issues/136>`_ is out, which is scheduled for December 2020, there will exist the capability to run everything off of host images/video with the DepthAI API).  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
+In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before - and for now it will run only off of the image sensors (once the `Gen2 pipeline builder <https://github.com/luxonis/depthai/issues/136>`__ is out, which is scheduled for December 2020, there will exist the capability to run everything off of host images/video with the DepthAI API).  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
 
-For common object detector formats (MobileNet-SSD, tinyYOLOv1/2/3, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode.  You can just literally replace the classes in example MobileNet-SSD or tinyYOLO examples we have.  For example for tinyYOLOv3, you can just change the labels from "mask", "no mask" and "no mask 2" to whatever your classes are from this example `here <https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo/tiny-yolo.json>`_ and just change the blob file `here <https://github.com/luxonis/depthai/tree/main/resources/nn/tiny-yolo>`_ to your blob file.  And the same thing is true for MobileNet-SSD `here <https://github.com/luxonis/depthai/tree/main/resources/nn/mobilenet-ssd>`_.
+For common object detector formats (MobileNet-SSD, tinyYOLOv1/2/3, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode.  You can just literally replace the classes in example MobileNet-SSD or tinyYOLO examples we have.  For example for tinyYOLOv3, you can just change the labels from "mask", "no mask" and "no mask 2" to whatever your classes are from this example `here <https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo/tiny-yolo.json>`__ and just change the blob file `here <https://github.com/luxonis/depthai/tree/main/resources/nn/tiny-yolo>`__ to your blob file.  And the same thing is true for MobileNet-SSD `here <https://github.com/luxonis/depthai/tree/main/resources/nn/mobilenet-ssd>`__.
 
 
 What Hardware-Accelerated Capabilities Exist in DepthAI and/or megaAI?
@@ -406,12 +406,12 @@ What Hardware-Accelerated Capabilities Exist in DepthAI and/or megaAI?
 Available in DepthAI API Today:
 *******************************
 
-- Neural Inference (e.g. object detection, image classification, etc., including two-stage, e.g. `here <https://youtu.be/uAfGulcDWSk>`_)
-- Stereo Depth (including median filtering) (e.g. `here <https://youtu.be/sO1EU5AUq4U>`_)
-- Stereo Inference (with two-stage, e.g. `here <https://youtu.be/eEnDW0WQ3bo>`_)
-- 3D Object Localization (augmenting 2D object detectors with 3D position in meters, e.g. `here <https://youtu.be/cJr4IpGMSLA>`_ and `here <https://youtu.be/SWDQekolM8o>`_)
-- Object Tracking (e.g. `here <https://vimeo.com/422965770>`_, including in 3D space)
-- H.264 and H.265 Encoding (HEVC, 1080p & 4K Video, e.g. `here <https://youtu.be/vEq7LtGbECs>`_)
+- Neural Inference (e.g. object detection, image classification, etc., including two-stage, e.g. `here <https://youtu.be/uAfGulcDWSk>`__)
+- Stereo Depth (including median filtering) (e.g. `here <https://youtu.be/sO1EU5AUq4U>`__)
+- Stereo Inference (with two-stage, e.g. `here <https://youtu.be/eEnDW0WQ3bo>`__)
+- 3D Object Localization (augmenting 2D object detectors with 3D position in meters, e.g. `here <https://youtu.be/cJr4IpGMSLA>`__ and `here <https://youtu.be/SWDQekolM8o>`__)
+- Object Tracking (e.g. `here <https://vimeo.com/422965770>`__, including in 3D space)
+- H.264 and H.265 Encoding (HEVC, 1080p & 4K Video, e.g. `here <https://youtu.be/vEq7LtGbECs>`__)
 - JPEG Encoding
 - MJPEG Encoding
 - Warp/Dewarp
@@ -421,24 +421,24 @@ The above features are available in the Luxonis Pipeline Builder Gen1 (see examp
 On our Roadmap (planned delivery December 2020)
 ***********************************************
 
-- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`_)
-- Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), `here <https://github.com/luxonis/depthai/issues/163>`_
-- Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai/issues/216>`_)
-- SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`_
-- microPython Support, `here <https://github.com/luxonis/depthai/issues/207>`_
-- Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`_)
-- Integrated IMU Support (`here <https://github.com/luxonis/depthai-hardware/issues/8>`_)
-- Motion Estimation (`here <https://github.com/luxonis/depthai/issues/245>`_)
-- Background Subtraction (`here <https://github.com/luxonis/depthai/issues/136>`_)
-- Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`_)
-- Edge Detection (`here <https://github.com/luxonis/depthai/issues/247>`_)
-- Harris Filtering (`here <https://github.com/luxonis/depthai/issues/248>`_)
-- Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`_)
-- AprilTags (PR `here <https://github.com/luxonis/depthai/pull/139>`_)
+- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__)
+- Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), `here <https://github.com/luxonis/depthai/issues/163>`__
+- Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai/issues/216>`__)
+- SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`__
+- microPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
+- Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`__)
+- Integrated IMU Support (`here <https://github.com/luxonis/depthai-hardware/issues/8>`__)
+- Motion Estimation (`here <https://github.com/luxonis/depthai/issues/245>`__)
+- Background Subtraction (`here <https://github.com/luxonis/depthai/issues/136>`__)
+- Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
+- Edge Detection (`here <https://github.com/luxonis/depthai/issues/247>`__)
+- Harris Filtering (`here <https://github.com/luxonis/depthai/issues/248>`__)
+- Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`__)
+- AprilTags (PR `here <https://github.com/luxonis/depthai/pull/139>`__)
 - Integrated Text Detection -> OCR Example pipeline
 - OpenCL Support (supported through OpenVINO)
 
-And see our Github project `here <https://github.com/orgs/luxonis/projects/2>`_ to follow along with the progress of these implementations.
+And see our Github project `here <https://github.com/orgs/luxonis/projects/2>`__ to follow along with the progress of these implementations.
 
 .. _pipelinegen2:
 
@@ -454,7 +454,7 @@ Are CAD Files Available?
 
 Yes.
 
-The full designs (including source Altium files) for all the carrier boards are in our `depthai-hardware <https://github.com/luxonis/depthai-hardware>`_ Github
+The full designs (including source Altium files) for all the carrier boards are in our `depthai-hardware <https://github.com/luxonis/depthai-hardware>`__ Github
 
 
 .. _mindepths:
@@ -484,14 +484,14 @@ Where 96 is the standard maximum disparity search used by DepthAI and so for ext
   min_distance = focal_length * base_line_dist / 192
 
 For DepthAI, the HFOV of the the grayscale global shutter cameras is 71.86 degrees (this can be found on your board, see
-`here <https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai>`_, so the focal length is
+`here <https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai>`__, so the focal length is
 
 .. code-block:: python
 
   focal_length = 1280/(2*tan(71.86/2/180*pi)) = 883.15
 
-Calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk01Ip7jrSxOqilDQiCjN7zb9XwoRQA%3A1588619495817&ei=52iwXpiqMYv3-gSBy4SQDw&q=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzoECAAQR1CI0BZY-MkYYPDNGGgAcAJ4AIABWogBjgmSAQIxNJgBAKABAaoBB2d3cy13aXo&sclient=psy-ab&ved=0ahUKEwjYuezl9JrpAhWLu54KHYElAfIQ4dUDCAw&uact=5>`_
-(and for disparity depth data, the value is stored in `uint16`, where the max value of `uint16` of 65535 is a special value, meaning that that distance is unknown.)
+Calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk01Ip7jrSxOqilDQiCjN7zb9XwoRQA%3A1588619495817&ei=52iwXpiqMYv3-gSBy4SQDw&q=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzoECAAQR1CI0BZY-MkYYPDNGGgAcAJ4AIABWogBjgmSAQIxNJgBAKABAaoBB2d3cy13aXo&sclient=psy-ab&ved=0ahUKEwjYuezl9JrpAhWLu54KHYElAfIQ4dUDCAw&uact=5>`__
+(and for disparity depth data, the value is stored in :code:`uint16`, where the max value of :code:`uint16` of 65535 is a special value, meaning that that distance is unknown.)
 
 Stereo Neural Inference
 ***********************
@@ -499,10 +499,10 @@ Stereo Neural Inference
 In this mode, the neural inference (object detection, landmark detection, etc.) is run on the left *and* right cameras to produce stereo inference results.  Unlike monocular neural inference fused with stereo depth - there is no max disparity search limit - so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the stereo cameras themselves and (b) the hyperfocal distance of the cameras.
 
 The hyperfocal distance of the global shutter synchronized stereo pair is 19.6cm.  So objects closer than 19.6cm will appear out of focus.
-This is effectively the minimum distance for this mode of operation, as in most cases (except for very wide stereo baselines with the `BW1098FFC <https://docs.luxonis.com/products/bw1098ffc/>`_),
+This is effectively the minimum distance for this mode of operation, as in most cases (except for very wide stereo baselines with the :ref:`BW1098FFC <BW1098FFC - USB3 with Modular Cameras>`),
 this **effective** minimum distance is higher than the **actual** minimum distance as a result of the stereo camera field of views.
-For example, the objects will be fully out of the field of view of both grayscale cameras when less than `5.25cm <https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`_
-from the `BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`_), but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm), so the actual minimum depth is this hyperfocal distance.
+For example, the objects will be fully out of the field of view of both grayscale cameras when less than `5.25cm <https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`__
+from the :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`), but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm), so the actual minimum depth is this hyperfocal distance.
 
 Accordingly, to calculate the minimum distance for this mode of operation, use the following formula:
 
@@ -522,26 +522,26 @@ Monocular Neural Inference fused with Stereo Depth Mode
 
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
 
-- DepthAI RPi Compute Module Edition (`BW1097 <https://docs.luxonis.com/products/bw1097/>`_) the minimum depth is **0.827** meters:
+- DepthAI RPi Compute Module Edition (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`) the minimum depth is **0.827** meters:
 
 .. code-block:: python
 
   min_distance = 883.15 * 0.09 / 96 = 0.827 # m
 
-calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.09%2F96&oq=883.15*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CBjg5YnZAOYMylDmgAcAB4AIABX4gBjwOSAQE1mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5>`_
+calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.09%2F96&oq=883.15*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CBjg5YnZAOYMylDmgAcAB4AIABX4gBjwOSAQE1mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5>`__
 
-- USB3C Onboard Camera Edition (`BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`_) is **0.689** meters:
+- USB3C Onboard Camera Edition (:ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`) is **0.689** meters:
 
 .. code-block:: python
 
   min_distance = 883.15*.075/96 = 0.689 # m
 
-calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.075%2F96&oq=883.15*.075%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1DtSVjkSmDVS2gAcAB4AIABYYgBywKSAQE0mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5>`_
+calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.075%2F96&oq=883.15*.075%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1DtSVjkSmDVS2gAcAB4AIABYYgBywKSAQE0mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5>`__
 
 Stereo Neural Inference Mode
 ----------------------------
 
-For DepthAI units with onboard cameras, all models (`BW1097 <https://docs.luxonis.com/products/bw1097/>`_ and `BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`_) are
+For DepthAI units with onboard cameras, all models (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>` and :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`) are
 limited by the hyperfocal distance of the stereo cameras, so their minimum depth is **0.196** meters.
 
 Modular Camera Minimum Depths:
@@ -552,7 +552,7 @@ Below are the minimum depth perception possible in the disparity disparity depth
 Monocular Neural Inference fused with Stereo Depth Mode
 -------------------------------------------------------
 
-For DepthAI units which use modular cameras, the minimum baseline is 2.5cm (see image below) which means the minimum perceivable depth **0.229** meters (calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03VQroLoaCAm-e1y0jif-halRfWyQ%3A1588621013147&ei=1W6wXsLICMv4-gS7s7iADg&q=883.15*.025%2F96&oq=883.15*.025%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CLyekBWNTJ6QFgm8vpAWgAcAB4AIABa4gBzgKSAQMzLjGYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwiCh6-5-prpAhVLvJ4KHbsZDuAQ4dUDCAw&uact=5>`_).
+For DepthAI units which use modular cameras, the minimum baseline is 2.5cm (see image below) which means the minimum perceivable depth **0.229** meters (calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03VQroLoaCAm-e1y0jif-halRfWyQ%3A1588621013147&ei=1W6wXsLICMv4-gS7s7iADg&q=883.15*.025%2F96&oq=883.15*.025%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CLyekBWNTJ6QFgm8vpAWgAcAB4AIABa4gBzgKSAQMzLjGYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwiCh6-5-prpAhVLvJ4KHbsZDuAQ4dUDCAw&uact=5>`__).
 
 The minimum baseline is set simply by how close the two boards can be spaced before they physically interfere:
 
@@ -578,9 +578,9 @@ Extended Disparity Depth Mode:
 
 If it is of interest in your application, we can implement a system called :code:`extended disparity` which affords a closer minimum distance for the given baseline.  This increases the maximum disparity search from 96 to 192.  So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
 
-- DepthAI RPi Compute Module Edition (`BW1097 <https://docs.luxonis.com/products/bw1097/>`_): **0.414** meters
-- USB3C Onboard Camera Edition (`BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`_) is **0.345** meters
-- Modular Cameras at Mimumum Spacing (e.g. `BW1098FFC <https://docs.luxonis.com/products/bw1098ffc/>`_) is **0.115** meters
+- DepthAI RPi Compute Module Edition (`BW1097 <https://docs.luxonis.com/products/bw1097/>`__): **0.414** meters
+- USB3C Onboard Camera Edition (`BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`__) is **0.345** meters
+- Modular Cameras at Mimumum Spacing (e.g. `BW1098FFC <https://docs.luxonis.com/products/bw1098ffc/>`__) is **0.115** meters
 
 So if you have the need for this shorter minimum distance when using monocular neural inference fused with disparity depth, reach out to us on slack, email, or discuss.luxonis.com to let us know.  It's on our roadmap but we haven't yet seen a need for it, so we haven't prioritized implementing it (yet!).
 
@@ -606,7 +606,7 @@ So using this formula for existing models the *theoretical* max distance is:
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
 
-After the `KickStarter campaign <https://www.kickstarter.com/projects/opencv/opencv-ai-kit/description>`_ we will also be supporting sub-pixel, which will extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
+After the `KickStarter campaign <https://www.kickstarter.com/projects/opencv/opencv-ai-kit/description>`__ we will also be supporting sub-pixel, which will extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
 
 What Is the Format of the Depth Data in depth stream?
 #####################################################
@@ -644,9 +644,9 @@ The available streams are:
   - :code:`color` - 4K color camera, biggest camera on the board with lens
   - :code:`left` - Left grayscale camera (marked `L` or `LEFT` on the board)
   - :code:`right` - Right grayscale camera (marked `R` or `RIGHT` on the board)
-  - :code:`rectified_left` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`_ left camera frames
-  - :code:`rectified_right` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`_ right camera frames
-  - :code:`depth` - Depth in `uint16` (see `here <https://docs.luxonis.com/faq/-what-are-the-minimum-and-maximum-depth-visible-by-depthai>`_ for the format.
+  - :code:`rectified_left` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ left camera frames
+  - :code:`rectified_right` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ right camera frames
+  - :code:`depth` - Depth in `uint16` (see `here <https://docs.luxonis.com/faq/-what-are-the-minimum-and-maximum-depth-visible-by-depthai>`__ for the format.
   - :code:`disparity` - Raw disparity
   - :code:`disparity_color` - Disparity colorized on the host (:code:`JET` colorized visualization of depth)
   - :code:`meta_d2h` - Device die temperature (max temp should be < 105C)
@@ -734,7 +734,7 @@ With the :code:`-sync` CLI option from depthai.py, we are doing a best effort on
 
 In most cases this works well, but there is a risk (especially under high system load on host side), that the packets may still get desynchronized, as the queues are handled by different threads (in the C++ library).
 
-So in that case, :code:`getMetadata().getTimestamp()` returns the device time (in seconds, as float) and is also `used in the stereo calibration script <https://github.com/luxonis/depthai/blob/f26f8c6/calibrate.py#L114>`_ to synchronize the Left and Right frames.
+So in that case, :code:`getMetadata().getTimestamp()` returns the device time (in seconds, as float) and is also `used in the stereo calibration script <https://github.com/luxonis/depthai/blob/f26f8c6/calibrate.py#L114>`__ to synchronize the Left and Right frames.
 
 The timestamp corresponds to the moment the frames are captured from the camera, and is forwarded through the pipeline.  And the method :code:`getMetadata().getSequenceNum()` returns an incrementing number per camera frame. The same number is associated to the NN packet, so it could be an easier option to use, rather than comparing timestamps. The NN packet and Data packet sequence numbers should match.
 
@@ -765,7 +765,7 @@ By default there are keyframes every 1 second which resolve the previous issues 
 
 When running depthai_demo.py, one can record a jpeg of the current frame by hitting :code:`c` on the keyboard.
 
-An example video encoded on DepthAI `BW1097 <https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition>`_ (Raspberry Pi Compute Module Edition) is below.  All DepthAI and megaAI units have the same 4K color camera, so will have equivalent performance to the video below.
+An example video encoded on DepthAI `BW1097 <https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition>`__ (Raspberry Pi Compute Module Edition) is below.  All DepthAI and megaAI units have the same 4K color camera, so will have equivalent performance to the video below.
 
 .. image:: https://i.imgur.com/xjBEPKc.jpg
   :alt: 4K Video in 3.125MB/s on DepthAI with Raspberry Pi 3B
@@ -774,7 +774,7 @@ An example video encoded on DepthAI `BW1097 <https://shop.luxonis.com/collection
 Video Encoding Options
 **********************
 
-Additional options can be configured in the video encoding system by adding a :code:`video_config` section to the JSON config of the DepthAI pipeline builder, `here <https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342>`_, an example of which is `here <https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342>`_.
+Additional options can be configured in the video encoding system by adding a :code:`video_config` section to the JSON config of the DepthAI pipeline builder, `here <https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342>`__, an example of which is `here <https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342>`__.
 
 .. code-block:: python
 
@@ -860,8 +860,8 @@ We've prototyped 2x w/ internal proof of concept (but grayscale) but have not ye
 We could support a UVC stream per camera if it is of interest.
 
 So if you would like this functionality please feel free to make a Github issue feature
-request `here <https://github.com/luxonis/depthai/issues>`_, make a topic on `discuss.luxonis.com <https://discuss.luxonis.com/>`_,
-or bring it up in our `Community Slack <https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw>`_.
+request `here <https://github.com/luxonis/depthai/issues>`__, make a topic on `discuss.luxonis.com <https://discuss.luxonis.com/>`__,
+or bring it up in our `Community Slack <https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw>`__.
 
 How Do I Force USB2 Mode?
 #########################
@@ -890,22 +890,22 @@ experimenting with models which are designed to operate on objects/items that yo
 It also allows running inference in programmatic ways for quality assurance, refining model performance, etc.,
 as the images are pushed from the host, instead of pulled from the onboard camera in this mode.
 
-DepthAI/megaAI will also support an additional host-communication mode in the `Gen2 Pipeline Builer <https://github.com/luxonis/depthai/issues/136>`_, which will be available in December 2020.
+DepthAI/megaAI will also support an additional host-communication mode in the `Gen2 Pipeline Builer <https://github.com/luxonis/depthai/issues/136>`__, which will be available in December 2020.
 
 What Information is Stored on the DepthAI Boards
 ################################################
 
 Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded
-from the host to the board.  This includes the BW1097 (`here <https://docs.luxonis.com/products/bw1097/#setup>`_), which had the calibration stored on the included microSD card.
+from the host to the board.  This includes the BW1097 (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`), which had the calibration stored on the included microSD card.
 
-So each hardware model which has stereo cameras (e.g. `BW1097 <https://docs.luxonis.com/products/bw1097/>`_,
-`BW1098FFC <https://docs.luxonis.com/products/bw1098ffc/>`_, `BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`_, and
-`BW1094 <https://docs.luxonis.com/products/bw1094/>`_) has the capability to store the calibration data and field-of-view,
+So each hardware model which has stereo cameras (e.g. :ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`,
+:ref:`BW1098FFC <BW1098FFC - USB3 with Modular Cameras>`, :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`, and
+:ref:`BW1094 <BW1094 - RaspberryPi Hat>`) has the capability to store the calibration data and field-of-view,
 stereo basline (:code:`L-R distance`) and relative location of the color camera to the stereo cameras (:code:`L-RGB distance`)
 as well as camera orientation (:code:`L/R swapped`).  To retrieve this information, simply run :code:`python3 depthai_demo.py` and look for
 :code:`EEPROM data:`.
 
-Example of information pulled from a `BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`_ is below:
+Example of information pulled from a :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>` is below:
 
 .. code-block::
 
@@ -924,7 +924,7 @@ Example of information pulled from a `BW1098OBC <https://docs.luxonis.com/produc
       0.000008,   -0.000010,    1.000000,
 
 
-Current (as of April 2020) DepthAI boards with on-board stereo cameras (`BW1097 <https://docs.luxonis.com/products/bw1097/>`_ and `BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`_ ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
+Current (as of April 2020) DepthAI boards with on-board stereo cameras (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>` and :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>` ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
 
 What is the Field of View of DepthAI and megaAI?
 ################################################
@@ -937,13 +937,13 @@ DepthAI and megaAI use the same 12MP RGB Camera module based on the IMX378.
 How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
 ######################################################################
 
-`ArduCam <https://www.arducam.com/>`_ is in the process of making a variety of camera modules specifically for DepthAI and megaAI, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
+`ArduCam <https://www.arducam.com/>`__ is in the process of making a variety of camera modules specifically for DepthAI and megaAI, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
 
- - M12-Mount IMX378 request `here <https://github.com/luxonis/depthai-hardware/issues/16>`_
- - M12-Mount OV9281 request `here <https://github.com/luxonis/depthai-hardware/issues/17>`_
- - Fish-Eye OV9281 (for better SLAM) request `here <https://github.com/luxonis/depthai-hardware/issues/15>`_
- - Global-Shutter Color Camera (OV9782) with same intrinsics as OV9282 grayscale `here <https://github.com/luxonis/depthai-hardware/issues/21>`_
- - Original request for this `here <https://discourse.ros.org/t/opencv-ai-kit-oak/15406/17?u=luxonis-brandon>`_
+ - M12-Mount IMX378 request `here <https://github.com/luxonis/depthai-hardware/issues/16>`__
+ - M12-Mount OV9281 request `here <https://github.com/luxonis/depthai-hardware/issues/17>`__
+ - Fish-Eye OV9281 (for better SLAM) request `here <https://github.com/luxonis/depthai-hardware/issues/15>`__
+ - Global-Shutter Color Camera (OV9782) with same intrinsics as OV9282 grayscale `here <https://github.com/luxonis/depthai-hardware/issues/21>`__
+ - Original request for this `here <https://discourse.ros.org/t/opencv-ai-kit-oak/15406/17?u=luxonis-brandon>`__
 
 With these, there will be a variety of options for view angle, focal length, filtering (IR, no IR, NDVI, etc.) and image sensor formats.
 
@@ -972,7 +972,7 @@ DepthAI and MegaAI are capable of both Gen1 and Gen2 USB3 - but not all USB3 hos
 
 DepthAI and megaAI can do h.264 and h.265 (HEVC) encoding on-device. The max resolution/rate is 4K at 30FPS.
 With the default encoding settings in DepthAI/megaAI, this brings the throughput down from 373MB/s (raw/unencoded 4K/30) to
-3.125MB/s (h.265/HEVC at 25mbps bit rate).  An example video encoded on DepthAI `BW1097 <https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition>`_ (Raspberry Pi Compute Module Edition) is below:
+3.125MB/s (h.265/HEVC at 25mbps bit rate).  An example video encoded on DepthAI `BW1097 <https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition>`__ (Raspberry Pi Compute Module Edition) is below:
 
 .. image:: https://i.imgur.com/uC2sfpj.jpg
   :alt: 4K Video on DepthAI with Raspberry Pi 3B
@@ -987,13 +987,13 @@ Encoded:
 How Much Compute Is Available?  How Much Neural Compute is Available?
 #####################################################################
 
-DepthAI and megaAI are built around the Intel Movidius Myriad X.  More details/background on this part are `here <https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf>`_
-and also `here <https://www.anandtech.com/show/11771/intel-announces-movidius-myriad-x-vpu>`_.
+DepthAI and megaAI are built around the Intel Movidius Myriad X.  More details/background on this part are `here <https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf>`__
+and also `here <https://www.anandtech.com/show/11771/intel-announces-movidius-myriad-x-vpu>`__.
 
 A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabilities:
   - Overall Compute: 4 Trillion Ops/sec (4 TOPS)
   - Neural Compute Engines (2x total): 1.4 TOPS (neural compute only)
-  - 16x SHAVES: 1 TOPS available for additional neural compute or other CV functions (e.g. through `OpenCL <https://docs.openvinotoolkit.org/2020.4/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`_)
+  - 16x SHAVES: 1 TOPS available for additional neural compute or other CV functions (e.g. through `OpenCL <https://docs.openvinotoolkit.org/2020.4/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__)
   - 20+ dedicated hardware-accelerated computer vision blocks including disparity-depth, feature matching/tracking, optical flow, median filtering, harris filtering, WARP/de-warp, h.264/h.265/JPEG/MJPEG encoding, motion estimation, etc.
   - 500+ million pixels/second total processing (see max resolution and framerates over USB :ref:`here <maxfps>`)
   - 450 GB/sec memory bandwidth
@@ -1006,7 +1006,7 @@ What Auto-Focus Modes Are Supported? Is it Possible to Control Auto-Focus From t
 
 DepthAI and megaAI support continuous video autofocus ('2' below, where the system is constantly autonomously
 searching for the best focus) and also and :code:`auto` mode ('1' below) which waits to focus until directed by the host.
-(PR which adds this functionality is `here <https://github.com/luxonis/depthai/pull/114>`_.)
+(PR which adds this functionality is `here <https://github.com/luxonis/depthai/pull/114>`__.)
 
 Example usage is shown in :code:`depthai_demo.py`.  When running :code:`python3 depthai_demo.py` the functionality can be used by keyboard command while the program is running:
 
@@ -1016,7 +1016,7 @@ Example usage is shown in :code:`depthai_demo.py`.  When running :code:`python3 
 
  - '2' to change autofocus mode to continuous video
 
- And you can see the reference DepthAI API call `here <https://github.com/luxonis/depthai/blob/3942201d67fe7955370e615aa88045cd8f2211bf/depthai.py#L524>`_
+ And you can see the reference DepthAI API call `here <https://github.com/luxonis/depthai/blob/3942201d67fe7955370e615aa88045cd8f2211bf/depthai.py#L524>`__
 
 What is the Hyperfocal Distance of the Auto-Focus Color Camera?
 ###############################################################
@@ -1025,7 +1025,7 @@ The hyperfocal distance is important, as it's the distance beyond which everythi
 
 The 'hyperfocal distance' (H) of DepthAI/megaAI's color camera module is quite close because of it's f.no and focal length.
 
-From WIKIPEDIA, `here <https://en.wikipedia.org/wiki/Hyperfocal_distance>`_, the hyperfocal distance is as follows:
+From WIKIPEDIA, `here <https://en.wikipedia.org/wiki/Hyperfocal_distance>`__, the hyperfocal distance is as follows:
 
 .. image:: /_static/images/faq/hyperfocal.png
   :alt: Hyperfocal Distance
@@ -1034,7 +1034,7 @@ Where:
 
 - f = 4.52mm  (the 'effective focal length' of the camera module)
 - N = 2.0 (+/- 5%, FWIW)
-- c = C=0.00578mm (see `here <https://sites.google.com/site/doftesting/>`_, someone spelling it out for the 1/2.3" format, which is the sensor format of the IMX378)
+- c = C=0.00578mm (see `here <https://sites.google.com/site/doftesting/>`__, someone spelling it out for the 1/2.3" format, which is the sensor format of the IMX378)
 
 So H = (4.52mm)^2/(2.0 * 0.00578mm) + 4.52mm ~= 1,772mm, or **1.772 meters** (**5.8 feet**).
 
@@ -1095,7 +1095,7 @@ It's the same sort of camera you would find in a high-end smart phone.  
 
 That said, we have seen users attach the same sort of optics that they would to smartphones to widen field of view, zoom, etc. 
 The auto-focus seems to work appropriately through these adapters.  For example a team member has tested the
-Occipital *Wide Vision Lens* `here <https://store.structure.io/buy/accessories>`_ to work with both megaAI and DepthAI color cameras.
+Occipital *Wide Vision Lens* `here <https://store.structure.io/buy/accessories>`__ to work with both megaAI and DepthAI color cameras.
 (We have not yet tried on the grayscale cameras.)
 
 Also, see :ref:`below <rpi_hq>` for using DepthAI FFC with the RPi HQ Camera to enable use of C- and CS-mount lenses.
@@ -1108,8 +1108,8 @@ So on DepthAI models power is provided by the 5V barrel jack power to prevent si
 USB2 and intermittent behavior occurs because of insufficient power (i.e. brownout) of the USB2 supply.
 
 To power your DepthAI completely from USB (assuming you are confident your port can provide enough power), you can use
-this USB-A to barrel-jack adapter cable `here <https://www.amazon.com/gp/product/B01MZ0FWSK/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1>`_.
-And we often use DepthAI with this USB power bank `here <https://www.amazon.com/gp/product/B0194WDVHI/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1>`_.
+this USB-A to barrel-jack adapter cable `here <https://www.amazon.com/gp/product/B01MZ0FWSK/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1>`__.
+And we often use DepthAI with this USB power bank `here <https://www.amazon.com/gp/product/B0194WDVHI/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1>`__.
 
 .. _virtualbox:
 
@@ -1123,7 +1123,7 @@ operates in two stages:
 #. For showing up when plugged in. We use this endpoint to load the firmware onto the device, which is a usb-boot technique.  This device is USB2.
 #. For running the actual code. This shows up after USB booting and is USB3.
 
-In order to support the DepthAI modes, you need to download and install `Oracle VM VirtualBox Extension Pack <https://www.virtualbox.org/wiki/Downloads>`_
+In order to support the DepthAI modes, you need to download and install `Oracle VM VirtualBox Extension Pack <https://www.virtualbox.org/wiki/Downloads>`__
 
 .. _parameters_upgrade:
 
@@ -1134,7 +1134,7 @@ If you want to specify how many Neural Compute Engines (NCE) to use, or how many
 Connection MatriX blocks, you can do this with the DepthAI.
 
 We have implemented the :code:`-nce`, :code:`-sh` and :code:`-cmx` command line params in our example script. Just clone the
-`DepthAI repository <https://github.com/luxonis/depthai>`_ and do
+`DepthAI repository <https://github.com/luxonis/depthai>`__ and do
 
 .. code-block:: bash
 
@@ -1144,8 +1144,8 @@ And it will run the default MobilenetSSD, compiled to use 2 NCEs, 14 SHAVEs and 
 these values **cannot be greater than the ones you can see above**, so you cannot use 15 SHAVEs or 3 NCEs.
 14 is the limit for both SHAVE and CMX parameters, and 2 is the limit for NCE.
 
-You can try it out yourself either by following `local OpenVINO model conversion tutorial </tutorials/converting_openvino_model/>`_
-or by using our `online MyriadX blob converter <http://69.164.214.171:8083/>`_
+You can try it out yourself either by following :ref:`local OpenVINO model conversion tutorial <Local OpenVINO Model Conversion>`
+or by using our `online MyriadX blob converter <http://69.164.214.171:8083/>`__
 
 
 .. _rpi_hq:
@@ -1153,10 +1153,10 @@ or by using our `online MyriadX blob converter <http://69.164.214.171:8083/>`_
 Can I Use DepthAI with the New RPi HQ Camera?
 #############################################
 
-DepthAI FFC Edition (BW1098FFC model `here <https://shop.luxonis.com/products/depthai-usb3-edition>`_) also works via
+DepthAI FFC Edition (BW1098FFC model `here <https://shop.luxonis.com/products/depthai-usb3-edition>`__) also works via
 an adapter board with the Raspberry Pi HQ camera (IMX477 based), which then does work with a ton of C- and CS-mount
-lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`_).
-And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`_ for the adapter board for DepthAI FFC Edition.
+lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`__).
+And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`__ for the adapter board for DepthAI FFC Edition.
 
 .. image:: https://github.com/luxonis/depthai-hardware/raw/master/BW0253_R0M0E0_RPIHQ_ADAPTER/Images/RPI_HQ_CAM_SYSTEM_2020-May-14_08-35-31PM-000_CustomizedView42985702451.png
   :alt: RPi HQ with DepthAI FFC
@@ -1175,7 +1175,7 @@ Here are some quick images and videos of it in use:
   :alt: RPi HQ Camera Support in DepthAI
   :target: https://www.youtube.com/watch?v=KsK-XakrpK8
 
-You can buy this adapter kit for the DepthAI FFC Edition (BW1098FFC) `here <https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit>`_
+You can buy this adapter kit for the DepthAI FFC Edition (BW1098FFC) `here <https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit>`__
 
 .. _rpi_zero:
 
@@ -1191,7 +1191,7 @@ Yes, DepthAI is fully functional on it, you can see the example below:
 .. image:: /_static/images/faq/pizeroruntime.png
   :alt: pizeroruntime
 
-Thanks to `Connor Christie <https://github.com/ConnorChristie>`_ for his help building this setup!
+Thanks to `Connor Christie <https://github.com/ConnorChristie>`__ for his help building this setup!
 
 How Much Power Does the DepthAI RPi CME Consume?
 ################################################

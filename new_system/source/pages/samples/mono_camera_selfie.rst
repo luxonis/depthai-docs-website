@@ -1,7 +1,7 @@
 Mono cameras selfie maker
 =========================
 
-This sample requires `TK library <https://docs.oracle.com/cd/E88353_01/html/E37842/libtk-3.html>`_ to run (for opening file dialog)
+This sample requires `TK library <https://docs.oracle.com/cd/E88353_01/html/E37842/libtk-3.html>`__ to run (for opening file dialog)
 
 It also requires face detection model, see :ref:`this tutorial <Local OpenVINO Model Conversion>` to see how to compile one
 

@@ -38,7 +38,7 @@ The following command will add a new udev rule to your system
 Install from PyPi
 #################
 
-Our packages are distributed `via PyPi <https://pypi.org/project/depthai/>`_, to install it in your environment use
+Our packages are distributed `via PyPi <https://pypi.org/project/depthai/>`__, to install it in your environment use
 
 .. code-block:: bash
 
@@ -49,11 +49,11 @@ For other installation options, see :ref:`other installation options <Other inst
 Test installation
 #################
 
-We have `depthai <https://github.com/luxonis/depthai>`_ repository on our GitHub that contains many helpful examples and
+We have `depthai <https://github.com/luxonis/depthai>`__ repository on our GitHub that contains many helpful examples and
 prepared neural networks you can use to make your prototyping faster. It also includes the test script, maintained by
 our contributors, that should help you verify if your setup was correct.
 
-First, clone the `depthai <https://github.com/luxonis/depthai>`_ repository and install its dependencies
+First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and install its dependencies
 
 .. code-block:: bash
 
@@ -68,7 +68,7 @@ Now, run the demo script from within depthai to make sure everything is working:
   python3 depthai_demo.py
 
 If all goes well a small window video display with overlays for any items for which the class exists in the example
-20-class object detector (class list `here <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L22>`_).
+20-class object detector (class list `here <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L22>`__).
 
 
 Preparing MyriadX blob file and it's config
@@ -85,14 +85,14 @@ Obtaining MyriadX blob
 Since we're utilizing MyriadX VPU, your model needs to be compiled (or accurately - optimized and converted) into
 the MyriadX blob file, which will be sent to the device and executed.
 
-Easiest way to obtain this blob is to use our `online BlobConverter app <http://69.164.214.171:8083/>`_. It has all
+Easiest way to obtain this blob is to use our `online BlobConverter app <http://69.164.214.171:8083/>`__. It has all
 tools needed for compilation so you don't need to setup anything - and you can even download a blob for the model
-from `OpenVINO model zoo <https://github.com/openvinotoolkit/open_model_zoo>`_.
+from `OpenVINO model zoo <https://github.com/openvinotoolkit/open_model_zoo>`__.
 
-If you'd like, you can also compile the blob yourself. You'll need to install `OpenVINO toolkit <https://docs.openvinotoolkit.org/latest/index.html>`_,
-then use `Model Optimizer <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html) and [Myriad Compiler](https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#myriad_platform_option>`_
+If you'd like, you can also compile the blob yourself. You'll need to install `OpenVINO toolkit <https://docs.openvinotoolkit.org/latest/index.html>`__,
+then use `Model Optimizer <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html) and [Myriad Compiler](https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#myriad_platform_option>`__
 in order to obtain MyriadX blob.
-We've documented example usage of these compilers `here <https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`_
+We've documented example usage of these compilers `here <https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`__
 
 Creating Blob configuration file
 ********************************
@@ -178,10 +178,10 @@ Example decoding when :code:`output_format` is set to :code:`detection`:
 
   print(objects)
 
-Example of decoding for full :code:`yolo-v3` and :code:`tiny-yolo-v3` on host and device is `here <https://github.com/luxonis/depthai/blob/develop/depthai_helpers/tiny_yolo_v3_handler.py>`_
+Example of decoding for full :code:`yolo-v3` and :code:`tiny-yolo-v3` on host and device is `here <https://github.com/luxonis/depthai/blob/develop/depthai_helpers/tiny_yolo_v3_handler.py>`__
 
 
-Example of decoding for :code:`mobilenet` based networks on host and device is `here <https://github.com/luxonis/depthai/blob/develop/depthai_helpers/mobilenet_ssd_handler.py>`_
+Example of decoding for :code:`mobilenet` based networks on host and device is `here <https://github.com/luxonis/depthai/blob/develop/depthai_helpers/mobilenet_ssd_handler.py>`__
 
 
 Other installation methods
@@ -211,29 +211,32 @@ On Debian based systems (Raspberyy Pi OS, Ubuntu, ...) these can be acquired by 
 macOS (Mac OS X)
 ----------------
 
-Assuming a stock Mac OS X install, `depthai-python <https://github.com/luxonis/depthai-python>`_ library needs following dependencies
+Assuming a stock Mac OS X install, `depthai-python <https://github.com/luxonis/depthai-python>`__ library needs following dependencies
 
 - HomeBrew (If it's not installed already)
 
   .. code-block:: bash
+
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
 - Python, libusb, CMake, wget
 
   .. code-block:: bash
-    brew install coreutils python3 cmake libusb wget
 
-And now you're ready to clone the `depthai-python <https://github.com/luxonis/depthai-python>`_ from Github and build it for Mac OS X.
+      brew install coreutils python3 cmake libusb wget
+
+And now you're ready to clone the `depthai-python <https://github.com/luxonis/depthai-python>`__ from Github and build it for Mac OS X.
 
 Install using GitHub commit
 ***************************
 
 Pip allows users to install the packages from specific commits, even if they are not yet released on PyPi.
 
-To do so, use the command below - and be sure to replace the :code:`<commit_sha>` with the correct commit hash `from here <https://github.com/luxonis/depthai-python/commits>`_
+To do so, use the command below - and be sure to replace the :code:`<commit_sha>` with the correct commit hash `from here <https://github.com/luxonis/depthai-python/commits>`__
 
 .. code-block:: bash
-  python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit_sha>
+
+    python3 -m pip install git+https://github.com/luxonis/depthai-python.git@<commit_sha>
 
 Using/Testing a Specific Branch/PR
 **********************************
@@ -242,7 +245,7 @@ From time to time, it may be of interest to use a specific branch.  This may occ
 because we have listened to your feature request and implemented a quick implementation in a branch.
 Or it could be to get early access to a feature that is soaking in our :code:`develop` for stability purposes before being merged into :code:`main`.
 
-So when working in the `depthai <https://github.com/luxonis/depthai>`_ repository, using a branch can be accomplished
+So when working in the `depthai <https://github.com/luxonis/depthai>`__ repository, using a branch can be accomplished
 with the following commands.  For this example, the :code:`branch` that we will try out is :code:`develop`
 (which is the branch we use to soak new features before merging them into :code:`main`):
 
@@ -524,10 +527,10 @@ API Reference
 .. class:: NNetPacket
   :canonical: depthai.NNetPacket
 
-  For any neural network inference output [__get_tensor__](#nnetpacket_gettensor) can be used. For the specific case
+  For any neural network inference output :func:`NNPacket.get_tensor` can be used. For the specific case
   of :code:`Mobilenet-SSD`, :code:`YOLO-v3` decoding can be done in the firmware. Decoded objects can be accessed
   through :func:`getDetectedObjects` as well in addition to raw output to make the results of this commonly used
-  networks easily accessible. See `blob config file`_ for more details about
+  networks easily accessible. See :ref:`blob config file <Creating Blob configuration file>` for more details about
   different neural network output formats and how to choose between these formats.
 
   Neural network results packet. It's not a single result, but a batch of results with additional metadata attached
@@ -543,7 +546,7 @@ API Reference
 
     .. warning::
 
-      Works only, when in `blob config file`_ :code:`output_format` is set to :code:`raw`.
+      Works only, when in :ref:`blob config file <Creating Blob configuration file>` :code:`output_format` is set to :code:`raw`.
 
     Returns a shaped numpy array for the specific network output tensor, based on the neural network's output layer information.
 
@@ -590,7 +593,7 @@ API Reference
 
     .. warning::
 
-      Works when in `blob config file`_ :code:`output_format` is set to :code:`detection` and with detection networks
+      Works when in :ref:`blob config file <Creating Blob configuration file>` :code:`output_format` is set to :code:`detection` and with detection networks
       (:code:`Mobilenet-SSD`, :code:`(tiny-)YOLO-v3` based networks)
 
     Returns the detected objects in :class:`Detections` format. The network is decoded on device side.

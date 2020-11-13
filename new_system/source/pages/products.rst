@@ -73,13 +73,13 @@ To get started:
 #. **Connect a keyboard and mouse via the USB port**
 #. **Connect the power supply (included).**
 
-    On boot, the Pi will run `a Python demo script <https://github.com/luxonis/depthai/blob/main/depthai_demo.py>`_ that displays a video stream annotated with object localization metadata:
+    On boot, the Pi will run `a Python demo script <https://github.com/luxonis/depthai/blob/main/depthai_demo.py>`__ that displays a video stream annotated with object localization metadata:
 
     .. image:: /_static/images/products/bw1097-detection.png
       :alt: 1097 top
 
     In the screenshot above, DepthAI identified a tv monitor (1.286 m from the camera) and a chair (3.711 m from the camera).
-    See `the list of object labels <https://github.com/luxonis/depthai/blob/main/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L10>`_ on GitHub.
+    See `the list of object labels <https://github.com/luxonis/depthai/blob/main/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L10>`__ on GitHub.
 
 #. **Connect to the Internet.**
 
@@ -103,11 +103,11 @@ To get started:
 
 If you'd like to set up DetphAI on your own (say bigger) SD-Card, there are two options:
 
-#.  Download our pre-configured Raspbian image for the BW1097 (the Raspberry Pi Compute Module Edition), here: `BW1097 Raspian Image <https://drive.google.com/open?id=19JRcRkdmiJ96lsoMdCu2_zbbYrSG7wsu>`_. Then, after downloading, update the DepthAI firmware/software (by doing a git pull on the DepthAI code base checked out on the Desktop).
+#.  Download our pre-configured Raspbian image for the BW1097 (the Raspberry Pi Compute Module Edition), here: `BW1097 Raspian Image <https://drive.google.com/open?id=19JRcRkdmiJ96lsoMdCu2_zbbYrSG7wsu>`__. Then, after downloading, update the DepthAI firmware/software (by doing a git pull on the DepthAI code base checked out on the Desktop).
 #.  Set up your own Raspbian to your liking from say a fresh Raspbian download, and then use replace dt-blob.bin and config.txt in /boot with the following two files:
 
-    - `dt-blob.bin <https://drive.google.com/open?id=1OarNtX58YUtVcqHog8NnnCWmCgYpN-z_>`_ - For enabling the Pi MIPI display
-    - `config.txt <https://drive.google.com/open?id=1cg8OZVFwq6NB1judrsUNV6T7YIcYX1eD>`_ - For enabling the 3.5mm headphone jack
+    - `dt-blob.bin <https://drive.google.com/open?id=1OarNtX58YUtVcqHog8NnnCWmCgYpN-z_>`__ - For enabling the Pi MIPI display
+    - `config.txt <https://drive.google.com/open?id=1cg8OZVFwq6NB1judrsUNV6T7YIcYX1eD>`__ - For enabling the 3.5mm headphone jack
 
 
 .. _bw1094:
@@ -354,11 +354,11 @@ Specifications
 Getting Started Integrating Into Your Products
 **********************************************
 
-All the boards based on the DepthAI System on Module are available on Github under MIT License `here <https://github.com/luxonis/depthai-hardware>`_.
+All the boards based on the DepthAI System on Module are available on Github under MIT License `here <https://github.com/luxonis/depthai-hardware>`__.
 
 These are in Altium Designer format.
 So if you use Altium Designer, you're in luck!  You can quickly/easily integrate the DepthAI SoM into your products with
-proven and up-to-date designs (the same designs you can buy `here <https://shop.luxonis.com/>`_).
+proven and up-to-date designs (the same designs you can buy `here <https://shop.luxonis.com/>`__).
 
 
 .. _bw1093:
@@ -467,10 +467,10 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
   :alt: DepthAI Calibration Example
   :target: https://www.youtube.com/watch?v=lF01f0p1oZM
 
-#. Checkout the `depthai <https://github.com/luxonis/depthai>`_ GitHub repo.
+#. Checkout the `depthai <https://github.com/luxonis/depthai>`__ GitHub repo.
     .. warning::
 
-      Already checked out `depthai <https://github.com/luxonis/depthai>`_? **Skip this step.**
+      Already checked out `depthai <https://github.com/luxonis/depthai>`__? **Skip this step.**
 
     .. code-block:: bash
 
@@ -537,14 +537,14 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 Modular cameras calibration
 ***************************
 
-Use one of the board :code:`*.json` files from `here <https://github.com/luxonis/depthai/tree/main/resources/boards>`_ to
+Use one of the board :code:`*.json` files from `here <https://github.com/luxonis/depthai/tree/main/resources/boards>`__ to
 define the baseline between the stereo cameras, and between the left camera and the color camera, replacing the items in brackets below.
 
 - Swap left/right (i.e. which way are the cameras facing, set to :code:`true` or :code:`false`)
 - The :code:`BASELINE` in centimeters between grayscale left/right cameras
 - The distance :code:`RGBLEFT` separation between the :code:`Left` grayscale camera and the color camera, in centimeters.
 
-.. code-block:: json
+.. code-block::
 
   {
       "board_config":
@@ -584,7 +584,7 @@ Note that in this orientation of of the cameras, :code:`"swap_left_and_right_cam
 
 Then, run calibration with this board name:
 
-.. code-block:: json
+.. code-block:: bash
 
   python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd ACME01 -ih
 
@@ -611,7 +611,7 @@ Test depth
 We'll view the depth stream to ensure the cameras are calibrated correctly:
 
 #. Start a terminal session.
-#. Access your local copy of `depthai <https://github.com/luxonis/depthai>`_.
+#. Access your local copy of `depthai <https://github.com/luxonis/depthai>`__.
 
   .. code-block:: bash
 
@@ -628,7 +628,7 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
   .. image:: /_static/images/products/calibration-depth.png
     :alt: Depth projection
 
-    In the screenshot above, the hand is closer to the camera.
+  In the screenshot above, the hand is closer to the camera.
 
 Write calibration and board parameters to on-board eeprom
 *********************************************************
@@ -684,7 +684,7 @@ Verify installation
 We'll execute a DepthAI example Python script to ensure your setup is configured correctly. Follow these steps to test DepthAI:
 
 #. Start a terminal session.
-#. Access your local copy of `depthai <https://github.com/luxonis/depthai>`_.
+#. Access your local copy of `depthai <https://github.com/luxonis/depthai>`__.
 
   .. code-block:: bash
 
@@ -703,6 +703,6 @@ We'll execute a DepthAI example Python script to ensure your setup is configured
 
   In the screenshot above, DepthAI identified a tv monitor (1.286 m from the camera) and a chair (3.711 m from the camera).
 
-  See `the list of object labels <https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model>`_ in our pre-trained OpenVINO model tutorial.
+  See `the list of object labels <https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model>`__ in our pre-trained OpenVINO model tutorial.
 
 

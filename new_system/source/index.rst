@@ -129,7 +129,7 @@ Setup your device
    </div>
 
 Got questions?
-##########
+##############
 
 We're always happy to help with code or other questions you might have.
 

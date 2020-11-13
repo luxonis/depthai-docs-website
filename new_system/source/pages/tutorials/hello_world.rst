@@ -20,7 +20,7 @@ Code Overview
 
 The :code:`depthai` Python module provides access to your board's 4K 60 Hz color camera.
 We'll display a video stream from this camera to your desktop.
-You can find the `complete source code for this tutorial on GitHub <https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world>`_.
+You can find the `complete source code for this tutorial on GitHub <https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world>`__.
 
 File Setup
 ##########
@@ -35,7 +35,7 @@ Setup the following file structure on your computer:
   cd depthai-tutorials-practice/1-hello-world
 
 What's with the :code:`-practice` suffix in parent directory name? Our tutorials are available on GitHub
-via the `depthai-tutorials <https://github.com/luxonis/depthai-tutorials>`_ repository.
+via the `depthai-tutorials <https://github.com/luxonis/depthai-tutorials>`__ repository.
 We're appending :code:`-practice` so you can distinguish between your work and our finished
 tutorials (should you choose to download those).
 
@@ -107,7 +107,7 @@ Create the DepthAI Pipeline
 
 Now we'll create our data pipeline using the :code:`previewout` stream. This stream contains the data from the color camera.
 The model used in :code:`ai` section is a MobileNetSSD with 20 different classes, see
-`here <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json>`_ for details
+`here <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json>`__ for details
 
 .. code-block:: python
 
@@ -176,4 +176,4 @@ Run the script. Press the :code:`Q` key with focus on the video stream (not your
 
   python3 hello-world.py
 
-You're on your way! You can find the `complete code for this tutorial on GitHub <https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/hello_world.py>`_.
+You're on your way! You can find the `complete code for this tutorial on GitHub <https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/hello_world.py>`__.

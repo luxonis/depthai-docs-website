@@ -32,7 +32,7 @@ release = '0.3.0.0'
 # ones.
 extensions = [
     "sphinx.ext.intersphinx",
-    "sphinx.ext.autosectionlabel",
+    "sphinx.ext.autosectionlabel",  # https://github.com/sphinx-doc/sphinx/issues/7697 wait for this and implement
     "sphinx_rtd_theme",
 ]
 

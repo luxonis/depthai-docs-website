@@ -1,5 +1,5 @@
 Use a Pre-trained OpenVINO model
-=======================================
+================================
 
 In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you
 to the OpenVINO model zoo and running models from this 'zoo'.
@@ -13,7 +13,7 @@ What is OpenVINO?
 #################
 
 Under-the-hood, DepthAI uses the Intel MyriadX chip to perform high-speed model inference. However, you can't just dump
-your neural net into the chip and get high-performance for free. That's where `OpenVINO <https://docs.openvinotoolkit.org/>`_
+your neural net into the chip and get high-performance for free. That's where `OpenVINO <https://docs.openvinotoolkit.org/>`__
 comes in. OpenVINO is a free toolkit that converts a deep learning model into a format that runs on Intel Hardware.
 Once the model is converted, it's common to see Frames Per Second (FPS) improve by 25x or more. Are a couple of small
 steps worth a 25x FPS increase? Often, the answer is yes!
@@ -21,18 +21,18 @@ steps worth a 25x FPS increase? Often, the answer is yes!
 What is the Open Model Zoo?
 ###########################
 
-The `Open Model Zoo <https://github.com/opencv/open_model_zoo>`_ is a library of freely-available pre-trained models.
+The `Open Model Zoo <https://github.com/opencv/open_model_zoo>`__ is a library of freely-available pre-trained models.
 Side note: in machine learning/AI the name for a collection of pre-trained models is called a 'model zoo'.
 The Zoo also contains scripts for downloading those models into a compile-ready format to run on DepthAI.
 
 DepthAI is able to run many of the object detection models in the Zoo, and several are pre-included in the DepthAI Github.
 repository.  We will be using one such model in this tutorial, is face-detection-retail-0004 (pre-compiled
-`here <https://github.com/luxonis/depthai/tree/master/resources/nn/face-detection-retail-0004>`_ on our Github, and
-`here <https://docs.openvinotoolkit.org/2020.1/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html>`_ on the OpenVINO model zoo).
+`here <https://github.com/luxonis/depthai/tree/master/resources/nn/face-detection-retail-0004>`__ on our Github, and
+`here <https://docs.openvinotoolkit.org/2020.1/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html>`__ on the OpenVINO model zoo).
 
 We'll cover converting OpenVINO models to run on DepthAI in a later article.  For now, you can find the models we've
-pre-converted `here <https://github.com/luxonis/depthai/tree/master/resources/nn>`_ and brief instructions on how to do
-so `here <https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`_.
+pre-converted `here <https://github.com/luxonis/depthai/tree/master/resources/nn>`__ and brief instructions on how to do
+so `here <https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`__.
 
 Dependencies
 ############
@@ -64,7 +64,7 @@ options a spin.  In this case we'll just pass in the same neural network that de
 
   python3 depthai_demo.py -dd
 
-This will then run the a typical demo MobileNetv1 SSD object detector trained on the `PASCAL 2007 VOC <http://host.robots.ox.ac.uk/pascal/VOC/voc2007/>`_ classes, which are:
+This will then run the a typical demo MobileNetv1 SSD object detector trained on the `PASCAL 2007 VOC <http://host.robots.ox.ac.uk/pascal/VOC/voc2007/>`__ classes, which are:
 - Person: person
 - Animal: bird, cat, cow, dog, horse, sheep
 - Vehicle: aeroplane, bicycle, boat, bus, car, motorbike, train
@@ -93,7 +93,7 @@ Execute the script to see an annotated video stream of face detections:
 
 It's that easy.  Substitute your face for mine, of course.
 
-And if you'd like to try other models, just peruse `here <https://github.com/luxonis/depthai/tree/master/resources/nn>`_
+And if you'd like to try other models, just peruse `here <https://github.com/luxonis/depthai/tree/master/resources/nn>`__
 and run them by their name, just like above.
 
 Now take some time to play around with the model.  You can for example check how far away the model can detect your face:
@@ -108,7 +108,7 @@ In the latter image you can see that I'm quite back-lit, which is one of the mai
 (and other feature detection). In this case, it's likely limiting the maximum range for which a face can be detected.
 From the testing above, for a confidence threshold of 50%, this range appears to be about 20 feet.  You could get longer
 range out of the same model by reducing the model confidence threshold (by changing from :code:`0.5`
-`here <https://github.com/luxonis/depthai/blob/cdb902179590f0e7b684dde994369e137794a2ef/depthai.py#L233>`_) at the cost
+`here <https://github.com/luxonis/depthai/blob/cdb902179590f0e7b684dde994369e137794a2ef/depthai.py#L233>`__) at the cost
 of increased probability of false positives.
 
 Another limiting factor is that this is a relatively low-resolution model (300x300 pixels), so faces get fairly small
@@ -118,7 +118,7 @@ Trying Other Models
 ###################
 
 The flow we walked through works for other pre-trained object detection models in our repository
-(`here <https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn>`_), which includes:
+(`here <https://github.com/luxonis/depthai-python-extras/tree/master/resources/nn>`__), which includes:
 
 - face detection for retail (:code:`face-detection-retail-0004`)
 - face detection for driver assistance (:code:`face-detection-adas-0001`)
@@ -186,10 +186,10 @@ And there you find the 3D position of my mug!
 You can than choose other models, change the labels, and you're off - getting real-time 3D position for the class of interest.
 
 Play with the feature and please share demos that you come up with (especially if you make a robot that stalks your cat)
-on `discuss.luxonis.com <https://discuss.luxonis.com/>`_ and if you run into any issues, please ping us on our
-`Github <https://github.com/luxonis/depthai>`_.
+on `discuss.luxonis.com <https://discuss.luxonis.com/>`__ and if you run into any issues, please ping us on our
+`Github <https://github.com/luxonis/depthai>`__.
 
-And if you find any errors in these documents, please report an issue on the `docs github <https://github.com/luxonis/depthai-docs-website>`_) on the bottom of this page to give us the correction!
+And if you find any errors in these documents, please report an issue on the `docs github <https://github.com/luxonis/depthai-docs-website>`__) on the bottom of this page to give us the correction!
 
 Monocular Neural Inference fused with Stereo Depth
 **************************************************
