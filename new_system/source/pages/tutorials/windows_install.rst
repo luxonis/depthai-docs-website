@@ -26,7 +26,7 @@ This tutorial provides steps to install DepthAI on Windows 10 system
     .. image:: /_static/images/tutorials/windows/git.png
       :alt: Git install
 
-#. Install CMake. You can find the latest version `here <https://cmake.org/download/#latest>`_.
+#. Install CMake. You can find the latest version `here <https://cmake.org/download/#latest>`__.
 
     .. image:: /_static/images/tutorials/windows/cmake.png
       :alt: CMake install

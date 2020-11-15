@@ -932,4 +932,22 @@ API Reference
 
     Return the bottom coordinate of the bounding box of a tracked object
 
+..
+  Below you can see ?dummy=http://, this is a workaround for a Sphinx, see here - https://github.com/sphinx-doc/sphinx/issues/701#issuecomment-697116337
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Contents:
+
+   depthai.Device <?dummy=http://#Device>
+   depthai.AutofocusMode <?dummy=http://#AutofocusMode>
+   depthai.CNNPipeline <?dummy=http://#CNNPipeline>
+   depthai.NNetPacket <?dummy=http://#NNetPacket>
+   depthai.TensorInfo <?dummy=http://#TensorInfo>
+   depthai.Detections <?dummy=http://#Detections>
+   depthai.Dimension <?dummy=http://#Dimension>
+   depthai.DataPacket <?dummy=http://#DataPacket>
+   depthai.FrameMetadata <?dummy=http://#FrameMetadata>
+   depthai.ObjectTracker <?dummy=http://#ObjectTracker>
+   depthai.Tracklet <?dummy=http://#Tracklet>
