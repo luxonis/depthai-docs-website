@@ -473,6 +473,67 @@ API Reference
      and treated as background
 
 
+  .. function:: send_disparity_confidence_threshold(confidence: int)
+
+     Function to send disparity confidence threshold for StereoSGBM algorithm.
+     If the disparity value confidence is below the threshold, the value is marked as invalid disparity
+     and treated as background
+
+
+  .. function:: get_right_homography()
+
+    .. warning::
+
+      Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
+
+     Return a 3x3 homography matrix used to rectify the right stereo camera image.
+
+
+  .. function:: get_left_homography()
+
+    .. warning::
+
+      Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
+
+     Return a 3x3 homography matrix used to rectify the left stereo camera image.
+
+
+  .. function:: get_left_intrinsic()
+
+    .. warning::
+
+      Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
+
+     Return a 3x3 intrinisc calibration matrix of the left stereo camera.
+
+
+  .. function:: get_right_intrinsic()
+
+    .. warning::
+
+      Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
+
+     Return a 3x3 intrinisc calibration matrix of the right stereo camera.
+
+
+  .. function:: get_rotation()
+
+    .. warning::
+
+      Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
+
+     Return a 3x3 rotation matrix representing the rotation of the right stereo camera w.r.t left stereo camera.
+
+
+  .. function:: get_translation()
+
+    .. warning::
+
+      Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
+
+     Return a 3x1 vector repesenting the position of the right stereo camera center w.r.t left stereo camera center.
+
+
 .. class:: AutofocusMode
   :canonical: depthai.AutofocusMode
 

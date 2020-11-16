@@ -201,7 +201,7 @@ Embedded CV/AI requires all sorts of different shapes/sizes/permutations.  And s
 - **Raspberry Pi Compute Module Edition** (`BW1097 <https://shop.luxonis.com/products/depthai-rpi-compute-module-edition>`__) -
   this one has a built-in Raspberry Pi Compute Module 3B+.  So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
 
-- **Embedded DepthAI with WiFi/BT** (`BW1092 <https://shop.luxonis.com/products/bw1092-pre-order>`__) - Currently this is in Alpha testing.
+- **Embedded DepthAI with WiFi/BT** (`BW1092 <https://shop.luxonis.com/products/bw1092>`__) - Currently this is in Alpha testing.
   So only buy it if you are comfortable with working with bleeding-edge tech and want to help us refine this product.
   It is the first Embedded (i.e. SPI-interface) version of DepthAI - so it has additional 128MB NOR flash, so it can boot
   on its own out of the NOR flash, and not host needs to be present to run.  In contrast, the BW1097 can also run on its own,
@@ -522,7 +522,7 @@ Monocular Neural Inference fused with Stereo Depth Mode
 
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
 
-- DepthAI RPi Compute Module Edition (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`) the minimum depth is **0.827** meters:
+- DepthAI RPi Compute Module Edition (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`) the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
 
 .. code-block:: python
 
@@ -552,7 +552,7 @@ Below are the minimum depth perception possible in the disparity disparity depth
 Monocular Neural Inference fused with Stereo Depth Mode
 -------------------------------------------------------
 
-For DepthAI units which use modular cameras, the minimum baseline is 2.5cm (see image below) which means the minimum perceivable depth **0.229** meters (calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03VQroLoaCAm-e1y0jif-halRfWyQ%3A1588621013147&ei=1W6wXsLICMv4-gS7s7iADg&q=883.15*.025%2F96&oq=883.15*.025%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CLyekBWNTJ6QFgm8vpAWgAcAB4AIABa4gBzgKSAQMzLjGYAQCgAQGqAQdnd3Mtd2l6&sclient=psy-ab&ved=0ahUKEwiCh6-5-prpAhVLvJ4KHbsZDuAQ4dUDCAw&uact=5>`__).
+For DepthAI units which use modular cameras, the minimum baseline is 2.5cm (see image below) which means the minimum perceivable depth **0.229** meters  for full 1280x800 resolution and **0.196** meters for 640x400 resolution (limited by the minimum focal distance of the grayscale cameras, as in stereo neural inference mode).
 
 The minimum baseline is set simply by how close the two boards can be spaced before they physically interfere:
 
@@ -895,7 +895,7 @@ DepthAI/megaAI will also support an additional host-communication mode in the `G
 What Information is Stored on the DepthAI Boards
 ################################################
 
-Initial Crowd Supply backers received boards which hat literally nothing stored on them.  All information was loaded
+Initial Crowd Supply backers received boards which had literally nothing stored on them.  All information was loaded
 from the host to the board.  This includes the BW1097 (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`), which had the calibration stored on the included microSD card.
 
 So each hardware model which has stereo cameras (e.g. :ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`,
@@ -924,7 +924,17 @@ Example of information pulled from a :ref:`BW1098OBC <BW1098OBC - USB3 with Onbo
       0.000008,   -0.000010,    1.000000,
 
 
-Current (as of April 2020) DepthAI boards with on-board stereo cameras (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>` and :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>` ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
+Current (those April 2020 and after) DepthAI boards with on-board stereo cameras (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`, :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`, and `BW1092 <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__) ship calibration and board parameters pre-programmed into DepthAI's onboard eeprom.
+
+Dual-Homography vs. Single-Homography Calibration
+#################################################
+
+As a result of some great feedback/insight from the `OpenCV Spatial AI Competition <https://opencv.org/opencv-spatial-ai-competition/>`__ we discovered and implemented many useful features (summary `here <https://github.com/luxonis/depthai/issues/183>`__).
+
+Among those was the discovery that a dual-homography approach, although mathematically equivalent to a single-homography (as you can collapse the two homographies into one) actually outperforms single-homography in real-world practice.  
+
+As a result, we switched our calibration system in September 2020 to use dual-homography instead of single homography.  So any units produced after September 2020 include dual homography.  Any units with single homography can be recalibrated (see :ref:`here <Calibration>`) to use this updated dual-homography calibration.
+
 
 What is the Field of View of DepthAI and megaAI?
 ################################################
@@ -1233,10 +1243,58 @@ DepthAI is an open-source platform across a variety of stacks, including hardwar
 
 See below for the pertinent Githubs:
 
+Overall
+*******
+
 - https://github.com/luxonis/depthai-hardware - DepthAI hardware designs themselves.
 - https://github.com/luxonis/depthai - Python demo and Examples
 - https://github.com/luxonis/depthai-python - Python API
 - https://github.com/luxonis/depthai-api - C++ Core and C++ API
 - https://github.com/luxonis/depthai-ml-training - Online AI/ML training leveraging Google Colab (so it's free)
 - https://github.com/luxonis/depthai-experiments - Experiments showing how to use DepthAI.
+
+Embedded Use Case
+*****************
+
+- https://github.com/luxonis/depthai-spi-library - SPI interface library for Embedded (microcontroller) DepthAI application
+- https://github.com/luxonis/depthai-bootloader-shared - Bootloader source code which allows programming NOR flash of DepthAI to boot autonomously
+- https://github.com/luxonis/esp32-spi-message-demo - ESP32 Example applications for Embedded/ESP32 DepthAI use (e.g. with `BW1092 <https://github.com/luxonis/depthai-hardware/tree/master/BW1092_ESP32_Embedded_WIFI_BT>`__)
+ 
+Can I Use and IMU With DepthAI?
+###############################
+
+Yes, our BW1099 (`here <https://shop.luxonis.com/collections/all/products/bw1099>`__) has support to talk to IMUs.  And we are in the process of making a future version of the BW1098OBC (as well as BW1092) which have built-in BNO085.  We do not yet have support for this IMU in the DepthAI API, but we have done proof-of-concepts and will be making this a standard feature through the API.
+ 
+Where are Product Brochures and/or Datasheets?
+##############################################
+
+Brochures:
+**********
+
+- Editions Summary `here <https://drive.google.com/open?id=1z7QiCn6SF3Yx977oH41Kcq68Ay6e9h3_>`__
+- System on Module (BW1099) `here <https://drive.google.com/open?id=1WQMhlh-5Z1YKm4u4i_SVPKxRwgPlfNr8>`__
+- USB3 Modular Cameras Edition (BW1098FFC) `here <https://drive.google.com/open?id=1-OWgbJvrdlzRVKtnXDdVKLL9Oba5Nhx3>`__
+- USB3 Onboard Cameras Edition (BW1098OBC) `here <https://drive.google.com/open?id=1g0bQDLNnpVC_1-AGaPmC8BaXtGaNNdTR>`__
+- Raspberry Pi Compute Edition Module (BW1097) `here <https://drive.google.com/open?id=1QmPQ58NkaxO_Tz1Uzj9LlZcsyZ4Vw7hi>`__
+- Raspberry Pi HAT (BW1094) `here <https://drive.google.com/open?id=1QrpV8GXMevqj_ikDJVpaJioXM8axdUEJ>`__
+- megaAI (BW1093) `here <https://drive.google.com/open?id=1ji3K_Q3XdExdID94rHVSL7MvAV2bwKC9>`__
+
+Datasheets:
+***********
+
+We have not yet made datasheets for current models (we've been too focused on technical implementations tasks), but we have made a datasheet for the coming PoE version of DepthAI/megaAI:
+
+- PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
+ 
+How Do I Talk to an Engineer?
+#############################
+ 
+At Luxonis we firmly believe in the value of customers being able to communicate directly with our engineers.  It helps our engineering efficiency.  And it does so by making us make the things that matter, in the ways that matter (i.e. usability in the right ways) to solve real problems.
+
+As such, we have many mechanisms to allow direct communication:
+ - `Luxonis Community Slack <https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw>`__.  Use this for real-time communication with our engineers.  We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
+ - `Luxonis Github <https://github.com/luxonis>`__.  Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports.  We usually respond within a couple ours (and often w/in a couple minutes).  For a summary of our Githubs, see [here](#githubs).
+ - `discuss.luxonis.com <https://discuss.luxonis.com/>`__.  Use this for starting any public discussions, ideas, product requests, support requests etc. or generally to engage with the Luxonis Community.  While you're there, check out this awesome visual-assistance device being made with DepthAI for the visually-impaire, `here <https://discuss.luxonis.com/d/40-questions-re-depthai-usb3-ffc-edition-cameras>`__.
+
+
 
