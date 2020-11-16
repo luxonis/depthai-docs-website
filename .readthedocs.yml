@@ -7,7 +7,7 @@ version: 2
 
 # Build documentation in the docs/ directory with Sphinx
 sphinx:
-  configuration: new_system/source/conf.py
+  configuration: source/conf.py
 
 # Build documentation with MkDocs
 #mkdocs:
@@ -21,4 +21,4 @@ formats:
 python:
   version: 3.8
   install:
-    - requirements: new_system/requirements.txt
+    - requirements: requirements.txt

@@ -1,2 +1,0 @@
-web: jekyll serve --livereload
-
