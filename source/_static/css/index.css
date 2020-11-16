@@ -1,0 +1,42 @@
+/* Additional styles or overrides */
+
+.items-row {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+video {
+    max-width: 100%;
+}
+
+.items-col {
+    width: 50%
+}
+
+.item {
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.item .item-img-wrapper {
+    height: 200px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.item .item-img-wrapper .item-img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.item .item-body {
+    height: 170px;
+}
+
+.item .item-cta {
+    width: 100%;
+}
+

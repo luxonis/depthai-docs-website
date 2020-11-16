@@ -11,24 +11,29 @@ The DepthAI docs are designed to be easily updated. See an issue? Follow these s
 
 ## Local Development
 
-The site is powered by [Jekyll](https://jekyllrb.com/).
+The site is powered by [Sphinx](https://github.com/sphinx-doc/sphinx).
 
 ### Setup
 
-Install ruby:
-`sudo apt-get install ruby-full`
-
-Run `bundle install` to install Ruby gem dependencies.
+```
+./install_dependencies.sh
+```
 
 ### Dependencies
 
-Ruby v2.6.2 or 2.7.0.
-Tested on Ubuntu 18.04 and 20.04.
+- CMake v3.18.2
+- Sphinx v4
 
 ### Running the local web server
 
-Start via `foreman start`. By default, the server runs at http://127.0.0.1:4000.
+```
+make html
+cd build/html
+python3 -m http.server
+```
+
+The server runs at http://127.0.0.1:8000.
 
 ### Deploying
 
-`git push` the `master` branch to deploy via [Netlify](https://www.netlify.com/).
+`git push` the `master` branch to deploy via [ReadTheDocs](https://readthedocs.org/).
