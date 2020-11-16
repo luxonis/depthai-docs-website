@@ -436,7 +436,7 @@ On our Roadmap (planned delivery December 2020)
 - Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`__)
 - AprilTags (PR `here <https://github.com/luxonis/depthai/pull/139>`__)
 - Integrated Text Detection -> OCR Example pipeline
-- OpenCL Support (supported through OpenVINO)
+- OpenCL Support (supported through OpenVINO (`here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__))
 
 And see our Github project `here <https://github.com/orgs/luxonis/projects/2>`__ to follow along with the progress of these implementations.
 
