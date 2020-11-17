@@ -10,6 +10,21 @@ You can get help in a number of ways:
 - Post a message to our forum.
 - Submit an issue on DepthAI repository
 
+..
+  Needed for index.rst bottom
+
+.. image:: /_static/images/email.png
+  :width: 0
+  :alt: email
+
+.. image:: /_static/images/forum.png
+  :width: 0
+  :alt: forum
+
+.. image:: /_static/images/slack.png
+  :width: 0
+  :alt: slack
+
 Refunds and returns policy
 ##########################
 
