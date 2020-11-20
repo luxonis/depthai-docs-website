@@ -23,8 +23,12 @@ Source code
   p = device.create_pipeline(config={
       "streams": ["previewout", "object_tracker"],
       "ai": {
-          "blob_file": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.blob",
-          "blob_file_config": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.json"
+          #blob compiled for maximum 12 shaves
+          "blob_file": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.blob.sh12cmx12NCE1",
+          "blob_file_config": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.json",
+          "shaves" : 12,
+          "cmx_slices" : 12,
+          "NN_engines" : 1,
       },
       'ot': {
           'max_tracklets': 20,
