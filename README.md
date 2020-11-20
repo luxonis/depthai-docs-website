@@ -37,3 +37,17 @@ The server runs at http://127.0.0.1:8000.
 ### Deploying
 
 `git push` the `master` branch to deploy via [ReadTheDocs](https://readthedocs.org/).
+
+### Update redirects
+
+To update redirects on the page, see `source/redirects.yml`.
+
+Then, when everything is updated, please use 
+
+```
+ rtd-redirects luxonis-docs-website ./source/redirects.yml --pro --username <username> --password <pass>
+```
+
+Username and password are the credentials you use to access the RTD website
+
+**You need to have sufficient privileges on the RTD to change the redirects**

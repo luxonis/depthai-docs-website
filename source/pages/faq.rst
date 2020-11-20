@@ -34,7 +34,7 @@ and productize solutions quickly, autonomously, and at low risk.
 See the summary of our (MIT-Licensed) Githubs :ref:`below <githubs>`, which include open-source hardware, firmware, software, and machine-learning training.
 
 
-.. _spartialai:
+.. _spatialai:
 
 What is SpatialAI?  What is 3D Object Localization?
 ###################################################
