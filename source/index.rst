@@ -20,6 +20,78 @@ Setup your device
 
    <div class="items-container">
       <div class="items-row">
+         <!-- BW1093 -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="./_images/bw1093.png" alt="MegaAI | Tiny but Mighty"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">MegaAI | Tiny but Mighty</h5>
+                  <p class="item-descr">
+                     MegaAI is a tiny USB3 4K AI camera featuring 4K/30 h.265 encoding and powerful hardware accelerated ML/CV.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="pages/products.html#bw1093" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+         <!-- BW1098OBC -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="./_images/bw1098obc.png" alt="RPi HAT"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">USB3 | Onboard Cameras</h5>
+                  <p class="item-descr">
+                     DepthAI for the host of your choice, with an onboard color camera module and global-shutter synchronized stereo pair.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="pages/products.html#bw1098obc" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+      </div>
+      <div class="items-row">
+         <!-- BW1098FFC -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="./_images/bw1098ffc.jpg" alt="USB3 | Modular Cameras"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">USB3 | Modular Cameras</h5>
+                  <p class="item-descr">
+                     DepthAI for the host of your choice, with modular cameras for easy integration onto/into your platform and custom stereo baselines.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="pages/products.html#bw1098ffc" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+         <!-- BW1099 -->
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="./_images/bw1099.jpg" alt="System on Module"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">System on Module</h5>
+                  <p class="item-descr">
+                     Allows you to integrate the power of DepthAI into your own products.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="pages/products.html#bw1099" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+      </div>
+      <div class="items-row">
          <!-- BW1097 -->
          <div class="items-col">
             <div class="item">
@@ -51,78 +123,6 @@ Setup your device
                </div>
                <footer class="item-footer">
                   <a href="pages/products.html#bw1094" class="btn item-cta">Get Started ›</a>
-               </footer>
-            </div>
-         </div>
-      </div>
-      <div class="items-row">
-         <!-- BW1098FFC -->
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/bw1098ffc.jpg" alt="USB3 | Modular Cameras"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">USB3 | Modular Cameras</h5>
-                  <p class="item-descr">
-                     DepthAI for the host of your choice, with modular cameras for easy integration onto/into your platform and custom stereo baselines.
-                  </p>
-               </div>
-               <footer class="item-footer">
-                  <a href="pages/products.html#bw1098ffc" class="btn item-cta">Get Started ›</a>
-               </footer>
-            </div>
-         </div>
-         <!-- BW1098OBC -->
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/bw1098obc.png" alt="RPi HAT"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">USB3 | Onboard Cameras</h5>
-                  <p class="item-descr">
-                     DepthAI for the host of your choice, with an onboard color camera module and global-shutter synchronized stereo pair.
-                  </p>
-               </div>
-               <footer class="item-footer">
-                  <a href="pages/products.html#bw1098obc" class="btn item-cta">Get Started ›</a>
-               </footer>
-            </div>
-         </div>
-      </div>
-      <div class="items-row">
-         <!-- BW1099 -->
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/bw1099.jpg" alt="System on Module"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">System on Module</h5>
-                  <p class="item-descr">
-                     Allows you to integrate the power of DepthAI into your own products.
-                  </p>
-               </div>
-               <footer class="item-footer">
-                  <a href="pages/products.html#bw1099" class="btn item-cta">Get Started ›</a>
-               </footer>
-            </div>
-         </div>
-         <!-- BW1098OBC -->
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/bw1093.png" alt="MegaAI | Tiny but Mighty"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">MegaAI | Tiny but Mighty</h5>
-                  <p class="item-descr">
-                     MegaAI is a tiny USB3 4K AI camera featuring 4K/30 h.265 encoding and powerful hardware accelerated ML/CV.
-                  </p>
-               </div>
-               <footer class="item-footer">
-                  <a href="pages/products.html#bw1093" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
