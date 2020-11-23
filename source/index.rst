@@ -8,6 +8,12 @@ DepthAI's documentation
 
 *Learn how to setup your DepthAI device, view tutorials, code samples, and more.*
 
+THIS VERSION OF DOCUMENTATION IS UNDER ACTIVE DEVELOPMENT AND MAY CONTAIN INCORRECT INFORMATION
+###############################################################################################
+
+TO SEE THE UP-TO-DATE DOCS, PLEASE SELECT "latest" VERSION
+##########################################################
+
 DepthAI is the embedded spatial AI platform that helps you build products with true realtime 3D object localization
 (think 3D object detection) and tracking. DepthAI offloads AI, depth vision and more - processed direct from built-in
 cameras - freeing your host to process application-specific data.

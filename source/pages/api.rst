@@ -1,5 +1,5 @@
-Python API
-==========
+Python Gen2 API
+===============
 
 Instructions for installing, upgrading, and using the DepthAI Python API.
 
