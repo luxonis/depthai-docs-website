@@ -69,3 +69,5 @@ This tutorial provides steps to install DepthAI on Windows 10 system
 #. Run the DepthAI demo code
 
     See :ref:`Verify installation` for details
+
+.. include::  /pages/includes/footer-short.rst

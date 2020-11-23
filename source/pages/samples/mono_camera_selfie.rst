@@ -184,5 +184,6 @@ In this sample, we use :code:`tkinter` for two dialog boxes:
         Tk().destroy()
 
 
-Do you have any questions/suggestions? Feel free to :ref:`get in touch and let us know! <Support>`
+
+.. include::  /pages/includes/footer-short.rst
 

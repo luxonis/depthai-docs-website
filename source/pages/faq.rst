@@ -1298,3 +1298,5 @@ As such, we have many mechanisms to allow direct communication:
 
 
 
+.. include::  /pages/includes/footer-short.rst
+

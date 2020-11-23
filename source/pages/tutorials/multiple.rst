@@ -74,3 +74,5 @@ you can do this to substantially reduce the burden on the host - as since all th
 DepthAI before getting to the host - almost all the host burden is just from displaying the video.
 
 So with the video disabled, the host only has to handle a couple kilobytes a second in terms of metadata.
+
+.. include::  /pages/includes/footer-short.rst

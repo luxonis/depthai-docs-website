@@ -993,6 +993,8 @@ API Reference
 
     Return the bottom coordinate of the bounding box of a tracked object
 
+.. include::  /pages/includes/footer-short.rst
+
 ..
   Below you can see ?dummy=http://, this is a workaround for a Sphinx, see here - https://github.com/sphinx-doc/sphinx/issues/701#issuecomment-697116337
 
