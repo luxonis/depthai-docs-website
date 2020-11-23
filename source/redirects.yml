@@ -50,3 +50,6 @@ redirects:
   "/api": "/pages/api"
   "/support": "/pages/support"
   "/troubleshooting": "/pages/troubleshooting"
+
+  # custom
+  "/images/depthai_logo.png": "/_static/logo.png"

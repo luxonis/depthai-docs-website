@@ -101,3 +101,7 @@ video {
     background-color: #004d80;
 }
 
+.cta-row-short h5 {
+    margin-bottom: 0;
+}
+

@@ -45,7 +45,7 @@ To update redirects on the page, see `source/redirects.yml`.
 Then, when everything is updated, please use 
 
 ```
- rtd-redirects luxonis-docs-website ./source/redirects.yml --pro --username <username> --password <pass>
+rtd-redirects luxonis-docs-website ./source/redirects.yml --pro --username <username> --password <pass>
 ```
 
 Username and password are the credentials you use to access the RTD website
