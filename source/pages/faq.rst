@@ -952,6 +952,7 @@ How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
  - M12-Mount IMX378 request `here <https://github.com/luxonis/depthai-hardware/issues/16>`__
  - M12-Mount OV9281 request `here <https://github.com/luxonis/depthai-hardware/issues/17>`__
  - Fish-Eye OV9281 (for better SLAM) request `here <https://github.com/luxonis/depthai-hardware/issues/15>`__
+ - Mechanical, Optical, and Electrical equivalent OV9282 module with visible and IR capability `here <https://github.com/luxonis/depthai-hardware/issues/22>`__
  - Global-Shutter Color Camera (OV9782) with same intrinsics as OV9282 grayscale `here <https://github.com/luxonis/depthai-hardware/issues/21>`__
  - Original request for this `here <https://discourse.ros.org/t/opencv-ai-kit-oak/15406/17?u=luxonis-brandon>`__
 
