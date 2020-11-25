@@ -350,6 +350,9 @@ Specifications
 - All power regulation, clock generation, etc. on module
 - All connectivity through single 100-pin connector (DF40C-100DP-0.4V(51))
 
+**Datasheets** are available `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__
+and for EMB edition `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099EMB/R1M0E1/BW1099EMB_Datasheet.pdf>`__
+
 
 Getting Started Integrating Into Your Products
 **********************************************
