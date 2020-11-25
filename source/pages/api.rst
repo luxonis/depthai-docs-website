@@ -381,44 +381,85 @@ API Reference
           'depth':
           {
               'calibration_file': consts.resource_paths.calib_fpath,
+              'left_mesh_file': consts.resource_paths.left_mesh_fpath,
+              'right_mesh_file': consts.resource_paths.right_mesh_fpath,
               'padding_factor': 0.3,
               'depth_limit_m': 10.0, # In meters, for filtering purpose during x,y,z calc
-              'confidence_threshold' : 0.5, #Depth is calculated for bounding boxes with confidence higher than this number
+              'median_kernel_size': 7,  # Disparity / depth median filter kernel size (N x N) . 0 = filtering disabled
+              'lr_check': True  # Enable stereo 'Left-Right check' feature.
+              'warp_rectify':
+              {
+                  'use_mesh' : True, # if False, will use homography
+                  'mirror_frame': True, # if False, the disparity will be mirrored instead
+                  'edge_fill_color': 0, # gray 0..255, or -1 to replicate pixel values
+              },
           },
           'ai':
           {
-              'blob_file': blob_file,  # MyriadX CNN blob file path
-              'blob_file_config': blob_file_config,  # Configuration file for CNN output tensor mapping on host side
-              'calc_dist_to_bb': True,  # if True, will include depth information to CNN output tensor
-              'keep_aspect_ratio': not args['full_fov_nn'],
+              'blob_file': blob_file,
+              'blob_file_config': blob_file_config,
+              'blob_file2': blob_file2,
+              'blob_file_config2': blob_file_config2,
+              'calc_dist_to_bb': True, # depth calculation on CNN models with bounding box output
+              'keep_aspect_ratio': False, # Keep aspect ratio, don't use full RGB FOV for NN
+              'camera_input': "left", # 'rgb', 'left', 'right', 'left_right', 'rectified_left', 'rectified_right', 'rectified_left_right'
+              'shaves' : 7,  # 1 - 14 Number of shaves used by NN.
+              'cmx_slices' : 7,  # 1 - 14 Number of cmx slices used by NN.
+              'NN_engines' : 2,  # 1 - 2 Number of NN_engines used by NN.
           },
           # object tracker
           'ot':
           {
-              'max_tracklets'        : 20, # maximum 20 is supported
-              'confidence_threshold' : 0.5, # object is tracked only for detections over this threshold
+              'max_tracklets'        : 20, #maximum 20 is supported
+              'confidence_threshold' : 0.5, #object is tracked only for detections over this threshold
           },
           'board_config':
           {
-              'swap_left_and_right_cameras': args['swap_lr'], # True for 1097 (RPi Compute) and 1098OBC (USB w/onboard cameras)
-              'left_fov_deg': args['field_of_view'], # Same on 1097 and 1098OBC
-              'rgb_fov_deg': args['rgb_field_of_view'],
-              'left_to_right_distance_cm': args['baseline'], # Distance between stereo cameras
-              'left_to_rgb_distance_cm': args['rgb_baseline'], # Currently unused
-              'store_to_eeprom': args['store_eeprom'],
-              'clear_eeprom': args['clear_eeprom'],
-              'override_eeprom': args['override_eeprom'],
+              'swap_left_and_right_cameras': True, # Swap the Left and Right cameras.
+              'left_fov_deg': 71.86, # Horizontal field of view (HFOV) for the stereo cameras in [deg].
+              'rgb_fov_deg': 68.7938, # Horizontal field of view (HFOV) for the RGB camera in [deg]
+              'left_to_right_distance_cm': 9.0, # Left/Right camera baseline in [cm]
+              'left_to_rgb_distance_cm': 2.0, # Distance the RGB camera is from the Left camera.
+              'store_to_eeprom': False, # Store the calibration and board_config (fov, baselines, swap-lr) in the EEPROM onboard
+              'clear_eeprom': False, # Invalidate the calib and board_config from EEPROM
+              'override_eeprom': False, # Use the calib and board_config from host, ignoring the EEPROM data if programmed
           },
-
+          'camera':
+          {
+              'rgb':
+              {
+                  # 3840x2160, 1920x1080
+                  # only UHD/1080p/30 fps supported for now
+                  'resolution_h': 3040, # possible - 1080, 2160, 3040
+                  'fps': 30,
+              },
+              'mono':
+              {
+                  # 1280x720, 1280x800, 640x400 (binning enabled)
+                  'resolution_h': 800, # possible - 400, 720, 800
+                  'fps': 30,
+              },
+          },
+          'app':
+          {
+              'sync_video_meta_streams': False,  # Synchronize 'previewout' and 'metaout' streams
+              'sync_sequence_numbers'  : False,  # Synchronize sequence numbers for all packets. Experimental
+              'usb_chunk_KiB' : 64, # USB transfer chunk on device. Higher (up to megabytes) may improve throughput, or 0 to disable chunking
+          },
           #'video_config':
           #{
-          #    'rateCtrlMode': 'cbr',
-          #    'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main'
-          #    'bitrate': 8000000, # When using CBR
-          #    'maxBitrate': 8000000, # When using CBR
-          #    'keyframeFrequency': 30,
-          #    'numBFrames': 0,
-          #    'quality': 80 # (0 - 100%) When using VBR
+          #    'rateCtrlMode': 'cbr', # Options: cbr / vbr
+          #    'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main / 'mjpeg' '
+          #    'bitrate': 8000000, # When using CBR (H264/H265 only)
+          #    'maxBitrate': 8000000, # When using CBR (H264/H265 only)
+          #    'keyframeFrequency': 30, (H264/H265 only)
+          #    'numBFrames': 0, (H264/H265 only)
+          #    'quality': 80 # (0 - 100%) When using VBR or MJPEG profile
+          #}
+          #'video_config':
+          #{
+          #    'profile': 'mjpeg',
+          #    'quality': 95
           #}
       }
 
