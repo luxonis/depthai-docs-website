@@ -55,7 +55,7 @@ Test your environment
 #####################
 
 Let's verify we're able to load all of our dependencies. Open the :code:`hello-world.py` file you
-[created earlier](#file-setup) in your code editor. Copy and paste the following into :code:`hello-world.py`:
+:ref:`created earlier <File Setup>` in your code editor. Copy and paste the following into :code:`hello-world.py`:
 
 
 .. code-block:: python

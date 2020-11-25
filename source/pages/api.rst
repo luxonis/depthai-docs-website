@@ -90,7 +90,7 @@ tools needed for compilation so you don't need to setup anything - and you can e
 from `OpenVINO model zoo <https://github.com/openvinotoolkit/open_model_zoo>`__.
 
 If you'd like, you can also compile the blob yourself. You'll need to install `OpenVINO toolkit <https://docs.openvinotoolkit.org/latest/index.html>`__,
-then use `Model Optimizer <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html) and [Myriad Compiler](https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#myriad_platform_option>`__
+then use `Model Optimizer <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html>`__ and `Myriad Compiler <https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#myriad_platform_option>`__
 in order to obtain MyriadX blob.
 We've documented example usage of these compilers `here <https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`__
 
