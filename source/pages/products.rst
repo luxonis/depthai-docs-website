@@ -708,6 +708,18 @@ We'll execute a DepthAI example Python script to ensure your setup is configured
 
   See `the list of object labels <https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model>`__ in our pre-trained OpenVINO model tutorial.
 
+
+Compliance and safety
+#####################
+
+All DepthAI products have undergone extensive compliance testing, and copies of the relevant certificates and conformity documents are available to download from the table below.
+
+.. list-table:: Compliance download & reference table
+  :widths: 25 75
+  :align: center
+
+  * - megaAI / DepthAI BW1093 / OAK
+    - :download:`Declaration of conformity </_static/compliance/megaai_eu.pdf>`
+
+
 .. include::  /pages/includes/footer-short.rst
-
-
