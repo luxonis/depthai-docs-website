@@ -232,7 +232,7 @@ What's in the box?
 ******************
 
 - BW1098FFC Carrier Board
-- USB3C cable (6 ft.)
+- USB3C cable (3 ft.)
 - Power Supply
 
 
@@ -306,7 +306,7 @@ What's in the box?
 ******************
 
 - BW1098OBC Carrier Board
-- USB3C cable (6 ft.)
+- USB3C cable (3 ft.)
 - Power Supply
 
 Setup
@@ -387,7 +387,7 @@ What's in the box?
 ******************
 
 - BW1098OBC Carrier Board
-- USB3C cable (6 ft.)
+- USB3C cable (3 ft.)
 
 Setup
 *****
