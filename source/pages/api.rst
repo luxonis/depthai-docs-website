@@ -70,6 +70,9 @@ Now, run the demo script from within depthai to make sure everything is working:
 If all goes well a small window video display with overlays for any items for which the class exists in the example
 20-class object detector (class list `here <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L22>`__).
 
+After you have run this demo, you can either run :code:`python3 depthai_demo.py -h` to see other neural networks that by-default can be run, or proceed to our tutorials (such as how to use pre-trained neural models from OpenVINO, `HERE <https://docs.luxonis.com/en/latest/pages/tutorials/pretrained_openvino/>`__) or our experiments (`HERE <https://github.com/luxonis/depthai-experiments>`__) to learn more ways to use DepthAI.  
+
+You can also proceed below to learn how to convert your own neural networks to run on DepthAI.
 
 Preparing MyriadX blob file and it's config
 ###########################################
