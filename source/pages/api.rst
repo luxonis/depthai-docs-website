@@ -59,7 +59,7 @@ First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and
 
   git clone https://github.com/luxonis/depthai.git
   cd depthai
-  python3 -m pip install -r requirements.txt
+  python3 install_requirements.py
 
 Now, run the demo script from within depthai to make sure everything is working:
 
@@ -258,8 +258,7 @@ Prior to running the following, you can either clone the respository independent
 .. code-block:: bash
 
   git checkout develop
-  python3 -m pip install -U pip
-  python3 -m pip install -r requirements.txt
+  python3 install_requirements.py
 
 Install from source
 *******************

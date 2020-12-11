@@ -479,7 +479,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
       git clone https://github.com/luxonis/depthai.git
       cd depthai
-      python3 -m pip install -r requirements.txt
+      python3 install_requirements.py
 
 #. Print chessboard calibration image.
 
