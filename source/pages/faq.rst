@@ -1081,11 +1081,11 @@ https://github.com/luxonis/depthai-shared/blob/82435d4/include/depthai-shared/me
 
 And for example to set an exposure time of 23.4ms, with the maximum sensitivity of 1600, use:
 
-.. code-block:: python3
-self.device.send_camera_control(
-    depthai.CameraControl.CamId.RGB,
-    depthai.CameraControl.Command.AE_MANUAL,
-    "23400 1600 33333")
+.. code-block:: python
+ self.device.send_camera_control(
+     depthai.CameraControl.CamId.RGB,
+     depthai.CameraControl.Command.AE_MANUAL,
+     "23400 1600 33333")
     
     
 White Balance (AWB)
