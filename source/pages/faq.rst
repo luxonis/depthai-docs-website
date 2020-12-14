@@ -1073,12 +1073,21 @@ See :ref:`here <autofocus>` for details on controlling auto-focus/focus.
 Exposure (AE)
 *************
 
-This is not yet exposed via the DepthAI API but we have it on our internal roadmap currently as item 23, where the top 4
-are currently under development (and another 9 are soaking in testing/PR)..  So I'd say we'd have it in ~3-4 months based on current trajectory.  
+It is possible to set frame duration (us), exposure time (us), sensitivity (iso) via the API.  And we have a small example for the color camera to show how to do this for the color camera, which is here:
+https://github.com/luxonis/depthai/pull/279
 
-It's something we can prioritize if needed though.  Frame duration (us), exposure time (us), sensitivity (iso),
-brightness, are some that I see in there in addition to things like locking the exposure/etc.
+We are planning on making these controls more self-documenting (see `here <https://github.com/luxonis/depthai-core/issues/11>`__), but in the meantime, all of the available controls are here:
+https://github.com/luxonis/depthai-shared/blob/82435d4/include/depthai-shared/metadata/camera_control.hpp#L107
 
+And for example to set an exposure time of 23.4ms, with the maximum sensitivity of 1600, use:
+
+.. code-block:: python3
+self.device.send_camera_control(
+    depthai.CameraControl.CamId.RGB,
+    depthai.CameraControl.Command.AE_MANUAL,
+    "23400 1600 33333")
+    
+    
 White Balance (AWB)
 *******************
 
