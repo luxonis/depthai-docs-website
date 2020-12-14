@@ -1081,7 +1081,6 @@ https://github.com/luxonis/depthai-shared/blob/82435d4/include/depthai-shared/me
 
 And for example to set an exposure time of 23.4ms, with the maximum sensitivity of 1600, use:
 
-.. code-block:: python
  self.device.send_camera_control(
      depthai.CameraControl.CamId.RGB,
      depthai.CameraControl.Command.AE_MANUAL,
