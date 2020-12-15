@@ -555,7 +555,7 @@ define the baseline between the stereo cameras, and between the left camera and 
           "name": "ACME01",
           "revision": "V1.2",
           "swap_left_and_right_cameras": [true | false],
-          "left_fov_deg": 71.86,
+          "left_fov_deg": 73.5,
           "rgb_fov_deg": 68.7938,
           "left_to_right_distance_cm": [BASELINE],
           "left_to_rgb_distance_cm": [RGBLEFT]
@@ -576,7 +576,7 @@ the two grayscale cameras, as shown below, use the JSON further below:
           "name": "ACME01",
           "revision": "V1.2",
           "swap_left_and_right_cameras": true,
-          "left_fov_deg": 71.86,
+          "left_fov_deg": 73.5,
           "rgb_fov_deg": 68.7938,
           "left_to_right_distance_cm": 2.5,
           "left_to_rgb_distance_cm": 5.0
@@ -667,7 +667,7 @@ And look for :code:`EEPROM data:` in the prints in the terminal after running th
   EEPROM data: valid (v2)
     Board name     : BW1098OBC
     Board rev      : R0M0E0
-    HFOV L/R       : 71.86 deg
+    HFOV L/R       : 73.5 deg
     HFOV RGB       : 68.7938 deg
     L-R   distance : 7.5 cm
     L-RGB distance : 3.75 cm

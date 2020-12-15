@@ -418,7 +418,7 @@ API Reference
           'board_config':
           {
               'swap_left_and_right_cameras': True, # Swap the Left and Right cameras.
-              'left_fov_deg': 71.86, # Horizontal field of view (HFOV) for the stereo cameras in [deg].
+              'left_fov_deg': 73.5, # Horizontal field of view (HFOV) for the stereo cameras in [deg].
               'rgb_fov_deg': 68.7938, # Horizontal field of view (HFOV) for the RGB camera in [deg]
               'left_to_right_distance_cm': 9.0, # Left/Right camera baseline in [cm]
               'left_to_rgb_distance_cm': 2.0, # Distance the RGB camera is from the Left camera.
