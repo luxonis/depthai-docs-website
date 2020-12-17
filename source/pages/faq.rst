@@ -420,6 +420,9 @@ Available in DepthAI API Today:
 - JPEG Encoding
 - MJPEG Encoding
 - Warp/Dewarp
+- Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), `here <https://github.com/luxonis/depthai/issues/163>`__
+- SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`__
+- Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`__)
 
 The above features are available in the Luxonis Pipeline Builder Gen1 (see example :ref:`here <API Reference>`).  See :ref:`Pipeline Builder Gen2 <pipelinegen2>` for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
 
@@ -427,9 +430,7 @@ On our Roadmap (planned delivery December 2020)
 ***********************************************
 
 - Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__)
-- Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), `here <https://github.com/luxonis/depthai/issues/163>`__
 - Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai/issues/216>`__)
-- SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`__
 - microPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
 - Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`__)
 - Integrated IMU Support (`here <https://github.com/luxonis/depthai-hardware/issues/8>`__)
@@ -438,9 +439,8 @@ On our Roadmap (planned delivery December 2020)
 - Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
 - Edge Detection (`here <https://github.com/luxonis/depthai/issues/247>`__)
 - Harris Filtering (`here <https://github.com/luxonis/depthai/issues/248>`__)
-- Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`__)
 - AprilTags (PR `here <https://github.com/luxonis/depthai/pull/139>`__)
-- Integrated Text Detection -> OCR Example pipeline
+- Integrated Text Detection (`here <https://github.com/luxonis/depthai/issues/124>`__)
 - OpenCL Support (supported through OpenVINO (`here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__))
 
 And see our Github project `here <https://github.com/orgs/luxonis/projects/2>`__ to follow along with the progress of these implementations.
