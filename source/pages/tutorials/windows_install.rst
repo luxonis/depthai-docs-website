@@ -1,9 +1,9 @@
 Install requirements on Windows
 ===============================
 
-This tutorial provides steps to install DepthAI on Windows 10 system
+This tutorial provides steps to install DepthAI on a Windows 10 system
 
-#. Install Python 3.8 from the Microsoft Store.
+#. Install Python 3.9 from the Microsoft Store (`direct link <ms-windows-store://pdp/?ProductId=9p7qfqmjrfp7>`_).
 
     .. image:: /_static/images/tutorials/windows/store.png
       :alt: Windows store
@@ -33,7 +33,7 @@ This tutorial provides steps to install DepthAI on Windows 10 system
 
 #. Install Microsoft Visual Studio 2017 (direct download link `here <https://download.visualstudio.microsoft.com/download/pr/c5c75dfa-1b29-4419-80f8-bd39aed6bcd9/7ed8fa27575648163e07548ff5667b55b95663a2323e2b2a5f87b16284e481e6/vs_Community.exe>`_)
 
-    The 2017 version is specifically required to build the OpenCV Python package from PyPi
+    The 2017 version is specifically required to build the OpenCV Python package from PyPI
 
     Note that you only need **Windows 10 SDK**, **Visual C++ for CMake** and **VC++ 2017**, not the whole package (see an image below)
 
@@ -41,7 +41,7 @@ This tutorial provides steps to install DepthAI on Windows 10 system
       :alt: Visual Studio install
 
 
-#. Open Winodws PowerShell
+#. Open Windows PowerShell
 
     You can do that by typing **PowerShell** in the searchbar
 
@@ -50,7 +50,7 @@ This tutorial provides steps to install DepthAI on Windows 10 system
 
 #. Upgrade Pip
 
-    Latest pip version is required in order to correctly install PyPi requirements.
+    Latest pip version is required in order to correctly install PyPI requirements.
 
     To upgrade pip, type the following command in the powershell
 
