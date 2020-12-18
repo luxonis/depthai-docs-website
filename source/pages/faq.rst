@@ -1302,6 +1302,31 @@ We have not yet made datasheets for current models (we've been too focused on te
 
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
  
+
+How can I cite luxonis products in publications ?
+##############################################
+
+If DepthAI and OAK-D products has been significantly used in your research and if you would like to acknowledge the DepthAI and OAK-D in your academic publication, we suggest citing them using the following bibtex format.
+
+.. code-block:: latex
+
+  @misc{DepthAI,
+  title={ {DepthAI}: Embedded Machine learning and Computer vision api},
+  url={https://luxonis.com/},
+  note={Software available from luxonis.com},
+  author={luxonis},
+  year={2020},
+  }
+
+  @misc{OAK-D,
+  title={ {OAK-D}: Stereo camera with Edge AI},
+  url={https://luxonis.com/},
+  note={Stereo Camera with Edge AI capabilites from luxonis and OpenCV},
+  author={luxonis},
+  year={2020},
+  }
+
+
 How Do I Talk to an Engineer?
 #############################
  
