@@ -1298,8 +1298,7 @@ Brochures:
 Datasheets:
 ***********
 
-We have not yet made datasheets for current models (we've been too focused on technical implementations tasks), but we have made a datasheet for the coming PoE version of DepthAI/megaAI:
-
+- DepthAI System on Module (BW1099) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__ 
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
  
 How Do I Talk to an Engineer?
