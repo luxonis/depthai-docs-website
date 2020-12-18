@@ -488,14 +488,14 @@ Where 96 is the standard maximum disparity search used by DepthAI and so for ext
 
   min_distance = focal_length * base_line_dist / 192
 
-For DepthAI, the HFOV of the the grayscale global shutter cameras is 71.86 degrees (this can be found on your board, see
+For DepthAI, the HFOV of the the grayscale global shutter cameras is 73.5 degrees (this can be found on your board, see
 `here <https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai>`__, so the focal length is
 
 .. code-block:: python
 
-  focal_length = 1280/(2*tan(71.86/2/180*pi)) = 883.15
+  focal_length = 1280/(2*tan(73.5/2/180*pi)) = 857.06
 
-Calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk01Ip7jrSxOqilDQiCjN7zb9XwoRQA%3A1588619495817&ei=52iwXpiqMYv3-gSBy4SQDw&q=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.86%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzoECAAQR1CI0BZY-MkYYPDNGGgAcAJ4AIABWogBjgmSAQIxNJgBAKABAaoBB2d3cy13aXo&sclient=psy-ab&ved=0ahUKEwjYuezl9JrpAhWLu54KHYElAfIQ4dUDCAw&uact=5>`__
+Calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk01DFgdNHlMBEkcIJdWmArcgB8Afzg%3A1607995029124&ei=lQ7YX6X-Bor_-gSo7rHIAg&q=1280%2F%282*tan%2873.5%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2873.5%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoECAAQR1D2HljILmDmPWgAcAJ4AIABywGIAZMEkgEFNC4wLjGYAQCgAQGqAQdnd3Mtd2l6yAEFwAEB&sclient=psy-ab&ved=0ahUKEwjlnIuk6M7tAhWKv54KHSh3DCkQ4dUDCA0&uact=5>`__
 (and for disparity depth data, the value is stored in :code:`uint16`, where the max value of :code:`uint16` of 65535 is a special value, meaning that that distance is unknown.)
 
 Stereo Neural Inference
@@ -531,17 +531,17 @@ For DepthAI units with onboard cameras, this works out to the following minimum 
 
 .. code-block:: python
 
-  min_distance = 883.15 * 0.09 / 96 = 0.827 # m
+  min_distance = 857.06.15 * 0.09 / 96 = 0.803 # m
 
-calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.09%2F96&oq=883.15*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CBjg5YnZAOYMylDmgAcAB4AIABX4gBjwOSAQE1mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5>`__
+calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg9E4O1fSrB4IFp04AQw%3A1607995753791&ei=aRHYX57zL9P9-gTk5rmADA&q=857.06*.09%2F96&oq=857.06*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CqJ1i8OmDlPGgAcAB4AIABX4gB9ASSAQE4mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwjey9H96s7tAhXTvp4KHWRzDsAQ4dUDCA0&uact=5>`__
 
 - USB3C Onboard Camera Edition (:ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`) is **0.689** meters:
 
 .. code-block:: python
 
-  min_distance = 883.15*.075/96 = 0.689 # m
+  min_distance = 857.06*.075/96 = 0.669 # m
 
-calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk014H0pmyvgWpgFXlkmZkWprJNZ-xw%3A1588620775282&ei=522wXqnbEIL4-gTf2JvIDw&q=883.15*.075%2F96&oq=883.15*.075%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1DtSVjkSmDVS2gAcAB4AIABYYgBywKSAQE0mAEAoAEBqgEHZ3dzLXdpeg&sclient=psy-ab&ved=0ahUKEwjp6vjH-ZrpAhUCvJ4KHV_sBvkQ4dUDCAw&uact=5>`__
+calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03HLvlfCWau-bIGeYWJk_S6PBSnqw%3A1607995818683&ei=qhHYX4yeKZHr-gSv2JqoAw&q=857.06*.075%2F96&oq=857.06*.075%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CIFliUGmDvHGgAcAB4AIABUIgBrwKSAQE0mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwiMm8qc687tAhWRtZ4KHS-sBjUQ4dUDCA0&uact=5>`__
 
 Stereo Neural Inference Mode
 ----------------------------
@@ -601,13 +601,13 @@ So if the object detector is not the limit, the maximum distance will be limited
 
   Dm = (baseline/2) * tan_d((90 - HFOV / HPixels)*pi/2)
 
-For DepthAI HFOV = 71.86 degrees, and HPixels = 1280.  And for the BW1098OBC, the baseline is 7.5cm.
+For DepthAI HFOV = 73.5(+/-0.5) degrees, and HPixels = 1280.  And for the BW1098OBC, the baseline is 7.5cm.
 
 So using this formula for existing models the *theoretical* max distance is:
 
 - BW1098OBC (OAK-D; 7.5cm baseline): 38.4 meters
 - BW1097 (9cm baseline): 46 meters
-- Custom baseline: Dm = (baseline/2) * tan_d(90 - 71.86 / 1280)
+- Custom baseline: Dm = (baseline/2) * tan_d(90 - 73.5 / 1280)
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
 
@@ -629,9 +629,9 @@ DepthAI does convert to depth onboard for both the :code:`depth` stream and also
 
 But we also allow the actual disparity results to be retrieved so that if you would like to use the disparity map directly, you can.
 
-To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for BW1098OBC, 4.0cm for BW1092, and 9.0cm for BW1097, and the focal length is :code:`883.15` (:code:`focal_length = 1280/(2*tan(71.86/2/180*pi)) = 883.15`) for all current DepthAI models.
+To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for BW1098OBC, 4.0cm for BW1092, and 9.0cm for BW1097, and the focal length is :code:`883.15` (:code:`focal_length = 1280/(2*tan(73.5/2/180*pi)) = 857.06`) for all current DepthAI models.
 
-So for example, for a BW1092 (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 40 * 883.14 / 60 = 588 mm (0.588m)`).
+So for example, for a BW1092 (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 40 * 857.06 / 60 = 571 mm (0.571m)`).
 
 How Do I Display Multiple Streams?
 ##################################
@@ -917,7 +917,7 @@ Example of information pulled from a :ref:`BW1098OBC <BW1098OBC - USB3 with Onbo
   EEPROM data: valid (v2)
     Board name     : BW1098OBC
     Board rev      : R0M0E0
-    HFOV L/R       : 71.86 deg
+    HFOV L/R       : 73.5 deg
     HFOV RGB       : 68.7938 deg
     L-R   distance : 7.5 cm
     L-RGB distance : 3.75 cm
@@ -947,7 +947,7 @@ What is the Field of View of DepthAI and megaAI?
 DepthAI and megaAI use the same 12MP RGB Camera module based on the IMX378.
 
 - 12MP RGB Horizontal Field of View (HFOV): 68.7938 deg
-- 1MP Global Shutter Grayscale Cmera Horizontal Field of View (HFOV): 71.86 deg
+- 1MP Global Shutter Grayscale Cmera Horizontal Field of View (HFOV): 73.5 deg
 
 How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
 ######################################################################
@@ -1103,9 +1103,9 @@ Specifications:
  - Effective Focal Length (EFL): 2.55
  - F-number (F.NO): 2.2 +/- 5%
  - Field of View (FOV):
-   - Diagonal (DFOV): 83.76 deg.
-   - Horizontal (HFOV): 71.86 deg.
-   - Vertical (VFOV): 56.74 deg.
+   - Diagonal (DFOV): 82.6(+/-0.5) deg.
+   - Horizontal (HFOV): 73.5(+/-0.5) deg.
+   - Vertical (VFOV): 50.0(+/-0.5) deg.
  - Distortion: < 1%
  - Lens Size: 1/4 inch
  - Focusing: Fixed Focus, 0.196 meter (hyperfocal distance) to infinity
@@ -1301,6 +1301,31 @@ Datasheets:
 - DepthAI System on Module (BW1099) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__ 
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
  
+
+How can I cite luxonis products in publications ?
+##############################################
+
+If DepthAI and OAK-D products has been significantly used in your research and if you would like to acknowledge the DepthAI and OAK-D in your academic publication, we suggest citing them using the following bibtex format.
+
+.. code-block:: latex
+
+  @misc{DepthAI,
+  title={ {DepthAI}: Embedded Machine learning and Computer vision api},
+  url={https://luxonis.com/},
+  note={Software available from luxonis.com},
+  author={luxonis},
+  year={2020},
+  }
+
+  @misc{OAK-D,
+  title={ {OAK-D}: Stereo camera with Edge AI},
+  url={https://luxonis.com/},
+  note={Stereo Camera with Edge AI capabilites from luxonis and OpenCV},
+  author={luxonis},
+  year={2020},
+  }
+
+
 How Do I Talk to an Engineer?
 #############################
  
