@@ -77,7 +77,6 @@ Below is a quick test of the model produced with this notebook on Luxonis DepthA
    <h3>Image Resize in Google Drive <a href="https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></h2>
 
 This notebook operates on your set of images in Google Drive to resize them to the format needed by the training notebooks.
-See our documentation `here <https://docs.luxonis.com/tutorials/object_det_mnssv2_training/#step-1-find-or-generate-images-of-the-objects-of-interest>`__ for more details.
 
 .. include::  /pages/includes/footer-short.rst
 
