@@ -8,9 +8,9 @@ We're always happy to help with code or other questions you might have.
 
      <div class="cta-row">
          <div class="cta-box">
-            <a href="https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw">
-               <img src="/_images/slack.png" alt="Slack"/>
-               <h5 class="cta-title">Slack Community</h5>
+            <a href="https://discord.gg/6zsQXATN">
+               <img src="/_images/discord.png" alt="Discord"/>
+               <h5 class="cta-title">Community Discord</h5>
             </a>
             <p class="cta-descr">Chat live with the DepthAI team and devs like you.</p>
          </div>
