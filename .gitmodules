@@ -1,3 +1,0 @@
-[submodule "depthai-gui"]
-	path = depthai-gui
-	url = https://github.com/luxonis/depthai-gui.git
