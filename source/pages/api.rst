@@ -18,7 +18,7 @@ that will make sure all dependencies are installed:
 
 .. code-block:: bash
 
-  curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
+  sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
 
 If using Windows, please use :download:`this batch script </_static/install_dependencies.bat>` for dependencies installation
 
