@@ -37,3 +37,5 @@ Shipping costs for returns within 60 days of purchase will be covered by Emporia
 If a return is initiated because of damaged, defective, or incorrect goods, Luxonis will provide a replacement order at no cost to the customer.
 
 Refunds will be processed within 14 days after the product has been returned.
+
+include::  /pages/includes/footer-long.rst
