@@ -135,7 +135,7 @@ Setup your device
       </div>
    </div>
 
-include::  /pages/includes/footer-long.rst
+.. include::  /pages/includes/footer-long.rst
 
 
 .. toctree::

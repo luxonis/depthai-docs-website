@@ -121,4 +121,4 @@ Next up, we're obtaining all tracklet info for further processing
 And rest of the processing is only for visual representation of the tracking objects, which you can skip if you
 want to use object tracker in different way
 
-Do you have any questions/suggestions? Feel free to :ref:`get in touch and let us know! <Support>`
+.. include::  /pages/includes/footer-short.rst

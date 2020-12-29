@@ -227,3 +227,4 @@ This can be run with the following command:
 And note this is running both parallel neural inference (i.e. on both cameras) and also series neural inference
 (the landmarks-regression network is running on the results of the face detector).
 
+.. include::  /pages/includes/footer-short.rst

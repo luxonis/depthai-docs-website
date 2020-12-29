@@ -70,3 +70,6 @@ Code
 
 
   DepthAI().run()
+
+
+.. include::  /pages/includes/footer-short.rst

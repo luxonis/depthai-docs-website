@@ -177,3 +177,5 @@ Run the script. Press the :code:`Q` key with focus on the video stream (not your
   python3 hello-world.py
 
 You're on your way! You can find the `complete code for this tutorial on GitHub <https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/hello_world.py>`__.
+
+.. include::  /pages/includes/footer-short.rst
