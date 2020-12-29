@@ -861,7 +861,7 @@ We could support a UVC stream per camera if it is of interest.
 
 So if you would like this functionality please feel free to make a Github issue feature
 request `here <https://github.com/luxonis/depthai/issues>`__, make a topic on `discuss.luxonis.com <https://discuss.luxonis.com/>`__,
-or bring it up in our `Community Slack <https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw>`__.
+or bring it up in our `Community Discord <https://discord.gg/EPsZHkg9Nx>`__.
 
 How Do I Force USB2 Mode?
 #########################
@@ -1292,7 +1292,7 @@ How Do I Talk to an Engineer?
 At Luxonis we firmly believe in the value of customers being able to communicate directly with our engineers.  It helps our engineering efficiency.  And it does so by making us make the things that matter, in the ways that matter (i.e. usability in the right ways) to solve real problems.
 
 As such, we have many mechanisms to allow direct communication:
- - `Luxonis Community Slack <https://join.slack.com/t/luxonis-community/shared_invite/zt-emg3tas3-C_Q38TI5nZbKUazZdxwvXw>`__.  Use this for real-time communication with our engineers.  We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
+ - `Luxonis Community Discord <https://discord.gg/EPsZHkg9Nx>`__.  Use this for real-time communication with our engineers.  We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
  - `Luxonis Github <https://github.com/luxonis>`__.  Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports.  We usually respond within a couple ours (and often w/in a couple minutes).  For a summary of our Githubs, see [here](#githubs).
  - `discuss.luxonis.com <https://discuss.luxonis.com/>`__.  Use this for starting any public discussions, ideas, product requests, support requests etc. or generally to engage with the Luxonis Community.  While you're there, check out this awesome visual-assistance device being made with DepthAI for the visually-impaire, `here <https://discuss.luxonis.com/d/40-questions-re-depthai-usb3-ffc-edition-cameras>`__.
 
