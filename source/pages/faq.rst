@@ -105,7 +105,9 @@ A visualization of this mode is below.
 
 In this case the neural inference (20-class object detection per :ref:`here <Run DepthAI Default Model>`)
 was run on the RGB camera and the results were overlaid onto the depth stream.
-The depthai reference Python script can be used to show this out (:code:`python3 depthai_demo.py -s metaout depth -bb` is the command used to produce this video):
+The depthai reference Python script can be used to show this out (:code:`python3 depthai_demo.py -s metaout depth -bb` is the command used to produce the video above).
+
+And if you'd like to know more about the underlying math that DepthAI is using to perform the stereo depth, see this excellent blog post here `here <https://www.learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/>`__.  And if you'd like to run the same example run in that blog, on DepthAI, see this  `depthai-experiment <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#depth-from-rectified-host-images/>`__.
 
 
 .. _stereo_inference:
