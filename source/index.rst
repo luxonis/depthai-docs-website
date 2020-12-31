@@ -27,7 +27,7 @@ Setup your device
                   <img class="item-img" src="./_images/bw1093.png" alt="MegaAI | Tiny but Mighty"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">MegaAI | Tiny but Mighty</h5>
+                  <h5 class="item-title">OAK-1 | megaAI - Tiny, Mighty</h5>
                   <p class="item-descr">
                      MegaAI is a tiny USB3 4K AI camera featuring 4K/30 h.265 encoding and powerful hardware accelerated ML/CV.
                   </p>
@@ -44,7 +44,7 @@ Setup your device
                   <img class="item-img" src="./_images/bw1098obc.png" alt="RPi HAT"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">USB3 | Onboard Cameras</h5>
+                  <h5 class="item-title">OAK-D | DepthAI Onboard Cameras</h5>
                   <p class="item-descr">
                      DepthAI for the host of your choice, with an onboard color camera module and global-shutter synchronized stereo pair.
                   </p>
