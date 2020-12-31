@@ -87,7 +87,10 @@ We have `depthai <https://github.com/luxonis/depthai>`__ repository on our GitHu
 prepared neural networks you can use to make your prototyping faster. It also includes the test script, maintained by
 our contributors, that should help you verify if your setup was correct.
 
-First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and install its dependencies
+First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and then install its dependencies.  
+
+Note that we recommend installing the dependencies in a virtual environment, so that they don't interfere with other Python
+tools/environments on your system. For example, `PyCharm <https://www.jetbrains.com/pycharm/>`__ automatically makes/manages virtual environments for you.
 
 .. code-block:: bash
 
