@@ -73,15 +73,24 @@ We have `depthai <https://github.com/luxonis/depthai>`__ repository on our GitHu
 prepared neural networks you can use to make your prototyping faster. It also includes the test script, maintained by
 our contributors, that should help you verify if your setup was correct.
 
-First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and then install its dependencies.  
-
-Note that we recommend installing the dependencies in a virtual environment, so that they don't interfere with other Python
-tools/environments on your system. For example, `PyCharm <https://www.jetbrains.com/pycharm/>`__ automatically makes/manages virtual environments for you.
+First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and change directory into this repo:
 
 .. code-block:: bash
 
   git clone https://github.com/luxonis/depthai.git
   cd depthai
+
+Next install the requirements for this repo.
+Note that we recommend installing the dependencies in a virtual environment, so that they don't interfere with other Python
+tools/environments on your system. 
+
+- For development machines like Mac/Windows/Ubuntu/etc., we recommend the `PyCharm <https://www.jetbrains.com/pycharm/>`__ IDE, as it automatically makes/manages virtual environments for you, along with a bunch of other benefits.  Alternatively, `conda`, `pipenv`, or `virtualenv` could be used directly (and/or with your preferred IDE).  
+- For installations on resource-constrained systems, such as the Raspberry Pi or other small Linux systems, we recommend `conda`, `pipenv`, or `virtualenv`.  To set up a virtual environment with `virtualenv`, run `virtualenv venv && source activate venv`.  
+
+Using a virtual environment (or system-wide, if you prefer), run:
+
+.. code-block:: bash
+
   python3 install_requirements.py
 
 Now, run the demo script from within depthai to make sure everything is working:
