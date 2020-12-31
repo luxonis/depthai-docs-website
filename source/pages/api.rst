@@ -48,8 +48,6 @@ Windows
 
   Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-If using Windows, please use :download:`this batch script </_static/install_dependencies.bat>` for dependencies installation
-
 - Install Python and PyCharm
 
 .. code-block:: bash
