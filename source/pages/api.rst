@@ -85,7 +85,7 @@ Note that we recommend installing the dependencies in a virtual environment, so 
 tools/environments on your system. 
 
 - For development machines like Mac/Windows/Ubuntu/etc., we recommend the `PyCharm <https://www.jetbrains.com/pycharm/>`__ IDE, as it automatically makes/manages virtual environments for you, along with a bunch of other benefits.  Alternatively, `conda`, `pipenv`, or `virtualenv` could be used directly (and/or with your preferred IDE).  
-- For installations on resource-constrained systems, such as the Raspberry Pi or other small Linux systems, we recommend `conda`, `pipenv`, or `virtualenv`.  To set up a virtual environment with `virtualenv`, run `virtualenv venv && source activate venv`.  
+- For installations on resource-constrained systems, such as the Raspberry Pi or other small Linux systems, we recommend `conda`, `pipenv`, or `virtualenv`.  To set up a virtual environment with `virtualenv`, run `virtualenv venv && source venv/bin/activate`.  
 
 Using a virtual environment (or system-wide, if you prefer), run the following to install the requirements for this example repository:
 
