@@ -16,11 +16,45 @@ A couple of basic system dependencies are required to run the DepthAI library. M
 in most of the systems, but in case they are not, we prepared :download:`an install script </_static/install_dependencies.sh>`
 that will make sure all dependencies are installed:
 
+macOS
+*****
+
 .. code-block:: bash
 
   sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
+  
+Raspberry Pi OS
+***************
+
+.. code-block:: bash
+
+  sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
+  
+Ubuntu
+******
+
+.. code-block:: bash
+
+  sudo wget -qO- http://docs.luxonis.com/_static/install_dependencies.sh | bash
+
+Windows
+*******
+
+- Right click on Start
+- Choose Windows PowerShell (Admin)
+- Install chocolately package manager (similar to HomeBrew for macOS):
+
+.. code-block:: bash
+
+  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 If using Windows, please use :download:`this batch script </_static/install_dependencies.bat>` for dependencies installation
+
+- Install Python and PyCharm
+
+.. code-block:: bash
+
+  choco install cmake git python pycharm-community -y
 
 Enabling the USB device (only on Linux)
 #######################################
