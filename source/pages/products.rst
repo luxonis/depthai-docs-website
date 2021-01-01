@@ -287,38 +287,32 @@ Follow the steps below to setup your DepthAI device.
 
 .. _bw1098obc:
 
-BW1098OBC - USB3 with Onboard Cameras
-#####################################
+OAK-D | DepthAI Onboard Cameras
+###############################
 
 .. image:: /_static/images/products/bw1098obc.png
   :alt: BW1098OBC
 
-Use DepthAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could
-handle tens of DepthAIs plugged in (the effective limit is how many USB ports the host can handle).
+The Spatial AI + CV Power House
 
 Requirements
 ************
 
-- USB3C cable
-- USB3C port on the host
+- USB3C cable (included)
+- USB-capable host
 
 What's in the box?
 ******************
 
-- BW1098OBC Carrier Board
+- OAK-D / DepthAI USB3C
 - USB3C cable (3 ft.)
 - Power Supply
+- Getting Started Card
 
 Setup
 *****
 
-Follow the steps below to setup your DepthAI device.
-
-#. **Connect your host to the DepthAI USB carrier board**
-#. **Connect the DepthAI USB power supply (included)**
-#. **Run example script**.
-
-  See :ref:`Verify installation`
+- Install the DepthAI API, see `here <https://docs.luxonis.com/en/latest/pages/api/>`__ for how to do so.
 
 
 .. _bw1099:
@@ -393,7 +387,7 @@ What's in the box?
 Setup
 *****
 
-- Install DepthAI API, see `here <https://docs.luxonis.com/en/latest/pages/api/>`__ for how to do so.
+- Install the DepthAI API, see `here <https://docs.luxonis.com/en/latest/pages/api/>`__ for how to do so.
 
 .. _color_camera:
 
