@@ -366,16 +366,16 @@ proven and up-to-date designs (the same designs you can buy `here <https://shop.
 
 .. _bw1093:
 
-BW1093 - MegaAI 4K USB3 AI Camera
-#################################
+BW1093 - OAK-1 | MegaAI - 4K USB3 AI Camera
+###########################################
 
 .. image:: /_static/images/products/bw1093.png
-  :alt: MegaAI 4K USB3 AI Camera
+  :alt: OAK-1 MegaAI 4K USB3 AI Camera
 
-Use megaAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could handle
-tens of megaAIs plugged in (the effective limit is how many USB ports the host can handle).
+Use OAK-1/megaAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could handle
+tens of OAK-1/megaAI plugged in (the effective limit is how many USB ports the host can handle).
 
-And since megaAI can encode 1080p and 4K video (see :ref:`here <How do I Record (or Encode) Video with DepthAI?>`) you can now even save 4K video on a Pi Zero!
+And since it can encode 1080p and 4K video (see :ref:`here <How do I Record (or Encode) Video with DepthAI?>`) you can now even save 4K video on a Pi Zero!
 
 Requirements
 ************
@@ -392,12 +392,9 @@ What's in the box?
 Setup
 *****
 
-#. **Connect your host to the MegaAI**
+#. **Install DepthAI API**
 
-#. **Run example script**.
-
-  See :ref:`Verify installation`
-
+See `here <https://docs.luxonis.com/en/latest/pages/api/>`__ to get going.
 
 .. _color_camera:
 
