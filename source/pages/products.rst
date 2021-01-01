@@ -293,7 +293,7 @@ OAK-D | DepthAI Onboard Cameras
 .. image:: /_static/images/products/bw1098obc.png
   :alt: BW1098OBC
 
-The Spatial AI + CV Power House
+The Spatial AI + CV Power House.
 
 Requirements
 ************
