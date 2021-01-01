@@ -386,8 +386,9 @@ Requirements
 What's in the box?
 ******************
 
-- BW1098OBC Carrier Board
+- megaAI / OAK-1
 - USB3C cable (3 ft.)
+- Getting Started Card
 
 Setup
 *****
