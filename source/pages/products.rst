@@ -393,9 +393,7 @@ What's in the box?
 Setup
 *****
 
-#. **Install DepthAI API**
-
-See `here <https://docs.luxonis.com/en/latest/pages/api/>`__ to get going.
+- Install DepthAI API, see `here <https://docs.luxonis.com/en/latest/pages/api/>`__ for how to do so.
 
 .. _color_camera:
 
