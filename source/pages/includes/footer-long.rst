@@ -19,7 +19,7 @@ We're always happy to help with code or other questions you might have.
                <img src="/_images/forum.png" alt="forum"/>
                <h5 class="cta-title">Discussion Forum</h5>
             </a>
-            <p class="cta-descr">Like chat, just asyncronous.</p>
+            <p class="cta-descr">Like chat, just asynchronous.</p>
          </div>
          <div class="cta-box">
             <a href="mailto:support@luxonis.com">
