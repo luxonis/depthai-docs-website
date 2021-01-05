@@ -142,6 +142,7 @@ Setup your device
    pages/support.rst
    pages/troubleshooting.rst
    pages/products.rst
+   pages/calibration.rst
    pages/training.rst
 
 .. toctree::
