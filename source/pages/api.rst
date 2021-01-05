@@ -42,7 +42,7 @@ Windows
 
 - Right click on Start
 - Choose Windows PowerShell (Admin)
-- Install chocolately package manager (similar to HomeBrew for macOS):
+- Install Chocolatey package manager (similar to HomeBrew for macOS):
 
 .. code-block:: bash
 
