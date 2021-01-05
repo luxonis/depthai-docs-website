@@ -72,3 +72,5 @@ Code
           break
 
   del d
+
+.. include::  /pages/includes/footer-short.rst

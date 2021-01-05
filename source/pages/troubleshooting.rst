@@ -109,3 +109,5 @@ Or, the shorter form:
 
 We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not
 Ubuntu 18.04/16.04 or Raspbian, please :ref:`compile DepthAI from source <Install from source>`.
+
+.. include::  /pages/includes/footer-short.rst

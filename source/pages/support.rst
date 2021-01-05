@@ -6,7 +6,7 @@ Running into issues or have questions? We’re here to help.
 You can get help in a number of ways:
 
 - Email support@luxonis.com
-- Join our Slack Community for live assistance from us and devs like you.
+- Join our Community Discord for live assistance from us and devs like you.
 - Post a message to our forum.
 - Submit an issue on DepthAI repository
 
@@ -21,9 +21,9 @@ You can get help in a number of ways:
   :width: 1
   :alt: forum
 
-.. image:: /_static/images/slack.png
+.. image:: /_static/images/discord.png
   :width: 1
-  :alt: slack
+  :alt: discord
 
 Refunds and returns policy
 ##########################
@@ -37,3 +37,5 @@ Shipping costs for returns within 60 days of purchase will be covered by Emporia
 If a return is initiated because of damaged, defective, or incorrect goods, Luxonis will provide a replacement order at no cost to the customer.
 
 Refunds will be processed within 14 days after the product has been returned.
+
+.. include::  /pages/includes/footer-long.rst
