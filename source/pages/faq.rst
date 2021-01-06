@@ -14,7 +14,7 @@ What is DepthAI?
 ################
 
 DepthAI is *the* Embedded, Performant, Spatial AI+CV platform, composed of an open-source hardware, firmware, software ecosystem that
-provides turnkey embedded :ref:`Spatial AI<spatialai>` and hardware-accelerated computer vision.
+provides turnkey embedded :ref:`Spatial AI+CV<spatialai>` and hardware-accelerated computer vision.
 
 It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.
 
