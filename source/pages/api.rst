@@ -14,7 +14,7 @@ Installing system dependencies
 
 A couple of basic system dependencies are required to run the DepthAI library. Most of them should be already installed
 in most of the systems, but in case they are not, we prepared :download:`an install script </_static/install_dependencies.sh>`
-that will make sure all dependencies are installed:
+that will make sure all dependencies are installed, along with convenient development/programming tools.  There are also video guides available for macOS (`depthai <https://youtu.be/0RGmmjed3Hc>`__), Raspberry Pi (`depthai <https://youtu.be/BpUMT-xqwqE>`__), Ubuntu (`depthai <https://youtu.be/QXeXMaxj4cM>`__), and Windows 10 (`depthai <https://youtu.be/ekopKJfcWiE>`__).
 
 macOS
 *****
