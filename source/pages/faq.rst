@@ -1271,10 +1271,13 @@ Overall
 
 Embedded Use Case
 *****************
+- https://github.com/luxonis/depthai-experiments/tree/gen2_common_objdet - user examples of SPI api and standalone mode.
 
-- https://github.com/luxonis/depthai-spi-api - SPI interface library for Embedded (microcontroller) DepthAI application
+The above examples include a few submodules of intereset. You can read a bit more about them in their respective README files:
+
 - https://github.com/luxonis/depthai-bootloader-shared - Bootloader source code which allows programming NOR flash of DepthAI to boot autonomously
-- https://github.com/luxonis/depthai-experiments/tree/depthai-experiments-spi/gen2-spi - ESP32 Example applications for Embedded/ESP32 DepthAI use (e.g. with `BW1092 <https://github.com/luxonis/depthai-hardware/tree/master/BW1092_ESP32_Embedded_WIFI_BT>`__)
+- https://github.com/luxonis/depthai-spi-api - SPI interface library for Embedded (microcontroller) DepthAI application
+- https://github.com/luxonis/esp32-spi-message-demo/tree/gen2_common_objdet - ESP32 Example applications for Embedded/ESP32 DepthAI use (e.g. with `BW1092 <https://github.com/luxonis/depthai-hardware/tree/master/BW1092_ESP32_Embedded_WIFI_BT>`__)
  
 Can I Use and IMU With DepthAI?
 ###############################
