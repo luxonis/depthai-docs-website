@@ -1271,9 +1271,9 @@ Overall
 
 Embedded Use Case
 *****************
-- https://github.com/luxonis/depthai-experiments/tree/gen2_common_objdet - user examples of SPI api and standalone mode.
+- https://github.com/luxonis/depthai-experiments/tree/gen2_common_objdet/gen2-spi - user examples of SPI api and standalone mode.
 
-The above examples include a few submodules of intereset. You can read a bit more about them in their respective README files:
+The above examples include a few submodules of interest. You can read a bit more about them in their respective README files:
 
 - https://github.com/luxonis/depthai-bootloader-shared - Bootloader source code which allows programming NOR flash of DepthAI to boot autonomously
 - https://github.com/luxonis/depthai-spi-api - SPI interface library for Embedded (microcontroller) DepthAI application
