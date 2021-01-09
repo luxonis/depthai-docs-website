@@ -23,6 +23,8 @@ macOS
 
   sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
   
+Close and re-open thr terminal somdow after this command.
+  
 Have an M1 Mac?  See `here <https://github.com/luxonis/depthai/issues/299#issuecomment-757110966>`__ for some additional steps that are required until HomeBrew is fully natively supported on M1 macOS.
   
 Raspberry Pi OS
@@ -50,6 +52,7 @@ Windows
 
   Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
+- Close the PowerShell and then re-open another PowerShell (Admin) by repeating the forst two steps.
 - Install Python and PyCharm
 
 .. code-block:: bash
