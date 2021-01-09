@@ -29,7 +29,9 @@ Raspberry Pi OS
 .. code-block:: bash
 
   sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
-  
+
+Have an M1 Mac?  See `here <https://github.com/luxonis/depthai/issues/299#issuecomment-757110966>`__ for some additional steps that are required until HomeBrew is fully natively supported on M1 macOS.
+
 Ubuntu
 ******
 
