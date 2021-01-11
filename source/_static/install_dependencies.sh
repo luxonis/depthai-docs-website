@@ -2,10 +2,42 @@
 
 set -e
 
+print_action () {
+    green="\e[0;32m"
+    reset="\e[0;0m"
+    printf "\n$green >>$reset $*\n"
+}
+print_and_exec () {
+    print_action $*
+    $*
+}
+
 if [[ $(uname) == "Darwin" ]]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    brew install python3 git
-    python3 -m pip install -U pip
+    echo "During Homebrew install, certain commands need 'sudo'. Requesting access..."
+    sudo true
+    arch_cmd=
+    if [[ $(uname -m) == "arm64" ]]; then
+        arch_cmd="arch -x86_64"
+        echo "Running in native arm64 mode, will prefix commands with: $arch_cmd"
+        # Check if able to run with x86_64 emulation
+        retcode=0
+        $arch_cmd true || retcode=$?
+        if [[ $retcode -ne 0 ]]; then
+            print_action "=== Installing Rosetta 2 - Apple binary translator"
+            # Prompts the user to agree to license: <A> <Enter>
+            # Could be automated by adding: --agree-to-license
+            print_and_exec softwareupdate --install-rosetta
+        fi
+    fi
+    homebrew_install_url="https://raw.githubusercontent.com/Homebrew/install/master/install.sh"
+    print_action "Installing Homebrew from $homebrew_install_url"
+    # CI=1 will skip some interactive prompts
+    CI=1 $arch_cmd /bin/bash -c "$(curl -fsSL $homebrew_install_url)"
+    print_and_exec $arch_cmd brew install python3 git
+    print_and_exec python3 -m pip install -U pip
+    echo
+    echo "=== Installed successfully!  IMPORTANT: For changes to take effect,"
+    echo "please close and reopen the terminal window, or run:  exec \$SHELL"
 elif [[ ! $(uname -m) =~ ^arm* ]]; then
   source /etc/lsb-release
   case "$DISTRIB_ID" in
