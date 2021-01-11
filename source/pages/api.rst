@@ -21,11 +21,11 @@ macOS
 
 .. code-block:: bash
 
-  sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
+  bash -c "$(curl -fL http://docs.luxonis.com/_static/install_dependencies.sh)"
   
-Close and re-open thr terminal somdow after this command.
+Close and re-open the terminal window after this command.
   
-Have an M1 Mac?  See `here <https://github.com/luxonis/depthai/issues/299#issuecomment-757110966>`__ for some additional steps that are required until HomeBrew is fully natively supported on M1 macOS.
+The script also works on M1 Macs, Homebrew being installed under Rosetta 2, as some Python packages are still missing native M1 support.  In case you already have Homebrew installed natively and things don't work, see `here <https://github.com/luxonis/depthai/issues/299#issuecomment-757110966>`__ for some additional troubleshooting steps.
   
 Raspberry Pi OS
 ***************
