@@ -39,8 +39,9 @@ if [[ $(uname) == "Darwin" ]]; then
     echo "=== Installed successfully!  IMPORTANT: For changes to take effect,"
     echo "please close and reopen the terminal window, or run:  exec \$SHELL"
 elif [[ ! $(uname -m) =~ ^arm* ]]; then
-  source /etc/lsb-release
-  case "$DISTRIB_ID" in
+  # shellcheck source=/etc/os-release
+  source /etc/os-release
+  case "$NAME" in
   Ubuntu)
     sudo apt-get update
     sudo apt-get install -y python3 python3-pip udev
@@ -52,7 +53,9 @@ elif [[ ! $(uname -m) =~ ^arm* ]]; then
     sudo apt-get install -y ffmpeg libsm6 libxext6 libgl1-mesa-glx
     python3 -m pip install --upgrade pip
     ;;
-  *) ;;
+  *)
+    echo "ERROR: Distribution not supported"
+    ;;
   esac
 elif [[ $(uname -m) =~ ^arm* ]]; then
   sudo apt-get update
@@ -68,4 +71,6 @@ elif [[ $(uname -m) =~ ^arm* ]]; then
   # https://github.com/EdjeElectronics/TensorFlow-Object-Detection-on-the-Raspberry-Pi/issues/18#issuecomment-433953426
   sudo apt-get install -y libilmbase-dev libopenexr-dev libgstreamer1.0-dev
   python3 -m pip install --upgrade pip
+else
+    echo "ERROR: Host not supported"
 fi
