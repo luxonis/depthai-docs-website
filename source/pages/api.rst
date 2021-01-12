@@ -14,26 +14,51 @@ Installing system dependencies
 
 A couple of basic system dependencies are required to run the DepthAI library. Most of them should be already installed
 in most of the systems, but in case they are not, we prepared :download:`an install script </_static/install_dependencies.sh>`
-that will make sure all dependencies are installed:
+that will make sure all dependencies are installed, along with convenient development/programming tools.  There are also video guides available for macOS (`here <https://youtu.be/0RGmmjed3Hc>`__), Raspberry Pi (`here <https://youtu.be/BpUMT-xqwqE>`__), Ubuntu (`here <https://youtu.be/QXeXMaxj4cM>`__), and Windows 10 (`here <https://youtu.be/ekopKJfcWiE>`__).
+
+macOS
+*****
 
 .. code-block:: bash
 
-  curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
+  sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
 
-If using Windows, please use :download:`this batch script </_static/install_dependencies.bat>` for dependencies installation
+Close and re-open thr terminal somdow after this command.
 
-Enabling the USB device (only on Linux)
-#######################################
+Have an M1 Mac?  See `here <https://github.com/luxonis/depthai/issues/299#issuecomment-757110966>`__ for some additional steps that are required until HomeBrew is fully natively supported on M1 macOS.
 
-Since the DepthAI is a USB device, in order to communicate with it on the systems that use :code:`udev` tool, you
-need to add the udev rules in order to make the device accessible.
-
-The following command will add a new udev rule to your system
+Raspberry Pi OS
+***************
 
 .. code-block:: bash
 
-  echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-  sudo udevadm control --reload-rules && sudo udevadm trigger
+  sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash
+
+Ubuntu
+******
+
+.. code-block:: bash
+
+  sudo wget -qO- http://docs.luxonis.com/_static/install_dependencies.sh | bash
+
+Windows
+*******
+
+- Right click on Start
+- Choose Windows PowerShell (Admin)
+- Install Chocolatey package manager (similar to HomeBrew for macOS):
+
+.. code-block:: bash
+
+  Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+- Close the PowerShell and then re-open another PowerShell (Admin) by repeating the forst two steps.
+- Install Python and PyCharm
+
+.. code-block:: bash
+
+  choco install cmake git python pycharm-community -y
+
 
 Install from PyPi
 #################
@@ -53,13 +78,25 @@ We have `depthai <https://github.com/luxonis/depthai>`__ repository on our GitHu
 prepared neural networks you can use to make your prototyping faster. It also includes the test script, maintained by
 our contributors, that should help you verify if your setup was correct.
 
-First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and install its dependencies
+First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and change directory into this repo:
 
 .. code-block:: bash
 
   git clone https://github.com/luxonis/depthai.git
   cd depthai
-  python3 -m pip install -r requirements.txt
+
+Next install the requirements for this repo.
+Note that we recommend installing the dependencies in a virtual environment, so that they don't interfere with other Python
+tools/environments on your system.
+
+- For development machines like Mac/Windows/Ubuntu/etc., we recommend the `PyCharm <https://www.jetbrains.com/pycharm/>`__ IDE, as it automatically makes/manages virtual environments for you, along with a bunch of other benefits.  Alternatively, `conda`, `pipenv`, or `virtualenv` could be used directly (and/or with your preferred IDE).
+- For installations on resource-constrained systems, such as the Raspberry Pi or other small Linux systems, we recommend `conda`, `pipenv`, or `virtualenv`.  To set up a virtual environment with `virtualenv`, run `virtualenv venv && source venv/bin/activate`.
+
+Using a virtual environment (or system-wide, if you prefer), run the following to install the requirements for this example repository:
+
+.. code-block:: bash
+
+  python3 install_requirements.py
 
 Now, run the demo script from within depthai to make sure everything is working:
 
@@ -70,6 +107,22 @@ Now, run the demo script from within depthai to make sure everything is working:
 If all goes well a small window video display with overlays for any items for which the class exists in the example
 20-class object detector (class list `here <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json#L22>`__).
 
+
+Run Other Examples
+##################
+
+After you have run this demo, you can either run :code:`python3 depthai_demo.py -h` to see other neural networks that by-default can be run.
+
+After checking this out, proceed to:
+
+- Our tutorials, starting with how to use pre-trained neural models from OpenVINO, `HERE <https://docs.luxonis.com/en/latest/pages/tutorials/pretrained_openvino/>`__
+- Our experiments `HERE <https://github.com/luxonis/depthai-experiments>`__ to learn more ways to use DepthAI.
+
+You can also proceed below to learn how to convert your own neural networks to run on DepthAI.
+
+And we also have online model training below, which shows you how to train and convert models for DepthAI:
+
+- Online ML Training and model Conversion: `HERE <https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks>`__
 
 Preparing MyriadX blob file and it's config
 ###########################################
@@ -90,7 +143,7 @@ tools needed for compilation so you don't need to setup anything - and you can e
 from `OpenVINO model zoo <https://github.com/openvinotoolkit/open_model_zoo>`__.
 
 If you'd like, you can also compile the blob yourself. You'll need to install `OpenVINO toolkit <https://docs.openvinotoolkit.org/latest/index.html>`__,
-then use `Model Optimizer <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html) and [Myriad Compiler](https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#myriad_platform_option>`__
+then use `Model Optimizer <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html>`__ and `Myriad Compiler <https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#myriad_platform_option>`__
 in order to obtain MyriadX blob.
 We've documented example usage of these compilers `here <https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`__
 
@@ -255,8 +308,7 @@ Prior to running the following, you can either clone the respository independent
 .. code-block:: bash
 
   git checkout develop
-  python3 -m pip install -U pip
-  python3 -m pip install -r requirements.txt
+  python3 install_requirements.py
 
 Install from source
 *******************
@@ -381,44 +433,85 @@ API Reference
           'depth':
           {
               'calibration_file': consts.resource_paths.calib_fpath,
+              'left_mesh_file': consts.resource_paths.left_mesh_fpath,
+              'right_mesh_file': consts.resource_paths.right_mesh_fpath,
               'padding_factor': 0.3,
               'depth_limit_m': 10.0, # In meters, for filtering purpose during x,y,z calc
-              'confidence_threshold' : 0.5, #Depth is calculated for bounding boxes with confidence higher than this number
+              'median_kernel_size': 7,  # Disparity / depth median filter kernel size (N x N) . 0 = filtering disabled
+              'lr_check': True  # Enable stereo 'Left-Right check' feature.
+              'warp_rectify':
+              {
+                  'use_mesh' : True, # if False, will use homography
+                  'mirror_frame': True, # if False, the disparity will be mirrored instead
+                  'edge_fill_color': 0, # gray 0..255, or -1 to replicate pixel values
+              },
           },
           'ai':
           {
-              'blob_file': blob_file,  # MyriadX CNN blob file path
-              'blob_file_config': blob_file_config,  # Configuration file for CNN output tensor mapping on host side
-              'calc_dist_to_bb': True,  # if True, will include depth information to CNN output tensor
-              'keep_aspect_ratio': not args['full_fov_nn'],
+              'blob_file': blob_file,
+              'blob_file_config': blob_file_config,
+              'blob_file2': blob_file2,
+              'blob_file_config2': blob_file_config2,
+              'calc_dist_to_bb': True, # depth calculation on CNN models with bounding box output
+              'keep_aspect_ratio': False, # Keep aspect ratio, don't use full RGB FOV for NN
+              'camera_input': "left", # 'rgb', 'left', 'right', 'left_right', 'rectified_left', 'rectified_right', 'rectified_left_right'
+              'shaves' : 7,  # 1 - 14 Number of shaves used by NN.
+              'cmx_slices' : 7,  # 1 - 14 Number of cmx slices used by NN.
+              'NN_engines' : 2,  # 1 - 2 Number of NN_engines used by NN.
           },
           # object tracker
           'ot':
           {
-              'max_tracklets'        : 20, # maximum 20 is supported
-              'confidence_threshold' : 0.5, # object is tracked only for detections over this threshold
+              'max_tracklets'        : 20, #maximum 20 is supported
+              'confidence_threshold' : 0.5, #object is tracked only for detections over this threshold
           },
           'board_config':
           {
-              'swap_left_and_right_cameras': args['swap_lr'], # True for 1097 (RPi Compute) and 1098OBC (USB w/onboard cameras)
-              'left_fov_deg': args['field_of_view'], # Same on 1097 and 1098OBC
-              'rgb_fov_deg': args['rgb_field_of_view'],
-              'left_to_right_distance_cm': args['baseline'], # Distance between stereo cameras
-              'left_to_rgb_distance_cm': args['rgb_baseline'], # Currently unused
-              'store_to_eeprom': args['store_eeprom'],
-              'clear_eeprom': args['clear_eeprom'],
-              'override_eeprom': args['override_eeprom'],
+              'swap_left_and_right_cameras': True, # Swap the Left and Right cameras.
+              'left_fov_deg': 73.5, # Horizontal field of view (HFOV) for the stereo cameras in [deg].
+              'rgb_fov_deg': 68.7938, # Horizontal field of view (HFOV) for the RGB camera in [deg]
+              'left_to_right_distance_cm': 9.0, # Left/Right camera baseline in [cm]
+              'left_to_rgb_distance_cm': 2.0, # Distance the RGB camera is from the Left camera.
+              'store_to_eeprom': False, # Store the calibration and board_config (fov, baselines, swap-lr) in the EEPROM onboard
+              'clear_eeprom': False, # Invalidate the calib and board_config from EEPROM
+              'override_eeprom': False, # Use the calib and board_config from host, ignoring the EEPROM data if programmed
           },
-
+          'camera':
+          {
+              'rgb':
+              {
+                  # 3840x2160, 1920x1080
+                  # only UHD/1080p/30 fps supported for now
+                  'resolution_h': 3040, # possible - 1080, 2160, 3040
+                  'fps': 30,
+              },
+              'mono':
+              {
+                  # 1280x720, 1280x800, 640x400 (binning enabled)
+                  'resolution_h': 800, # possible - 400, 720, 800
+                  'fps': 30,
+              },
+          },
+          'app':
+          {
+              'sync_video_meta_streams': False,  # Synchronize 'previewout' and 'metaout' streams
+              'sync_sequence_numbers'  : False,  # Synchronize sequence numbers for all packets. Experimental
+              'usb_chunk_KiB' : 64, # USB transfer chunk on device. Higher (up to megabytes) may improve throughput, or 0 to disable chunking
+          },
           #'video_config':
           #{
-          #    'rateCtrlMode': 'cbr',
-          #    'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main'
-          #    'bitrate': 8000000, # When using CBR
-          #    'maxBitrate': 8000000, # When using CBR
-          #    'keyframeFrequency': 30,
-          #    'numBFrames': 0,
-          #    'quality': 80 # (0 - 100%) When using VBR
+          #    'rateCtrlMode': 'cbr', # Options: cbr / vbr
+          #    'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main / 'mjpeg' '
+          #    'bitrate': 8000000, # When using CBR (H264/H265 only)
+          #    'maxBitrate': 8000000, # When using CBR (H264/H265 only)
+          #    'keyframeFrequency': 30, (H264/H265 only)
+          #    'numBFrames': 0, (H264/H265 only)
+          #    'quality': 80 # (0 - 100%) When using VBR or MJPEG profile
+          #}
+          #'video_config':
+          #{
+          #    'profile': 'mjpeg',
+          #    'quality': 95
           #}
       }
 
@@ -993,7 +1086,7 @@ API Reference
 
     Return the bottom coordinate of the bounding box of a tracked object
 
-.. include::  /pages/includes/footer-long.rst
+.. include::  /pages/includes/footer-short.rst
 
 ..
   Below you can see ?dummy=http://, this is a workaround for a Sphinx, see here - https://github.com/sphinx-doc/sphinx/issues/701#issuecomment-697116337

@@ -5,9 +5,10 @@ Custom training
   :maxdepth: 2
   :hidden:
 
-   Tutorial - MobileNetSSD training <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_Demo_Training.ipynb>
-   Tutorial - MobileNetSSD training with custom data <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb>
-   Tutorial - YOLO-based Mask Detector <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYolov3_Object_Detector_Training_on_Custom_Data.ipynb>
+   Tutorial - SSD MobileNetv2 training <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_Demo_Training.ipynb>
+   Tutorial - SSD MobileNetv2 training with custom data <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb>
+   Tutorial - YOLOv4-tiny based Mask Detector <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYOLOv4_Object_Detector_Training_on_Custom_Data.ipynb>
+   Tutorial - YOLOv3-tiny based Mask Detector <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYolov3_Object_Detector_Training_on_Custom_Data.ipynb>
    Tool - Google Drive image batch resizer <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb>
 
 
@@ -23,7 +24,11 @@ Here we have examples of Google Colaboratory (aka Colab or simply colabs) notebo
    <h2>The Tutorials</h2>
 
 
-The below tutorials are based on MobileNetv2-SSD, which is a decent-performance, decent-framework object dectector which natively runs on DepthAI.  A bunch of other object detectors could be trained/supported on Colab and run on DepthAI, so if you have a request for a different object detector/network backend, please feel free to make a Github Issue!
+The below tutorials cover MobileNetv2-SSD, tiny-YOLOv3, tiny-YOLOv4, and Deeplabv3+ (semantic segmentation).  A bunch of other object detectors and neural networks could be trained/supported on Colab and run on DepthAI, so if you have a request for a different object detector/network backend, please feel free to make a Github Issue!
+
+And please feel free to work directly from our Github of depthai-ml-training for the latest models we support:
+
+- `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#tiny-yolov3-object-detector-training->`__
 
 .. raw:: html
 
@@ -76,7 +81,8 @@ Below is a quick test of the model produced with this notebook on Luxonis DepthA
    <h3>Image Resize in Google Drive <a href="https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></h2>
 
 This notebook operates on your set of images in Google Drive to resize them to the format needed by the training notebooks.
-See our documentation `here <https://docs.luxonis.com/tutorials/object_det_mnssv2_training/#step-1-find-or-generate-images-of-the-objects-of-interest>`__ for more details.
+
+.. include::  /pages/includes/footer-short.rst
 
 .. include::  /pages/includes/footer-short.rst
 

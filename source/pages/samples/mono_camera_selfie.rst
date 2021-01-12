@@ -186,3 +186,4 @@ In this sample, we use :code:`tkinter` for two dialog boxes:
 
 
 .. include::  /pages/includes/footer-short.rst
+

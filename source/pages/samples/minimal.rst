@@ -193,4 +193,5 @@ We're adding just one command - to terminate the program - when you press the :c
   if cv2.waitKey(1) == ord('q'):
       break
 
-Do you have any questions/suggestions? Feel free to :ref:`get in touch and let us know! <Support>`
+
+.. include::  /pages/includes/footer-short.rst

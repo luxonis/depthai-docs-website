@@ -65,12 +65,13 @@ options a spin.  In this case we'll just pass in the same neural network that de
   python3 depthai_demo.py -dd
 
 This will then run the a typical demo MobileNetv1 SSD object detector trained on the `PASCAL 2007 VOC <http://host.robots.ox.ac.uk/pascal/VOC/voc2007/>`__ classes, which are:
+
 - Person: person
 - Animal: bird, cat, cow, dog, horse, sheep
 - Vehicle: aeroplane, bicycle, boat, bus, car, motorbike, train
 - Indoor: bottle, chair, dining table, potted plant, sofa, tv/monitor
 
-I ran this on my iMac (OS X setup [here](https://docs.luxonis.com/api/#mac-os-x)) with a [microAI](https://shop.luxonis.com/products/bw1093) sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
+I ran this on my iMac (OS X setup :ref:`here <macOS (Mac OS X)>`) with a `microAI <https://shop.luxonis.com/products/bw1093>`__ sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
 
 .. image:: /_static/images/tutorials/pretrained_openvino/tvmonitor.png
   :alt: iMac
@@ -228,3 +229,4 @@ And note this is running both parallel neural inference (i.e. on both cameras) a
 (the landmarks-regression network is running on the results of the face detector).
 
 .. include::  /pages/includes/footer-short.rst
+

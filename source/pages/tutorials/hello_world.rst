@@ -31,7 +31,7 @@ Setup the following file structure on your computer:
 
   cd ~
   mkdir -p depthai-tutorials-practice/1-hello-world
-  touch depthai-tutorials-practice/1-hello-world/hello-world.py
+  touch depthai-tutorials-practice/1-hello-world/hello_world.py
   cd depthai-tutorials-practice/1-hello-world
 
 What's with the :code:`-practice` suffix in parent directory name? Our tutorials are available on GitHub
@@ -54,8 +54,8 @@ Download and install the requirements for this tutorial:
 Test your environment
 #####################
 
-Let's verify we're able to load all of our dependencies. Open the :code:`hello-world.py` file you
-[created earlier](#file-setup) in your code editor. Copy and paste the following into :code:`hello-world.py`:
+Let's verify we're able to load all of our dependencies. Open the :code:`hello_world.py` file you
+:ref:`created earlier <File Setup>` in your code editor. Copy and paste the following into :code:`hello_world.py`:
 
 
 .. code-block:: python
@@ -68,7 +68,7 @@ Try running the script and ensure it executes without error:
 
 .. code-block:: bash
 
-  python3 hello-world.py
+  python3 hello_world.py
 
 If you see the following error:
 
@@ -174,7 +174,7 @@ Run the script. Press the :code:`Q` key with focus on the video stream (not your
 
 .. code-block:: bash
 
-  python3 hello-world.py
+  python3 hello_world.py
 
 You're on your way! You can find the `complete code for this tutorial on GitHub <https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/hello_world.py>`__.
 

@@ -24,7 +24,7 @@ elif [[ ! $(uname -m) =~ ^arm* ]]; then
   esac
 elif [[ $(uname -m) =~ ^arm* ]]; then
   sudo apt-get update
-  sudo apt-get install -y python3 python3-pip udev
+  sudo apt-get install -y python3 python3-pip udev virtualenv
   echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
   sudo udevadm control --reload-rules && sudo udevadm trigger
   # https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html
