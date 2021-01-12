@@ -1,0 +1,20 @@
+name: Run install dependencies script
+on: [push]
+jobs:
+  install-ubuntu:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: source/_static/install_dependencies.sh
+
+  install-linux:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        image:
+          - 'fedora:latest'
+    container: ${{ matrix.image }}
+    steps:
+      - run: dnf install -y sudo
+      - uses: actions/checkout@v2
+      - run: source/_static/install_dependencies.sh
