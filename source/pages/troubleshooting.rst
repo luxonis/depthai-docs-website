@@ -39,7 +39,7 @@ This indicates that the :code:`depthai` was not found by your python interpreter
 
     .. code-block:: bash
 
-      cat /etc/lsb-release
+      cat /etc/os-release
 
 
 Why is the Camera Calibration running slow?
