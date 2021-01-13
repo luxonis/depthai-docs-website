@@ -1271,7 +1271,7 @@ Overall
 
 Embedded Use Case
 *****************
-- https://github.com/luxonis/depthai-experiments/tree/gen2_common_objdet/gen2-spi - user examples of SPI api and standalone mode.
+- https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi - user examples of SPI api and standalone mode.
 
 The above examples include a few submodules of interest. You can read a bit more about them in their respective README files:
 
