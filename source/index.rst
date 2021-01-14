@@ -23,22 +23,6 @@ Available interfaces
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/depthai-gui.png" alt="DepthAI GUI"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">DepthAI GUI</h5>
-                  <p class="item-descr">
-                     Start here if you want to use a drag'n'drop interface to communicate with DepthAI
-                  </p>
-               </div>
-               <footer class="item-footer">
-                  <a href="https://docs.luxonis.com/projects/gui/en/latest/" class="btn item-cta">Get Started ›</a>
-               </footer>
-            </div>
-         </div>
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
                   <img class="item-img" src="./_images/depthai-api.jpg" alt="DepthAI API"/>
                </div>
                <div class="item-body">
@@ -49,6 +33,22 @@ Available interfaces
                </div>
                <footer class="item-footer">
                   <a href="https://docs.luxonis.com/projects/api/en/docs_python_api/" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="./_images/depthai-gui.png" alt="DepthAI GUI"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">DepthAI GUI</h5>
+                  <p class="item-descr">
+                     Start here if you want to use a drag'n'drop interface to communicate with DepthAI
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="#" class="btn btn-disabled item-cta">Under construction</a>
                </footer>
             </div>
          </div>
