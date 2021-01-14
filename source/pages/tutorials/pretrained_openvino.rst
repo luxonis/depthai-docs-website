@@ -50,7 +50,7 @@ API has been installed and is accessible on the system.  See :ref:`here <Python 
 Run DepthAI Default Model
 #########################
 
-The :code:`depthai.py` file can be modified directly to you do your bidding, or you can simply pass arguments to it for
+The :code:`depthai_demo.py` file can be modified directly to you do your bidding, or you can simply pass arguments to it for
 which models you want to run.
 
 For simplicity we will do the latter, simply passing arguments so that DepthAI runs the :code:`face-detection-retail-0004`
@@ -151,7 +151,7 @@ recognitions network, use the command below to tell DepthAI/megaAI to run it as 
 
 .. code-block:: bash
 
-  ./depthai.py -cnn face-detection-retail-0004 -cnn2 emotions-recognition-retail-0003 -dd -sh 12 -cmx 12 -nce 2
+  ./depthai_demo.py -cnn face-detection-retail-0004 -cnn2 emotions-recognition-retail-0003 -dd -sh 12 -cmx 12 -nce 2
 
 .. image:: https://i.imgur.com/uqhdqJG.png
   :alt: face
