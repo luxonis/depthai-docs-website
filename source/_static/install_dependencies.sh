@@ -83,19 +83,16 @@ if [[ $(uname) == "Darwin" ]]; then
 elif [ -f /etc/os-release ]; then
     # shellcheck source=/etc/os-release
     source /etc/os-release
-    case "$NAME" in
-    Ubuntu|Debian*)
+
+    case "$ID" in
+    ubuntu|debian)
         if [[ ! $(uname -m) =~ ^arm* ]]; then
             sudo apt-get update
             sudo apt-get install -y "${ubuntu_pkgs[@]}"
-            echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-            sudo udevadm control --reload-rules && sudo udevadm trigger
             python3 -m pip install --upgrade pip
         elif [[ $(uname -m) =~ ^arm* ]]; then
             sudo apt-get update
             sudo apt-get install -y "${ubuntu_pkgs[@]}" "${ubuntu_arm_pkgs[@]}"
-            echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-            sudo udevadm control --reload-rules && sudo udevadm trigger
             python3 -m pip install --upgrade pip
         fi
         ;;
@@ -104,6 +101,10 @@ elif [ -f /etc/os-release ]; then
         exit 99
         ;;
     esac
+
+    # Allow all users to read and write to Myriad X devices
+    echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
+    sudo udevadm control --reload-rules && sudo udevadm trigger
 else
     echo "ERROR: Host not supported"
     exit 99
