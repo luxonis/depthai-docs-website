@@ -102,9 +102,9 @@ Ubuntu 18.04/16.04 or Raspbian, please :ref:`compile DepthAI from source <Instal
 Failed to boot the device: 1.3-ma2480, err code 3
 #################################################
 
-This wil coincide with depthai: Error initializing xlink
+This error often can occur if the udev rules are not set on Linux.  This wil coincide with depthai: Error initializing xlink
 
-This error often can occur if the udev rules are not set on Linux.  To set them run:
+To fix this, set the udev rules using the commands below:
 
 .. code-block:: bash
 
