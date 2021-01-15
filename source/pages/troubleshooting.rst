@@ -113,3 +113,8 @@ sudo udevadm control --reload-rules && sudo udevadm trigger
 
 
 .. include::  /pages/includes/footer-short.rst
+
+CTRL-C Is Not Stopping It!
+##########################
+
+If you are trying to kill a program with CTLR-C, and it's not working, try CTRL-\ instead.  Usually this will work.
