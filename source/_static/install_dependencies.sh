@@ -55,6 +55,7 @@ elif [[ ! $(uname -m) =~ ^arm* ]]; then
         ;;
     *)
         echo "ERROR: Distribution not supported"
+        exit 99
         ;;
     esac
 elif [[ $(uname -m) =~ ^arm* ]]; then
@@ -73,4 +74,5 @@ elif [[ $(uname -m) =~ ^arm* ]]; then
     python3 -m pip install --upgrade pip
 else
     echo "ERROR: Host not supported"
+    exit 99
 fi
