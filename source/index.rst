@@ -32,7 +32,7 @@ Available interfaces
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="https://docs.luxonis.com/projects/api/en/docs_python_api/" class="btn item-cta">Get Started ›</a>
+                  <a href="https://docs.luxonis.com/projects/api/en/gen2_develop/" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
