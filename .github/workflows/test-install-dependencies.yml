@@ -13,6 +13,7 @@ jobs:
       matrix:
         image:
           - 'fedora:latest'
+          - 'debian:latest'
     container: ${{ matrix.image }}
     steps:
       - run: dnf install -y sudo
