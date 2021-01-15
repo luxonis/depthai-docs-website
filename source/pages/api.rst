@@ -6,7 +6,7 @@ Instructions for installing, upgrading, and using the DepthAI Python API.
 Supported Platforms
 ###################
 
-The DepthAI API python module is prebuilt for Ubuntu, MaxOS and Windows.
+The DepthAI API python module is prebuilt for Ubuntu, macOS and Windows.
 For other operating systems and/or Python versions, DepthAI can be :ref:`built from source <Other installation methods>`.
 
 Installing system dependencies
@@ -46,13 +46,13 @@ Windows
 
 - Right click on Start
 - Choose Windows PowerShell (Admin)
-- Install Chocolatey package manager (similar to HomeBrew for macOS):
+- Install Chocolatey package manager (similar to Homebrew for macOS):
 
 .. code-block:: bash
 
   Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
-- Close the PowerShell and then re-open another PowerShell (Admin) by repeating the forst two steps.
+- Close the PowerShell and then re-open another PowerShell (Admin) by repeating the first two steps.
 - Install Python and PyCharm
 
 .. code-block:: bash
@@ -255,7 +255,7 @@ Dependencies to build from source
 Ubuntu, Raspberry Pi OS, ... (Debian based systems)
 ---------------------------------------------------
 
-On Debian based systems (Raspberyy Pi OS, Ubuntu, ...) these can be acquired by running:
+On Debian based systems (Raspberry Pi OS, Ubuntu, ...) these can be acquired by running:
 
 .. code-block:: bash
 
@@ -266,7 +266,7 @@ macOS (Mac OS X)
 
 Assuming a stock Mac OS X install, `depthai-python <https://github.com/luxonis/depthai-python>`__ library needs following dependencies
 
-- HomeBrew (If it's not installed already)
+- Homebrew (If it's not installed already)
 
   .. code-block:: bash
 
@@ -302,7 +302,7 @@ So when working in the `depthai <https://github.com/luxonis/depthai>`__ reposito
 with the following commands.  For this example, the :code:`branch` that we will try out is :code:`develop`
 (which is the branch we use to soak new features before merging them into :code:`main`):
 
-Prior to running the following, you can either clone the respository independently
+Prior to running the following, you can either clone the repository independently
 (for not over-writing any of your local changes) or simply do a :code:`git pull` first.
 
 .. code-block:: bash
@@ -376,7 +376,7 @@ API Reference
 
   .. function:: __init__(device_id: str, usb2_mode: bool) -> Device
 
-    Standard and recomended way to set up the object.
+    Standard and recommended way to set up the object.
 
     **device_id** represents the USB port id that the device is connected to. If set to specific value (e.x. :code:`"1"`) it will
     look for the device in specific USB port, whereas if left empty - :code:`''` - it will look for the device on all ports.
@@ -414,7 +414,7 @@ API Reference
           #   'previewout' - neural network input preview
           #   'metaout' - CNN output tensors
           #   'depth' - the raw depth map, disparity converted to real life distance
-          #   'disparity' - disparity map, the diaparity between left and right cameras, in pixels
+          #   'disparity' - disparity map, the disparity between left and right cameras, in pixels
           #   'disparity_color' - disparity map colorized
           #   'meta_d2h' - device metadata stream
           #   'video' - H.264/H.265 encoded color camera frames
@@ -597,7 +597,7 @@ API Reference
 
       Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
 
-     Return a 3x3 intrinisc calibration matrix of the left stereo camera.
+     Return a 3x3 intrinsic calibration matrix of the left stereo camera.
 
 
   .. function:: get_right_intrinsic()
@@ -606,7 +606,7 @@ API Reference
 
       Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
 
-     Return a 3x3 intrinisc calibration matrix of the right stereo camera.
+     Return a 3x3 intrinsic calibration matrix of the right stereo camera.
 
 
   .. function:: get_rotation()
@@ -624,7 +624,7 @@ API Reference
 
       Note: Requires :ref:`dual-homography calibration <Dual-Homography vs. Single-Homography Calibration>`.
 
-     Return a 3x1 vector repesenting the position of the right stereo camera center w.r.t left stereo camera center.
+     Return a 3x1 vector representing the position of the right stereo camera center w.r.t left stereo camera center.
 
 
 .. class:: AutofocusMode
@@ -645,7 +645,7 @@ API Reference
     This mode adjusts the focus continually to provide the best in-focus image stream and should be used when the
     camera is standing still while capturing. Focusing procedure is done as fast as possible.
 
-    This is the defaut mode the DepthAI operates in.
+    This is the default mode the DepthAI operates in.
 
   .. attribute:: AF_MODE_CONTINUOUS_VIDEO
 
@@ -737,11 +737,11 @@ API Reference
 
   .. function:: getOutputLayersInfo() -> depthai.TensorInfo
 
-    Returns informations about the output layers for the network.
+    Returns information about the output layer for the network.
 
   .. function:: getInputLayersInfo() -> depthai.TensorInfo
 
-    Returns informations about the input layers for the network.
+    Returns information about the input layers for the network.
 
   .. function:: getDetectedObjects() -> depthai.Detections
 
