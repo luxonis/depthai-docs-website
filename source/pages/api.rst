@@ -26,7 +26,16 @@ macOS
 Close and re-open the terminal window after this command.
   
 The script also works on M1 Macs, Homebrew being installed under Rosetta 2, as some Python packages are still missing native M1 support.  In case you already have Homebrew installed natively and things don't work, see `here <https://github.com/luxonis/depthai/issues/299#issuecomment-757110966>`__ for some additional troubleshooting steps.
-  
+
+Note that if the video streaming window does not appear consider running the
+following:
+
+.. code-block:: bash
+
+    python3 -m pip install opencv-python --force-reinstall --no-cache-dir
+
+See the `Video preview window fails to appear on macOS <https://discuss.luxonis.com/d/95-video-preview-window-fails-to-appear-on-macos>`_ thread on our forum for more information.
+
 Raspberry Pi OS
 ***************
 
