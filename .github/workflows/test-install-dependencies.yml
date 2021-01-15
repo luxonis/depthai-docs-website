@@ -7,18 +7,9 @@ jobs:
       - uses: actions/checkout@v2
       - run: source/_static/install_dependencies.sh
 
-  install-debian:
-    runs-on: ubuntu-latest
-    container: 'debian:latest'
-    steps:
-      - run: apt install -y sudo
-      - uses: actions/checkout@v2
-      - run: source/_static/install_dependencies.sh
-
   install-fedora:
-    runs-on: ubuntu-latest
-    container: 'fedora:latest'
+    runs-on: macos-latest
     steps:
-      - run: dnf install -y sudo
       - uses: actions/checkout@v2
-      - run: source/_static/install_dependencies.sh
+      - run: cp .github/workflows/fedora.vagrant Vagrantfile
+      - run: vagrant up

@@ -1,0 +1,4 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "generic/fedora33"
+  config.vm.provision "shell", path: "source/_static/install_dependencies.sh"
+end
