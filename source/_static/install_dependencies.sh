@@ -2,21 +2,25 @@
 
 set -e
 
-readonly ubuntu_pkgs=(
+readonly linux_pkgs=(
     python3
     python3-pip
     udev
-    # https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html
-    build-essential
     cmake
     git
+    python3-numpy
+)
+
+readonly ubuntu_pkgs=(
+    ${linux_pkgs[@]}
+    # https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html
+    build-essential
     libgtk2.0-dev
     pkg-config
     libavcodec-dev
     libavformat-dev
     libswscale-dev
     python-dev
-    python-numpy
     libtbb2
     libtbb-dev
     libjpeg-dev
@@ -31,6 +35,7 @@ readonly ubuntu_pkgs=(
 )
 
 readonly ubuntu_arm_pkgs=(
+    "${ubuntu_pkgs[@]}"
     # https://stackoverflow.com/a/53402396/5494277
     libhdf5-dev
     libhdf5-dev
@@ -42,6 +47,20 @@ readonly ubuntu_arm_pkgs=(
     libilmbase-dev
     libopenexr-dev
     libgstreamer1.0-dev
+)
+
+readonly fedora_pkgs=(
+    ${linux_pkgs[@]}
+    gtk2-devel
+    # Fedora uses pkgconf instead of pkg-config
+    tbb-devel
+    libjpeg-turbo-devel
+    libpng-devel
+    libtiff-devel
+    libdc1394-devel
+    # TODO(PM): ffmpeg requires enabling rpmfusion-free-updates
+    # TODO(PM): libavcodec-dev libavformat-dev libswscale-dev python-dev libtbb2
+    #           libsm6 libxext6 libgl1-mesa-glx
 )
 
 print_action () {
@@ -92,9 +111,15 @@ elif [ -f /etc/os-release ]; then
             python3 -m pip install --upgrade pip
         elif [[ $(uname -m) =~ ^arm* ]]; then
             sudo apt-get update
-            sudo apt-get install -y "${ubuntu_pkgs[@]}" "${ubuntu_arm_pkgs[@]}"
+            sudo apt-get install -y "${ubuntu_arm_pkgs[@]}"
             python3 -m pip install --upgrade pip
         fi
+        ;;
+    fedora)
+        sudo dnf update -y
+        sudo dnf install -y "${fedora_pkgs[@]}"
+        sudo dnf groupinstall -y "Development Tools" "Development Libraries"
+        python3 -m pip install --upgrade pip
         ;;
     *)
         echo "ERROR: Distribution not supported"
