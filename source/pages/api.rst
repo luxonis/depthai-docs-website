@@ -59,6 +59,17 @@ Windows
 
   choco install cmake git python pycharm-community -y
 
+Enabling the USB device (only on Linux)	
+#######################################	
+
+Since the DepthAI is a USB device, in order to communicate with it on the systems that use :code:`udev` tool, you	
+need to add the udev rules in order to make the device accessible.	
+
+The following command will add a new udev rule to your system	
+
+.. code-block:: bash	
+  echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules	
+  sudo udevadm control --reload-rules && sudo udevadm trigger
 
 Install from PyPi
 #################
