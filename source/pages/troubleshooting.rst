@@ -10,19 +10,6 @@ Delete the autostart file:
 
   rm /home/pi/.config/autostart/runai.desktop
 
-'depthai: Error initalizing xlink' errors and DepthAI fails to run.
-###################################################################
-
-The Myriad X needs to be reset. Click the "MODULE RST" or "RST" button on your carrier board.
-
-On the RPi Compute edition, you can reset the Myriad X via the following shell commands:
-
-.. code-block:: bash
-
-  raspi-gpio set 33 op  # set 33 as output
-  raspi-gpio set 33 dh  # drive high to reset Myriad X
-  sleep 1
-  raspi-gpio set 33 dl  # drive low to allow Myriad X to run
 
 ImportError: No module named 'depthai'
 ######################################
@@ -97,6 +84,8 @@ So if you have see this problem with your host, potentially 3 options:
 Forcing USB2 Communication
 **************************
 
+If you are having trouble with communication with DepthAI/OAK, forcing USB2 can sometimes resolve the issue.  
+
 .. code-block:: bash
 
   python3 depthai_demo.py --force_usb2
@@ -105,9 +94,22 @@ Or, the shorter form:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -usb2
+  python3 depthai_demo.py -fusb2
 
 We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not
 Ubuntu 18.04/16.04 or Raspbian, please :ref:`compile DepthAI from source <Install from source>`.
+
+Failed to boot the device: 1.3-ma2480, err code 3
+#################################################
+
+This wil coincide with depthai: Error initializing xlink
+
+This error often can occur if the udev rules are not set on Linux.  To set them run:
+
+.. code-block:: bash
+
+echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
+sudo udevadm control --reload-rules && sudo udevadm trigger
+
 
 .. include::  /pages/includes/footer-short.rst
