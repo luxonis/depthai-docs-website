@@ -122,3 +122,10 @@ CTRL-C Is Not Stopping It!
 ##########################
 
 If you are trying to kill a program with CTLR-C, and it's not working, try CTRL-\ instead.  Usually this will work.
+
+Is Your Raspberry Pi Locking Up?
+################################
+
+The Raspberry Pi has a max limit of 1.2A across all its USB ports, and depthai/megaAI/OAK can take up to 1A (at max power, usually closer to 500mA).
+
+So if you are seeing lockups, it could be that you are over this 1.2A limit as a result of the total power of the USB devices drawing from the Pi.  Using a powered hub can prevent this, or powering fewer other things off of the Pi over USB.
