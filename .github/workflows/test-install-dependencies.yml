@@ -1,5 +1,8 @@
 name: Run install dependencies script
-on: [push]
+on:
+  push:
+    paths:
+      - source/_static/install_dependencies.sh
 jobs:
   install-ubuntu:
     runs-on: ubuntu-latest
