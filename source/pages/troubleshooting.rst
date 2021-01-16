@@ -104,12 +104,16 @@ Failed to boot the device: 1.3-ma2480, err code 3
 
 This error often can occur if the udev rules are not set on Linux.  This wil coincide with depthai: Error initializing xlink
 
-To fix this, set the udev rules using the commands below:
+To fix this, set the udev rules using the commands below, unplugging depthai and replugging it into USB afterwards.
 
 .. code-block:: bash
 
-echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-sudo udevadm control --reload-rules && sudo udevadm trigger
+  echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+  
+And in some cases, these were already set, but depthai was plugged in the entire time, so Linux could not reset the rules.
+
+So make sure to unplug, and replug-in depthai after having run these.
 
 
 .. include::  /pages/includes/footer-short.rst
