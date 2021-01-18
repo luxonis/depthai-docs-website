@@ -354,6 +354,17 @@ Can I Run Multiple Neural Models in Parallel or in Series (or Both)?
 
 Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__ is what allows you to do this.  And we have several example implementations of parallel, series, and parallel+series in `depthai-experiments <https://github.com/luxonis/depthai-experiments>`__ repository.  A notable example is the Gaze estimation example, `here <https://github.com/luxonis/depthai-experiments/tree/master/gaze-estimation>`__, which shows series and parallel all together in one example.  
 
+Can DepthAI do Arbitrary Crop, Resize, Thumbnail, etc.?
+#######################################################
+
+Yes, see `here <https://github.com/luxonis/depthai-python/blob/gen2_develop/examples/14_color_camera_control.py>`__ for ane example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
+
+Can DepthAI Run Custom CV Code?  Say CV Code From PyTorch?
+##########################################################
+
+Yes, although we have yet to personally do this.  But folks in the community have.  Rahul Ravikumar is one, and was quite nice to have written up the process on how to do this, see `here <https://rahulrav.com/blog/depthai_camera.html>`__.  This code can then be run as a node in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__, to be paired with other CV nodes, neural inference, depth processing, etc. that are supported on the platform.
+
+
 How do I Integrate DepthAI into Our Product?
 ############################################
 
