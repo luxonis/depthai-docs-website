@@ -349,6 +349,11 @@ My Model Requires Pre-Processing (normalization, for example).  How do I do that
 
 The OpenVINO toolkit allows adding these pre-processing steps to your model, and then these steps are performed automatically by DepthAI.  See `here <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Converting_Model_General.html#when_to_specify_mean_and_scale_values>`__ for how to take advantage of this.
 
+Can I Run Multiple Neural Models in Parallel or in Series (or Both)?
+####################################################################
+
+Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__ is what allows you to do this.  And we have several example implementations of parallel, series, and parallel+series in `depthai-experiments <https://github.com/luxonis/depthai-experiments>`__ repository.  A notable example is the Gaze estimation example, `here <https://github.com/luxonis/depthai-experiments/tree/master/gaze-estimation>`__, which shows series and parallel all together in one example.  
+
 How do I Integrate DepthAI into Our Product?
 ############################################
 
