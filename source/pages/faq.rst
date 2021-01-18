@@ -283,6 +283,16 @@ See below for DepthAI running on a Jetson Tx2 I have on my desk:
 
 .. image:: https://user-images.githubusercontent.com/32992551/93289854-a4cbcd00-f79c-11ea-8f37-4ea36d523dd2.png
   :alt: Jetson Tx2
+  
+For the releases we'll be building prebuilt wheels for aarch64 as well, so the following compilation step won't be needed.  But to get going from Github directly, you can install on Jetson with the following:
+:bash:`python3 -m pip install ...` where :bash:`...` are the depthai version&commit required, will likely successfully build the library from sources. One thing to check before is that you have `cmake`, `libusb` (:bash:`sudo apt install libusb-1.0-0-dev`) and compiler tools (:bash:`sudo apt install build-essential`).
+
+Also don't forget about the udev rules after you have that set up:
+
+.. code-block:: bash	
+
+  echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules	
+  sudo udevadm control --reload-rules && sudo udevadm trigger
 
 Can I use multiple DepthAI with one host?
 #########################################
