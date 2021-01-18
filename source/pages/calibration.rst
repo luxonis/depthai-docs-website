@@ -34,7 +34,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
       cd depthai
       python3 install_requirements.py
 
-#. Print chessboard calibration image.
+#. Print checkerboard calibration image.
 
     Either print the calibration checkerboard onto a flat surface, or display the checkerboard on a flat (not curved!) monitor.
     Note that if you do print the calibration target, take care to make sure it is attached to a flat surface and is flat and free of wrinkles and/or 'waves'.
@@ -42,7 +42,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
     Often, using a monitor to display the calibration target is easier/faster.
 
     .. image:: https://github.com/luxonis/depthai/raw/main/resources/calibration-chess-board.png
-      :alt: Print this chessboard calibration image
+      :alt: Print this checkerboard calibration image
       :target: https://github.com/luxonis/depthai/raw/main/resources/calibration-chess-board.png
 
     The entire board should fit on a single piece of paper (scale to fit).  And if displaying on a monitor, full-screen the image with a white background.
@@ -57,7 +57,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Argument reference:
 
-    - :code:`-s SQUARE_SIZE_IN_CM`, :code:`--square_size_cm SQUARE_SIZE_IN_CM`: Measure the square size of the printed chessboard in centimeters.
+    - :code:`-s SQUARE_SIZE_IN_CM`, :code:`--square_size_cm SQUARE_SIZE_IN_CM`: Measure the square size of the printed checkerboard in centimeters.
     - :code:`-brd BOARD`, :code:`--board BOARD`: BW1097, BW1098OBC - Board type from resources/boards/ (not case-sensitive). Or path to a custom .json board config. Mutually exclusive with [-fv -b -w], which allow manual specification of field of view, baseline, and camera orientation (swapped or not-swapped).
 
     Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].
@@ -146,12 +146,12 @@ Then, run calibration with this board name:
 
 Run :code:`python3 calibrate.py --help` (or :code:`-h`) for a full list of arguments and usage examples.
 
-Position the chessboard and capture images.
+Position the checkerboard and capture images.
 *******************************************
 
 Left and right video streams are displayed, each containing a polygon overlay.
 
-Hold up the printed chessboard (or laptop with the image displayed on the screen) so that the whole of the checkerboard is displayed within both video streams.
+Hold up the printed checkerboard (or laptop with the image displayed on the screen) so that the whole of the checkerboard is displayed within both video streams.
 
 Match the orientation of the overlayed polygon and press [SPACEBAR] to capture an image. The checkerboard pattern does
 not need to match the polygon exactly, but it is important to use the polygon as a guideline for angling and location relative to the camera.
