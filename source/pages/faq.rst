@@ -312,7 +312,7 @@ Can I train my own Models for DepthAI?
 
 Yes.
 
-We have a tutorial around Google Colab notebooks you can even use for this.  See `here <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb>`__
+We have a tutorial around Google Colab notebooks you can even use for this.  See `here <https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#tiny-yolov3-object-detector-training->`__
 
 .. _nodepthrequired:
 
