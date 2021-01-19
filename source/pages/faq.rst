@@ -1194,7 +1194,7 @@ operates in two stages:
 #. For showing up when plugged in. We use this endpoint to load the firmware onto the device, which is a usb-boot technique.  This device is USB2.
 #. For running the actual code. This shows up after USB booting and is USB3.
 
-In order to support the DepthAI modes, you need to download and install `Oracle VM VirtualBox Extension Pack <https://www.virtualbox.org/wiki/Downloads>`__
+In order to support the DepthAI modes, you need to download and install `Oracle VM VirtualBox Extension Pack <https://www.virtualbox.org/wiki/Downloads>`__.  Once this is installed, enable USB3 (xHCI) Controller in the USB settings.  
 
 .. _parameters_upgrade:
 
