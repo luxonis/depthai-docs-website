@@ -1208,7 +1208,24 @@ operates in two stages:
 #. For showing up when plugged in. We use this endpoint to load the firmware onto the device, which is a usb-boot technique.  This device is USB2.
 #. For running the actual code. This shows up after USB booting and is USB3.
 
-In order to support the DepthAI modes, you need to download and install `Oracle VM VirtualBox Extension Pack <https://www.virtualbox.org/wiki/Downloads>`__.  Once this is installed, enable USB3 (xHCI) Controller in the USB settings.  
+In order to support the DepthAI modes, you need to download and install `Oracle VM VirtualBox Extension Pack <https://www.virtualbox.org/wiki/Downloads>`__.  Once this is installed, enable USB3 (xHCI) Controller in the USB settings.  You'll then need to route the Myriad (depthai) as USB device from Host to the VBox.
+
+
+
+The screenshots below show the two filters that need to be made
+You'll need to route the Myriad as USB device from Host to the VBox.  This is the filter for depthai before it has booted, which is at that point a USB2 device:
+
+.. image:: https://user-images.githubusercontent.com/32992551/105070455-8d4d6b00-5a40-11eb-9bc6-19b164a55b4c.png
+  :alt: Routing the not-yet-booted depthai to the VirtualBox.
+  
+The last step is to add the USB Intel Loopback device. 
+
+This device shows just up when the depthai/OAK is trying to reconnect (during runntime, so right after running a pipeline on depthai, such as `:bash: python3 depthai_demo.py`). 
+
+It might take a few tries to get this loopback device shown up and added, as you need to do this while depthai is trying to connect after a pipeline has been built (and so it has at that point now booted its internal firmware over USB2).
+
+.. image:: https://user-images.githubusercontent.com/32992551/105070474-93dbe280-5a40-11eb-94b3-6557cd83fe1f.png
+  :alt: Making the USB Loopback Device for depthai/OAK, to allow the booted device to communicate in virtualbox
 
 .. _parameters_upgrade:
 
