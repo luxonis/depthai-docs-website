@@ -14,5 +14,5 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
-      - run: cp .github/workflows/fedora.vagrant Vagrantfile
+      - run: cp ci/fedora.vagrant Vagrantfile
       - run: vagrant up
