@@ -492,12 +492,24 @@ The full designs (including source Altium files) for all the carrier boards are 
 
 .. _mindepths:
 
-The depth results for close-in objects looks weird, what's going on?
-####################################################################
+How to enable depthai perceive closer distances
+###############################################
 
-For DepthAI Onboard Cameras (BW1098OBC) and OAK-D, the standard-settings minimum depth is around 70cm.  This can be cut in 1/2 and 1/4 with the following options:
-1. Change the resolution to 640x400, instead of the standard 1280x800.  Since the disparity-search of 96 is what limits the minimum depth, this means the minimum depth is now 1/2 of standard settings - 35cm instead of 70cm.  To do this with the example script, run `python3 depthai_demo.py -monor 400 -s previewout metaout depth -bb`.  In Gen1 software, this is the only option.  But in Gen2, Extended Disparity can again cut this min depth in 1/2. 
-2. Enable Extended Disparity.  In Gen2, Extended Disparity is supported, which extends the disparity search to 192 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for BW1098OBC/OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.  See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable LR-Check.
+If the depth results for close-in objects look weird, this is likely because they are below the minimum depth-perception distance of DepthAI/OAK-D.
+
+For DepthAI Onboard Cameras (BW1098OBC) and OAK-D, the standard-settings minimum depth is around 70cm.  
+
+This can be cut in 1/2 and 1/4 with the following options:
+
+1. Change the resolution to 640x400, instead of the standard 1280x800.  
+
+Since the disparity-search of 96 is what limits the minimum depth, this means the minimum depth is now 1/2 of standard settings - 35cm instead of 70cm.  To do this with the example script, run `python3 depthai_demo.py -monor 400 -s previewout metaout depth -bb`.  In Gen1 software, this is the only option.  But in Gen2, Extended Disparity can again cut this min depth in 1/2. 
+
+2. Enable Extended Disparity.  
+
+In Gen2, Extended Disparity is supported, which extends the disparity search to 192 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for BW1098OBC/OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.  
+
+See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable LR-Check.
 
 What are the Minimum Depths Visible by DepthAI?
 ###############################################
