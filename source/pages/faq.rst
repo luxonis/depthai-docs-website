@@ -492,8 +492,8 @@ The full designs (including source Altium files) for all the carrier boards are 
 
 .. _mindepths:
 
-How to enable depthai perceive closer distances
-###############################################
+How to enable depthai to perceive closer distances
+##################################################
 
 If the depth results for close-in objects look weird, this is likely because they are below the minimum depth-perception distance of DepthAI/OAK-D.
 
