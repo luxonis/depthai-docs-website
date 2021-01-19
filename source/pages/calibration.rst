@@ -3,7 +3,7 @@ Calibration
 
 .. note::
 
-  Using the :ref:`BW1097 - RaspberryPi Compute Module` or :ref:`BW1098OBC - USB3 with Onboard Cameras`? **Your unit comes pre-calibrated**
+  Using **OAK-D**, :ref:`BW1097 - RaspberryPi Compute Module` or :ref:`BW1098OBC - USB3 with Onboard Cameras`? **Your unit comes pre-calibrated**
 
 
 For the modular camera editions of DepthAI (:ref:`BW1098FFC - USB3 with Modular Cameras` and :ref:`BW1094 - RaspberryPi Hat`)
@@ -13,7 +13,9 @@ For the :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC - USB3 wi
 pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something),
 or if the calibration quality has started to fade over use/handling.
 
-Below is a quick video showing the (re-) calibration of the :ref:`BW1097 - RaspberryPi Compute Module`.
+Below is a quick video showing the (re-) calibration of the :ref:`BW1097 - RaspberryPi Compute Module`.  In short, the calibration uses the intersections to determine the orientation and distance of the checkerboard.  So the greatest accuracy will be obtained by a clear print or display of the provided checkerboard image on a flat plane. 
+
+The flatness of the calibration checkerboard is very important.  Do not use curved monitors, or calibration targest that have any 'waviness'.  So if you print the checkerboard, please make sure affix the sheet to a known flat surface, without any waves.  That said, using a laptop with a flat monitor is usually the easiest technique.
 
 Watching the video below will give you the steps needed to calibrate your own DepthAI.  And for more information/details on calibration options,
 please see the steps below and also :code:`./calibrate.py --help` which will print out all of the calibration options.
