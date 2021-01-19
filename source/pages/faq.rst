@@ -308,7 +308,7 @@ Is DepthAI OpenVINO Compatible?
 Yes.  DepthAI Gen 1 is fully compatible with OpenVINO 2020.1.
 
 .. note::
-   `DepthAI Gen 2 <https://docs.luxonis.com/projects/api/en/docs_python_api/>`__ supports 2020.1, 2020.2, 2020.3, 2020.4 and 2021.1.  We do our best to support new OpenVINO releases as soon as they are made available.
+   `DepthAI Gen 2 <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__ supports 2020.1, 2020.2, 2020.3, 2020.4 and 2021.1.  We do our best to support new OpenVINO releases as soon as they are made available.
 
 Can I train my own Models for DepthAI?
 ######################################
