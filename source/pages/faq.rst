@@ -1169,6 +1169,15 @@ The color camera on megaAI and DepthAI is a fully-integrated camera module, so t
 motor etc. are all self-contained and none of it is replaceable or serviceable.  You'll see it's all very small. 
 It's the same sort of camera you would find in a high-end smart phone.  
 
+So the recommended approach, if you'd like custom optics, say IR-capable, UV-capable, different field of view (FOV), etc. is to use
+the ArduCam M12 or CS mount series of OV9281 and/or IMX477 modules.  
+
+ - `IMX477 M12-Mount <https://www.arducam.com/product/arducam-high-quality-camera-for-jetson-nano-and-xavier-nx-12mp-m12-mount/>`__
+ - `IMX477 CS-Mount <https://www.arducam.com/product/b0242-arducam-imx477-hq-camera/>`__
+ - `OV9281 M12-Mount <https://www.arducam.com/product/ov9281-mipi-1mp-monochrome-global-shutter-camera-module-m12-mount-lens-raspberry-pi/>`__
+ 
+Note that these are require an adapter (`here <https://shop.luxonis.com/collections/all/products/rpi-hq-camera-imx477-adapter-kit>`__), and :ref:`below <rpi_hq>` and this adapter connects to the RGB port of the BW1098FFC.  It is possible to make other adapters such that more than one of these cameras could be used at a time, or to modify the `open-source BW1098FFC <https://github.com/luxonis/depthai-hardware/tree/master/BW1098FFC_DepthAI_USB3>`__ to accept the ArduCam FFC directly, but these have not yet been made.
+
 That said, we have seen users attach the same sort of optics that they would to smartphones to widen field of view, zoom, etc. 
 The auto-focus seems to work appropriately through these adapters.  For example a team member has tested the
 Occipital *Wide Vision Lens* `here <https://store.structure.io/buy/accessories>`__ to work with both megaAI and DepthAI color cameras.
