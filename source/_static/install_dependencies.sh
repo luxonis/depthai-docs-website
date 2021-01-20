@@ -99,21 +99,15 @@ if [[ $(uname) == "Darwin" ]]; then
     echo
     echo "=== Installed successfully!  IMPORTANT: For changes to take effect,"
     echo "please close and reopen the terminal window, or run:  exec \$SHELL"
-elif [ -f /etc/os-release ]; then
+elif [[ ! $(uname -m) =~ ^arm* && -f /etc/os-release ]]; then
     # shellcheck source=/etc/os-release
     source /etc/os-release
 
     case "$ID" in
     ubuntu|debian)
-        if [[ ! $(uname -m) =~ ^arm* ]]; then
-            sudo apt-get update
-            sudo apt-get install -y "${ubuntu_pkgs[@]}"
-            python3 -m pip install --upgrade pip
-        elif [[ $(uname -m) =~ ^arm* ]]; then
-            sudo apt-get update
-            sudo apt-get install -y "${ubuntu_arm_pkgs[@]}"
-            python3 -m pip install --upgrade pip
-        fi
+        sudo apt-get update
+        sudo apt-get install -y "${ubuntu_pkgs[@]}"
+        python3 -m pip install --upgrade pip
         ;;
     fedora)
         sudo dnf update -y
@@ -126,6 +120,15 @@ elif [ -f /etc/os-release ]; then
         exit 99
         ;;
     esac
+
+    # Allow all users to read and write to Myriad X devices
+    echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
+    sudo udevadm control --reload-rules && sudo udevadm trigger
+elif [[ $(uname -m) =~ ^arm* ]]; then
+    # TODO(PM): Support ARM processors not running apt-get
+    sudo apt-get update
+    sudo apt-get install -y "${ubuntu_arm_pkgs[@]}"
+    python3 -m pip install --upgrade pip
 
     # Allow all users to read and write to Myriad X devices
     echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
