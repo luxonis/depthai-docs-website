@@ -15,9 +15,9 @@ or if the calibration quality has started to fade over use/handling.
 
 Below is a quick video showing the (re-) calibration of the :ref:`BW1097 - RaspberryPi Compute Module`.  In short, the calibration uses the intersections to determine the orientation and distance of the checkerboard.  So the greatest accuracy will be obtained by a clear print or display of the provided checkerboard image on a flat plane. 
 
-The flatness of the calibration checkerboard is very important.  Do not use curved monitors, or calibration targest that have any 'waviness'.  So if you print the checkerboard, please make sure affix the sheet to a known flat surface, without any waves.  That said, using a laptop with a flat monitor is usually the easiest technique.
+The flatness of the calibration checkerboard is very important.  Do not use curved monitors, or calibration targets that have any 'waviness'.  So if you print the checkerboard, please make sure to affix the sheet to a known flat surface, without any waves.  That said, using a laptop with a flat monitor is usually the easiest technique.
 
-Watching the video below will give you the steps needed to calibrate your own DepthAI.  And for more information/details on calibration options,
+Watching the video below will give you the steps needed to calibrate your own DepthAI.  For more information/details on calibration options,
 please see the steps below and also :code:`./calibrate.py --help` which will print out all of the calibration options.
 
 
