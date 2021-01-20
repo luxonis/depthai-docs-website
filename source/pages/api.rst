@@ -50,6 +50,11 @@ Ubuntu
 
   sudo wget -qO- http://docs.luxonis.com/_static/install_dependencies.sh | bash
 
+openSUSE
+********
+
+For openSUSE, available `in this official article <https://en.opensuse.org/SDB:Install_OAK_AI_Kit.>` how to install the OAK device on the openSUSE platform.
+
 Windows
 *******
 
