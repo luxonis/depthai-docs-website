@@ -63,7 +63,7 @@ Available interfaces
    :hidden:
    :caption: Subprojects:
 
-   DepthAI API <https://docs.luxonis.com/projects/api/en/docs_python_api/>
+   DepthAI API <https://docs.luxonis.com/projects/api/en/gen2_develop/>
    DepthAI GUI <https://docs.luxonis.com/projects/gui/en/latest/>
 
 
