@@ -53,7 +53,7 @@ Ubuntu
 openSUSE
 ********
 
-For openSUSE, available `in this official article <https://en.opensuse.org/SDB:Install_OAK_AI_Kit.>` how to install the OAK device on the openSUSE platform.
+For openSUSE, available `in this official article <https://en.opensuse.org/SDB:Install_OAK_AI_Kit.>`__ how to install the OAK device on the openSUSE platform.
 
 Windows
 *******
