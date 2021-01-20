@@ -1222,6 +1222,9 @@ This device shows just up when the depthai/OAK is trying to reconnect (during ru
 
 It might take a few tries to get this loopback device shown up and added, as you need to do this while depthai is trying to connect after a pipeline has been built (and so it has at that point now booted its internal firmware over USB2).
 
+.. image:: https://user-images.githubusercontent.com/32992551/105112208-c527d300-5a7f-11eb-96b4-d14bcf974313.png
+  :alt: Find the loopback device right after you tell depthai to start the pipeline, and select it.
+
 .. image:: https://user-images.githubusercontent.com/32992551/105070474-93dbe280-5a40-11eb-94b3-6557cd83fe1f.png
   :alt: Making the USB Loopback Device for depthai/OAK, to allow the booted device to communicate in virtualbox
 
