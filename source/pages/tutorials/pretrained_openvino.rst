@@ -2,7 +2,7 @@ Use a Pre-trained OpenVINO model
 ================================
 
 In this tutorial, you'll learn how to detect faces in real-time, even on a low-powered Raspberry Pi. I'll introduce you
-to the OpenVINO model zoo and running models from this 'zoo'.
+to the OpenVINO, the Open Model Zoo and show you how to run models.
 
 .. image:: /_static/images/tutorials/pretrained_openvino/face-1.png
   :alt: preview
@@ -12,40 +12,33 @@ Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introdu
 What is OpenVINO?
 #################
 
-Under-the-hood, DepthAI uses the Intel Myriad X chip to perform high-speed model inference. However, you can't just dump
-your neural net into the chip and get high-performance for free. That's where `OpenVINO <https://docs.openvinotoolkit.org/>`__
-comes in. OpenVINO is a free toolkit that converts a deep learning model into a format that runs on Intel Hardware.
-Once the model is converted, it's common to see Frames Per Second (FPS) improve by 25x or more. Are a couple of small
-steps worth a 25x FPS increase? Often, the answer is yes!
+Under-the-hood, DepthAI uses the Intel Myriad X to perform high-speed model inference. However, you can't just dump
+your neural net into the chip and get high-performance for free. That's where `OpenVINO
+<https://docs.openvinotoolkit.org/>`__ comes in. OpenVINO is a free toolkit that converts a deep learning model into a
+format that runs on Intel Hardware. Once the model is converted, it's common to see Frames Per Second (FPS) improve by
+25x or more. Are a couple of small steps worth a 25x FPS increase? Often, the answer is yes!
+
+Check the `OpenVINO toolkit website <https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html>`__
+for installation instructions. OpenVINO should be installed under `/opt/intel`. Verify that the version is supported by
+DepthAI (see :ref:`Is DepthAI OpenVINO Compatible? <Is DepthAI OpenVINO Compatible?>`).
 
 What is the Open Model Zoo?
 ###########################
 
-The `Open Model Zoo <https://github.com/opencv/open_model_zoo>`__ is a library of freely-available pre-trained models.
-Side note: in machine learning/AI the name for a collection of pre-trained models is called a 'model zoo'.
-The Zoo also contains scripts for downloading those models into a compile-ready format to run on DepthAI.
+In machine learning/AI the name for a collection of pre-trained models is called a "model zoo". The `Open Model Zoo
+<https://github.com/opencv/open_model_zoo>`__ is a library of freely-available pre-trained models. The Zoo also contains
+scripts for downloading those models into a compile-ready format to run on DepthAI.
 
-DepthAI is able to run many of the object detection models in the Zoo, and several are pre-included in the DepthAI Github.
-repository.  We will be using one such model in this tutorial, is face-detection-retail-0004 (pre-compiled
-`here <https://github.com/luxonis/depthai/tree/master/resources/nn/face-detection-retail-0004>`__ on our Github, and
-`here <https://docs.openvinotoolkit.org/2020.1/_models_intel_face_detection_retail_0004_description_face_detection_retail_0004.html>`__ on the OpenVINO model zoo).
+DepthAI is able to run many of the object detection models in the Zoo. Several of those models are included in the
+`DepthAI Github repositoy <https://github.com/luxonis/depthai/tree/master/resources/nn/>`__.
 
-We'll cover converting OpenVINO models to run on DepthAI in a later article.  For now, you can find the models we've
-pre-converted `here <https://github.com/luxonis/depthai/tree/master/resources/nn>`__ and brief instructions on how to do
-so `here <https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`__.
+Clone the Open Model Zoo repository from Github and `install its dependencies
+<https://github.com/openvinotoolkit/open_model_zoo/blob/master/tools/downloader/README.md#prerequisites>`__.
+Optionally, add the scripts to your path:
 
-Dependencies
-############
+.. code-block:: bash
 
-.. warning::
-
-  Using the Raspberry Pi Compute Edition or a pre-flashed DepthAI Raspberry Pi microSD card? **Skip this step**
-
-  All dependencies are installed and the repository is checked out to :code:`~/Desktop/depthai`.
-
-This tutorial has the same dependencies as the :ref:`Hello World Tutorial <Hello World>` - that the DepthAI
-API has been installed and is accessible on the system.  See :ref:`Python API <Python API>` if you have not yet installed the API.
-
+    export PATH="${PATH}:${PWD}/open_model_zoo/tools/downloader/"
 
 Run DepthAI Default Model
 #########################
@@ -229,4 +222,3 @@ And note this is running both parallel neural inference (i.e. on both cameras) a
 (the landmarks-regression network is running on the results of the face detector).
 
 .. include::  /pages/includes/footer-short.rst
-

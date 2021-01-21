@@ -2,9 +2,8 @@ Local OpenVINO Model Conversion
 ===============================
 
 In this tutorial, you'll learn how to convert OpenVINO IR models into the format required to run on DepthAI, even on a
-low-powered Raspberry Pi. I'll introduce you to the OpenVINO Toolkit, the Open Model Zoo (where we'll download the
-`face-detection-retail-0004 <https://github.com/opencv/open_model_zoo/blob/2019_R3/models/intel/face-detection-retail-0004/description/face-detection-retail-0004.md>`__
-model), and show you how to generate the files needed to run model inference on your DepthAI board.
+low-powered Raspberry Pi. I'll introduce you to OpenVINO, the Open Model Zoo, and show you how to generate
+the files needed to run model inference on your DepthAI board.
 
 .. image:: /_static/images/tutorials/local_convert_openvino/face.png
   :alt: face
@@ -14,149 +13,37 @@ Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introdu
 What is OpenVINO?
 #################
 
-Under-the-hood, DepthAI uses the Intel technology to perform high-speed model inference. However, you can't just dump
-your neural net into the chip and get high-performance for free. That's where
-`OpenVINO <https://docs.openvinotoolkit.org/>`__ comes in. OpenVINO is a free toolkit that converts a deep learning
-model into a format that runs on Intel Hardware. Once the model is converted, it's common to see Frames Per Second
-(FPS) improve by 25x or more. Are a couple of small steps worth a 25x FPS increase? Often, the answer is yes!
+Under-the-hood, DepthAI uses the Intel Myriad X to perform high-speed model inference. However, you can't just dump
+your neural net into the chip and get high-performance for free. That's where `OpenVINO
+<https://docs.openvinotoolkit.org/>`__ comes in. OpenVINO is a free toolkit that converts a deep learning model into a
+format that runs on Intel Hardware. Once the model is converted, it's common to see Frames Per Second (FPS) improve by
+25x or more. Are a couple of small steps worth a 25x FPS increase? Often, the answer is yes!
+
+Check the `OpenVINO Toolkit website <https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html>`__
+for installation instructions. OpenVINO should be installed under
+:code:`/opt/intel`. Verify that the version is supported by DepthAI (see
+:ref:`Is DepthAI OpenVINO Compatible? <Is DepthAI OpenVINO Compatible?>`).
 
 What is the Open Model Zoo?
 ###########################
 
-The `Open Model Zoo <https://github.com/opencv/open_model_zoo>`__ is a library of freely-available pre-trained models.
-The Zoo also contains scripts for downloading those models into a compile-ready format to run on DepthAI.
+In machine learning/AI the name for a collection of pre-trained models is called a "model zoo". The `Open Model Zoo
+<https://github.com/opencv/open_model_zoo>`__ is a library of freely-available pre-trained models. The Zoo also contains
+scripts for downloading those models into a compile-ready format to run on DepthAI.
 
-DepthAI is able to run many of the object detection models in the Zoo.
+DepthAI is able to run many of the object detection models in the Zoo. Several of those models are included in the
+`DepthAI Github repositoy <https://github.com/luxonis/depthai/tree/master/resources/nn/>`__.
 
-Install OpenVINO
-################
-
-.. warning::
-
-  If you have OpenVINO installed or want to follow `official installation <https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html>`__, **skip this step**.
-
-  Please note that the following install instructions are for **Ubuntu 18.04** OS, if you intend to use other OS, follow
-  the official OpenVINO installation
-
-
-DepthAI requires OpenVINO version :code:`2020.1`. Let's get a package for our OS and meeting this version with the following command:
+Clone the Open Model Zoo repository from Github and `install its dependencies
+<https://github.com/openvinotoolkit/open_model_zoo/blob/master/tools/downloader/README.md#prerequisites>`__.
+Optionally, add the scripts to your path:
 
 .. code-block:: bash
 
-  apt-get update
-  apt-get install -y software-properties-common
-  add-apt-repository -y ppa:deadsnakes/ppa
-  apt-get update
-  apt-get install -y wget pciutils python3.8 libpng-dev libcairo2-dev libpango1.0-dev libglib2.0-dev libgtk2.0-dev libswscale-dev libavcodec-dev libavformat-dev
-  cd
-  mkdir openvino_install && cd openvino_install
-  wget http://registrationcenter-download.intel.com/akdlm/irc_nas/16345/l_openvino_toolkit_p_2020.1.023.tgz
-  tar --strip-components=1 -zxvf l_openvino_toolkit_p_2020.1.023.tgz
-  ./install_openvino_dependencies.sh
-  ./install.sh # when finished, you can go ahead and do "rm -r ~/openvino_install"
+    export PATH="${PATH}:${PWD}/open_model_zoo/tools/downloader/"
 
-Now, first screen we'll wee is EULA, just hit :code:`Enter`, scroll through and type :code:`accept`.
-
-Next one is agreement to Intel Software Improvement Program, it's not relevant so you can choose whether consent (:code:`1`)
-or not (:code:`2`)
-
-Next, you may see the Missing Prerequisites screen showing that :code:`Intel® Graphics Compute Runtime for OpenCL™ Driver is missing` - you can go ahead and ignore this warning.
-
-Finally, we'll see the install summary - please verify that it has a correct location pointed out - :code:`/opt/intel`.
-If all looks good, go ahead and proceed (:code:`1`). If the missing prerequisites screen appears again, feel free to skip it.
-
-Let's verify that a correct version is installed on your host. Check your version by running the following from a terminal session:
-
-.. code-block:: bash
-
-  cat /opt/intel/openvino/inference_engine/version.txt
-
-You should see output similar to:
-
-.. code-block::
-
-  Thu Jan 23 19:14:14 MSK 2020
-  d349c3ba4a2508be72f413fa4dee92cc0e4bc0e1
-  releases_2020_1_InferenceEngine_37988
-
-Verify that you see :code:`releases_2020_1` in your output. If you do, move on.
-If you are on a different version, go to the `OpenVINO site
-<https://docs.openvinotoolkit.org/2019_R3/index.html>`__ and download the
-:code:`2020.1` version for your OS:
-
-.. image:: /_static/images/tutorials/local_convert_openvino/openvino_version.png
-  :alt: face
-
-Check if the Model Downloader is installed
-##########################################
-
-When installing OpenVINO, you can choose to perform a smaller install to save disk space. This custom install may not
-include the Model Downloader script. Lets check if it was installed. In a terminal session, type the following:
-
-.. code-block:: bash
-
-  find /opt/intel/ -iname downloader.py
-
-**Move on if you see the output below**:
-
-.. code-block:: bash
-
-  /opt/intel/openvino_2020.1.023/deployment_tools/open_model_zoo/tools/downloader/downloader.py
-
-**Didn't see any output?** Don't fret if :code:`downloader.py` isn't found. We'll install this below.
-
-Install Open Model Zoo Downloader
-*********************************
-
-If the Downloader tools weren't found, we'll install the tools by cloning the
-`Open Model Zoo Repo <https://github.com/openvinotoolkit/open_model_zoo/blob/2020.1/tools/downloader/README.md>`__ and
-installing the tool dependencies.
-
-Start a terminal session and run the following commands in your terminal:
-
-.. code-block:: bash
-
-  apt-get install -y git curl
-  curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-  python3 get-pip.py
-  rm get-pip.py
-  cd ~
-  git clone https://github.com/opencv/open_model_zoo.git
-  cd open_model_zoo
-  git checkout tags/2020.1
-  cd tools/downloader
-  python3 -m pip install --user -r ./requirements.in
-
-This clones the repository into a :code:`~/open_model_zoo` directory, checks out the required :code:`2020.1` version, and
-installs the Downloader dependencies.
-
-Create an OPEN_MODEL_DOWNLOADER environment variable
-####################################################
-
-Typing the full path to :code:`downloader.py` can use a lot of keystrokes. In an effort to extend your keyboard life,
-let's store the path to this script in an environment variable.
-
-Run the following in your terminal:
-
-.. code-block:: bash
-
-  export OPEN_MODEL_DOWNLOADER='INSERT PATH TO YOUR downloader.py SCRIPT'
-
-Where :code:`INSERT PATH TO YOUR downloader.py SCRIPT` can be found via:
-
-.. code-block:: bash
-
-  find /opt/intel/ -iname downloader.py
-  find ~ -iname downloader.py
-
-For example, if you installed :code:`open_model_zoo` yourself:
-
-.. code-block:: bash
-
-  export OPEN_MODEL_DOWNLOADER="$HOME/open_model_zoo/tools/downloader/downloader.py"
-
-Download the face-detection-retail-0004 model
-#############################################
+Download the :code:`face-detection-retail-0004` model
+#####################################################
 
 We've installed everything we need to download models from the Open Model Zoo! We'll now use the
 `Model Downloader <https://github.com/opencv/open_model_zoo/blob/2019_R3/tools/downloader/README.md>`__ to download the
@@ -350,5 +237,3 @@ The flow we walked through works for other pre-trained object detection models i
 You’re on your way! You can find the `complete code for this tutorial on GitHub. <https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py>`__
 
 .. include::  /pages/includes/footer-short.rst
-
-
