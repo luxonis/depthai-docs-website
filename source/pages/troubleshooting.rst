@@ -121,9 +121,6 @@ And in some cases, these were already set, but DepthAI was plugged in the entire
 
 So make sure to unplug and then plug the DepthAI back in after having run these.
 
-
-.. include::  /pages/includes/footer-short.rst
-
 CTRL-C Is Not Stopping It!
 ##########################
 
@@ -154,3 +151,16 @@ If you are seeing the following error after installing DepthAI for Windows:
 Then installing the Windows Media Feature Pack (`here <https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions>`__) is often the resolution, as Media Feature Pack must be installed for Windows 10 N editions.
 
 (And more background from OpenCV directly is `here <https://github.com/skvark/opencv-python/blob/master/README.md#:~:text=Q%3A%20Import%20fails%20on%20Windows%3A%20ImportError%3A%20DLL%20load%20failed%3A%20The%20specified%20module%20could%20not%20be%20found.%3F>`__)
+
+python3 depthai_demo.py returns Illegal instruction
+###################################################
+
+This so far has always meant there is a problem with the OpenCV install on the host (and not actually with the depthai library).  To check this, run:
+
+.. code-block:: bash
+
+  python3 -c "import cv2; import numpy as np; blank_image = np.zeros((500,500,3), np.uint8); cv2.imshow('s', blank_image); cv2.waitKey(0)"
+
+If a window is not displayed, or if you get the `:bash: Illegal instruction` result, this means there is a problem with the OpenCV install.  The installation scripts `here <https://docs.luxonis.com/en/latest/pages/api/#supported-platforms>`__ often will fix the OpenCV issues.  But if they do not, running `:bash: python3 -m pip install opencv-python --force-reinstall` will often fix the OpenCV problem.
+
+.. include::  /pages/includes/footer-short.rst
