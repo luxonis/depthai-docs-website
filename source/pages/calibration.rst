@@ -3,13 +3,13 @@ Calibration
 
 .. note::
 
-  Using **OAK-D**, :ref:`BW1097 - RaspberryPi Compute Module` or :ref:`BW1098OBC - USB3 with Onboard Cameras`? **Your unit comes pre-calibrated**
-
+   The :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC
+   <bw1098obc>` are calibrated before shipment.
 
 For the modular camera editions of DepthAI (:ref:`BW1098FFC - USB3 with Modular Cameras` and :ref:`BW1094 - RaspberryPi Hat`)
 it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
 
-For the :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC - USB3 with Onboard Cameras`, the units come
+For the :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC <bw1098obc>`, the units come
 pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something),
 or if the calibration quality has started to fade over use/handling.
 
@@ -64,7 +64,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].
 
-    For example, the arguments for the :ref:`BW1098OBC - USB3 with Onboard Cameras` look like the following if the square size is 2.35 cm:
+    For example, the arguments for the :ref:`BW1098OBC <bw1098obc>` look like the following if the square size is 2.35 cm:
 
     .. code-block:: bash
 
@@ -148,8 +148,8 @@ Then, run calibration with this board name:
 
 Run :code:`python3 calibrate.py --help` (or :code:`-h`) for a full list of arguments and usage examples.
 
-Position the checkerboard and capture images.
-*******************************************
+Position the checkerboard and capture images
+********************************************
 
 Left and right video streams are displayed, each containing a polygon overlay.
 

@@ -3,7 +3,7 @@ Python API
 
 Please :ref:`install the necessary dependencies <Supported Platforms>` for your
 platform by referring to the table below. Once installed you can :ref:`install
-the DepthAI library <Install DepthAI>`.
+the DepthAI library <Install from PyPi>`.
 
 We are constantly striving to improve how we release our software to keep up
 with countless platforms and the numerous ways to package it.  If you do not
@@ -14,7 +14,7 @@ or on `Github <https://github.com/luxonis/depthai>`__.
 Supported Platforms
 ###################
 
-We keep up-to-date, precompiled, libraries for the following platforms:
+We keep up-to-date, pre-compiled, libraries for the following platforms:
 
 ============ =========================================== ================================================= ================================================================================
 Platform     Instructions                                Tutorial                                          Support
@@ -25,7 +25,7 @@ Ubuntu       :ref:`Platform dependencies <Ubuntu>`       `Video tutorial <https:
 Raspberry Pi :ref:`Platform dependencies <Raspberry Pi>` `Video tutorial <https://youtu.be/BpUMT-xqwqE>`__ `Discord <https://discord.com/channels/790680891252932659/798302708070350859>`__
 ============ =========================================== ================================================= ================================================================================
 
-And the following platforms are also supported by a combination of the community and Luxonis. We plan to have prebuilt solutions for Nvidia Jetson and Robot Operating System in Q2 2021:
+And the following platforms are also supported by a combination of the community and Luxonis. We plan to have pre-built solutions for Nvidia Jetson and Robot Operating System in Q2 2021:
 
 ====================== ================================================================================
 Platform               Support
@@ -111,14 +111,14 @@ We have `depthai <https://github.com/luxonis/depthai>`__ repository on our GitHu
 prepared neural networks you can use to make your prototyping faster. It also includes the test script, maintained by
 our contributors, that should help you verify if your setup was correct.
 
-First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and change directory into this repo:
+First, clone the `depthai <https://github.com/luxonis/depthai>`__ repository and change directory into this repository:
 
 .. code-block:: bash
 
   git clone https://github.com/luxonis/depthai.git
   cd depthai
 
-Next install the requirements for this repo.
+Next install the requirements for this repository.
 Note that we recommend installing the dependencies in a virtual environment, so that they don't interfere with other Python
 tools/environments on your system. 
 
@@ -157,16 +157,17 @@ And we also have online model training below, which shows you how to train and c
 
 - Online ML Training and model Conversion: `HERE <https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks>`__ 
 
-Preparing Myriad X blob file and it's config
-###########################################
+Preparing Myriad X blob and configuration file
+##############################################
 
 As you can see in `example`_, basic usage of :func:`Device.create_pipeline` method consists of specifying desired output
-streams and AI section, where you specify Myriad X blob and it's config.
+streams and AI section, where you specify Myriad X blob and it's configuration
+file.
 
 In this section, we'll describe how to obtain both :code:`blob_file` and :code:`blob_file_config`.
 
 Obtaining Myriad X blob
-**********************
+***********************
 
 Since we're utilizing Myriad X VPU, your model needs to be compiled (or accurately - optimized and converted) into
 the Myriad X blob file, which will be sent to the device and executed.
@@ -183,10 +184,10 @@ We've documented example usage of these compilers `here <https://github.com/luxo
 Creating Blob configuration file
 ********************************
 
-If config file is not provided or :code:`output_format` is set to :code:`raw`, no decoding is done on device and user must do it manually on host side.
+If configuration file is not provided or :code:`output_format` is set to :code:`raw`, no decoding is done on device and user must do it manually on host side.
 
 Currently there is support to decode :code:`Mobilenet-SSD` and :code:`(tiny-)YOLO-v3` based networks on the device.
-For that config file is required with network specific parameters.
+For that configuration file is required with network specific parameters.
 
 Example for `tiny-yolo-v3` network:
 
@@ -305,7 +306,7 @@ Assuming a stock Mac OS X install, `depthai-python <https://github.com/luxonis/d
 
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
 
-- Python, libusb, CMake, wget
+- Python, :code:`libusb`, CMake, :code:`wget`
 
   .. code-block:: bash
 
@@ -379,6 +380,7 @@ API Reference
 #############
 
 .. class:: Device
+
   :canonical: depthai.Device
 
   Represents the DepthAI device with the methods to interact with it.
@@ -599,13 +601,6 @@ API Reference
      and treated as background
 
 
-  .. function:: send_disparity_confidence_threshold(confidence: int)
-
-     Function to send disparity confidence threshold for StereoSGBM algorithm.
-     If the disparity value confidence is below the threshold, the value is marked as invalid disparity
-     and treated as background
-
-
   .. function:: get_right_homography()
 
     .. warning::
@@ -661,6 +656,7 @@ API Reference
 
 
 .. class:: AutofocusMode
+
   :canonical: depthai.AutofocusMode
 
 
@@ -695,6 +691,7 @@ API Reference
 
 
 .. class:: CNNPipeline
+
   :canonical: depthai.CNNPipeline
 
   Pipeline object using which the device is able to send it's result to the host.
@@ -712,6 +709,7 @@ API Reference
 
 
 .. class:: NNetPacket
+
   :canonical: depthai.NNetPacket
 
   For any neural network inference output :func:`NNPacket.get_tensor` can be used. For the specific case
@@ -787,6 +785,7 @@ API Reference
 
 
 .. class:: TensorInfo
+
   :canonical: depthai.TensorInfo
 
   Descriptor of the input/output layers/tensors of the network.
@@ -846,6 +845,7 @@ API Reference
 
 
 .. class:: Detections
+
   :canonical: depthai.Detections
 
   Container of neural network results decoded on device side.
@@ -877,6 +877,7 @@ API Reference
 
 
 .. class:: Detection
+
   :canonical: depthai.Detection
 
   Detected object descriptor.
@@ -936,6 +937,7 @@ API Reference
 
 
 .. class:: Dimension
+
   :canonical: depthai.TensorInfo.Dimension
 
   Dimension descriptor of tensor shape. Mostly meaningful for input tensors since not all neural network models
@@ -971,6 +973,7 @@ API Reference
 
 
 .. class:: DataPacket
+
   :canonical: depthai.DataPacket
 
   DepthAI data packet, containing information generated on the device. Unlike NNetPacket, it contains a single "result"
@@ -1016,6 +1019,7 @@ API Reference
 
 
 .. class:: FrameMetadata
+
   :canonical: depthai.FrameMetadata
 
   Metadata object attached to the packets sent via pipeline.
@@ -1066,6 +1070,7 @@ API Reference
 
 
 .. class:: ObjectTracker
+
   :canonical: depthai.ObjectTracker
 
   Object representing current state of the tracker, obtained by calling :func:`DataPacket.getObjectTracker`
@@ -1084,6 +1089,7 @@ API Reference
 
 
 .. class:: Tracklet
+
   :canonical: depthai.Tracklet
 
   Tracklet is representing a single tracked object, is produced by :class:`ObjectTracker` class.

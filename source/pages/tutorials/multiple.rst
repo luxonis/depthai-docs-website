@@ -14,7 +14,7 @@ So in this case, everything is running on the (single) Raspberry Pi 3B+ which is
 Dependencies
 ############
 
-You have already set up the Python API on your system (if you have a Raspberry Pi Compute Module it came pre-setup).
+You have already set up the Python API on your system (if you have a Raspberry Pi Compute Module it came pre-installed).
 See :ref:`here <Python API>` if you have not yet installed the DepthAI Python API on your system.
 
 Discover DepthAI-USB Port Mapping

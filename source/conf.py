@@ -41,7 +41,6 @@ extensions = [
 suppress_warnings = ['autosectionlabel.*']
 
 spelling_word_list_filename = '../ci/spelling_wordlist.txt'
-spelling_show_suggestions=True
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

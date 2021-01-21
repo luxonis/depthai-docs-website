@@ -11,7 +11,7 @@ DepthAI's documentation
 DepthAI is the embedded spatial AI platform that helps you build products with true real-time 3D object localization
 (think 3D object detection) and tracking. DepthAI offloads AI, depth vision and more - processed direct from built-in
 cameras - freeing your host to process application-specific data.
-Best of all, it is modular and MIT-licenced open source, affording adding these Spatial AI/CV super powers to real commercial products. 
+Best of all, it is modular and MIT-licensed open source, affording adding these Spatial AI/CV super powers to real commercial products. 
 
 Setup your device
 #################

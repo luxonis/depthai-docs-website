@@ -1,0 +1,12 @@
+name: Generate HTML documentation
+on: [push]
+jobs:
+  make-html:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+      - run: ./install_dependencies.sh
+      - run: make html
+      - continue-on-error: true
+        run: make SPHINXOPTS='-W -b spelling' html

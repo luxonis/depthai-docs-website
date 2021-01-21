@@ -5,7 +5,7 @@ This sample requires `TK library <https://docs.oracle.com/cd/E88353_01/html/E378
 
 It also requires face detection model, see :ref:`this tutorial <Local OpenVINO Model Conversion>` to see how to compile one
 
-**Stereo camera pair is required** to run this example, it can either be :ref:`BW1097 - RaspberryPi Compute Module`, :ref:`BW1098OBC - USB3 with Onboard Cameras` or any custom setup using :ref:`DepthAI Mono Camera`
+**Stereo camera pair is required** to run this example, it can either be :ref:`BW1097 - RaspberryPi Compute Module`, :ref:`BW1098OBC <bw1098obc>` or any custom setup using :ref:`DepthAI Mono Camera`
 
 Demo
 ####
