@@ -31,7 +31,7 @@ It was trained to do so over the course of a weekend, by a student (for a studen
 DepthAI is also open-source (including hardware).  This is done so that companies (and even individuals) can prototype
 and productize solutions quickly, autonomously, and at low risk.
 
-See the summary of our (MIT-Licensed) Githubs :ref:`below <githubs>`, which include open-source hardware, firmware, software, and machine-learning training.
+See the summary of our (MIT-Licensed) Github repositories :ref:`below <githubs>`, which include open-source hardware, firmware, software, and machine-learning training.
 
 
 .. _spatialai:
@@ -179,7 +179,7 @@ We named it :code:`mega` because it's tiny:
 .. image:: https://www.crowdsupply.com/img/8182/megaai-quarter-original_png_project-body.jpg
   :alt: megaAI
 
-megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Githubs), it is simply the tiny single-camera variant.
+megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Github repositories), it is simply the tiny single-camera variant.
 
 You can buy megaAI from our distributors and also our online store `here <https://shop.luxonis.com/products/bw1093>`__.
 
@@ -579,7 +579,7 @@ Monocular Neural Inference fused with Stereo Depth Mode
 
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
 
-- DepthAI RPi Compute Module Edition (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`) the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
+- DepthAI Raspberry Pi Compute Module Edition (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`) the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
 
 .. code-block:: python
 
@@ -635,7 +635,7 @@ Extended Disparity Depth Mode
 
 If it is of interest in your application, we can implement a system called :code:`extended disparity` which affords a closer minimum distance for the given baseline.  This increases the maximum disparity search from 96 to 192.  So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
 
-- DepthAI RPi Compute Module Edition (`BW1097 <https://docs.luxonis.com/products/bw1097/>`__): **0.414** meters
+- DepthAI Raspberry Pi Compute Module Edition (`BW1097 <https://docs.luxonis.com/products/bw1097/>`__): **0.414** meters
 - OAK-D and USB3C Onboard Camera Edition (`BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`__) is **0.345** meters
 - Modular Cameras at Minimum Spacing (e.g. `BW1098FFC <https://docs.luxonis.com/products/bw1098ffc/>`__) is **0.115** meters
 
@@ -726,9 +726,9 @@ This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as
 How Do I Limit The FrameRate Per Stream?
 ########################################
 
-So the simple way to select streams is to just use the :code:`-s` option.  But in some cases (say when you have a slow host or only USB2 connection -and- you want to display a lot of streams) it may be necessary to limit the framerate of streams to not overwhelm the host/USB2 with too much data.
+So the simple way to select streams is to just use the :code:`-s` option.  But in some cases (say when you have a slow host or only USB2 connection -and- you want to display a lot of streams) it may be necessary to limit the frame rate of streams to not overwhelm the host/USB2 with too much data.
 
-So to set streams to a specific framerate to reduce the USB2 load and host load, simply specify the stream with :code:`-s streamname` with a comma and FPS after the stream name like :code:`-s streamname,FPS`.
+So to set streams to a specific frame rate to reduce the USB2 load and host load, simply specify the stream with :code:`-s streamname` with a comma and FPS after the stream name like :code:`-s streamname,FPS`.
 
 So for limiting `depth` to 5 FPS, use the following command:
 
@@ -742,11 +742,11 @@ And this works equally for multiple streams:
 
   python3 depthai_demo.py -s left,2 right,2 previewout depth,5
 
-It's worth noting that the framerate limiting works best for lower rates.  So if you're say trying to hit 25FPS, it's best to just leave no frame-rate specified and let the system go to full 30FPS instead.
+It's worth noting that the frame rate limiting works best for lower rates.  So if you're say trying to hit 25FPS, it's best to just leave no frame-rate specified and let the system go to full 30FPS instead.
 
 Specifying no limit will default to 30FPS.
 
-One can also use the following override command structure, which allows you to set the framerate per stream.
+One can also use the following override command structure, which allows you to set the frame rate per stream.
 
 The following example sets the :code:`depth` stream to 8 FPS and the :code:`previewout` to 12 FPS:
 
@@ -763,7 +763,7 @@ The :code:`-sync` option is used to synchronize the neural inference results and
 
 When running heavier stereo neural inference, particularly with high host load, this system can break down, and there are two options which can keep synchronization:
 
-#. Reduce the framerate of the cameras running the inference to the speed of the neural inference itself, or just below it.
+#. Reduce the frame rate of the cameras running the inference to the speed of the neural inference itself, or just below it.
 #. Or pull the timestamps or sequence numbers from the results (frames or metadata) and match them on the host.
 
 Reducing the Camera Frame Rate
@@ -771,7 +771,7 @@ Reducing the Camera Frame Rate
 
 In the case of neural models which cannot be executed at the full 30FPS, this can cause lack of synchronization, particularly if stereo neural inference is being run using these models in parallel on the left and right grayscale image sensors.
 
-A simple/easy way to regain synchronization is to reduce the framerate to match, or be just below, the framerate of the neural inference.  This can be accomplished via the command line with the using :code:`-rgbf` and :code:`-monof` commands.
+A simple/easy way to regain synchronization is to reduce the frame rate to match, or be just below, the frame rate of the neural inference.  This can be accomplished via the command line with the using :code:`-rgbf` and :code:`-monof` commands.
 
 So for example to run a default model with both the RGB and both grayscale cameras set to 24FPS, use the following command:
 
@@ -816,7 +816,7 @@ To then play the video in mp4/mkv format use the following muxing command:
 
 .. code-block:: bash
 
-  ffmpeg -framerate 30 -i [path/to/video.h264] -c copy [outputfile.mp4/mkv]
+  ffmpeg -frame rate 30 -i [path/to/video.h264] -c copy [outputfile.mp4/mkv]
 
 By default there are keyframes every 1 second which resolve the previous issues with traversing the video as well as provide the capability to start recording anytime (worst case 1 second of video is lost if just missed the keyframe)
 
@@ -1061,7 +1061,7 @@ A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabili
   - Neural Compute Engines (2x total): 1.4 TOPS (neural compute only)
   - 16x SHAVES: 1 TOPS available for additional neural compute or other CV functions (e.g. through `OpenCL <https://docs.openvinotoolkit.org/2020.4/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__)
   - 20+ dedicated hardware-accelerated computer vision blocks including disparity-depth, feature matching/tracking, optical flow, median filtering, Harris filtering, WARP/de-warp, h.264/h.265/JPEG/MJPEG encoding, motion estimation, etc.
-  - 500+ million pixels/second total processing (see max resolution and framerates over USB :ref:`here <maxfps>`)
+  - 500+ million pixels/second total processing (see max resolution and frame rates over USB :ref:`here <maxfps>`)
   - 450 GB/sec memory bandwidth
   - 512 MB LPDDR4 (contact us for 1GB LPDDR version if of interest)
 
@@ -1183,7 +1183,7 @@ The auto-focus seems to work appropriately through these adapters.  For example 
 Occipital *Wide Vision Lens* `here <https://store.structure.io/buy/accessories>`__ to work with both megaAI and DepthAI color cameras.
 (We have not yet tried on the grayscale cameras.)
 
-Also, see :ref:`below <rpi_hq>` for using DepthAI FFC with the RPi HQ Camera to enable use of C- and CS-mount lenses.
+Also, see :ref:`below <rpi_hq>` for using DepthAI FFC with the Raspberry Pi HQ Camera to enable use of C- and CS-mount lenses.
 
 Can I Power DepthAI Completely from USB?
 ########################################
@@ -1254,12 +1254,12 @@ these values **cannot be greater than the ones you can see above**, so you canno
 14 is the limit for both SHAVE and CMX parameters, and 2 is the limit for NCE.
 
 You can try it out yourself either by following :ref:`local OpenVINO model conversion tutorial <Local OpenVINO Model Conversion>`
-or by using our `online MyriadX blob converter <http://69.164.214.171:8083/>`__
+or by using our `online Myriad X blob converter <http://69.164.214.171:8083/>`__
 
 
 .. _rpi_hq:
 
-Can I Use DepthAI with the New RPi HQ Camera?
+Can I Use DepthAI with the New Raspberry Pi HQ Camera?
 #############################################
 
 DepthAI FFC Edition (BW1098FFC model `here <https://shop.luxonis.com/products/depthai-usb3-edition>`__) also works via
@@ -1268,20 +1268,20 @@ lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-hig
 And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`__ for the adapter board for DepthAI FFC Edition.
 
 .. image:: https://github.com/luxonis/depthai-hardware/raw/master/BW0253_R0M0E0_RPIHQ_ADAPTER/Images/RPI_HQ_CAM_SYSTEM_2020-May-14_08-35-31PM-000_CustomizedView42985702451.png
-  :alt: RPi HQ with DepthAI FFC
+  :alt: Raspberry Pi HQ with DepthAI FFC
 
-This is a particularly interesting application of DepthAI, as it allows the RPi HQ camera to be encoded to h.265 4K video (and 12MP stills) even with a Raspberry Pi 1 or :ref:`Raspberry Pi Zero <Can I use DepthAI with Raspberry Pi Zero?>` - because DepthAI does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera directly, can only do 1080p video and not 4K video recording).
+This is a particularly interesting application of DepthAI, as it allows the Raspberry Pi HQ camera to be encoded to h.265 4K video (and 12MP stills) even with a Raspberry Pi 1 or :ref:`Raspberry Pi Zero <Can I use DepthAI with Raspberry Pi Zero?>` - because DepthAI does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera directly, can only do 1080p video and not 4K video recording).
 
 Here are some quick images and videos of it in use:
 
 .. image:: https://cdn.hackaday.io/images/9159701591761513514.JPG
-  :alt: RPi HQ Camera Support in DepthAI
+  :alt: Raspberry Pi HQ Camera Support in DepthAI
 
 .. image:: https://cdn.hackaday.io/images/775661591761050468.png
-  :alt: RPi HQ Camera Support in DepthAI
+  :alt: Raspberry Pi HQ Camera Support in DepthAI
 
 .. image:: https://i.imgur.com/AbCHQgW.jpg
-  :alt: RPi HQ Camera Support in DepthAI
+  :alt: Raspberry Pi HQ Camera Support in DepthAI
   :target: https://www.youtube.com/watch?v=KsK-XakrpK8
 
 You can buy this adapter kit for the DepthAI FFC Edition (BW1098FFC) `here <https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit>`__
@@ -1302,10 +1302,10 @@ Yes, DepthAI is fully functional on it, you can see the example below:
 
 Thanks to `Connor Christie <https://github.com/ConnorChristie>`__ for his help building this setup!
 
-How Much Power Does the DepthAI RPi CME Consume?
+How Much Power Does the DepthAI Raspberry Pi CME Consume?
 ################################################
 
-The DepthAI Raspberry Pi Compute Module Edition (RPi CME or BW1097 for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
+The DepthAI Raspberry Pi Compute Module Edition (Raspberry Pi CME or BW1097 for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
 
 - Idle: 2.5W (0.5A @ 5V)
 - DepthAI Full-Out: 6W (1.2A @ 5V)
@@ -1335,12 +1335,12 @@ What are CSS MSS UPA and DSS Returned By meta_d2h?
 
 .. _githubs:
 
-Where are the Githubs?  Is DepthAI Open Source?
+Where are the Github repositories?  Is DepthAI Open Source?
 ###############################################
 
 DepthAI is an open-source platform across a variety of stacks, including hardware (electrical and mechanical), software, and machine-learning training using Google Colab.
 
-See below for the pertinent Githubs:
+See below for the pertinent Github repositories:
 
 Overall
 *******
@@ -1419,7 +1419,7 @@ At Luxonis we firmly believe in the value of customers being able to communicate
 
 As such, we have many mechanisms to allow direct communication:
  - `Luxonis Community Discord <https://discord.gg/EPsZHkg9Nx>`__.  Use this for real-time communication with our engineers.  We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
- - `Luxonis Github <https://github.com/luxonis>`__.  Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports.  We usually respond within a couple ours (and often w/in a couple minutes).  For a summary of our Githubs, see :ref:`here <Where are the Githubs?  Is DepthAI Open Source?>`.
+ - `Luxonis Github <https://github.com/luxonis>`__.  Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports.  We usually respond within a couple ours (and often w/in a couple minutes).  For a summary of our Github repositories, see :ref:`here <Where are the Github repositories?  Is DepthAI Open Source?>`.
  - `discuss.luxonis.com <https://discuss.luxonis.com/>`__.  Use this for starting any public discussions, ideas, product requests, support requests etc. or generally to engage with the Luxonis Community.  While you're there, check out this awesome visual-assistance device being made with DepthAI for the visually-impaired, `here <https://discuss.luxonis.com/d/40-questions-re-depthai-usb3-ffc-edition-cameras>`__.
 
 

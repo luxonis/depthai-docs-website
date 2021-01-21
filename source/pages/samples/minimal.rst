@@ -73,7 +73,7 @@ Explanation
 The code is divided into three phases: **initialization**, **processing results** and **deinitialization**.
 
 **Initialization** is done here, as it's initializing the device and making sure that the pipeline is created. Please
-note that :code:`sh14cmx14NCE1` in a blob file definition means that this blob was compiled to use 14 MyriadX SHAVEs, 14 MyriadX CMXes and 1 MyriadX Neural Compute Engine.
+note that :code:`sh14cmx14NCE1` in a blob file definition means that this blob was compiled to use 14 Myriad X SHAVEs, 14 Myriad X CMXes and 1 Myriad X Neural Compute Engine.
 These params needs to be provided in :code:`ai` configuration, using fields :code:`shaves`, :code:`cmx_slices` and :code:`NN_engines` respectively
 
 .. code-block:: python

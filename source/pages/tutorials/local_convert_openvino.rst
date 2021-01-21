@@ -14,7 +14,7 @@ Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introdu
 What is OpenVINO?
 #################
 
-Under-the-hood, DepthAI uses the Intel tecnnology to perform high-speed model inference. However, you can't just dump
+Under-the-hood, DepthAI uses the Intel technology to perform high-speed model inference. However, you can't just dump
 your neural net into the chip and get high-performance for free. That's where
 `OpenVINO <https://docs.openvinotoolkit.org/>`__ comes in. OpenVINO is a free toolkit that converts a deep learning
 model into a format that runs on Intel Hardware. Once the model is converted, it's common to see Frames Per Second
@@ -185,12 +185,12 @@ The model is in the OpenVINO Intermediate Representation (IR) format:
 - :code:`face-detection-retail-0004.xml` - Describes the network topology
 - :code:`face-detection-retail-0004.bin` - Contains the weights and biases binary data.
 
-This means we are ready to compile the model for the MyriadX!
+This means we are ready to compile the model for the Myriad X!
 
 Compile the model
 #################
 
-The MyriadX chip used on our DepthAI board does not use the IR format files directly. Instead, we need to generate two files:
+The Myriad X chip used on our DepthAI board does not use the IR format files directly. Instead, we need to generate two files:
 
 * :code:`face-detection-retail-0004.blob` - We'll create this file with the :code:`myriad_compile` command.
 * :code:`face-detection-retail-0004.json` - A :code:`blob_file_config` file in JSON format. This describes the format of the output tensors. You can read more about this file structure and examples :ref:`here <Creating Blob configuration file>`
@@ -272,7 +272,7 @@ Where's the blob file? It's located in the same folder as :code:`face-detection-
 Create the blob config file
 ###########################
 
-The MyriadX needs both a :code:`blob` file (which we just created) and a `blob_file_config` in JSON format.
+The Myriad X needs both a :code:`blob` file (which we just created) and a `blob_file_config` in JSON format.
 We'll create this config file manually. In your terminal:
 
 .. code-block:: bash
@@ -336,7 +336,7 @@ The flow we walked through works for other pre-trained object detection models i
 
       $OPEN_MODEL_DOWNLOADER --name [INSERT MODEL NAME] --output_dir ~/open_model_zoo_downloads/
 
-#. Create the MyriadX blob file:
+#. Create the Myriad X blob file:
 
     .. code-block:: bash
 

@@ -1,0 +1,14 @@
+DepthAI
+Luxonis
+Github
+megaAI
+microAI
+macOS
+Homebrew
+CMake
+Jetson
+eMMC
+Raspbian
+microPython
+microSD
+iMac

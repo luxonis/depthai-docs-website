@@ -157,19 +157,19 @@ And we also have online model training below, which shows you how to train and c
 
 - Online ML Training and model Conversion: `HERE <https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks>`__ 
 
-Preparing MyriadX blob file and it's config
+Preparing Myriad X blob file and it's config
 ###########################################
 
 As you can see in `example`_, basic usage of :func:`Device.create_pipeline` method consists of specifying desired output
-streams and AI section, where you specify MyriadX blob and it's config.
+streams and AI section, where you specify Myriad X blob and it's config.
 
 In this section, we'll describe how to obtain both :code:`blob_file` and :code:`blob_file_config`.
 
-Obtaining MyriadX blob
+Obtaining Myriad X blob
 **********************
 
-Since we're utilizing MyriadX VPU, your model needs to be compiled (or accurately - optimized and converted) into
-the MyriadX blob file, which will be sent to the device and executed.
+Since we're utilizing Myriad X VPU, your model needs to be compiled (or accurately - optimized and converted) into
+the Myriad X blob file, which will be sent to the device and executed.
 
 Easiest way to obtain this blob is to use our `online BlobConverter app <http://69.164.214.171:8083/>`__. It has all
 tools needed for compilation so you don't need to setup anything - and you can even download a blob for the model
@@ -177,7 +177,7 @@ from `OpenVINO model zoo <https://github.com/openvinotoolkit/open_model_zoo>`__.
 
 If you'd like, you can also compile the blob yourself. You'll need to install `OpenVINO toolkit <https://docs.openvinotoolkit.org/latest/index.html>`__,
 then use `Model Optimizer <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_Deep_Learning_Model_Optimizer_DevGuide.html>`__ and `Myriad Compiler <https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#myriad_platform_option>`__
-in order to obtain MyriadX blob.
+in order to obtain Myriad X blob.
 We've documented example usage of these compilers `here <https://github.com/luxonis/depthai#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`__
 
 Creating Blob configuration file

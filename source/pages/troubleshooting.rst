@@ -1,7 +1,7 @@
 Troubleshooting
 ===============
 
-How can the startup demo on the RPi Compute Edition be disabled?
+How can the startup demo on the Raspberry Pi Compute Edition be disabled?
 ################################################################
 
 Delete the autostart file:
@@ -34,7 +34,7 @@ Why is the Camera Calibration running slow?
 
 Poor photo conditions `can dramatically impact the image processing time <https://stackoverflow.com/questions/51073309/why-does-the-camera-calibration-in-opencv-python-takes-more-than-30-minutes>`__)
 during the camera calibration. Under normal conditions, it should take 1 second or less to find the chessboard corners
-per-image on an RPi but this exceed 20 seconds per-image in poor conditions. Tips on setting up proper photo conditions:
+per-image on an Raspberry Pi but this exceed 20 seconds per-image in poor conditions. Tips on setting up proper photo conditions:
 
 - Ensure the checkerboard is not warped and is truly a flat surface. A high-quality option: `print the checkerboard on a foam board <https://discuss.luxonis.com/d/38-easy-calibration-targets-for-depthai-opencv-checkerboard>`__.
 - Reduce glare on the checkerboard (for example, ensure there are no light sources close to the board like a desk lamp).
