@@ -8,7 +8,7 @@ DepthAI's documentation
 
 *Learn how to setup your DepthAI device, view tutorials, code samples, and more.*
 
-DepthAI is the embedded spatial AI platform that helps you build products with true realtime 3D object localization
+DepthAI is the embedded spatial AI platform that helps you build products with true real-time 3D object localization
 (think 3D object detection) and tracking. DepthAI offloads AI, depth vision and more - processed direct from built-in
 cameras - freeing your host to process application-specific data.
 Best of all, it is modular and MIT-licenced open source, affording adding these Spatial AI/CV super powers to real commercial products. 
@@ -41,7 +41,7 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/bw1098obc.png" alt="RPi HAT"/>
+                  <img class="item-img" src="./_images/bw1098obc.png" alt="Raspberry Pi HAT"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">OAK-D | DepthAI Onboard Cameras</h5>
@@ -96,10 +96,10 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/bw1097.jpg" alt="RPi Compute" />
+                  <img class="item-img" src="./_images/bw1097.jpg" alt="Raspberry Pi Compute" />
                </div>
                <div class="item-body">
-                  <h5 class="item-title">RPi Compute</h5>
+                  <h5 class="item-title">Raspberry Pi Compute</h5>
                   <p class="item-descr">
                      Complete DepthAI system including Raspberry Pi Compute Module, microSD card pre-loaded with Raspbian 10 and DepthAI Python interface.
                   </p>
@@ -113,10 +113,10 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/bw1094.jpg" alt="RPi HAT"/>
+                  <img class="item-img" src="./_images/bw1094.jpg" alt="Raspberry Pi HAT"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">RPi HAT</h5>
+                  <h5 class="item-title">Raspberry Pi HAT</h5>
                   <p class="item-descr">
                      DepthAI HAT for Raspberry Pi (3, 3B+, and 4). Add your choice of cameras.
                   </p>

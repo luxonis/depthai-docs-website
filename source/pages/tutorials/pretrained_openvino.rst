@@ -1,7 +1,7 @@
 Use a Pre-trained OpenVINO model
 ================================
 
-In this tutorial, you'll learn how to detect faces in realtime, even on a low-powered Raspberry Pi. I'll introduce you
+In this tutorial, you'll learn how to detect faces in real-time, even on a low-powered Raspberry Pi. I'll introduce you
 to the OpenVINO model zoo and running models from this 'zoo'.
 
 .. image:: /_static/images/tutorials/pretrained_openvino/face-1.png
@@ -12,7 +12,7 @@ Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introdu
 What is OpenVINO?
 #################
 
-Under-the-hood, DepthAI uses the Intel MyriadX chip to perform high-speed model inference. However, you can't just dump
+Under-the-hood, DepthAI uses the Intel Myriad X chip to perform high-speed model inference. However, you can't just dump
 your neural net into the chip and get high-performance for free. That's where `OpenVINO <https://docs.openvinotoolkit.org/>`__
 comes in. OpenVINO is a free toolkit that converts a deep learning model into a format that runs on Intel Hardware.
 Once the model is converted, it's common to see Frames Per Second (FPS) improve by 25x or more. Are a couple of small
@@ -39,7 +39,7 @@ Dependencies
 
 .. warning::
 
-  Using the RPi Compute Edition or a pre-flashed DepthAI Raspberry Pi µSD card? **Skip this step**
+  Using the Raspberry Pi Compute Edition or a pre-flashed DepthAI Raspberry Pi microSD card? **Skip this step**
 
   All dependencies are installed and the repository is checked out to :code:`~/Desktop/depthai`.
 
@@ -68,8 +68,8 @@ This will then run the a typical demo MobileNetv1 SSD object detector trained on
 
 - Person: person
 - Animal: bird, cat, cow, dog, horse, sheep
-- Vehicle: aeroplane, bicycle, boat, bus, car, motorbike, train
-- Indoor: bottle, chair, dining table, potted plant, sofa, tv/monitor
+- Vehicle: airplane, bicycle, boat, bus, car, motorbike, train
+- Indoor: bottle, chair, dining table, potted plant, sofa, TV/monitor
 
 I ran this on my iMac (OS X setup :ref:`here <macOS (Mac OS X)>`) with a `microAI <https://shop.luxonis.com/products/bw1093>`__ sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
 
@@ -146,8 +146,8 @@ Let's try out :code:`face-detection-adas-0001`, which is intended for detecting 
 So this model actually has a shorter detection distance than the smaller model despite having a higher resolution.  Why?  Likely because it was intentionally trained to detect only close-in faces since it's intended to be used in the cabin of a vehicle.  (You wouldn't want to be detecting the faces in cars passing by, for example.)
 
 And also you may notice networks like emotion recognition... those networks are actually intended to be run as a second
-stage network (as they are meant to be applied only to images that contain only faces).  So to use the emotions
-recognitions network, use the command below to tell DepthAI/megaAI to run it as the second stage:
+stage network (as they are meant to be applied only to images that contain only faces).  So to use the emotion
+recognition network, use the command below to tell DepthAI/megaAI to run it as the second stage:
 
 .. code-block:: bash
 

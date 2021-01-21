@@ -85,7 +85,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
         python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih
 
-    - **BW1097 (RPi Compute Module Edition):**
+    - **BW1097 (Raspberry Pi Compute Module Edition):**
 
       .. code-block:: bash
 
