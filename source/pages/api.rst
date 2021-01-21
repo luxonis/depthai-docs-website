@@ -1,9 +1,9 @@
 Python API
 ==========
 
-Please :ref:`install the necessary platform dependencies <Supported
-Platforms>`__ for your platform by referring to the table below. Once installed
-you can install the DepthAI library.
+Please :ref:`install the necessary dependencies <Supported Platforms>` for your
+platform by referring to the table below. Once installed you can :ref:`install
+the DepthAI library <Install DepthAI>`.
 
 We are constantly striving to improve how we release our software to keep up
 with countless platforms and the numerous ways to package it.  If you do not
@@ -17,36 +17,25 @@ Supported Platforms
 With a small team we are currently focused on supporting Windows, macOS, Ubuntu
 and the Raspberry Pi.
 
-Windows 10
-:ref:`Platform dependencies <Windows>`__
-`Video tutorial <https://youtu.be/ekopKJfcWiE>`__
-`Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
-
-macOS
-:ref:`Platform dependencies <macOS>`__
-`Video tutorial <https://youtu.be/0RGmmjed3Hc>`__
-`Discord <https://discord.com/channels/790680891252932659/798283911989690368>`__
-
-Ubuntu
-:ref:`Platform dependencies <Ubuntu>`__
-`Video tutorial <https://youtu.be/QXeXMaxj4cM>`__
-`Discord https://discord.com/channels/790680891252932659/798302162160451594>`__
-
-Raspberry Pi
-:ref:`Platform dependencies <Raspberry Pi>`__
-`Video tutorial <https://youtu.be/BpUMT-xqwqE>`__
+============ =========================================== ================================================= ================================================================================
+Platform     Instructions                                Tutorial                                          Support
+============ =========================================== ================================================= ================================================================================
+Windows 10   :ref:`Platform dependencies <Windows>`      `Video tutorial <https://youtu.be/ekopKJfcWiE>`__ `Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
+macOS        :ref:`Platform dependencies <macOS>`        `Video tutorial <https://youtu.be/0RGmmjed3Hc>`__ `Discord <https://discord.com/channels/790680891252932659/798283911989690368>`__
+Ubuntu       :ref:`Platform dependencies <Ubuntu>`       `Video tutorial <https://youtu.be/QXeXMaxj4cM>`__ `Discord <https://discord.com/channels/790680891252932659/798302162160451594>`__
+Raspberry Pi :ref:`Platform dependencies <Raspberry Pi>` `Video tutorial <https://youtu.be/BpUMT-xqwqE>`__ `Discord <https://discord.com/channels/790680891252932659/798302708070350859>`__
+============ =========================================== ================================================= ================================================================================
 
 With help from our generous community we are hoping to improve support for the
 following platforms:
 
-Fedora
-`Discord <https://discord.com/channels/790680891252932659/798592589905264650>`__
-
-Robot Operating System
-`Discord <https://discord.com/channels/790680891252932659/795749142793420861>`__
-
-Nvidia Jetson
-`Discord <https://discord.com/channels/790680891252932659/795742008119132250>`__
+====================== ================================================================================
+Platform               Support
+====================== ================================================================================
+Fedora                 `Discord <https://discord.com/channels/790680891252932659/798592589905264650>`__
+Robot Operating System `Discord <https://discord.com/channels/790680891252932659/795749142793420861>`__
+Nvidia Jetson          `Discord <https://discord.com/channels/790680891252932659/795742008119132250>`__
+====================== ================================================================================
 
 macOS
 *****
@@ -68,7 +57,7 @@ following:
 
 See the `Video preview window fails to appear on macOS <https://discuss.luxonis.com/d/95-video-preview-window-fails-to-appear-on-macos>`_ thread on our forum for more information.
 
-Raspberry Pi OS
+Raspberry Pi
 ***************
 
 .. code-block:: bash
@@ -105,18 +94,6 @@ Windows
 
   choco install cmake git python pycharm-community -y
 
-Enabling the USB device (only on Linux)	
-#######################################	
-
-Since the DepthAI is a USB device, in order to communicate with it on the systems that use :code:`udev` tool, you	
-need to add the udev rules in order to make the device accessible.	
-
-The following command will add a new udev rule to your system	
-
-.. code-block:: bash	
-
-  echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules	
-  sudo udevadm control --reload-rules && sudo udevadm trigger
 
 Install from PyPi
 #################
