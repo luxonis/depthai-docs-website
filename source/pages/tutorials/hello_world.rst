@@ -1,122 +1,102 @@
 Hello World
 ===========
 
-Learn how to use the DepthAI Python API to display a color video stream.
+In this tutorial we will use the DepthAI Python API to display a color video
+stream.
 
-.. _hello_world_dependencies:
+Setup
+#####
 
-Dependencies
-############
+Make sure the :ref:`DepthAI Python API is installed <Python API>` as
+well as any :ref:`platform dependencies <Supported Platforms>`. With :code:`depthai`
+and :code:`numpy` installed you will also need to install
+`opencv-python <https://pypi.org/project/opencv-python/>`__.
 
-Let's get your development environment setup first. This tutorial uses:
+.. note::
 
-- Python 3.6 (Ubuntu) or Python 3.7 (Raspbian).
-- The DepthAI :ref:`Python API`
-- The :code:`cv2` and :code:`numpy` Python modules.
+  See `depthai-tutorials/1-hello-world <https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world>`__ for the complete source code for this tutorial
 
+.. note::
 
-Code Overview
-#############
-
-The :code:`depthai` Python module provides access to your board's 4K 60 Hz color camera.
-We'll display a video stream from this camera to your desktop.
-You can find the `complete source code for this tutorial on GitHub <https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world>`__.
-
-File Setup
-##########
-
-Setup the following file structure on your computer:
-
-.. code-block:: bash
-
-  cd ~
-  mkdir -p depthai-tutorials-practice/1-hello-world
-  touch depthai-tutorials-practice/1-hello-world/hello_world.py
-  cd depthai-tutorials-practice/1-hello-world
-
-What's with the :code:`-practice` suffix in parent directory name? Our tutorials are available on GitHub
-via the `depthai-tutorials <https://github.com/luxonis/depthai-tutorials>`__ repository.
-We're appending :code:`-practice` so you can distinguish between your work and our finished
-tutorials (should you choose to download those).
-
-
-Install pip dependencies
-########################
-
-To display the DepthAI color video stream we need to import a small number of packages.
-Download and install the requirements for this tutorial:
-
-.. code-block:: bash
-
-  python3 -m pip install numpy opencv-python depthai --user
-
+   `Gen 2 of the Python API <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__
+   is currently under development
 
 Test your environment
-#####################
+*********************
 
-Let's verify we're able to load all of our dependencies. Open the :code:`hello_world.py` file you
-:ref:`created earlier <File Setup>` in your code editor. Copy and paste the following into :code:`hello_world.py`:
-
+We'll use :code:`numpy` to manipulate the packet data returned by DepthAI,
+:code:`opencv` to display the video stream and :code:`depthai` to access the
+camera and its data packets. To verify all of these dependencies are installed
+correctly add the following to a Python source file and execute it.
 
 .. code-block:: python
 
-  import numpy as np # numpy - manipulate the packet data returned by depthai
-  import cv2 # opencv - display the video stream
-  import depthai # access the camera and its data packets
+  import numpy
+  import cv2
+  import depthai
 
-Try running the script and ensure it executes without error:
-
-.. code-block:: bash
-
-  python3 hello_world.py
-
-If you see the following error:
-
-.. code-block::
-
-  ModuleNotFoundError: No module named 'depthai'
-
-...follow :ref:`these steps in our troubleshooting section <ImportError: No module named 'depthai'>`.
+If the :code:`depthai` module is not found see :ref:`these steps in our
+troubleshooting section <ImportError: No module named 'depthai'>`.
 
 Initialize the DepthAI Device
 #############################
 
-Start the DepthAI device:
+Append the following to your Python source file:
 
 .. code-block:: python
 
   device = depthai.Device('', False)
 
-Try running the script. You should see output similar to:
+And when you run it again you should see output like the following:
 
-.. code-block::
+.. code-block:: bash
 
-  No calibration file. Using Calibration Defaults.
   XLink initialized.
-  Sending device firmware "cmd_file": /home/pi/Desktop/depthai/depthai.cmd
+  Sending internal device firmware
   Successfully connected to device.
+  Usb speed : Super/5000Mbps
+  Mx serial id : 14442C10B1129ACD00
   Loading config file
   Attempting to open stream config_d2h
-  watchdog started 6000
+  watchdog started 
   Successfully opened stream config_d2h with ID #0!
+  Closing stream config_d2h: ...
+  Closing stream config_d2h: DONE.
+  EEPROM data: valid (v5)
+    ...
+  Stopping threads: ...
+  Stopping threads: DONE 0.000s.
+  Closing all observer streams: ...
+  Closing all observer streams: DONE.
+  Reseting device: 0.
+  Reseting: DONE.
 
-If instead you see an error, please :ref:`reset your DepthAI device <'depthai: Error initalizing xlink' errors and DepthAI fails to run.>`, then try again.
+If an error occurs please reset your device and try again.
 
 Create the DepthAI Pipeline
 ###########################
 
-Now we'll create our data pipeline using the :code:`previewout` stream. This stream contains the data from the color camera.
-The model used in :code:`ai` section is a MobileNetSSD with 20 different classes, see
-`here <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json>`__ for details
+Next we'll create a data pipeline using the :code:`previewout` stream. This
+stream contains the data from the color camera.
+
+Download `mobilenet-ssd.blob <https://raw.githubusercontent.com/luxonis/depthai-tutorials/master/1-hello-world/mobilenet-ssd/mobilenet-ssd.json>`__
+and `mobilenet-ssd.json <https://github.com/luxonis/depthai-tutorials/raw/master/1-hello-world/mobilenet-ssd/mobilenet-ssd.blob>`__
+from the `Hello World directory on Github <https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world/mobilenet-ssd>`__.
+After downloading :code:`mobilenet-ssd.blob` rename it to
+:code:`mobilenet-ssd.blob.sh14cmx14NCE1`. Note that the model identifies `20
+different classes <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json>`__.
+
+Then append the following to your Python source file to create the pipeline
+using the :code:`previewout` stream and establish the first connection to the
+device.
 
 .. code-block:: python
 
-  # Create the pipeline using the 'previewout' stream, establishing the first connection to the device.
   pipeline = device.create_pipeline(config={
       'streams': ['previewout', 'metaout'],
       'ai': {
-          'blob_file': "/path/to/mobilenet-ssd.blob",
-          'blob_file_config': "/path/to/mobilenet-ssd.json"
+          'blob_file': "/absolute/path/to/mobilenet-ssd.blob.sh14cmx14NCE1",
+          'blob_file_config': "/absolute/path/to/mobilenet-ssd.json"
       }
   })
 
@@ -126,9 +106,9 @@ The model used in :code:`ai` section is a MobileNetSSD with 20 different classes
 Display the video stream
 ########################
 
-A DepthAI Pipeline generates a stream of data packets. Each :code:`previewout` data packet contains a
-3D array representing an image frame.
-We change the shape of the frame into a :code:`cv2`-compatible format and display it.
+A DepthAI Pipeline generates a stream of data packets. Each :code:`previewout`
+data packet contains a 3D array representing an image frame.  The following
+converts the frame into a :code:`cv2`-compatible format and displays it.
 
 .. code-block:: python
 
@@ -170,12 +150,8 @@ We change the shape of the frame into a :code:`cv2`-compatible format and displa
   del pipeline
   del device
 
-Run the script. Press the :code:`Q` key with focus on the video stream (not your terminal) to exit:
+Run the script to view the stream! When you are done streaming press the :code:`q` key with focus on the video stream (not your terminal) to exit.
 
-.. code-block:: bash
-
-  python3 hello_world.py
-
-You're on your way! You can find the `complete code for this tutorial on GitHub <https://github.com/luxonis/depthai-tutorials/blob/master/1-hello-world/hello_world.py>`__.
+You're on your way!
 
 .. include::  /pages/includes/footer-short.rst
