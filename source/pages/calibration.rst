@@ -235,3 +235,5 @@ And look for :code:`EEPROM data:` in the prints in the terminal after running th
 
 
 If anything looks incorrect, you can calibrate again and/or change board information and overwrite the stored eeprom information and calibration data using the :code:`-brd` and :code:`-e` flags as above.
+
+.. include::  /pages/includes/footer-short.rst
