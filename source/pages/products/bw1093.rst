@@ -1,0 +1,42 @@
+.. _bw1093:
+
+BW1093 - OAK-1 | MegaAI - 4K USB3 AI Camera
+###########################################
+
+.. image:: /_static/images/products/bw1093.png
+  :alt: OAK-1 MegaAI 4K USB3 AI Camera
+
+Use OAK-1/megaAI on your existing host. Since the AI/vision processing is done on the Myriad X, a typical desktop could handle
+tens of OAK-1/megaAI plugged in (the effective limit is how many USB ports the host can handle).
+
+And since it can encode 1080p and 4K video (see :ref:`here <How do I Record (or Encode) Video with DepthAI?>`) you can now even save 4K video on a Pi Zero!
+
+Requirements
+************
+
+- USB3C cable
+- USB2 or USB3 port on the host
+
+What's in the box?
+******************
+
+- megaAI / OAK-1
+- USB3C cable (3 ft.)
+- Getting Started Card
+
+Setup
+*****
+
+Install the :ref:`Python API <Python API>`.
+
+Compliance
+**********
+
+.. list-table:: Compliance download & reference table
+  :widths: 25 75
+  :align: center
+
+  * - megaAI / DepthAI BW1093 / OAK
+    - :download:`Declaration of conformity </_static/compliance/megaai_eu.pdf>`
+
+.. include::  /pages/includes/footer-short.rst

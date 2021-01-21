@@ -1,0 +1,43 @@
+.. _bw1099:
+
+BW1099 - System on Module
+#########################
+
+.. image:: /_static/images/products/bw1099.jpg
+  :alt: BW1099
+
+All DepthAI editions utilize the System on Module (SoM), which can also be used by itself to integrate into your own designs.
+The SoM allows the board that carries it to be a simple, easy four-layer standard-density board, as opposed to the
+high-density-integration (HDI) stackup (with laser-vias and stacked vias) required to directly integrate the VPU itself.
+
+Specifications
+**************
+
+- 2x 2-lane MIPI Camera Interface
+- 1x 4-lane MIPI Camera Interface
+- Quad SPI with 2 dedicated chip-selects
+- I²C
+- UART
+- USB2
+- USB3
+- Several GPIO (1.8 V and 3.3 V)
+- Supports off-board eMMC or SD Card
+- On-board NOR boot Flash (optional)
+- On-board EEPROM (optional)
+- All power regulation, clock generation, etc. on module
+- All connectivity through single 100-pin connector (DF40C-100DP-0.4V(51))
+
+**Datasheets** are available `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__
+and for EMB edition `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099EMB/R1M0E1/BW1099EMB_Datasheet.pdf>`__
+
+
+Getting Started Integrating Into Your Products
+**********************************************
+
+All the boards based on the DepthAI System on Module are available on Github under MIT License `here <https://github.com/luxonis/depthai-hardware>`__.
+
+These are in Altium Designer format.
+So if you use Altium Designer, you're in luck!  You can quickly/easily integrate the DepthAI SoM into your products with
+proven and up-to-date designs (the same designs you can buy `here <https://shop.luxonis.com/>`__).
+
+.. include::  /pages/includes/footer-short.rst
