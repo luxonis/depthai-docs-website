@@ -1,20 +1,52 @@
 Python API
 ==========
 
-Instructions for installing, upgrading, and using the DepthAI Python API.
+Please :ref:`install the necessary platform dependencies <Supported
+Platforms>`__ for your platform by referring to the table below. Once installed
+you can install the DepthAI library.
+
+We are constantly striving to improve how we release our software to keep up
+with countless platforms and the numerous ways to package it.  If you do not
+see a particular platform or package format listed below please reach out to
+us on `Discord <https://discord.com/channels/790680891252932659/794255653870370857>`__
+or on `Github <https://github.com/luxonis/depthai>`__.
 
 Supported Platforms
 ###################
 
-The DepthAI API python module is prebuilt for Ubuntu, macOS and Windows.
-For other operating systems and/or Python versions, DepthAI can be :ref:`built from source <Other installation methods>`.
+With a small team we are currently focused on supporting Windows, macOS, Ubuntu
+and the Raspberry Pi.
 
-Installing system dependencies
-##############################
+Windows 10
+:ref:`Platform dependencies <Windows>`__
+`Video tutorial <https://youtu.be/ekopKJfcWiE>`__
+`Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
 
-A couple of basic system dependencies are required to run the DepthAI library. Most of them should be already installed
-in most of the systems, but in case they are not, we prepared :download:`an install script </_static/install_dependencies.sh>`
-that will make sure all dependencies are installed, along with convenient development/programming tools.  There are also video guides available for macOS (`here <https://youtu.be/0RGmmjed3Hc>`__), Raspberry Pi (`here <https://youtu.be/BpUMT-xqwqE>`__), Ubuntu (`here <https://youtu.be/QXeXMaxj4cM>`__), and Windows 10 (`here <https://youtu.be/ekopKJfcWiE>`__).
+macOS
+:ref:`Platform dependencies <macOS>`__
+`Video tutorial <https://youtu.be/0RGmmjed3Hc>`__
+`Discord <https://discord.com/channels/790680891252932659/798283911989690368>`__
+
+Ubuntu
+:ref:`Platform dependencies <Ubuntu>`__
+`Video tutorial <https://youtu.be/QXeXMaxj4cM>`__
+`Discord https://discord.com/channels/790680891252932659/798302162160451594>`__
+
+Raspberry Pi
+:ref:`Platform dependencies <Raspberry Pi>`__
+`Video tutorial <https://youtu.be/BpUMT-xqwqE>`__
+
+With help from our generous community we are hoping to improve support for the
+following platforms:
+
+Fedora
+`Discord <https://discord.com/channels/790680891252932659/798592589905264650>`__
+
+Robot Operating System
+`Discord <https://discord.com/channels/790680891252932659/795749142793420861>`__
+
+Nvidia Jetson
+`Discord <https://discord.com/channels/790680891252932659/795742008119132250>`__
 
 macOS
 *****
