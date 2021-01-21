@@ -36,6 +36,9 @@ extensions = [
     "sphinx_rtd_theme",
 ]
 
+# See https://github.com/sphinx-doc/sphinx/issues/7728
+suppress_warnings = ['autosectionlabel.*']
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 

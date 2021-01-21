@@ -33,7 +33,7 @@ Setup your device
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="pages/products.html#bw1093" class="btn item-cta">Get Started ›</a>
+                  <a href="pages/products/bw1093.html" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
@@ -50,7 +50,7 @@ Setup your device
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="pages/products.html#bw1098obc" class="btn item-cta">Get Started ›</a>
+                  <a href="pages/products/bw1098obc.html" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
@@ -69,7 +69,7 @@ Setup your device
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="pages/products.html#bw1098ffc" class="btn item-cta">Get Started ›</a>
+                  <a href="pages/products/bw1098ffc.html" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
@@ -86,7 +86,7 @@ Setup your device
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="pages/products.html#bw1099" class="btn item-cta">Get Started ›</a>
+                  <a href="pages/products/bw1099.html" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
@@ -105,7 +105,7 @@ Setup your device
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="pages/products.html#bw1097" class="btn item-cta">Get Started ›</a>
+                  <a href="pages/products/bw1097.html" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
@@ -122,7 +122,7 @@ Setup your device
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="pages/products.html#bw1094" class="btn item-cta">Get Started ›</a>
+                  <a href="pages/products/bw1094.html" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
@@ -137,11 +137,11 @@ Setup your device
    :hidden:
    :caption: Contents:
 
+   pages/products/index.rst
    pages/api.rst
    pages/faq.rst
    pages/support.rst
    pages/troubleshooting.rst
-   pages/products.rst
    pages/calibration.rst
    pages/training.rst
 
