@@ -2,7 +2,7 @@ Local OpenVINO Model Conversion
 ===============================
 
 In this tutorial, you'll learn how to convert OpenVINO IR models into the format required to run on DepthAI, even on a
-low-powered Raspberry Pi. I'll introduce you to the OpenVINO toolset, the Open Model Zoo (where we'll download the
+low-powered Raspberry Pi. I'll introduce you to the OpenVINO Toolkit, the Open Model Zoo (where we'll download the
 `face-detection-retail-0004 <https://github.com/opencv/open_model_zoo/blob/2019_R3/models/intel/face-detection-retail-0004/description/face-detection-retail-0004.md>`__
 model), and show you how to generate the files needed to run model inference on your DepthAI board.
 
@@ -79,8 +79,10 @@ You should see output similar to:
   d349c3ba4a2508be72f413fa4dee92cc0e4bc0e1
   releases_2020_1_InferenceEngine_37988
 
-Verify that you see :code:`releases_2020_1` in your output. If you do, move on. If you are on a different version,
-goto the `OpenVINO site <https://docs.openvinotoolkit.org/2019_R3/index.html>`__ and download the :code:`2020.1` version for your OS:
+Verify that you see :code:`releases_2020_1` in your output. If you do, move on.
+If you are on a different version, go to the `OpenVINO site
+<https://docs.openvinotoolkit.org/2019_R3/index.html>`__ and download the
+:code:`2020.1` version for your OS:
 
 .. image:: /_static/images/tutorials/local_convert_openvino/openvino_version.png
   :alt: face
@@ -89,7 +91,7 @@ Check if the Model Downloader is installed
 ##########################################
 
 When installing OpenVINO, you can choose to perform a smaller install to save disk space. This custom install may not
-include the model downloader script. Lets check if the downloader was installed. In a terminal session, type the following:
+include the Model Downloader script. Lets check if it was installed. In a terminal session, type the following:
 
 .. code-block:: bash
 
@@ -106,7 +108,7 @@ include the model downloader script. Lets check if the downloader was installed.
 Install Open Model Zoo Downloader
 *********************************
 
-If the downloader tools weren't found, we'll install the tools by cloning the
+If the Downloader tools weren't found, we'll install the tools by cloning the
 `Open Model Zoo Repo <https://github.com/openvinotoolkit/open_model_zoo/blob/2020.1/tools/downloader/README.md>`__ and
 installing the tool dependencies.
 
@@ -125,8 +127,8 @@ Start a terminal session and run the following commands in your terminal:
   cd tools/downloader
   python3 -m pip install --user -r ./requirements.in
 
-This clones the repo into a :code:`~/open_model_zoo` directory, checks out the required :code:`2020.1` version, and
-installs the downloader dependencies.
+This clones the repository into a :code:`~/open_model_zoo` directory, checks out the required :code:`2020.1` version, and
+installs the Downloader dependencies.
 
 Create an OPEN_MODEL_DOWNLOADER environment variable
 ####################################################
@@ -269,11 +271,11 @@ Where's the blob file? It's located in the same folder as :code:`face-detection-
   -rw-r--r-- 1 root root 1.3M Jul 28 12:50 face-detection-retail-0004.blob
   -rw-r--r-- 1 root root 100K Jul 28 12:40 face-detection-retail-0004.xml
 
-Create the blob config file
-###########################
+Create the blob configuration file
+##################################
 
 The Myriad X needs both a :code:`blob` file (which we just created) and a `blob_file_config` in JSON format.
-We'll create this config file manually. In your terminal:
+We'll create this configuration file manually. In your terminal:
 
 .. code-block:: bash
 
@@ -301,7 +303,7 @@ What do these values mean?
 Run and display the model output
 ################################
 
-With both :code:`blob` and a :code:`json` blob config file, we're ready to roll!
+With both :code:`blob` and a :code:`json` blob configuration file, we're ready to roll!
 To verify that the model is running correctly, let's modify a bit the program we've created in :ref:`Hello World` tutorial
 
 In particular, let's change the :code:`create_pipeline` invocation to load our model. **Remember to replace the paths to correct ones that you have!**
@@ -342,7 +344,7 @@ The flow we walked through works for other pre-trained object detection models i
 
       $MYRIAD_COMPILE -m [INSERT PATH TO MODEL XML FILE] -ip U8 -VPU_MYRIAD_PLATFORM VPU_MYRIAD_2480 -VPU_NUMBER_OF_SHAVES 4 -VPU_NUMBER_OF_CMX_SLICES 4
 
-#. :ref:`Create the blob config file` based on the model output.
+#. :ref:`Create the blob configuration file` based on the model output.
 #. Use this model in your script
 
 You’re on your way! You can find the `complete code for this tutorial on GitHub. <https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py>`__

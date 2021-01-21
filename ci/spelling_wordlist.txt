@@ -12,3 +12,15 @@ Raspbian
 microPython
 microSD
 iMac
+Downloader
+XLink
+Nvidia
+natively
+openSUSE
+Chocolatey
+mechatronic
+metadata
+udev
+pre
+multi
+mA

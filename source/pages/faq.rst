@@ -283,13 +283,18 @@ See below for DepthAI running on a Jetson Tx2 I have on my desk:
 
 .. image:: https://user-images.githubusercontent.com/32992551/93289854-a4cbcd00-f79c-11ea-8f37-4ea36d523dd2.png
   :alt: Jetson Tx2
-  
-For the releases we'll be building prebuilt wheels for aarch64 as well, so the following compilation step won't be needed.  But to get going from Github directly, you can install on Jetson with the following:
-:bash:`python3 -m pip install ...` where :bash:`...` are the depthai version&commit required, will likely successfully build the library from sources. One thing to check before is that you have `cmake`, `libusb` (:bash:`sudo apt install libusb-1.0-0-dev`) and compiler tools (:bash:`sudo apt install build-essential`).
+
+For the releases we'll be building prebuilt wheels for aarch64 as well, so the
+following compilation step won't be needed.  But to get going from Github
+directly, you can install on Jetson with the following: :code:`python3 -m pip
+install ...` where :code:`...` are the depthai version&commit required, will
+likely successfully build the library from sources. One thing to check before
+is that you have :code:`cmake`, :code:`libusb` (:code:`sudo apt install libusb-1.0-0-dev`)
+and compiler tools (:code:`sudo apt install build-essential`).
 
 Also don't forget about the udev rules after you have that set up:
 
-.. code-block:: bash	
+.. code-block:: bash
 
   echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules	
   sudo udevadm control --reload-rules && sudo udevadm trigger
@@ -435,7 +440,7 @@ neural model performance/etc.  And in particular, with NCS2 mode, all the images
 
 In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before - and for now it will run only off of the image sensors (once the `Gen2 pipeline builder <https://github.com/luxonis/depthai/issues/136>`__ is out, which is scheduled for December 2020, there will exist the capability to run everything off of host images/video with the DepthAI API).  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
 
-For common object detector formats (MobileNet-SSD, tinyYOLOv1/2/3, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode.  You can just literally replace the classes in example MobileNet-SSD or tinyYOLO examples we have.  For example for tinyYOLOv3, you can just change the labels from "mask", "no mask" and "no mask 2" to whatever your classes are from this example `here <https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo/tiny-yolo.json>`__ and just change the blob file `here <https://github.com/luxonis/depthai/tree/main/resources/nn/tiny-yolo>`__ to your blob file.  And the same thing is true for MobileNet-SSD `here <https://github.com/luxonis/depthai/tree/main/resources/nn/mobilenet-ssd>`__.
+For common object detector formats (MobileNet-SSD, Tiny YOLO v1/2/3, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode.  You can just literally replace the classes in example MobileNet-SSD or Tiny YOLO examples we have.  For example for Tiny YOLO v3, you can just change the labels from "mask", "no mask" and "no mask 2" to whatever your classes are from this example `here <https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo/tiny-yolo.json>`__ and just change the blob file `here <https://github.com/luxonis/depthai/tree/main/resources/nn/tiny-yolo>`__ to your blob file.  And the same thing is true for MobileNet-SSD `here <https://github.com/luxonis/depthai/tree/main/resources/nn/mobilenet-ssd>`__.
 
 
 What Hardware-Accelerated Capabilities Exist in DepthAI and/or megaAI?
@@ -555,11 +560,18 @@ Stereo Neural Inference
 
 In this mode, the neural inference (object detection, landmark detection, etc.) is run on the left *and* right cameras to produce stereo inference results.  Unlike monocular neural inference fused with stereo depth - there is no max disparity search limit - so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the stereo cameras themselves and (b) the hyperfocal distance of the cameras.
 
-The hyperfocal distance of the global shutter synchronized stereo pair is 19.6cm.  So objects closer than 19.6cm will appear out of focus.
-This is effectively the minimum distance for this mode of operation, as in most cases (except for very wide stereo baselines with the :ref:`BW1098FFC <BW1098FFC - USB3 with Modular Cameras>`),
-this **effective** minimum distance is higher than the **actual** minimum distance as a result of the stereo camera field of views.
-For example, the objects will be fully out of the field of view of both grayscale cameras when less than `5.25cm <https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`__
-from the :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`), but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm), so the actual minimum depth is this hyperfocal distance.
+The hyperfocal distance of the global shutter synchronized stereo pair is
+19.6cm.  So objects closer than 19.6cm will appear out of focus.  This is
+effectively the minimum distance for this mode of operation, as in most cases
+(except for very wide stereo baselines with the :ref:`BW1098FFC <BW1098FFC -
+USB3 with Modular Cameras>`), this **effective** minimum distance is higher
+than the **actual** minimum distance as a result of the stereo camera field of
+views.  For example, the objects will be fully out of the field of view of both
+grayscale cameras when less than `5.25cm
+<https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`__
+from the :ref:`BW1098OBC <bw1098obc>`), but that is
+closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm),
+so the actual minimum depth is this hyperfocal distance.
 
 Accordingly, to calculate the minimum distance for this mode of operation, use the following formula:
 
@@ -587,7 +599,7 @@ For DepthAI units with onboard cameras, this works out to the following minimum 
 
 calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg9E4O1fSrB4IFp04AQw%3A1607995753791&ei=aRHYX57zL9P9-gTk5rmADA&q=857.06*.09%2F96&oq=857.06*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CqJ1i8OmDlPGgAcAB4AIABX4gB9ASSAQE4mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwjey9H96s7tAhXTvp4KHWRzDsAQ4dUDCA0&uact=5>`__
 
-- OAK-D and USB3C Onboard Camera Edition (:ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`) is **0.689** meters:
+- OAK-D and USB3C Onboard Camera Edition (:ref:`BW1098OBC <bw1098obc>`) is **0.689** meters:
 
 .. code-block:: python
 
@@ -598,7 +610,7 @@ calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03HLvlfCWau
 Stereo Neural Inference Mode
 ----------------------------
 
-For DepthAI units with onboard cameras, all models (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>` and :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`) are
+For DepthAI units with onboard cameras, all models (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>` and :ref:`BW1098OBC <bw1098obc>`) are
 limited by the hyperfocal distance of the stereo cameras, so their minimum depth is **0.196** meters.
 
 Modular Camera Minimum Depths:
@@ -635,9 +647,11 @@ Extended Disparity Depth Mode
 
 If it is of interest in your application, we can implement a system called :code:`extended disparity` which affords a closer minimum distance for the given baseline.  This increases the maximum disparity search from 96 to 192.  So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
 
-- DepthAI Raspberry Pi Compute Module Edition (`BW1097 <https://docs.luxonis.com/products/bw1097/>`__): **0.414** meters
-- OAK-D and USB3C Onboard Camera Edition (`BW1098OBC <https://docs.luxonis.com/products/bw1098obc/>`__) is **0.345** meters
-- Modular Cameras at Minimum Spacing (e.g. `BW1098FFC <https://docs.luxonis.com/products/bw1098ffc/>`__) is **0.115** meters
+- DepthAI Raspberry Pi Compute Module Edition (:ref:`BW1097 <bw1097>`): **0.414** meters
+- OAK-D and USB3C Onboard Camera Edition (:ref:`BW1098OBC <bw1098obc>`) is
+  **0.345** meters
+- Modular Cameras at Minimum Spacing (e.g. :ref:`BW1098FFC <bw1098ffc>`) is
+  **0.115** meters
 
 So if you have the need for this shorter minimum distance when using monocular neural inference fused with disparity depth, reach out to us on discord, email, or discuss.luxonis.com to let us know.  It's on our roadmap but we haven't yet seen a need for it, so we haven't prioritized implementing it (yet!).
 
@@ -820,7 +834,7 @@ To then play the video in mp4/mkv format use the following muxing command:
 
 By default there are keyframes every 1 second which resolve the previous issues with traversing the video as well as provide the capability to start recording anytime (worst case 1 second of video is lost if just missed the keyframe)
 
-When running depthai_demo.py, one can record a jpeg of the current frame by hitting :code:`c` on the keyboard.
+When running :code:`depthai_demo.py`, one can record a JPEG of the current frame by hitting :code:`c` on the keyboard.
 
 An example video encoded on DepthAI `BW1097 <https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition>`__ (Raspberry Pi Compute Module Edition) is below.  All DepthAI and megaAI units have the same 4K color camera, so will have equivalent performance to the video below.
 
@@ -831,7 +845,7 @@ An example video encoded on DepthAI `BW1097 <https://shop.luxonis.com/collection
 Video Encoding Options
 **********************
 
-Additional options can be configured in the video encoding system by adding a :code:`video_config` section to the JSON config of the DepthAI pipeline builder, `here <https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342>`__, an example of which is `here <https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342>`__.
+Additional options can be configured in the video encoding system by adding a :code:`video_config` section to the JSON configuration file for the DepthAI pipeline builder, `here <https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342>`__, an example of which is `here <https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342>`__.
 
 .. code-block:: python
 
@@ -852,19 +866,19 @@ Additional options can be configured in the video encoding system by adding a :c
 
 The options above are all current options exposed for video encoding and not all must be set.
 
-If :code:`video_config` member is **NOT** present in config dictionary then default is used: H264_HIGH, constant bitrate 8500Kbps, keyframe every 30 frames (once per second), num B frames: 0
+If the :code:`video_config` member is **NOT** present in :code:`config` dictionary then default is used: H264_HIGH, constant bit rate 8500 Kbps, key frame every 30 frames (once per second), :code:`num B frames: 0`.
 
-What Are The Stream Latencies?
+What Is The Stream Latency?
 ##############################
 
-When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from a photo hitting an image sensor to when the results are available to a user, the :code:`photon-to-results` latency.
+When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from light hitting an image sensor to when the results are available to a user, the :code:`photon-to-results` latency.
 
 So the following results are an approximation of this :code:`photon-to-results` latency, and are likely an over-estimate
 as we tested by actually seeing when results were updated on a monitor, and the monitor itself has some latency, so the
 results below are likely overestimated by whatever the latency of the monitor is that we used during the test.
 And we have also since done several optimizations since these measurements, so the latency could be quite a bit lower than these.
 
-.. list-table:: Worst-case estimates of stream latencies
+.. list-table:: Worst-case estimates of stream latency
   :widths: 25 50 25
   :header-rows: 1
   :align: center
@@ -882,25 +896,25 @@ And we have also since done several optimizations since these measurements, so t
     - left, right, depth
     - 100
   * - left
-    - left, right, depth, metaout, previewout
+    - left, right, depth, :code:`metaout`, :code:`previewout`
     - 100
-  * - previewout
-    - previewout
+  * - :code:`previewout`
+    - :code:`previewout`
     - 65
-  * - previewout
-    - metaout, previewout
+  * - :code:`previewout`
+    - :code:`metaout`, :code:`previewout`
     - 100
-  * - previewout
-    - left, right, depth, metaout, previewout
+  * - :code:`previewout`
+    - left, right, depth, :code:`metaout`, :code:`previewout`
     - 100
-  * - metaout
-    - metaout
+  * - :code:`metaout`
+    - :code:`metaout`
     - 300
-  * - metaout
-    - metaout, previewout
+  * - :code:`metaout`
+    - :code:`metaout`, :code:`previewout`
     - 300
-  * - metaout
-    - left, right, depth, metaout, previewout
+  * - :code:`metaout`
+    - left, right, depth, :code:`metaout`, :code:`previewout`
     - 300
 
 
@@ -954,13 +968,13 @@ Initial Crowd Supply backers received boards which had literally nothing stored 
 from the host to the board.  This includes the BW1097 (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`), which had the calibration stored on the included microSD card.
 
 So each hardware model which has stereo cameras (e.g. :ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`,
-:ref:`BW1098FFC <BW1098FFC - USB3 with Modular Cameras>`, :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`, and
+:ref:`BW1098FFC <BW1098FFC - USB3 with Modular Cameras>`, :ref:`BW1098OBC <bw1098obc>`, and
 :ref:`BW1094 <BW1094 - RaspberryPi Hat>`) has the capability to store the calibration data and field-of-view,
 stereo baseline (:code:`L-R distance`) and relative location of the color camera to the stereo cameras (:code:`L-RGB distance`)
 as well as camera orientation (:code:`L/R swapped`).  To retrieve this information, simply run :code:`python3 depthai_demo.py` and look for
 :code:`EEPROM data:`.
 
-Example of information pulled from a :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>` is below:
+Example of information pulled from a :ref:`BW1098OBC <bw1098obc>` is below:
 
 .. code-block::
 
@@ -979,7 +993,7 @@ Example of information pulled from a :ref:`BW1098OBC <BW1098OBC - USB3 with Onbo
       0.000008,   -0.000010,    1.000000,
 
 
-Current (those April 2020 and after) DepthAI boards with on-board stereo cameras (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`, :ref:`BW1098OBC <BW1098OBC - USB3 with Onboard Cameras>`, and `BW1092 <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__) ship calibration and board parameters pre-programmed into DepthAI's onboard EEPROM.
+Current (those April 2020 and after) DepthAI boards with on-board stereo cameras (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`, :ref:`BW1098OBC <bw1098obc>`, and `BW1092 <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__) ship calibration and board parameters pre-programmed into DepthAI's onboard EEPROM.
 
 Dual-Homography vs. Single-Homography Calibration
 #################################################
@@ -1260,7 +1274,7 @@ or by using our `online Myriad X blob converter <http://69.164.214.171:8083/>`__
 .. _rpi_hq:
 
 Can I Use DepthAI with the New Raspberry Pi HQ Camera?
-#############################################
+######################################################
 
 DepthAI FFC Edition (BW1098FFC model `here <https://shop.luxonis.com/products/depthai-usb3-edition>`__) also works via
 an adapter board with the Raspberry Pi HQ camera (IMX477 based), which then does work with a ton of C- and CS-mount
@@ -1303,7 +1317,7 @@ Yes, DepthAI is fully functional on it, you can see the example below:
 Thanks to `Connor Christie <https://github.com/ConnorChristie>`__ for his help building this setup!
 
 How Much Power Does the DepthAI Raspberry Pi CME Consume?
-################################################
+#########################################################
 
 The DepthAI Raspberry Pi Compute Module Edition (Raspberry Pi CME or BW1097 for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
 
@@ -1336,7 +1350,7 @@ What are CSS MSS UPA and DSS Returned By meta_d2h?
 .. _githubs:
 
 Where are the Github repositories?  Is DepthAI Open Source?
-###############################################
+###########################################################
 
 DepthAI is an open-source platform across a variety of stacks, including hardware (electrical and mechanical), software, and machine-learning training using Google Colab.
 
@@ -1388,8 +1402,8 @@ Datasheets:
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
  
 
-How can I cite Luxonis products in publications ?
-##############################################
+How can I cite Luxonis products in publications?
+################################################
 
 If DepthAI and OAK-D products has been significantly used in your research and if you would like to acknowledge the DepthAI and OAK-D in your academic publication, we suggest citing them using the following bibtex format.
 

@@ -43,7 +43,7 @@ This tutorial provides steps to install DepthAI on a Windows 10 system
 
 #. Open Windows PowerShell
 
-    You can do that by typing **PowerShell** in the searchbar
+    You can do that by typing **PowerShell** in the search bar
 
     .. image:: /_static/images/tutorials/windows/powershell.png
       :alt: Open PowerShell
@@ -52,7 +52,7 @@ This tutorial provides steps to install DepthAI on a Windows 10 system
 
     Latest pip version is required in order to correctly install PyPI requirements.
 
-    To upgrade pip, type the following command in the powershell
+    To upgrade pip, type the following command in the PowerShell
 
     .. code-block:: bash
 

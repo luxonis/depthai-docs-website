@@ -43,8 +43,8 @@ Dependencies
 
   All dependencies are installed and the repository is checked out to :code:`~/Desktop/depthai`.
 
-This tutorial has the same dependencies as the :ref:`Hello World Tutorial <hello_world_dependencies>` - that the DepthAI
-API has been installed and is accessible on the system.  See :ref:`here <Python API>` if you have not yet installed the API.
+This tutorial has the same dependencies as the :ref:`Hello World Tutorial <Hello World>` - that the DepthAI
+API has been installed and is accessible on the system.  See :ref:`Python API <Python API>` if you have not yet installed the API.
 
 
 Run DepthAI Default Model
@@ -87,7 +87,7 @@ To use this model, simply specify the name of the model to be run with the :code
 
   python3 depthai_demo.py -dd -cnn face-detection-retail-0004
 
-Execute the script to see an annotated video stream of face detections:
+Execute the script to see an annotated video stream of face detection:
 
 .. image:: /_static/images/tutorials/pretrained_openvino/face-2.png
   :alt: face
@@ -165,10 +165,10 @@ as microAI is monocular only - no depth information.)
 
 So you get the **full 3D position** of the **detected object**, in this case, my face.
 
-So that the full xyz position in meters is returned.  See below.
+So that the full three-dimensional position in meters is returned.  See below.
 
-Spatial AI - Augmenting the Model with 3D Postion
-#################################################
+Spatial AI - Augmenting the Model with 3D Position
+##################################################
 
 So by default DepthAI is set to return the full 3D position.  So in the command above, we actually specify for it to not
 be calculated with :code:`-dd` (or :code:`--disable_depth`).
@@ -198,7 +198,7 @@ Monocular Neural Inference fused with Stereo Depth
 We call this mode of spatial AI 'Monocular Neural Inference fused with Stereo Depth'.  To visualize how this mode works,
 it is helpful to overlay the neural inference bounding box over the depth results directly.
 
-To visualize this, let's overlay the results directly onto the raw depth information (visualized in OpenCV HOT colormap):
+To visualize this, let's overlay the results directly onto the raw depth information (visualized in OpenCV HOT :code:`colormap`):
 
 .. code-block:: bash
 

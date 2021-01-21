@@ -1,10 +1,10 @@
 Troubleshooting
 ===============
 
-How can the startup demo on the Raspberry Pi Compute Edition be disabled?
-################################################################
+How can the start-up demo on the Raspberry Pi Compute Edition be disabled?
+##########################################################################
 
-Delete the autostart file:
+Delete the :code:`autostart` file:
 
 .. code-block:: bash
 
@@ -40,11 +40,16 @@ per-image on an Raspberry Pi but this exceed 20 seconds per-image in poor condit
 - Reduce glare on the checkerboard (for example, ensure there are no light sources close to the board like a desk lamp).
 - Reduce the amount of motion blur by trying to hold the checkerboard as still as possible.
 
-[Errno 13] Permission denied: '/usr/local/lib/python3.7/dist-packages/...'
+Permission denied error
 ##########################################################################
 
 If :code:`python3 -m pip install` fails with a :code:`Permission denied` error, your user likely doesn't have permission
 to install packages in the system-wide path.
+
+.. code-block:: bash
+
+   [Errno 13] Permission denied: '/usr/local/lib/python3.7/dist-packages/...'
+
 Try installing in your user's home directory instead by adding the :code:`--user` option. For example:
 
 .. code-block:: bash
@@ -54,17 +59,18 @@ Try installing in your user's home directory instead by adding the :code:`--user
 `More information on Stackoverflow <https://stackoverflow.com/questions/31512422/pip-install-failing-with-oserror-errno-13-permission-denied-on-directory>`__.
 
 
-DepthAI does not show up under /dev/video* like web cameras do.  Why?
-#######################################################################
+DepthAI does not show up under :code:`/dev/video*` like web cameras do.  Why?
+#############################################################################
 
 The USB device enumeration could be checked with lsusb | grep 03e7  . It should print:
 
-- :code:`03e7:2485` after reset (bootloader running)
+- :code:`03e7:2485` after reset (boot loader running)
 - :code:`03e7:f63b` after the application was loaded
 
 No :code:`/dev/video*` nodes are created.
 
-DepthAI implements VSC (Vendor Specific Class) protocol, and libusb is used for communication.
+DepthAI implements the VSC (Vendor Specific Class) protocol and :code:`libusb`
+is used for communication.
 
 Intermittent Connectivity with Long (2 meter) USB3 Cables
 #########################################################
@@ -78,7 +84,7 @@ So unfortunately we discovered this after we shipped with long USB3 cables (2 me
 So if you have see this problem with your host, potentially 3 options:
 
 #. Switch to a shorter USB3 cable (say 1 meter) will very likely make the problem disappear.  `These <https://www.amazon.com/gp/product/B07S4G4L4Z/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1>`__ 1 meter (3.3 ft.) cables are a nice length and are now what we ship with DepthAI USB3 variants.
-#. Force USB2 mode with :code:`--force_usb2` option (examples below).  This will allow use of the long cable still, and many DepthAI usecases do not necessitate USB3 communication bandwidth - USB2 is plenty.
+#. Force USB2 mode with :code:`--force_usb2` option (examples below).  This will allow use of the long cable still, and many DepthAI use cases do not necessitate USB3 communication bandwidth - USB2 is plenty.
 #. Upgrade from Ubuntu 16.04 to Ubuntu 18.04.
 
 Forcing USB2 Communication
@@ -102,18 +108,18 @@ Ubuntu 18.04/16.04 or Raspbian, please :ref:`compile DepthAI from source <Instal
 Failed to boot the device: 1.3-ma2480, err code 3
 #################################################
 
-This error often can occur if the udev rules are not set on Linux.  This wil coincide with depthai: Error initializing xlink
+This error often can occur if the udev rules are not set on Linux.  This will coincide with :code:`depthai: Error initializing xlink`.
 
-To fix this, set the udev rules using the commands below, unplugging depthai and replugging it into USB afterwards.
+To fix this, set the udev rules using the commands below, unplugging DepthAI and then plugging it back into USB afterwards.
 
 .. code-block:: bash
 
   echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
   sudo udevadm control --reload-rules && sudo udevadm trigger
   
-And in some cases, these were already set, but depthai was plugged in the entire time, so Linux could not reset the rules.
+And in some cases, these were already set, but DepthAI was plugged in the entire time, so Linux could not reset the rules.
 
-So make sure to unplug, and replug-in depthai after having run these.
+So make sure to unplug and then plug the DepthAI back in after having run these.
 
 
 .. include::  /pages/includes/footer-short.rst
@@ -126,14 +132,14 @@ If you are trying to kill a program with CTLR-C, and it's not working, try CTRL-
 Is Your Raspberry Pi Locking Up?
 ################################
 
-The Raspberry Pi has a max limit of 1.2A across all its USB ports, and depthai/megaAI/OAK can take up to 1A (at max power, usually closer to 500mA).
+The Raspberry Pi has a max limit of 1.2A across all its USB ports, and DepthAI/megaAI/OAK can take up to 1A (at max power, usually closer to 500mA).
 
 So if you are seeing lockups, it could be that you are over this 1.2A limit as a result of the total power of the USB devices drawing from the Pi.  Using a powered hub can prevent this, or powering fewer other things off of the Pi over USB.
 
 "DLL load failed while importing cv2" on Windows
 ################################################
 
-If you are seeing the following error after installing depthai for Windows:
+If you are seeing the following error after installing DepthAI for Windows:
 
 .. code-block:: bash
 
