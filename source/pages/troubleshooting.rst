@@ -129,3 +129,22 @@ Is Your Raspberry Pi Locking Up?
 The Raspberry Pi has a max limit of 1.2A across all its USB ports, and depthai/megaAI/OAK can take up to 1A (at max power, usually closer to 500mA).
 
 So if you are seeing lockups, it could be that you are over this 1.2A limit as a result of the total power of the USB devices drawing from the Pi.  Using a powered hub can prevent this, or powering fewer other things off of the Pi over USB.
+
+"DLL load failed while importing cv2" on Windows
+################################################
+
+If you are seeing the following error after installing depthai for Windows:
+
+.. code-block:: bash
+
+  (venv) C:\Users\Context\depthai>python depthai_demo.py
+   Traceback (most recent call last):
+     File "C:\Users\Context\depthai\depthai_demo.py", line 7, in <module>
+       import cv2
+     File "C:\Users\Context\depthai\venv\lib\site-packages\cv2\__init__.py", line 5, in <module>
+       from .cv2 import *
+   ImportError: DLL load failed while importing cv2: The specified module could not be found.
+   
+Then installing the Windows Media Feature Pack (`here <https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions>`__) is often the resolution. 
+
+(And more background from OpenCV directly is `here <https://github.com/skvark/opencv-python/blob/master/README.md#:~:text=Q%3A%20Import%20fails%20on%20Windows%3A%20ImportError%3A%20DLL%20load%20failed%3A%20The%20specified%20module%20could%20not%20be%20found.%3F>`__)
