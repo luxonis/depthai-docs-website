@@ -14,8 +14,7 @@ or on `Github <https://github.com/luxonis/depthai>`__.
 Supported Platforms
 ###################
 
-With a small team we are currently focused on supporting Windows, macOS, Ubuntu
-and the Raspberry Pi.
+We keep up-to-date, precompiled, libraries for the following platforms:
 
 ============ =========================================== ================================================= ================================================================================
 Platform     Instructions                                Tutorial                                          Support
@@ -26,8 +25,7 @@ Ubuntu       :ref:`Platform dependencies <Ubuntu>`       `Video tutorial <https:
 Raspberry Pi :ref:`Platform dependencies <Raspberry Pi>` `Video tutorial <https://youtu.be/BpUMT-xqwqE>`__ `Discord <https://discord.com/channels/790680891252932659/798302708070350859>`__
 ============ =========================================== ================================================= ================================================================================
 
-With help from our generous community we are hoping to improve support for the
-following platforms:
+And the following platforms are also supported by a combination of the community and Luxonis. We plan to have prebuilt solutions for Nvidia Jetson and Robot Operating System in Q2 2021:
 
 ====================== ================================================================================
 Platform               Support
