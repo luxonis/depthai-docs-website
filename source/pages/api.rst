@@ -94,7 +94,7 @@ Windows
   choco install cmake git python pycharm-community -y
 
 Windows 7
-=========
+---------
 
 Although we do not officially support Windows 7, members of the community have
 had success manually installing WinUSB using `Zadig
