@@ -135,7 +135,7 @@ Setup your device
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Contents:
+   :caption: Contents
 
    pages/products/index.rst
    pages/api.rst
@@ -148,7 +148,7 @@ Setup your device
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Tutorials:
+   :caption: Tutorials
 
    pages/tutorials/hello_world.rst
    pages/tutorials/pretrained_openvino.rst
@@ -159,7 +159,7 @@ Setup your device
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Code samples:
+   :caption: Code samples
 
    pages/samples/minimal.rst
    pages/samples/color_camera_selfie.rst
