@@ -3,7 +3,7 @@ Python API
 
 Please :ref:`install the necessary dependencies <Supported Platforms>` for your
 platform by referring to the table below. Once installed you can :ref:`install
-the DepthAI library <Install from PyPi>`.
+the DepthAI library <Install from PyPI>`.
 
 We are constantly striving to improve how we release our software to keep up
 with countless platforms and the numerous ways to package it.  If you do not
@@ -27,13 +27,14 @@ Raspberry Pi :ref:`Platform dependencies <Raspberry Pi>` `Video tutorial <https:
 
 And the following platforms are also supported by a combination of the community and Luxonis. We plan to have pre-built solutions for Nvidia Jetson and Robot Operating System in Q2 2021:
 
-====================== ================================================================================
-Platform               Support
-====================== ================================================================================
-Fedora                 `Discord <https://discord.com/channels/790680891252932659/798592589905264650>`__
-Robot Operating System `Discord <https://discord.com/channels/790680891252932659/795749142793420861>`__
-Nvidia Jetson          `Discord <https://discord.com/channels/790680891252932659/795742008119132250>`__
-====================== ================================================================================
+====================== ===================================================== ================================================================================
+Platform               Instructions                                          Support
+====================== ===================================================== ================================================================================
+Fedora                                                                       `Discord <https://discord.com/channels/790680891252932659/798592589905264650>`__
+Robot Operating System                                                       `Discord <https://discord.com/channels/790680891252932659/795749142793420861>`__
+Nvidia Jetson          :ref:`Does DepthAI Work on the Nvidia Jetson Series?` `Discord <https://discord.com/channels/790680891252932659/795742008119132250>`__
+Windows 7              :ref:`WinUSB driver <Windows 7>`                      `Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
+====================== ===================================================== ================================================================================
 
 macOS
 *****
@@ -92,8 +93,16 @@ Windows
 
   choco install cmake git python pycharm-community -y
 
+Windows 7
+=========
 
-Install from PyPi
+Although we do not officially support Windows 7, members of the community have
+had success manually installing WinUSB using `Zadig
+<https://zadig.akeo.ie/>`__. After connecting your DepthAI device look for a
+device with :code:`USB ID: 03E7 2485` and install the WinUSB driver by
+selecting `WinUSB(v6.1.7600.16385)` and then `Install WCID Driver`.
+
+Install from PyPI
 #################
 
 Our packages are distributed `via PyPi <https://pypi.org/project/depthai/>`__, to install it in your environment use
