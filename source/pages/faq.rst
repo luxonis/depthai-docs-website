@@ -273,7 +273,7 @@ Yes, every model can be used, including:
 We even have some basic ROS support going as well which can be used on the Pi also.
 
 
-Does DepthAI Work on the NVIDIA Jetson Series?
+Does DepthAI Work on the Nvidia Jetson Series?
 ##############################################
 
 Yes, DepthAI and megaAI work cleanly on all the Jetson/Xavier series, and installation is easy.
