@@ -96,8 +96,8 @@ Windows
 Windows 7
 ---------
 
-Although we do not officially support Windows 7, members of the community have
-had success manually installing WinUSB using `Zadig
+Although we do not officially support Windows 7, members of the community `have
+had success <https://discuss.luxonis.com/d/105-run-on-win7-sp1-x64-manual-instal-usb-driver>`__ manually installing WinUSB using `Zadig
 <https://zadig.akeo.ie/>`__. After connecting your DepthAI device look for a
 device with :code:`USB ID: 03E7 2485` and install the WinUSB driver by
 selecting `WinUSB(v6.1.7600.16385)` and then `Install WCID Driver`.
