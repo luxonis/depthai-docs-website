@@ -79,12 +79,10 @@ Create the DepthAI Pipeline
 Next we'll create a data pipeline using the :code:`previewout` stream. This
 stream contains the data from the color camera.
 
-Download `mobilenet-ssd.blob <https://raw.githubusercontent.com/luxonis/depthai-tutorials/master/1-hello-world/mobilenet-ssd/mobilenet-ssd.json>`__
-and `mobilenet-ssd.json <https://github.com/luxonis/depthai-tutorials/raw/master/1-hello-world/mobilenet-ssd/mobilenet-ssd.blob>`__
-from the `Hello World directory on Github <https://github.com/luxonis/depthai-tutorials/tree/master/1-hello-world/mobilenet-ssd>`__.
-After downloading :code:`mobilenet-ssd.blob` rename it to
-:code:`mobilenet-ssd.blob.sh14cmx14NCE1`. Note that the model identifies `20
-different classes <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json>`__.
+Download `mobilenet-ssd.blob <https://raw.githubusercontent.com/luxonis/depthai-tutorials/67011e5f49f1c08e9f58f41c21f906b719f7d4a8/1-hello-world/mobilenet-ssd/mobilenet-ssd.blob>`__
+and `mobilenet-ssd.json <https://raw.githubusercontent.com/luxonis/depthai-tutorials/67011e5f49f1c08e9f58f41c21f906b719f7d4a8/1-hello-world/mobilenet-ssd/mobilenet-ssd.json>`__
+from the `Hello World directory on Github <https://github.com/luxonis/depthai-tutorials/tree/67011e5f49f1c08e9f58f41c21f906b719f7d4a8/1-hello-world>`__.
+Note that the model identifies `20 different classes <https://github.com/luxonis/depthai/blob/master/resources/nn/mobilenet-ssd/mobilenet-ssd.json>`__.
 
 Then append the following to your Python source file to create the pipeline
 using the :code:`previewout` stream and establish the first connection to the
@@ -95,7 +93,7 @@ device.
   pipeline = device.create_pipeline(config={
       'streams': ['previewout', 'metaout'],
       'ai': {
-          'blob_file': "/absolute/path/to/mobilenet-ssd.blob.sh14cmx14NCE1",
+          'blob_file': "/absolute/path/to/mobilenet-ssd.blob",
           'blob_file_config': "/absolute/path/to/mobilenet-ssd.json"
       }
   })
