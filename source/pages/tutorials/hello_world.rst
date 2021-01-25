@@ -140,6 +140,8 @@ converts the frame into a :code:`cv2`-compatible format and displays it.
                   pt1 = int(detection.x_min * img_w), int(detection.y_min * img_h)
                   pt2 = int(detection.x_max * img_w), int(detection.y_max * img_h)
 
+                  cv2.rectangle(frame, pt1, pt2, (0, 0, 255), 2)
+
               cv2.imshow('previewout', frame)
 
       if cv2.waitKey(1) == ord('q'):
