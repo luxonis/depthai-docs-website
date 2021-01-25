@@ -168,6 +168,14 @@ And so running stereo neural inference excels in these cases, as it does not rel
 and instead relies purely on the results of the neural network, which are robust at providing these single pixel results.
 And triangulation of the parallel left/right outputs results in very-accurate real-time landmark results in 3D space.
 
+What is the Gen2 Pipeline Builder?
+##################################
+
+The Gen2 system is the future of all depthai and OAK.  As of this writing, it is still in early release, and some specific features available in the Gen1 system of depthai are not implemented in Gen2.  
+
+That said, it is infinitely more flexible, and is the result of all that we learned from the customer deployments of Gen1.  Amassing all the requests and need for flexibility, we made Gen2.  In short, Gen2 allows theoretically-infinite permutations of parallel and series CV + AI (neural inference) nodes, limited only by hardware capabilities, whereas Gen1 was limited for example to 2-series and 2-parallel neural inference.  
+
+Several Gen2 Examples are `here <https://github.com/luxonis/depthai-experiments#gen2-gaze-estimation-here>`__ and also the docs for Gen2 are now initiall available in the `Gen2 branch <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__ of this documentation system (selectable from the bottom left of this page).
 
 What is megaAI?
 ###############
