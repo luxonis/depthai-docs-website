@@ -672,6 +672,18 @@ Extended disparity: allows detecting closer distance objects, without compromisi
 #. Combines the two level disparities on Shave, effectively covering a total disparity range of 192 pixels (in relation to the original resolution).
 
 
+.. _lrcheck_disparity:
+
+Left-Right Check Depth Mode
+***************************
+
+Left-Right Check, or LR-Check is used to remove incorrectly calculated disparity pixels due to occlusions at object borders (Left and Right camera views are slightly different).
+#. computes disparity by matching in R->L direction
+#. computes disparity by matching in L->R direction
+#. combines results from 1 and 2, running on Shave: each pixel d = disparity_LR(x,y) is compared with disparity_RL(x-d,y). If the difference is above a threshold, the pixel at (x,y) in final disparity map is invalidated.
+
+To run LR-Check on DepthAI/OAK, use the example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
+
 What Are The Maximum Depths Visible by DepthAI?
 ###############################################
 
@@ -718,6 +730,8 @@ Subpixel Disparity (3,072 depth steps):
   
 .. image:: ![image](https://user-images.githubusercontent.com/32992551/98872146-500ea080-2433-11eb-950b-41b56e5d0293.png)
   :alt: Subpixel Disparity (3,072 depth steps)
+  
+To run Subpixel on DepthAI/OAK, use the example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
   
 
 What Is the Format of the Depth Data in depth stream?
