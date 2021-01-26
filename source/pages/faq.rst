@@ -469,13 +469,14 @@ Available in DepthAI API Today:
 - Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), `here <https://github.com/luxonis/depthai/issues/163>`__
 - SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`__
 - Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`__)
+- Integrated Text Detection (`here <https://github.com/luxonis/depthai/issues/124>`__)
 
 The above features are available in the Luxonis Pipeline Builder Gen1 (see example :ref:`here <API Reference>`).  See :ref:`Pipeline Builder Gen2 <pipelinegen2>` for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
 
 On our Roadmap (planned delivery December 2020)
 ***********************************************
 
-- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__)
+- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__ and currently in Alpha testing)
 - Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai/issues/216>`__)
 - microPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
 - Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`__)
@@ -486,7 +487,7 @@ On our Roadmap (planned delivery December 2020)
 - Edge Detection (`here <https://github.com/luxonis/depthai/issues/247>`__)
 - Harris Filtering (`here <https://github.com/luxonis/depthai/issues/248>`__)
 - AprilTags (PR `here <https://github.com/luxonis/depthai/pull/139>`__)
-- Integrated Text Detection (`here <https://github.com/luxonis/depthai/issues/124>`__)
+
 - OpenCL Support (supported through OpenVINO (`here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__))
 
 And see our Github project `here <https://github.com/orgs/luxonis/projects/2>`__ to follow along with the progress of these implementations.
@@ -653,7 +654,7 @@ For stereo baselines wider than 29cm, the minimum depth is limited by the horizo
 Extended Disparity Depth Mode
 *****************************
 
-If it is of interest in your application, we can implement a system called :code:`extended disparity` which affords a closer minimum distance for the given baseline.  This increases the maximum disparity search from 96 to 192.  So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
+The :code:`extended disparity` mode affords a closer minimum distance for the given baseline.  This increases the maximum disparity search from 96 to 192.  So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
 
 - DepthAI Raspberry Pi Compute Module Edition (:ref:`BW1097 <bw1097>`): **0.414** meters
 - OAK-D and USB3C Onboard Camera Edition (:ref:`BW1098OBC <bw1098obc>`) is
@@ -661,7 +662,14 @@ If it is of interest in your application, we can implement a system called :code
 - Modular Cameras at Minimum Spacing (e.g. :ref:`BW1098FFC <bw1098ffc>`) is
   **0.115** meters
 
-So if you have the need for this shorter minimum distance when using monocular neural inference fused with disparity depth, reach out to us on discord, email, or discuss.luxonis.com to let us know.  It's on our roadmap but we haven't yet seen a need for it, so we haven't prioritized implementing it (yet!).
+See `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__ for examples of how to use Extended Disparity Mode.
+
+And for a bit more background as to how this mode is supported:
+
+Extended disparity: allows detecting closer distance objects, without compromising on long distance values (integer disparity)
+1. computes disparity on the original size images (e.g. 1280x720)
+2. computes disparity on 2x downscaled images (e.g. 640x360)
+3. combines the two level disparities on Shave, effectively covering a total disparity range of 192 pixels (in relation to the original resolution).
 
 
 What Are The Maximum Depths Visible by DepthAI?
