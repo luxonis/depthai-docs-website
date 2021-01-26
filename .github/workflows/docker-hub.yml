@@ -26,4 +26,4 @@ jobs:
         with:
           push: true
           file: ci/Dockerfile
-          tags: luxonis/depthai:latest
+          tags: luxonis/depthai-base:latest
