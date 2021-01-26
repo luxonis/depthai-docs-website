@@ -1,4 +1,7 @@
 #!/bin/bash
+#
+#   Luxonis DepthAI dependency install script
+#
 
 set -e
 
@@ -99,6 +102,10 @@ if [[ $(uname) == "Darwin" ]]; then
     echo
     echo "=== Installed successfully!  IMPORTANT: For changes to take effect,"
     echo "please close and reopen the terminal window, or run:  exec \$SHELL"
+elif [[ -f /.dockerenv ]] || grep -Eq '(lxc|docker|containerd)' /proc/1/cgroup; then
+    apt-get update
+    apt-get install -y "${ubuntu_pkgs[@]}"
+    python3 -m pip install --upgrade pip
 elif [[ ! $(uname -m) =~ ^arm* && -f /etc/os-release ]]; then
     # shellcheck source=/etc/os-release
     source /etc/os-release
