@@ -1218,6 +1218,11 @@ To power your DepthAI completely from USB (assuming you are confident your port 
 this USB-A to barrel-jack adapter cable `here <https://www.amazon.com/gp/product/B01MZ0FWSK/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1>`__.
 And we often use DepthAI with this USB power bank `here <https://www.amazon.com/gp/product/B0194WDVHI/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1>`__.
 
+What is the Screw Mount Specification on OAK-1 and OAK-D?
+#########################################################
+
+It is the standard 1/4-20 "Tripod" mount used on most cameras.  More information on this type of mount on Wikipedia `here <https://en.wikipedia.org/wiki/Tripod_(photography)>`__.
+
 .. _virtualbox:
 
 How to use DepthAI under VirtualBox
