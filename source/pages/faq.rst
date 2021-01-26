@@ -528,7 +528,7 @@ Since the disparity-search of 96 is what limits the minimum depth, this means th
 
 In Gen2, Extended Disparity is supported, which extends the disparity search to 192 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for BW1098OBC/OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.  
 
-See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable LR-Check.
+See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
 
 What are the Minimum Depths Visible by DepthAI?
 ###############################################
@@ -666,10 +666,10 @@ See `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-c
 
 And for a bit more background as to how this mode is supported:
 
-Extended disparity: allows detecting closer distance objects, without compromising on long distance values (integer disparity)
-1. computes disparity on the original size images (e.g. 1280x720)
-2. computes disparity on 2x downscaled images (e.g. 640x360)
-3. combines the two level disparities on Shave, effectively covering a total disparity range of 192 pixels (in relation to the original resolution).
+Extended disparity: allows detecting closer distance objects, without compromising on long distance values (integer disparity) by running the following flow.
+#. Computes disparity on the original size images (e.g. 1280x720)
+#. Computes disparity on 2x downscaled images (e.g. 640x360)
+#. Combines the two level disparities on Shave, effectively covering a total disparity range of 192 pixels (in relation to the original resolution).
 
 
 What Are The Maximum Depths Visible by DepthAI?
@@ -693,7 +693,32 @@ So using this formula for existing models the *theoretical* max distance is:
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
 
-After the `KickStarter campaign <https://www.kickstarter.com/projects/opencv/opencv-ai-kit/description>`__ we will also be supporting sub-pixel, which will extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
+We also support subpixel depth mode, which extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
+
+.. _subpixel_disparity:
+
+Subpixel Disparity Depth Mode
+*****************************
+
+Subpixel improves the precision and is especially useful for long range measurements.  It also helps for better estimating surface normals (comparison of normal disparity vs. subpixel disparity is `here <https://github.com/luxonis/depthai/issues/184>`__).
+
+Beside the integer disparity output, the Stereo engine is programmed to dump to memory the cost volume, that is 96 bytes (disparities) per pixel, then software interpolation is done on Shave, resulting a final disparity with 5 fractional bits, resulting in significantly more granual depth steps (32 additional steps between the integer-pixel depth steps), and also theoretically, longer-distance depth viewing - as the maximum depth is no longer limited by a feature being a full integer pixel-step apart, but rather 1/32 of a pixel.
+
+Examples of the difference in depth steps from standard disparity to subpixel disparity are shown below:
+
+Standard Disparity (96 depth steps):
+
+.. image:: https://user-images.githubusercontent.com/49298092/90796945-f2dee380-e34a-11ea-844d-0dd085b978de.png
+  :alt: Standard Disparity (96 depth steps)
+  
+Subpixel Disparity (3,072 depth steps):
+
+.. image:: ![image](https://user-images.githubusercontent.com/32992551/98879214-388ae400-2442-11eb-8e5b-e7ddc35f3040.png)
+  :alt: Subpixel Disparity (3,072 depth steps)
+  
+.. image:: ![image](https://user-images.githubusercontent.com/32992551/98872146-500ea080-2433-11eb-950b-41b56e5d0293.png)
+  :alt: Subpixel Disparity (3,072 depth steps)
+  
 
 What Is the Format of the Depth Data in depth stream?
 #####################################################
