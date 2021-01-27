@@ -34,6 +34,7 @@ Fedora                                                                       `Di
 Robot Operating System                                                       `Discord <https://discord.com/channels/790680891252932659/795749142793420861>`__
 Nvidia Jetson          :ref:`Does DepthAI Work on the Nvidia Jetson Series?` `Discord <https://discord.com/channels/790680891252932659/795742008119132250>`__
 Windows 7              :ref:`WinUSB driver <Windows 7>`                      `Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
+Docker                 :ref:`Pull and run official images <Docker>`          `Discord <https://discord.com/channels/790680891252932659/796794747275837520>`__
 ====================== ===================================================== ================================================================================
 
 macOS
@@ -101,6 +102,32 @@ had success <https://discuss.luxonis.com/d/105-run-on-win7-sp1-x64-manual-instal
 <https://zadig.akeo.ie/>`__. After connecting your DepthAI device look for a
 device with :code:`USB ID: 03E7 2485` and install the WinUSB driver by
 selecting `WinUSB(v6.1.7600.16385)` and then `Install WCID Driver`.
+
+Docker
+******
+
+We maintain a Docker image containing DepthAI, it's dependencies and helpful
+tools in the `luxonis/depthai-library <https://hub.docker.com/r/luxonis/depthai-library>`__
+repository on Docker Hub. It builds upon the `luxonis/depthai-base
+<https://hub.docker.com/r/luxonis/depthai-base>`__ image.
+
+Run the :code:`01_rgb_preview.py` example inside a Docker container on a Linux host
+(with the X11 windowing system):
+
+.. code-block:: bash
+
+   docker pull luxonis/depthai
+   docker run --rm \
+       --privileged \
+       -v /dev/bus/usb:/dev/bus/usb \
+       --device-cgroup-rule='c 189:* rmw' \
+       -e DISPLAY=$DISPLAY \
+       -v /tmp/.X11-unix:/tmp/.X11-unix \
+       luxonis/depthai-library:latest \
+       python3 /depthai-python/examples/01_rgb_preview.py
+
+To allow the container to update X11 you may need to run :code:`xhost local:root` on
+the host.
 
 Install from PyPI
 #################
