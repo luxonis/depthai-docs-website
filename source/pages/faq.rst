@@ -733,10 +733,10 @@ Standard Disparity (96 depth steps):
   
 Subpixel Disparity (3,072 depth steps):
 
-.. image:: ![image](https://user-images.githubusercontent.com/32992551/98879214-388ae400-2442-11eb-8e5b-e7ddc35f3040.png)
+.. image:: https://user-images.githubusercontent.com/32992551/98879214-388ae400-2442-11eb-8e5b-e7ddc35f3040.png
   :alt: Subpixel Disparity (3,072 depth steps)
   
-.. image:: ![image](https://user-images.githubusercontent.com/32992551/98872146-500ea080-2433-11eb-950b-41b56e5d0293.png)
+.. image:: https://user-images.githubusercontent.com/32992551/98872146-500ea080-2433-11eb-950b-41b56e5d0293.png
   :alt: Subpixel Disparity (3,072 depth steps)
   
 To run Subpixel on DepthAI/OAK, use the example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
