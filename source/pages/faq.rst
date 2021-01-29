@@ -541,9 +541,14 @@ There are two ways to use DepthAI for 3D object detection and/or using neural in
 Monocular Neural Inference fused with Stereo Depth
 **************************************************
 
+OAK-D:
+- 70cm with standard disparity
+- 35cm
+
 In this mode, the AI (object detection) is run on the left, right, or RGB camera, and the results are fused with stereo disparity depth, based on semi global matching (SGBM).  The minimum depth is limited by the maximum disparity search, which is by default 96, but is extendable to 192 in extended disparity modes (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below).
 
 To calculate the minimum distance in this mode, use the following formula, where base_line_dist and min_distance are in meters [m]:
+
 .. code-block:: python
 
   min_distance = focal_length * base_line_dist / 96
@@ -623,7 +628,10 @@ For DepthAI units with onboard cameras, this works out to the following minimum 
 
 calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg9E4O1fSrB4IFp04AQw%3A1607995753791&ei=aRHYX57zL9P9-gTk5rmADA&q=857.06*.09%2F96&oq=857.06*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CqJ1i8OmDlPGgAcAB4AIABX4gB9ASSAQE4mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwjey9H96s7tAhXTvp4KHWRzDsAQ4dUDCA0&uact=5>`__
 
-- OAK-D and USB3C Onboard Camera Edition (:ref:`BW1098OBC <bw1098obc>`) is **0.689** meters:
+**OAK-D** and USB3C Onboard Camera Edition (:ref:`BW1098OBC <bw1098obc>`) is 
+- **0.689** meters for standard disparity, 
+- **0.345** meters for Extended Disparity (192 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and 
+- **0.196** meters for Extended Disparity at 640x400 resolution (this distance is limited by the focal distance of the cameras on OAK-D)
 
 .. code-block:: python
 
