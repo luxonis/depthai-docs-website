@@ -24,3 +24,16 @@ udev
 pre
 multi
 mA
+backend
+Colab
+Fedex
+YOLOv
+Deeplabv
+Onboard
+selfie
+resize
+Emporia
+Altium
+via
+vias
+SoM

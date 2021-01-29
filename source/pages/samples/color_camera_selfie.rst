@@ -142,7 +142,7 @@ user interaction to save the frame.
 
 In this sample, we use :code:`tkinter` for two dialog boxes:
 
-- To obtain destination filepath (stored as :code:`filepath`) that allows us to invoke :code:`cv2.imwrite` as it requires path as it's first argument
+- To obtain destination file path (stored as :code:`filepath`) that allows us to invoke :code:`cv2.imwrite` as it requires path as it's first argument
 - To confirm that the file was saved successfully
 
 .. code-block:: python
