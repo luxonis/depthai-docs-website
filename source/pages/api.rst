@@ -78,9 +78,17 @@ For openSUSE, available `in this official article <https://en.opensuse.org/SDB:I
 Windows
 *******
 
-- Right click on Start
-- Choose Windows PowerShell (Admin)
-- Install Chocolatey package manager (similar to Homebrew for macOS):
+We recommend using the Chocolatey package manager to install DepthAI's
+dependencies on Windows. Chocolatey is very similar to Homebrew for macOS.
+Alternatively, it is also possible to :ref:`install DepthAI and its
+dependencies manually <Manually install DepthAI on Windows>`, although it can
+be more time consuming and error prone.
+
+To `install Chocolatey <https://docs.chocolatey.org/en-us/choco/setup>`__ and
+use it to install DepthAI's dependencies do the following:
+
+- Right click on `Start`
+- Choose `Windows PowerShell (Admin)` and run the following:
 
 .. code-block:: bash
 
