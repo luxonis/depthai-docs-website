@@ -152,8 +152,8 @@ Then installing the Windows Media Feature Pack (`here <https://support.microsoft
 
 (And more background from OpenCV directly is `here <https://github.com/skvark/opencv-python/blob/master/README.md#:~:text=Q%3A%20Import%20fails%20on%20Windows%3A%20ImportError%3A%20DLL%20load%20failed%3A%20The%20specified%20module%20could%20not%20be%20found.%3F>`__)
 
-python3 depthai_demo.py returns Illegal instruction
-###################################################
+:code:`python3 depthai_demo.py` returns Illegal instruction
+###########################################################
 
 This so far has always meant there is a problem with the OpenCV install on the host (and not actually with the depthai library).  To check this, run:
 

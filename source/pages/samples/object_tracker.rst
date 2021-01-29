@@ -100,14 +100,14 @@ First, we change the method for retrieving the data packets from the pipeline, a
   for packet in p.get_available_data_packets():
 
 Next up, if the packet is from stream :code:`object_tracker` we use a special method available only in packets
-from this stream to obtain tracklets object - this method will throw an error if used on another stream
+from this stream to obtain :code:`tracklets` object - this method will throw an error if used on another stream
 
 .. code-block:: python
 
   if packet.stream_name == 'object_tracker':
       tracklets = packet.getObjectTracker()
 
-Next up, we're obtaining all tracklet info for further processing
+Next up, we're obtaining all :code:`tracklet` info for further processing
 
 .. code-block:: python
 

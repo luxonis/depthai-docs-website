@@ -74,7 +74,7 @@ The code is divided into three phases: **initialization**, **processing results*
 
 **Initialization** is done here, as it's initializing the device and making sure that the pipeline is created. Please
 note that :code:`sh14cmx14NCE1` in a blob file definition means that this blob was compiled to use 14 Myriad X SHAVEs, 14 Myriad X CMXes and 1 Myriad X Neural Compute Engine.
-These params needs to be provided in :code:`ai` configuration, using fields :code:`shaves`, :code:`cmx_slices` and :code:`NN_engines` respectively
+These parameters need to be provided in :code:`ai` configuration, using fields :code:`shaves`, :code:`cmx_slices` and :code:`NN_engines` respectively
 
 .. code-block:: python
 
@@ -101,12 +101,12 @@ These params needs to be provided in :code:`ai` configuration, using fields :cod
   del p
   del device
 
-Now, the results processing consists of two phases - parsing nnet results and displaying the frames.
+Now, the results processing consists of two phases - parsing :code:`nnet` results and displaying the frames.
 
 Parsing neural network results
 ******************************
 
-Below, you'll se the part that's parsing the results from neural network
+Below, you'll see the part that's parsing the results from neural network
 
 .. code-block:: python
 
@@ -150,7 +150,7 @@ Displaying the frames
   if cv2.waitKey(1) == ord('q'):
       break
 
-This stage is also divided into three phases - preparing the frame, augumenting the frame and adding control signals
+This stage is also divided into three phases - preparing the frame, augmenting the frame and adding control signals
 
 **Preparing the frame** basically means that we're transforming the frame to OpenCV-usable form.
 
