@@ -57,7 +57,7 @@ options a spin.  In this case we'll just pass in the same neural network that de
 
   python3 depthai_demo.py -dd
 
-This will then run the a typical demo MobileNetv1 SSD object detector trained on the `PASCAL 2007 VOC <http://host.robots.ox.ac.uk/pascal/VOC/voc2007/>`__ classes, which are:
+This will then run the a typical demo MobileNetv2 SSD object detector trained on the `PASCAL 2007 VOC <http://host.robots.ox.ac.uk/pascal/VOC/voc2007/>`__ classes, which are:
 
 - Person: person
 - Animal: bird, cat, cow, dog, horse, sheep
