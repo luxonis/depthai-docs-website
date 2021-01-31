@@ -116,7 +116,7 @@ Run the :code:`01_rgb_preview.py` example inside a Docker container on a Linux h
 
 .. code-block:: bash
 
-   docker pull luxonis/depthai
+   docker pull luxonis/depthai-library
    docker run --rm \
        --privileged \
        -v /dev/bus/usb:/dev/bus/usb \
