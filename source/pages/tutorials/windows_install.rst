@@ -1,7 +1,8 @@
-Install requirements on Windows
-===============================
+Manually install DepthAI on Windows
+===================================
 
-This tutorial provides steps to install DepthAI on a Windows 10 system
+This tutorial provides steps to install DepthAI on a Windows 10 system without
+the Chocolatey package manager.
 
 #. Install Python 3.9 from the Microsoft Store (`direct link <ms-windows-store://pdp/?ProductId=9p7qfqmjrfp7>`_).
 
