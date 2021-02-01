@@ -1010,6 +1010,8 @@ We could support a UVC stream per camera if it is of interest.
 
 So if you would like this functionality please feel subscribe to the Github feature request `here <https://github.com/luxonis/depthai/issues/283>`__.
 
+And in the meantime, if you would like to use depthai as a standard UVC camera, it is possible to use V4L2 loopback device (and some users have informed us that they have done so), but linking the output of the depthai API config into this loopback device on the host.  We do not yet have instructions on this, but will circle back if/when we do.
+
 How Do I Force USB2 Mode?
 #########################
 
