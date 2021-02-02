@@ -542,8 +542,11 @@ Monocular Neural Inference fused with Stereo Depth
 **************************************************
 
 OAK-D:
-- 70cm with standard disparity
-- 35cm
+
+- ~ 70cm with standard disparity (1280x800 resolution)
+- ~ 35cm with extended disparity (1280x800 resolution)
+- ~ 35cm with 640x400 resolution
+- ~ 19.6cm with extended disparity and 640x400 resolution
 
 In this mode, the AI (object detection) is run on the left, right, or RGB camera, and the results are fused with stereo disparity depth, based on semi global matching (SGBM).  The minimum depth is limited by the maximum disparity search, which is by default 96, but is extendable to 192 in extended disparity modes (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below).
 
