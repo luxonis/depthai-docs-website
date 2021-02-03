@@ -29,6 +29,8 @@ Setup
 
 Install the :ref:`Python API <Python API>`.
 
+.. include::  /pages/includes/verify.rst
+
 Compliance
 **********
 
