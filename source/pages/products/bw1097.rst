@@ -91,9 +91,6 @@ To get started:
 
         The board includes an Ethernet port. Connecting an Ethernet cable to the port will enable Internet access.
 
-#. **Run example script**.
-
-  See :ref:`Verify installation`
 
 [Optional] Using your own SD-Card
 *********************************

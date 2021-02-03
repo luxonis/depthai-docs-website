@@ -25,7 +25,9 @@ What's in the box?
 Setup
 *****
 
-- Install the DepthAI API, see `here <https://docs.luxonis.com/en/latest/pages/api/>`__ for how to do so.
+Install the :ref:`Python API <Python API>`.
+
+.. include::  /pages/includes/verify.rst
 
 Compliance
 **********

@@ -92,8 +92,6 @@ Follow the steps below to setup your DepthAI device.
 
     See :ref:`Calibration`
 
-#. **Run example script**.
-
-    See :ref:`Verify installation`
+.. include::  /pages/includes/verify.rst
 
 .. include::  /pages/includes/footer-short.rst
