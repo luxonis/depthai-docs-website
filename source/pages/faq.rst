@@ -1338,6 +1338,20 @@ And then for each additional depthai/OAK device you would like to pass through, 
 
 .. _parameters_upgrade:
 
+What are the SHAVES?
+####################
+
+The SHAVES are vector processors in DepthAI/OAK.  The 2x NCE (neural compute engines) were architected for a slew of operations, but there are some that are not implemented.  So the SHAVES take over these operations.
+
+These SHAVES are also used for other things in the device, like handling reformatting of images, doing some ISP, etc.
+
+So the higher the resolution, the more SHAVES are consumed for this.
+
+- For 1080p, 13 SHAVES (of 16) are free for neural network stuff.
+- For 4K sensor resolution, 10 SHAVES are available for neural operations.
+
+There is an internal resource manager inside DepthAI firmware that coordinates the use of SHAVES, and warns if too many resources are requested by a given pipeline configuration.
+
 How to increase NCE, SHAVES and CMX parameters?
 ###############################################
 
