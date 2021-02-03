@@ -67,8 +67,6 @@ the Chocolatey package manager.
     .. image:: /_static/images/tutorials/windows/pip_success.png
       :alt: Update Pip success
 
-#. Run the DepthAI demo code
-
-    See :ref:`Verify installation` for details
+.. include::  /pages/includes/verify.rst
 
 .. include::  /pages/includes/footer-short.rst
