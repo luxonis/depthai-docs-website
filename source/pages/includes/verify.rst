@@ -37,5 +37,3 @@ We'll execute a DepthAI example Python script to ensure your setup is configured
   In the screenshot above, DepthAI identified a TV monitor (1.286 m from the camera) and a chair (3.711 m from the camera).
 
   See `the list of object labels <https://docs.luxonis.com/tutorials/openvino_model_zoo_pretrained_model/#run-depthai-default-model>`__ in our pre-trained OpenVINO model tutorial.
-
-.. include::  /pages/includes/footer-short.rst
