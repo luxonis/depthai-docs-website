@@ -1101,12 +1101,13 @@ How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
 
 `ArduCam <https://www.arducam.com/>`__ is in the process of making a variety of camera modules specifically for DepthAI and megaAI, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
 
- - M12-Mount IMX378 request `here <https://github.com/luxonis/depthai-hardware/issues/16>`__
- - M12-Mount OV9281 request `here <https://github.com/luxonis/depthai-hardware/issues/17>`__
- - Fish-Eye OV9281 (for better SLAM) request `here <https://github.com/luxonis/depthai-hardware/issues/15>`__
+ - M12-Mount IMX477 `here <https://github.com/luxonis/depthai-hardware/issues/16>`__
+ - M12-Mount OV9282 `here <https://github.com/luxonis/depthai-hardware/issues/17>`__
+ - Fish-Eye OV9282 (for better SLAM) `here <https://github.com/luxonis/depthai-hardware/issues/15>`__
  - Mechanical, Optical, and Electrical equivalent OV9282 module with visible and IR capability `here <https://github.com/luxonis/depthai-hardware/issues/22>`__
  - Global-Shutter Color Camera (OV9782) with same intrinsics as OV9282 grayscale `here <https://github.com/luxonis/depthai-hardware/issues/21>`__
  - Original request for this `here <https://discourse.ros.org/t/opencv-ai-kit-oak/15406/17?u=luxonis-brandon>`__
+ - C/CS-Mount IMX283 (1" diagonal sensor, which is huge) `here <https://github.com/luxonis/depthai-hardware/issues/30>`__
 
 With these, there will be a variety of options for view angle, focal length, filtering (IR, no IR, NDVI, etc.) and image sensor formats.
 
