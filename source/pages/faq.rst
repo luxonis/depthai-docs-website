@@ -1503,6 +1503,8 @@ This should result in the headers and the library being copied to that path.
 
 Another option is integrating into your CMake project directly, for that see: https://github.com/luxonis/depthai-core-example
 
+And a note on building for Windows: Windows does not use `libusb`, but rather uses Windows internal `winusb`.
+
  
 Can I Use and IMU With DepthAI?
 ###############################
