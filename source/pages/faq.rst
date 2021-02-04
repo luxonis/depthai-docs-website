@@ -171,7 +171,7 @@ And triangulation of the parallel left/right outputs results in very-accurate re
 What is the Gen2 Pipeline Builder?
 ##################################
 
-The Gen2 system is the future of all depthai and OAK.  As of this writing, it is still in early release, and some specific features available in the Gen1 system of depthai are not implemented in Gen2.  
+The Gen2 system is the future of all depthai and OAK.  It is the next-generation software suite for DepthAI and OAK.  All DepthAI and OAK hardware work with Gen1 and Gen2 software (i.e. Gen2 is purely a software re-write, no hardware changes).  As of this writing, Gen2 is still in early release, and some specific features available in the Gen1 system of depthai are not implemented in Gen2 (but it is already quite usable and more flexible).  
 
 That said, it is infinitely more flexible, and is the result of all that we learned from the customer deployments of Gen1.  Amassing all the requests and need for flexibility, we made Gen2.  In short, Gen2 allows theoretically-infinite permutations of parallel and series CV + AI (neural inference) nodes, limited only by hardware capabilities, whereas Gen1 was limited for example to 2-series and 2-parallel neural inference.  Full background on the Gen2 Pipeline Builder is `here <https://github.com/luxonis/depthai/issues/136>`__.
 
