@@ -1418,6 +1418,8 @@ Yes, DepthAI is fully functional on it, you can see the example below:
 
 Thanks to `Connor Christie <https://github.com/ConnorChristie>`__ for his help building this setup!
 
+And note that we now have a specific ARMv6 (Pi Zero) specific build of DepthAI.
+
 How Much Power Does the DepthAI Raspberry Pi CME Consume?
 #########################################################
 
@@ -1477,6 +1479,29 @@ The above examples include a few submodules of interest. You can read a bit more
 - https://github.com/luxonis/depthai-bootloader-shared - Bootloader source code which allows programming NOR flash of DepthAI to boot autonomously
 - https://github.com/luxonis/depthai-spi-api - SPI interface library for Embedded (microcontroller) DepthAI application
 - https://github.com/luxonis/esp32-spi-message-demo/tree/gen2_common_objdet - ESP32 Example applications for Embedded/ESP32 DepthAI use (e.g. with `BW1092 <https://github.com/luxonis/depthai-hardware/tree/master/BW1092_ESP32_Embedded_WIFI_BT>`__)
+
+How Do I Build the C++ API?
+###########################
+
+Prebuilt binaries are available for Python bindings (or so called wheels).
+
+We do not have prebuilt binaries for C++ core library.
+
+One of the reasons is the vast number of different platforms and the second is that the library itself is quite lean so compiling along the other C++ source should not be a problem.
+
+To compile the needed headers and a .dll follow this:
+https://github.com/luxonis/depthai-core/tree/gen2_develop#building
+Under - And for the dynamic version of the library
+
+You can optionally also install it into a desired directory by appending this cmake flag:
+cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=[desired/installation/path]
+And then calling the install target
+cmake --build . --target install
+
+This should result in the headers and the library being copied to that path.
+
+Another option is integrating into your CMake project directly, for that see: https://github.com/luxonis/depthai-core-example
+
  
 Can I Use and IMU With DepthAI?
 ###############################
