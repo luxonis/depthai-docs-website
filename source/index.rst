@@ -130,8 +130,8 @@ Setup your device
    </div>
 
 
-A short briefing on all current Luxonis Github repositories:
-############################################################
+Luxonis Github Repositories
+###########################
 
 .. list-table:: Core Repositories
   :widths: 10 90
