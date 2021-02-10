@@ -663,9 +663,6 @@ The minimum baseline is set simply by how close the two boards can be spaced bef
 .. image:: /_static/images/faq/modular-stereo-cam-min-dist.png
   :alt: Jetson Tx2
 
-Stereo Neural Inference Mode
-----------------------------
-
 For any stereo baseline under 29cm, the minimum depth is dictated by the hyperfocal distance (the distance above which objects are in focus) of 19.6cm.
 
 For stereo baselines wider than 29cm, the minimum depth is limited by the horizontal field of view (HFOV):
