@@ -50,7 +50,7 @@ Camera Specs
     - 120fps
   * - **H.265 Framerate**
     - 30fps
-    - /
+    - 120fps
   * - **Resolution**
     - 12MP (4056x3040 px/1.55um)
     - 1MP (1280x800 px/3um)
