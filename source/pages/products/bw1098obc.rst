@@ -53,7 +53,7 @@ Camera Specs
     - /
   * - **Resolution**
     - 12MP (4056x3040 px/1.55um)
-    - 1MP (1280x800 px/3um
+    - 1MP (1280x800 px/3um)
   * - **Field of View**
     - 81° DFoV - 68.8° HFoV
     - 81° DFoV - 71.8° HFoV
