@@ -31,6 +31,32 @@ Install the :ref:`Python API <Python API>`.
 
 .. include::  /pages/includes/verify.rst
 
+Camera Specs
+*****
+
+.. list-table:: **Color Camera**
+  :widths: 25 75
+  :align: center
+  
+  * - **Shutter Type**
+    - Rolling Shutter
+  * - **Image Sensor**
+    - IMX378
+  * - **Max Framerate**
+    - 60fps
+  * - **H.265 Framerate**
+    - 30fps
+  * - **Resolution**
+    - 12MP (4056x3040 px /1.55um)
+  * - **Field of View**
+    - 81° DFoV - 68.8° HFoV
+  * - **Lens Size**
+    - 1/2.3 Inch
+  * - **Focus**
+    - 8cm - ∞ (AutoFocus)
+  * - **F-number**
+    - 2.0
+
 Compliance
 **********
 
