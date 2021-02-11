@@ -47,7 +47,7 @@ Camera Specs
   * - **H.265 Framerate**
     - 30fps
   * - **Resolution**
-    - 12MP (4056x3040 px /1.55um)
+    - 12MP (4056x3040 px/1.55um)
   * - **Field of View**
     - 81° DFoV - 68.8° HFoV
   * - **Lens Size**
