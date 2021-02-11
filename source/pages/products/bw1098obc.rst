@@ -29,6 +29,44 @@ Install the :ref:`Python API <Python API>`.
 
 .. include::  /pages/includes/verify.rst
 
+Camera Specs
+*****
+
+.. list-table:: **OAK Camera Specs**
+  :widths: 30 35 35
+  :align: center
+  
+  * -
+    - **OAK Color Camera**
+    - **OAK-D Stereo Camera**
+  * - **Shutter Type**
+    - Rolling Shutter
+    - Sync Global Shutter
+  * - **Image Sensor**
+    - IMX378
+    - OV9282
+  * - **Max Framerate**
+    - 60fps
+    - 120fps
+  * - **H.265 Framerate**
+    - 30fps
+    - /
+  * - **Resolution**
+    - 12MP (4056x3040 px/1.55um)
+    - 1MP (1280x800 px/3um
+  * - **Field of View**
+    - 81° DFoV - 68.8° HFoV
+    - 81° DFoV - 71.8° HFoV
+  * - **Lens Size**
+    - 1/2.3 Inch
+    - 1/2.3 Inch
+  * - **Focus**
+    - 8cm - ∞ (AutoFocus)
+    - 19.6cm - ∞ (FixedFocus)
+  * - **F-number**
+    - 2.0
+    - 2.2
+
 Compliance
 **********
 
