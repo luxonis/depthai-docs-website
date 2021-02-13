@@ -394,9 +394,9 @@ How to integrate DepthAI/megaAI depends on whether the product you are building 
 
 We offer hardware to support all 3 use-cases, but firmware/software maturity varies across the 3 modes:
 
-#. the most mature, using our :ref:`Python API <Python API>`
-#. initially released by actively in development (see `here <https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code>`__),
-#. supported in December 2020 (as part of Pipeline Builder Gen2 `here <https://github.com/luxonis/depthai/issues/136>`__).
+#. Using our :ref:`Python API <Python API>` and/or C++ API (equal capabilities)
+#. Using our C++ SPI API (see `here <https://github.com/luxonis/depthai-spi-api>`__),
+#. Using our standalone flashing utility to flash a depthai application for standalone boot (as part of Pipeline Builder Gen2, leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`__).
 
 In all cases, DepthAI (and megaAI) are compatible with OpenVINO for neural models.  The only thing that changes between
 the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
