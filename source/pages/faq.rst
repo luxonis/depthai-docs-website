@@ -8,7 +8,7 @@ In trying to solve an Embedded :ref:`Spatial AI<spatialai>` problem (details `he
 we discovered that although the perfect chip existed, there was no platform (hardware, firmware, or software) which
 allowed the chip to be used to solve such an Embedded Spatial AI problem.
 
-So we built this fantastic platform.
+So we built this great platform.
 
 What is DepthAI?
 ################
