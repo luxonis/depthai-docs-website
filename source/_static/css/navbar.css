@@ -21,15 +21,7 @@
     z-index: 100;
 }
 
-.lux-navbar {
-    margin-right: auto;
-    margin-left: auto;
-    padding-left: 15px;
-    padding-right: 15px;
-}
-
 .lux-navbar ul {
-    float: left;
     vertical-align: middle;
 }
 
@@ -101,4 +93,9 @@ div[role=search] {
 
 .wy-side-nav-search a {
     color: #404040;
+}
+
+.lux-navbar-container .lux-navbar {
+    max-width: 1100px;
+    text-align: center;
 }
