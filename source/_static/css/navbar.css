@@ -98,3 +98,7 @@ div[role=search] {
 .wy-menu-vertical a:active span.toctree-expand {
  color:#fff
 }
+
+.wy-side-nav-search a {
+    color: #404040;
+}
