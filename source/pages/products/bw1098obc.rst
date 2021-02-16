@@ -1,6 +1,6 @@
 .. _bw1098obc:
 
-OAK-D | DepthAI Onboard Cameras
+BW1098OBC - OAK-D | DepthAI Onboard Cameras
 ###############################
 
 .. image:: /_static/images/products/bw1098obc.png
