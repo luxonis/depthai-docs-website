@@ -109,6 +109,18 @@ The DepthAI reference Python script can be used to show this out (:code:`python3
 
 And if you'd like to know more about the underlying math that DepthAI is using to perform the stereo depth, see this excellent blog post here `here <https://www.learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/>`__.  And if you'd like to run the same example run in that blog, on DepthAI, see this  `depthai-experiment <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#depth-from-rectified-host-images/>`__.
 
+What is the Max Stereo Disparity Depth Resolution?
+**************************************************
+
+The maximum resolution for the depthai depth map is 1280x800 (1MP), with either a 92-pixel (default) or 192-pixel disparity search (when :ref:`Extended Disparity <extended_disparity>` is enabled) and either a full-pixel (default) or sub-pixel matching with precision of 32 sub-pixel steps (when :ref:`Sub-Pixel Disparity <subpixel_disparity>` is enabled), resulting in a maximum theoretical depth precision of 192 (extended disparity search mode) * 32 (sub-pixel disparity search enabled) of 6,144.  Note however that sub-pixel and extended disparity, as of this writing, are not supported simultaneously (but will be Q2 2021), so the maximum depth precision is 3,072 depth steps.  More information on the disparity depth modes are below:
+
+#. Default (96-pixel disparity search): 1280x800 or 640x400, 96 depth steps
+#. Extended Disparity (192-pixel disparity search), :ref:`here <extended_disparity>`: 1280x800 or 640x400, 192 depth steps
+#. Subpixel Disparity (32 sub-pixel steps), :ref:`here <subpixel_disparity>`, 1280x800 or 640x400, 96 depth steps * 32 subpixel depth steps = 3,072 depth steps.
+#. LR-Check Disparity, :ref:`here <lrcheck_disparity>`: 1280x800, with disparity run in both directions for allowing recentering of the depth.
+
+(see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below
+
 
 .. _stereo_inference:
 
@@ -584,7 +596,7 @@ What Disparity Depth Modes are Supported?
 
 #. Default (96-pixel disparity search)
 #. Extended Disparity (192-pixel disparity search), :ref:`here <extended_disparity>`
-#. Subpixel Disparity (32 subpixel steps), :ref:`here <subpixel_disparity>`
+#. Subpixel Disparity (32 sub-pixel steps), :ref:`here <subpixel_disparity>`
 #. LR-Check Disparity, :ref:`here <lrcheck_disparity>`
 
 Stereo Neural Inference
