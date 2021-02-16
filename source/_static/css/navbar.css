@@ -14,7 +14,7 @@
 }
 
 .lux-navbar-container {
-    padding: 1.5em 0;
+    padding: 1.5em 1em;
     width: 100%;
     height: auto;
     overflow: auto;
@@ -97,5 +97,4 @@ div[role=search] {
 
 .lux-navbar-container .lux-navbar {
     max-width: 1100px;
-    text-align: center;
 }
