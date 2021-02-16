@@ -32,13 +32,13 @@ Install the :ref:`Python API <Python API>`.
 Camera Specs
 *****
 
-.. list-table:: **OAK Camera Specs**
+.. list-table:: **Camera Specs**
   :widths: 30 35 35
   :align: center
   
   * -
-    - **OAK Color Camera**
-    - **OAK-D Stereo Camera**
+    - **Color Camera**
+    - **Stereo Camera Pair**
   * - **Shutter Type**
     - Rolling Shutter
     - Sync Global Shutter
