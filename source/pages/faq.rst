@@ -304,13 +304,7 @@ See below for DepthAI running on a Jetson Tx2 I have on my desk:
 .. image:: https://user-images.githubusercontent.com/32992551/93289854-a4cbcd00-f79c-11ea-8f37-4ea36d523dd2.png
   :alt: Jetson Tx2
 
-For the releases we'll be building prebuilt wheels for aarch64 as well, so the
-following compilation step won't be needed.  But to get going from Github
-directly, you can install on Jetson with the following: :code:`python3 -m pip
-install ...` where :code:`...` are the depthai version&commit required, will
-likely successfully build the library from sources. One thing to check before
-is that you have :code:`cmake`, :code:`libusb` (:code:`sudo apt install libusb-1.0-0-dev`)
-and compiler tools (:code:`sudo apt install build-essential`).
+Installing for NVIDIA Jetson and Xavier is now the same set of instructions as Ubuntu.  See `here <https://docs.luxonis.com/en/latest/pages/api/#ubuntu>`__ and following the standard Ubuntu instructions.   
 
 Also don't forget about the udev rules after you have that set up:
 
