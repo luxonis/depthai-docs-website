@@ -19,10 +19,10 @@ We keep up-to-date, pre-compiled, libraries for the following platforms.  Note t
 ============ =========================================== ================================================= ================================================================================
 Platform     Instructions                                Tutorial                                          Support
 ============ =========================================== ================================================= ================================================================================
-Windows 10   :ref:`Platform dependencies <Windows>`      `Video tutorial <https://youtu.be/ekopKJfcWiE>`__ `Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
-macOS        :ref:`Platform dependencies <macOS>`        `Video tutorial <https://youtu.be/0RGmmjed3Hc>`__ `Discord <https://discord.com/channels/790680891252932659/798283911989690368>`__
-Ubuntu (Including Jetson/Xavier)  :ref:`Platform dependencies <Ubuntu>`       `Video tutorial <https://youtu.be/QXeXMaxj4cM>`__ `Discord <https://discord.com/channels/790680891252932659/798302162160451594>`__
-Raspberry Pi :ref:`Platform dependencies <Raspberry Pi>` `Video tutorial <https://youtu.be/BpUMT-xqwqE>`__ `Discord <https://discord.com/channels/790680891252932659/798302708070350859>`__
+Windows 10      :ref:`Platform dependencies <Windows>`      `Video tutorial <https://youtu.be/ekopKJfcWiE>`__ `Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
+macOS           :ref:`Platform dependencies <macOS>`        `Video tutorial <https://youtu.be/0RGmmjed3Hc>`__ `Discord <https://discord.com/channels/790680891252932659/798283911989690368>`__
+Ubuntu & Jetson :ref:`Platform dependencies <Ubuntu>`       `Video tutorial <https://youtu.be/QXeXMaxj4cM>`__ `Discord <https://discord.com/channels/790680891252932659/798302162160451594>`__
+Raspberry Pi    :ref:`Platform dependencies <Raspberry Pi>` `Video tutorial <https://youtu.be/BpUMT-xqwqE>`__ `Discord <https://discord.com/channels/790680891252932659/798302708070350859>`__
 ============ =========================================== ================================================= ================================================================================
 
 And the following platforms are also supported by a combination of the community and Luxonis. 
