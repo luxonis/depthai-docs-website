@@ -4,6 +4,7 @@ Products
 .. toctree::
    :maxdepth: 1
 
+   bw1092.rst
    bw1093.rst
    bw1094.rst
    bw1097.rst
