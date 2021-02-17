@@ -24,6 +24,12 @@ What's in the box?
 
 Setup
 *****
+Install the :ref:`Python API <Python API>`.
+
+.. include::  /pages/includes/verify.rst
+
+Using the ESP32/SPI Interface
+*****
 A number of examples that show how to communicate with the ESP32 over SPI can be found here:
 
 https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi
