@@ -9,7 +9,7 @@ BW1092 - Three Camera ESP32 Board
 
 The BW1092 is a modified version of the BW1098OBC with an added ESP32 System on Module (ESP32-WROOM-32). This board allows users to quickly prototype standalone embedded solutions. 
 
-The ESP32 gives users access to a lightweight processor with useful features such as Bluetooth, Bluetooth Low Energy (BTLE), and WiFi, and comes in a convenient FCC/CE-certified module.
+Besides the standard DepthAI capabilites, the ESP32 gives users access to a lightweight processor with useful features such as Bluetooth, Bluetooth Low Energy (BTLE), and WiFi, and comes in a convenient FCC/CE-certified module.
 
 Requirements
 ************
@@ -28,4 +28,4 @@ A number of examples that show how to communicate with the ESP32 over SPI can be
 
 https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi
 
-All of these examples consist of two parts: An application that runs on the ESP32 and an application that runs on the MyriadX using the gen2 Pipeline Builder. More information can be found in that github's README. 
+All of these examples consist of two parts: An application that runs on the ESP32 and an application that runs on the MyriadX using the gen2 Pipeline Builder. More information on how to set up both of these can be found in that github's README. 
