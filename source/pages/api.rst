@@ -14,25 +14,24 @@ or on `Github <https://github.com/luxonis/depthai>`__.
 Supported Platforms
 ###################
 
-We keep up-to-date, pre-compiled, libraries for the following platforms:
+We keep up-to-date, pre-compiled, libraries for the following platforms.  Note that a new change is that for Ubuntu now also work unchanged for the Jetson/Xavier series:
 
 ============ =========================================== ================================================= ================================================================================
 Platform     Instructions                                Tutorial                                          Support
 ============ =========================================== ================================================= ================================================================================
 Windows 10   :ref:`Platform dependencies <Windows>`      `Video tutorial <https://youtu.be/ekopKJfcWiE>`__ `Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
 macOS        :ref:`Platform dependencies <macOS>`        `Video tutorial <https://youtu.be/0RGmmjed3Hc>`__ `Discord <https://discord.com/channels/790680891252932659/798283911989690368>`__
-Ubuntu       :ref:`Platform dependencies <Ubuntu>`       `Video tutorial <https://youtu.be/QXeXMaxj4cM>`__ `Discord <https://discord.com/channels/790680891252932659/798302162160451594>`__
+Ubuntu (Including Jetson/Xavier)  :ref:`Platform dependencies <Ubuntu>`       `Video tutorial <https://youtu.be/QXeXMaxj4cM>`__ `Discord <https://discord.com/channels/790680891252932659/798302162160451594>`__
 Raspberry Pi :ref:`Platform dependencies <Raspberry Pi>` `Video tutorial <https://youtu.be/BpUMT-xqwqE>`__ `Discord <https://discord.com/channels/790680891252932659/798302708070350859>`__
 ============ =========================================== ================================================= ================================================================================
 
-And the following platforms are also supported by a combination of the community and Luxonis. We plan to have pre-built solutions for Nvidia Jetson and Robot Operating System in Q2 2021:
+And the following platforms are also supported by a combination of the community and Luxonis. 
 
 ====================== ===================================================== ================================================================================
 Platform               Instructions                                          Support
 ====================== ===================================================== ================================================================================
 Fedora                                                                       `Discord <https://discord.com/channels/790680891252932659/798592589905264650>`__
 Robot Operating System                                                       `Discord <https://discord.com/channels/790680891252932659/795749142793420861>`__
-Nvidia Jetson          :ref:`Does DepthAI Work on the Nvidia Jetson Series?` `Discord <https://discord.com/channels/790680891252932659/795742008119132250>`__
 Windows 7              :ref:`WinUSB driver <Windows 7>`                      `Discord <https://discord.com/channels/790680891252932659/798284448323731456>`__
 Docker                 :ref:`Pull and run official images <Docker>`          `Discord <https://discord.com/channels/790680891252932659/796794747275837520>`__
 ====================== ===================================================== ================================================================================
