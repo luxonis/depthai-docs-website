@@ -118,7 +118,7 @@ Setup your device
                <div class="item-body">
                   <h5 class="item-title">Depth + Color Camera ESP32 Board</h5>
                   <p class="item-descr">
-                     DepthAI with a builtin ESP32.
+                     DepthAI with a builtin ESP32. The ESP32 gives users access to a lightweight processor with useful features such as Bluetooth, Bluetooth Low Energy (BTLE), and WiFi, and comes in a convenient FCC/CE-certified module.
                   </p>
                </div>
                <footer class="item-footer">
