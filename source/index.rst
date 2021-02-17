@@ -113,16 +113,16 @@ Setup your device
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/bw1094.jpg" alt="Raspberry Pi HAT"/>
+                  <img class="item-img" src="./_images/bw1092.jpg" alt="BW1092"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Raspberry Pi HAT</h5>
+                  <h5 class="item-title">Depth + Color Camera ESP32 Board</h5>
                   <p class="item-descr">
-                     DepthAI HAT for Raspberry Pi (3, 3B+, and 4). Add your choice of cameras.
+                     DepthAI with a builtin ESP32.
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="pages/products/bw1094.html" class="btn item-cta">Get Started ›</a>
+                  <a href="pages/products/bw1092.html" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
