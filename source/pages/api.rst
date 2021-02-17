@@ -66,6 +66,8 @@ Raspberry Pi
 Ubuntu
 ******
 
+Note that these Ubuntu instructions also work for the **Jetson** and **Xavier** series.
+
 .. code-block:: bash
 
   sudo wget -qO- http://docs.luxonis.com/_static/install_dependencies.sh | bash
