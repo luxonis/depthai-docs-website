@@ -24,7 +24,9 @@ Source code
       "streams": ["previewout", "object_tracker"],
       "ai": {
           #blob compiled for maximum 12 shaves
-          "blob_file": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.blob.sh12cmx12NCE1",
+          #blob can be generated using: python3 depthai_demo.py -cnn mobilenet-ssd -sh 12
+          #it will be written to <path_to_depthai>/resources/nn/mobilenet-ssd/mobilenet-ssd.blob.sh12cmx12NCE1
+          "blob_file": "<path_to_depthai>/resources/nn/mobilenet-ssd/mobilenet-ssd.blob.sh12cmx12NCE1",
           "blob_file_config": "/path/to/depthai/resources/nn/mobilenet-ssd/mobilenet-ssd.json",
           "shaves" : 12,
           "cmx_slices" : 12,
