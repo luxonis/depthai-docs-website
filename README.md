@@ -51,3 +51,7 @@ rtd-redirects luxonis-docs-website ./source/redirects.yml --pro --username <user
 Username and password are the credentials you use to access the RTD website
 
 **You need to have sufficient privileges on the RTD to change the redirects**
+
+### Need help?
+
+Join our Discord Community: [https://docs.luxonis.com/en/latest/](https://docs.luxonis.com/en/latest/)
