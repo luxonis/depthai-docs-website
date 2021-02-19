@@ -306,7 +306,7 @@ See below for DepthAI running on a Jetson Tx2 I have on my desk:
 
 Installing for NVIDIA Jetson and Xavier is now the same set of instructions as Ubuntu.  See `here <https://docs.luxonis.com/en/latest/pages/api/#ubuntu>`__ and following the standard Ubuntu instructions.   
 
-Also don't forget about the udev rules after you have that set up:
+Also don't forget about the udev rules after you have that set up.  And make sure to unplug and replug your depthai after having run the following commands (this allows Linux to execute the modification of the USB rules).
 
 .. code-block:: bash
 
