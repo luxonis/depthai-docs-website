@@ -32,7 +32,7 @@ Install the :ref:`Python API <Python API>`.
 .. include::  /pages/includes/verify.rst
 
 Camera Specs
-*****
+************
 
 .. list-table:: **Color Camera**
   :widths: 25 75

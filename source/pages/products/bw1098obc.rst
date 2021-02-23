@@ -1,7 +1,7 @@
 .. _bw1098obc:
 
 BW1098OBC - OAK-D | DepthAI Onboard Cameras
-###############################
+###########################################
 
 .. image:: /_static/images/products/bw1098obc.png
   :alt: BW1098OBC
@@ -30,7 +30,7 @@ Install the :ref:`Python API <Python API>`.
 .. include::  /pages/includes/verify.rst
 
 Camera Specs
-*****
+************
 
 .. list-table:: **Camera Specs**
   :widths: 30 35 35
