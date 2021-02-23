@@ -436,7 +436,7 @@ This will be supported through running microPython directly on the `BW1099EMB <h
 The microPython nodes are what will allow custom logic, driving I2C, SPI, GPIO, UART, etc. controls, allowing direct controls of actuators, direct reading of sensors, etc. from/to the pipeline of CV/AI functions.
 A target example is making an entire autonomous, visually-controlled robotic platform with DepthAI as the only processor in the system.
 
-The target date for this mode is December 2020.
+This is now initially implemented and usable in Alpha.  Reach out to use if you'd like to try it.
 
 Hardware for Each Case:
 ***********************
@@ -448,11 +448,11 @@ Getting Started with Development
 ********************************
 
 Whether intending to use DepthAI with an :ref:`OS-capable host <withos>`, a :ref:`microcontroller over SPI <withmicrocontroller>`
-(in development), or :ref:`completely standalone <standalone>` (targeted support December 2020) - we recommend starting with either
+(in development), or :ref:`completely standalone <standalone>` (in Alpha testing) - we recommend starting with either
 :ref:`NCS2 mode <ncsmode>` or with the :ref:`DepthAI USB API <Python API>` for prototype/test/etc. as it allows faster iteration/feedback on
 neural model performance/etc.  And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test).
 
-In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before - and for now it will run only off of the image sensors (once the `Gen2 pipeline builder <https://github.com/luxonis/depthai/issues/136>`__ is out, which is scheduled for December 2020, there will exist the capability to run everything off of host images/video with the DepthAI API).  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
+In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before - and for now it will run only off of the image sensors (once the `Gen2 pipeline builder <https://github.com/luxonis/depthai/issues/136>`__ is out, which is now initially released in the `gen2_develop` branchm, with initial docs `here <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__, there will exist the capability to run everything off of host images/video with the DepthAI API).  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
 
 For common object detector formats (MobileNet-SSD, Tiny YOLO v1/2/3, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode.  You can just literally replace the classes in example MobileNet-SSD or Tiny YOLO examples we have.  For example for Tiny YOLO v3, you can just change the labels from "mask", "no mask" and "no mask 2" to whatever your classes are from this example `here <https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo/tiny-yolo.json>`__ and just change the blob file `here <https://github.com/luxonis/depthai/tree/main/resources/nn/tiny-yolo>`__ to your blob file.  And the same thing is true for MobileNet-SSD `here <https://github.com/luxonis/depthai/tree/main/resources/nn/mobilenet-ssd>`__.
 
@@ -476,24 +476,22 @@ Available in DepthAI API Today:
 - SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`__
 - Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`__)
 - Integrated Text Detection (`here <https://github.com/luxonis/depthai/issues/124>`__)
+- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__ and currently in Alpha testing), see the `Gen2 branch <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__ of this documentation.
+- Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
 
 The above features are available in the Luxonis Pipeline Builder Gen1 (see example :ref:`here <API Reference>`).  See :ref:`Pipeline Builder Gen2 <pipelinegen2>` for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
 
-On our Roadmap (planned delivery December 2020)
+On our Roadmap (Most are in development/integration)
 ***********************************************
-
-- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__ and currently in Alpha testing)
 - Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai/issues/216>`__)
 - microPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
 - Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`__)
 - Integrated IMU Support (`here <https://github.com/luxonis/depthai-hardware/issues/8>`__)
 - Motion Estimation (`here <https://github.com/luxonis/depthai/issues/245>`__)
 - Background Subtraction (`here <https://github.com/luxonis/depthai/issues/136>`__)
-- Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
 - Edge Detection (`here <https://github.com/luxonis/depthai/issues/247>`__)
 - Harris Filtering (`here <https://github.com/luxonis/depthai/issues/248>`__)
 - AprilTags (PR `here <https://github.com/luxonis/depthai/pull/139>`__)
-
 - OpenCL Support (supported through OpenVINO (`here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__))
 
 And see our Github project `here <https://github.com/orgs/luxonis/projects/2>`__ to follow along with the progress of these implementations.
