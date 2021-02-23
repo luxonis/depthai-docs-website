@@ -55,6 +55,30 @@ Available interfaces
       </div>
    </div>
 
+
+Neural Networks Performance on DepthAI
+######################################
+
+.. note::
+
+   These neural networks can be run using `gen2 demo script <https://github.com/luxonis/depthai/blob/gen2/gen2_demo.py>`__
+
+
+============================================ =========== ==========================================================================================
+Neural Network                               Performance Run command (`gen2_demo.py <https://github.com/luxonis/depthai/blob/gen2/gen2_demo.py>`__)
+============================================ =========== ==========================================================================================
+mobilenet-ssd                                30 FPS      :code:`python3 gen2_demo.py -cnn mobilenet-ssd`
+face-detection-adas-0001                     28 FPS      :code:`python3 gen2_demo.py -cnn face-detection-adas-0001`
+face-detection-retail-0004                   30 FPS      :code:`python3 gen2_demo.py -cnn face-detection-retail-0004`
+pedestrian-detection-adas-0002               30 FPS      :code:`python3 gen2_demo.py -cnn pedestrian-detection-adas-0002`
+person-detection-retail-0013                 30 FPS      :code:`python3 gen2_demo.py -cnn person-detection-retail-0013`
+person-vehicle-bike-detection-crossroad-1016 7 FPS       :code:`python3 gen2_demo.py -cnn person-vehicle-bike-detection-crossroad-1016`
+vehicle-detection-adas-0002                  30 FPS      :code:`python3 gen2_demo.py -cnn vehicle-detection-adas-0002`
+vehicle-license-plate-detection-barrier-0106 30 FPS      :code:`python3 gen2_demo.py -cnn vehicle-license-plate-detection-barrier-0106`
+tiny-yolo-v3                                 30 FPS      :code:`python3 gen2_demo.py -cnn tiny-yolo-v3`
+yolo-v3                                      2 FPS       :code:`python3 gen2_demo.py -cnn yolo-v3`
+============================================ =========== ==========================================================================================
+
 .. include::  /pages/includes/footer-long.rst
 
 
