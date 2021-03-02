@@ -6,9 +6,10 @@ Running into issues or have questions? We’re here to help.
 You can get help in a number of ways:
 
 - Email support@luxonis.com
-- Join our Community Discord for live assistance from us and devs like you.
-- Post a message to our forum.
-- Submit an issue on DepthAI repository
+- Join our `Discord Community <https://discord.gg/EPsZHkg9Nx>`__ for live
+  assistance from us and developers like you
+- Post a message to `our forum <https://discuss.luxonis.com/>`__
+- Open an issue our `DepthAI Github repository <https://github.com/luxonis/depthai/issues>`__
 
 ..
   Needed for index.rst bottom

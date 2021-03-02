@@ -1,2 +1,4 @@
 # General
 .DS_Store
+build/
+*.spelling

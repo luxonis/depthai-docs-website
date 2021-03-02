@@ -3,19 +3,21 @@ Calibration
 
 .. note::
 
-  Using the :ref:`BW1097 - RaspberryPi Compute Module` or :ref:`BW1098OBC - USB3 with Onboard Cameras`? **Your unit comes pre-calibrated**
-
+   The :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC
+   <bw1098obc>` are calibrated before shipment.
 
 For the modular camera editions of DepthAI (:ref:`BW1098FFC - USB3 with Modular Cameras` and :ref:`BW1094 - RaspberryPi Hat`)
 it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
 
-For the :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC - USB3 with Onboard Cameras`, the units come
+For the :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC <bw1098obc>`, the units come
 pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something),
 or if the calibration quality has started to fade over use/handling.
 
-Below is a quick video showing the (re-) calibration of the :ref:`BW1097 - RaspberryPi Compute Module`.
+Below is a quick video showing the (re-) calibration of the :ref:`BW1097 - RaspberryPi Compute Module`.  In short, the calibration uses the intersections to determine the orientation and distance of the checkerboard.  So the greatest accuracy will be obtained by a clear print or display of the provided checkerboard image on a flat plane. 
 
-Watching the video below will give you the steps needed to calibrate your own DepthAI.  And for more information/details on calibration options,
+The flatness of the calibration checkerboard is very important.  Do not use curved monitors, or calibration targets that have any 'waviness'.  So if you print the checkerboard, please make sure to affix the sheet to a known flat surface, without any waves.  That said, using a laptop with a flat monitor is usually the easiest technique.
+
+Watching the video below will give you the steps needed to calibrate your own DepthAI.  For more information/details on calibration options,
 please see the steps below and also :code:`./calibrate.py --help` which will print out all of the calibration options.
 
 
@@ -34,7 +36,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
       cd depthai
       python3 install_requirements.py
 
-#. Print chessboard calibration image.
+#. Print checkerboard calibration image.
 
     Either print the calibration checkerboard onto a flat surface, or display the checkerboard on a flat (not curved!) monitor.
     Note that if you do print the calibration target, take care to make sure it is attached to a flat surface and is flat and free of wrinkles and/or 'waves'.
@@ -42,7 +44,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
     Often, using a monitor to display the calibration target is easier/faster.
 
     .. image:: https://github.com/luxonis/depthai/raw/main/resources/calibration-chess-board.png
-      :alt: Print this chessboard calibration image
+      :alt: Print this checkerboard calibration image
       :target: https://github.com/luxonis/depthai/raw/main/resources/calibration-chess-board.png
 
     The entire board should fit on a single piece of paper (scale to fit).  And if displaying on a monitor, full-screen the image with a white background.
@@ -57,12 +59,12 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Argument reference:
 
-    - :code:`-s SQUARE_SIZE_IN_CM`, :code:`--square_size_cm SQUARE_SIZE_IN_CM`: Measure the square size of the printed chessboard in centimeters.
+    - :code:`-s SQUARE_SIZE_IN_CM`, :code:`--square_size_cm SQUARE_SIZE_IN_CM`: Measure the square size of the printed checkerboard in centimeters.
     - :code:`-brd BOARD`, :code:`--board BOARD`: BW1097, BW1098OBC - Board type from resources/boards/ (not case-sensitive). Or path to a custom .json board config. Mutually exclusive with [-fv -b -w], which allow manual specification of field of view, baseline, and camera orientation (swapped or not-swapped).
 
     Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].
 
-    For example, the arguments for the :ref:`BW1098OBC - USB3 with Onboard Cameras` look like the following if the square size is 2.35 cm:
+    For example, the arguments for the :ref:`BW1098OBC <bw1098obc>` look like the following if the square size is 2.35 cm:
 
     .. code-block:: bash
 
@@ -83,7 +85,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
         python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih
 
-    - **BW1097 (RPi Compute Module Edition):**
+    - **BW1097 (Raspberry Pi Compute Module Edition):**
 
       .. code-block:: bash
 
@@ -146,12 +148,12 @@ Then, run calibration with this board name:
 
 Run :code:`python3 calibrate.py --help` (or :code:`-h`) for a full list of arguments and usage examples.
 
-Position the chessboard and capture images.
-*******************************************
+Position the checkerboard and capture images
+********************************************
 
 Left and right video streams are displayed, each containing a polygon overlay.
 
-Hold up the printed chessboard (or laptop with the image displayed on the screen) so that the whole of the checkerboard is displayed within both video streams.
+Hold up the printed checkerboard (or laptop with the image displayed on the screen) so that the whole of the checkerboard is displayed within both video streams.
 
 Match the orientation of the overlayed polygon and press [SPACEBAR] to capture an image. The checkerboard pattern does
 not need to match the polygon exactly, but it is important to use the polygon as a guideline for angling and location relative to the camera.
@@ -233,3 +235,5 @@ And look for :code:`EEPROM data:` in the prints in the terminal after running th
 
 
 If anything looks incorrect, you can calibrate again and/or change board information and overwrite the stored eeprom information and calibration data using the :code:`-brd` and :code:`-e` flags as above.
+
+.. include::  /pages/includes/footer-short.rst

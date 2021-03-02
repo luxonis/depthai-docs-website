@@ -34,7 +34,13 @@ extensions = [
     "sphinx.ext.intersphinx",
     "sphinx.ext.autosectionlabel",  # https://github.com/sphinx-doc/sphinx/issues/7697 wait for this and implement
     "sphinx_rtd_theme",
+    "sphinxcontrib.spelling",
 ]
+
+# See https://github.com/sphinx-doc/sphinx/issues/7728
+suppress_warnings = ['autosectionlabel.*']
+
+spelling_word_list_filename = '../ci/spelling_wordlist.txt'
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']

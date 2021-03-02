@@ -1,28 +1,15 @@
 Troubleshooting
 ===============
 
-How can the startup demo on the RPi Compute Edition be disabled?
-################################################################
+How can the start-up demo on the Raspberry Pi Compute Edition be disabled?
+##########################################################################
 
-Delete the autostart file:
+Delete the :code:`autostart` file:
 
 .. code-block:: bash
 
   rm /home/pi/.config/autostart/runai.desktop
 
-'depthai: Error initalizing xlink' errors and DepthAI fails to run.
-###################################################################
-
-The Myriad X needs to be reset. Click the "MODULE RST" or "RST" button on your carrier board.
-
-On the RPi Compute edition, you can reset the Myriad X via the following shell commands:
-
-.. code-block:: bash
-
-  raspi-gpio set 33 op  # set 33 as output
-  raspi-gpio set 33 dh  # drive high to reset Myriad X
-  sleep 1
-  raspi-gpio set 33 dl  # drive low to allow Myriad X to run
 
 ImportError: No module named 'depthai'
 ######################################
@@ -39,7 +26,7 @@ This indicates that the :code:`depthai` was not found by your python interpreter
 
     .. code-block:: bash
 
-      cat /etc/lsb-release
+      cat /etc/os-release
 
 
 Why is the Camera Calibration running slow?
@@ -47,17 +34,22 @@ Why is the Camera Calibration running slow?
 
 Poor photo conditions `can dramatically impact the image processing time <https://stackoverflow.com/questions/51073309/why-does-the-camera-calibration-in-opencv-python-takes-more-than-30-minutes>`__)
 during the camera calibration. Under normal conditions, it should take 1 second or less to find the chessboard corners
-per-image on an RPi but this exceed 20 seconds per-image in poor conditions. Tips on setting up proper photo conditions:
+per-image on an Raspberry Pi but this exceed 20 seconds per-image in poor conditions. Tips on setting up proper photo conditions:
 
 - Ensure the checkerboard is not warped and is truly a flat surface. A high-quality option: `print the checkerboard on a foam board <https://discuss.luxonis.com/d/38-easy-calibration-targets-for-depthai-opencv-checkerboard>`__.
 - Reduce glare on the checkerboard (for example, ensure there are no light sources close to the board like a desk lamp).
 - Reduce the amount of motion blur by trying to hold the checkerboard as still as possible.
 
-[Errno 13] Permission denied: '/usr/local/lib/python3.7/dist-packages/...'
+Permission denied error
 ##########################################################################
 
 If :code:`python3 -m pip install` fails with a :code:`Permission denied` error, your user likely doesn't have permission
 to install packages in the system-wide path.
+
+.. code-block:: bash
+
+   [Errno 13] Permission denied: '/usr/local/lib/python3.7/dist-packages/...'
+
 Try installing in your user's home directory instead by adding the :code:`--user` option. For example:
 
 .. code-block:: bash
@@ -67,17 +59,18 @@ Try installing in your user's home directory instead by adding the :code:`--user
 `More information on Stackoverflow <https://stackoverflow.com/questions/31512422/pip-install-failing-with-oserror-errno-13-permission-denied-on-directory>`__.
 
 
-DepthAI does not show up under /dev/video* like web cameras do.  Why?
-#######################################################################
+DepthAI does not show up under :code:`/dev/video*` like web cameras do.  Why?
+#############################################################################
 
 The USB device enumeration could be checked with lsusb | grep 03e7  . It should print:
 
-- :code:`03e7:2485` after reset (bootloader running)
+- :code:`03e7:2485` after reset (boot loader running)
 - :code:`03e7:f63b` after the application was loaded
 
 No :code:`/dev/video*` nodes are created.
 
-DepthAI implements VSC (Vendor Specific Class) protocol, and libusb is used for communication.
+DepthAI implements the VSC (Vendor Specific Class) protocol and :code:`libusb`
+is used for communication.
 
 Intermittent Connectivity with Long (2 meter) USB3 Cables
 #########################################################
@@ -91,11 +84,13 @@ So unfortunately we discovered this after we shipped with long USB3 cables (2 me
 So if you have see this problem with your host, potentially 3 options:
 
 #. Switch to a shorter USB3 cable (say 1 meter) will very likely make the problem disappear.  `These <https://www.amazon.com/gp/product/B07S4G4L4Z/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1>`__ 1 meter (3.3 ft.) cables are a nice length and are now what we ship with DepthAI USB3 variants.
-#. Force USB2 mode with :code:`--force_usb2` option (examples below).  This will allow use of the long cable still, and many DepthAI usecases do not necessitate USB3 communication bandwidth - USB2 is plenty.
+#. Force USB2 mode with :code:`--force_usb2` option (examples below).  This will allow use of the long cable still, and many DepthAI use cases do not necessitate USB3 communication bandwidth - USB2 is plenty.
 #. Upgrade from Ubuntu 16.04 to Ubuntu 18.04.
 
 Forcing USB2 Communication
 **************************
+
+If you are having trouble with communication with DepthAI/OAK, forcing USB2 can sometimes resolve the issue.  
 
 .. code-block:: bash
 
@@ -105,9 +100,67 @@ Or, the shorter form:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -usb2
+  python3 depthai_demo.py -fusb2
 
 We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not
 Ubuntu 18.04/16.04 or Raspbian, please :ref:`compile DepthAI from source <Install from source>`.
+
+Failed to boot the device: 1.3-ma2480, err code 3
+#################################################
+
+This error often can occur if the udev rules are not set on Linux.  This will coincide with :code:`depthai: Error initializing xlink`.
+
+To fix this, set the udev rules using the commands below, unplugging DepthAI and then plugging it back into USB afterwards.
+
+.. code-block:: bash
+
+  echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
+  sudo udevadm control --reload-rules && sudo udevadm trigger
+  
+And in some cases, these were already set, but DepthAI was plugged in the entire time, so Linux could not reset the rules.
+
+So make sure to unplug and then plug the DepthAI back in after having run these.
+
+CTRL-C Is Not Stopping It!
+##########################
+
+If you are trying to kill a program with CTLR-C, and it's not working, try CTRL-\ instead.  Usually this will work.
+
+Is Your Raspberry Pi Locking Up?
+################################
+
+The Raspberry Pi has a max limit of 1.2A across all its USB ports, and DepthAI/megaAI/OAK can take up to 1A (at max power, usually closer to 500mA).
+
+So if you are seeing lockups, it could be that you are over this 1.2A limit as a result of the total power of the USB devices drawing from the Pi.  Using a powered hub can prevent this, or powering fewer other things off of the Pi over USB.
+
+"DLL load failed while importing cv2" on Windows
+################################################
+
+If you are seeing the following error after installing DepthAI for Windows:
+
+.. code-block:: bash
+
+  (venv) C:\Users\Context\depthai>python depthai_demo.py
+   Traceback (most recent call last):
+     File "C:\Users\Context\depthai\depthai_demo.py", line 7, in <module>
+       import cv2
+     File "C:\Users\Context\depthai\venv\lib\site-packages\cv2\__init__.py", line 5, in <module>
+       from .cv2 import *
+   ImportError: DLL load failed while importing cv2: The specified module could not be found.
+   
+Then installing the Windows Media Feature Pack (`here <https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions>`__) is often the resolution, as Media Feature Pack must be installed for Windows 10 N editions.
+
+(And more background from OpenCV directly is `here <https://github.com/skvark/opencv-python/blob/master/README.md#:~:text=Q%3A%20Import%20fails%20on%20Windows%3A%20ImportError%3A%20DLL%20load%20failed%3A%20The%20specified%20module%20could%20not%20be%20found.%3F>`__)
+
+:code:`python3 depthai_demo.py` returns Illegal instruction
+###########################################################
+
+This so far has always meant there is a problem with the OpenCV install on the host (and not actually with the depthai library).  To check this, run:
+
+.. code-block:: bash
+
+  python3 -c "import cv2; import numpy as np; blank_image = np.zeros((500,500,3), np.uint8); cv2.imshow('s', blank_image); cv2.waitKey(0)"
+
+If a window is not displayed, or if you get the `:bash: Illegal instruction` result, this means there is a problem with the OpenCV install.  The installation scripts `here <https://docs.luxonis.com/en/latest/pages/api/#supported-platforms>`__ often will fix the OpenCV issues.  But if they do not, running `:bash: python3 -m pip install opencv-python --force-reinstall` will often fix the OpenCV problem.
 
 .. include::  /pages/includes/footer-short.rst
