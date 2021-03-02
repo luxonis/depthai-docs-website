@@ -183,11 +183,14 @@ And triangulation of the parallel left/right outputs results in very-accurate re
 What is the Gen2 Pipeline Builder?
 ##################################
 
-The Gen2 system is the future of all depthai and OAK.  It is the next-generation software suite for DepthAI and OAK.  All DepthAI and OAK hardware work with Gen1 and Gen2 software (i.e. Gen2 is purely a software re-write, no hardware changes).  As of this writing, Gen2 is still in early release, and some specific features available in the Gen1 system of depthai are not implemented in Gen2 (but it is already quite usable and more flexible).  
+It is the next-generation software suite for DepthAI and OAK.  All DepthAI and OAK hardware work with Gen1 and Gen2 software, as Gen2 is purely a software re-write, no hardware changes.
+It is infinitely more flexible, and is the result of all that we learned from the customer deployments of Gen1.
+Amassing all the requests and need for flexibility, we made Gen2.
+In short, Gen2 allows theoretically-infinite permutations of parallel and series CV + AI (neural inference) nodes,
+limited only by hardware capabilities, whereas Gen1 was limited for example to 2-series and 2-parallel neural inference.
+Full background on the Gen2 Pipeline Builder is `here <https://github.com/luxonis/depthai/issues/136>`__.
 
-That said, it is infinitely more flexible, and is the result of all that we learned from the customer deployments of Gen1.  Amassing all the requests and need for flexibility, we made Gen2.  In short, Gen2 allows theoretically-infinite permutations of parallel and series CV + AI (neural inference) nodes, limited only by hardware capabilities, whereas Gen1 was limited for example to 2-series and 2-parallel neural inference.  Full background on the Gen2 Pipeline Builder is `here <https://github.com/luxonis/depthai/issues/136>`__.
-
-Several Gen2 Examples are `here <https://github.com/luxonis/depthai-experiments#gen2-gaze-estimation-here>`__ and also the docs for Gen2 are now initial available in the `Gen2 branch <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__ of this documentation system (selectable from the bottom left of this page).
+Several Gen2 Examples are `here <https://github.com/luxonis/depthai-experiments#gen2-gaze-estimation-here>`__ and also the docs for Gen2 are now available in the `main docs page <https://docs.luxonis.com/projects/api/en/latest/>`__.
 
 What is megaAI?
 ###############
@@ -324,12 +327,7 @@ See :ref:`here <Multiple DepthAI per Host>` for instructions on how to do so.
 Is DepthAI OpenVINO Compatible?
 ###############################
 
-Yes.  DepthAI Gen 1 is fully compatible with OpenVINO 2020.1.
-
-.. note::
-
-   `DepthAI Gen 2 <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__ supports 2020.1, 2020.2, 2020.3, 2020.4 and 2021.1.
-   We do our best to support new OpenVINO releases as soon as they are made available.
+Yes.  DepthAI is fully compatible with OpenVINO 2020.1, 2020.2, 2020.3, 2020.4 and 2021.1.
 
 Can I train my own Models for DepthAI?
 ######################################
@@ -381,7 +379,7 @@ Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>
 Can DepthAI do Arbitrary Crop, Resize, Thumbnail, etc.?
 #######################################################
 
-Yes, see `here <https://github.com/luxonis/depthai-python/blob/gen2_develop/examples/14_color_camera_control.py>`__ for ane example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
+Yes, see `here <https://github.com/luxonis/depthai-python/blob/main/examples/14_color_camera_control.py>`__ for ane example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
 
 Can DepthAI Run Custom CV Code?  Say CV Code From PyTorch?
 ##########################################################
@@ -452,7 +450,7 @@ Whether intending to use DepthAI with an :ref:`OS-capable host <withos>`, a :ref
 :ref:`NCS2 mode <ncsmode>` or with the :ref:`DepthAI USB API <Python API>` for prototype/test/etc. as it allows faster iteration/feedback on
 neural model performance/etc.  And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test).
 
-In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before - and for now it will run only off of the image sensors (once the `Gen2 pipeline builder <https://github.com/luxonis/depthai/issues/136>`__ is out, which is now initially released in the `gen2_develop` branchm, with initial docs `here <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__, there will exist the capability to run everything off of host images/video with the DepthAI API).  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
+In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before.  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
 
 For common object detector formats (MobileNet-SSD, Tiny YOLO v1/2/3, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode.  You can just literally replace the classes in example MobileNet-SSD or Tiny YOLO examples we have.  For example for Tiny YOLO v3, you can just change the labels from "mask", "no mask" and "no mask 2" to whatever your classes are from this example `here <https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo/tiny-yolo.json>`__ and just change the blob file `here <https://github.com/luxonis/depthai/tree/main/resources/nn/tiny-yolo>`__ to your blob file.  And the same thing is true for MobileNet-SSD `here <https://github.com/luxonis/depthai/tree/main/resources/nn/mobilenet-ssd>`__.
 
@@ -476,7 +474,7 @@ Available in DepthAI API Today:
 - SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`__
 - Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`__)
 - Integrated Text Detection (`here <https://github.com/luxonis/depthai/issues/124>`__)
-- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__ and currently in Alpha testing), see the `Gen2 branch <https://docs.luxonis.com/projects/api/en/gen2_develop/>`__ of this documentation.
+- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__), see the `latest docs <https://docs.luxonis.com/projects/api/en/latest/>`__.
 - Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
 
 The above features are available in the Luxonis Pipeline Builder Gen1 (see example :ref:`here <API Reference>`).  See :ref:`Pipeline Builder Gen2 <pipelinegen2>` for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
@@ -1492,7 +1490,7 @@ We do not have prebuilt binaries for C++ core library.
 One of the reasons is the vast number of different platforms and the second is that the library itself is quite lean so compiling along the other C++ source should not be a problem.
 
 To compile the needed headers and a .dll follow this:
-https://github.com/luxonis/depthai-core/tree/gen2_develop#building
+https://github.com/luxonis/depthai-core/tree/main#building
 Under - And for the dynamic version of the library
 
 You can optionally also install it into a desired directory by appending this cmake flag:
