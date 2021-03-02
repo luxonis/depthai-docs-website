@@ -32,7 +32,7 @@ function addNavbar() {
     "  <div id=\"lux-doc-navbar\" class=\"lux-navbar-container\">\n" +
     "    <div class=\"lux-navbar\">\n" +
     "      <ul>\n" +
-    "        <li><a href=\"/en/gen2/\">Main</a></li>\n" +
+    "        <li><a href=\"/en/latest/\">Main</a></li>\n" +
     "        <li><a href=\"/projects/api/\">API</a></li>\n" +
     "        <li><a href=\"/projects/gui/\">GUI</a></li>\n" +
     "      </ul>\n" +
