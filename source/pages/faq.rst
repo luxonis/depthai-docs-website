@@ -1003,7 +1003,7 @@ And we have also since done several optimizations since these measurements, so t
 Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Camera?
 ####################################################################################
 
-Yes, but currently not currently implemented in our API.  It's on our roadmap, `here <https://github.com/luxonis/depthai/issues/283>`__ 
+Yes, but currently not currently implemented in our API.  It's on our roadmap, `here <https://github.com/luxonis/depthai/issues/283>`__
 
 The :code:`why` of our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see :ref:`here <Supported Platforms>`).  So what we plan to do is to support UVC as part of our Gen2 Pipeline builder, so you can build a complex spatial AI/CV pipeline and then have the UVC endpoints output the results, so that DepthAI could then work on any system without drivers.  For our embedded variants, this could then be flashed to the device so that the whole pipeline will automatically run on boot-up and show up to a computer a UVC device (a webcam).
 
@@ -1236,8 +1236,8 @@ And for example to set an exposure time of 23.4ms, with the maximum sensitivity 
      depthai.CameraControl.CamId.RGB,
      depthai.CameraControl.Command.AE_MANUAL,
      "23400 1600 33333")
-    
-    
+
+
 White Balance (AWB)
 *******************
 
@@ -1529,7 +1529,7 @@ Brochures:
 Datasheets:
 ***********
 
-- DepthAI System on Module (BW1099) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__ 
+- DepthAI System on Module (BW1099) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
  
 

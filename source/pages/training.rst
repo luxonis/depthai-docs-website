@@ -82,5 +82,5 @@ This notebook operates on your set of images in Google Drive to resize them to t
 
 .. include::  /pages/includes/footer-short.rst
 
-
+.. include::  /pages/includes/footer-short.rst
 

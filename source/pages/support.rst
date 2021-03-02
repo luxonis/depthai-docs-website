@@ -16,15 +16,18 @@ You can get help in a number of ways:
 
 .. image:: /_static/images/email.png
   :width: 1
-  :alt: email
 
 .. image:: /_static/images/forum.png
   :width: 1
-  :alt: forum
 
 .. image:: /_static/images/discord.png
   :width: 1
-  :alt: discord
+
+.. image:: /_static/images/depthai-gui.png
+  :width: 1
+
+.. image:: /_static/images/depthai-api.jpg
+  :width: 1
 
 Refunds and returns policy
 ##########################
