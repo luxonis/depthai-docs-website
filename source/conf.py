@@ -21,10 +21,6 @@ project = 'DepthAI Docs'
 copyright = '2020, Luxonis'
 author = 'Luxonis'
 
-# The full version, including alpha/beta/rc tags
-release = '0.3.0.0'
-
-
 # -- General configuration ---------------------------------------------------
 
 # Add any Sphinx extension module names here, as strings. They can be
@@ -75,5 +71,6 @@ html_css_files = [
 html_js_files = [
     'js/navbar.js',
 ]
+html_title = 'DepthAI documentation | Luxonis'
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
