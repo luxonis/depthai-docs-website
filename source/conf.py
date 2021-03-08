@@ -71,5 +71,6 @@ html_css_files = [
 html_js_files = [
     'js/navbar.js',
 ]
+html_title = 'DepthAI documentation | Luxonis'
 
 intersphinx_mapping = {'python': ('https://docs.python.org/3', None)}
