@@ -158,4 +158,4 @@ Luxonis Github Repositories
    :hidden:
    :caption: Tutorials
 
-   tutorials/pretrained_openvino.rst
+   pages/tutorials/pretrained_openvino.rst
