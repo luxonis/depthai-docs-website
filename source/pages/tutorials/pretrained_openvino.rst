@@ -134,7 +134,7 @@ The flow we walked through works for other pre-trained object detection models i
 - Age and Gender Recognition (:code:`age-gender-recognition-retail-0013`)
 - Pose Estimation on MobileNetV2 (:code:`mobileNetV2-PoseEstimation`)
 
-Models that can be deployed as first CNN in the argument (:code:`python3 depthai_demo.py -cnn <model>)
+Models that can be deployed as first CNN in the argument (:code:`python3 depthai_demo.py -cnn <model>`)
 (:code:`vehicle-detection-adas-0002,mobileNetV2-PoseEstimation,yolo-v3,vehicle-license-plate-detection-barrier-0106,age-gender-recognition-retail-0013,person-detection-retail-0013,human-pose-estimation-0001,face-detection-adas-0001,person-vehicle-bike-detection-crossroad-1016,openpose2,pedestrian-detection-adas-0002,tiny-yolo-v3,openpose,deeplabv3p_person,mobilenet-ssd,face-detection-retail-0004`)
 
 Models that can be deployed as second CNN in the argument (:code:`python3 depthai_demo.py -cnn <model_1> -cnn2 <model_2>`)
