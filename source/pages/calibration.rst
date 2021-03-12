@@ -3,8 +3,8 @@ Calibration
 
 .. note::
 
-   The :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC
-   <bw1098obc>` are calibrated before shipment.
+   The :ref:`BW1097 - RaspberryPi Compute Module`, :ref:`BW1098OBC
+   <bw1098obc>` and OAK-D are calibrated before shipment.
 
 For the modular camera editions of DepthAI (:ref:`BW1098FFC - USB3 with Modular Cameras` and :ref:`BW1094 - RaspberryPi Hat`)
 it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
