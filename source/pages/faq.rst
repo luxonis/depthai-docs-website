@@ -1150,7 +1150,7 @@ Encoded:
 How Much Compute Is Available?  How Much Neural Compute is Available?
 #####################################################################
 
-DepthAI and megaAI are built around the Intel Movidius Myriad X.  More details/background on this part are `here <https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf>`__
+DepthAI and megaAI are built around the Intel Movidius [Myriad X](https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html).  More details/background on this part are `here <https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf>`__
 and also `here <https://www.anandtech.com/show/11771/intel-announces-movidius-myriad-x-vpu>`__.
 
 A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabilities:
