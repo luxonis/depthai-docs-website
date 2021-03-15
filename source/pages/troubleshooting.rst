@@ -75,7 +75,7 @@ is used for communication.
 Intermittent Connectivity with Long (2 meter) USB3 Cables
 #########################################################
 
-- We've found that some hosts have trouble with USB3 + long cables (2 meter).  It seems to have something do do with the USB controller on the host side.
+- We've found that some hosts have trouble with USB3 + long cables (2 meter).  It seems to have something to do with the USB controller on the host side.
 - Other hosts have no problem at all and run for days (tested well over 3 days on some), even with long cables (tested w/ a total length of a bit over 8 feet).  For example, all Apple computers we've tested with have never exhibited the problem.
 - Ubuntu 16.04 has an independent USB3 issue, seemingly only on new machines though.  We think this has to do w/ Ubuntu 16.04 being EOLed prior or around when these new machines having hit the market.  For example, on this computer (`here <https://pcpartpicker.com/list/KTDFQZ>`__) has rampant USB3 disconnect issues under Ubuntu 16.04 (with a 1 meter cable), but has none under Ubuntu 18.04 (with a 1 meter cable).
 
@@ -102,8 +102,21 @@ Or, the shorter form:
 
   python3 depthai_demo.py -fusb2
 
+For gen2, change the second argument to **True** when creating the device:
+
+.. code-block:: python
+
+  depthai.Device('', True)
+
 We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not
 Ubuntu 18.04/16.04 or Raspbian, please :ref:`compile DepthAI from source <Install from source>`.
+
+Output from DepthAI keeps freezing
+#################################################
+
+If the output from the device keeps freezing every few seconds, there may be a problem with the USB3 connection and forcing the device into USB2 mode could resolve this issue - instructions are in the chapter above.
+
+When connection speed is USB2 (due to some hosts - Windows in particular - or USB controller/port/cable being USB2) - initialization of USB3-enabled firmware or streaming after a few frames may fail. The workaround here is to force the device to use the USB2-only firmware (mentioned in the chapter above).
 
 Failed to boot the device: 1.3-ma2480, err code 3
 #################################################
