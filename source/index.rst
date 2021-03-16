@@ -12,17 +12,43 @@ DepthAI's documentation
 
 What is DepthAI
 ###############
-DepthAI is the embedded spatial AI platform built around Myriad X that helps you build products with true real-time 3D object localization
-(think 3D object detection) and tracking. DepthAI offloads AI, depth vision and more - processed direct from built-in
-cameras - freeing your host to process application-specific data.
+DepthAI is the embedded :ref:`spatial <spatialai>` AI platform built around `Myriad X <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu/movidius-myriad-x.html>`__ that helps you build products with true real-time 3D object localization
+(think 3D object detection) and tracking. DepthAI offloads AI, depth vision and more - processed direct from built-in cameras - freeing your host to process application-specific data.
 
 DepthAI gives you this power in a simple, easy-to-use API, written in Python and C++.
 
-Best of all, it is modular (System on Module) and built on MIT-licensed open source hardware, affording adding these Spatial AI/CV super powers to real commercial products.
+Best of all, it is modular (System on Module) and built on `MIT-licensed open source hardware <https://github.com/luxonis/depthai-hardware>`__, affording adding these Spatial AI/CV super powers to real commercial products.
 
 
 DepthAI Ecosystem
 #################
+
+DepthAI is a platform - a complete ecosystem of custom hardware, firmware, software, and AI training - which combines neural inference, depth vision, and feature tracking into an easy-to-use, works-in-30-seconds solution. 
+
+This is an all-in-one solution for folks who need the power of AI, depth, and tracking in a single device. It is also open source - including hardware, software, and AI training. So it allows easy/fast productization as all our DepthAI designs serve as references designs for integrating 
+the power of DepthAI into your own products. 
+
+
+Glossary
+********
+
+- **Gen2** is a step forward in DepthAI integration, allowing users to define their own flow of data using pipelines, nodes and connections. Gen2 was created based on user's feedback from Gen1 and from raising capabilities of both DepthAI and
+  supporting software like `OpenVINO <https://docs.openvinotoolkit.org/latest/index.html>`__.
+
+- **Host side** is the device, like PC or RaspberryPi, to which the DepthAI is connected to. If something is happening on the host side, it means that this device is involved in it, not DepthAI itself
+
+- **Device side** is the DepthAI itself. If something is happening on the device side, it means that the DepthAI is responsible for it
+
+- **Pipeline** is a complete workflow on the device side, consisting of nodes and connections between them - these cannot exist outside of pipeline.
+
+- **Node** is a single functionality of the DepthAI. It have either inputs or outputs or both, together with properties to be defined (like resolution on 
+  the camera node or blob path in neural network node)
+
+- **Connection** is a link between one node's output and another one's input. In order to define the pipeline dataflow, the connections define where to 
+  send data in order to achieve an expected result
+
+- **XLink** is a middleware that is capable to exchange data between device and host. XLinkIn node allows to send the data from host to device, XLinkOut does 
+  the opposite.
 
 
 Products
@@ -36,17 +62,16 @@ Interfaces
   :widths: 20 80
 
   * - DepthAI Python API
-    - Get started with Python
+    - `Get started with Python <https://docs.luxonis.com/projects/api/en/latest/> `__
   * - DepthAI Python API
-    - Get started with C++
-  * - DepthAI GUI 
-    - Get started with GUI
+    - `Get started with C++ <https://docs.luxonis.com/projects/api/en/latest/> `__
+ 
     
 .. list-table:: GUI 
     :widths: 20 80
 
     * - DepthAI GUI 
-      - Get started with GUI
+    - `Get started with GUI <https://docs.luxonis.com/projects/gui/en/latest/#> `__
  
       
 
@@ -133,7 +158,7 @@ Luxonis Github Repositories
 
    DepthAI API <https://docs.luxonis.com/projects/api/en/latest/>
    DepthAI GUI <https://docs.luxonis.com/projects/gui/en/latest/>
-
+   
 
 .. toctree::
    :maxdepth: 1
