@@ -6,11 +6,14 @@ FAQs & How-To
 Why Does DepthAI Exist?
 #######################
 
-In trying to solve an Embedded :ref:`Spatial AI<spatialai>` problem (details `here <https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian>`__),
+In trying to solve an Embedded :ref:`Spatial AI<spatialai>` problem (`details here <https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian>`__),
 we discovered that although the perfect chip existed, there was no platform (hardware, firmware, or software) which
 allowed the chip to be used to solve such an Embedded Spatial AI problem.
 
 So we built the platform, known as DepthAI and the OpenCV AI Kit (OAK).
+
+
+.. _depthai:
 
 What is DepthAI?
 ################
@@ -20,7 +23,7 @@ provides turnkey embedded :ref:`Spatial AI+CV<spatialai>` and hardware-accelerat
 
 It gives embedded systems the super-power of human-like perception in real-time: what an object is and where it is in physical space.
 
-It can be used with off-the-shelf AI models (how-to :ref:`here <Use a Pre-trained OpenVINO model>`)
+It can be used with off-the-shelf AI models (`how to here <https://docs.luxonis.com/en/add_pretrained_example/pages/tutorials/pretrained_openvino/>`__)
 or with custom models using our completely-free training flow (how-to `here <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb>`__).
 
 An example of a custom-trained model is below, where DepthAI is used by a robot to autonomously pick and sort strawberries by ripeness.
@@ -182,6 +185,9 @@ And so running stereo neural inference excels in these cases, as it does not rel
 and instead relies purely on the results of the neural network, which are robust at providing these single pixel results.
 And triangulation of the parallel left/right outputs results in very-accurate real-time landmark results in 3D space.
 
+
+.. _gen2pipelinebuilder:
+
 What is the Gen2 Pipeline Builder?
 ##################################
 
@@ -193,6 +199,9 @@ limited only by hardware capabilities, whereas Gen1 was limited for example to 2
 Full background on the Gen2 Pipeline Builder is `here <https://github.com/luxonis/depthai/issues/136>`__.
 
 Several Gen2 Examples are `here <https://github.com/luxonis/depthai-experiments#gen2-gaze-estimation-here>`__ and also the docs for Gen2 are now available in the `main docs page <https://docs.luxonis.com/projects/api/en/latest/>`__.
+
+
+.. _megaai:
 
 What is megaAI?
 ###############
@@ -207,6 +216,7 @@ We named it :code:`mega` because it's tiny:
 megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Github repositories), it is simply the tiny single-camera variant.
 
 You can buy megaAI from our distributors and also our online store `here <https://shop.luxonis.com/products/bw1093>`__.
+
 
 Which Model Should I Order?
 ###########################
@@ -235,6 +245,9 @@ Embedded CV/AI requires all sorts of different shapes/sizes/permutations.  And s
   but it is still booting over USB from the Raspberry Pi.  This BW1092, the Myriad X can run completely standalone and with no other devices.
   The built-in ESP32 then provides easy/convenient WiFi/BT support as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
 
+
+.. _som:
+
 System on Modules
 *****************
 
@@ -250,10 +263,10 @@ How hard is it to get DepthAI running from scratch?  What Platforms are Supporte
 
 Not hard.  Usually DepthAI is up/running on your platform within a couple minutes (most of which is download time).
 The requirements are Python and OpenCV (which are great to have on your system anyway!). See
-:ref:`here <Supported Platforms>` for supported platforms and how to get up/running with them.
+`here <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for supported platforms and how to get up/running with them.
 
 **Raspbian, Ubuntu, macOS, Windows,** and many others are supported and are easy to get up/running.
-For Install on various platforms are :ref:`here <Other installation methods>`.
+For Install on various platforms are `here <https://docs.luxonis.com/projects/api/en/latest/install/>`__.
 
 It's a matter of minutes to be up and running with the power of Spatial AI, on the platform of your choice.  Below is DepthAI running on my Mac.
 
@@ -324,7 +337,7 @@ Can I use multiple DepthAI with one host?
 Yes.  DepthAI is architected to put as-little-as-possible burden on the host.
 So even with a Raspberry Pi you can run a handful of DepthAI with the Pi and not burden the Pi CPU.
 
-See :ref:`here <Multiple DepthAI per Host>` for instructions on how to do so.
+See `here <https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/>`__ for instructions on how to do so.
 
 Is DepthAI OpenVINO Compatible?
 ###############################
@@ -1005,7 +1018,7 @@ Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Cam
 
 Yes, but currently not currently implemented in our API.  It's on our roadmap, `here <https://github.com/luxonis/depthai/issues/283>`__
 
-The :code:`why` of our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see :ref:`here <Supported Platforms>`).  So what we plan to do is to support UVC as part of our Gen2 Pipeline builder, so you can build a complex spatial AI/CV pipeline and then have the UVC endpoints output the results, so that DepthAI could then work on any system without drivers.  For our embedded variants, this could then be flashed to the device so that the whole pipeline will automatically run on boot-up and show up to a computer a UVC device (a webcam).
+The :code:`why` of our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see `here <https://docs.luxonis.com/projects/api/en/latest/install/>`__).  So what we plan to do is to support UVC as part of our Gen2 Pipeline builder, so you can build a complex spatial AI/CV pipeline and then have the UVC endpoints output the results, so that DepthAI could then work on any system without drivers.  For our embedded variants, this could then be flashed to the device so that the whole pipeline will automatically run on boot-up and show up to a computer a UVC device (a webcam).
 
 Theoretically we can implement support for 3 UVC endpoints (so showing up as 3 UVC cameras), on for each of the 3 cameras. 
 
@@ -1371,7 +1384,7 @@ And it will run the default MobilenetSSD, compiled to use 2 NCEs, 14 SHAVEs and 
 these values **cannot be greater than the ones you can see above**, so you cannot use 15 SHAVEs or 3 NCEs.
 14 is the limit for both SHAVE and CMX parameters, and 2 is the limit for NCE.
 
-You can try it out yourself either by following :ref:`local OpenVINO model conversion tutorial <Local OpenVINO Model Conversion>`
+You can try it out yourself either by following `local OpenVINO model conversion tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/>`__
 or by using our `online Myriad X blob converter <http://69.164.214.171:8083/>`__
 
 

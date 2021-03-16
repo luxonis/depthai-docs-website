@@ -17,7 +17,7 @@ DepthAI is the embedded :ref:`spatial <spatialai>` AI platform built around `Myr
 
 DepthAI gives you this power in a simple, easy-to-use API, written in Python and C++.
 
-Best of all, it is modular (System on Module) and built on `MIT-licensed open source hardware <https://github.com/luxonis/depthai-hardware>`__, affording adding these Spatial AI/CV super powers to real commercial products.
+Best of all, it is modular (:ref:`System on Module <som>`) and built on `MIT-licensed open source hardware <https://github.com/luxonis/depthai-hardware>`__, affording adding these Spatial AI/CV super powers to real commercial products.
 
 
 DepthAI Ecosystem
