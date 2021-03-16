@@ -163,7 +163,6 @@ This so far has always meant there is a problem with the OpenCV install on the h
 
 If a window is not displayed, or if you get the `:bash: Illegal instruction` result, this means there is a problem with the OpenCV install.  The installation scripts `here <https://docs.luxonis.com/en/latest/pages/api/#supported-platforms>`__ often will fix the OpenCV issues.  But if they do not, running `:bash: python3 -m pip install opencv-python --force-reinstall` will often fix the OpenCV problem.
 
-.. include::  /pages/includes/footer-short.rst
 
 Neural network blob compiled with uncompatible openvino version
 ###############################################################
@@ -181,3 +180,4 @@ The reason for this error is that depthai can't resolve the OpenVINO version fro
   pipeline.setOpenVINOVersion(depthai.OpenVINO.Version.VERSION_2020_1)
 
 
+.. include::  /pages/includes/footer-short.rst
