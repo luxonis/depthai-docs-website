@@ -102,11 +102,11 @@ Or, the shorter form:
 
   python3 depthai_demo.py -fusb2
 
-For gen2, change the second argument to **True** when creating the device:
+For gen2, set the **usb2mode** to **True** when creating the device:
 
 .. code-block:: python
 
-  depthai.Device('', True)
+  dai.Device(pipeline, usb2mode=True)
 
 We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not
 Ubuntu 18.04/16.04 or Raspbian, please :ref:`compile DepthAI from source <Install from source>`.
