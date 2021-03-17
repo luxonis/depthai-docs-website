@@ -901,7 +901,14 @@ How do I Record (or Encode) Video with DepthAI?
 
 DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai_demo.py` script shows and example of how to access this functionality.
 
-To leverage this functionality from the command line, use the `-v` (or `--video`) command line argument as below:
+In Gen2 (current main line), see our encoding examples:
+
+ - RGB and Mono Encoding in parallel with MobileNetSSDv2, `here <https://docs.luxonis.com/projects/api/en/latest/samples/11_rgb_encoding_mono_mobilenet/>`__.
+ - RGB and Mono Encoding in parallel with MobileNetSSDv2 and stereo depth, `here <https://docs.luxonis.com/projects/api/en/latest/samples/12_rgb_encoding_mono_mobilenet_depth/>`__.
+ - RGB, and both left/right camera encoding at maximum resolution and frame-rate, `here <https://docs.luxonis.com/projects/api/en/latest/samples/13_encoding_max_limit/>`__.
+
+
+Alternatively, to leverage this functionality from the depthai_demo.py (Gen1 API) command line, use the `-v` (or `--video`) command line argument as below:
 
 .. code-block:: bash
 
@@ -923,8 +930,8 @@ An example video encoded on DepthAI `BW1097 <https://shop.luxonis.com/collection
   :alt: 4K Video in 3.125MB/s on DepthAI with Raspberry Pi 3B
   :target: https://www.youtube.com/watch?v=vEq7LtGbECs
 
-Video Encoding Options
-**********************
+Gen1 Video Encoding Options
+***************************
 
 Additional options can be configured in the video encoding system by adding a :code:`video_config` section to the JSON configuration file for the DepthAI pipeline builder, `here <https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342>`__, an example of which is `here <https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342>`__.
 
@@ -949,8 +956,18 @@ The options above are all current options exposed for video encoding and not all
 
 If the :code:`video_config` member is **NOT** present in :code:`config` dictionary then default is used: H264_HIGH, constant bit rate 8500 Kbps, key frame every 30 frames (once per second), :code:`num B frames: 0`.
 
+What are the Capabilities of the Video Encoder on DepthAI?
+##########################################################
+
+The max total encoding for h.264 has 3 limits:
+- 3840 pixel max width for a frame
+- Maximum pixels per second of 248,832,000. (3840x2160x30)
+- Maximum of 3 parallel encoding streams
+
+The JPEG encoder is capable of 500Mpixel/second.
+
 What Is The Stream Latency?
-##############################
+###########################
 
 When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from light hitting an image sensor to when the results are available to a user, the :code:`photon-to-results` latency.
 
