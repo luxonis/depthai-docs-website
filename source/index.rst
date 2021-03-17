@@ -23,10 +23,9 @@ Best of all, it is modular (:ref:`System on Module <som>`) and built on `MIT-lic
 DepthAI Ecosystem
 #################
 
-DepthAI is a platform - a complete ecosystem of custom hardware, firmware, software, and AI training - which combines neural inference, depth vision, and feature tracking into an easy-to-use, works-in-30-seconds solution. 
+DepthAI is a platform - a complete ecosystem of custom `hardware <https://github.com/luxonis/depthai-hardware>`__, firmware, `software <https://docs.luxonis.com/projects/api/en/latest/>`__, and AI training - which combines neural inference, depth vision, and feature tracking into an easy-to-use, works-in-30-seconds solution. 
 
-This is an all-in-one solution for folks who need the power of AI, depth, and tracking in a single device. It is also open source - including hardware, software, and AI training. So it allows easy/fast productization as all our DepthAI designs serve as references designs for integrating 
-the power of DepthAI into your own products. 
+This is an all-in-one solution for folks who need the power of AI, depth, and tracking in a single device.
 
 
 Glossary
@@ -53,6 +52,7 @@ Glossary
 
 Products
 ********
+
 
 
 Interfaces
