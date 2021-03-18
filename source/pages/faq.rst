@@ -959,12 +959,14 @@ If the :code:`video_config` member is **NOT** present in :code:`config` dictiona
 What are the Capabilities of the Video Encoder on DepthAI?
 ##########################################################
 
-The max total encoding for h.264 has 3 limits:
-- 3840 pixel max width for a frame
-- Maximum pixels per second of 248,832,000. (3840x2160x30)
+The max total encoding for h.264 and h.265 has 3 limits:
+- 4096 pixel max width for a frame.
+- Maximum pixels per second of 248 MegaPixel/second. 
 - Maximum of 3 parallel encoding streams
 
-The JPEG encoder is capable of 500Mpixel/second.
+The JPEG encoder is capable of 16384x8192 resolution at 500Mpixel/second.
+
+Note the processing resources of the encoder are shared between H.26x and JPEG.
 
 What Is The Stream Latency?
 ###########################
