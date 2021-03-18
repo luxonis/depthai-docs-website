@@ -966,7 +966,7 @@ The max total encoding for h.264 and h.265 has 3 limits:
 
 The JPEG encoder is capable of 16384x8192 resolution at 500Mpixel/second.
 
-Note the processing resources of the encoder are shared between H.26x and JPEG.
+Note the processing resources of the encoder are shared between H.26x and JPEG and both the width and height should be a multiple of 8 (which is usually the case with standard resolutions).
 
 What Is The Stream Latency?
 ###########################
