@@ -462,23 +462,23 @@ What Hardware-Accelerated Capabilities Exist in DepthAI and/or megaAI?
 Available in DepthAI API Today:
 *******************************
 
-- Neural Inference (e.g. object detection, image classification, etc., including two-stage, e.g. `here <https://youtu.be/uAfGulcDWSk>`__)
+- Neural Inference (e.g. object detection, image classification, etc., including multi-stage inference, e.g. `here <https://youtu.be/uAfGulcDWSk>`__ and `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation#gen2-gaze-estimation>`__)
 - Stereo Depth (including median filtering) (e.g. `here <https://youtu.be/sO1EU5AUq4U>`__)
 - Stereo Inference (with two-stage, e.g. `here <https://youtu.be/eEnDW0WQ3bo>`__)
 - 3D Object Localization (augmenting 2D object detectors with 3D position in meters, e.g. `here <https://youtu.be/cJr4IpGMSLA>`__ and `here <https://youtu.be/SWDQekolM8o>`__)
 - Object Tracking (e.g. `here <https://vimeo.com/422965770>`__, including in 3D space)
 - H.264 and H.265 Encoding (HEVC, 1080p & 4K Video, e.g. `here <https://youtu.be/vEq7LtGbECs>`__)
-- JPEG Encoding
+- JPEG Encoding (e.g. `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-class-saver-jpeg#gen2-class-saver-jpeg>`__)
 - MJPEG Encoding
-- Warp/Dewarp
+- Warp/Dewarp (for RGB-depth alignment/etc.)
 - Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), `here <https://github.com/luxonis/depthai/issues/163>`__
 - SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`__
-- Arbitrary crop/rescale/reformat and ROI return (`here <https://github.com/luxonis/depthai/issues/249>`__)
-- Integrated Text Detection (`here <https://github.com/luxonis/depthai/issues/124>`__)
-- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__), see the `latest docs <https://docs.luxonis.com/projects/api/en/latest/>`__.
+- Arbitrary crop/rescale/reformat and ROI return (e.g. `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/>`__)
+- Integrated Text Detection (e.g. `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr#gen2-text-detection--optical-character-recognition-ocr-pipeline>`__)
+- Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, background `here <https://github.com/luxonis/depthai/issues/136>`__ and API documentation is `here <https://docs.luxonis.com/projects/api/en/latest/>`__).
 - Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
 
-The above features are available in the Luxonis Pipeline Builder Gen1 (see example :ref:`here <API Reference>`).  See :ref:`Pipeline Builder Gen2 <pipelinegen2>` for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
+The above features are available in the Luxonis Pipeline Builder Gen2 which is now the main API for DepthAI. The Gen1 API is still supported, and can be accessed via the version switcher at the bottom left of this page.  See below for in-progress additional functionality/flexibility which will be added as modular nodes to the Luxonis pipeline builder for DepthAI.
 
 On our Roadmap (Most are in development/integration)
 ***********************************************
@@ -500,9 +500,9 @@ And see our Github project `here <https://github.com/orgs/luxonis/projects/2>`__
 Pipeline Builder Gen2
 *********************
 
-We have been working on a 2nd-generation pipeline builder which will incorporate many of the features below on our roadmap into a graphical drag/drop AI/CV pipeline which will then run entirely on DepthAI and return results of interest to the host.
+The 2nd-generation DepthAI pipeline builder which incorporates all the feedback we learned from our first Generation API.  It is now the mainline way to use DepthAI.
 
-This allows multi-stage neural networks to be pieced together in conjunction with CV functions (such as motion estimation or Harris filtering) and logical rules, all of which run on DepthAI/megaAI without any load on the host.
+It allows multi-stage neural networks to be pieced together in conjunction with CV functions (such as motion estimation or Harris filtering) and logical rules, all of which run on DepthAI/megaAI/OAK without any load on the host.
 
 Are CAD Files Available?
 ########################
