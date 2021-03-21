@@ -323,12 +323,12 @@ Can I use multiple DepthAI with one host?
 Yes.  DepthAI is architected to put as-little-as-possible burden on the host.
 So even with a Raspberry Pi you can run a handful of DepthAI with the Pi and not burden the Pi CPU.
 
-See :ref:`here <Multiple DepthAI per Host>` for instructions on how to do so.
+See `here <https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/>`__ for instructions on how to do so.
 
 Is DepthAI OpenVINO Compatible?
 ###############################
 
-Yes.  DepthAI is fully compatible with OpenVINO 2020.1, 2020.2, 2020.3, 2020.4 and 2021.1.
+Yes.  DepthAI is fully compatible with OpenVINO 2020.1, 2020.2, 2020.3, 2020.4, 2021.1 and 2021.2.
 
 Can I train my own Models for DepthAI?
 ######################################
