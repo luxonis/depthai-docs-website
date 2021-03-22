@@ -375,6 +375,11 @@ The OpenVINO toolkit allows adding these pre-processing steps to your model, and
 For instance, to scale frame pixels to the range [0,1], consider adding the following parameters to the model optimizer:
 :code:`--data_type=FP16 --scale_values [255,255,255]`
 
+To scale to the range [-1, 1], mean values should be added, e.g. for mobilenet:
+:code:`--scale_values [127.5, 127.5, 127.5] --mean_values [127.5, 127.5, 127.5]`
+
+More model converting options `here <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Converting_Model_General.html>`__
+
 
 Can I Run Multiple Neural Models in Parallel or in Series (or Both)?
 ####################################################################
