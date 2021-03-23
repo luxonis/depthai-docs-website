@@ -1196,19 +1196,12 @@ A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabili
 What Auto-Focus Modes Are Supported? Is it Possible to Control Auto-Focus From the Host?
 ########################################################################################
 
-DepthAI and megaAI support continuous video autofocus ('2' below, where the system is constantly autonomously
-searching for the best focus) and also and :code:`auto` mode ('1' below) which waits to focus until directed by the host.
-(PR which adds this functionality is `here <https://github.com/luxonis/depthai/pull/114>`__.)
+DepthAI (OAK-D, OAK-1, BW1092, etc.) and megaAI all support continuous video autofocus ('2' below, where the system is constantly autonomously
+searching for the best focus) and also and :code:`auto` mode which waits to focus until directed by the host, in addition to region-of-interest based focus, where the focus is automatically focused around a region provided to DepthAI (e.g. from a neural network bounding box, or some other real-time or apriori setting).
 
-Example usage is shown in :code:`depthai_demo.py`.  When running :code:`python3 depthai_demo.py` the functionality can be used by keyboard command while the program is running:
-
- - '1' to change autofocus mode to auto
-
-   - 'f' to trigger autofocus
-
- - '2' to change autofocus mode to continuous video
-
- And you can see the reference DepthAI API call `here <https://github.com/luxonis/depthai/blob/3942201d67fe7955370e615aa88045cd8f2211bf/depthai.py#L524>`__
+- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>` for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
+- See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl>`__ for autofocus controls, region of interest (to set autofocus to only consider a certain region), and triggering.  
+- See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.setManualFocus>`__ for the API for manually setting the focus level.
 
 What is the Hyperfocal Distance of the Auto-Focus Color Camera?
 ###############################################################
@@ -1244,7 +1237,9 @@ Is it Possible to Control the Exposure and White Balance and Auto-Focus (3A) Set
 Auto-Focus (AF)
 ***************
 
-See :ref:`here <autofocus>` for details on controlling auto-focus/focus.
+- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>` for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
+- See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl>`__ for autofocus controls, region of interest (to set autofocus to only consider a certain region), and triggering.  
+- See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.setManualFocus>`__ for the API for manually setting the focus level.
 
 Exposure (AE)
 *************
@@ -1252,23 +1247,15 @@ Exposure (AE)
 It is possible to set frame duration (us), exposure time (us), sensitivity (iso) via the API.  And we have a small example for the color camera to show how to do this for the color camera, which is here:
 https://github.com/luxonis/depthai/pull/279
 
-We are planning on making these controls more self-documenting (see `here <https://github.com/luxonis/depthai-core/issues/11>`__), but in the meantime, all of the available controls are here:
-https://github.com/luxonis/depthai-shared/blob/82435d4/include/depthai-shared/metadata/camera_control.hpp#L107
+We have now made the Exposure commands more self-documenting per `here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/>`__ for controlling exposure, and setting auto or manual for exposure.
 
-And for example to set an exposure time of 23.4ms, with the maximum sensitivity of 1600, use:
-
-.. code-block:: python
-
-  self.device.send_camera_control(
-     depthai.CameraControl.CamId.RGB,
-     depthai.CameraControl.Command.AE_MANUAL,
-     "23400 1600 33333")
+And see here
 
 
 White Balance (AWB)
 *******************
 
-This will be implemented at the same time as exposure and will be included.  AWB lock, AWB modes.  We will post more information as we dig into this task.
+See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.AutoWhiteBalanceMode>`__ for Auto White Balance modes and controls.  
 
 What Are the Specifications of the Global Shutter Grayscale Cameras?
 ####################################################################
