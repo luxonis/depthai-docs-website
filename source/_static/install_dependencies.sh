@@ -16,6 +16,7 @@ readonly linux_pkgs=(
 
 readonly ubuntu_pkgs=(
     ${linux_pkgs[@]}
+    libusb-1.0-0-dev
     # https://docs.opencv.org/master/d7/d9f/tutorial_linux_install.html
     build-essential
     libgtk2.0-dev
