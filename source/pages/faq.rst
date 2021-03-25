@@ -910,6 +910,42 @@ In this case we also need to check the camera source of the NN and Data packets.
 
 It is also possible to use :code:`getMetadata().getInstanceNum()`, that returns a number: 0, 1 or 2 , respectively.
 
+
+How to do a letterboxing (thumbnailing) on the color camera?
+############################################################
+
+To get the black bars on the top and the bottom of the video, the :code:`y` component of the points needs to be adjusted as follows (for 16:9 to 1:1 transform):
+
+.. code-block:: python
+
+  adj = (16-9)/9 / 2
+  point2f_list = [depthai.Point2f(0,-adj), depthai.Point2f(1,-adj), depthai.Point2f(1,1+adj), depthai.Point2f(0,1+adj)]
+
+  normalized = True
+  cfg.initialConfig.setWarpTransformFourPoints(point2f_list, normalized)
+
+Performance-wise, instead of reducing FPS, it is recommended to configure the on-device queue as non-blocking with a single slot:
+
+.. code-block:: python
+
+  cfg.inputImage.setQueueSize(1)
+  cfg.inputImage.setBlocking(False)
+
+For now, it will work only for lower resolution (i.e. 1280x720), so we suggest resizing before starting the pipeline:
+
+.. code-block:: python
+
+  cfg = pipeline.createImageManip()
+  cfg.setMaxOutputFrameSize(1270*720*3)
+  cfg.initialConfig.setResizeThumbnail(1270, 1270)
+
+Note! Interleaved RGB input with ImageManip is not yet supported, so set: 
+
+.. code-block:: python
+
+  colorCam.setInterleaved(False)
+
+
 How do I Record (or Encode) Video with DepthAI?
 ###############################################
 
