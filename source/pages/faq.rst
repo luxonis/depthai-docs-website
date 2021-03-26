@@ -914,7 +914,24 @@ It is also possible to use :code:`getMetadata().getInstanceNum()`, that returns 
 How to do a letterboxing (thumbnailing) on the color camera?
 ############################################################
 
-To get the black bars on the top and the bottom of the video, the :code:`y` component of the points needs to be adjusted as follows (for 16:9 to 1:1 transform):
+To get the black bars on the top and the bottom of the video, the :code:`y` component of the points needs to be adjusted (for 16:9 to 1:1 transform).
+
+The :code:`ImageMAnip` `node <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManip>`__ could be used for this kind of transform, e.g created as:
+
+.. code-block:: python
+
+  manip = pipeline.createImageManip()
+  manip.setMaxOutputFrameSize(1280*720*3)
+
+There are two possible options:
+
+1. Using :code:`setResizeThumbnail` (`details <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManipConfig.setResizeThumbnail>`__)
+ 
+.. code-block:: python 
+
+    manip.initialConfig.setResizeThumbnail(1280, 1280)
+
+2. Using :code:`setWarpTransformFourPoints` (`details <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManipConfig.setWarpTransformFourPoints>`__)
 
 .. code-block:: python
 
@@ -922,22 +939,23 @@ To get the black bars on the top and the bottom of the video, the :code:`y` comp
   point2f_list = [depthai.Point2f(0,-adj), depthai.Point2f(1,-adj), depthai.Point2f(1,1+adj), depthai.Point2f(0,1+adj)]
 
   normalized = True
-  cfg.initialConfig.setWarpTransformFourPoints(point2f_list, normalized)
+  manip.initialConfig.setWarpTransformFourPoints(point2f_list, normalized)
+  manip.setResize(1280, 1280)  # Optional, for a final resize of the frame
 
-Performance-wise, instead of reducing FPS, it is recommended to configure the on-device queue as non-blocking with a single slot:
+If large resolutions are set, this could result in a latency build-up. Performance-wise, instead of reducing FPS, it is recommended to configure the on-device queue as non-blocking with a single slot:
 
 .. code-block:: python
 
-  cfg.inputImage.setQueueSize(1)
-  cfg.inputImage.setBlocking(False)
+  manip.inputImage.setQueueSize(1)
+  manip.inputImage.setBlocking(False)
 
 For now, it will work only for lower resolution (i.e. 1280x720), so we suggest resizing before starting the pipeline:
 
 .. code-block:: python
 
-  cfg = pipeline.createImageManip()
-  cfg.setMaxOutputFrameSize(1270*720*3)
-  cfg.initialConfig.setResizeThumbnail(1270, 1270)
+  manip = pipeline.createImageManip()
+  manip.setMaxOutputFrameSize(1280*720*3)
+  manip.initialConfig.setResizeThumbnail(1280, 1280)
 
 Note! Interleaved RGB input with ImageManip is not yet supported, so set: 
 
