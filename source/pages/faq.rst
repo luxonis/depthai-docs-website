@@ -212,7 +212,7 @@ Which Model Should I Order?
 
 Embedded CV/AI requires all sorts of different shapes/sizes/permutations.  And so we have a variety of options to meet these needs.  Below is a quick/dirty summary for the ~10,000-foot view of the options:
 
-- **USB3C with Onboard Cameras** (`BW1098OBC <https://shop.luxonis.com/products/bw10980bc>`__) - Great for quickly using DepthAI with a computer.
+- **USB3C with Onboard Cameras** (`BW1098OBC <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__) - Great for quickly using DepthAI with a computer.
   All cameras are onboard, and it has a USB3C connection which can be used with any USB3 or USB2 host.  This is the basis for OAK-D.
 
 - **USB3C with Modular Cameras** (`BW1098FFC <https://shop.luxonis.com/products/depthai-usb3-edition>`__) - Great for prototyping flexibility.
@@ -221,7 +221,7 @@ Embedded CV/AI requires all sorts of different shapes/sizes/permutations.  And s
   This is not a TON of work, but keep this in mind, that it's not 'plug and play' like other options -
   it's more for applications that require custom mounting, custom baseline, or custom orientation of the cameras.
 
-- **MegaAI Single Camera** (`BW1093 <https://shop.luxonis.com/products/bw1093>`__) - This is just like the BW1098OBC,
+- **MegaAI Single Camera** (`BW1093 <https://shop.luxonis.com/collections/all/products/megaai-kit>`__) - This is just like the BW1098OBC,
   but for those who don't need depth information.  Single, small, plug-and-play USB3C AI/CV camera.
 
 - **Raspberry Pi Compute Module Edition** (`BW1097 <https://shop.luxonis.com/products/depthai-rpi-compute-module-edition>`__) -
