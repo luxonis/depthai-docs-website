@@ -1199,7 +1199,7 @@ What Auto-Focus Modes Are Supported? Is it Possible to Control Auto-Focus From t
 DepthAI (OAK-D, OAK-1, BW1092, etc.) and megaAI all support continuous video autofocus ('2' below, where the system is constantly autonomously
 searching for the best focus) and also and :code:`auto` mode which waits to focus until directed by the host, in addition to region-of-interest based focus, where the focus is automatically focused around a region provided to DepthAI (e.g. from a neural network bounding box, or some other real-time or apriori setting).
 
-- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>` for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
+- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl>`__ for autofocus controls, region of interest (to set autofocus to only consider a certain region), and triggering.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.setManualFocus>`__ for the API for manually setting the focus level.
 
@@ -1237,7 +1237,7 @@ Is it Possible to Control the Exposure and White Balance and Auto-Focus (3A) Set
 Auto-Focus (AF)
 ***************
 
-- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>` for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
+- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl>`__ for autofocus controls, region of interest (to set autofocus to only consider a certain region), and triggering.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.setManualFocus>`__ for the API for manually setting the focus level.
 
