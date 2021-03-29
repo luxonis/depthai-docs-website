@@ -1249,8 +1249,6 @@ https://github.com/luxonis/depthai/pull/279
 
 We have now made the Exposure commands more self-documenting per `here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/>`__ for controlling exposure, and setting auto or manual for exposure.
 
-And see here
-
 
 White Balance (AWB)
 *******************
