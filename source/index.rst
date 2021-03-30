@@ -23,7 +23,7 @@ Best of all, it is modular (:ref:`System on Module <som>`) and built on `MIT-lic
 DepthAI Ecosystem
 #################
 
-DepthAI is a platform - a complete ecosystem of custom `hardware <https://github.com/luxonis/depthai-hardware>`__, firmware, `software <https://docs.luxonis.com/projects/api/en/latest/>`__, and AI training - which combines neural inference, depth vision, and feature tracking into an easy-to-use, works-in-30-seconds solution. 
+DepthAI is a platform - a complete ecosystem of custom `hardware <https://github.com/luxonis/depthai-hardware>`__, firmware, `software <https://docs.luxonis.com/projects/api/en/latest/>`__, and `AI training <https://github.com/luxonis/depthai-ml-training>`__ - which combines neural inference, depth vision, and feature tracking into an easy-to-use, works-in-30-seconds solution. 
 
 This is an all-in-one solution for folks who need the power of AI, depth, and tracking in a single device.
 
@@ -62,16 +62,16 @@ Interfaces
   :widths: 20 80
 
   * - DepthAI Python API
-    - `Get started with Python <https://docs.luxonis.com/projects/api/en/latest/> `__
+    - Get started with Python `here <https://docs.luxonis.com/projects/api/en/latest/>`__
   * - DepthAI Python API
-    - `Get started with C++ <https://docs.luxonis.com/projects/api/en/latest/> `__
+    - Get started with C++ `here <https://docs.luxonis.com/projects/api/en/latest/>`__
  
     
 .. list-table:: GUI 
     :widths: 20 80
 
     * - DepthAI GUI 
-    - `Get started with GUI <https://docs.luxonis.com/projects/gui/en/latest/#> `__
+      - Get started with GUI `here <https://docs.luxonis.com/projects/gui/en/latest/>`__
  
       
 

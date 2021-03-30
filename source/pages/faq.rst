@@ -413,8 +413,8 @@ How to integrate DepthAI/megaAI depends on whether the product you are building 
 
 We offer hardware to support all 3 use-cases, but firmware/software maturity varies across the 3 modes:
 
-#. Using our `Python API <Phttps://docs.luxonis.com/projects/api/en/latest/>`_ and/or C++ API (equal capabilities)
-#. Using our C++ SPI API (see `here <https://github.com/luxonis/depthai-spi-api>`_),
+#. Using our `Python API <Phttps://docs.luxonis.com/projects/api/en/latest/>`__ and/or C++ API (equal capabilities)
+#. Using our C++ SPI API (see `here <https://github.com/luxonis/depthai-spi-api>`__),
 #. Using our standalone flashing utility to flash a depthai application for standalone boot (as part of Pipeline Builder Gen2, leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`_).
 
 In all cases, DepthAI (and megaAI) are compatible with OpenVINO for neural models.  The only thing that changes between
@@ -462,7 +462,7 @@ Getting Started with Development
 
 Whether intending to use DepthAI with an :ref:`OS-capable host <withos>`, a :ref:`microcontroller over SPI <withmicrocontroller>`
 (in development), or :ref:`completely standalone <standalone>` (in Alpha testing) - we recommend starting with either
-:ref:`NCS2 mode <ncsmode>` or with the `DepthAI USB API <Python API <https://docs.luxonis.com/projects/api/en/latest/>`_ for prototype/test/etc. as it allows faster iteration/feedback on
+:ref:`NCS2 mode <ncsmode>` or with the `DepthAI USB API <Python API <https://docs.luxonis.com/projects/api/en/latest/>`__ for prototype/test/etc. as it allows faster iteration/feedback on
 neural model performance/etc.  And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test).
 
 In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before.  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
@@ -492,7 +492,7 @@ Available in DepthAI API Today:
 - Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, details `here <https://github.com/luxonis/depthai/issues/136>`__), see the `latest docs <https://docs.luxonis.com/projects/api/en/latest/>`__.
 - Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
 
-The above features are available in the Luxonis Pipeline Builder Gen1 (see example `here <Python API <https://docs.luxonis.com/projects/api/en/latest/>`_).  See :ref:`Pipeline Builder Gen2 <pipelinegen2>` for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
+The above features are available in the Luxonis Pipeline Builder Gen1 (see example `here <Python API <https://docs.luxonis.com/projects/api/en/latest/>`__).  See :ref:`Pipeline Builder Gen2 <pipelinegen2>` for in-progress additional functionality/flexibility which will come with the next generation Luxonis pipeline builder for DepthAI.
 
 On our Roadmap (Most are in development/integration)
 ****************************************************
@@ -1253,7 +1253,7 @@ Example usage is shown in :code:`depthai_demo.py`.  When running :code:`python3 
 What is the Hyperfocal Distance of the Auto-Focus Color Camera?
 ###############################################################
 
-The hyperfocal distance is important, as it's the distance beyond which everything is in good focus.  Some refer to this as 'infinity focus' colloquially.
+The hyperfocal distance is important, as it's the distance beyond which everything is in good focus. Some refer to this as 'infinity focus' colloquially.
 
 The 'hyperfocal distance' (H) of DepthAI/megaAI's color camera module is quite close because of it's f.no and focal length.
 
