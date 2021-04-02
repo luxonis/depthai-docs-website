@@ -1191,14 +1191,14 @@ A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabili
   - 450 GB/sec memory bandwidth
   - 512 MB LPDDR4 (contact us for 1GB LPDDR version if of interest)
 
-How resources are allocated? How to find out?
-#############################################
+How are resources allocated? How do I see allocation?
+#####################################################
 
 - Resources are allocated automatically, based on the enabled nodes in the pipeline and their properties, before starting the pipeline. If there are no available resources an error will be thrown.
 - After distributing the SHAVE/CMX resources between nodes (except NN), :code:`NeuralNetwork` receives the rest of the free resources.
-- There are 2 main CPUs, LeonOS and LeonRT, running Rtems OS, scheduling the tasks (USB, shaves, ISP etc.).
+- There are 2 main CPUs, LeonOS and LeonRT, running Rtems OS, scheduling the tasks (USB, SHAVES, ISP etc.).
 - There are a total of :code:`16 SHAVEs` and :code:`20 CMX` slices, each slice :code:`128KB`, a total of :code:`2.5MB`, together with :code:`512MB DDR`.
-- :code:`CMX` memory is super-fast :code:`SRAM` compared to :code:`DRAM (DDR)`, used by HW filters, SHAVEs for highest performance and lowest latency.
+- :code:`CMX` memory is super-fast :code:`SRAM` compared to :code:`DRAM (DDR)`, used by Hardware CV filters, SHAVEs for highest performance and lowest latency.
 - SHAVEs are accelerator processors for CV, NN algorithms.
 
 The allocated resources can be printed with :code:`DEPTHAI_LEVEL` environment variable set to :code:`INFO`. For example: :code:`DEPTHAI_LEVEL=info python3 26_1_spatial_mobilenet.py`
