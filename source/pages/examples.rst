@@ -47,6 +47,7 @@ In this section, you'll find an inspiration what can you build right away with D
                   <h5 class="item-title">Age Gender Recognition</h5>
                   <p class="item-descr">
                       This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.
+                      <br/>
                       First, a face is detected on the image and then the cropped face frame is sent to age gender recognition network, which
                       produces the estimated results
                   </p>
@@ -101,13 +102,14 @@ In this section, you'll find an inspiration what can you build right away with D
             <div class="item">
                <div class="item-img-wrapper">
                   <a href="https://www.youtube.com/watch?v=tB_-mVVNIro" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/111202991-c62f3980-85c4-11eb-8bce-a3c517abeca1.gif" alt="COVID-19 mask detection"/>
+                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/111202991-c62f3980-85c4-11eb-8bce-a3c517abeca1.gif" alt="License Plates Recognition"/>
                   </a>
                </div>
                <div class="item-body">
                   <h5 class="item-title">License Plates Recognition</h5>
                   <p class="item-descr">
                       This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.
+                      <br/>
                       First, a license plate is detected on the image and then the cropped license frame is sent to text
                       detection network, which tries to decode the license plates texts
                   </p>
@@ -143,18 +145,147 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <a href="https://www.youtube.com/watch?v=Py3-dHQymko" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/107493701-35f97100-6b8e-11eb-8b13-02a7a8dbec21.gif" alt="COVID-19 mask detection"/>
-                  </a>
+                  <img class="item-img" src="https://github.com/geaxgx/depthai_blazepose/raw/main/img/taichi.gif" alt="Pose Estimation"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Human Pose Estimation</h5>
+                  <h5 class="item-title">Pose Estimation</h5>
                   <p class="item-descr">
-                      This example demonstrates how to run Human Pose Estimation Network using Gen2 Pipeline Builder.
+                      Running Google Mediapipe body pose tracking models on DepthAI
+                      <br/>
+                      This example was created by our contributor - <a href="https://github.com/geaxgx" target="_blank">Geax</a>
                   </p>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-human-pose" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+      </div>
+      <div class="items-row">
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://www.youtube.com/watch?v=QlXGtMWVV18" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/32992551/108567421-71e6b180-72c5-11eb-8af0-c6e5c3382874.png" alt="Deeplabv3"/>
+                  </a>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Pedestrian reidentification</h5>
+                  <p class="item-descr">
+                      This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.
+                      <br/>
+                      Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2020.1/_demos_pedestrian_tracker_demo_README.html">here</a>.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-pedestrian-reidentification" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://www.youtube.com/watch?v=Py3-dHQymko" target="_blank">
+                    <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-head-posture-detection/media/pose.gif" alt="Head posture detection"/>
+                  </a>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Head posture detection</h5>
+                  <p class="item-descr">
+                      This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network
+                      <br/>
+                      This example was created by our partner - <a href="https://www.oakchina.cn/" target="_blank">OAK-China</a>
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-head-posture-detection" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+      </div>
+      <div class="items-row">
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://user-images.githubusercontent.com/5244214/106155520-0f483d00-6181-11eb-8b95-a2cb73cc4bac.mp4" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/106155937-4fa7bb00-6181-11eb-8c23-21abe12f7fe4.gif" alt="Gaze estimation"/>
+                  </a>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Gaze Estimation</h5>
+                  <p class="item-descr">
+                      This example demonstrates how to run 3 stage inference (3-series, 2-parallel) on DepthAI using Gen2 Pipeline Builder.
+                      Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2021.1/omz_demos_gaze_estimation_demo_README.html">here</a>.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-fire-detection/images/fire_demo.gif" alt="Fire detection"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Fire detection</h5>
+                  <p class="item-descr">
+                      This example demonstrates the Gen2 Pipeline Builder running fire detection network
+                      <br/>
+                      This example was created by our partner - <a href="https://www.oakchina.cn/" target="_blank">OAK-China</a>
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-fire-detection" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+      </div>
+      <div class="items-row">
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-face-recognition/images/face_reg.png" alt="Face Recognition"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Face Recognition</h5>
+                  <p class="item-descr">
+                    This example demonstrates the Gen2 Pipeline Builder running face detection network ,head posture
+                    estimation network and face recognition network
+                      <br/>
+                    This example was created by our partner - <a href="https://www.oakchina.cn/" target="_blank">OAK-China</a>
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-face-recognition" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-fatigue-detection/media/fatigue.gif" alt="Fatigue Detection"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Fatigue Detection</h5>
+                  <p class="item-descr">
+                      This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network
+                      <br/>
+                      This example was created by our partner - <a href="https://www.oakchina.cn/" target="_blank">OAK-China</a>
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-fatigue-detection" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
