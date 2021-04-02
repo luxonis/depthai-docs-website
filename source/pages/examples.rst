@@ -39,21 +39,16 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <a href="https://www.youtube.com/watch?v=PwnVrPaF-vs" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/106005496-954a8200-60b4-11eb-923e-b84df9de9fff.gif" alt="Age Gender Recognition"/>
-                  </a>
+                  <img class="item-img" src="https://user-images.githubusercontent.com/32992551/99454609-e59eaa00-28e3-11eb-8858-e82fd8e6eaac.png" alt="Camera Demo"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Age Gender Recognition</h5>
+                  <h5 class="item-title">Camera Demo</h5>
                   <p class="item-descr">
-                      This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.
-                      <br/>
-                      First, a face is detected on the image and then the cropped face frame is sent to age gender recognition network, which
-                      produces the estimated results
+                      This example shows how to use the DepthAI/megaAI/OAK cameras in the Gen2 Pipeline Builder over USB.
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-age-gender" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
@@ -84,16 +79,19 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="https://user-images.githubusercontent.com/32992551/99454609-e59eaa00-28e3-11eb-8858-e82fd8e6eaac.png" alt="Camera Demo"/>
+                  <a href="https://user-images.githubusercontent.com/5244214/106155520-0f483d00-6181-11eb-8b95-a2cb73cc4bac.mp4" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/106155937-4fa7bb00-6181-11eb-8c23-21abe12f7fe4.gif" alt="Gaze estimation"/>
+                  </a>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Camera Demo</h5>
+                  <h5 class="item-title">Gaze Estimation</h5>
                   <p class="item-descr">
-                      This example shows how to use the DepthAI/megaAI/OAK cameras in the Gen2 Pipeline Builder over USB.
+                      This example demonstrates how to run 3 stage inference (3-series, 2-parallel) on DepthAI using Gen2 Pipeline Builder.
+                      Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2021.1/omz_demos_gaze_estimation_demo_README.html">here</a>.
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
@@ -212,19 +210,21 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <a href="https://user-images.githubusercontent.com/5244214/106155520-0f483d00-6181-11eb-8b95-a2cb73cc4bac.mp4" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/106155937-4fa7bb00-6181-11eb-8c23-21abe12f7fe4.gif" alt="Gaze estimation"/>
+                  <a href="https://www.youtube.com/watch?v=PwnVrPaF-vs" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/106005496-954a8200-60b4-11eb-923e-b84df9de9fff.gif" alt="Age Gender Recognition"/>
                   </a>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Gaze Estimation</h5>
+                  <h5 class="item-title">Age Gender Recognition</h5>
                   <p class="item-descr">
-                      This example demonstrates how to run 3 stage inference (3-series, 2-parallel) on DepthAI using Gen2 Pipeline Builder.
-                      Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2021.1/omz_demos_gaze_estimation_demo_README.html">here</a>.
+                      This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.
+                      <br/>
+                      First, a face is detected on the image and then the cropped face frame is sent to age gender recognition network, which
+                      produces the estimated results
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-age-gender" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
@@ -292,3 +292,62 @@ In this section, you'll find an inspiration what can you build right away with D
 
       </div>
    </div>
+
+Tutorials
+#########
+
+In this section, you'll find a way to expand your knowledge in DepthAI-related topics. Tutorials listed below are a complete
+walkthrough in a specific topic.
+
+Hello World
+***********
+
+Learn how to use the DepthAI Python API to display a color video stream.
+
+`Start Tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/hello_world/>`__
+
+Multiple DepthAI per Host
+*************************
+
+Learn how to discover DepthAI devices connected to your system, and use them individually.
+
+`Start Tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/>`__
+
+Local OpenVINO Model Conversion
+*******************************
+
+Learn how to convert OpenVINO IR models into the format required to run on DepthAI
+
+`Start Tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/>`__
+
+Tools & API Examples
+####################
+
+In this section, you'll see examples of various API usage permutations, to show what the API is capable of or to solve
+some meta problem, like how to stream the data, how to collect it and alike.
+
+.. list-table:: Tools / Examples
+  :widths: 10 90
+
+  * - `OCR <https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr>`__
+    - This pipeline implements text detection (EAST) followed by optical character recognition of the detected text
+  * - `Multiple Devices <https://github.com/luxonis/depthai-experiments/tree/master/gen2-multiple-devices>`__
+    - This example shows how you can use multiple DepthAI's on a single host. The demo will find all devices connected to the host and display an RGB preview from each of them.
+  * - `Class Saver <https://github.com/luxonis/depthai-experiments/tree/master/gen2-class-saver-jpeg>`__
+    - This example demonstrates how to run MobilenetSSD and collect images of detected objects, grouped by detection label
+  * - `NN Frame Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-class-saver-jpeg>`__
+    - This example shows how to present the neural network inference results on the inferenced frames
+  * - `Frames Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-seq-num-sync>`__
+    - This example demonstrates how to synchronize incoming frames using their sequence numbers. This allows displaying frames taken in exact same moment
+  * - `Frames Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi>`__
+    - This directory contains a few examples of how to use the SPI interface with the Gen2 Pipeline builder
+  * - `TensorFlow Image Classification <https://github.com/luxonis/depthai-experiments/tree/master/gen2-tf-image-classification>`__
+    - This example demonstrates how to run a neural network created using TensorFlow Image Classification tutorial
+  * - `WLS Filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
+    - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI Gen2 API.
+
+**API Samples** are available on the API page `here <https://docs.luxonis.com/projects/api/en/latest/samples/01_rgb_preview/>`__,
+the source code is available `here for Python <https://github.com/luxonis/depthai-python/tree/main/examples>`__
+and `here for C++ <https://github.com/luxonis/depthai-core/tree/main/examples/src>`__
+
+.. include::  /pages/includes/footer-short.rst
