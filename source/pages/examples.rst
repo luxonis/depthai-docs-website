@@ -197,7 +197,7 @@ In this section, you'll find an inspiration what can you build right away with D
                   <p class="item-descr">
                       This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network
                       <br/>
-                      This example was created by our partner - <a href="https://www.oakchina.cn/" target="_blank">OAK-China</a>
+                      This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a>
                   </p>
                </div>
                <footer class="item-footer">
@@ -239,7 +239,7 @@ In this section, you'll find an inspiration what can you build right away with D
                   <p class="item-descr">
                       This example demonstrates the Gen2 Pipeline Builder running fire detection network
                       <br/>
-                      This example was created by our partner - <a href="https://www.oakchina.cn/" target="_blank">OAK-China</a>
+                      This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a>
                   </p>
                </div>
                <footer class="item-footer">
@@ -262,7 +262,7 @@ In this section, you'll find an inspiration what can you build right away with D
                     This example demonstrates the Gen2 Pipeline Builder running face detection network ,head posture
                     estimation network and face recognition network
                       <br/>
-                    This example was created by our partner - <a href="https://www.oakchina.cn/" target="_blank">OAK-China</a>
+                    This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a>
                   </p>
                </div>
                <footer class="item-footer">
@@ -281,7 +281,7 @@ In this section, you'll find an inspiration what can you build right away with D
                   <p class="item-descr">
                       This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network
                       <br/>
-                      This example was created by our partner - <a href="https://www.oakchina.cn/" target="_blank">OAK-China</a>
+                      This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a>
                   </p>
                </div>
                <footer class="item-footer">
