@@ -2,3 +2,5 @@
 .DS_Store
 build/
 *.spelling
+_build/
+.vscode

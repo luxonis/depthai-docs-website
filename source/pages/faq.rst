@@ -183,7 +183,7 @@ And triangulation of the parallel left/right outputs results in very-accurate re
 What is the Gen2 Pipeline Builder?
 ##################################
 
-UPDATE: The Gen2 Pipeline Builder is now the standard release of DepthAI.  
+UPDATE: The Gen2 Pipeline Builder is now the standard release of DepthAI.
 This Gen2 API system was architected to be next-generation software suite for DepthAI and OAK.  All DepthAI and OAK hardware work with Gen1 and Gen2 software, as Gen2 is purely a software re-write, no hardware changes.
 Gen2 is infinitely more flexible, and is the result of all that we learned from the customer deployments of Gen1.
 Amassing all the requests and need for flexibility from user of Gen1, we made Gen2.
@@ -308,13 +308,13 @@ See below for DepthAI running on a Jetson Tx2 I have on my desk:
 .. image:: https://user-images.githubusercontent.com/32992551/93289854-a4cbcd00-f79c-11ea-8f37-4ea36d523dd2.png
   :alt: Jetson Tx2
 
-Installing for NVIDIA Jetson and Xavier is now the same set of instructions as Ubuntu.  See `here <https://docs.luxonis.com/en/latest/pages/api/#ubuntu>`__ and following the standard Ubuntu instructions.   
+Installing for NVIDIA Jetson and Xavier is now the same set of instructions as Ubuntu.  See `here <https://docs.luxonis.com/en/latest/pages/api/#ubuntu>`__ and following the standard Ubuntu instructions.
 
 Also don't forget about the udev rules after you have that set up.  And make sure to unplug and replug your depthai after having run the following commands (this allows Linux to execute the modification of the USB rules).
 
 .. code-block:: bash
 
-  echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules	
+  echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
   sudo udevadm control --reload-rules && sudo udevadm trigger
 
 Can I use multiple DepthAI with one host?
@@ -384,7 +384,7 @@ More model converting options `here <https://docs.openvinotoolkit.org/latest/ope
 Can I Run Multiple Neural Models in Parallel or in Series (or Both)?
 ####################################################################
 
-Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__ is what allows you to do this.  And we have several example implementations of parallel, series, and parallel+series in `depthai-experiments <https://github.com/luxonis/depthai-experiments>`__ repository.  A notable example is the Gaze estimation example, `here <https://github.com/luxonis/depthai-experiments/tree/master/gaze-estimation>`__, which shows series and parallel all together in one example.  
+Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__ is what allows you to do this.  And we have several example implementations of parallel, series, and parallel+series in `depthai-experiments <https://github.com/luxonis/depthai-experiments>`__ repository.  A notable example is the Gaze estimation example, `here <https://github.com/luxonis/depthai-experiments/tree/master/gaze-estimation>`__, which shows series and parallel all together in one example.
 
 Can DepthAI do Arbitrary Crop, Resize, Thumbnail, etc.?
 #######################################################
@@ -528,17 +528,17 @@ How to enable depthai to perceive closer distances
 
 If the depth results for close-in objects look weird, this is likely because they are below the minimum depth-perception distance of DepthAI/OAK-D.
 
-For DepthAI Onboard Cameras (BW1098OBC) and OAK-D, the standard-settings minimum depth is around 70cm.  
+For DepthAI Onboard Cameras (BW1098OBC) and OAK-D, the standard-settings minimum depth is around 70cm.
 
 This can be cut in 1/2 and 1/4 with the following options:
 
-1. Change the resolution to 640x400, instead of the standard 1280x800.  
+1. Change the resolution to 640x400, instead of the standard 1280x800.
 
-Since the disparity-search of 96 is what limits the minimum depth, this means the minimum depth is now 1/2 of standard settings - 35cm instead of 70cm.  To do this with the example script, run `python3 depthai_demo.py -monor 400 -s previewout metaout depth -bb`.  In Gen1 software, this is the only option.  But in Gen2, Extended Disparity can again cut this min depth in 1/2. 
+Since the disparity-search of 96 is what limits the minimum depth, this means the minimum depth is now 1/2 of standard settings - 35cm instead of 70cm.  To do this with the example script, run `python3 depthai_demo.py -monor 400 -s previewout metaout depth -bb`.  In Gen1 software, this is the only option.  But in Gen2, Extended Disparity can again cut this min depth in 1/2.
 
-2. Enable Extended Disparity.  
+2. Enable Extended Disparity.
 
-In Gen2, Extended Disparity is supported, which extends the disparity search to 192 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for BW1098OBC/OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.  
+In Gen2, Extended Disparity is supported, which extends the disparity search to 192 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for BW1098OBC/OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.
 
 See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
 
@@ -643,9 +643,9 @@ For DepthAI units with onboard cameras, this works out to the following minimum 
 
 calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg9E4O1fSrB4IFp04AQw%3A1607995753791&ei=aRHYX57zL9P9-gTk5rmADA&q=857.06*.09%2F96&oq=857.06*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CqJ1i8OmDlPGgAcAB4AIABX4gB9ASSAQE4mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwjey9H96s7tAhXTvp4KHWRzDsAQ4dUDCA0&uact=5>`__
 
-**OAK-D** and USB3C Onboard Camera Edition (:ref:`BW1098OBC <bw1098obc>`) is 
-- **0.689** meters for standard disparity, 
-- **0.345** meters for Extended Disparity (192 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and 
+**OAK-D** and USB3C Onboard Camera Edition (:ref:`BW1098OBC <bw1098obc>`) is
+- **0.689** meters for standard disparity,
+- **0.345** meters for Extended Disparity (192 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and
 - **0.196** meters for Extended Disparity at 640x400 resolution (this distance is limited by the focal distance of the cameras on OAK-D)
 
 .. code-block:: python
@@ -757,17 +757,17 @@ Standard Disparity (96 depth steps):
 
 .. image:: https://user-images.githubusercontent.com/49298092/90796945-f2dee380-e34a-11ea-844d-0dd085b978de.png
   :alt: Standard Disparity (96 depth steps)
-  
+
 Subpixel Disparity (3,072 depth steps):
 
 .. image:: https://user-images.githubusercontent.com/32992551/98879214-388ae400-2442-11eb-8e5b-e7ddc35f3040.png
   :alt: Subpixel Disparity (3,072 depth steps)
-  
+
 .. image:: https://user-images.githubusercontent.com/32992551/98872146-500ea080-2433-11eb-950b-41b56e5d0293.png
   :alt: Subpixel Disparity (3,072 depth steps)
-  
+
 To run Subpixel on DepthAI/OAK, use the example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
-  
+
 
 What Is the Format of the Depth Data in depth stream?
 #####################################################
@@ -970,7 +970,7 @@ What are the Capabilities of the Video Encoder on DepthAI?
 
 The max total encoding for h.264 and h.265 has 3 limits:
 - 4096 pixel max width for a frame.
-- Maximum pixels per second of 248 MegaPixel/second. 
+- Maximum pixels per second of 248 MegaPixel/second.
 - Maximum of 3 parallel encoding streams
 
 The JPEG encoder is capable of 16384x8192 resolution at 500Mpixel/second.
@@ -1111,7 +1111,7 @@ Dual-Homography vs. Single-Homography Calibration
 
 As a result of some great feedback/insight from the `OpenCV Spatial AI Competition <https://opencv.org/opencv-spatial-ai-competition/>`__ we discovered and implemented many useful features (summary `here <https://github.com/luxonis/depthai/issues/183>`__).
 
-Among those was the discovery that a dual-homography approach, although mathematically equivalent to a single-homography (as you can collapse the two homographies into one) actually outperforms single-homography in real-world practice.  
+Among those was the discovery that a dual-homography approach, although mathematically equivalent to a single-homography (as you can collapse the two homographies into one) actually outperforms single-homography in real-world practice.
 
 As a result, we switched our calibration system in September 2020 to use dual-homography instead of single homography.  So any units produced after September 2020 include dual homography.  Any units with single homography can be recalibrated (see :ref:`here <Calibration>`) to use this updated dual-homography calibration.
 
@@ -1190,6 +1190,42 @@ A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabili
   - 500+ million pixels/second total processing (see max resolution and frame rates over USB :ref:`here <maxfps>`)
   - 450 GB/sec memory bandwidth
   - 512 MB LPDDR4 (contact us for 1GB LPDDR version if of interest)
+
+How are resources allocated? How do I see allocation?
+#####################################################
+
+- Resources are allocated automatically, based on the enabled nodes in the pipeline and their properties, before starting the pipeline. If there are no available resources an error will be thrown.
+- After distributing the SHAVE/CMX resources between nodes (except NN), :code:`NeuralNetwork` receives the rest of the free resources.
+- There are 2 main CPUs, LeonOS and LeonRT, running Rtems OS, scheduling the tasks (USB, SHAVES, ISP etc.).
+- There are a total of :code:`16 SHAVEs` and :code:`20 CMX` slices, each slice :code:`128KB`, a total of :code:`2.5MB`, together with :code:`512MB DDR`.
+- :code:`CMX` memory is super-fast :code:`SRAM` compared to :code:`DRAM (DDR)`, used by Hardware CV filters, SHAVEs for highest performance and lowest latency.
+- SHAVEs are accelerator processors for CV, NN algorithms.
+
+The allocated resources can be printed with :code:`DEPTHAI_LEVEL` environment variable set to :code:`INFO`. For example: :code:`DEPTHAI_LEVEL=info python3 26_1_spatial_mobilenet.py`
+
+ - [system] [info] ImageManip internal buffer size '80640'B, shave buffer size '19456'B
+ - [system] [info] SpatialLocationCalculator shave buffer size '11264'B
+ - [system] [info] SIPP (Signal Image Processing Pipeline) internal buffer size '143360'B
+ - [system] [info] NeuralNetwork allocated resources: shaves: [0-12] cmx slices: [0-12]
+ - [system] [info] ColorCamera allocated resources: no shaves; cmx slices: [13-15]
+ - [system] [info] MonoCamera allocated resources: no shaves; cmx slices: [13-15]
+ - [system] [info] StereoDepth allocated resources: shaves: [13-13] cmx slices: [13-15]
+ - [system] [info] ImageManip allocated resources: shaves: [15-15] no cmx slices.
+ - [system] [info] SpatialCalculator allocated resources: shaves: [14-14] no cmx slices.
+
+- :code:`ImageManip` node requires 80640+19456 bytes of CMX memory and shave 15.
+- :code:`SpatialLocationCalculator` node (used by :code:`SpatialDetectionNetwork` requires 11264 bytes of CMX memory and shave 15.
+- :code:`SIPP (Signal Image Processing Pipeline)` requires 143360 bytes of CMX memory, which is used by stereo node, camera ISP.
+- :code:`NeuralNetwork` takes shaves [0-12] and cmx slices [0-12].
+- :code:`ColorCamera` takes cmx slices [13-15], a total of 3 at 1080p. At 4k/12MP it requires 6 slices.
+- :code:`MonoCamera` takes cmx slices [13-15].
+- :code:`StereoDepth` takes cmx slices [13-15] and shave 13.
+
+Each node requires its own pools in the memory where data is stored.
+In addition to SHAVE and CMX distribution, the :code:`CPU usage, DDR, CMX, heap` memory allocations are exposed too at runtime.
+ - [system] [info] Memory Usage - DDR: 74.12 / 414.56 MiB, CMX: 2.37 / 2.50 MiB, LeonOS Heap: 32.72 / 46.36 MiB, LeonRT Heap: 5.20 / 27.45 MiB
+ - [system] [info] Temperatures - Average: 58.40 °C, CSS: 58.94 °C, MSS 58.30 °C, UPA: 59.36 °C, DSS: 57.01 °C
+ - [system] [info] Cpu Usage - LeonOS 55.29%, LeonRT: 34.93%
 
 .. _autofocus:
 
@@ -1296,12 +1332,12 @@ motor etc. are all self-contained and none of it is replaceable or serviceable.�
 It's the same sort of camera you would find in a high-end smart phone.  
 
 So the recommended approach, if you'd like custom optics, say IR-capable, UV-capable, different field of view (FOV), etc. is to use
-the ArduCam M12 or CS mount series of OV9281 and/or IMX477 modules.  
+the ArduCam M12 or CS mount series of OV9281 and/or IMX477 modules.
 
  - `IMX477 M12-Mount <https://www.arducam.com/product/arducam-high-quality-camera-for-jetson-nano-and-xavier-nx-12mp-m12-mount/>`__
  - `IMX477 CS-Mount <https://www.arducam.com/product/b0242-arducam-imx477-hq-camera/>`__
  - `OV9281 M12-Mount <https://www.arducam.com/product/ov9281-mipi-1mp-monochrome-global-shutter-camera-module-m12-mount-lens-raspberry-pi/>`__
- 
+
 Note that these are require an adapter (`here <https://shop.luxonis.com/collections/all/products/rpi-hq-camera-imx477-adapter-kit>`__), and :ref:`below <rpi_hq>` and this adapter connects to the RGB port of the BW1098FFC.  It is possible to make other adapters such that more than one of these cameras could be used at a time, or to modify the `open-source BW1098FFC <https://github.com/luxonis/depthai-hardware/tree/master/BW1098FFC_DepthAI_USB3>`__ to accept the ArduCam FFC directly, but these have not yet been made.
 
 That said, we have seen users attach the same sort of optics that they would to smartphones to widen field of view, zoom, etc. 
@@ -1339,17 +1375,17 @@ operates in two stages:
 #. For showing up when plugged in. We use this endpoint to load the firmware onto the device, which is a usb-boot technique.  This device is USB2.
 #. For running the actual code. This shows up after USB booting and is USB3.
 
-In order to support the DepthAI modes, you need to download and install `Oracle VM VirtualBox Extension Pack <https://www.virtualbox.org/wiki/Downloads>`__.  Once this is installed, enable USB3 (xHCI) Controller in the USB settings.  
+In order to support the DepthAI modes, you need to download and install `Oracle VM VirtualBox Extension Pack <https://www.virtualbox.org/wiki/Downloads>`__.  Once this is installed, enable USB3 (xHCI) Controller in the USB settings.
 
 
 Once this is done, you'll need to route the Myriad as USB device from Host to the VBox.  This is the filter for depthai before it has booted, which is at that point a USB2 device:
 
 .. image:: https://user-images.githubusercontent.com/32992551/105070455-8d4d6b00-5a40-11eb-9bc6-19b164a55b4c.png
   :alt: Routing the not-yet-booted depthai to the VirtualBox.
-  
+
 The last step is to add the USB Intel Loopback device. The depthai device boots its firmware over USB, and after it has booted, it shows up as a new device.
 
-This device shows just up when the depthai/OAK is trying to reconnect (during runntime, so right after running a pipeline on depthai, such as `:bash: python3 depthai_demo.py`). 
+This device shows just up when the depthai/OAK is trying to reconnect (during runntime, so right after running a pipeline on depthai, such as `:bash: python3 depthai_demo.py`).
 
 It might take a few tries to get this loopback device shown up and added, as you need to do this while depthai is trying to connect after a pipeline has been built (and so it has at that point now booted its internal firmware over USB2).
 
@@ -1357,12 +1393,12 @@ For enabling it only once, you can see the loopback device here (after the pipel
 
 .. image:: https://user-images.githubusercontent.com/32992551/105112208-c527d300-5a7f-11eb-96b4-d14bcf974313.png
   :alt: Find the loopback device right after you tell depthai to start the pipeline, and select it.
-  
-And then for permanently enabling this pass-through to virtual box, enable this in setting below: 
+
+And then for permanently enabling this pass-through to virtual box, enable this in setting below:
 
 .. image:: https://user-images.githubusercontent.com/32992551/105070474-93dbe280-5a40-11eb-94b3-6557cd83fe1f.png
   :alt: Making the USB Loopback Device for depthai/OAK, to allow the booted device to communicate in virtualbox
-  
+
 And then for each additional depthai/OAK device you would like to pass through, repeat just this last loopback settings step for each unit (as each unit will have its own unique ID).
 
 .. _parameters_upgrade:
@@ -1533,12 +1569,12 @@ Another option is integrating into your CMake project directly, for that see: ht
 
 And a note on building for Windows: Windows does not use `libusb`, but rather uses Windows internal `winusb`.
 
- 
+
 Can I Use and IMU With DepthAI?
 ###############################
 
 Yes, our BW1099 (`here <https://shop.luxonis.com/collections/all/products/bw1099>`__) has support to talk to IMUs.  And we are in the process of making a future version of the BW1098OBC (as well as BW1092) which have built-in BNO085.  We do not yet have support for this IMU in the DepthAI API, but we have done proof-of-concepts and will be making this a standard feature through the API.
- 
+
 Where are Product Brochures and/or Datasheets?
 ##############################################
 
@@ -1558,7 +1594,7 @@ Datasheets:
 
 - DepthAI System on Module (BW1099) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
- 
+
 How Much does LUX-D or OAK-D Weigh?
 ###################################
 
@@ -1590,7 +1626,7 @@ If DepthAI and OAK-D products has been significantly used in your research and i
 
 How Do I Talk to an Engineer?
 #############################
- 
+
 At Luxonis we firmly believe in the value of customers being able to communicate directly with our engineers.  It helps our engineering efficiency.  And it does so by making us make the things that matter, in the ways that matter (i.e. usability in the right ways) to solve real problems.
 
 As such, we have many mechanisms to allow direct communication:
