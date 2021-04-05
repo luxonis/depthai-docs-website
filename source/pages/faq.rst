@@ -6,9 +6,9 @@ Why Does DepthAI Exist?
 
 In trying to solve an Embedded :ref:`Spatial AI<spatialai>` problem (details `here <https://discuss.luxonis.com/d/8-it-works-working-prototype-of-commute-guardian>`__),
 we discovered that although the perfect chip existed, there was no platform (hardware, firmware, or software) which
-allowed the chip to be used to solve such an Embedded Spatial AI problem.
+allowed the chip to be used to solve such an Embedded Spatial AI CV problem.
 
-So we built the platform, known as DepthAI and the OpenCV AI Kit (OAK).
+So we built the platform - known as DepthAI and the OpenCV AI Kit (OAK) - which allows folks to embed performant, spatial AI & CV into their products quickly and easily.
 
 What is DepthAI?
 ################
