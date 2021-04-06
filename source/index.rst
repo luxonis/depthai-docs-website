@@ -151,3 +151,11 @@ Luxonis Github Repositories
    pages/products/index.rst
    pages/calibration.rst
    pages/training.rst
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Tutorials
+
+   pages/tutorials/pretrained_openvino.rst
