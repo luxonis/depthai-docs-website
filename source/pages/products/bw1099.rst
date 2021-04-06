@@ -1,7 +1,7 @@
 .. _bw1099:
 
-BW1099 - System on Module
-#########################
+DepthAI System on Module
+########################
 
 .. image:: /_static/images/products/bw1099.jpg
   :alt: BW1099

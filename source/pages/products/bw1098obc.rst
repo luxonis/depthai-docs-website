@@ -1,7 +1,7 @@
 .. _bw1098obc:
 
-BW1098OBC - OAK-D | DepthAI Onboard Cameras
-###########################################
+DephAI LUX-D (OAK-D)
+####################
 
 .. image:: /_static/images/products/bw1098obc.png
   :alt: BW1098OBC

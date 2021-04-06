@@ -12,9 +12,10 @@ Products
                   <img class="item-img" src="../../_static/images/products/bw1093.png" alt="OAK-1"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">OAK-1 | megaAI - Tiny, but Mighty</h5>
+                  <h5 class="item-title">megaAI (OAK-1)</h5>
                   <p class="item-descr">
-                     MegaAI is a tiny USB3 4K AI camera featuring 4K/30.0h 265 encoding and powerful hardware accelerated ML/CV.   
+                     MegaAI is a tiny USB3 4K AI camera. Easy to start with, best choice if you want to track people or objects, 
+                     but don't need to define their coordinates. Runs on many hosts.
                   </p>
                </div>
                <footer class="item-footer">
@@ -28,9 +29,10 @@ Products
                   <img class="item-img" src="../../_static/images/products/bw1098obc.png" alt="OAK-D"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">OAK-D | DepthAI Onboard Cameras</h5>
+                  <h5 class="item-title">DephAI LUX-D (OAK-D)</h5>
                   <p class="item-descr">
-                     DepthAI for the host of your choice, with an onboeard color camera module and global-shutter synchronized stereo pair.
+                  DephAI LUX-D gives you a lot of possibilities thanks to depth data - you can not only track objects but also define 
+                  coordinates and distance between them.
                   </p>
                </div>
                <footer class="item-footer">
@@ -46,9 +48,9 @@ Products
                      <img class="item-img" src="../../_static/images/products/bw1098ffc.jpg" alt="USB3"/>
                   </div>
                   <div class="item-body">
-                     <h5 class="item-title">USB3 | Modular Cameras</h5>
+                     <h5 class="item-title">DepthAI FFC</h5>
                      <p class="item-descr">
-                           DepthAI for the host of your choice, with modular cameras for easy integration onto/into your platform and custom stereo baselines.
+                     DepthAI FFC - three interchangeable modular cameras on flexible flat cables. Easy to modify, for many usecases.
                      </p>
                   </div>
                   <footer class="item-footer">
@@ -62,7 +64,7 @@ Products
                      <img class="item-img" src="../../_static/images/products/bw1099.jpg" alt="System on Module"/>
                   </div>
                   <div class="item-body">
-                     <h5 class="item-title">System on Module</h5>
+                     <h5 class="item-title">DepthAI System on Module</h5>
                      <p class="item-descr">
                      Allows you to integrate the power of DepthAI into your own products.
                      </p>
@@ -114,7 +116,7 @@ Products
                      <img class="item-img" src="../../_static/images/products/bw1094.jpg" alt="BW1094 - RaspberryPi Hat"/>
                   </div>
                   <div class="item-body">
-                     <h5 class="item-title">BW1094 - RaspberryPi Hat</h5>
+                     <h5 class="item-title">DepthAI RaspberryPi Hat</h5>
                      <p class="item-descr">
                      The Raspberry Pi HAT Edition allows using the Raspberry Pi you already have and passes through the Pi GPIO so that these are still accessible and usable in your system(s). 
                      </p>
@@ -130,9 +132,9 @@ Products
                      <img class="item-img" src="../../_static/images/products/bw1097-top.jpg" alt="BW1097 - RaspberryPi Compute Module"/>
                   </div>
                   <div class="item-body">
-                     <h5 class="item-title">BW1097 - RaspberryPi Compute Module</h5>
+                     <h5 class="item-title">DepthAI RaspberryPi Compute Module</h5>
                      <p class="item-descr">
-                     The Raspberry Pi Compute Module Edition comes with everything needed: pre-calibrated stereo cameras on-board with a 4K, 60 Hz color camera and a µSD card with Raspbian and DepthAI Python code automatically running on bootup. 
+                     The Raspberry Pi Compute Module Edition comes with everything needed: pre-calibrated stereo cameras and a µSD card with Raspbian and DepthAI Python code automatically running on bootup. 
                      </p>
                   </div>
                   <footer class="item-footer">
@@ -145,12 +147,12 @@ Products
          <div class="items-col">
                <div class="item">
                   <div class="item-img-wrapper">
-                     <img class="item-img" src="../../_static/images/products/bw1092.jpg" alt="BW1092 - Three Camera ESP32 Board"/>
+                     <img class="item-img" src="../../_static/images/products/bw1092.jpg" alt="ESP32 Board"/>
                   </div>
                   <div class="item-body">
-                     <h5 class="item-title">BW1092 - Three Camera ESP32 Board</h5>
+                     <h5 class="item-title">LUX-ESP32</h5>
                      <p class="item-descr">
-                     The BW1092 is a modified version of the BW1098OBC with an added ESP32 System on Module (ESP32-WROOM-32). This board allows users to quickly prototype standalone embedded solutions. 
+                     LUX-ESP32 is a board that allows you to quickly prototype IOT and standalone embedded projects. 
                      </p>
                   </div>
                   <footer class="item-footer">
@@ -167,12 +169,13 @@ Products
 .. toctree::
    :maxdepth: 1
 
-   bw1092.rst
    bw1093.rst
-   bw1094.rst
-   bw1097.rst
-   bw1098ffc.rst
    bw1098obc.rst
+   bw1098ffc.rst
    bw1099.rst
    color.rst
    mono.rst
+   bw1094.rst
+   bw1097.rst
+   bw1092.rst
+   

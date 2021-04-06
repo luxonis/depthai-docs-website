@@ -1,7 +1,7 @@
 .. _bw1098ffc:
 
-BW1098FFC - USB3 with Modular Cameras
-#####################################
+DepthAI FFC
+###########
 
 .. image:: /_static/images/products/bw1098ffc.jpg
   :alt: BW1098FFC
