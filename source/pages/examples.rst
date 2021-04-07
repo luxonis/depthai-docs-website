@@ -10,7 +10,7 @@ Demo script
 
 .. warning::
 
-  This is currently in progress
+  Demo script is currently in progress
 
 Our multipurpose command line demo tool for Gen2 is currently in progress, and you can actively check it's progress
 both on the `migration Pull Request <https://github.com/luxonis/depthai/pull/349>`__ or give it a try yourself
@@ -43,9 +43,9 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Camera Demo</h5>
-                  <p class="item-descr">
-                      This example shows how to use the DepthAI/megaAI/OAK cameras in the Gen2 Pipeline Builder over USB.
-                  </p>
+                  <span class="item-descr">
+                      <p>This example shows how to use the DepthAI/megaAI/OAK cameras in the Gen2 Pipeline Builder over USB.</p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo" class="btn item-cta">Try now ›</a>
@@ -63,8 +63,8 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">COVID-19 mask detection</h5>
                   <p class="item-descr">
-                      This experiment allows you to run the COVID-19 mask/no-mask object detector which was trained via
-                      the Google Colab tutorial <a href="https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#covid-19-maskno-mask-training" target="_blank">here</a>.
+                      <p>This experiment allows you to run the COVID-19 mask/no-mask object detector which was trained via</p>
+                      <p>the Google Colab tutorial <a href="https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#covid-19-maskno-mask-training" target="_blank">here</a>.</p>
                   </p>
                </div>
                <footer class="item-footer">
@@ -85,10 +85,10 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Gaze Estimation</h5>
-                  <p class="item-descr">
-                      This example demonstrates how to run 3 stage inference (3-series, 2-parallel) on DepthAI using Gen2 Pipeline Builder.
-                      Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2021.1/omz_demos_gaze_estimation_demo_README.html">here</a>.
-                  </p>
+                  <span class="item-descr">
+                      <p>This example demonstrates how to run 3 stage inference (3-series, 2-parallel) on DepthAI using Gen2 Pipeline Builder.</p>
+                      <p>Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2021.1/omz_demos_gaze_estimation_demo_README.html">here</a>.</p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation" class="btn item-cta">Try now ›</a>
@@ -105,12 +105,10 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">License Plates Recognition</h5>
-                  <p class="item-descr">
-                      This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.
-                      <br/>
-                      First, a license plate is detected on the image and then the cropped license frame is sent to text
-                      detection network, which tries to decode the license plates texts
-                  </p>
+                  <span class="item-descr">
+                      <p>This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.</p>
+                      <p>First, a license plate is detected on the image and then the cropped license frame is sent to text detection network, which tries to decode the license plates texts</p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-license-plate-recognition" class="btn item-cta">Try now ›</a>
@@ -130,9 +128,9 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Deeplabv3 (Segmentation)</h5>
-                  <p class="item-descr">
-                      This example shows how to run Deeplabv3+ on DepthAI in the Gen2 API system.
-                  </p>
+                  <span class="item-descr">
+                      <p>This example shows how to run Deeplabv3+ on DepthAI in the Gen2 API system.</p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-deeplabv3_person" class="btn item-cta">Try now ›</a>
@@ -147,11 +145,10 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Pose Estimation</h5>
-                  <p class="item-descr">
-                      Running Google Mediapipe body pose tracking models on DepthAI
-                      <br/>
-                      This example was created by our contributor - <a href="https://github.com/geaxgx" target="_blank">Geax</a>
-                  </p>
+                  <span class="item-descr">
+                      <p>Running Google Mediapipe body pose tracking models on DepthAI</p>
+                      <p>This example was created by our contributor - <a href="https://github.com/geaxgx" target="_blank">Geaxgx</a></p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-human-pose" class="btn item-cta">Try now ›</a>
@@ -172,9 +169,8 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">Pedestrian reidentification</h5>
                   <p class="item-descr">
-                      This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.
-                      <br/>
-                      Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2020.1/_demos_pedestrian_tracker_demo_README.html">here</a>.
+                      <p>This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.</p>
+                      <p>Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2020.1/_demos_pedestrian_tracker_demo_README.html">here</a>.</p>
                   </p>
                </div>
                <footer class="item-footer">
@@ -192,11 +188,10 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Head posture detection</h5>
-                  <p class="item-descr">
-                      This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network
-                      <br/>
-                      This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a>
-                  </p>
+                  <span class="item-descr">
+                      <p>This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network</p>
+                      <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-head-posture-detection" class="btn item-cta">Try now ›</a>
@@ -216,12 +211,10 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Age Gender Recognition</h5>
-                  <p class="item-descr">
-                      This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.
-                      <br/>
-                      First, a face is detected on the image and then the cropped face frame is sent to age gender recognition network, which
-                      produces the estimated results
-                  </p>
+                  <span class="item-descr">
+                      <p>This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.</p>
+                      <p>First, a face is detected on the image and then the cropped face frame is sent to age gender recognition network, which produces the estimated results</p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-age-gender" class="btn item-cta">Try now ›</a>
@@ -236,11 +229,10 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Fire detection</h5>
-                  <p class="item-descr">
-                      This example demonstrates the Gen2 Pipeline Builder running fire detection network
-                      <br/>
-                      This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a>
-                  </p>
+                  <span class="item-descr">
+                      <p>This example demonstrates the Gen2 Pipeline Builder running fire detection network</p>
+                      <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-fire-detection" class="btn item-cta">Try now ›</a>
@@ -258,12 +250,10 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Face Recognition</h5>
-                  <p class="item-descr">
-                    This example demonstrates the Gen2 Pipeline Builder running face detection network ,head posture
-                    estimation network and face recognition network
-                      <br/>
-                    This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a>
-                  </p>
+                  <span class="item-descr">
+                    <p>This example demonstrates the Gen2 Pipeline Builder running face detection network, head posture estimation network and face recognition network</p>
+                    <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-face-recognition" class="btn item-cta">Try now ›</a>
@@ -278,11 +268,10 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <div class="item-body">
                   <h5 class="item-title">Fatigue Detection</h5>
-                  <p class="item-descr">
-                      This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network
-                      <br/>
-                      This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a>
-                  </p>
+                  <span class="item-descr">
+                      <p>This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network</p>
+                      <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
+                  </span>
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-fatigue-detection" class="btn item-cta">Try now ›</a>
@@ -299,26 +288,38 @@ Tutorials
 In this section, you'll find a way to expand your knowledge in DepthAI-related topics. Tutorials listed below are a complete
 walkthrough in a specific topic.
 
-Hello World
-***********
 
-Learn how to use the DepthAI Python API to display a color video stream.
+.. raw:: html
 
-`Start Tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/hello_world/>`__
-
-Multiple DepthAI per Host
-*************************
-
-Learn how to discover DepthAI devices connected to your system, and use them individually.
-
-`Start Tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/>`__
-
-Local OpenVINO Model Conversion
-*******************************
-
-Learn how to convert OpenVINO IR models into the format required to run on DepthAI
-
-`Start Tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/>`__
+  <ul class="tutorials-list">
+    <li class="tutorials-list-item">
+      <div class="tutorials-list-item-desc">
+        <h3>Hello World</h3>
+        <p>Learn how to use the DepthAI Python API to display a color video stream</p>
+      </div>
+      <div class="tutorials-list-item-cta">
+          <a href="https://docs.luxonis.com/projects/api/en/latest/tutorials/hello_world/" class="btn item-cta">Start now ›</a>
+      </div>
+    </li>
+    <li class="tutorials-list-item">
+      <div class="tutorials-list-item-desc">
+        <h3>Multiple DepthAI per Host</h3>
+        <p>Learn how to use the DepthAI Python API to display a color video stream</p>
+      </div>
+      <div class="tutorials-list-item-cta">
+          <a href="https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/" class="btn item-cta">Start now ›</a>
+      </div>
+    </li>
+    <li class="tutorials-list-item">
+      <div class="tutorials-list-item-desc">
+        <h3>Local OpenVINO Model Conversion</h3>
+        <p>Learn how to convert OpenVINO IR models into the format required to run on DepthAI</p>
+      </div>
+      <div class="tutorials-list-item-cta">
+          <a href="https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/" class="btn item-cta">Start now ›</a>
+      </div>
+    </li>
+  </ul>
 
 Tools & API Examples
 ####################
