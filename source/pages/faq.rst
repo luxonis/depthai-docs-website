@@ -415,7 +415,7 @@ We offer hardware to support all 3 use-cases, but firmware/software maturity var
 
 #. Using our `Python API <Phttps://docs.luxonis.com/projects/api/en/latest/>`__ and/or C++ API (equal capabilities)
 #. Using our C++ SPI API (see `here <https://github.com/luxonis/depthai-spi-api>`__),
-#. Using our standalone flashing utility to flash a depthai application for standalone boot (as part of Pipeline Builder Gen2, leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`_).
+#. Using our standalone flashing utility to flash a depthai application for standalone boot (as part of Pipeline Builder Gen2, leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`__).
 
 In all cases, DepthAI (and megaAI) are compatible with OpenVINO for neural models.  The only thing that changes between
 the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
@@ -428,7 +428,7 @@ Use-Case 1: DepthAI/megaAI are a co-processor to a processor running Linux, MacO
 In this case, DepthAI can be used in two modalities:
 
  - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`__.
- - DepthAI Mode (USB, using our USB API, `here Python API <https://docs.luxonis.com/projects/api/en/latest/>`_) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
+ - DepthAI Mode (USB, using our USB API, `here Python API <https://docs.luxonis.com/projects/api/en/latest/>`__) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
 
 .. _withmicrocontroller:
 
