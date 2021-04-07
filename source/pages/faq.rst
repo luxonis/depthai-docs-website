@@ -249,10 +249,10 @@ How hard is it to get DepthAI running from scratch?  What Platforms are Supporte
 
 Not hard.  Usually DepthAI is up/running on your platform within a couple minutes (most of which is download time).
 The requirements are Python and OpenCV (which are great to have on your system anyway!). see
-:ref:`here <Supported Platforms>` for supported platforms and how to get up/running with them.
+`here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__ for supported platforms and how to get up/running with them.
 
 **Raspbian, Ubuntu, macOS, Windows,** and many others are supported and are easy to get up/running.
-For Install on various platforms are :ref:`here <Other installation methods>`.
+For Install on various platforms are `here <https://docs.luxonis.com/projects/api/en/latest/install/#other-installation-methods>`__.
 
 It's a matter of minutes to be up and running with the power of Spatial AI, on the platform of your choice.  Below is DepthAI running on my Mac.
 
@@ -280,7 +280,7 @@ Is DepthAI and MegaAI easy to use with Raspberry Pi?
 
 Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
 
-See :ref:`here <raspbian>` to get up and running quickly!
+See `here <https://docs.luxonis.com/projects/api/en/latest/install/#raspberry-pi-os>`__ to get up and running quickly!
 
 
 Can all the models be used with the Raspberry Pi?
@@ -408,7 +408,7 @@ How to integrate DepthAI/megaAI depends on whether the product you are building 
 
 We offer hardware to support all 3 use-cases, but firmware/software maturity varies across the 3 modes:
 
-#. Using our :ref:`Python API <Python API>` and/or C++ API (equal capabilities)
+#. Using our `Python API and/or C++ API <https://docs.luxonis.com/projects/api/en/latest/install/>`__ (equal capabilities)
 #. Using our C++ SPI API (see `here <https://github.com/luxonis/depthai-spi-api>`__),
 #. Using our standalone flashing utility to flash a depthai application for standalone boot (as part of Pipeline Builder Gen2, leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`__).
 
@@ -423,7 +423,7 @@ Use-Case 1: DepthAI/megaAI are a co-processor to a processor running Linux, MacO
 In this case, DepthAI can be used in two modalities:
 
  - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`__.
- - DepthAI Mode (USB, using our USB API, :ref:`here <Python API>`) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
+ - DepthAI Mode (USB, using our USB API, `here <https://docs.luxonis.com/projects/api/en/latest/install/>`__) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
 
 .. _withmicrocontroller:
 
@@ -457,7 +457,7 @@ Getting Started with Development
 
 Whether intending to use DepthAI with an :ref:`OS-capable host <withos>`, a :ref:`microcontroller over SPI <withmicrocontroller>`
 (in development), or :ref:`completely standalone <standalone>` (in Alpha testing) - we recommend starting with either
-:ref:`NCS2 mode <ncsmode>` or with the :ref:`DepthAI USB API <Python API>` for prototype/test/etc. as it allows faster iteration/feedback on
+:ref:`NCS2 mode <ncsmode>` or with the `DepthAI USB API <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for prototype/test/etc. as it allows faster iteration/feedback on
 neural model performance/etc.  And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test).
 
 In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run before.  And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
@@ -490,7 +490,8 @@ Available in DepthAI API Today:
 The above features are available in the Luxonis Pipeline Builder Gen2 which is now the main API for DepthAI. The Gen1 API is still supported, and can be accessed via the version switcher at the bottom left of this page.  See below for in-progress additional functionality/flexibility which will be added as modular nodes to the Luxonis pipeline builder for DepthAI.
 
 On our Roadmap (Most are in development/integration)
-***********************************************
+****************************************************
+
 - Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai/issues/216>`__)
 - microPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
 - Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`__)
@@ -1032,7 +1033,7 @@ Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Cam
 
 Yes, but currently not currently implemented in our API.  It's on our roadmap, `here <https://github.com/luxonis/depthai/issues/283>`__
 
-The :code:`why` of our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see :ref:`here <Supported Platforms>`).  So what we plan to do is to support UVC as part of our Gen2 Pipeline builder, so you can build a complex spatial AI/CV pipeline and then have the UVC endpoints output the results, so that DepthAI could then work on any system without drivers.  For our embedded variants, this could then be flashed to the device so that the whole pipeline will automatically run on boot-up and show up to a computer a UVC device (a webcam).
+The :code:`why` of our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__).  So what we plan to do is to support UVC as part of our Gen2 Pipeline builder, so you can build a complex spatial AI/CV pipeline and then have the UVC endpoints output the results, so that DepthAI could then work on any system without drivers.  For our embedded variants, this could then be flashed to the device so that the whole pipeline will automatically run on boot-up and show up to a computer a UVC device (a webcam).
 
 Theoretically we can implement support for 3 UVC endpoints (so showing up as 3 UVC cameras), on for each of the 3 cameras. 
 
@@ -1223,9 +1224,10 @@ The allocated resources can be printed with :code:`DEPTHAI_LEVEL` environment va
 
 Each node requires its own pools in the memory where data is stored.
 In addition to SHAVE and CMX distribution, the :code:`CPU usage, DDR, CMX, heap` memory allocations are exposed too at runtime.
- - [system] [info] Memory Usage - DDR: 74.12 / 414.56 MiB, CMX: 2.37 / 2.50 MiB, LeonOS Heap: 32.72 / 46.36 MiB, LeonRT Heap: 5.20 / 27.45 MiB
- - [system] [info] Temperatures - Average: 58.40 °C, CSS: 58.94 °C, MSS 58.30 °C, UPA: 59.36 °C, DSS: 57.01 °C
- - [system] [info] Cpu Usage - LeonOS 55.29%, LeonRT: 34.93%
+
+- [system] [info] Memory Usage - DDR: 74.12 / 414.56 MiB, CMX: 2.37 / 2.50 MiB, LeonOS Heap: 32.72 / 46.36 MiB, LeonRT Heap: 5.20 / 27.45 MiB
+- [system] [info] Temperatures - Average: 58.40 °C, CSS: 58.94 °C, MSS 58.30 °C, UPA: 59.36 °C, DSS: 57.01 °C
+- [system] [info] Cpu Usage - LeonOS 55.29%, LeonRT: 34.93%
 
 .. _autofocus:
 
@@ -1419,7 +1421,7 @@ And it will run the default MobilenetSSD, compiled to use 2 NCEs, 14 SHAVEs and 
 these values **cannot be greater than the ones you can see above**, so you cannot use 15 SHAVEs or 3 NCEs.
 14 is the limit for both SHAVE and CMX parameters, and 2 is the limit for NCE.
 
-You can try it out yourself either by following :ref:`local OpenVINO model conversion tutorial <Local OpenVINO Model Conversion>`
+You can try it out yourself either by following `local OpenVINO model conversion tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/>`__
 or by using our `online Myriad X blob converter <http://69.164.214.171:8083/>`__
 
 

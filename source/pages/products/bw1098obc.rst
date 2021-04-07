@@ -25,7 +25,7 @@ What's in the box?
 Setup
 *****
 
-Install the :ref:`Python API <Python API>`.
+Install the `Python API <https://docs.luxonis.com/projects/api/en/latest/install/>`__.
 
 .. include::  /pages/includes/verify.rst
 

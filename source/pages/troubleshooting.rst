@@ -16,13 +16,13 @@ ImportError: No module named 'depthai'
 
 This indicates that the :code:`depthai` was not found by your python interpreter. There are a handful of reasons this can fail:
 
-#. Is the :ref:`Python API` installed? Verify that it appears when you type:
+#. Is the `Python API <https://docs.luxonis.com/projects/api/en/latest/install/>`__ installed? Verify that it appears when you type:
 
     .. code-block:: bash
 
       python3 -m pip list | grep depthai
 
-#. Are you using a :ref:`supported platform <Supported Platforms>` for your operating system? If not, you can always :ref:`install from source <Install from source>`:
+#. Are you using a `supported platform <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__ for your operating system? If not, you can always `install from source <https://docs.luxonis.com/projects/api/en/latest/install/#install-from-source>`__:
 
     .. code-block:: bash
 
@@ -109,7 +109,7 @@ For gen2, set the **usb2mode** to **True** when creating the device:
   dai.Device(pipeline, usb2mode=True)
 
 We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not
-Ubuntu 18.04/16.04 or Raspbian, please :ref:`compile DepthAI from source <Install from source>`.
+Ubuntu 18.04/16.04 or Raspbian, please `compile DepthAI from source <https://docs.luxonis.com/projects/api/en/latest/install/#install-from-source>`__.
 
 Output from DepthAI keeps freezing
 #################################################
