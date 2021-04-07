@@ -108,3 +108,51 @@ video {
 .wy-table-responsive table td, .wy-table-responsive table th {
     white-space: normal;
 }
+
+#example-use-cases .items-container .item {
+    box-shadow: 0 0 1em #00000099;
+    padding: 10px;
+}
+
+#example-use-cases .items-container .item .item-descr {
+    margin: 0
+}
+
+#example-use-cases .items-container .item .item-descr p + p {
+    margin-top: 10px;
+}
+
+#example-use-cases .items-container .items-col + .items-col {
+    margin-left: 30px;
+}
+
+.tutorials-list {
+    list-style-type: none;
+}
+
+.tutorials-list .tutorials-list-item {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid #00000099;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 0 1em #00000099;
+}
+
+.tutorials-list-item + .tutorials-list-item {
+    margin-top: 30px;
+}
+
+.tutorials-list .tutorials-list-item .tutorials-list-item-desc {
+    width: 50%
+}
+
+.tutorials-list .tutorials-list-item .tutorials-list-item-cta {
+    margin: auto 0;
+}
+
+.tutorials-list .tutorials-list-item .tutorials-list-item-cta .btn {
+    font-size: 130%;
+    border-radius: 30px;
+    padding: 10px 15px;
+}

@@ -134,10 +134,10 @@ Luxonis Github Repositories
 .. toctree::
    :maxdepth: 1
    :hidden:
-   :caption: Subprojects:
+   :caption: Modules:
 
-   DepthAI API <https://docs.luxonis.com/projects/api/en/latest/>
-   DepthAI GUI <https://docs.luxonis.com/projects/gui/en/latest/>
+   pages/examples.rst
+   C++/Python API <https://docs.luxonis.com/projects/api/en/latest/>
 
 
 .. toctree::
