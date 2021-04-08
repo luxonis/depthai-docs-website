@@ -69,7 +69,7 @@ This will then run the a typical demo MobileNetv2 SSD object detector trained on
 - Vehicle: airplane, bicycle, boat, bus, car, motorbike, train
 - Indoor: bottle, chair, dining table, potted plant, sofa, TV/monitor
 
-I ran this on my iMac (OS X setup :ref:`here <macOS (Mac OS X)>`) with a `microAI <https://shop.luxonis.com/products/bw1093>`__ sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
+I ran this on my iMac (OS X setup `here <https://docs.luxonis.com/projects/api/en/latest/install/#macos>`__) with a `microAI <https://shop.luxonis.com/products/bw1093>`__ sitting on my desk pointing upwards randomly - and it makes out the corner of my iMac (which is barely visible) and correctly identifies it as `tv/monitor`:
 
 .. image:: /_static/images/tutorials/pretrained_openvino/tvmonitor.png
   :alt: iMac
@@ -239,5 +239,5 @@ This can be run with the following command:
 And note this is running both parallel neural inference (i.e. on both cameras) and also series neural inference
 (the landmarks-regression network is running on the results of the face detector).
 
-.. include::  /includes/footer-short.rst
+.. include::  /pages/includes/footer-short.rst
 
