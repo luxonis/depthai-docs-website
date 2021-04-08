@@ -1,7 +1,7 @@
 .. _bw1093:
 
-BW1093 - OAK-1 | MegaAI - 4K USB3 AI Camera
-###########################################
+megaAI (OAK-1) 4K USB3 AI Camera
+################################
 
 .. image:: /_static/images/products/bw1093.png
   :alt: OAK-1 MegaAI 4K USB3 AI Camera
