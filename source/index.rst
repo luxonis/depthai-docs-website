@@ -8,10 +8,20 @@ DepthAI's documentation
 
 *Learn about DepthAI ecosystem, available devices, calibration instructions, and more*
 
-DepthAI is the embedded spatial AI platform that helps you build products with true real-time 3D object localization
-(think 3D object detection) and tracking. DepthAI offloads AI, depth vision and more - processed direct from built-in
-cameras - freeing your host to process application-specific data.
-Best of all, it is modular and MIT-licensed open source, affording adding these Spatial AI/CV super powers to real commercial products.
+
+DepthAI Ecosystem
+#################
+
+DepthAI is the embedded :ref:`spatial <spatialai>` AI platform built around `Myriad X <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu/movidius-myriad-x.html>`__  
+- a complete ecosystem of custom `hardware <https://github.com/luxonis/depthai-hardware>`__, firmware, `software <https://docs.luxonis.com/projects/api/en/latest/>`__, 
+and AI training. It combines neural inference, depth vision, and feature tracking into an easy-to-use, works-in-30-seconds solution. 
+
+DepthAI offloads AI, depth vision and more - processed direct from built-in cameras - freeing your host to process application-specific data.
+
+DepthAI gives you power of AI, depth, and tracking in a single device with a simple, easy-to-use API, written in Python and C++.
+
+Best of all, it is modular (System on Module) and built on `MIT-licensed open source hardware <https://github.com/luxonis/depthai-hardware>`__, affording adding these Spatial AI/CV super powers to real commercial products.
+
 
 Available interfaces
 ####################
