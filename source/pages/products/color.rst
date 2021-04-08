@@ -15,6 +15,7 @@ Specifications
 - 12 MP Stills
 - Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
 - 4056 x 3040 pixels
+- 1.55 x 1.55 micrometer pixel size
 - 81 DFOV°
 - Lens Size: 1/2.3 inch
 - AutoFocus: 8 cm - ∞
