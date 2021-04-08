@@ -16,6 +16,7 @@ Specifications
 - Excellent Low-light
 - Same dimensions, mounting holes, and camera center as Raspberry Pi Camera v2.1
 - 1280 x 720 pixels
+- 3x3 micrometer pixel size
 - 83 DFOV°
 - Lens Size: 1/2.3 inch
 - Fixed Focus: 19.6 cm - ∞
