@@ -1027,6 +1027,58 @@ And we have also since done several optimizations since these measurements, so t
     - left, right, depth, :code:`metaout`, :code:`previewout`
     - 300
 
+How to do a letterboxing (thumbnailing) on the color camera?
+############################################################
+    
+To get the black bars on the top and the bottom of the video, the :code:`y` component of the points needs to be adjusted (for 16:9 to 1:1 transform).
+    
+The :code:`ImageMAnip` `node <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManip>`__ could be used for this kind of transform, e.g created as:
+    
+  .. code-block:: python
+    
+    manip = pipeline.createImageManip()
+    manip.setMaxOutputFrameSize(1280*720*3)
+    
+There are two possible options:
+    
+1. Using :code:`setResizeThumbnail` (`details <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManipConfig.setResizeThumbnail>`__)
+     
+  .. code-block:: python 
+    
+      manip.initialConfig.setResizeThumbnail(1280, 1280)
+    
+2. Using :code:`setWarpTransformFourPoints` (`details <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManipConfig.setWarpTransformFourPoints>`__)
+    
+  .. code-block:: python
+    
+    adj = (16-9)/9 / 2
+    point2f_list = [depthai.Point2f(0,-adj), depthai.Point2f(1,-adj), depthai.Point2f(1,1+adj), depthai.Point2f(0,1+adj)]
+    
+    normalized = True
+    manip.initialConfig.setWarpTransformFourPoints(point2f_list, normalized)
+    manip.setResize(1280, 1280)  # Optional, for a final resize of the frame
+    
+If large resolutions are set, this could result in a latency build-up. Performance-wise, instead of reducing FPS, it is recommended to configure the on-device queue as non-blocking with a single slot:
+    
+  .. code-block:: python
+    
+    manip.inputImage.setQueueSize(1)
+    manip.inputImage.setBlocking(False)
+    
+For now, it will work only for lower resolution (i.e. 1280x720), so we suggest resizing before starting the pipeline:
+    
+  .. code-block:: python
+    
+    manip = pipeline.createImageManip()
+    manip.setMaxOutputFrameSize(1280*720*3)
+    manip.initialConfig.setResizeThumbnail(1280, 1280)
+    
+Note! Interleaved RGB input with ImageManip is not yet supported, so set: 
+    
+  .. code-block:: python
+    
+    colorCam.setInterleaved(False)
+
 
 Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Camera?
 ####################################################################################
