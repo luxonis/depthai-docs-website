@@ -252,7 +252,7 @@ The requirements are Python and OpenCV (which are great to have on your system a
 `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__ for supported platforms and how to get up/running with them.
 
 **Raspbian, Ubuntu, macOS, Windows,** and many others are supported and are easy to get up/running.
-For Install on various platforms are `here <https://docs.luxonis.com/projects/api/en/latest/install/#other-installation-methods>`__.
+For the list of supported platforms (and instructions on how to get started), click `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__.
 
 It's a matter of minutes to be up and running with the power of Spatial AI, on the platform of your choice.  Below is DepthAI running on my Mac.
 
