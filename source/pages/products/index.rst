@@ -166,6 +166,7 @@ Products
 
 
 .. toctree::
+   :hidden:
    :maxdepth: 1
 
    bw1093.rst
