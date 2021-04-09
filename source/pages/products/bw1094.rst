@@ -1,7 +1,7 @@
 .. _bw1094:
 
-BW1094 - RaspberryPi Hat
-########################
+DepthAI RaspberryPi Hat
+#######################
 
 
 .. image:: /_static/images/products/bw1094.jpg
