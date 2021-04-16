@@ -1229,6 +1229,15 @@ Encoded:
   - 12MP (4056x3040) : JPEG Pictures/Stills
   - 4K   (3840x2160) : 30.00fps (3.125MB/s)
 
+
+What is the best way to get FullHD in good quality?
+###################################################
+
+The solution for now is to configure the sensor to 4K, but downscale further in the pipeline:
+  - with the existing FW, the ColorCamera :code:`preview` set as :code:`colorCam.setPreviewSize(1920, 1080)` - will output RGB/BGR. But the :code:`video` output is still 4K (unless cropped).
+  - using the branch :code:`stereo_fixes` from `here <https://github.com/luxonis/depthai-python/pull/147>`__, it is possible to set an ISP downscale as :code:`colorCam.setIspScale(1, 2)` , while keeping the sensor at 4K, and then both :code:`preview` and :code:`video` will act (resolution-wise) as if the sensor was configured at 1080p.
+
+
 How Much Compute Is Available?  How Much Neural Compute is Available?
 #####################################################################
 
