@@ -1,5 +1,5 @@
-DepthAI Ecosystem
-=================
+Ecosystem
+=========
 
 .. list-table:: Core Repositories
   :widths: 10 90
