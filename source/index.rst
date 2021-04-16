@@ -488,6 +488,14 @@ Ecosystem
 .. toctree::
    :maxdepth: 1
    :hidden:
+   :caption: Home:
+
+   self
+
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
    :caption: Modules:
 
    C++/Python API <https://docs.luxonis.com/projects/api/en/latest/>
