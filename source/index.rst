@@ -6,6 +6,12 @@
 DepthAI's documentation
 =======================
 
+.. note::
+
+   .. raw:: html
+
+      <p> New to DepthAI? <strong>Start <a href="#demo-script">here</a></strong> </p>
+
 *Learn about DepthAI ecosystem, available devices, calibration instructions, and more*
 
 DepthAI is the embedded :ref:`spatial <spatialai>` AI platform built around `Myriad X <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu/movidius-myriad-x.html>`__
@@ -41,7 +47,8 @@ by giving a try to `gen2 branch <https://github.com/luxonis/depthai/tree/gen2>`_
   python3 install_requirements.py
   python3 gen2_demo.py
 
-And then following up with the `README.md <https://github.com/luxonis/depthai/blob/gen2/README.md>`__ for more usage examples
+And then following up with the `README.md <https://github.com/luxonis/depthai/blob/gen2/README.md>`__ for more usage examples.
+If you have issues during the installation, see our `Installation page <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for detailed instructions
 
 Example Use Cases
 #################
