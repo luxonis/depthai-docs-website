@@ -1228,6 +1228,20 @@ It's worth noting that all DepthAI and megaAI products share the same color came
 Encoded:
   - 12MP (4056x3040) : JPEG Pictures/Stills
   - 4K   (3840x2160) : 30.00fps (3.125MB/s)
+  
+What are the theoretical maximum transmission rate for USB3 Gen1 and Gen2?
+##########################################################################
+
+The maximum bit rate (the PHY rate) for Gen1 is 5gbps and for Gen2 is 10gbps.  But this is the line rate - meaning purely how fast the bits can change from 0 to 1 and vice-versa.  So above this, there is the USB encoding of the data, and then above this the protocol that is being used.
+
+This FAQ answers the maximum transmission rate of USB-encoded data being sent over USB3.  Keep in mind that this is prior to whatever protocol is being used over USB3 (e.g. USB Video Class (UVC), or XLink).  Actual use of USB3 will always involve some form of protocol, which means the actual throughput will be lower than the following.  And the CPUs involved may not be able to handle this throughput and/or the handling of the protocol used above USB3 at these rates.
+
+So that is to say, this is the absolute maximum possible data transmission through USB3.
+
+Gen1 (8b/10b): 4Gbps (of 5gpbs PHY rate)
+Gen2 (128b/132b): 9.69 Gbps (of 10gbps PHY rate)
+
+So interestingly, in Gen2 USB3, not only is the PHY rate 2x as high, the encoding overhead is significantly lower, as in USB3 Gen1 - each 8 bits get 2 bits of encoding added on top, whereas in Gen2, this can be increased to 2 bits of overhead for every 128bits of `data`.  So in other words, in Gen1, 20% of what is being sent over the line is USB overhead.  And in Gen2, this USB encoding overhead can be reduced down from 20% to 1.54%.
 
 
 What is the best way to get FullHD in good quality?
