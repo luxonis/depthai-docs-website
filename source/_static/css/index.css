@@ -156,3 +156,7 @@ video {
     border-radius: 30px;
     padding: 10px 15px;
 }
+
+a.reference[href='#ecosystem'] span {
+    display: none;
+}

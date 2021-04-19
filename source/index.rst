@@ -18,10 +18,7 @@ DepthAI gives you power of AI, depth, and tracking in a single device with a sim
 
 Best of all, it is modular (System on Module) and built on `MIT-licensed open source hardware <https://github.com/luxonis/depthai-hardware>`__, affording adding these Spatial AI/CV super powers to real commercial products.
 
-Demos & Examples
-================
-
-In this section, we will showcase what you can build with DepthAI. Different examples will showcase a different usage
+In the following sections, we will showcase what you can build with DepthAI. Different examples will showcase a different usage
 of DepthAI capabilities, which can both encourage you to develop your own ideas or dive deeper into DepthAI capabilities
 to discover them yourself.
 
@@ -484,14 +481,11 @@ Ecosystem
 
 .. include::  /pages/includes/footer-long.rst
 
-
 .. toctree::
-   :maxdepth: 2
    :hidden:
-   :caption: Home:
+   :maxdepth: 2
 
-   self
-
+   index
 
 .. toctree::
    :maxdepth: 1
