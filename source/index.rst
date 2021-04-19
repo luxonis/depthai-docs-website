@@ -45,7 +45,7 @@ by giving a try to `gen2 branch <https://github.com/luxonis/depthai/tree/gen2>`_
   cd depthai
   git checkout gen2
   python3 install_requirements.py
-  python3 gen2_demo.py
+  python3 depthai_demo.py
 
 And then following up with the `README.md <https://github.com/luxonis/depthai/blob/gen2/README.md>`__ for more usage examples.
 If you have issues during the installation, see our `Installation page <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for detailed instructions
