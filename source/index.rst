@@ -306,6 +306,46 @@ In this section, you'll find an inspiration what can you build right away with D
          </div>
 
       </div>
+      <div class="items-row">
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://www.youtube.com/watch?v=Bv-p76A3YMk" target="_blank">
+                     <img class="item-img" src="https://user-images.githubusercontent.com/5244214/115358042-8d831100-a1bd-11eb-8782-415392c71a87.png" alt="Gen2 OCR"/>
+                  </a>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Text Detection + OCR</h5>
+                  <span class="item-descr">
+                    <p>This example demonstrates the Gen2 Pipeline Builder running text detection (EAST) followed by optical character recognition of the detected text</p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="https://user-images.githubusercontent.com/5244214/115357410-e900cf00-a1bc-11eb-97d7-baac5d052572.gif" alt="Sign Language Recognition"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Sign Language Recognition</h5>
+                  <span class="item-descr">
+                      <p>This example demonstrates how to recognize American Sign Language (ASL) on DepthAI using hand landmarks </p>
+                      <p>This example was created by <a href="https://www.cortic.ca/post/classifying-american-sign-language-alphabets-on-the-oak-d" target="_blank">Cortic Technology</a></p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/cortictechnology/hand_asl_recognition" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+      </div>
    </div>
 
 Tutorials
