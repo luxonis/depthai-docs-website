@@ -70,6 +70,7 @@ html_css_files = [
 ]
 html_js_files = [
     'js/navbar.js',
+    'js/fixIndexToctree.js',
 ]
 html_title = 'DepthAI documentation | Luxonis'
 
