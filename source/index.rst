@@ -39,7 +39,7 @@ Our multipurpose command line demo tool for Gen2 is currently in progress, and y
 both on the `migration Pull Request <https://github.com/luxonis/depthai/pull/349>`__ or
 `gen2 branch <https://github.com/luxonis/depthai/tree/gen2>`__.
 
-To run the demo script on your DepthAI device, type the following commands in the terminal.
+To install and run the demo script on your DepthAI device, type the following commands in the terminal.
 
 .. code-block:: bash
 
