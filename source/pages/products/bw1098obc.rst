@@ -67,6 +67,8 @@ Camera Specs
     - 2.0
     - 2.2
 
+Mass: 114.5 grams
+
 Compliance
 **********
 
