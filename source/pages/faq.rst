@@ -1561,6 +1561,38 @@ Below is a quick video showing this:
   :alt: BW1097 Power Use
   :target: https://www.youtube.com/watch?v=zQtSzhGR6Xg
 
+
+How to unbind and bind a device?
+################################
+
+In some cases, you may need to unbind and bind your device, i.e. a controller crashes with the following error messages: 
+
+.. code-block:: bash
+
+  [345692.730104] xhci_hcd 0000:02:00.0: xHCI host controller not responding, assume dead
+  [345692.730113] xhci_hcd 0000:02:00.0: HC died; cleaning up
+
+or you encounter error, such as:
+
+.. code-block:: bash
+
+  RuntimeError: Failed to find device after booting, error message: X_LINK_DEVICE_NOT_FOUND
+
+or
+
+.. code-block:: bash
+
+  Cannot enable. Maybe the USB cable is bad?
+
+Instead of rebooting a host, you may unbind and bind a device.
+
+Note! You'll need to know the PCI ID of the USB host controller to replace the "0000:00:14.0" part from the command below.
+
+.. code-block:: bash
+
+  echo -n "0000:00:14.0" | sudo tee /sys/bus/pci/drivers/xhci_hcd/unbind; sleep 1; echo -n "0000:00:14.0" | sudo tee /sys/bus/pci/drivers/xhci_hcd/bind
+
+
 How Do I Get Shorter or Longer Flexible Flat Cables (FFC)?
 ##########################################################
 
