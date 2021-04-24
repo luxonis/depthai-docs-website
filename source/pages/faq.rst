@@ -460,20 +460,30 @@ Whether intending to use DepthAI with an :ref:`OS-capable host <withos>`, a :ref
 :ref:`NCS2 mode <ncsmode>` or with the `DepthAI USB API <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for prototype/test/etc. as it allows faster iteration/feedback on
 neural model performance/etc. And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test).
 
-In DepthAI mode, theoretically anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run 
-before. And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore 
+In DepthAI mode, theoretically, anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run
+before. And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore
 had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
 
-For common object detector formats (YoloDetectionNetwork, MobileNetDetectionNetwork, etc.) there's effectively no work to go from NCS2 mode to DepthAI mode. 
-You can just literally replace the classes in MobileNetDetectionNetwork or YoloDetectionNetwork examples we have. 
+For common object detector formats (**MobileNet**-SSD, (Tiny) **YOLO** V3/V4) there's effectively no work to go from NCS2 mode to DepthAI mode because
+we have added the support for decoding their results on the device side. To use the device side decoding with gen2, have a look at
+`YoloDetectionNetwork <https://docs.luxonis.com/projects/api/en/latest/components/nodes/yolo_detection_network/>`__ for **YOLO**
+(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/22_2_tiny_yolo_v4_decoding_on_device>`__)
+or `MobileNetDetectionNetwork <https://docs.luxonis.com/projects/api/en/latest/components/nodes/mobilenet_detection_network/>`__ for **MobileNet**
+(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/10_mono_depth_mobilenetssd>`__) decoding.
 
-For instance for `YoloDetectionNetwork <https://docs.luxonis.com/projects/api/en/latest/components/nodes/yolo_detection_network/>`__, you can just 
-change the labels to whatever your classes are from this example `here <https://docs.luxonis.com/projects/api/en/latest/samples/22_1_tiny_yolo_v3_decoding_on_device/#rgb-tinyyolov3-decoding-on-device>`__ and just change the blob 
-file to your blob file. And the same thing is true for `MobileNetDetectionNetwork <https://docs.luxonis.com/projects/api/en/latest/components/nodes/mobilenet_detection_network/>`__.
-Demo can be found `here <https://docs.luxonis.com/projects/api/en/latest/samples/10_mono_depth_mobilenetssd/#mono-mobilenetssd-depth>`__.
+To use your own trained **Yolo** model with the DepthAI, you should start with the
+`demo <https://docs.luxonis.com/projects/api/en/latest/samples/22_2_tiny_yolo_v4_decoding_on_device>`__ and modify its code a bit:
 
-Interested in how to train an object detector with your data? You can check our tutorial `here <https://github.com/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYOLOv4_Object_Detector_Training_on_Custom_Data.ipynb>`__.
+- Change the labels at :code:`label_map = ["label1", "label2", "..."]`, depending on your model
+- Set the number of classes at :code:`detectionNetwork.setNumClasses()` depending on your model
+- If you haven't compiled the model with the latest OpenVINO version, set the :ref:`OpenVINO version <Neural network blob compiled with uncompatible openvino version>`
+- Don't forget to change the path to the model (:code:`.blob` file)
 
+For **MobileNet** you should follow the same steps (skip the 2nd one) but start with the
+`MobileNet demo <https://docs.luxonis.com/projects/api/en/latest/samples/10_mono_depth_mobilenetssd>`__.
+
+Interested in how to train an object detector with your data? You can check our **Yolo V4** training tutorial
+`here <https://github.com/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYOLOv4_Object_Detector_Training_on_Custom_Data.ipynb>`__!
 
 What Hardware-Accelerated Capabilities Exist in DepthAI and/or megaAI?
 ######################################################################
