@@ -628,8 +628,8 @@ In this mode, the neural inference (object detection, landmark detection, etc.) 
 The hyperfocal distance of the global shutter synchronized stereo pair is
 19.6cm.  So objects closer than 19.6cm will appear out of focus.  This is
 effectively the minimum distance for this mode of operation, as in most cases
-(except for very wide stereo baselines with the :ref:`BW1098FFC <BW1098FFC -
-USB3 with Modular Cameras>`), this **effective** minimum distance is higher
+(except for very wide stereo baselines with the :ref:`DepthAI FFC <bw1098ffc>`),
+this **effective** minimum distance is higher
 than the **actual** minimum distance as a result of the stereo camera field of
 views.  For example, the objects will be fully out of the field of view of both
 grayscale cameras when less than `5.25cm
@@ -656,7 +656,7 @@ Monocular Neural Inference fused with Stereo Depth Mode
 
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
 
-- DepthAI Raspberry Pi Compute Module Edition (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`) the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
+- DepthAI Raspberry Pi Compute Module Edition (:ref:`BW1097 <bw1097>`) the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
 
 .. code-block:: python
 
@@ -678,7 +678,7 @@ calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03HLvlfCWau
 Stereo Neural Inference Mode
 ----------------------------
 
-For DepthAI units with onboard cameras, all models (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>` and :ref:`BW1098OBC <bw1098obc>`) are
+For DepthAI units with onboard cameras, all models (:ref:`BW1097 <bw1097>` and :ref:`BW1098OBC <bw1098obc>`) are
 limited by the hyperfocal distance of the stereo cameras, so their minimum depth is **0.196** meters.
 
 Modular Camera Minimum Depths:
@@ -1149,11 +1149,11 @@ What Information is Stored on the DepthAI Boards
 ################################################
 
 Initial Crowd Supply backers received boards which had literally nothing stored on them.  All information was loaded
-from the host to the board.  This includes the BW1097 (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`), which had the calibration stored on the included microSD card.
+from the host to the board.  This includes the BW1097 (:ref:`BW1097 <bw1097>`), which had the calibration stored on the included microSD card.
 
-So each hardware model which has stereo cameras (e.g. :ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`,
-:ref:`BW1098FFC <BW1098FFC - USB3 with Modular Cameras>`, :ref:`BW1098OBC <bw1098obc>`, and
-:ref:`BW1094 <BW1094 - RaspberryPi Hat>`) has the capability to store the calibration data and field-of-view,
+So each hardware model which has stereo cameras (e.g. :ref:`BW1097 <bw1097>`,
+:ref:`DepthAI FFC <bw1098ffc>`, :ref:`BW1098OBC <bw1098obc>`, and
+:ref:`BW1094 <bw1094>`) has the capability to store the calibration data and field-of-view,
 stereo baseline (:code:`L-R distance`) and relative location of the color camera to the stereo cameras (:code:`L-RGB distance`)
 as well as camera orientation (:code:`L/R swapped`).  To retrieve this information, simply run :code:`python3 depthai_demo.py` and look for
 :code:`EEPROM data:`.
@@ -1177,7 +1177,7 @@ Example of information pulled from a :ref:`BW1098OBC <bw1098obc>` is below:
       0.000008,   -0.000010,    1.000000,
 
 
-Current (those April 2020 and after) DepthAI boards with on-board stereo cameras (:ref:`BW1097 <BW1097 - RaspberryPi Compute Module>`, :ref:`BW1098OBC <bw1098obc>`, and `BW1092 <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__) ship calibration and board parameters pre-programmed into DepthAI's onboard EEPROM.
+Current (those April 2020 and after) DepthAI boards with on-board stereo cameras (:ref:`BW1097 <bw1097>`, :ref:`BW1098OBC <bw1098obc>`, and `BW1092 <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__) ship calibration and board parameters pre-programmed into DepthAI's onboard EEPROM.
 
 Dual-Homography vs. Single-Homography Calibration
 #################################################
