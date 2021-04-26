@@ -14,7 +14,7 @@ Image below (from `OpenCV Courses site <https://courses.opencv.org/>`__) shows t
 .. image:: /_static/images/model_compile.png
   :alt: Model Compile Steps
 
-Below, please find instructions how to perform these steps using different methods
+Below, please find instructions on how to perform these steps using different methods
 
 Local compilation
 *****************
