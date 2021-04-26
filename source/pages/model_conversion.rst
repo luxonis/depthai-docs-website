@@ -28,7 +28,7 @@ If you want to perform model conversion and compilation, you can follow:
 Using Google Colab
 ******************
 
-You can also train and convert model using Google Colab notebook. You can take a look at our :ref:`Custom training` page, where
+You can also train and convert models using Google Colab notebook. You can take a look at our :ref:`Custom training` page, where
 every tutorial contains also conversion & compilation steps performed directly inside the notebooks.
 
 An example notebook with the compilation steps is `here <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb#scrollTo=_PlfZAR1OCK2>`__
@@ -36,7 +36,7 @@ An example notebook with the compilation steps is `here <https://colab.research.
 Using online converter
 **********************
 
-You can also visit our online MyriadX Blob connverter at `http://luxonis.com:8080/ <http://luxonis.com:8080/>`__,
+You can also visit our online MyriadX Blob converter at `http://luxonis.com:8080/ <http://luxonis.com:8080/>`__,
 that allows to specify different OpenVINO target versions and supports conversions from **TensorFlow, Caffe, OpenVINO IR and OpenVINO Model Zoo**
 
 .. image:: /_static/images/blobconverter_web.png
@@ -46,7 +46,7 @@ Using blobconverter package
 ***************************
 
 For automated usage of our blobconverter tool, we have released a `blobconverter PyPi package <https://pypi.org/project/blobconverter/>`__,
-that allows to compile MyriadX blobs both from the command line and from the Python script directly.
+that allows compiling MyriadX blobs both from the command line and from the Python script directly.
 
 Install and usage instructions can be found `here <https://github.com/luxonis/blobconverter/tree/master/cli>`__
 
