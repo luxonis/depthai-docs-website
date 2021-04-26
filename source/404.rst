@@ -1,4 +1,9 @@
-TestTest
-########
+Page not found
+##############
 
-Hello, I'm 404
+We're sorry, but the URL you accessed was not found in our docs.
+
+We're constantly developing our docs to make it better, and if you need help in finding the
+page you're looking for, please reach out to us and we'll provide assistance
+
+.. include::  /pages/includes/footer-long.rst
