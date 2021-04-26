@@ -555,6 +555,7 @@ Ecosystem
    pages/products/index.rst
    pages/calibration.rst
    pages/training.rst
+   pages/model_conversion.rst
 
 
 .. toctree::
