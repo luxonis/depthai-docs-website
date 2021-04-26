@@ -31,6 +31,7 @@ extensions = [
     "sphinx.ext.autosectionlabel",  # https://github.com/sphinx-doc/sphinx/issues/7697 wait for this and implement
     "sphinx_rtd_theme",
     "sphinxcontrib.spelling",
+    'notfound.extension',
 ]
 
 # See https://github.com/sphinx-doc/sphinx/issues/7728
