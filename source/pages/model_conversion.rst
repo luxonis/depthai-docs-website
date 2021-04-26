@@ -4,7 +4,7 @@ Converting model to MyriadX blob
 To allow DepthAI to use your custom trained models, you need to convert them into a MyriadX blob file format - so that
 they are optimized for the best inference on MyriadX VPU processor.
 
-There are two conversion steps that has to be taken in order to obtain a blob file:
+There are two conversion steps that have to be taken in order to obtain a blob file:
 
 - Use **Model Optimizer** to produce **OpenVINO IR representation** (where IR stands for Intermediate Representation)
 - Use **Model Compiler** to convert IR representation into **MyriadX blob**
