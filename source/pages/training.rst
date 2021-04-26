@@ -81,6 +81,3 @@ Below is a quick test of the model produced with this notebook on Luxonis DepthA
 This notebook operates on your set of images in Google Drive to resize them to the format needed by the training notebooks.
 
 .. include::  /pages/includes/footer-short.rst
-
-.. include::  /pages/includes/footer-short.rst
-

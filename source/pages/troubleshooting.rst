@@ -137,7 +137,7 @@ So make sure to unplug and then plug the DepthAI back in after having run these.
 CTRL-C Is Not Stopping It!
 ##########################
 
-If you are trying to kill a program with CTLR-C, and it's not working, try CTRL-\ instead.  Usually this will work.
+If you are trying to kill a program with :code:`CTLR-C`, and it's not working, try :code:`CTRL-\ ` instead.  Usually this will work.
 
 Is Your Raspberry Pi Locking Up?
 ################################

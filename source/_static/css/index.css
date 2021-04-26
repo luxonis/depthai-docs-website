@@ -157,6 +157,25 @@ video {
     padding: 10px 15px;
 }
 
-a.reference[href='#ecosystem'] span {
+.toctree-l3 {
     display: none;
+}
+
+.wy-side-scroll .wy-menu-vertical .current:first-child {
+    background: inherit;
+}
+
+.wy-side-scroll .wy-menu-vertical .current:first-child a {
+    color: #404040;
+    border: none;
+    background: inherit;
+    font-weight: normal;
+}
+
+.wy-side-scroll .wy-menu-vertical .current:first-child ul .current a span {
+    display: none;
+}
+
+.wy-side-scroll .wy-menu-vertical .current:first-child .current {
+    background: inherit;
 }
