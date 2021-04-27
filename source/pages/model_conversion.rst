@@ -22,6 +22,7 @@ Local compilation
 If you want to perform model conversion and compilation, you can follow:
 
 - `OpenVINO official instructions <https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit.html>`__
+- `OpenVINO Python notebooks <https://github.com/openvinotoolkit/openvino_notebooks>`__
 - `Our local model compilation tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/>`__
 - `Custom model conversion & compilation notes <https://github.com/luxonis/depthai/blob/main/README.md#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`__
 
