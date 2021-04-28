@@ -1517,7 +1517,8 @@ these values **cannot be greater than the ones you can see above**, so you canno
 14 is the limit for both SHAVE and CMX parameters, and 2 is the limit for NCE.
 
 You can try it out yourself either by following `local OpenVINO model conversion tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/>`__
-or by using our `online Myriad X blob converter <http://69.164.214.171:8083/>`__
+or by using our `online Myriad X blob converter <http://luxonis.com:8080/>`__.
+For more info, please see :ref:`Converting model to MyriadX blob`
 
 
 .. _rpi_hq:
