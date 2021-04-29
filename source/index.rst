@@ -15,7 +15,7 @@ DepthAI's documentation
 *Learn about DepthAI ecosystem, available devices, calibration instructions, and more*
 
 DepthAI is the embedded :ref:`spatial <spatialai>` AI platform built around `Myriad X <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu/movidius-myriad-x.html>`__
-- a complete ecosystem of custom `hardware <https://github.com/luxonis/depthai-hardware>`__, firmware, `software <https://docs.luxonis.com/projects/api/en/latest/>`__,
+- a complete ecosystem of custom `hardware <https://docs.luxonis.com/projects/hardware/en/latest/>`__, firmware, `software <https://docs.luxonis.com/projects/api/en/latest/>`__,
 and AI training. It combines neural inference, depth vision, and feature tracking into an easy-to-use, works-in-30-seconds solution.
 
 DepthAI offloads AI, depth vision and more - processed direct from built-in cameras - freeing your host to process application-specific data.
@@ -469,8 +469,8 @@ Ecosystem
     - This repository contains shared data between our main firmware
       and depthai-core host library.
   * - `depthai_ros2 <https://github.com/luxonis/depthai_ros2/>`__
-    - DepthAI ROS2 Wrapper. This is an attempt at basic DepthAI to ROS2|
-      interface. It's largely leveraging the existing depthai python demo on https://github.com/luxonis/depthai.
+    - DepthAI ROS2 Wrapper. This is an attempt at basic DepthAI to ROS2
+      interface. It's largely leveraging the existing depthai python demo on `luxonis/depthai <https://github.com/luxonis/depthai>`__.
   * - `depthai-spi-api <https://github.com/luxonis/depthai-spi-api/>`__
     - API of the SPI protocol
   * - `depthai-spi-library <https://github.com/luxonis/depthai-spi-library/>`__
@@ -484,11 +484,11 @@ Ecosystem
       understand more about the embedded hardware that powers DepthAI.
 
 
-.. list-table:: Tools / Docs Repositories
+.. list-table:: Tools & Docs Repositories
   :widths: 10 90
 
   * - `depthai-docs-website <https://github.com/luxonis/depthai-docs-website/>`__
-    - If you wan't to contribute and update our docs, you can simply create a pull request.
+    - If you want to contribute and update our docs, you can simply create a pull request.
   * - `depthai-gui <https://github.com/luxonis/depthai-gui/>`__
     - DepthAI GUI is a WYSIWYG tool that allows to create a custom DepthAI pipelines, run them and see the results - all in one tool.
   * - `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/>`__
@@ -518,7 +518,7 @@ Ecosystem
     - CMake example project which serves as a template on how to quickly get started with C++ and depthai library
 
 
-.. list-table:: Experiments Repositories:
+.. list-table:: Experiments Repositories
   :widths: 10 90
 
   * - `depthai-experiments <https://github.com/luxonis/depthai-experiments/>`__
