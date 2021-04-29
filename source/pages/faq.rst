@@ -63,6 +63,18 @@ An example of such an extension is using a facial landmark detector on DepthAI. 
 the 2D coordinates of all 45 facial landmarks (contours of eyes, ears, mouth, eyebrows, etc.)  Using this same network
 with DepthAI, each of these 45 facial landmarks is now a 3D point in physical space instead of 2D points in pixel space.
 
+How is DepthAI Used?  In What Industries is it Used?
+####################################################
+
+DepthAI has been used in effectively every industry, from farming/ranch, to cleaning spots courts, to building personal-service robots.  Here's a quick list of some common use-cases of DepthAI:
+
+- Visual assistance (for visually impaired, or for aiding in fork-lift operation, etc.)
+- Aerial / subsea drones (fault detection, AI-based guidance/detection/routing)
+- E-scooter & micromobility (not allowing folks to ride rented e-scooters like jerks)
+- Cargo/transport/autonomy (fullness, status, navigation, hazard avoidance)
+- Sports monitoring (automatically losslessly zooming in on action)
+- Smart agriculture (e.g guiding lasers to kill weeds, pests, or targeting watering)
+- Safety systems (Health, Safety, Environment - such as detecting remote leaks, if personal protective equipment is warn)
 
 How Does DepthAI Provide Spatial AI Results?
 ############################################
