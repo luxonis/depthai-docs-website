@@ -8,9 +8,7 @@ DepthAI's documentation
 
 .. note::
 
-   .. raw:: html
-
-      <p> New to DepthAI? <strong>Start <a href="#demo-script">here</a></strong> </p>
+   New to DepthAI? Start :ref:`here <First steps with DepthAI>`!
 
 *Learn about DepthAI ecosystem, available devices, calibration instructions, and more*
 
@@ -564,3 +562,4 @@ Ecosystem
    :caption: Tutorials
 
    pages/tutorials/pretrained_openvino.rst
+   pages/tutorials/first_steps.rst
