@@ -296,6 +296,6 @@ In the previous sections, we learned how to preview basic DepthAI features. From
 
 - **Want to start coding?** Be sure to check `hello world tutorial on API section <https://docs.luxonis.com/projects/api/en/latest/tutorials/hello_world/>`__ for a step-by-step introduction to the API
 
-- **Want to train & deploy a custom model to DepthAI?** Visit :ref:`Custom training` page for ready to use Colab notebooks
+- **Want to train and deploy a custom model to DepthAI?** Visit :ref:`Custom training` page for ready to use Colab notebooks
 
 .. include::  /pages/includes/footer-long.rst
