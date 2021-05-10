@@ -534,6 +534,15 @@ Ecosystem
 
    index
 
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Tutorials
+
+   pages/tutorials/first_steps.rst
+   pages/tutorials/pretrained_openvino.rst
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -554,12 +563,3 @@ Ecosystem
    pages/calibration.rst
    pages/training.rst
    pages/model_conversion.rst
-
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Tutorials
-
-   pages/tutorials/pretrained_openvino.rst
-   pages/tutorials/first_steps.rst
