@@ -172,7 +172,7 @@ So give it a try to detect different objects, like bottles or apples
 
 Or even cats
 
-.. image:: https://user-images.githubusercontent.com/5244214/116868054-617c7c80-ac0e-11eb-970d-b7fa1a0200dc.png
+.. image:: https://user-images.githubusercontent.com/5244214/117653608-e6c6da80-b194-11eb-80c9-2fbb459639cf.png
   :alt: cat
 
 Using other models
