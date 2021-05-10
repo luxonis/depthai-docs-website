@@ -3,8 +3,8 @@ First steps with DepthAI
 
 Hello DepthAI users!
 
-In this guide, I assume you just got your DepthAI device (e.g. OAK or OAK-D) and you want to give it the first try to explore what is
-possible with it and what you can achieve when working with it.
+In this guide, I assume you just got your DepthAI device (e.g. `OAK <https://docs.luxonis.com/projects/hardware/en/latest/pages/BK1096.html>`__ or `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__)
+and you want to give it the first try to explore what is possible with it and what you can achieve when working with it.
 
 - First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
 - Next, I will explain what the script does and describe basic terms used in DepthAI world.
