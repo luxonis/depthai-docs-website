@@ -506,13 +506,13 @@ Available in DepthAI API Today:
 - Integrated Text Detection (e.g. `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr#gen2-text-detection--optical-character-recognition-ocr-pipeline>`__)
 - Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, background `here <https://github.com/luxonis/depthai/issues/136>`__ and API documentation is `here <https://docs.luxonis.com/projects/api/en/latest/>`__).
 - Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
+- Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__)
 
 The above features are available in the Luxonis Pipeline Builder Gen2 which is now the main API for DepthAI. The Gen1 API is still supported, and can be accessed via the version switcher at the bottom left of this page.  See below for in-progress additional functionality/flexibility which will be added as modular nodes to the Luxonis pipeline builder for DepthAI.
 
 On our Roadmap (Most are in development/integration)
 ****************************************************
 
-- Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai/issues/216>`__)
 - microPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
 - Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`__)
 - Integrated IMU Support (`here <https://github.com/luxonis/depthai-hardware/issues/8>`__)
