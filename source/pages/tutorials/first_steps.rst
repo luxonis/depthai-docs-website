@@ -3,23 +3,23 @@ First steps with DepthAI
 
 Hello DepthAI users!
 
-In this guide, I assume you just got your OAK or OAK-D device and you want to give it a first try to explore what is
+In this guide, I assume you just got your OAK or OAK-D device and you want to give it the first try to explore what is
 possible with it and what you can achieve when working with it.
 
-- First, we will run DepthAI demo script, that will allow you to preview DepthAI functionalities.
-- Next, I will provide an explanation on what the script does and describe a basic terms used in DepthAI world
-- Last, you will receive useful links to expand your knowledge further and check open-sourced use cases implementations,
+- First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
+- Next, I will explain what the script does and describe basic terms used in DepthAI world
+- Last, you will receive useful links to expand your knowledge further and check open-sourced use-case implementations,
 code examples and tutorials, that you can use as a starting point for your projects.
 
-Let's start with device setup below
+Let's start with the device setup below
 
 Connect the DepthAI device
 ##########################
 
 After unboxing your DepthAI package, you will receive your device together with a USB-C cable (and a power supply if you ordered OAK-D)
 
-Make sure that the device is connected to your host (which can be PC or Raspberry Pi or other capable device) directly to USB port,
-or via powered USB hub.
+Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable device) directly to USB port,
+or via a powered USB hub.
 
 You can check if a new USB device was detected, which on Ubuntu you can do by running
 
@@ -30,16 +30,15 @@ You can check if a new USB device was detected, which on Ubuntu you can do by ru
 
 .. note::
 
-  If you are running other OS than Ubuntu, or you think something may went wrong, we have a detailed OS-specific installation guides
+  If you are running other OS than Ubuntu, or you think something has gone wrong, we have detailed OS-specific installation guides
   `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__, together with discord support
   channels where you can chat with us live if you have any issues or questions.
 
 Download demo script
 ####################
 
-Our goal is to make engineering efficiency higher with DepthAI, and a part of this effort is to allow you to check what
-DepthAI is capable of as easy and fast as possible - what why we created a demo script, that is an all-in-one script that
-allows you to check various features of DepthAI using just a command line arguments - no coding required.
+Our goal is to make engineering efficiency higher with DepthAI. As a part of this effort, we created an all-in-one script that
+allows you to check DepthAI features using command line arguments - no coding required!
 
 To download the demo script, you can either use :code:`git` or directly downloading a zip file
 
