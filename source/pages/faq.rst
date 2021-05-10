@@ -76,6 +76,15 @@ DepthAI has been used in effectively every industry, from farming/ranch, to clea
 - Smart agriculture (e.g guiding lasers to kill weeds, pests, or targeting watering)
 - Safety systems (Health, Safety, Environment - such as detecting remote leaks, if personal protective equipment is warn)
 
+What distinguishes OAK-D from other cameras?
+############################################
+
+With DepthAI, you get an all-in-one device with spatial AI capabilities for a much lower price than a similar setup would cost when built separately
+
+.. image:: https://user-images.githubusercontent.com/32992551/116603344-11d64200-a8ea-11eb-8af8-b26aa3fb757b.png
+  :alt: DepthAI comparison
+
+
 How Does DepthAI Provide Spatial AI Results?
 ############################################
 
