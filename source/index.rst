@@ -8,9 +8,7 @@ DepthAI's documentation
 
 .. note::
 
-   .. raw:: html
-
-      <p> New to DepthAI? <strong>Start <a href="#demo-script">here</a></strong> </p>
+   New to DepthAI? Start :ref:`here <First steps with DepthAI>`!
 
 *Learn about DepthAI ecosystem, available devices, calibration instructions, and more*
 
@@ -31,13 +29,11 @@ to discover them yourself.
 Demo script
 ###########
 
-.. warning::
+Demo script is our multipurpose command line demo tool, built around Gen2 Pipeline, that allows you to check
+DepthAI features straight from the command line - no coding required!
 
-  Demo script is currently in progress
-
-Our multipurpose command line demo tool for Gen2 is currently in progress, and you can actively check it's progress
-both on the `migration Pull Request <https://github.com/luxonis/depthai/pull/349>`__ or
-`gen2 branch <https://github.com/luxonis/depthai/tree/gen2>`__.
+.. image:: https://user-images.githubusercontent.com/5244214/116865569-28daa400-ac0a-11eb-8772-2a46d24640df.png
+  :alt: Default run
 
 To install and run the demo script on your DepthAI device, type the following commands in the terminal.
 
@@ -45,12 +41,14 @@ To install and run the demo script on your DepthAI device, type the following co
 
   git clone git@github.com:luxonis/depthai.git
   cd depthai
-  git checkout gen2
   python3 install_requirements.py
   python3 depthai_demo.py
 
-And then following up with the `README.md <https://github.com/luxonis/depthai/blob/gen2/README.md>`__ for more usage examples.
-If you have issues during the installation, see our `Installation page <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for detailed instructions
+And then following up with the `README.md <https://github.com/luxonis/depthai/blob/main/README.md>`__ for more usage examples.
+We have also prepared a **step by step guide** :ref:`here <First steps with DepthAI>` with detailed instructions how to set up your DepthAI and run this script.
+
+If you have issues during the installation, see our `Installation page <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for additional OS-specific
+instructions
 
 Example Use Cases
 #################
@@ -536,6 +534,15 @@ Ecosystem
 
    index
 
+
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+   :caption: Tutorials
+
+   pages/tutorials/first_steps.rst
+   pages/tutorials/pretrained_openvino.rst
+
 .. toctree::
    :maxdepth: 1
    :hidden:
@@ -556,11 +563,3 @@ Ecosystem
    pages/calibration.rst
    pages/training.rst
    pages/model_conversion.rst
-
-
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-   :caption: Tutorials
-
-   pages/tutorials/pretrained_openvino.rst
