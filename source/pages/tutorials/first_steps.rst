@@ -3,11 +3,11 @@ First steps with DepthAI
 
 Hello DepthAI users!
 
-In this guide, I assume you just got your OAK or OAK-D device and you want to give it the first try to explore what is
+In this guide, I assume you just got your DepthAI device (e.g. OAK or OAK-D) and you want to give it the first try to explore what is
 possible with it and what you can achieve when working with it.
 
 - First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
-- Next, I will explain what the script does and describe basic terms used in DepthAI world
+- Next, I will explain what the script does and describe basic terms used in DepthAI world.
 - Last, you will receive useful links to expand your knowledge further and check open-sourced use-case implementations,
 code examples and tutorials, that you can use as a starting point for your projects.
 
