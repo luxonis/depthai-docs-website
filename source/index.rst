@@ -32,6 +32,9 @@ Demo script
 Demo script is our multipurpose command line demo tool, built around Gen2 Pipeline, that allows you to check
 DepthAI features straight from the command line - no coding required!
 
+.. image:: https://user-images.githubusercontent.com/5244214/116865569-28daa400-ac0a-11eb-8772-2a46d24640df.png
+  :alt: Default run
+
 To install and run the demo script on your DepthAI device, type the following commands in the terminal.
 
 .. code-block:: bash
