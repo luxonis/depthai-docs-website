@@ -7,8 +7,8 @@ In this guide, I assume you just got your DepthAI device (e.g. `OAK <https://doc
 and you want to give it the first try to explore what is possible with it and what you can achieve when working with it.
 
 - First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
-- Next, I will explain what the script does and describe basic terms used in DepthAI world.
-- Last, you will receive useful links to expand your knowledge further and check open-sourced use-case implementations,
+- Next, I will explain what the script does and describe basic terms used in the DepthAI world.
+- Last, you will receive useful links to expand your knowledge further, and check open-sourced use-case implementations,
 code examples and tutorials, that you can use as a starting point for your projects.
 
 Let's start with the device setup below
@@ -18,7 +18,7 @@ Connect the DepthAI device
 
 After unboxing your DepthAI package, you will receive your device together with a USB-C cable (and a power supply if you ordered OAK-D)
 
-Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable device) directly to USB port,
+Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable device) directly to a USB port,
 or via a powered USB hub.
 
 You can check if a new USB device was detected, which on Ubuntu you can do by running
@@ -59,7 +59,7 @@ Then, run the following code to download the demo script
 
   $ git clone https://github.com/luxonis/depthai.git
 
-After repository is downloaded, make sure to enter the downloaded repository by running
+After the repository is downloaded, make sure to enter the downloaded repository by running
 
 .. code-block:: bash
 
@@ -69,9 +69,9 @@ Create python virtualenv (optional)
 ###################################
 
 To create and use the virtualenv, you can follow an `official python guide to virtualenvs <https://docs.python.org/3/tutorial/venv.html>`__ or
-follow an os-specific guides on the web, like `"How to Create Python 3 Virtual Environment on Ubuntu 20.04" <https://linoxide.com/how-to-create-python-virtual-environment-on-ubuntu-20-04/>`__
+follow os-specific guides on the web, like `"How to Create Python 3 Virtual Environment on Ubuntu 20.04" <https://linoxide.com/how-to-create-python-virtual-environment-on-ubuntu-20-04/>`__
 
-This will make sure, that you are using a fresh environment and Python 3 is the default interpreter - this can help preventing potential issues.
+This will make sure, that you are using a fresh environment and Python 3 is the default interpreter - this can help to prevent potential issues.
 
 I usually create and use virtualenvs by running
 
@@ -101,7 +101,7 @@ To install these packages, run the :code:`install_requirements.py` script
 
 .. warning::
 
-  If you are using a linux system, in most cases you have to add a new udev rule for our script to be able to access
+  If you are using a Linux system, in most cases you have to add a new udev rule for our script to be able to access
   the device correctly. You can add and apply new rules by running
 
   .. code-block:: bash
@@ -133,7 +133,7 @@ left & right camera images by DepthAI.
 Change input camera to left/right (OAK-D only)
 ##############################################
 
-To run the demo script and get a preview from left camera, run
+To run the demo script and get a preview from the left camera, run
 
 .. code-block:: bash
 
@@ -142,7 +142,7 @@ To run the demo script and get a preview from left camera, run
 .. image:: https://user-images.githubusercontent.com/5244214/116867083-bcad6f80-ac0c-11eb-9a4c-70fd6c990777.png
   :alt: Run from left
 
-Respectively, to get a preview from right camera, run
+Respectively, to get a preview from the right camera, run
 
 .. code-block:: bash
 
@@ -155,7 +155,7 @@ Default model
 #############
 
 While the demo was running, you could see the detection results - and if you were standing in front of the camera,
-you should see yourself detected as a person with pretty high probability.
+you should see yourself detected as a person with a pretty high probability.
 
 The model that is used by default is a MobileNetv2 SSD object detector trained on the `PASCAL 2007 VOC <http://host.robots.ox.ac.uk/pascal/VOC/voc2007/>`__ classes, which are:
 
@@ -291,7 +291,7 @@ Next steps
 
 In the previous sections, we learned how to preview basic DepthAI features. From this point, you can explore the DepthAI world further
 
-- **Looking for inspiration?** Check our :ref:`Example Use Cases` for a ready to use applications that solve a specific problem on DepthAI
+- **Looking for inspiration?** Check our :ref:`Example Use Cases` for ready to use applications that solve a specific problem on DepthAI
 
 - **Want to start coding?** Be sure to check `hello world tutorial on API section <https://docs.luxonis.com/projects/api/en/latest/tutorials/hello_world/>`__ for a step-by-step introduction to the API
 
