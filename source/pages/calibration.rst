@@ -175,19 +175,20 @@ Test depth
 
 We'll view the depth stream to ensure the cameras are calibrated correctly:
 
-#. Start a terminal session.
-#. Access your local copy of `depthai <https://github.com/luxonis/depthai>`__.
+1. Start a terminal session.
+2. Access your local copy of `depthai <https://github.com/luxonis/depthai>`__.
 
   .. code-block:: bash
 
     cd [depthai repo]
-#. Checkout `gen1_main branch <https://github.com/luxonis/depthai/tree/gen1_main>`__.
+
+3. Checkout `gen1_main branch <https://github.com/luxonis/depthai/tree/gen1_main>`__.
 
   .. code-block:: bash
 
     git checkout gen1_main
 
-3. Run test script.
+4. Run test script.
 
   .. code-block:: bash
 
