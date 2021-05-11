@@ -1,10 +1,16 @@
 Calibration
 ###########
 
+.. warning::
+
+  We're working on updating the calibration script to use Gen2 API. In the meantime, please use `gen1_main branch <https://github.com/luxonis/depthai/tree/gen1_main>`__
+  if you want to calibrate your device manually
+
 .. note::
 
    The :ref:`BW1097 - RaspberryPi Compute Module`, :ref:`BW1098OBC
    <bw1098obc>` and OAK-D are calibrated before shipment.
+   Keep in mind that in most cases factory calibration is more accurate than manual calibration
 
 For the modular camera editions of DepthAI (:ref:`BW1098FFC - USB3 with Modular Cameras` and :ref:`BW1094 - RaspberryPi Hat`)
 it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
@@ -28,12 +34,13 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 #. Checkout the `depthai <https://github.com/luxonis/depthai>`__ GitHub repo.
     .. warning::
 
-      Already checked out `depthai <https://github.com/luxonis/depthai>`__? **Skip this step.**
+      Already checked out `depthai <https://github.com/luxonis/depthai>`__ and `gen1_main branch <https://github.com/luxonis/depthai/tree/gen1_main>`__? **Skip this step.**
 
     .. code-block:: bash
 
       git clone https://github.com/luxonis/depthai.git
       cd depthai
+      git checkout gen1_main
       python3 install_requirements.py
 
 #. Print checkerboard calibration image.
@@ -95,7 +102,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 Modular cameras calibration
 ***************************
 
-Use one of the board :code:`*.json` files from `here <https://github.com/luxonis/depthai/tree/main/resources/boards>`__ to
+Use one of the board :code:`*.json` files from `here <https://github.com/luxonis/depthai/tree/gen1_main/resources/boards>`__ to
 define the baseline between the stereo cameras, and between the left camera and the color camera, replacing the items in brackets below.
 
 - Swap left/right (i.e. which way are the cameras facing, set to :code:`true` or :code:`false`)
@@ -174,6 +181,11 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
   .. code-block:: bash
 
     cd [depthai repo]
+#. Checkout `gen1_main branch <https://github.com/luxonis/depthai/tree/gen1_main>`__.
+
+  .. code-block:: bash
+
+    git checkout gen1_main
 
 3. Run test script.
 
