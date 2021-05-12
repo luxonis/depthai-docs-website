@@ -39,14 +39,13 @@ Download demo script
 Our goal is to make engineering efficiency higher with DepthAI. As a part of this effort, we created an all-in-one script that
 allows you to check DepthAI features using command line arguments - no coding required!
 
-To download the demo script, you can either use :code:`git` or directly downloading a zip file
+To download the demo script, you can either use :code:`git` or directly download a zip file
 
 From zip file
 *************
 
 First, download a repository package from `here <https://github.com/luxonis/depthai/archive/refs/heads/main.zip>`__
-and then unpack the archive to the directory of preference. Next, go to the unpacked directory and open a terminal session
-in this directory
+and then unpack the archive to a directory of preference. Next open a terminal session in this directory.
 
 From git
 ********
@@ -70,7 +69,7 @@ Create python virtualenv (optional)
 To create and use the virtualenv, you can follow an `official python guide to virtualenvs <https://docs.python.org/3/tutorial/venv.html>`__ or
 follow os-specific guides on the web, like `"How to Create Python 3 Virtual Environment on Ubuntu 20.04" <https://linoxide.com/how-to-create-python-virtual-environment-on-ubuntu-20-04/>`__
 
-This will make sure, that you are using a fresh environment and Python 3 is the default interpreter - this can help to prevent potential issues.
+This will make sure that you are using a fresh environment and that Python 3 is the default interpreter - this can help to prevent potential issues.
 
 I usually create and use virtualenvs by running
 
@@ -176,8 +175,8 @@ Or even cats
 Using other models
 ##################
 
-To explore various other models right away, we have prepared many of these available to use right away.
-To run the demo script with some model, e.g. :code:`face-detection-retail-0004`, run the following command
+We have prepared other models, which you can try and evaluate by simply changing one command line parameter.
+To run the demo script with a different model, e.g. :code:`face-detection-retail-0004`, run the following command
 
 
 .. code-block:: bash
@@ -191,109 +190,115 @@ Which will allow you to detect human faces, like below
   :alt: face
 
 You can use :code:`-cnn <name>` flag to change the model that is being run on the DepthAI. Below, there is a list of
-models that you can use right away, having just the demo script downloaded
+models that you can use, having just the demo script downloaded
 
 - :code:`face-detection-adas-0001` - Allows to detect faces on the image (slower)
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117137299-c8826880-ada9-11eb-89b6-fafc3be0937f.png
-    :alt: face-detection-adas-0001
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn face-detection-adas-0001
 
-- :code:`face-detection-retail-0004` - Allows to detect faces on the image (faster)
+  .. image:: https://user-images.githubusercontent.com/5244214/117137299-c8826880-ada9-11eb-89b6-fafc3be0937f.png
+    :alt: face-detection-adas-0001
 
-  .. image:: https://user-images.githubusercontent.com/5244214/117137578-30d14a00-adaa-11eb-9352-b3cfbc9c69d7.png
-    :alt: face-detection-retail-0004
+- :code:`face-detection-retail-0004` - Allows to detect faces on the image (faster)
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn face-detection-retail-0004
 
-- :code:`mobilenet-ssd` - Object detector that detects 20 different classes (default)
+  .. image:: https://user-images.githubusercontent.com/5244214/117137578-30d14a00-adaa-11eb-9352-b3cfbc9c69d7.png
+    :alt: face-detection-retail-0004
 
-  .. image:: https://user-images.githubusercontent.com/5244214/116867984-4447ae00-ac0e-11eb-9ed1-fac37f78634d.png
-    :alt: mobilenet-ssd
+- :code:`mobilenet-ssd` - Object detector that detects 20 different classes (default)
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn mobilenet-ssd
 
-- :code:`pedestrian-detection-adas-0002` - allows to detect people on the image (slower)
+  .. image:: https://user-images.githubusercontent.com/5244214/116867984-4447ae00-ac0e-11eb-9ed1-fac37f78634d.png
+    :alt: mobilenet-ssd
 
-  .. image:: https://user-images.githubusercontent.com/5244214/117141406-c969c900-adae-11eb-93b0-f69a2ca31512.png
-    :alt: pedestrian-detection-adas-0002
+- :code:`pedestrian-detection-adas-0002` - allows to detect people on the image (slower)
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn pedestrian-detection-adas-0002
 
-- :code:`person-detection-retail-0013` - allows to detect people on the image (faster)
+  .. image:: https://user-images.githubusercontent.com/5244214/117141406-c969c900-adae-11eb-93b0-f69a2ca31512.png
+    :alt: pedestrian-detection-adas-0002
 
-  .. image:: https://user-images.githubusercontent.com/5244214/117142161-adb2f280-adaf-11eb-9c83-b7b4aa027093.png
-    :alt: person-detection-retail-0013
+- :code:`person-detection-retail-0013` - allows to detect people on the image (faster)
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn person-detection-retail-0013
 
-- :code:`person-vehicle-bike-detection-crossroad-1016` - allows to detect both people, bikes and vehicles on the image
+  .. image:: https://user-images.githubusercontent.com/5244214/117142161-adb2f280-adaf-11eb-9c83-b7b4aa027093.png
+    :alt: person-detection-retail-0013
 
-  .. image:: https://user-images.githubusercontent.com/5244214/117144527-4fd3da00-adb2-11eb-89a4-2733cd9a39af.png
-    :alt: person-vehicle-bike-detection-crossroad-1016
+- :code:`person-vehicle-bike-detection-crossroad-1016` - allows to detect both people, bikes and vehicles on the image
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn person-vehicle-bike-detection-crossroad-1016
 
-- :code:`yolo-v3` - Object detector that detects 80 different classes (slower)
+  .. image:: https://user-images.githubusercontent.com/5244214/117144527-4fd3da00-adb2-11eb-89a4-2733cd9a39af.png
+    :alt: person-vehicle-bike-detection-crossroad-1016
 
-  .. image:: https://user-images.githubusercontent.com/5244214/117146045-1603d300-adb4-11eb-86d5-4a4d86b58b4e.png
-    :alt: yolo-v3
+- :code:`yolo-v3` - Object detector that detects 80 different classes (slower)
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn yolo-v3
 
-- :code:`tiny-yolo-v3` - Object detector that detects 80 different classes (faster)
-
   .. image:: https://user-images.githubusercontent.com/5244214/117146045-1603d300-adb4-11eb-86d5-4a4d86b58b4e.png
-    :alt: tiny-yolo-v3
+    :alt: yolo-v3
+
+- :code:`tiny-yolo-v3` - Object detector that detects 80 different classes (faster)
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn tiny-yolo-v3
 
-- :code:`vehicle-detection-adas-0002` - allows to detect vehicles on the image
+  .. image:: https://user-images.githubusercontent.com/5244214/117146045-1603d300-adb4-11eb-86d5-4a4d86b58b4e.png
+    :alt: tiny-yolo-v3
 
-  .. image:: https://user-images.githubusercontent.com/5244214/117147219-54e65880-adb5-11eb-8089-c38d09a21076.png
-    :alt: vehicle-detection-adas-0002
+- :code:`vehicle-detection-adas-0002` - allows to detect vehicles on the image
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn vehicle-detection-adas-0002
 
-- :code:`vehicle-license-plate-detection-barrier-0106` - allows to detect both vehicle and license plate on the image (only Chineese license plates)
+  .. image:: https://user-images.githubusercontent.com/5244214/117147219-54e65880-adb5-11eb-8089-c38d09a21076.png
+    :alt: vehicle-detection-adas-0002
 
-  .. image:: https://user-images.githubusercontent.com/5244214/117147703-cd4d1980-adb5-11eb-8109-769cc3a2091a.png
-    :alt: vehicle-license-plate-detection-barrier-0106
+- :code:`vehicle-license-plate-detection-barrier-0106` - allows to detect both vehicle and license plate on the image (only Chineese license plates)
 
   .. code-block:: bash
 
     $ python3 depthai_demo.py -cnn vehicle-license-plate-detection-barrier-0106
 
-All of the data required to download and compile a model can be found `here <https://github.com/luxonis/depthai/tree/main/resources/nn>`__.
+  .. image:: https://user-images.githubusercontent.com/5244214/117147703-cd4d1980-adb5-11eb-8109-769cc3a2091a.png
+    :alt: vehicle-license-plate-detection-barrier-0106
+
+All of the data we use to download and compile a model can be found `here <https://github.com/luxonis/depthai/tree/main/resources/nn>`__.
 
 Next steps
 ##########
 
 In the previous sections, we learned how to preview basic DepthAI features. From this point, you can explore the DepthAI world further
 
-- **Looking for inspiration?** Check our :ref:`Example Use Cases` for ready to use applications that solve a specific problem on DepthAI
+- **Looking for inspiration?**
 
-- **Want to start coding?** Be sure to check `hello world tutorial on API section <https://docs.luxonis.com/projects/api/en/latest/tutorials/hello_world/>`__ for a step-by-step introduction to the API
+  Check our :ref:`Example Use Cases` for ready to use applications that solve a specific problem on DepthAI
 
-- **Want to train and deploy a custom model to DepthAI?** Visit :ref:`Custom training` page for ready to use Colab notebooks
+- **Want to start coding?**
+
+  Be sure to check `hello world tutorial on API section <https://docs.luxonis.com/projects/api/en/latest/tutorials/hello_world/>`__ for a step-by-step introduction to the API
+
+- **Want to train and deploy a custom model to DepthAI?**
+
+  Visit :ref:`Custom training` page for ready to use Colab notebooks
 
 .. include::  /pages/includes/footer-long.rst
