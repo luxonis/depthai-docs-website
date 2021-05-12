@@ -175,7 +175,7 @@ In this section, you'll find an inspiration what can you build right away with D
                   </span>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-human-pose" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/geaxgx/depthai_blazepose" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
