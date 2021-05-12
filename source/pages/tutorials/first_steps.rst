@@ -20,7 +20,7 @@ After unboxing your DepthAI package, you will receive your device together with 
 Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable device) directly to a USB port,
 or via a powered USB hub.
 
-You can check if a new USB device was detected, which on Ubuntu you can do by running
+On Ubuntu, you can check if a new USB device was detected by running
 
 .. code-block:: bash
 
