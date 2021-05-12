@@ -8,8 +8,7 @@ and you want to give it the first try to explore what is possible with it and wh
 
 - First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
 - Next, I will explain what the script does and describe basic terms used in the DepthAI world.
-- Last, you will receive useful links to expand your knowledge further, and check open-sourced use-case implementations,
-code examples and tutorials, that you can use as a starting point for your projects.
+- Last, you will receive useful links to expand your knowledge further, and check open-sourced use-case implementations, code examples and tutorials, that you can use as a starting point for your projects.
 
 Let's start with the device setup below
 
