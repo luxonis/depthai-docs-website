@@ -488,10 +488,12 @@ Interested in how to train an object detector with your data? You can check our 
 What Hardware-Accelerated Capabilities Exist in DepthAI and/or megaAI?
 ######################################################################
 
+The DepthAI system is a node-and-graph pipeline builder.  Below are the hardware-accelerated nodes that exist in this builder.  
+
 Available in DepthAI API Today:
 *******************************
 
-- Neural Inference (e.g. object detection, image classification, etc., including multi-stage inference, e.g. `here <https://youtu.be/uAfGulcDWSk>`__ and `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation#gen2-gaze-estimation>`__)
+- Neural Inference Node, which is compatible with OpenVINO (e.g. object detection, image classification, etc., including multi-stage inference, e.g. `here <https://youtu.be/uAfGulcDWSk>`__ and `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation#gen2-gaze-estimation>`__)
 - Stereo Depth (including median filtering) (e.g. `here <https://youtu.be/sO1EU5AUq4U>`__)
 - Stereo Inference (with two-stage, e.g. `here <https://youtu.be/eEnDW0WQ3bo>`__)
 - 3D Object Localization (augmenting 2D object detectors with 3D position in meters, e.g. `here <https://youtu.be/cJr4IpGMSLA>`__ and `here <https://youtu.be/SWDQekolM8o>`__)
@@ -513,7 +515,7 @@ The above features are available in the Luxonis Pipeline Builder Gen2 which is n
 On our Roadmap (Most are in development/integration)
 ****************************************************
 
-- microPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
+- CPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
 - Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`__)
 - Integrated IMU Support (`here <https://github.com/luxonis/depthai-hardware/issues/8>`__)
 - Motion Estimation (`here <https://github.com/luxonis/depthai/issues/245>`__)
