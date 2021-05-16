@@ -725,6 +725,7 @@ See `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-c
 And for a bit more background as to how this mode is supported:
 
 Extended disparity: allows detecting closer distance objects, without compromising on long distance values (integer disparity) by running the following flow.
+
 #. Computes disparity on the original size images (e.g. 1280x720)
 #. Computes disparity on 2x downscaled images (e.g. 640x360)
 #. Combines the two level disparities on Shave, effectively covering a total disparity range of 192 pixels (in relation to the original resolution).
@@ -736,9 +737,10 @@ Left-Right Check Depth Mode
 ***************************
 
 Left-Right Check, or LR-Check is used to remove incorrectly calculated disparity pixels due to occlusions at object borders (Left and Right camera views are slightly different).
-#. computes disparity by matching in R->L direction
-#. computes disparity by matching in L->R direction
-#. combines results from 1 and 2, running on Shave: each pixel d = disparity_LR(x,y) is compared with disparity_RL(x-d,y). If the difference is above a threshold, the pixel at (x,y) in final disparity map is invalidated.
+
+#. Computes disparity by matching in R->L direction
+#. Computes disparity by matching in L->R direction
+#. Combines results from 1 and 2, running on Shave: each pixel d = disparity_LR(x,y) is compared with disparity_RL(x-d,y). If the difference is above a threshold, the pixel at (x,y) in final disparity map is invalidated.
 
 To run LR-Check on DepthAI/OAK, use the example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
 
