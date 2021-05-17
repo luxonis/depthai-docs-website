@@ -28,9 +28,9 @@ Products
                   <img class="item-img" src="../../_static/images/products/bw1098obc.png" alt="OAK-D"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">DephAI LUX-D (OAK-D)</h5>
+                  <h5 class="item-title">DepthAI LUX-D (OAK-D)</h5>
                   <p class="item-descr">
-                  DephAI LUX-D gives you a lot of possibilities thanks to depth data - you can not only track objects but also define 
+                  DepthAI LUX-D gives you a lot of possibilities thanks to depth data - you can not only track objects but also define 
                   coordinates and distance between them.
                   </p>
                </div>
