@@ -79,7 +79,11 @@ DepthAI has been used in effectively every industry, from farming/ranch, to clea
 What distinguishes OAK-D from other cameras?
 ############################################
 
-With DepthAI, you get an all-in-one device with spatial AI capabilities for a much lower price than a similar setup would cost when built separately
+DepthAI purpose is the tight fusion of real-time, hardware-accelerated depth estimation, neural inference, and computer vision into a single, simple to use interface. It is the equivalent of combining a 12MP/4K camera, a stereo depth camera, an AI processor into one product. And to boot, it has accelerated CV capabilities to tie this all together.
+
+So this produces a smaller, lower power, more performant, significantly easier-to-use, and lower-cost solution than what would be otherwise required, which would be to purchase each of these components independently, and do the lifting to physically integrate them and also write the code to combine disparate codebases.
+
+With DepthAI, this is all done for you, and is available in a device that you can buy and plug into a computer (as below) - and also a module (here ) with all these capabilities that can be integrated into your product - to allow your products to have these capabilities built-in.
 
 .. image:: https://user-images.githubusercontent.com/32992551/116603344-11d64200-a8ea-11eb-8af8-b26aa3fb757b.png
   :alt: DepthAI comparison
