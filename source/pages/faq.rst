@@ -1556,6 +1556,28 @@ Below is a quick video showing this:
   :target: https://www.youtube.com/watch?v=zQtSzhGR6Xg
 
 
+What ArduCam cameras work with DepthAI?
+#######################################
+
+ArduCam designed a series of M12-capable and C/CS-capable camera boards that work with DepthAI. Below a brief description of the cameras models and 
+what DepthAI OAK models you can use them with.
+
+**M12 Lenses** 
+
+`Arducam 1MP OV9782 Global shutter Color MIPI <https://www.arducam.com/product/arducam-1mp-ov9782-global-shutter-color-mipi-camera-module-20pin-for-depthai/>`__ and 
+`Arducam 1MP OV9282 Global shutter Mono MIPI <https://www.arducam.com/product/arducam-1mp-ov9282-global-shutter-mono-mipi-camera-module-20pin-for-depthai/>`__
+camera module are designed for `DepthAI DM1098FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__ version. They work with the BW1098FFC design too. 
+
+`Arducam 12MP IMX477 MINI <https://www.arducam.com/product/arducam-12mp-imx477-mini-high-quality-camera-with-m12-mount-lens-and-adapter-board-for-depthai/>`__
+with M12 mount lens camera module is designed for DepthAI `DM1090FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__ model.
+
+`Arducam 20MP IMX283 <https://www.arducam.com/product/arducam-20mp-imx283-camera-module-with-m12-mount-lens-and-adapter-board-for-depthai/>`__
+is 22-pin camera module, which fit the `DM1090FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__ with use of adapter cable.
+
+**C/CS-mount**
+
+`IMX477 HQ Camera <https://www.arducam.com/product/b0242-arducam-imx477-hq-camera/>`__ was designed for Jetson Nano/Xavier NX/Raspberry Pi Compute Module CM4, CM3. You can use it with `DepthAI DM1090FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__
+
 How to unbind and bind a device?
 ################################
 
