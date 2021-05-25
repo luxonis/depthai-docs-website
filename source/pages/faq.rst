@@ -1590,8 +1590,7 @@ Note! You'll need to know the PCI ID of the USB host controller to replace the "
 How Do I Get Shorter or Longer Flexible Flat Cables (FFC)?
 ##########################################################
 
- - For the gray scale cameras, we use 0.5mm, 20-pin, same-side contact flex cables.
- - For the RGB camera, we use a 0.5mm 26-pin, same-side contact flex cable.
+For all cameras we use a 0.5mm 26-pin, same-side contact flex cable.
 
 One can purchase Molex's 15166 series FFCs directly to support shorter or longer lengths.
 Make sure you get **same-side** contacts, Molex calls this "**Type A**"
