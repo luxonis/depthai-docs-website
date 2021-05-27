@@ -63,6 +63,31 @@ An example of such an extension is using a facial landmark detector on DepthAI. 
 the 2D coordinates of all 45 facial landmarks (contours of eyes, ears, mouth, eyebrows, etc.)  Using this same network
 with DepthAI, each of these 45 facial landmarks is now a 3D point in physical space instead of 2D points in pixel space.
 
+How is DepthAI Used?  In What Industries is it Used?
+####################################################
+
+DepthAI has been used in effectively every industry, from farming/ranch, to cleaning spots courts, to building personal-service robots.  Here's a quick list of some common use-cases of DepthAI:
+
+- Visual assistance (for visually impaired, or for aiding in fork-lift operation, etc.)
+- Aerial / subsea drones (fault detection, AI-based guidance/detection/routing)
+- E-scooter & micromobility (not allowing folks to ride rented e-scooters like jerks)
+- Cargo/transport/autonomy (fullness, status, navigation, hazard avoidance)
+- Sports monitoring (automatically losslessly zooming in on action)
+- Smart agriculture (e.g guiding lasers to kill weeds, pests, or targeting watering)
+- Safety systems (Health, Safety, Environment - such as detecting remote leaks, if personal protective equipment is warn)
+
+What distinguishes OAK-D from other cameras?
+############################################
+
+DepthAI purpose is the tight fusion of real-time, hardware-accelerated depth estimation, neural inference, and computer vision into a single, simple to use interface. It is the equivalent of combining a 12MP/4K camera, a stereo depth camera, an AI processor into one product. And to boot, it has accelerated CV capabilities to tie this all together.
+
+So this produces a smaller, lower power, more performant, significantly easier-to-use, and lower-cost solution than what would be otherwise required, which would be to purchase each of these components independently, and do the lifting to physically integrate them and also write the code to combine disparate codebases.
+
+With DepthAI, this is all done for you, and is available in a device that you can buy and plug into a computer (as below) - and also a module (here ) with all these capabilities that can be integrated into your product - to allow your products to have these capabilities built-in.
+
+.. image:: https://user-images.githubusercontent.com/32992551/116603344-11d64200-a8ea-11eb-8af8-b26aa3fb757b.png
+  :alt: DepthAI comparison
+
 
 How Does DepthAI Provide Spatial AI Results?
 ############################################
