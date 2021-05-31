@@ -371,36 +371,35 @@ You can use these configuration examples to customize your :code:`custom_model.j
 
 .. code-block:: json
 
-{
-    "nn_config":
-    {
-        "output_format" : "detection",
-        "NN_family" : "YOLO",
-        "input_size": "300x300",
-        "NN_specific_metadata" :
-        {
-            "classes" : 80,
-            "coordinates" : 4,
-            "anchors" : [10,14, 23,27, 37,58, 81,82, 135,169, 344,319],
-            "anchor_masks" :
-            {
-                "side26" : [1,2,3],
-                "side13" : [3,4,5]
-            },
-            "iou_threshold" : 0.5,
-            "confidence_threshold" : 0.5
-        }
-    },
-    "mappings":
-    {
-        "labels":
-        [
-              "unknown",
-              "face"
-        ]
-    }
-}
-
+  {
+      "nn_config":
+      {
+          "output_format" : "detection",
+          "NN_family" : "YOLO",
+          "input_size": "300x300",
+          "NN_specific_metadata" :
+          {
+              "classes" : 80,
+              "coordinates" : 4,
+              "anchors" : [10,14, 23,27, 37,58, 81,82, 135,169, 344,319],
+              "anchor_masks" :
+              {
+                  "side26" : [1,2,3],
+                  "side13" : [3,4,5]
+              },
+              "iou_threshold" : 0.5,
+              "confidence_threshold" : 0.5
+          }
+      },
+      "mappings":
+      {
+          "labels":
+          [
+                "unknown",
+                "face"
+          ]
+      }
+  }
 
 
 - **Raw** (see :ref:`Custom handler` on details how to create :code:`handler.py` file)
