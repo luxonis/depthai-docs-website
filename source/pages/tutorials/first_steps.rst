@@ -343,7 +343,7 @@ If your model is based on MobileNetSSD or Yolo, you can use our :code:`detection
 If it's a different type of network, you can use :code:`raw` (default) output format and  provide a custom handler file
 to decode and display the NN results.
 
-You can use these configuration examples to customize your :code:`custom_model.json`.
+You can use these configuration examples to customize your :code:`custom_model.json` inside :code:`resources/nn/custom_model` directory
 
 - **MobileNetSSD**
 
