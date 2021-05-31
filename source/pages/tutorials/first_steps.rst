@@ -402,7 +402,7 @@ You can use these configuration examples to customize your :code:`custom_model.j
   }
 
 
-- **Raw** (see :ref:`Custom handler` on details how to create :code:`handler.py` file)
+- **Raw** (see :ref:`Custom handler <Custom handler>` on details how to create :code:`handler.py` file)
 
 .. code-block:: json
 
@@ -428,7 +428,7 @@ And you should see an output and your NN results displayed (or printed in the co
 .. image:: https://user-images.githubusercontent.com/5244214/120194749-4ce7d000-c21e-11eb-80f1-86c35080161e.png
   :alt: custom model
 
-Be sure to check the advanced sections below or see :ref:`Next steps`
+Be sure to check the advanced sections below or see :ref:`Next steps <Next steps>`
 
 Custom handler
 **************
