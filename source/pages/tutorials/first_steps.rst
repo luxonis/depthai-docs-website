@@ -306,7 +306,7 @@ to check `official OpenVINO conversion guide <https://docs.openvinotoolkit.org/l
 To convert :code`custom_model.xml` and :code:`custom_model.bin`, we'll use `blobconverter cli <https://pypi.org/project/blobconverter/>`__ - our
 tool that utilizes `Online MyriadX blob converter <http://luxonis.com:8080/>`__ to perform conversion. No local OpenVINO installation is needed in this case,
 as all of the dependencies are already installed on the server. If your model is in TensorFlow or Caffe format, you can still use our tool for conversion,
-you'll have to use different input flags and sometimes provide a custom model optimizer args (:ref:`Read more <Converting model to MyriadX blob>`__)
+you'll have to use different input flags and sometimes provide a custom model optimizer args (:ref:`Read more <Converting model to MyriadX blob>`)
 
 
 First, let's install :code:`blobconverter` from `PyPi <https://pypi.org/project/blobconverter/>`__
