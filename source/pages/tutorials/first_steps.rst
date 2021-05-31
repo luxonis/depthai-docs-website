@@ -297,7 +297,7 @@ I'll add a custom face detection network called :code:`custom_model` (substitute
 and run it with the demo script
 
 Compile MyriadX blob
---------------------
+********************
 
 To receive MyriadX blob, the network has to be already in OpenVINO IR format (consisting of :code:`.xml` and :code:`.bin`
 files) that will be used for compilation. We won't focus here on how to obtain this representation for your model, but be sure
@@ -334,7 +334,7 @@ to a proper directory
   $ mv <path_to_blob> <depthai_repo>/resources/nn/custom_model
 
 Configuration
--------------
+*************
 
 Now, we need to provide some additional configuraion for the demo script to run this blob.
 It will look for :code:`custom_model.json` for details on how to configure the pipeline and parse the results.
@@ -415,7 +415,7 @@ You can use these configuration examples to customize your :code:`custom_model.j
   }
 
 Run the demo script
--------------------
+*******************
 
 Having the files in place, we are now able to run the demo with our custom model
 
@@ -431,7 +431,7 @@ And you should see an output and your NN results displayed (or printed in the co
 Be sure to check the advanced sections below or see :ref:`Next steps`
 
 Custom handler
---------------
+**************
 
 Custom handler is a file that demo script will load and execute to parse the nn results. We specify this file with
 :code:`handler` config value, specifying a path to the file of preference. It also requires :code:`raw` output format,
@@ -501,7 +501,7 @@ We already use this handler mechanism to decode `deeplabv3p_person <https://gith
 that comes as one of the available networks in the demo script to use
 
 On-demand compilation
----------------------
+*********************
 
 Since files we use to obtain the blob can be large, and not only we're downloading the files but also uploading them to the server,
 we have incorporated an OpenVINO-like :code:`model.yml` file structure, that BlobConverter server uses internally too.
