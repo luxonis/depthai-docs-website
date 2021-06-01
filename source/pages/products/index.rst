@@ -42,38 +42,72 @@ Products
       </div>
       <div class="items-row">
          <div class="items-col">
-               <div class="item">
-                  <div class="item-img-wrapper">
-                     <img class="item-img" src="../../_static/images/products/bw1098ffc.jpg" alt="USB3"/>
-                  </div>
-                  <div class="item-body">
-                     <h5 class="item-title">DepthAI FFC</h5>
-                     <p class="item-descr">
-                     DepthAI FFC - three interchangeable modular cameras on flexible flat cables. Easy to modify, for many usecases.
-                     </p>
-                  </div>
-                  <footer class="item-footer">
-                     <a href="https://docs.luxonis.com/en/latest/pages/products/bw1098ffc/" class="btn item-cta">Get Started ›</a>
-                  </footer>
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="../../_static/images/products/oak_d_wifi.jpg" alt="OAK-D-WiFi"/>
                </div>
-         </div>
+               <div class="item-body">
+                  <h5 class="item-title">OAK-D-WiFi</h5>
+                  <p class="item-descr">
+                  OAK-D-WiFi is a board that allows you to quickly prototype IOT and standalone embedded projects. 
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1098wifi/" class="btn item-cta">Get Started ›</a>
+               </footer>
+               </div>
+            </div>
          <div class="items-col">
-               <div class="item">
-                  <div class="item-img-wrapper">
-                     <img class="item-img" src="../../_static/images/products/bw1099.jpg" alt="System on Module"/>
-                  </div>
-                  <div class="item-body">
-                     <h5 class="item-title">DepthAI System on Module</h5>
-                     <p class="item-descr">
-                     Allows you to integrate the power of DepthAI into your own products.
-                     </p>
-                  </div>
-                  <footer class="item-footer">
-                     <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1099/" class="btn item-cta">Get Started ›</a>
-                  </footer>
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="../../_static/images/products/bw1092.jpg" alt="ESP32 Board"/>
                </div>
+               <div class="item-body">
+                  <h5 class="item-title">LUX-ESP32</h5>
+                  <p class="item-descr">
+                  LUX-ESP32 is a board that allows you to quickly prototype IOT and standalone embedded projects. 
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1092/" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
          </div>
       </div>
+      <div class="items-row">
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+               <img class="item-img" src="../../_static/images/products/bw1098ffc.jpg" alt="USB3"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">DepthAI FFC</h5>
+                  <p class="item-descr">
+                  DepthAI FFC - three interchangeable modular cameras on flexible flat cables. Easy to modify, for many usecases.
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://docs.luxonis.com/en/latest/pages/products/bw1098ffc/" class="btn item-cta">Get Started ›</a>
+               </footer>
+            </div>
+         </div>
+      <div class="items-col">
+         <div class="item">
+            <div class="item-img-wrapper">
+               <img class="item-img" src="../../_static/images/products/bw1099.jpg" alt="System on Module"/>
+            </div>
+            <div class="item-body">
+               <h5 class="item-title">DepthAI System on Module</h5>
+               <p class="item-descr">
+               Allows you to integrate the power of DepthAI into your own products.
+               </p>
+            </div>
+            <footer class="item-footer">
+               <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1099/" class="btn item-cta">Get Started ›</a>
+            </footer>
+         </div>
+      </div>
+   </div>
       <div class="items-row">
          <div class="items-col">
                <div class="item">
@@ -142,28 +176,9 @@ Products
                </div>
          </div>
       </div>
-      <div class="items-row">
-         <div class="items-col">
-               <div class="item">
-                  <div class="item-img-wrapper">
-                     <img class="item-img" src="../../_static/images/products/bw1092.jpg" alt="ESP32 Board"/>
-                  </div>
-                  <div class="item-body">
-                     <h5 class="item-title">LUX-ESP32</h5>
-                     <p class="item-descr">
-                     LUX-ESP32 is a board that allows you to quickly prototype IOT and standalone embedded projects. 
-                     </p>
-                  </div>
-                  <footer class="item-footer">
-                     <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1092/" class="btn item-cta">Get Started ›</a>
-                  </footer>
-               </div>
-         </div>
-      </div>
    </div>
  
    
-
 
 .. toctree::
    :hidden:
