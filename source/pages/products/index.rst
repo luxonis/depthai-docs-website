@@ -186,11 +186,13 @@ Products
 
    bw1093.rst
    bw1098obc.rst
+   bw1098wifi.rst
+   bw1092.rst
    bw1098ffc.rst
    bw1099.rst
    color.rst
    mono.rst
    bw1094.rst
    bw1097.rst
-   bw1092.rst
+  
 
