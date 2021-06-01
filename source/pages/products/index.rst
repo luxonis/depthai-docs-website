@@ -53,7 +53,7 @@ Products
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1098wifi/" class="btn item-cta">Get Started ›</a>
+                  <a href="https://docs.luxonis.com/en/latest/pages/products/bw1098wifi/" class="btn item-cta">Get Started ›</a>
                </footer>
                </div>
             </div>
