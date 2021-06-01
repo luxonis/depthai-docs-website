@@ -8,6 +8,7 @@ and you want to give it the first try to explore what is possible with it and wh
 
 - First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
 - Next, I will explain what the script does and describe basic terms used in the DepthAI world.
+- Following up, I will show which models you can run on the DepthAI out-of-the-box and how to run a custom model.
 - Last, you will receive useful links to expand your knowledge further, and check open-sourced use-case implementations, code examples and tutorials, that you can use as a starting point for your projects.
 
 Let's start with the device setup below
@@ -283,6 +284,251 @@ models that you can use, having just the demo script downloaded
     :alt: vehicle-license-plate-detection-barrier-0106
 
 All of the data we use to download and compile a model can be found `here <https://github.com/luxonis/depthai/tree/main/resources/nn>`__.
+
+Using custom models
+###################
+
+Let’s assume you want to run a custom model which you downloaded from the model zoo or trained yourself (or both).
+In order to prepare your model to be runnable on DepthAI, it has to be compiled into MyriadX blob format - which
+is an optimized version of your model, capable of utilizing MyriadX chip as a processing unit.
+
+
+our demo script, we support a few ways you can run your custom blob, which will be covered below. As an example,
+I’ll add a custom face detection network called :code:`custom_model` (substitute with your preferred name)
+and run it with the demo script
+
+Compile MyriadX blob
+********************
+
+To receive MyriadX blob, the network has to be already in OpenVINO IR format (consisting of :code:`.xml` and :code:`.bin`
+files) that will be used for compilation. We won't focus here on how to obtain this representation for your model, but be sure
+to check `official OpenVINO conversion guide <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Converting_Model.html>`__.
+
+To convert :code`custom_model.xml` and :code:`custom_model.bin`, we'll use the `blobconverter cli <https://pypi.org/project/blobconverter/>`__ - our
+tool that utilizes `Online MyriadX blob converter <http://luxonis.com:8080/>`__ to perform the conversion.
+No local OpenVINO installation is needed in this case, as all of the dependencies are already installed on the server.
+If your model is in TensorFlow or Caffe format, you can still use our tool for conversion, just note that
+you'll have to use different input flags and sometimes provide a custom model optimizer args (:ref:`Read more <Converting model to MyriadX blob>`)
+
+
+First, let's install :code:`blobconverter` from `PyPi <https://pypi.org/project/blobconverter/>`__
+
+.. code-block:: bash
+
+  $ python3 -m pip install -U blobconverter
+
+Now, having the :code:`blobconverter` installed, we can compile our IR files with the following command
+
+.. code-block:: bash
+
+  $ python3 -m blobconverter --openvino-xml /path/to/custom_model.xml --openvino-bin /path/to/custom_model.bin
+
+By running this command, :code:`blobconverter` sends a request to the BlobConverter API to perform
+a model compilation on provided files. After compilation, the API responds with a :code:`.blob` file and
+deletes all source files that were sent with the request.
+
+After a successful compilation, :code:`blobconverter` returns the path to the downloaded blob file.
+Since this blob is required by the :code:`depthai` repository, let's move it there
+
+.. code-block:: bash
+
+  $ mkdir <depthai_repo>/resources/nn/custom_model
+  $ mv <path_to_blob> <depthai_repo>/resources/nn/custom_model
+
+Configuration
+*************
+
+We need to provide some additional configuration for the demo script to run this blob.
+The demo script will look for a :code:`custom_model.json` for details on how to configure the pipeline and parse the results.
+
+If your model is based on MobileNetSSD or Yolo, you can use our :code:`detection` output format.
+If it's a different type of network, you can use :code:`raw` (default) output format and  provide a custom handler file
+to decode and display the NN results.
+
+You can use these configuration examples to customize your :code:`custom_model.json` inside :code:`resources/nn/custom_model` directory
+
+- **MobileNetSSD**
+
+.. code-block:: json
+
+  {
+      "nn_config":
+      {
+          "output_format" : "detection",
+          "NN_family" : "mobilenet",
+          "confidence_threshold" : 0.5,
+          "input_size": "300x300"
+      },
+      "mappings":
+      {
+          "labels":
+          [
+              "unknown",
+              "face"
+          ]
+      }
+  }
+
+- **Yolo**
+
+.. code-block:: json
+
+  {
+      "nn_config":
+      {
+          "output_format" : "detection",
+          "NN_family" : "YOLO",
+          "input_size": "300x300",
+          "NN_specific_metadata" :
+          {
+              "classes" : 80,
+              "coordinates" : 4,
+              "anchors" : [10,14, 23,27, 37,58, 81,82, 135,169, 344,319],
+              "anchor_masks" :
+              {
+                  "side26" : [1,2,3],
+                  "side13" : [3,4,5]
+              },
+              "iou_threshold" : 0.5,
+              "confidence_threshold" : 0.5
+          }
+      },
+      "mappings":
+      {
+          "labels":
+          [
+                "unknown",
+                "face"
+          ]
+      }
+  }
+
+
+- **Raw** (see :ref:`Custom handler <Custom handler>` on details how to create :code:`handler.py` file)
+
+.. code-block:: json
+
+  {
+      "nn_config": {
+          "output_format" : "raw",
+          "input_size": "300x300"
+      },
+      "handler": "handler.py"
+  }
+
+Run the demo script
+*******************
+
+Having the files in place, we can now run the demo with our custom model
+
+.. code-block:: bash
+
+  $ python3 depthai_demo.py -cnn custom_model
+
+And you should see the output and your NN results displayed (or printed in the console if :code:`raw` was selected and
+there is no handler file)
+
+.. image:: https://user-images.githubusercontent.com/5244214/120194749-4ce7d000-c21e-11eb-80f1-86c35080161e.png
+  :alt: custom model
+
+Be sure to check the advanced sections below or see :ref:`Next steps <Next steps>`
+
+Custom handler
+**************
+
+Custom handler is a file that the demo script will load and execute to parse the NN results. We specify this file with
+:code:`handler` config value, specifying a path to the file of preference. It also requires :code:`raw` output format,
+since it prevents the script from handling the results itself.
+
+The :code:`handler.py` file should contain two methods - :code:`decode(nn_manager, packet)` and :code:`draw(nn_manager, data, frames)`
+
+.. code-block:: python
+
+  def decode(nn_manager, packet):
+    pass
+
+  def draw(nn_manager, data, frames):
+    pass
+
+First method, :code:`decode`, is called whenever a NN packet arrives from the pipeline (stored as a :code:`packet` param)
+also providing a :code:`nn_manager` object that contains all nn-related info that was used by the script (like input size etc.).
+The goal of this function is to decode the received packets from the NN blob into meaningful results that can later be displayed.
+
+
+Second one, :code:`draw`, is called with the NN results (returned from :code:`decode`), :code:`nn_manager` object and
+:code:`frames` array, having :code:`[(<frame_name>, <frame>), (<frame_name>, <frame>), ...]` items. This array will
+contain frames that were specified with the :code:`-s/--show` param.
+The goal of this function is to draw the decoded results onto received frames.
+
+Below, you can find an example :code:`handle.py` file that decodes and displays MobilenetSSD-based results.
+
+.. code-block:: python
+
+  import cv2
+  import numpy as np
+  from depthai_helpers.utils import frame_norm
+
+
+  def decode(nn_manager, packet):
+      bboxes = np.array(packet.getFirstLayerFp16())
+      bboxes = bboxes.reshape((bboxes.size // 7, 7))
+      bboxes = bboxes[bboxes[:, 2] > 0.5]
+      labels = bboxes[:, 1].astype(int)
+      confidences = bboxes[:, 2]
+      bboxes = bboxes[:, 3:7]
+      return {
+          "labels": labels,
+          "confidences": confidences,
+          "bboxes": bboxes
+      }
+
+
+  decoded = ["unknown", "face"]
+
+
+  def draw(nn_manager, data, frames):
+      for name, frame in frames:
+          if name == nn_manager.source:
+              for label, conf, raw_bbox in zip(*data.values()):
+                  bbox = frame_norm(frame, raw_bbox)
+                  cv2.rectangle(frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), (255, 0, 0), 2)
+                  cv2.putText(frame, decoded[label], (bbox[0] + 10, bbox[1] + 20), cv2.FONT_HERSHEY_TRIPLEX, 0.5, 255)
+                  cv2.putText(frame, f"{int(conf * 100)}%", (bbox[0] + 10, bbox[1] + 40), cv2.FONT_HERSHEY_TRIPLEX, 0.5, 255)
+
+With the custom face detection model, using this code we receive the following output
+
+.. image:: https://user-images.githubusercontent.com/5244214/120194166-908e0a00-c21d-11eb-8806-95b1ad9c43f5.png
+  :alt: custom model custom handler
+
+We already use this handler mechanism to decode `deeplabv3p_person <https://github.com/luxonis/depthai/blob/main/resources/nn/deeplabv3p_person/handler.py>`__,
+that comes as one of the available networks in the demo script to use
+
+On-demand compilation
+*********************
+
+Since files in the IR format can be large, and we're both downloading the blob and uploading IR format to the server,
+we have incorporated an OpenVINO-like :code:`model.yml` file structure that BlobConverter server uses internally as well.
+You can check how this file looks like `in OpenVINO model zoo <https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/face-detection-retail-0004/model.yml>`__
+or in `available models in demo script <https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo-v3/model.yml>`__.
+
+This file is used by the `OpenVINO model downloader <https://github.com/openvinotoolkit/open_model_zoo/tree/master/tools/downloader>`__
+that is used to download the required files for compilation. In our demo script, we use these files to
+provide a URL to the NN source files instead of uploading them along with the source code. It is also useful because on-demand compilation
+allows us to use the same configuration while requesting a different amount of MyriadX SHAVE cores.
+
+To download the blob using :code:`model.yml` file, run
+
+.. code-block:: bash
+
+  $ python3 -m blobconverter --raw-config /path/to/model.yml --raw-name custom_model
+
+You can also leave the `model.yml` file inside `resources/nn/<name>` directory. This will make the demo script perform
+the conversion for you and run the received blob
+
+.. code-block:: bash
+
+  $ python3 depthai_demo.py -cnn <name>
+
 
 Next steps
 ##########
