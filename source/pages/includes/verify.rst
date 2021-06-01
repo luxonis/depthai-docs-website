@@ -3,26 +3,26 @@ Verify installation
 
 We'll execute a DepthAI example Python script to ensure your setup is configured correctly. Follow these steps to test DepthAI:
 
-#. Start a terminal session.
-#. Clone the depthai example repository.
+1. Start a terminal session.
+2. Clone the depthai example repository.
 
   .. code-block:: bash
 
     git clone https://github.com/luxonis/depthai.git
 
-#. Access your local copy of `depthai <https://github.com/luxonis/depthai>`__.
+3. Access your local copy of `depthai <https://github.com/luxonis/depthai>`__.
 
   .. code-block:: bash
 
     cd [depthai repo]
 
-#. Install the example repository requirements.
+4. Install the example repository requirements.
 
   .. code-block:: bash
 
-    python -m pip install -r requirements.txt
+    python3 install_requirements.py
 
-#. Run demo script.
+5. Run demo script.
 
   .. code-block:: bash
 
