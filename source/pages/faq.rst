@@ -1685,7 +1685,18 @@ And a note on building for Windows: Windows does not use `libusb`, but rather us
 Can I Use and IMU With DepthAI?
 ###############################
 
-Yes, our BW1099 (`here <https://shop.luxonis.com/collections/all/products/bw1099>`__) has support to talk to IMUs.  And we are in the process of making a future version of the BW1098OBC (as well as BW1092) which have built-in BNO085.  We do not yet have support for this IMU in the DepthAI API, but we have done proof-of-concepts and will be making this a standard feature through the API.
+Yes, all of our System on Modules (BW1099 (`here <https://shop.luxonis.com/collections/all/products/bw1099>`__), BW1099EMB, and BW2099) have support for the BNO086 (and BNO080/BNO085) IMU.  And OAK-D, DM1092, DM1090FFC, and OAK-D-POE all have an integrated onboard.  
+
+Can I Use Microphones with DepthAI?
+###################################
+
+Yes.  The BW2099 SoM has support for 3x I2S inputs (and 1x I2S output).  Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.  So thhe BW2099 SoM supports up to 3x stereo microphones, and one stereo output.
+
+(The BW1099 does not have I2S support.)
+
+We have tested using 3x `CMM-4030D-261-I2S-TR <https://www.cuidevices.com/product/audio/microphones/mems-microphones/cmm-4030d-261-i2s-tr>` with the BW2099 SOM and have found the audio quality to be good.  Theoretically many other microphones should work, however.
+
+
 
 Where are Product Brochures and/or Datasheets?
 ##############################################
