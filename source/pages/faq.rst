@@ -1685,7 +1685,7 @@ And a note on building for Windows: Windows does not use `libusb`, but rather us
 Can I Use an IMU With DepthAI?
 ##############################
 
-Yes, all of our System on Modules (BW1099 (`here <https://shop.luxonis.com/collections/all/products/bw1099>`__), BW1099EMB, and BW2099) have support for the BNO086 (and BNO080/BNO085) IMU.  And `OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__, `DM1092 <https://shop.luxonis.com/collections/all/products/bw1092>`__, `LUX-F2 <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__, `OAK-D-WIFI <https://github.com/luxonis/depthai-hardware/tree/master/DM1098OBC_DepthAI_USB3C_WIFI>`__, `OAK-D-POE <https://github.com/luxonis/depthai-hardware/tree/master/SJ2088POE_PoE_Board>`__ all have an integrated onboard.  
+Yes, all of our System on Modules (BW1099 (`here <https://shop.luxonis.com/collections/all/products/bw1099>`__), BW1099EMB, and BW2099) have support for the BNO086 (and BNO080/BNO085) IMU.  And `OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__, `DM1092 <https://shop.luxonis.com/collections/all/products/bw1092>`__, `LUX-F2 <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__, `OAK-D-WIFI <https://github.com/luxonis/depthai-hardware/tree/master/DM1098OBC_DepthAI_USB3C_WIFI>`__, `OAK-D-POE <https://github.com/luxonis/depthai-hardware/tree/master/SJ2088POE_PoE_Board>`__ all have an integrated IMU onboard.  
 
 Can I Use Microphones with DepthAI?
 ###################################
