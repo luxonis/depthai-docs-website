@@ -1682,20 +1682,21 @@ Another option is integrating into your CMake project directly, for that see: ht
 And a note on building for Windows: Windows does not use `libusb`, but rather uses Windows internal `winusb`.
 
 
-Can I Use and IMU With DepthAI?
-###############################
+Can I Use an IMU With DepthAI?
+##############################
 
-Yes, all of our System on Modules (BW1099 (`here <https://shop.luxonis.com/collections/all/products/bw1099>`__), BW1099EMB, and BW2099) have support for the BNO086 (and BNO080/BNO085) IMU.  And OAK-D, DM1092, DM1090FFC, and OAK-D-POE all have an integrated onboard.  
+Yes, all of our System on Modules (BW1099 (`here <https://shop.luxonis.com/collections/all/products/bw1099>`__), BW1099EMB, and BW2099) have support for the BNO086 (and BNO080/BNO085) IMU.  And `OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__, `DM1092 <https://shop.luxonis.com/collections/all/products/bw1092>`__, `LUX-F2 <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__, `OAK-D-WIFI <https://github.com/luxonis/depthai-hardware/tree/master/DM1098OBC_DepthAI_USB3C_WIFI>`__, `OAK-D-POE <https://github.com/luxonis/depthai-hardware/tree/master/SJ2088POE_PoE_Board>`__ all have an integrated onboard.  
 
 Can I Use Microphones with DepthAI?
 ###################################
 
-Yes.  The BW2099 SoM has support for 3x I2S inputs (and 1x I2S output).  Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.  So thhe BW2099 SoM supports up to 3x stereo microphones, and one stereo output.
+Yes.  
 
-(The BW1099 does not have I2S support.)
+ - The `BW2099 <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW2099/BW2099_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
+ - Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.  
+ - It is important to note that the BW1099 and BW1099EMB SoMs do not have I2S support.
 
-We have tested using 3x `CMM-4030D-261-I2S-TR <https://www.cuidevices.com/product/audio/microphones/mems-microphones/cmm-4030d-261-i2s-tr>` with the BW2099 SOM and have found the audio quality to be good.  Theoretically many other microphones should work, however.
-
+We have tested audio input on the BW2099 SoM using 3x `CMM-4030D-261-I2S-TR <https://www.cuidevices.com/product/audio/microphones/mems-microphones/cmm-4030d-261-i2s-tr>` and have found the audio quality to be good.  Theoretically many other microphones should work, however.  We have not tested audio output.
 
 
 Where are Product Brochures and/or Datasheets?
