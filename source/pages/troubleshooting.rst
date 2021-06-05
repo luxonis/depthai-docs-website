@@ -41,7 +41,7 @@ per-image on an Raspberry Pi but this exceed 20 seconds per-image in poor condit
 - Reduce the amount of motion blur by trying to hold the checkerboard as still as possible.
 
 Permission denied error
-##########################################################################
+#######################
 
 If :code:`python3 -m pip install` fails with a :code:`Permission denied` error, your user likely doesn't have permission
 to install packages in the system-wide path.
@@ -59,8 +59,8 @@ Try installing in your user's home directory instead by adding the :code:`--user
 `More information on Stackoverflow <https://stackoverflow.com/questions/31512422/pip-install-failing-with-oserror-errno-13-permission-denied-on-directory>`__.
 
 
-DepthAI does not show up under :code:`/dev/video*` like web cameras do.  Why?
-#############################################################################
+DepthAI does not show up under :code:`/dev/video*` like web cameras do. Why?
+############################################################################
 
 The USB device enumeration could be checked with lsusb | grep 03e7  . It should print:
 
@@ -88,7 +88,7 @@ So if you have see this problem with your host, potentially 3 options:
 #. Upgrade from Ubuntu 16.04 to Ubuntu 18.04.
 
 Forcing USB2 Communication
-**************************
+##########################
 
 If you are having trouble with communication with DepthAI/OAK, forcing USB2 can sometimes resolve the issue.  
 
@@ -112,7 +112,7 @@ We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Lin
 Ubuntu 18.04/16.04 or Raspbian, please `compile DepthAI from source <https://docs.luxonis.com/projects/api/en/latest/install/#install-from-source>`__.
 
 Output from DepthAI keeps freezing
-#################################################
+##################################
 
 If the output from the device keeps freezing every few seconds, there may be a problem with the USB3 connection and forcing the device into USB2 mode could resolve this issue - instructions are in the chapter above.
 
