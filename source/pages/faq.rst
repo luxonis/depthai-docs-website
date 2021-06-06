@@ -1719,8 +1719,8 @@ Datasheets:
 - DepthAI System on Module (BW1099) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
 
-How Much does LUX-D or OAK-D Weigh?
-###################################
+How Much does OAK-D Weigh?
+##########################
 
 - 114.5 grams
 

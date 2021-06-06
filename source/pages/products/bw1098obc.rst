@@ -1,7 +1,7 @@
 .. _bw1098obc:
 
-DepthAI LUX-D (OAK-D)
-#####################
+DepthAI OAK-D
+#############
 
 .. image:: /_static/images/products/bw1098obc.png
   :alt: BW1098OBC
