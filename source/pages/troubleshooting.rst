@@ -146,7 +146,7 @@ The Raspberry Pi has a max limit of 1.2A across all its USB ports, and DepthAI/m
 
 So if you are seeing lockups, it could be that you are over this 1.2A limit as a result of the total power of the USB devices drawing from the Pi.  Using a powered hub can prevent this, or powering fewer other things off of the Pi over USB.
 
-This may also manifest in DepthAI randomly crashing on the Pi.  This can become particularly often if DepthAI is configured to do many things at once.  This is becoming increasingly likely as we enable DepthAI to do more and more things at once - and thereby increase the maximum power that DepthAI can pull.  It is seeming like the peak power power (current) spikes from DepthAI can go over what the Pi can handle, causing DepthAI to brown-out and return an error.
+This may also manifest in DepthAI randomly crashing on the Pi.  This can become particularly often if DepthAI is configured to do many things at once.  This is becoming increasingly likely as we enable DepthAI to do more and more things at once - and thereby increase the maximum power that DepthAI can pull.  It is seeming like the peak power (current) spikes from DepthAI can go over what the Pi can handle, causing DepthAI to brown-out and return an error.
 
 So if you are experiencing issues with DepthAI stability on Raspberry, try powering DepthAI via a power-supply and/or a powered USB hub to see if the error goes away.  
 
