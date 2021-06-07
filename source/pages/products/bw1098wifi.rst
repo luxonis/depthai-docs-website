@@ -18,7 +18,7 @@ Low Energy (BTLE), and WiFi, and comes in a convenient FCC/CE-certified module.
 
 .. note::
   All tutorials / example codes (:ref:`First steps with DepthAI`, `depthai-python code samples <https://docs.luxonis.comprojects/api/en/latest/tutorials/code_samples/>`__,
-  `depthai-experiments <https://github.com/luxonis/depthai-experiments>`__) on this device as well.
+  `depthai-experiments <https://github.com/luxonis/depthai-experiments>`__) are compatible with this device as well.
 
 Requirements
 ************
