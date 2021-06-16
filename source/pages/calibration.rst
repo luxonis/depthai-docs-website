@@ -1,27 +1,25 @@
 Calibration
 ###########
 
-.. warning::
-
-  We're working on updating the calibration script to use Gen2 API. In the meantime, please use `gen1_main branch <https://github.com/luxonis/depthai/tree/gen1_main>`__
-  if you want to calibrate your device manually
-
 .. note::
 
-   The :ref:`BW1097 - RaspberryPi Compute Module`, :ref:`BW1098OBC
-   <bw1098obc>` and OAK-D are calibrated before shipment.
+   All non-modular DepthAI devices are calibrated before shipment.
    Keep in mind that in most cases factory calibration is more accurate than manual calibration
 
-For the modular camera editions of DepthAI (:ref:`BW1098FFC - USB3 with Modular Cameras` and :ref:`BW1094 - RaspberryPi Hat`)
+For the modular camera editions of DepthAI (:ref:`DepthAI FFC - Modular Cameras` and :ref:`DepthAI RaspberryPi Hat`)
 it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
 
-For the :ref:`BW1097 - RaspberryPi Compute Module` and :ref:`BW1098OBC <bw1098obc>`, the units come
+For the :ref:`DepthAI RaspberryPi Compute Module` and :ref:`DepthAI OAK-D`, the units come
 pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something),
 or if the calibration quality has started to fade over use/handling.
 
-Below is a quick video showing the (re-) calibration of the :ref:`BW1097 - RaspberryPi Compute Module`.  In short, the calibration uses the intersections to determine the orientation and distance of the checkerboard.  So the greatest accuracy will be obtained by a clear print or display of the provided checkerboard image on a flat plane. 
+Below is a quick video showing the (re-) calibration of the :ref:`DepthAI OAK-D`.
+In short, the calibration uses the intersections to determine the orientation and distance of the charuco board.
+So the greatest accuracy will be obtained by a clear print or display of the provided board image on a flat plane.
 
-The flatness of the calibration checkerboard is very important.  Do not use curved monitors, or calibration targets that have any 'waviness'.  So if you print the checkerboard, please make sure to affix the sheet to a known flat surface, without any waves.  That said, using a laptop with a flat monitor is usually the easiest technique.
+The flatness of the calibration board is very important.  Do not use curved monitors, or calibration targets that
+have any 'waviness'.  So if you print the charuco board, please make sure to affix the sheet to a known flat surface,
+without any waves.  That said, using a laptop with a flat monitor is usually the easiest technique.
 
 Watching the video below will give you the steps needed to calibrate your own DepthAI.  For more information/details on calibration options,
 please see the steps below and also :code:`./calibrate.py --help` which will print out all of the calibration options.
@@ -32,15 +30,15 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
   :target: https://www.youtube.com/watch?v=lF01f0p1oZM
 
 #. Checkout the `depthai <https://github.com/luxonis/depthai>`__ GitHub repo.
+
     .. warning::
 
-      Already checked out `depthai <https://github.com/luxonis/depthai>`__ and `gen1_main branch <https://github.com/luxonis/depthai/tree/gen1_main>`__? **Skip this step.**
+      Already checked out `depthai <https://github.com/luxonis/depthai>`__? **Skip this step.**
 
     .. code-block:: bash
 
       git clone https://github.com/luxonis/depthai.git
       cd depthai
-      git checkout gen1_main
       python3 install_requirements.py
 
 #. Print checkerboard calibration image.
@@ -50,9 +48,9 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Often, using a monitor to display the calibration target is easier/faster.
 
-    .. image:: https://github.com/luxonis/depthai/raw/main/resources/calibration-chess-board.png
-      :alt: Print this checkerboard calibration image
-      :target: https://github.com/luxonis/depthai/raw/main/resources/calibration-chess-board.png
+    .. image:: https://github.com/luxonis/depthai/raw/fix_calibration/charuco_297x210_8x11_20_DICT_4X4.png
+      :alt: Print this charuco calibration image
+      :target: https://github.com/luxonis/depthai/raw/fix_calibration/charuco_297x210_8x11_20_DICT_4X4.png
 
     The entire board should fit on a single piece of paper (scale to fit).  And if displaying on a monitor, full-screen the image with a white background.
 
@@ -67,11 +65,11 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
     Argument reference:
 
     - :code:`-s SQUARE_SIZE_IN_CM`, :code:`--square_size_cm SQUARE_SIZE_IN_CM`: Measure the square size of the printed checkerboard in centimeters.
-    - :code:`-brd BOARD`, :code:`--board BOARD`: BW1097, BW1098OBC - Board type from resources/boards/ (not case-sensitive). Or path to a custom .json board config. Mutually exclusive with [-fv -b -w], which allow manual specification of field of view, baseline, and camera orientation (swapped or not-swapped).
+    - :code:`-brd BOARD`, :code:`--board BOARD`: BW1097, BW1098OBC - Board type from resources/boards/ (not case-sensitive, if you're using OAK-D please choose BW1098OBC). Or path to a custom .json board config. Mutually exclusive with [-fv -b -w], which allow manual specification of field of view, baseline, and camera orientation (swapped or not-swapped).
 
     Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].
 
-    For example, the arguments for the :ref:`BW1098OBC <bw1098obc>` look like the following if the square size is 2.35 cm:
+    For example, the arguments for the :ref:`OAK-D <bw1098obc>` look like the following if the square size is 2.35 cm:
 
     .. code-block:: bash
 
@@ -86,13 +84,13 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     So when we're running calibration internally we almost always use the :code:`-ih` option, so we'll include it on all the following example commands:
 
-    - **BW1098OBC (USB3 Onboard Camera Edition)):**
+    - **DepthAI OAK-D:**
 
       .. code-block:: bash
 
         python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih
 
-    - **BW1097 (Raspberry Pi Compute Module Edition):**
+    - **DepthAI RaspberryPi Compute Module:**
 
       .. code-block:: bash
 
@@ -167,8 +165,9 @@ not need to match the polygon exactly, but it is important to use the polygon as
 There are 13 required polygon positions.
 
 After capturing images for all of the polygon positions, the calibration image processing step will begin.
-If successful, a calibration file will be created at :code:`depthai/resources/depthai.calib`.
-This file is loaded by default via the :code:`calib_fpath` variable within :code:`consts/resource_paths.py`.
+If successful, calibration files (:code:`left_mesh.calib` and :code:`right_mesh.calib`) will be created at :code:`depthai/resources/`
+and the calibration data will also be flashed in the device
+
 
 Test depth
 **********
@@ -182,17 +181,11 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
 
     cd [depthai repo]
 
-3. Checkout `gen1_main branch <https://github.com/luxonis/depthai/tree/gen1_main>`__.
+3. Run test script.
 
   .. code-block:: bash
 
-    git checkout gen1_main
-
-4. Run test script.
-
-  .. code-block:: bash
-
-    python3 depthai_demo.py -s depth_raw -o
+    python3 depthai_demo.py
 
   The script launches a window, starts the cameras, and displays a depth video stream:
 
@@ -200,53 +193,5 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
     :alt: Depth projection
 
   In the screenshot above, the hand is closer to the camera.
-
-Write calibration and board parameters to on-board eeprom
-*********************************************************
-
-If your are happy with the depth quality above, you can write it to the on-board eeprom on DephtAI so that the
-calibration stick with DepthAI (all designs which have stereo-depth support have on-board eeprom for this purpose).
-
-To write the calibration and associated board information to to EEPROM on DepthAI, use the following command:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -brd [BOARD] -e
-
-Where :code:`[BOARD]` is either :code:`BW1097` (Raspberry Pi Compute Module Edition), :code:`BW1098OBC` (USB3 Onboard Camera Edition)
-or a custom board file (as in :ref:`here <Modular cameras calibration>`), all case-insensitive.
-
-So for example to write the (updated) calibration and board information to your BW1098OBC, use the following command:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -brd bw1098obc -e
-
-And to verify what is written to EEPROM on your DepthAI, you can see check the output whenever running DetphAI, simply with"
-
-.. code-block:: bash
-
-  python3 depthai_demo.py
-
-And look for :code:`EEPROM data:` in the prints in the terminal after running the above command:
-
-.. code-block::
-
-  EEPROM data: valid (v2)
-    Board name     : BW1098OBC
-    Board rev      : R0M0E0
-    HFOV L/R       : 73.5 deg
-    HFOV RGB       : 68.7938 deg
-    L-R   distance : 7.5 cm
-    L-RGB distance : 3.75 cm
-    L/R swapped    : yes
-    L/R crop region: top
-    Calibration homography:
-      1.002324,   -0.004016,   -0.552212,
-      0.001249,    0.993829,   -1.710247,
-      0.000008,   -0.000010,    1.000000,
-
-
-If anything looks incorrect, you can calibrate again and/or change board information and overwrite the stored eeprom information and calibration data using the :code:`-brd` and :code:`-e` flags as above.
 
 .. include::  /pages/includes/footer-short.rst
