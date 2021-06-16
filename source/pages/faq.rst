@@ -73,7 +73,6 @@ DepthAI has been used in effectively every industry, from farming/ranch, to clea
 - Cargo/transport/autonomy (fullness, status, navigation, hazard avoidance)
 - Sports monitoring (automatically losslessly zooming in on action)
 - Smart agriculture (e.g guiding lasers to kill weeds, pests, or targeting watering)
-- Safety systems (Health, Safety, Environment - such as detecting remote leaks, if personal protective equipment is warn)
 
 What distinguishes OAK-D from other cameras?
 ############################################
@@ -179,7 +178,9 @@ And this is actually an interesting case as it demonstrates two things on DepthA
 #. Stereo inference (i.e. running the neural network(s) running on both the left and right cameras in parallel)
 #. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
 
-The command used to run this on DepthAI is
+We have a `gen2-triangulation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__ demo that performs the stereo neural interface. **You should use the gen2 demo,** as we are focusing only on the gen2.
+
+If you would like to use the (old) gen1 API, you would have to download gen1 depthai library (:code:`python3 -mpip install depthai==1.0.0.0`) and checkout the :code:`gen1_main` branch of the `depthai repo <https://github.com/luxonis/depthai>`__. After that, you can run
 
 .. code-block:: bash
 
