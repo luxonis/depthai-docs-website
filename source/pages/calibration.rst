@@ -60,7 +60,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     .. code-block:: bash
 
-      python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd [BOARD]
+      python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -ms [MARKER_SIZE_IN_CM] -brd [BOARD]
 
     Argument reference:
 
