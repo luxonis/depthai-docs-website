@@ -64,23 +64,24 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Argument reference:
 
-    - :code:`-s SQUARE_SIZE_IN_CM`, :code:`--square_size_cm SQUARE_SIZE_IN_CM`: Measure the square size of the printed checkerboard in centimeters.
-    - :code:`-brd BOARD`, :code:`--board BOARD`: BW1097, BW1098OBC - Board type from resources/boards/ (not case-sensitive, if you're using OAK-D please choose BW1098OBC). Or path to a custom .json board config. Mutually exclusive with [-fv -b -w], which allow manual specification of field of view, baseline, and camera orientation (swapped or not-swapped).
+    - :code:`-s SQUARE_SIZE_IN_CM`, :code:`--squareSizeCm SQUARE_SIZE_IN_CM`: Measure the square size of the printed charuco board in centimeters.
+    - :code:`-ms MARKER_SIZE_IN_CM`, :code:`--markerSizeCm MARKER_SIZE_IN_CM`: Measure the marker size of the printed charuco board in centimeters.
+    - :code:`-brd BOARD`, :code:`--board BOARD`: BW1097, BW1098OBC - Board type from resources/boards/ (not case-sensitive, if you're using OAK-D please choose BW1098OBC) or path to a custom .json board config.
 
     Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].
 
-    For example, the arguments for the :ref:`OAK-D <bw1098obc>` look like the following if the square size is 2.35 cm:
+    For example, the arguments for the :ref:`OAK-D <bw1098obc>` look like the following if the square size is 2.35 cm and a marker size is 1.90 cm:
 
     .. code-block:: bash
 
-      python3 calibrate.py -s 2.35 -brd bw1098obc
+      python3 calibrate.py -s 2.35 -ms 1.9 -brd bw1098obc
 
     And note that mirroring the display when calibrating is often useful (so that the directions of motion don't seem backwards).
     When seeing ourselves, we're used to seeing ourselves backwards (because that's what we see in a mirror), so do so, use the :code:`-ih` option as below:
 
     .. code-block:: bash
 
-      python3 calibrate.py -s 2.35 -brd bw1098obc -ih
+      python3 calibrate.py -s 2.35 -ms 1.9 -brd bw1098obc -ih
 
     So when we're running calibration internally we almost always use the :code:`-ih` option, so we'll include it on all the following example commands:
 
@@ -88,13 +89,13 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
       .. code-block:: bash
 
-        python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1098obc -ih
+        python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -ms [MARKER_SIZE_IN_CM] -brd bw1098obc -ih
 
     - **DepthAI RaspberryPi Compute Module:**
 
       .. code-block:: bash
 
-        python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd bw1097 -ih
+        python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -ms [MARKER_SIZE_IN_CM] -brd bw1097 -ih
 
 
 Modular cameras calibration
@@ -149,7 +150,7 @@ Then, run calibration with this board name:
 
 .. code-block:: bash
 
-  python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd ACME01 -ih
+  python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -ms [MARKER_SIZE_IN_CM] -brd ACME01 -ih
 
 Run :code:`python3 calibrate.py --help` (or :code:`-h`) for a full list of arguments and usage examples.
 
@@ -165,8 +166,11 @@ not need to match the polygon exactly, but it is important to use the polygon as
 There are 13 required polygon positions.
 
 After capturing images for all of the polygon positions, the calibration image processing step will begin.
-If successful, calibration files (:code:`left_mesh.calib` and :code:`right_mesh.calib`) will be created at :code:`depthai/resources/`
-and the calibration data will also be flashed in the device
+If successful, the calibration data will be written to EEPROM and a copy of it will be created in files under
+:code:`depthai/resources/` as :code:`<Device Mx ID>.json` if device is connected or :code:`depthai_calib.json` otherwise
+
+It will also create the mesh files named :code:`left_mesh.calib` and :code:`right_mesh.calib` under code:`depthai/resources/`
+which can be used to overcome distortions in stereo node for camera modules with distortions.
 
 
 Test depth
