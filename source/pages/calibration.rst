@@ -41,9 +41,9 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
       cd depthai
       python3 install_requirements.py
 
-#. Print checkerboard calibration image.
+#. Print charuco board calibration image.
 
-    Either print the calibration checkerboard onto a flat surface, or display the checkerboard on a flat (not curved!) monitor.
+    Either print the calibration charuco board onto a flat surface, or display the calibration board on a flat (not curved!) monitor.
     Note that if you do print the calibration target, take care to make sure it is attached to a flat surface and is flat and free of wrinkles and/or 'waves'.
 
     Often, using a monitor to display the calibration target is easier/faster.
@@ -154,14 +154,14 @@ Then, run calibration with this board name:
 
 Run :code:`python3 calibrate.py --help` (or :code:`-h`) for a full list of arguments and usage examples.
 
-Position the checkerboard and capture images
-********************************************
+Position the charuco board and capture images
+*********************************************
 
 Left and right video streams are displayed, each containing a polygon overlay.
 
-Hold up the printed checkerboard (or laptop with the image displayed on the screen) so that the whole of the checkerboard is displayed within both video streams.
+Hold up the printed charuco board (or laptop with the image displayed on the screen) so that the whole of the calibration board is displayed within both video streams.
 
-Match the orientation of the overlayed polygon and press [SPACEBAR] to capture an image. The checkerboard pattern does
+Match the orientation of the overlayed polygon and press [SPACEBAR] to capture an image. The charuco board pattern does
 not need to match the polygon exactly, but it is important to use the polygon as a guideline for angling and location relative to the camera.
 There are 13 required polygon positions.
 
