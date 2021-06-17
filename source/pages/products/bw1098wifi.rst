@@ -27,7 +27,8 @@ Requirements
 What's in the box?
 ******************
 - BW1098OBC_WiFi
-- USB3C cable (6 in.)
+- USB3C cable (6 in.) - To connect to the VPU (MyriadX)
+- Micro-USB - To connect to the ESP32
 - Power Supply
 
 Setup
