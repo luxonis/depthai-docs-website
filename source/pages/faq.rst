@@ -1149,13 +1149,20 @@ How Do I Force USB2 Mode?
 
 USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
 
-To force USB2 mode, simply use the `-fusb2` (or `--force_usb2`) command line option as below:
+You can force USB2 mode by setting :code:`usb2Mode` to :code:`True` when creating the device (note - it works for gen2):
+
+.. code-block:: python
+
+  dai.Device(pipeline, usb2Mode=True)
+
+The other way is using the :code:`-fusb2` (or :code:`--force_usb2`) command line option as below:
 
 .. code-block:: bash
 
   python3 depthai_demo.py -fusb2
 
-Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see `here <https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29>`__, which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
+Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see `here <https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29>`__, 
+which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
 
 .. _ncsmode:
 
