@@ -50,9 +50,9 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Often, using a monitor to display the calibration target is easier/faster.
 
-    .. image:: https://github.com/luxonis/depthai/raw/fix_calibration/charuco_297x210_8x11_20_DICT_4X4.png
+    .. image:: https://github.com/luxonis/depthai/raw/main/charuco_297x210_8x11_20_DICT_4X4.png
       :alt: Print this charuco calibration image
-      :target: https://github.com/luxonis/depthai/raw/fix_calibration/charuco_297x210_8x11_20_DICT_4X4.png
+      :target: https://github.com/luxonis/depthai/raw/main/charuco_297x210_8x11_20_DICT_4X4.png
 
     The entire board should fit on a single piece of paper (scale to fit).  And if displaying on a monitor, full-screen the image with a white background.
 
@@ -171,7 +171,7 @@ After capturing images for all of the polygon positions, the calibration image p
 If successful, the calibration data will be written to EEPROM and a copy of it will be created in files under
 :code:`depthai/resources/` as :code:`<Device Mx ID>.json` if device is connected or :code:`depthai_calib.json` otherwise
 
-It will also create the mesh files named :code:`left_mesh.calib` and :code:`right_mesh.calib` under code:`depthai/resources/`
+It will also create the mesh files named :code:`left_mesh.calib` and :code:`right_mesh.calib` under :code:`depthai/resources/`
 which can be used to overcome distortions in stereo node for camera modules with distortions.
 
 
