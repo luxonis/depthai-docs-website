@@ -3,15 +3,8 @@ Calibration
 
 .. note::
 
-   All non-modular DepthAI devices are calibrated before shipment.
-   Keep in mind that in most cases factory calibration is more accurate than manual calibration
-
-For the modular camera editions of DepthAI (:ref:`DepthAI FFC - Modular Cameras` and :ref:`DepthAI RaspberryPi Hat`)
+   All non-modular DepthAI (OAK-D, OAK-D-WIFI, LUX-ESP32, LUX-RCM4-AB, etc.) devices are calibrated before shipment.  It is not required to (re-)calibrate any of these, but for PCBA-only models like OAK-D-WIFI, LUX-ESP32, LUX-RCM4-AB, etc. it can be desirable to do so if the depth quality degrades from mounting the PCBA (into an enclosure).  For the modular camera editions of DepthAI (:ref:`DepthAI FFC - Modular Cameras` and :ref:`DepthAI RaspberryPi Hat`)
 it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
-
-For the :ref:`DepthAI RaspberryPi Compute Module` and :ref:`DepthAI OAK-D`, the units come
-pre-calibrated - but you may want to re-calibrate for better quality in your installation (e.g. after mounting the board to something),
-or if the calibration quality has started to fade over use/handling.
 
 Below is a quick video showing the (re-) calibration of the :ref:`DepthAI OAK-D`.
 In short, the calibration uses the intersections to determine the orientation and distance of the charuco board.
