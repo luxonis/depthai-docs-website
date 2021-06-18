@@ -1152,7 +1152,7 @@ You can force USB2 mode by setting :code:`usb2mode` to :code:`True` when creatin
 
 .. code-block:: python
 
-  dai.Device(pipeline, usb2mode=True)
+  dai.Device(pipeline, usb2Mode=True)
 
 The other way is using the :code:`-fusb2` (or :code:`--force_usb2`) command line option as below:
 
