@@ -1148,7 +1148,7 @@ How Do I Force USB2 Mode?
 
 USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
 
-You can force USB2 mode by setting :code:`usb2mode` to :code:`True` when creating the device (note - it works for gen2):
+You can force USB2 mode by setting :code:`usb2Mode` to :code:`True` when creating the device (note - it works for gen2):
 
 .. code-block:: python
 
