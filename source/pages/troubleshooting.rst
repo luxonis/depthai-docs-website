@@ -84,7 +84,7 @@ So unfortunately we discovered this after we shipped with long USB3 cables (2 me
 So if you have see this problem with your host, potentially 3 options:
 
 #. Switch to a shorter USB3 cable (say 1 meter) will very likely make the problem disappear.  `These <https://www.amazon.com/gp/product/B07S4G4L4Z/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1>`__ 1 meter (3.3 ft.) cables are a nice length and are now what we ship with DepthAI USB3 variants.
-#. Force USB2 mode with :code:`--force_usb2` option (examples below).  This will allow use of the long cable still, and many DepthAI use cases do not necessitate USB3 communication bandwidth - USB2 is plenty.
+#. Force USB2 mode with :code:`--usb_speed usb2` option (examples below).  This will allow use of the long cable still, and many DepthAI use cases do not necessitate USB3 communication bandwidth - USB2 is plenty.
 #. Upgrade from Ubuntu 16.04 to Ubuntu 18.04.
 
 Forcing USB2 Communication
@@ -94,19 +94,19 @@ If you are having trouble with communication with DepthAI/OAK, forcing USB2 can 
 
 .. code-block:: bash
 
-  python3 depthai_demo.py --force_usb2
+  python3 depthai_demo.py --usb_speed usb2
 
 Or, the shorter form:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -fusb2
+  python3 depthai_demo.py -usbs usb2
 
-For gen2, set the **usb2mode** to **True** when creating the device:
+For gen2, set the **usb2Mode** to **True** when creating the device:
 
 .. code-block:: python
 
-  dai.Device(pipeline, usb2mode=True)
+  dai.Device(pipeline, usb2Mode=True)
 
 We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not
 Ubuntu 18.04/16.04 or Raspbian, please `compile DepthAI from source <https://docs.luxonis.com/projects/api/en/latest/install/#install-from-source>`__.

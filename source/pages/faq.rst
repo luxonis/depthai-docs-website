@@ -1155,11 +1155,11 @@ You can force USB2 mode by setting :code:`usb2Mode` to :code:`True` when creatin
 
   dai.Device(pipeline, usb2Mode=True)
 
-The other way is using the :code:`-fusb2` (or :code:`--force_usb2`) command line option as below:
+The other way is using the :code:`-usbs usb2` (or :code:`--usb_speed usb2`) command line option as below:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -fusb2
+  python3 depthai_demo.py -usbs usb2
 
 Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see `here <https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29>`__, 
 which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
