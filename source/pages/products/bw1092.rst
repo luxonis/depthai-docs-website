@@ -1,7 +1,7 @@
 .. _bw1092:
 
-LUX-ESP32 - Three Camera ESP32 Board
-####################################
+LUX-ESP32 - Standalone Spatial AI + CV Board
+############################################
 
 
 .. image:: /_static/images/products/bw1092.jpg
