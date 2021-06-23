@@ -1235,15 +1235,15 @@ DepthAI and megaAI use the same 12MP RGB Camera module based on the IMX378.
 How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
 ######################################################################
 
-`ArduCam <https://www.arducam.com/>`__ is in the process of making a variety of camera modules specifically for DepthAI and megaAI, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
+`ArduCam <https://www.arducam.com/product-category/opencv-ai-kit/>`__ has built a variety of camera modules specifically for DepthAI and megaAI, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
 
  - M12-Mount IMX477 `here <https://github.com/luxonis/depthai-hardware/issues/16>`__
- - M12-Mount OV9282 `here <https://github.com/luxonis/depthai-hardware/issues/17>`__
- - Fish-Eye OV9282 (for better SLAM) `here <https://github.com/luxonis/depthai-hardware/issues/15>`__
- - Mechanical, Optical, and Electrical equivalent OV9282 module with visible and IR capability `here <https://github.com/luxonis/depthai-hardware/issues/22>`__
- - Global-Shutter Color Camera (OV9782) with same intrinsics as OV9282 grayscale `here <https://github.com/luxonis/depthai-hardware/issues/21>`__
- - Original request for this `here <https://discourse.ros.org/t/opencv-ai-kit-oak/15406/17?u=luxonis-brandon>`__
- - C/CS-Mount IMX283 (1" diagonal sensor, which is huge) `here <https://github.com/luxonis/depthai-hardware/issues/30>`__
+ - M12-Mount Global Shutter Grayscale OV9282 `here <https://www.arducam.com/product/arducam-1mp-ov9282-global-shutter-mono-mipi-camera-module-22pin-for-depthai-oak-dm1090ffc/>`__
+  - M12-Mount Global Shutter Color OV9782 `here <https://www.arducam.com/product/arducam-1mp-ov9782-global-shutter-color-mipi-camera-module-22pin-for-depthai-oak-dm1090ffc/>`__
+ - Compact Camera Module (CCM) Fish-Eye OV9282 (for better SLAM) `here <https://www.arducam.com/product/arducam-1mp-ov9282-fisheye-mono-global-shutter-drop-in-replacement-for-depthai-oak-dnoir/>`__
+ - Mechanical, Optical, and Electrical equivalent OV9282 module with visible and IR capability `here <https://www.arducam.com/product/arducam-1mp-ov9282-ccm-drop-in-replacement-for-oak-d/>`__
+ - Global-Shutter Color Camera (OV9782) with same intrinsics as OV9282 grayscale `here <https://github.com/luxonis/depthai-hardware/issues/21>`__ is in progress.
+ - C/CS-Mount IMX283 (1" diagonal sensor, which is huge) `here <https://github.com/luxonis/depthai-hardware/issues/30>`__ is in progress.
 
 With these, there will be a variety of options for view angle, focal length, filtering (IR, no IR, NDVI, etc.) and image sensor formats.
 
