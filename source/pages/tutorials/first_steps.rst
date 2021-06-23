@@ -13,6 +13,17 @@ and you want to give it the first try to explore what is possible with it and wh
 
 Let's start with the device setup below
 
+Watch the video
+###############
+
+If you prefer, we've encapsulated this tutorial in a short YouTube video you can follow along while scrolling this page
+
+.. raw:: html
+
+    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+        <iframe src="https://www.youtube.com/embed/LN1O9vhPJA0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>
+
 Connect the DepthAI device
 ##########################
 
