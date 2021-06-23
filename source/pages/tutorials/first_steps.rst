@@ -16,7 +16,7 @@ Let's start with the device setup below
 Watch the video
 ###############
 
-If you preffer, we've encapsulated this tutorial in a short YouTube video you can follow along while scrolling this page
+If you prefer, we've encapsulated this tutorial in a short YouTube video you can follow along while scrolling this page
 
 .. raw:: html
 
