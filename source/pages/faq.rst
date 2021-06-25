@@ -1307,6 +1307,49 @@ The solution for now is to configure the sensor to 4K, but downscale further in 
   - using the branch :code:`stereo_fixes` from `here <https://github.com/luxonis/depthai-python/pull/147>`__, it is possible to set an ISP downscale as :code:`colorCam.setIspScale(1, 2)` , while keeping the sensor at 4K, and then both :code:`preview` and :code:`video` will act (resolution-wise) as if the sensor was configured at 1080p.
 
 
+How to run OAK-D as video device
+################################
+
+Luxonis devices do not appear as standard cameras. To run them as a video device, consider running them as UVC (USB Video Class). 
+To run UVC directly (still needing the depthai library, but just for initialization), inside a clone of `dephtai-python repo <https://github.com/luxonis/depthai-python>`__, run:
+
+.. code-block:: bash
+
+  git fetch --all
+  git checkout origin/gen2_uvc
+  python3 examples/install_requirements.py
+  python3 examples/19_uvc_video.py
+
+  Keep the script open. It’s needed to periodically feed the device watchdog (would reset the device on close). And then open some UVC viewer. It should work 
+  all good on Linux. On macOS, it needs a workaround (having some app looking for devices and opening the stream quickly after the depthai pipeline is started), 
+  while on Windows, it doesn’t work yet.
+
+You can also try using `Flask Opencv Streamer <https://pypi.org/project/flask-opencv-streamer/>`__ to generate a local stream, pick it up with `FFmpeg <https://www.ffmpeg.org/documentation.html>`__ and pipe it to a v4l loopback device.
+
+.. code-block:: python
+
+  with dai.Device(pipeline) as device:
+
+      video = device.getOutputQueue(name="video", maxSize=1, blocking=False)
+
+      while True:
+          video_capture = video.get()
+          frame = video_capture.getCvFrame()
+          streamer.update_frame(frame)
+
+          if not streamer.is_streaming:
+              streamer.start_streaming()
+
+          cv2.waitKey(30)
+
+
+.. code-block:: bash
+
+  ffmpeg  -i "http://192.168.***.***:3030/video_feed" -vf format=yuv420p -f v4l2 /dev/video0
+
+
+We work on adding UVC descriptor on-demand to a device preboot configuration as a feature.
+
 How Much Compute Is Available?  How Much Neural Compute is Available?
 #####################################################################
 
