@@ -67,18 +67,18 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].
 
-    For example, the arguments for the :ref:`OAK-D <bw1098obc>` look like the following if the square size is 2.35 cm and a marker size is 1.90 cm:
+    For example, the arguments for the :ref:`OAK-D <bw1098obc>` look like the following if the square size is 2.35 cm:
 
     .. code-block:: bash
 
-      python3 calibrate.py -s 2.35 -ms 1.9 -brd bw1098obc -db
+      python3 calibrate.py -s 2.35 -brd bw1098obc -db
 
     And note that mirroring the display when calibrating is often useful (so that the directions of motion don't seem backwards).
     When seeing ourselves, we're used to seeing ourselves backwards (because that's what we see in a mirror), so do so, use the :code:`-ih` option as below:
 
     .. code-block:: bash
 
-      python3 calibrate.py -s 2.35 -ms 1.9 -brd bw1098obc -db -ih
+      python3 calibrate.py -s 2.35 -brd bw1098obc -db -ih
 
     So when we're running calibration internally we almost always use the :code:`-ih` option, so we'll include it on all the following example commands:
 
