@@ -54,7 +54,7 @@ Overview explained:
 
 - `MyriadX <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu/movidius-myriad-x.html>`__ is the VPU on the DepthAI, where you can run your pipeline
 - MyriadX is connected to the host (eg. PC)
-- MyriadX can send :ref:`Messages` to the ESP32 via SPI (using :ref:`SPIOut` node)
+- MyriadX can send `Messages <https://docs.luxonis.com/projects/api/en/latest/components/messages/>`__ to the ESP32 via SPI (using `SPIOut <https://docs.luxonis.com/projects/api/en/latest/components/nodes/spi_out/>`__ node)
 - ESP32 can receive these messages using the `depthai-spi-api <https://github.com/luxonis/depthai-spi-api>`__ library (which is an `ESP-IDF <https://github.com/espressif/esp-idf>`__ component).
 - On ESP32 you can run post-processing of the messages and optionally send the results to a server (if connected to a WiFi network) or to a Bluetooth device (eg. a smartphone)
 
@@ -85,7 +85,7 @@ Common use cases for the ESP32
 - You could run spatial object detections and/or object tracking pipeline on the VPU and send tracklets with spatial data over the SPI to the ESP32. On ESP32 you could run some simple filtering and/or NN result decoding and then send final results to the cloud
 - ESP32 can also flash DepthAI bootloader and/or pipeline, which means OTA (over-the-air) updates are supported.
 - We have an example for both sending a `whole image <https://github.com/luxonis/esp32-spi-message-demo/tree/main/jpeg_demo>`__ and `part of an image <https://github.com/luxonis/esp32-spi-message-demo/tree/main/image_part>`__ through the SPI from the VPU to the ESP32
-- Pipeline on the VPU could be configured to send system information (using :ref:`SystemLogger` node) to the ESP32 which would forward them to a logging platform
+- Pipeline on the VPU could be configured to send system information (using `SystemLogger <https://docs.luxonis.com/projects/api/en/latest/components/nodes/system_logger/>`__ node) to the ESP32 which would forward them to a logging platform
 - ESP32 also has Bluetooth capabilities, so you could forward the data from the ESP32 to a smartphone
 
 How to get started with the development
