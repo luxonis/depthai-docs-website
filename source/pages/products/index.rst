@@ -69,7 +69,7 @@ Products
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1092/" class="btn item-cta">Get Started ›</a>
+                  <a href="https://docs.luxonis.com/en/latest/pages/products/bw1092/" class="btn item-cta">Get Started ›</a>
                </footer>
             </div>
          </div>
@@ -103,7 +103,7 @@ Products
                </p>
             </div>
             <footer class="item-footer">
-               <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1099/" class="btn item-cta">Get Started ›</a>
+               <a href="https://docs.luxonis.com/en/latest/pages/products/bw1099/" class="btn item-cta">Get Started ›</a>
             </footer>
          </div>
       </div>
@@ -121,7 +121,7 @@ Products
                      </p>
                   </div>
                   <footer class="item-footer">
-                     <a href="https://docs.luxonis.com/en/gen2/pages/products/color/" class="btn item-cta">Get Started ›</a>
+                     <a href="https://docs.luxonis.com/en/latest/pages/products/color/" class="btn item-cta">Get Started ›</a>
                   </footer>
                </div>
          </div>
@@ -137,7 +137,7 @@ Products
                      </p>
                   </div>
                   <footer class="item-footer">
-                     <a href="https://docs.luxonis.com/en/gen2/pages/products/mono/" class="btn item-cta">Get Started ›</a>
+                     <a href="https://docs.luxonis.com/en/latest/pages/products/mono/" class="btn item-cta">Get Started ›</a>
                   </footer>
                </div>
          </div>
@@ -155,7 +155,7 @@ Products
                      </p>
                   </div>
                   <footer class="item-footer">
-                     <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1094/" class="btn item-cta">Get Started ›</a>
+                     <a href="https://docs.luxonis.com/en/latest/pages/products/bw1094/" class="btn item-cta">Get Started ›</a>
                   </footer>
                </div>
          </div>
@@ -171,7 +171,7 @@ Products
                      </p>
                   </div>
                   <footer class="item-footer">
-                     <a href="https://docs.luxonis.com/en/gen2/pages/products/bw1097/" class="btn item-cta">Get Started ›</a>
+                     <a href="https://docs.luxonis.com/en/latest/pages/products/bw1097/" class="btn item-cta">Get Started ›</a>
                   </footer>
                </div>
          </div>
