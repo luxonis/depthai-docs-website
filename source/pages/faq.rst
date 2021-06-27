@@ -1169,16 +1169,21 @@ which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data an
 What is "NCS2 Mode"?
 ####################
 
-All variants of DepthAI/megaAI come supporting what we call 'NCS2 mode'.  This allows megaAI and DepthAI to pretend to be an NCS2.
+All DepthAI devices come with support of what we call 'NCS2 mode'. This allows any DepthAI device to pretend to be an NCS2.
 
-So in fact, if you power your unit, plug it into a computer, and follow the instructions/examples/etc. of an NCS2 with OpenVINO, DepthAI/megaAI will behave identically.
+So in fact, if you power your unit, plug it into a computer, and follow the instructions/examples/etc. of an NCS2 with OpenVINO, DepthAI device will behave identically.
+
+We also have an `example code here <https://github.com/luxonis/depthai-experiments/tree/master/depthai-inference-engine>`__.
+It runs facial cartoonization model (IR format) on the device using OpenVINOs `Inference Engine (IE) <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Deep_Learning_Inference_Engine_DevGuide.html>`__.
 
 This allows you to try out examples from OpenVINO directly as if our hardware is an NCS2.  This can be useful when
 experimenting with models which are designed to operate on objects/items that you may not have available locally/physically.
 It also allows running inference in programmatic ways for quality assurance, refining model performance, etc.,
 as the images are pushed from the host, instead of pulled from the onboard camera in this mode.
 
-DepthAI/megaAI will also support an additional host-communication mode in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__, which will be available in December 2020.
+Another common use case to run your model with IE (Inference Engine) first is to check if your model conversion to OpenVINOs IR format
+(eg. from TF/ONNX) was successful. After you run it successfully with the IE you can then proceed with
+:ref:`compiling the IR model <Converting model to MyriadX blob>` into the **.blob**, which is required by the DepthAI library.
 
 What Information is Stored on the DepthAI Boards
 ################################################
