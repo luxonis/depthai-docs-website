@@ -30,7 +30,7 @@ Demo script
 ###########
 
 Demo script is our multipurpose command line demo tool, built around Gen2 Pipeline, that allows you to check
-DepthAI features straight from the command line - no coding required!
+DepthAI features straight from the command line - no coding required!  It works USB and POE equally, automatically discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple are connected, it will prompt you on which to use for the demo.
 
 .. image:: https://user-images.githubusercontent.com/5244214/116865569-28daa400-ac0a-11eb-8772-2a46d24640df.png
   :alt: Default run
