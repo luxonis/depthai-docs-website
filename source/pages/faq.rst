@@ -661,7 +661,7 @@ effectively the minimum distance for this mode of operation, as in most cases (e
 this **effective** minimum distance is higher than the **actual** minimum distance as a result of the stereo camera field of views. For example, the objects 
 will be fully out of the field of view of both grayscale cameras when less than `5.25cm
 <https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`__
-from the :ref:`BW1098OBC <bw1098obc>`), but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm),
+from the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__), but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm),
 so the actual minimum depth is this hyperfocal distance.
 
 Accordingly, to calculate the minimum distance for this mode of operation, use the following formula:
@@ -704,7 +704,7 @@ calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03HLvlfCWau
 Stereo Neural Inference Mode
 ----------------------------
 
-For DepthAI units with onboard cameras, all models (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ and :ref:`BW1098OBC <bw1098obc>`) are
+For DepthAI units with onboard cameras, all models (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ and `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) are
 limited by the hyperfocal distance of the stereo cameras, so their minimum depth is **0.196** meters.
 
 Modular Camera Minimum Depths:
@@ -739,7 +739,7 @@ Extended Disparity Depth Mode
 The :code:`extended disparity` mode affords a closer minimum distance for the given baseline.  This increases the maximum disparity search from 96 to 192.  So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
 
 - DepthAI Raspberry Pi Compute Module Edition (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__): **0.414** meters
-- OAK-D and USB3C Onboard Camera Edition (:ref:`BW1098OBC <bw1098obc>`) is
+- OAK-D and USB3C Onboard Camera Edition (`OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) is
   **0.345** meters
 - Modular Cameras at Minimum Spacing (e.g. `DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__) is
   **0.115** meters
@@ -1192,13 +1192,13 @@ Initial Crowd Supply backers received boards which had literally nothing stored 
 from the host to the board.  This includes the BW1097 (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__), which had the calibration stored on the included microSD card.
 
 So each hardware model which has stereo cameras (e.g. `BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__,
-`DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__, :ref:`BW1098OBC <bw1098obc>`, and
-:ref:`BW1094 <bw1094>`) has the capability to store the calibration data and field-of-view,
+`DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__, `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, and
+`BW1094 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1094.html>`__) has the capability to store the calibration data and field-of-view,
 stereo baseline (:code:`L-R distance`) and relative location of the color camera to the stereo cameras (:code:`L-RGB distance`)
 as well as camera orientation (:code:`L/R swapped`).  To retrieve this information, simply run :code:`python3 depthai_demo.py` and look for
 :code:`EEPROM data:`.
 
-Example of information pulled from a :ref:`BW1098OBC <bw1098obc>` is below:
+Example of information pulled from a `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is below:
 
 .. code-block::
 
@@ -1217,7 +1217,11 @@ Example of information pulled from a :ref:`BW1098OBC <bw1098obc>` is below:
       0.000008,   -0.000010,    1.000000,
 
 
-Current (those April 2020 and after) DepthAI boards with on-board stereo cameras (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__, :ref:`BW1098OBC <bw1098obc>`, and `BW1092 <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__) ship calibration and board parameters pre-programmed into DepthAI's onboard EEPROM.
+Current (those April 2020 and after) DepthAI boards with on-board stereo cameras
+(`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__,
+`OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__,
+and `BW1092 <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__)
+ship calibration and board parameters pre-programmed into DepthAI's onboard EEPROM.
 
 Dual-Homography vs. Single-Homography Calibration
 #################################################

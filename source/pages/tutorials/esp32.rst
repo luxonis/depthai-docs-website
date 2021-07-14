@@ -2,7 +2,8 @@ ESP32 tutorial
 ==============
 
 .. note::
-  This tutorial is intended for :ref:`OAK-D with WiFi <bw1098wifi>` and :ref:`LUX-ESP32 <bw1092>`, which both have an ESP32 on
+  This tutorial is intended for `OAK-D with WiFi <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1098OBC.html>`__
+  and `LUX-ESP32 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__, which both have an ESP32 on
   the board.
 
 .. note::
