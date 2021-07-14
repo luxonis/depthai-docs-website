@@ -551,6 +551,8 @@ Ecosystem
    :caption: Modules:
 
    C++/Python API <https://docs.luxonis.com/projects/api/en/latest/>
+   Hardware Products <https://docs.luxonis.com/projects/hardware/en/latest/>
+   GUI <https://docs.luxonis.com/projects/gui/en/latest/>
 
 
 .. toctree::
@@ -561,7 +563,6 @@ Ecosystem
    pages/faq.rst
    pages/support.rst
    pages/troubleshooting.rst
-   pages/products/index.rst
    pages/calibration.rst
    pages/training.rst
    pages/model_conversion.rst
