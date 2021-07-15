@@ -204,6 +204,57 @@ Which will allow you to detect human faces, like below
 You can use :code:`-cnn <name>` flag to change the model that is being run on the DepthAI. Below, there is a list of
 models that you can use, having just the demo script downloaded
 
+
+.. list-table:: Available models
+  :widths: 40 40 20
+
+  * - :code:`deeplabv3p_person`
+    - People segmentation
+    - :ref:`Usage <deeplabv3p_person>`
+  * - :code:`face-detection-adas-0001`
+    - Face detection
+    - :ref:`Usage <face-detection-adas-0001>`
+  * - :code:`face-detection-retail-0004`
+    - Face detection
+    - :ref:`Usage <face-detection-retail-0004>`
+  * - :code:`mobilenet-ssd`
+    - Object detection (20 classes)
+    - :ref:`Usage <mobilenet-ssd>`
+  * - :code:`pedestrian-detection-adas-0002`
+    - People detection
+    - :ref:`Usage <pedestrian-detection-adas-0002>`
+  * - :code:`person-detection-retail-0013`
+    - People detection
+    - :ref:`Usage <person-detection-retail-0013>`
+  * - :code:`person-vehicle-bike-detection-crossroad-1016`
+    - People, vehicle and bike detection
+    - :ref:`Usage <person-vehicle-bike-detection-crossroad-1016>`
+  * - :code:`yolo-v3`
+    - Object detection (80 classes)
+    - :ref:`Usage <yolo-v3>`
+  * - :code:`tiny-yolo-v3`
+    - Object detection (80 classes)
+    - :ref:`Usage <tiny-yolo-v3>`
+  * - :code:`vehicle-detection-adas-0002`
+    - Vehicle detection
+    - :ref:`Usage <vehicle-detection-adas-0002>`
+  * - :code:`vehicle-license-plate-detection-barrier-0106`
+    - License plate detection
+    - :ref:`Usage <vehicle-license-plate-detection-barrier-0106>`
+
+.. _deeplabv3p_person:
+
+- :code:`deeplabv3p_person` - Allows to highlight parts of the image where a person is detected
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn deeplabv3p_person
+
+  .. image:: https://user-images.githubusercontent.com/5244214/118824955-90574b80-b8ba-11eb-863a-a7c3f866f71a.png
+    :alt: deeplabv3p_person
+
+.. _face-detection-adas-0001:
+
 - :code:`face-detection-adas-0001` - Allows to detect faces on the image (slower)
 
   .. code-block:: bash
@@ -212,6 +263,8 @@ models that you can use, having just the demo script downloaded
 
   .. image:: https://user-images.githubusercontent.com/5244214/117137299-c8826880-ada9-11eb-89b6-fafc3be0937f.png
     :alt: face-detection-adas-0001
+
+.. _face-detection-retail-0004:
 
 - :code:`face-detection-retail-0004` - Allows to detect faces on the image (faster)
 
@@ -222,6 +275,8 @@ models that you can use, having just the demo script downloaded
   .. image:: https://user-images.githubusercontent.com/5244214/117137578-30d14a00-adaa-11eb-9352-b3cfbc9c69d7.png
     :alt: face-detection-retail-0004
 
+.. _mobilenet-ssd:
+
 - :code:`mobilenet-ssd` - Object detector that detects 20 different classes (default)
 
   .. code-block:: bash
@@ -230,6 +285,8 @@ models that you can use, having just the demo script downloaded
 
   .. image:: https://user-images.githubusercontent.com/5244214/116867984-4447ae00-ac0e-11eb-9ed1-fac37f78634d.png
     :alt: mobilenet-ssd
+
+.. _pedestrian-detection-adas-0002:
 
 - :code:`pedestrian-detection-adas-0002` - allows to detect people on the image (slower)
 
@@ -240,6 +297,8 @@ models that you can use, having just the demo script downloaded
   .. image:: https://user-images.githubusercontent.com/5244214/117141406-c969c900-adae-11eb-93b0-f69a2ca31512.png
     :alt: pedestrian-detection-adas-0002
 
+.. _person-detection-retail-0013:
+
 - :code:`person-detection-retail-0013` - allows to detect people on the image (faster)
 
   .. code-block:: bash
@@ -248,6 +307,8 @@ models that you can use, having just the demo script downloaded
 
   .. image:: https://user-images.githubusercontent.com/5244214/117142161-adb2f280-adaf-11eb-9c83-b7b4aa027093.png
     :alt: person-detection-retail-0013
+
+.. _person-vehicle-bike-detection-crossroad-1016:
 
 - :code:`person-vehicle-bike-detection-crossroad-1016` - allows to detect both people, bikes and vehicles on the image
 
@@ -258,6 +319,8 @@ models that you can use, having just the demo script downloaded
   .. image:: https://user-images.githubusercontent.com/5244214/117144527-4fd3da00-adb2-11eb-89a4-2733cd9a39af.png
     :alt: person-vehicle-bike-detection-crossroad-1016
 
+.. _yolo-v3:
+
 - :code:`yolo-v3` - Object detector that detects 80 different classes (slower)
 
   .. code-block:: bash
@@ -266,6 +329,8 @@ models that you can use, having just the demo script downloaded
 
   .. image:: https://user-images.githubusercontent.com/5244214/117146045-1603d300-adb4-11eb-86d5-4a4d86b58b4e.png
     :alt: yolo-v3
+
+.. _tiny-yolo-v3:
 
 - :code:`tiny-yolo-v3` - Object detector that detects 80 different classes (faster)
 
@@ -276,6 +341,8 @@ models that you can use, having just the demo script downloaded
   .. image:: https://user-images.githubusercontent.com/5244214/117146045-1603d300-adb4-11eb-86d5-4a4d86b58b4e.png
     :alt: tiny-yolo-v3
 
+.. _vehicle-detection-adas-0002:
+
 - :code:`vehicle-detection-adas-0002` - allows to detect vehicles on the image
 
   .. code-block:: bash
@@ -284,6 +351,8 @@ models that you can use, having just the demo script downloaded
 
   .. image:: https://user-images.githubusercontent.com/5244214/117147219-54e65880-adb5-11eb-8089-c38d09a21076.png
     :alt: vehicle-detection-adas-0002
+
+.. _vehicle-license-plate-detection-barrier-0106:
 
 - :code:`vehicle-license-plate-detection-barrier-0106` - allows to detect both vehicle and license plate on the image (only Chineese license plates)
 
