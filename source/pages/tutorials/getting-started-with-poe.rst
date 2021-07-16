@@ -42,12 +42,18 @@ By default, PoE devices will try to get a dynamic IP from the DHCP. If DHCP isn'
 devices will have a static IP :code:`169.254.1.222`, so your computer will need to be in the same range. This can
 be achieved by setting a static IP on your computer (eg. static IP: :code:`169.254.1.10`, netmask: :code:`255.255.0.0`).
 
-Ports
-*****
+Ports and Firewall
+******************
 
 UDP Device discovery is handled on port :code:`11491`, and TCP XLink connection is handled on port :code:`11490`.
-By default, you shouldn't have any issues, but if you were changing firewall settings you might need to allow
-these two ports:
+By default, the firewall is disabled, so you shouldn't have any issues. You can check this by executing the following command:
+
+.. code-block:: bash
+
+  > sudo ufw status
+  Status: inactive
+
+But if you have firewall enabled, you might need to allow these two ports:
 
 .. code-block:: bash
 
