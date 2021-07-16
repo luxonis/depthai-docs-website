@@ -40,7 +40,7 @@ DHCP and static IP
 
 By default, PoE devices will try to get a dynamic IP from the DHCP. If DHCP isn't available on the network,
 devices will have a static IP :code:`169.254.1.222`, so your computer will need to be in the same range. This can
-be achieved by setting a static IP on your computer (eg. static IP :code:`169.254.1.2`).
+be achieved by setting a static IP on your computer (eg. static IP: :code:`169.254.1.10`, netmask: :code:`255.255.0.0`).
 
 Ports
 *****
