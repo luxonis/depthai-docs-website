@@ -8,7 +8,7 @@ We currently have two Power-over-Ethernet (PoE) devices:
 PoE allows a single Cat5e (or higher) Ethernet cable to be used to both power a device and give it connectivity
 at 1,000 Mbps (1 Gbps) full-duplex at up to 100 meters (328 feet).
 
-.. image:: /_static/images/tutorials/poe/poe-connected.gif
+.. image:: https://user-images.githubusercontent.com/18037362/125928421-daed2432-73fb-4c5b-843e-037c7383a871.gif
 
 *After connecting the PoE device, LED should start flashing.*
 
