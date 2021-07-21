@@ -206,7 +206,7 @@ models that you can use, having just the demo script downloaded
 
 
 .. list-table:: Available models
-  :widths: 30 40 10 20
+  :widths: 30 50 10 10
   :header-rows: 1
   :align: center
 
