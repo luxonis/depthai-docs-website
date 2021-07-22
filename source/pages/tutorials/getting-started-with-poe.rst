@@ -35,30 +35,33 @@ the Mx ID to specify to which DepthAI PoE device you would want to connect to
 (`more info here <https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/>`__).
 
 
-DHCP and static IP
-******************
+PoE Troubleshooting
+*******************
 
-By default, PoE devices will try to get a dynamic IP from the DHCP. If DHCP isn't available on the network,
-devices will have a static IP :code:`169.254.1.222`, so your computer will need to be in the same range. This can
-be achieved by setting a static IP on your computer (eg. static IP: :code:`169.254.1.10`, netmask: :code:`255.255.0.0`).
+- **DHCP and static IP**
+    By default, PoE devices will try to get a dynamic IP from the DHCP. If DHCP isn't available on the network,
+    devices will have a static IP :code:`169.254.1.222`, so your computer will need to be in the same range. This can
+    be achieved by setting a static IP on your computer (eg. static IP: :code:`169.254.1.10`, netmask: :code:`255.255.0.0`).
 
-Ports and Firewall
-******************
+- **Ports and Firewall**
+    UDP Device discovery is handled on port :code:`11491`, and TCP XLink connection is handled on port :code:`11490`.
+    By default, the firewall is disabled, so you shouldn't have any issues. You can check this by executing the following command:
 
-UDP Device discovery is handled on port :code:`11491`, and TCP XLink connection is handled on port :code:`11490`.
-By default, the firewall is disabled, so you shouldn't have any issues. You can check this by executing the following command:
+    .. code-block:: bash
 
-.. code-block:: bash
+      > sudo ufw status
+      Status: inactive
 
-  > sudo ufw status
-  Status: inactive
+    But if you have firewall enabled, you might need to allow these two ports:
 
-But if you have firewall enabled, you might need to allow these two ports:
+    .. code-block:: bash
 
-.. code-block:: bash
+      sudo ufw allow 11490/tcp
+      sudo ufw allow 11491/udp
 
-  sudo ufw allow 11490/tcp
-  sudo ufw allow 11491/udp
+- **VPN connection**
+    VPN could also disrupt the connection with the PoE device, so we suggest turning the VPN off when using
+    the PoE devices.
 
 
-.. include::  /includes/footer-short.rst
+.. include::  /pages/includes/footer-short.rst
