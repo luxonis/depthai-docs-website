@@ -404,7 +404,7 @@ some meta problem, like how to stream the data, how to collect it and alike.
     - This example shows how to present the neural network inference results on the inferenced frames
   * - `Frames Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-seq-num-sync>`__
     - This example demonstrates how to synchronize incoming frames using their sequence numbers. This allows displaying frames taken in exact same moment
-  * - `Frames Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi>`__
+  * - `Gen2 SPI <https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi>`__
     - This directory contains a few examples of how to use the SPI interface with the Gen2 Pipeline builder
   * - `TensorFlow Image Classification <https://github.com/luxonis/depthai-experiments/tree/master/gen2-tf-image-classification>`__
     - This example demonstrates how to run a neural network created using TensorFlow Image Classification tutorial
