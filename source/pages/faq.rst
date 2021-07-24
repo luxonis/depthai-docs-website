@@ -1145,7 +1145,8 @@ So if you would like this functionality please feel subscribe to the Github feat
 And in the meantime, if you would like to use depthai as a standard UVC camera, it is possible to use V4L2 loopback device (and some users have informed 
 us that they have done so), but linking the output of the depthai API config into this loopback device on the host.  
 
-Check our quick guide on how to do that `here <https://docs.luxonis.com/en/latest/pages/faq/#how-to-run-oak-d-as-video-device>`__.
+Check our quick guide on how to do that :ref:`here <oak-d-as-video-device>`.
+
 
 How Do I Force USB2 Mode?
 #########################
@@ -1318,6 +1319,7 @@ The solution for now is to configure the sensor to 4K, but downscale further in 
   - with the existing FW, the ColorCamera :code:`preview` set as :code:`colorCam.setPreviewSize(1920, 1080)` - will output RGB/BGR. But the :code:`video` output is still 4K (unless cropped).
   - using the branch :code:`stereo_fixes` from `here <https://github.com/luxonis/depthai-python/pull/147>`__, it is possible to set an ISP downscale as :code:`colorCam.setIspScale(1, 2)` , while keeping the sensor at 4K, and then both :code:`preview` and :code:`video` will act (resolution-wise) as if the sensor was configured at 1080p.
 
+.. _oak-d-as-video-device:
 
 How to run OAK-D as video device
 ################################
