@@ -400,7 +400,7 @@ some meta problem, like how to stream the data, how to collect it and alike.
     - This example shows how you can use multiple DepthAI's on a single host. The demo will find all devices connected to the host and display an RGB preview from each of them.
   * - `Class Saver <https://github.com/luxonis/depthai-experiments/tree/master/gen2-class-saver-jpeg>`__
     - This example demonstrates how to run MobilenetSSD and collect images of detected objects, grouped by detection label
-  * - `NN Frame Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-class-saver-jpeg>`__
+  * - `NN Frame Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-nn-sync>`__
     - This example shows how to present the neural network inference results on the inferenced frames
   * - `Frames Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-seq-num-sync>`__
     - This example demonstrates how to synchronize incoming frames using their sequence numbers. This allows displaying frames taken in exact same moment
