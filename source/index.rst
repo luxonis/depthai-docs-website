@@ -63,16 +63,17 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="https://user-images.githubusercontent.com/32992551/99454609-e59eaa00-28e3-11eb-8858-e82fd8e6eaac.png" alt="Camera Demo"/>
+                  <img class="item-img" src="https://user-images.githubusercontent.com/5244214/127147829-0b12b913-85ee-484f-92a0-3ab2bac00ec4.gif" alt="Blazepose Demo"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Camera Demo</h5>
+                  <h5 class="item-title">Pose Estimation</h5>
                   <span class="item-descr">
-                      <p>This example shows how to use the DepthAI/megaAI/OAK cameras in the Gen2 Pipeline Builder over USB.</p>
+                      <p>This example shows how to run Google Mediapipe single body pose tracking models</p>
+                      <p>Created by our contributor - <a href="https://github.com/geaxgx" target="_blank">Geaxgx</a></p>
                   </span>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/geaxgx/depthai_blazepose" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
@@ -80,19 +81,99 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <a href="https://youtu.be/c4KEFG2eR3M" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/112673778-6a3a9f80-8e65-11eb-9b7b-e352beffe67a.gif" alt="COVID-19 mask detection"/>
+                  <img class="item-img" src="https://user-images.githubusercontent.com/5244214/127148741-7f1e0279-5cbc-41a2-95f6-b2d3990131a8.gif" alt="Hand tracker Demo"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Hand Tracking</h5>
+                  <span class="item-descr">
+                      <p>This example shows how to run Google Mediapipe hand tracking models</p>
+                      <p>Created by our contributor - <a href="https://github.com/geaxgx" target="_blank">Geaxgx</a></p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/geaxgx/depthai_hand_tracker" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+      </div>
+      <div class="items-row">
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://youtu.be/BcjZLaCYGi4" target="_blank">
+                     <img class="item-img" src="https://user-images.githubusercontent.com/5244214/127150740-b9e8dcd7-3188-4a83-93a8-d1211219ebdb.gif" alt="Human Machine Safety Demo"/>
                   </a>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">COVID-19 mask detection</h5>
+                  <h5 class="item-title">Human-Machine Safety</h5>
+                  <span class="item-descr">
+                      <p>This example shows how to use the DepthAI to detect dangerous interactions between humans and other objects.</p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-human-machine-safety" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://youtu.be/tB_-mVVNIro" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/111202991-c62f3980-85c4-11eb-8bce-a3c517abeca1.gif" alt="License plates detection demo"/>
+                  </a>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">License Plates & Car Attributes Recognition</h5>
                   <p class="item-descr">
-                      <p>This experiment allows you to run the COVID-19 mask/no-mask object detector which was trained via</p>
-                      <p>the Google Colab tutorial <a href="https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#covid-19-maskno-mask-training" target="_blank">here</a>.</p>
+                      <p>This experiment allows you to run multiple neural networks at once to collect car attributes and license plates (only Chineese)</p>
                   </p>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/edit/master/gen2-coronamask" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-license-plate-recognition" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+      </div>
+      <div class="items-row">
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://www.youtube.com/watch?v=Py3-dHQymko" target="_blank">
+                    <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-head-posture-detection/media/pose.gif" alt="Head posture detection"/>
+                  </a>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Head posture detection</h5>
+                  <span class="item-descr">
+                      <p>This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network</p>
+                      <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-head-posture-detection" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="https://user-images.githubusercontent.com/5244214/115357410-e900cf00-a1bc-11eb-97d7-baac5d052572.gif" alt="Sign Language Recognition"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Sign Language Recognition</h5>
+                  <span class="item-descr">
+                      <p>This example demonstrates how to recognize American Sign Language (ASL) on DepthAI using hand landmarks </p>
+                      <p>This example was created by <a href="https://www.cortic.ca/post/classifying-american-sign-language-alphabets-on-the-oak-d" target="_blank">Cortic Technology</a></p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/cortictechnology/hand_asl_recognition" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
@@ -123,102 +204,17 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <a href="https://www.youtube.com/watch?v=tB_-mVVNIro" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/111202991-c62f3980-85c4-11eb-8bce-a3c517abeca1.gif" alt="License Plates Recognition"/>
-                  </a>
+                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-fatigue-detection/media/fatigue.gif" alt="Fatigue Detection"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">License Plates Recognition</h5>
-                  <span class="item-descr">
-                      <p>This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.</p>
-                      <p>First, a license plate is detected on the image and then the cropped license frame is sent to text detection network, which tries to decode the license plates texts</p>
-                  </span>
-               </div>
-               <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-license-plate-recognition" class="btn item-cta">Try now ›</a>
-               </footer>
-            </div>
-         </div>
-
-      </div>
-      <div class="items-row">
-
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <a href="https://www.youtube.com/watch?v=zjcUChyyNgI" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/32992551/109359126-25a9ed00-7842-11eb-9071-cddc7439e3ca.png" alt="Deeplabv3"/>
-                  </a>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">Deeplabv3 (Segmentation)</h5>
-                  <span class="item-descr">
-                      <p>This example shows how to run Deeplabv3+ on DepthAI in the Gen2 API system.</p>
-                  </span>
-               </div>
-               <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-deeplabv3_person" class="btn item-cta">Try now ›</a>
-               </footer>
-            </div>
-         </div>
-
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <img class="item-img" src="https://github.com/geaxgx/depthai_blazepose/raw/main/img/taichi.gif" alt="Pose Estimation"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">Pose Estimation</h5>
-                  <span class="item-descr">
-                      <p>Running Google Mediapipe body pose tracking models on DepthAI</p>
-                      <p>This example was created by our contributor - <a href="https://github.com/geaxgx" target="_blank">Geaxgx</a></p>
-                  </span>
-               </div>
-               <footer class="item-footer">
-                  <a href="https://github.com/geaxgx/depthai_blazepose" class="btn item-cta">Try now ›</a>
-               </footer>
-            </div>
-         </div>
-
-      </div>
-      <div class="items-row">
-
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <a href="https://www.youtube.com/watch?v=QlXGtMWVV18" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/32992551/108567421-71e6b180-72c5-11eb-8af0-c6e5c3382874.png" alt="Deeplabv3"/>
-                  </a>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">Pedestrian reidentification</h5>
-                  <p class="item-descr">
-                      <p>This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.</p>
-                      <p>Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2020.1/_demos_pedestrian_tracker_demo_README.html">here</a>.</p>
-                  </p>
-               </div>
-               <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-pedestrian-reidentification" class="btn item-cta">Try now ›</a>
-               </footer>
-            </div>
-         </div>
-
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <a href="https://www.youtube.com/watch?v=Py3-dHQymko" target="_blank">
-                    <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-head-posture-detection/media/pose.gif" alt="Head posture detection"/>
-                  </a>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">Head posture detection</h5>
+                  <h5 class="item-title">Fatigue Detection</h5>
                   <span class="item-descr">
                       <p>This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network</p>
                       <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
                   </span>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-head-posture-detection" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-fatigue-detection" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
@@ -249,27 +245,6 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-fire-detection/images/fire_demo.gif" alt="Fire detection"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">Fire detection</h5>
-                  <span class="item-descr">
-                      <p>This example demonstrates the Gen2 Pipeline Builder running fire detection network</p>
-                      <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
-                  </span>
-               </div>
-               <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-fire-detection" class="btn item-cta">Try now ›</a>
-               </footer>
-            </div>
-         </div>
-
-      </div>
-      <div class="items-row">
-
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
                   <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-face-recognition/images/face_reg.png" alt="Face Recognition"/>
                </div>
                <div class="item-body">
@@ -285,26 +260,108 @@ In this section, you'll find an inspiration what can you build right away with D
             </div>
          </div>
 
+      </div>
+      <div class="items-row">
+
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-fatigue-detection/media/fatigue.gif" alt="Fatigue Detection"/>
+                  <a href="https://youtu.be/c4KEFG2eR3M" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/5244214/112673778-6a3a9f80-8e65-11eb-9b7b-e352beffe67a.gif" alt="COVID-19 mask detection"/>
+                  </a>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Fatigue Detection</h5>
-                  <span class="item-descr">
-                      <p>This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network</p>
-                      <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
-                  </span>
+                  <h5 class="item-title">COVID-19 mask detection</h5>
+                  <p class="item-descr">
+                      <p>This experiment allows you to run the COVID-19 mask/no-mask object detector which was trained via</p>
+                      <p>the Google Colab tutorial <a href="https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#covid-19-maskno-mask-training" target="_blank">here</a>.</p>
+                  </p>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-fatigue-detection" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/luxonis/depthai-experiments/edit/master/gen2-coronamask" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://www.youtube.com/watch?v=QlXGtMWVV18" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/32992551/108567421-71e6b180-72c5-11eb-8af0-c6e5c3382874.png" alt="Deeplabv3"/>
+                  </a>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Pedestrian reidentification</h5>
+                  <p class="item-descr">
+                      <p>This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.</p>
+                      <p>Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2020.1/_demos_pedestrian_tracker_demo_README.html">here</a>.</p>
+                  </p>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-pedestrian-reidentification" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
 
       </div>
       <div class="items-row">
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="https://user-images.githubusercontent.com/32992551/99454609-e59eaa00-28e3-11eb-8858-e82fd8e6eaac.png" alt="Camera Demo"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Camera Demo</h5>
+                  <span class="item-descr">
+                      <p>This example shows how to use the DepthAI/megaAI/OAK cameras in the Gen2 Pipeline Builder over USB.</p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <a href="https://www.youtube.com/watch?v=zjcUChyyNgI" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/32992551/109359126-25a9ed00-7842-11eb-9071-cddc7439e3ca.png" alt="Deeplabv3"/>
+                  </a>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Deeplabv3 (Segmentation)</h5>
+                  <span class="item-descr">
+                      <p>This example shows how to run Deeplabv3+ on DepthAI in the Gen2 API system.</p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-deeplabv3_person" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
+
+      </div>
+      <div class="items-row">
+
+         <div class="items-col">
+            <div class="item">
+               <div class="item-img-wrapper">
+                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-fire-detection/images/fire_demo.gif" alt="Fire detection"/>
+               </div>
+               <div class="item-body">
+                  <h5 class="item-title">Fire detection</h5>
+                  <span class="item-descr">
+                      <p>This example demonstrates the Gen2 Pipeline Builder running fire detection network</p>
+                      <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
+                  </span>
+               </div>
+               <footer class="item-footer">
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-fire-detection" class="btn item-cta">Try now ›</a>
+               </footer>
+            </div>
+         </div>
 
          <div class="items-col">
             <div class="item">
@@ -321,24 +378,6 @@ In this section, you'll find an inspiration what can you build right away with D
                </div>
                <footer class="item-footer">
                   <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr" class="btn item-cta">Try now ›</a>
-               </footer>
-            </div>
-         </div>
-
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <img class="item-img" src="https://user-images.githubusercontent.com/5244214/115357410-e900cf00-a1bc-11eb-97d7-baac5d052572.gif" alt="Sign Language Recognition"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">Sign Language Recognition</h5>
-                  <span class="item-descr">
-                      <p>This example demonstrates how to recognize American Sign Language (ASL) on DepthAI using hand landmarks </p>
-                      <p>This example was created by <a href="https://www.cortic.ca/post/classifying-american-sign-language-alphabets-on-the-oak-d" target="_blank">Cortic Technology</a></p>
-                  </span>
-               </div>
-               <footer class="item-footer">
-                  <a href="https://github.com/cortictechnology/hand_asl_recognition" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
