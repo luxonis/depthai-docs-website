@@ -54,19 +54,21 @@ function adjustNavbarPosition() {
 
 window.onscroll = adjustNavbarPosition
 
-window.onload = function(){
-  addNavbar()
-  adjustNavbarPosition()
-  document.getElementsByClassName("wy-side-scroll")[0].scrollTop = 0;
-  if (location.pathname.startsWith("/projects")) {
-    var links = document.querySelectorAll("#lux-doc-navbar a[href^='/projects']");
-    for (var i = 0; i < links.length; i++) {
-      if(location.pathname.includes(links[i].pathname)) {
-        links[i].classList.add('lux-navbar-active')
+document.onreadystatechange = function(e) {
+  if (document.readyState === 'interactive') {
+    addNavbar()
+    adjustNavbarPosition()
+    document.getElementsByClassName("wy-side-scroll")[0].scrollTop = 0;
+    if (location.pathname.startsWith("/projects")) {
+      var links = document.querySelectorAll("#lux-doc-navbar a[href^='/projects']");
+      for (var i = 0; i < links.length; i++) {
+        if (location.pathname.includes(links[i].pathname)) {
+          links[i].classList.add('lux-navbar-active')
+        }
       }
+    } else {
+      var main = document.querySelector("#lux-doc-navbar a:not([href^='/projects'])")
+      main.classList.add('lux-navbar-active')
     }
-  } else {
-    var main = document.querySelector("#lux-doc-navbar a:not([href^='/projects'])")
-    main.classList.add('lux-navbar-active')
   }
 }

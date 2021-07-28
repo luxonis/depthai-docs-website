@@ -5,12 +5,12 @@
 
 #lux-global-navbar {
     top: 0px;
-    background: #434c6b;
+    background: #000;
 }
 
 #lux-doc-navbar {
     top: 78px;
-    background: #7d86a8;
+    background: #555;
 }
 
 .lux-navbar-container {
@@ -32,7 +32,7 @@
 
 .lux-navbar a {
     padding: 8px 13px;
-    color: #b4b7c4;
+    color: #fff;
 }
 
 .lux-navbar a > img {
@@ -42,7 +42,7 @@
 }
 
 .lux-navbar .lux-navbar-active {
-    color: white;
+    color: #ebd900;
     font-weight: bold;
 }
 
