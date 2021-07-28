@@ -149,7 +149,7 @@ To run the demo script and get a preview from the left camera, run
 
   $ python3 depthai_demo.py -cam left
 
-.. image:: https://user-images.githubusercontent.com/5244214/127166309-7472109f-a458-4e51-9511-0d780bc72dae.png
+.. image:: https://user-images.githubusercontent.com/5244214/127310731-be1a8bde-5cbf-4dcb-b1db-c863e682007c.png
   :alt: Run from left
 
 Respectively, to get a preview from the right camera, run
