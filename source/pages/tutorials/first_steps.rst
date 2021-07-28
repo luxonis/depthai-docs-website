@@ -137,7 +137,7 @@ If you're using OAK-D, it will also display :code:`depth` window, that will show
 left & right camera images by DepthAI.
 
 
-.. image:: https://user-images.githubusercontent.com/5244214/116865569-28daa400-ac0a-11eb-8772-2a46d24640df.png
+.. image:: https://user-images.githubusercontent.com/5244214/127166676-3f043ec7-4448-4233-aa13-cfaae95fe090.png
   :alt: Default run
 
 Change input camera to left/right (OAK-D only)
@@ -149,7 +149,7 @@ To run the demo script and get a preview from the left camera, run
 
   $ python3 depthai_demo.py -cam left
 
-.. image:: https://user-images.githubusercontent.com/5244214/116867083-bcad6f80-ac0c-11eb-9a4c-70fd6c990777.png
+.. image:: https://user-images.githubusercontent.com/5244214/127310731-be1a8bde-5cbf-4dcb-b1db-c863e682007c.png
   :alt: Run from left
 
 Respectively, to get a preview from the right camera, run
@@ -158,7 +158,7 @@ Respectively, to get a preview from the right camera, run
 
   $ python3 depthai_demo.py -cam right
 
-.. image:: https://user-images.githubusercontent.com/5244214/116867211-fda58400-ac0c-11eb-9deb-0469a755e1cc.png
+.. image:: https://user-images.githubusercontent.com/5244214/127167139-c22021d5-46d7-47ae-b45d-1420d3a9ad8b.png
   :alt: Run from right
 
 Default model
