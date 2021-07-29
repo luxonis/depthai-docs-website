@@ -208,6 +208,8 @@ The flow we walked through works for other pre-trained object detection models i
     .. code-block:: bash
 
       ./compile_tool -m [INSERT PATH TO MODEL XML FILE] -ip U8 -d MYRIAD -VPU_NUMBER_OF_SHAVES 4 -VPU_NUMBER_OF_CMX_SLICES 4
+      
+    You can view **other supported arguments for the compile_tool** `here <https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html#run_the_compile_tool>`__.
 
 #. Use this model in your script
 
