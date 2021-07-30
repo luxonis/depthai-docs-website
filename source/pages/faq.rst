@@ -429,7 +429,7 @@ Yes, although we have yet to personally do this. But folks in the community have
 How do I Integrate DepthAI into Our Product?
 ############################################
 
-How to integrate DepthAI/megaAI depends on whether the product you are building includes
+How to integrate DepthAI/OAK device depends on whether the product you are building includes:
 
 #. a processor running an operating system (Linux, MacOS, or Windows) or
 #. a microcontroller (MCU) with no operating system (or an RTOS like FreeRTOS) or
@@ -441,8 +441,7 @@ We offer hardware to support all 3 use-cases, but firmware/software maturity var
 #. Using our C++ SPI API (see `here <https://github.com/luxonis/depthai-spi-api>`__),
 #. Using our standalone flashing utility to flash a depthai application for standalone boot (as part of Pipeline Builder Gen2, leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`__).
 
-In all cases, DepthAI (and megaAI) are compatible with OpenVINO for neural models.  The only thing that changes between
-the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
+In all cases, DepthAI is compatible with OpenVINO for neural models. The only thing that changes between the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
 
 .. _withos:
 
@@ -459,49 +458,48 @@ In this case, DepthAI can be used in two modalities:
 Use-Case 2: Using DepthAI with a MicroController like ESP32, ATTiny8, etc.
 **************************************************************************
 
-In this case, DepthAI boot off of internal flash on the `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  We even have an embedded reference design for ESP32 (`BW1092 <https://github.com/luxonis/depthai-hardware/issues/10>`__) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__.  We will also be open-sourcing this design after it is fully verified (contact us if you would like the design files before we open source it).
+In this case, DepthAI boot off of internal flash on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  
+We even have an embedded reference design for ESP32 (`OAK-D-IoT-40 (BW1092) <https://github.com/luxonis/depthai-hardware/issues/10>`__) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092>`__.  
+And it's open-source! You can check design files `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__.
 
-The code-base/API for this is in active development, and a pre-release/Alpha version is available `here <https://discuss.luxonis.com/d/56-initial-bw1092-esp32-proof-of-concept-code>`__ as of this writing.
+We have prepared a `guide <https://docs.luxonis.com/en/latest/pages/tutorials/esp32/>`__ and a `demo <https://github.com/luxonis/esp32-spi-message-demo/>`__ on how to work with ESP32.
 
 .. _standalone:
 
 Use-Case 3: Using DepthAI as the Only Processor on a Device.
 ************************************************************
 
-This will be supported through running microPython directly on the `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__.
+This is supported through running microPython directly on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__.
 
-The microPython nodes are what will allow custom logic, driving I2C, SPI, GPIO, UART, etc. controls, allowing direct controls of actuators, direct reading of sensors, etc. from/to the pipeline of CV/AI functions.
+The microPython nodes allow custom logic, driving I2C, SPI, GPIO, UART, etc. controls, letting direct controls of actuators, direct reading of sensors, etc. from/to the pipeline of CV/AI functions.
 A target example is making an entire autonomous, visually-controlled robotic platform with DepthAI as the only processor in the system.
-
-This is now initially implemented and usable in Alpha. Reach out to use if you'd like to try it.
 
 Hardware for Each Case:
 ***********************
 
-- BW1099: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the BW1099 over USB
-- BW1099EMB: USB boot or NOR-flash boot. This module can work with a host computer just like the BW1099, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the BW1092 (which comes with the BW1099EMB pre-installed).
+- `OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the OAK-SoM over USB
+- `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (which comes with the OAK-SoM-IoT pre-installed).
 
 Getting Started with Development
 ********************************
 
 Whether intending to use DepthAI with an :ref:`OS-capable host <withos>`, a :ref:`microcontroller over SPI <withmicrocontroller>`
-(in development), or :ref:`completely standalone <standalone>` (in Alpha testing) - we recommend starting with either
+(in development), or :ref:`completely standalone <standalone>` - we recommend starting with either
 :ref:`NCS2 mode <ncsmode>` or with the `DepthAI USB API <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for prototype/test/etc. as it allows faster iteration/feedback on
 neural model performance/etc. And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test).
 
 In DepthAI mode, theoretically, anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run
-before. And this work is usually not heavy lifting... for example we had never run semantic segmentation networks before via the DepthAI API (and therefore
-had no reference code for doing so), but despite this one of our users actually got it working in a day without our help (e.g here).
+before. And this work is usually not heavy lifting. See some examples `here <https://docs.luxonis.com/en/latest/#example-use-cases>`__ and in out `Github <https://github.com/luxonis/depthai-experiments>`__.
 
 For common object detector formats (**MobileNet**-SSD, (Tiny) **YOLO** V3/V4) there's effectively no work to go from NCS2 mode to DepthAI mode because
 we have added the support for decoding their results on the device side. To use the device side decoding with gen2, have a look at
 `YoloDetectionNetwork <https://docs.luxonis.com/projects/api/en/latest/components/nodes/yolo_detection_network/>`__ for **YOLO**
-(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/22_2_tiny_yolo_v4_decoding_on_device>`__)
+(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/tiny_yolo_v4_decoding_on_device/#rgb-tinyyolov4-decoding-on-device>`__)
 or `MobileNetDetectionNetwork <https://docs.luxonis.com/projects/api/en/latest/components/nodes/mobilenet_detection_network/>`__ for **MobileNet**
-(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/10_mono_depth_mobilenetssd>`__) decoding.
+(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/mono_mobilenet/#mono-mobilenetssd>`__) decoding.
 
 To use your own trained **Yolo** model with the DepthAI, you should start with the
-`demo <https://docs.luxonis.com/projects/api/en/latest/samples/22_2_tiny_yolo_v4_decoding_on_device>`__ and modify its code a bit:
+`demo <https://docs.luxonis.com/projects/api/en/latest/samples/tiny_yolo_v4_decoding_on_device/#rgb-tinyyolov4-decoding-on-device>`__ and modify its code a bit:
 
 - Change the labels at :code:`label_map = ["label1", "label2", "..."]`, depending on your model
 - Set the number of classes at :code:`detectionNetwork.setNumClasses()` depending on your model
@@ -509,7 +507,7 @@ To use your own trained **Yolo** model with the DepthAI, you should start with t
 - Don't forget to change the path to the model (:code:`.blob` file)
 
 For **MobileNet** you should follow the same steps (skip the 2nd one) but start with the
-`MobileNet demo <https://docs.luxonis.com/projects/api/en/latest/samples/10_mono_depth_mobilenetssd>`__.
+`MobileNet demo <https://docs.luxonis.com/projects/api/en/latest/samples/mono_mobilenet/#mono-mobilenetssd>`__.
 
 Interested in how to train an object detector with your data? You can check our **Yolo V4** training tutorial
 `here <https://github.com/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYOLOv4_Object_Detector_Training_on_Custom_Data.ipynb>`__!
