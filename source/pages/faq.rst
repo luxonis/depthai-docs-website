@@ -429,7 +429,7 @@ Yes, although we have yet to personally do this. But folks in the community have
 How do I Integrate DepthAI into Our Product?
 ############################################
 
-How to integrate DepthAI/OAK device depends on whether the product you are building includes:
+How to integrate DepthAI depends on whether the product you are building includes:
 
 #. a processor running an operating system (Linux, MacOS, or Windows) or
 #. a microcontroller (MCU) with no operating system (or an RTOS like FreeRTOS) or
@@ -445,7 +445,7 @@ In all cases, DepthAI is compatible with OpenVINO for neural models. The only th
 
 .. _withos:
 
-Use-Case 1: DepthAI/megaAI are a co-processor to a processor running Linux, MacOS, or Windows.
+Use-Case 1: DepthAI are a co-processor to a processor running Linux, MacOS, or Windows.
 **********************************************************************************************
 
 In this case, DepthAI can be used in two modalities:
