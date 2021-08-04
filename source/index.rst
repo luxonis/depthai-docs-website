@@ -327,7 +327,7 @@ In this section, you'll find an inspiration what can you build right away with D
             <div class="item">
                <div class="item-img-wrapper">
                   <a href="https://www.youtube.com/watch?v=M1LTqGy-De4" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/32992551/109359126-25a9ed00-7842-11eb-9071-cddc7439e3ca.png" alt="Deeplabv3"/>
+                    <img class="item-img" src="https://user-images.githubusercontent.com/18037362/128168573-452ed273-cf2d-457a-9771-a4b3faf6b221.gif" alt="Deeplabv3"/>
                   </a>
                </div>
                <div class="item-body">
