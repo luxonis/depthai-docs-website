@@ -326,18 +326,18 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <a href="https://www.youtube.com/watch?v=zjcUChyyNgI" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/32992551/109359126-25a9ed00-7842-11eb-9071-cddc7439e3ca.png" alt="Deeplabv3"/>
+                  <a href="https://www.youtube.com/watch?v=M1LTqGy-De4" target="_blank">
+                    <img class="item-img" src="https://user-images.githubusercontent.com/18037362/128168573-452ed273-cf2d-457a-9771-a4b3faf6b221.gif" alt="Deeplabv3"/>
                   </a>
                </div>
                <div class="item-body">
                   <h5 class="item-title">Deeplabv3 (Segmentation)</h5>
                   <span class="item-descr">
-                      <p>This example shows how to run Deeplabv3+ on DepthAI in the Gen2 API system.</p>
+                      <p>This example shows how to run Deeplabv3+ and crop the depth image based on the models output.</p>
                   </span>
                </div>
                <footer class="item-footer">
-                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-deeplabv3_person" class="btn item-cta">Try now ›</a>
+                  <a href="https://github.com/luxonis/depthai-experiments/tree/master/gen2-deeplabv3_depth" class="btn item-cta">Try now ›</a>
                </footer>
             </div>
          </div>
