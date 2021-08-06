@@ -64,7 +64,7 @@ PoE Troubleshooting
     VPN connectivity could also disrupt the connection with the PoE device (as your computer may be searching only the remote network for the device, so would be unable to discover it on the local network), so we suggest turning the VPN off when using the PoE devices or otherwise ensuring that your local routing is setup such that local devices are usable/discoveragle while VPN connectivity is active.
 
 - **Connected to the same LAN via 2 interfaces (WiFi/ethernet)**
-    We have seen that in some rare circumstances when your host computer is connected to to the same LAN, it can happen that device discovery finds the same POE device twice, so it will print the IP address of that device 2 times. In some rare occasions this can lead to an error (we have seen this when using multiple devices) on initialization; `RuntimeError: Failed to find device after booting, error message: X_LINK_DEVICE_NOT_FOUND`.  We will try to fix this bug as soon as possible.
+    We have seen that in some rare circumstances when your host computer is connected to the same LAN, it can happen that device discovery finds the same POE device twice, so it will print the IP address of that device 2 times. In some rare occasions this can lead to an error (we have seen this when using multiple devices) on initialization; `RuntimeError: Failed to find device after booting, error message: X_LINK_DEVICE_NOT_FOUND`.  We will try to fix this bug as soon as possible.
     **Workaround solution: disconnect from one of the interfaces; so disconnecting (from the) WiFi should resolve this issue.**
 
 
