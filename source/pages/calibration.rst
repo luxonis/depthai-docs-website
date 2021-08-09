@@ -3,12 +3,13 @@ Calibration
 
 .. note::
 
-   All non-modular DepthAI (OAK-D, OAK-D-WIFI, LUX-ESP32, LUX-RCM4-AB, etc.) devices are calibrated before shipment.  It is not required to (re-)calibrate any of these, but for PCBA-only models like OAK-D-WIFI, LUX-ESP32, LUX-RCM4-AB, etc. it can be desirable to do so if the depth quality degrades from mounting the PCBA (into an enclosure).  
+   All non-modular OAK devices like OAK-D, OAK-1, OAK-D-PoE, OAK-1-PoE are calibrated before shipment. It is not required to (re-)calibrate any of these, but for PCBA-only 
+   models like OAK-D-IoT-75, OAK-D-IoT-40, OAK-D-CM4 it can be desirable to do so if the depth quality degrades from mounting the PCBA (into an enclosure).  
    
-For the modular camera editions of DepthAI (:ref:`DepthAI FFC - Modular Cameras` and :ref:`DepthAI RaspberryPi Hat`)
+For the `OAK-FFC-3P <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__ (Modular Camera Design)
 it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
 
-Below is a quick video showing the (re-) calibration of the :ref:`DepthAI OAK-D`.
+Below is a quick video showing the (re-) calibration of the `OAK-D <https://shop.luxonis.com/collections/usb/products/1098obcenclosure>`__.
 In short, the calibration uses the intersections to determine the orientation and distance of the charuco board.
 So the greatest accuracy will be obtained by a clear print or display of the provided board image on a flat plane.
 
@@ -67,7 +68,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].
 
-    For example, the arguments for the :ref:`OAK-D <bw1098obc>` look like the following if the square size is 2.35 cm:
+    For example, the arguments for the OAK-D (BW1098OBC) look like the following if the square size is 2.35 cm:
 
     .. code-block:: bash
 
@@ -82,13 +83,13 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     So when we're running calibration internally we almost always use the :code:`-ih` option, so we'll include it on all the following example commands:
 
-    - **DepthAI OAK-D:**
+    - **OAK-D:**
 
       .. code-block:: bash
 
         python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -db -brd bw1098obc -ih
 
-    - **DepthAI RaspberryPi Compute Module:**
+    - **OAK-D-CM4:**
 
       .. code-block:: bash
 
@@ -120,7 +121,7 @@ define the baseline between the stereo cameras, and between the left camera and 
       }
   }
 
-So for example if you setup your BW1098FFC with a stereo baseline of 2.5cm, with the color camera exactly between
+So for example if you setup your OAK-FFC-3P with a stereo baseline of 2.5cm, with the color camera exactly between
 the two grayscale cameras, as shown below, use the JSON further below:
 
 .. image:: /_static/images/products/mono-cameras-min-dist.png
