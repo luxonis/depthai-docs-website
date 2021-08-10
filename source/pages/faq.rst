@@ -237,41 +237,41 @@ You can buy megaAI from our distributors and also our online store `here <https:
 Which Model Should I Order?
 ###########################
 
-Embedded CV/AI requires all sorts of different shapes/sizes/permutations. And so we have a variety of options to meet these needs. Below is a quick/dirty summary for the ~10,000-foot view of the options:
+Embedded CV/AI requires all sorts of different shapes/sizes/permutations. And so we have a variety of options to meet these needs in our `store <https://shop.luxonis.com/collections/all>`__. 
+Below is a quick/dirty summary for the ~10,000-foot view of the options:
 
-- **USB3C with Onboard Cameras** (`BW1098OBC <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__) - Great for quickly using DepthAI with a computer.
-  All cameras are onboard, and it has a USB3C connection which can be used with any USB3 or USB2 host.  This is the basis for OAK-D.
+- **USB3C with Onboard Cameras and Depth** (`OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__) - Great for quickly using DepthAI with a computer.
+  All cameras are onboard, and it has a USB3C connection which can be used with any USB3 or USB2 host.
 
-- **USB3C with Modular Cameras** (`BW1098FFC <https://shop.luxonis.com/products/depthai-usb3-edition>`__) - Great for prototyping flexibility.
-  Since the cameras are modular, you can place them at various stereo baselines.  This flexibility comes with a trade -
-  you have to figure out how/where you will mount them, and then once mounted, do a stereo calibration.
-  This is not a TON of work, but keep this in mind, that it's not 'plug and play' like other options -
-  it's more for applications that require custom mounting, custom baseline, or custom orientation of the cameras.
+- **USB3C with Single Camera** (`OAK-1 <https://shop.luxonis.com/collections/usb/products/megaai-kit>`__) - This is just like the OAK-D,
+  but for those who don't need depth information. Single, small, plug-and-play USB3C AI/CV camera.
 
-- **MegaAI Single Camera** (`BW1093 <https://shop.luxonis.com/collections/all/products/megaai-kit>`__) - This is just like the BW1098OBC,
-  but for those who don't need depth information.  Single, small, plug-and-play USB3C AI/CV camera.
+- **USB3C with Modular Cameras** (`OAK-FFC-3P <https://shop.luxonis.com/collections/modular-cameras/products/dm1090ffc>`__) - Great for prototyping flexibility.
+  Since the cameras are modular, you can place them at various stereo baselines. This flexibility comes with a trade - you have to figure out how/where you will mount them, and then once mounted, do a stereo calibration.
+  This is not a TON of work, but keep this in mind, that it's not 'plug and play' like other options - it's more for applications that require custom mounting, custom baseline, or custom orientation of the cameras.
 
-- **Raspberry Pi Compute Module Edition** (`BW1097 <https://shop.luxonis.com/products/depthai-rpi-compute-module-edition>`__) -
-  this one has a built-in Raspberry Pi Compute Module 3B+.  So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
+- **PoE models** (`OAK-D-PoE <https://shop.luxonis.com/collections/poe/products/oak-d-poe>`__) - It is the equivalent of the OAK-D, with with PoE instead of USB. 
+  If you don't need depth, we have `OAK-1-PoE <https://shop.luxonis.com/collections/poe/products/oak-1-poe>`__.
 
-- **Embedded DepthAI with WiFi/BT** (`BW1092 <https://shop.luxonis.com/products/bw1092>`__) - Currently this is in Alpha testing.
-  So only buy it if you are comfortable with working with bleeding-edge tech and want to help us refine this product.
-  It is the first Embedded (i.e. SPI-interface) version of DepthAI - so it has additional 128MB NOR flash, so it can boot
-  on its own out of the NOR flash, and not host needs to be present to run.  In contrast, the `BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ can also run on its own,
-  but it is still booting over USB from the Raspberry Pi.  This BW1092, the Myriad X can run completely standalone and with no other devices.
-  The built-in ESP32 then provides easy/convenient WiFi/BT support as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
+- **All in One Dev. Kits** (`OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__) -
+  this one has a built-in Raspberry Pi Compute Module 4. So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
+
+- **Embedded with WiFi/BT** (`OAK-D-IoT-40 <https://shop.luxonis.com/products/bw1092>`__ and `OAK-D-IoT-75 <https://shop.luxonis.com/collections/iot/products/oak-d-iot-75>`__) - We have two models that have additional 128MB NOR flash, so they can boot
+  on their own out of the NOR flash, and not host needs to be present to run. In contrast, the `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ can also run on its own,
+  but it is still booting over USB from the Raspberry Pi. On OAK-D-IoT-40 and OAK-D-IoT-75, the Myriad X can run completely standalone and with no other devices.
+  The built-in ESP32 then provides easy/convenient WiFi/BT support (`more info here <https://docs.luxonis.com/en/latest/pages/tutorials/esp32/>`) as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
 
 More details - including open source 3D files and schematics, can be found in `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__.
 
 System on Modules
 *****************
 
-For designing products around DepthAI, we offer system on modules.  You can then design your own variants, leveraging our
+For designing products around DepthAI, we offer system on modules. You can then design your own variants, leveraging our
 `open source hardware <https://github.com/luxonis/depthai-hardware>`__.  There are three system on modules available:
 
-#. `BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`__ - USB-boot system on module. For making devices which interface over USB to a host processor running Linux, MacOS, or Windows. In this case, the host processor stores everything, and the BW1099 boots up over USB from the host.
-#. `BW1099EMB <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ - NOR-flash boot (also capable of USB-boot). For making devices that run standalone, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
-#. `BW2099 <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__ - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors).  For making devices that run standalone and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE interface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
+#. `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/bw1099>`__ - USB-boot system on module. For making devices which interface over USB to a host processor running Linux, MacOS, or Windows. In this case, the host processor stores everything, and the OAK-SoM boots up over USB from the host.
+#. `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ - NOR-flash boot (also capable of USB-boot). For making devices that run standalone, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
+#. `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/bw2099>`__ - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors). For making devices that run standalone and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE interface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
 
 Check our `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__ for more details.
 
@@ -319,11 +319,11 @@ Can all the models be used with the Raspberry Pi?
 
 Yes, every model can be used, including:
 
-- Raspberry Pi Compute Module Edition (`BW1097 <https://shop.luxonis.com/collections/all/products/depthai-rpi-compute-module-edition>`__ - this one has a built-in Raspberry Pi Compute Module 3B+
+- `OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__ - this one has a built-in Raspberry Pi Compute Module 4
+- `OAK-D <https://shop.luxonis.com/collections/usb/products/1098obcenclosure>`__
+- `OAK-FFC-3P <https://shop.luxonis.com/collections/modular-cameras/products/dm1090ffc>`__
+- `OAK-1 <https://shop.luxonis.com/collections/usb/products/megaai-kit>`__
 - Raspberry Pi HAT (`BW1094 <https://github.com/luxonis/depthai-hardware/tree/master/BW1094_DepthAI_HAT>`__) - this can also be used with other hosts as its interface is USB3
-- USB3C with Onboard Cameras `BW1098OBC <https://shop.luxonis.com/collections/all/products/bw10980bc>`__
-- USB3C with Modular Cameras `BW1098FFC <https://shop.luxonis.com/products/depthai-usb3-edition>`__
-- MegaAI Single Camera `BW1093 <https://shop.luxonis.com/collections/all/products/bw1093>`__
 
 We even have some basic ROS support going as well which can be used on the Pi also.
 
@@ -348,7 +348,7 @@ Also don't forget about the udev rules after you have that set up.  And make sur
   echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
   sudo udevadm control --reload-rules && sudo udevadm trigger
 
-Can I use multiple DepthAI with one host?
+Can I Use Multiple DepthAI With One Host?
 #########################################
 
 Yes. DepthAI is architected to put as-little-as-possible burden on the host.
@@ -361,7 +361,7 @@ Is DepthAI OpenVINO Compatible?
 
 Yes.  DepthAI is fully compatible with OpenVINO 2020.1, 2020.2, 2020.3, 2020.4, 2021.1 and 2021.2.
 
-Can I train my own Models for DepthAI?
+Can I Train My Own Models for DepthAI?
 ######################################
 
 Yes.
@@ -370,18 +370,15 @@ We have a tutorial around Google Colab notebooks you can even use for this.  See
 
 .. _nodepthrequired:
 
-Do I need Depth data to train my own custom Model for DepthAI?
+Do I Need Depth Data to Train My Own Custom Model for DepthAI?
 ##############################################################
 
 No.
 
-That's the beauty of DepthAI.  It takes standard object detectors (2D, pixel space) and fuses
-these neural networks with stereo disparity depth to give you 3D results in physical space.
+That's the beauty of DepthAI. It takes standard object detectors (2D, pixel space) and fuses these neural networks with stereo disparity depth to give you 3D results in physical space.
 
-Now, could you train a model to take advantage of depth information?  Yes, and it would likely be even
-more accurate than the 2D version.  To do so, record all the streams (left, right, and color) and
-retrain on all of those (which would require modifying the front-end of say MobileNet-SSD to allow 5
-layers instead of 3 (1 for each grayscale, 3 for the color R, G, B).
+Now, could you train a model to take advantage of depth information?  Yes, and it would likely be even more accurate than the 2D version. To do so, record all the streams (left, right, and color) and
+retrain on all of those (which would require modifying the front-end of say MobileNet-SSD to allow 5 layers instead of 3 (1 for each grayscale, 3 for the color R, G, B).
 
 If I train my own network, which Neural Operations are supported by DepthAI?
 ############################################################################
@@ -450,7 +447,7 @@ Use-Case 1: DepthAI are a co-processor to a processor running Linux, MacOS, or W
 
 In this case, DepthAI can be used in two modalities:
 
- - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`__.
+ - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__.
  - DepthAI Mode (USB, using our USB API, `here <https://docs.luxonis.com/projects/api/en/latest/install/>`__) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
 
 .. _withmicrocontroller:
@@ -578,7 +575,7 @@ How to enable depthai to perceive closer distances
 
 If the depth results for close-in objects look weird, this is likely because they are below the minimum depth-perception distance of DepthAI/OAK-D.
 
-For DepthAI Onboard Cameras (BW1098OBC) and OAK-D, the standard-settings minimum depth is around 70cm.
+For OAK-D, the standard-settings minimum depth is around 70cm.
 
 This can be cut in 1/2 and 1/4 with the following options:
 
@@ -588,7 +585,7 @@ Since the disparity-search of 96 is what limits the minimum depth, this means th
 
 2. Enable Extended Disparity.
 
-In Gen2, Extended Disparity is supported, which extends the disparity search to 192 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for BW1098OBC/OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.
+In Gen2, Extended Disparity is supported, which extends the disparity search to 192 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.
 
 See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
 
@@ -655,7 +652,7 @@ Stereo Neural Inference
 In this mode, the neural inference (object detection, landmark detection, etc.) is run on the left *and* right cameras to produce stereo inference results.  Unlike monocular neural inference fused with stereo depth - there is no max disparity search limit - so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the stereo cameras themselves and (b) the hyperfocal distance of the cameras.
 
 The hyperfocal distance of the global shutter synchronized stereo pair is 19.6cm.  So objects closer than 19.6cm will appear out of focus.  This is
-effectively the minimum distance for this mode of operation, as in most cases (except for very wide stereo baselines with the `DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__),
+effectively the minimum distance for this mode of operation, as in most cases (except for very wide stereo baselines with the `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__),
 this **effective** minimum distance is higher than the **actual** minimum distance as a result of the stereo camera field of views. For example, the objects 
 will be fully out of the field of view of both grayscale cameras when less than `5.25cm
 <https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`__
@@ -680,7 +677,7 @@ Monocular Neural Inference fused with Stereo Depth Mode
 
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
 
-- DepthAI Raspberry Pi Compute Module Edition (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__) the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
+- OAK-D-CM3 (`OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__) the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
 
 .. code-block:: python
 
@@ -688,7 +685,7 @@ For DepthAI units with onboard cameras, this works out to the following minimum 
 
 calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg9E4O1fSrB4IFp04AQw%3A1607995753791&ei=aRHYX57zL9P9-gTk5rmADA&q=857.06*.09%2F96&oq=857.06*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CqJ1i8OmDlPGgAcAB4AIABX4gB9ASSAQE4mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwjey9H96s7tAhXTvp4KHWRzDsAQ4dUDCA0&uact=5>`__
 
-**OAK-D** and USB3C Onboard Camera Edition (`BW1098OBC <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1098OBC.html>`__) is
+**OAK-D** and USB3C Onboard Camera Edition (`OAK-D-PCBA <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1098OBC.html>`__) is
 - **0.689** meters for standard disparity,
 - **0.345** meters for Extended Disparity (192 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and
 - **0.196** meters for Extended Disparity at 640x400 resolution (this distance is limited by the focal distance of the cameras on OAK-D)
@@ -702,7 +699,7 @@ calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03HLvlfCWau
 Stereo Neural Inference Mode
 ----------------------------
 
-For DepthAI units with onboard cameras, all models (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ and `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) are
+For DepthAI units with onboard cameras, all models (`OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ and `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) are
 limited by the hyperfocal distance of the stereo cameras, so their minimum depth is **0.196** meters.
 
 Modular Camera Minimum Depths:
@@ -734,13 +731,11 @@ For stereo baselines wider than 29cm, the minimum depth is limited by the horizo
 Extended Disparity Depth Mode
 *****************************
 
-The :code:`extended disparity` mode affords a closer minimum distance for the given baseline.  This increases the maximum disparity search from 96 to 192.  So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
+The :code:`extended disparity` mode affords a closer minimum distance for the given baseline. This increases the maximum disparity search from 96 to 192. So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
 
-- DepthAI Raspberry Pi Compute Module Edition (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__): **0.414** meters
-- OAK-D and USB3C Onboard Camera Edition (`OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) is
-  **0.345** meters
-- Modular Cameras at Minimum Spacing (e.g. `DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__) is
-  **0.115** meters
+- `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__): **0.414** meters
+- `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) is **0.345** meters
+- `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__) is **0.115** meters
 
 See `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__ for examples of how to use Extended Disparity Mode.
 
@@ -777,12 +772,12 @@ So if the object detector is not the limit, the maximum distance will be limited
 
   Dm = (baseline/2) * tan_d((90 - HFOV / HPixels)*pi/2)
 
-For DepthAI HFOV = 73.5(+/-0.5) degrees, and HPixels = 1280.  And for the BW1098OBC, the baseline is 7.5cm.
+For DepthAI HFOV = 73.5(+/-0.5) degrees, and HPixels = 1280.  And for the OAK-D-PCBA, the baseline is 7.5cm.
 
 So using this formula for existing models the *theoretical* max distance is:
 
-- BW1098OBC (OAK-D; 7.5cm baseline): 38.4 meters
-- `BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ (9cm baseline): 46 meters
+- OAK-D-PCBA (OAK-D; 7.5cm baseline): 38.4 meters
+- `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ (9cm baseline): 46 meters
 - Custom baseline: Dm = (baseline/2) * tan_d(90 - 73.5 / 1280)
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
@@ -832,9 +827,9 @@ DepthAI does convert to depth onboard for both the :code:`depth` stream and also
 
 But we also allow the actual disparity results to be retrieved so that if you would like to use the disparity map directly, you can.
 
-To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for BW1098OBC, 4.0cm for BW1092, and 9.0cm for `BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__, and the focal length is :code:`883.15` (:code:`focal_length = 1280/(2*tan(73.5/2/180*pi)) = 857.06`) for all current DepthAI models.
+To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for OAK-D-PCBA, 4.0cm for OAK-D-IoT-40, and 9.0cm for `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__, and the focal length is :code:`883.15` (:code:`focal_length = 1280/(2*tan(73.5/2/180*pi)) = 857.06`) for all current DepthAI models.
 
-So for example, for a BW1092 (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 40 * 857.06 / 60 = 571 mm (0.571m)`).
+So for example, for a OAK-D-IoT-40 (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 40 * 857.06 / 60 = 571 mm (0.571m)`).
 
 How Do I Display Multiple Streams?
 ##################################
@@ -980,7 +975,7 @@ By default there are keyframes every 1 second which resolve the previous issues 
 
 When running :code:`depthai_demo.py`, one can record a JPEG of the current frame by hitting :code:`c` on the keyboard.
 
-An example video encoded on DepthAI `BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ (Raspberry Pi Compute Module Edition) is below.  All DepthAI and megaAI units have the same 4K color camera, so will have equivalent performance to the video below.
+An example video encoded on DepthAI `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ (Raspberry Pi Compute Module Edition) is below.  All DepthAI and megaAI units have the same 4K color camera, so will have equivalent performance to the video below.
 
 .. image:: https://i.imgur.com/xjBEPKc.jpg
   :alt: 4K Video in 3.125MB/s on DepthAI with Raspberry Pi 3B
@@ -1191,10 +1186,10 @@ What Information is Stored on the DepthAI Boards
 ################################################
 
 Initial Crowd Supply backers received boards which had literally nothing stored on them.  All information was loaded
-from the host to the board.  This includes the BW1097 (`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__), which had the calibration stored on the included microSD card.
+from the host to the board.  This includes the OAK-D-CM3 (`OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__), which had the calibration stored on the included microSD card.
 
-So each hardware model which has stereo cameras (e.g. `BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__,
-`DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__, `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, and
+So each hardware model which has stereo cameras (e.g. `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__,
+`OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__, `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, and
 `BW1094 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1094.html>`__) has the capability to store the calibration data and field-of-view,
 stereo baseline (:code:`L-R distance`) and relative location of the color camera to the stereo cameras (:code:`L-RGB distance`)
 as well as camera orientation (:code:`L/R swapped`).  To retrieve this information, simply run :code:`python3 depthai_demo.py` and look for
@@ -1220,9 +1215,9 @@ Example of information pulled from a `OAK-D <https://docs.luxonis.com/projects/h
 
 
 Current (those April 2020 and after) DepthAI boards with on-board stereo cameras
-(`BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__,
-`OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__,
-and `BW1092 <https://shop.luxonis.com/collections/all/products/bw1092-pre-order>`__)
+(`OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__,
+`OAK-D <https://shop.luxonis.com/collections/usb/products/1098obcenclosure>`__,
+and `OAK-D-IoT-40 <https://shop.luxonis.com/collections/iot/products/bw1092>`__)
 ship calibration and board parameters pre-programmed into DepthAI's onboard EEPROM.
 
 Dual-Homography vs. Single-Homography Calibration
@@ -1283,7 +1278,7 @@ DepthAI and MegaAI are capable of both Gen1 and Gen2 USB3 - but not all USB3 hos
 
 DepthAI and megaAI can do h.264 and h.265 (HEVC) encoding on-device. The max resolution/rate is 4K at 30FPS.
 With the default encoding settings in DepthAI/megaAI, this brings the throughput down from 373MB/s (raw/unencoded 4K/30) to
-3.125MB/s (h.265/HEVC at 25mbps bit rate).  An example video encoded on DepthAI `BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ (Raspberry Pi Compute Module Edition) is below:
+3.125MB/s (h.265/HEVC at 25mbps bit rate).  An example video encoded on DepthAI `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ (Raspberry Pi Compute Module Edition) is below:
 
 .. image:: https://i.imgur.com/uC2sfpj.jpg
   :alt: 4K Video on DepthAI with Raspberry Pi 3B
@@ -1419,7 +1414,7 @@ In addition to SHAVE and CMX distribution, the :code:`CPU usage, DDR, CMX, heap`
 What Auto-Focus Modes Are Supported? Is it Possible to Control Auto-Focus From the Host?
 ########################################################################################
 
-DepthAI (OAK-D, OAK-1, BW1092, etc.) and megaAI all support continuous video autofocus ('2' below, where the system is constantly autonomously
+DepthAI (OAK-D, OAK-1, OAK-D-IoT-40, etc.) and megaAI all support continuous video autofocus ('2' below, where the system is constantly autonomously
 searching for the best focus) and also and :code:`auto` mode which waits to focus until directed by the host, in addition to region-of-interest based focus, where the focus is automatically focused around a region provided to DepthAI (e.g. from a neural network bounding box, or some other real-time or apriori setting).
 
 - See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
@@ -1510,7 +1505,8 @@ the ArduCam M12 or CS mount series of OV9281 and/or IMX477 modules.
  - `IMX477 CS-Mount <https://www.arducam.com/product/b0242-arducam-imx477-hq-camera/>`__
  - `OV9281 M12-Mount <https://www.arducam.com/product/ov9281-mipi-1mp-monochrome-global-shutter-camera-module-m12-mount-lens-raspberry-pi/>`__
 
-Note that these are require an adapter (`here <https://shop.luxonis.com/collections/all/products/rpi-hq-camera-imx477-adapter-kit>`__), and :ref:`below <rpi_hq>` and this adapter connects to the RGB port of the `DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__.  It is possible to make other adapters such that more than one of these cameras could be used at a time, or to modify the `open-source BW1098FFC <https://github.com/luxonis/depthai-hardware/tree/master/BW1098FFC_DepthAI_USB3>`__ to accept the ArduCam FFC directly, but these have not yet been made.
+Note that these are require an adapter (`here <https://shop.luxonis.com/collections/all/products/rpi-hq-camera-imx477-adapter-kit>`__), and :ref:`below <rpi_hq>` and this adapter connects to the RGB port of the `DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__.  
+It is possible to make other adapters such that more than one of these cameras could be used at a time, or to modify the `open-source OAK-FFC-3P-OG <https://github.com/luxonis/depthai-hardware/tree/master/BW1098FFC_DepthAI_USB3>`__ to accept the ArduCam FFC directly, but these have not yet been made.
 
 That said, we have seen users attach the same sort of optics that they would to smartphones to widen field of view, zoom, etc. 
 The auto-focus seems to work appropriately through these adapters.  For example a team member has tested the
@@ -1585,10 +1581,9 @@ For more info, please see :ref:`Converting model to MyriadX blob`
 Can I Use DepthAI with the New Raspberry Pi HQ Camera?
 ######################################################
 
-DepthAI FFC Edition (BW1098FFC model `here <https://shop.luxonis.com/products/depthai-usb3-edition>`__) also works via
-an adapter board with the Raspberry Pi HQ camera (IMX477 based), which then does work with a ton of C- and CS-mount
+OAK-FFC-3P-OG model `here <https://shop.luxonis.com/products/depthai-usb3-edition>`__) also works via an adapter board with the Raspberry Pi HQ camera (IMX477 based), which then does work with a ton of C- and CS-mount
 lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`__).
-And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`__ for the adapter board for DepthAI FFC Edition.
+And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`__ for the adapter board for OAK-FFC-3P-OG.
 
 .. image:: https://github.com/luxonis/depthai-hardware/raw/master/BW0253_R0M0E0_RPIHQ_ADAPTER/Images/RPI_HQ_CAM_SYSTEM_2020-May-14_08-35-31PM-000_CustomizedView42985702451.png
   :alt: Raspberry Pi HQ with DepthAI FFC
@@ -1630,7 +1625,7 @@ And note that we now have a specific ARMv6 (Pi Zero) specific build of DepthAI.
 How Much Power Does the DepthAI Raspberry Pi CME Consume?
 #########################################################
 
-The DepthAI Raspberry Pi Compute Module Edition (Raspberry Pi CME or `BW1097 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
+The OAK-D-CM3 (Raspberry Pi CME or `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
 
 - Idle: 2.5W (0.5A @ 5V)
 - DepthAI Full-Out: 6W (1.2A @ 5V)
@@ -1638,11 +1633,11 @@ The DepthAI Raspberry Pi Compute Module Edition (Raspberry Pi CME or `BW1097 <ht
 Below is a quick video showing this:
 
 .. image:: https://i.imgur.com/7f6jQ4o.png
-  :alt: BW1097 Power Use
+  :alt: OAK-D-CM3 Power Use
   :target: https://www.youtube.com/watch?v=zQtSzhGR6Xg
 
 
-How to unbind and bind a device?
+How To Unbind and Bind a Device?
 ################################
 
 In some cases, you may need to unbind and bind your device, i.e. a controller crashes with the following error messages: 
@@ -1691,7 +1686,7 @@ What are CSS MSS UPA and DSS Returned By meta_d2h?
 
 .. _githubs:
 
-Where are the Github repositories?  Is DepthAI Open Source?
+Where are the Github repositories? Is DepthAI Open Source?
 ###########################################################
 
 DepthAI is an open-source platform across a variety of stacks, including hardware (electrical and mechanical), software, and machine-learning training using 
@@ -1717,7 +1712,7 @@ The above examples include a few submodules of interest. You can read a bit more
 
 - https://github.com/luxonis/depthai-bootloader-shared - Bootloader source code which allows programming NOR flash of DepthAI to boot autonomously
 - https://github.com/luxonis/depthai-spi-api - SPI interface library for Embedded (microcontroller) DepthAI application
-- https://github.com/luxonis/esp32-spi-message-demo/tree/gen2_common_objdet - ESP32 Example applications for Embedded/ESP32 DepthAI use (e.g. with `BW1092 <https://github.com/luxonis/depthai-hardware/tree/master/BW1092_ESP32_Embedded_WIFI_BT>`__)
+- https://github.com/luxonis/esp32-spi-message-demo/tree/gen2_common_objdet - ESP32 Example applications for Embedded/ESP32 DepthAI use (e.g. with `OAK-D-IoT-40 <https://github.com/luxonis/depthai-hardware/tree/master/BW1092_ESP32_Embedded_WIFI_BT>`__)
 
 How Do I Build the C++ API?
 ###########################
@@ -1748,47 +1743,52 @@ And a note on building for **Windows**: Windows does not use `libusb`, but rathe
 Can I Use an IMU With DepthAI?
 ##############################
 
-Yes, all of our System on Modules (`BW1099 <https://shop.luxonis.com/collections/all/products/bw1099>`__), BW1099EMB, and `BW2099 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__) have support for the BNO086 (and BNO080/BNO085) IMU.  
-And `OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__, `DM1092 <https://shop.luxonis.com/collections/all/products/bw1092>`__, `LUX-F2 <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__, `OAK-D-WIFI <https://github.com/luxonis/depthai-hardware/tree/master/DM1098OBC_DepthAI_USB3C_WIFI>`__, `OAK-D-POE <https://github.com/luxonis/depthai-hardware/tree/master/SJ2088POE_PoE_Board>`__ all have an integrated IMU onboard.  
+Yes, all of our System on Modules (`OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__), OAK-SoM-IoT, and `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__) have support for the BNO086 (and BNO080/BNO085) IMU.  
+And `OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__, `OAK-D-IoT-40 <https://shop.luxonis.com/collections/all/products/bw1092>`__, `OAK-FFC-3P <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__, `OAK-D-IoT-75 <https://github.com/luxonis/depthai-hardware/tree/master/DM1098OBC_DepthAI_USB3C_WIFI>`__, `OAK-D-PoE <https://shop.luxonis.com/collections/poe/products/oak-d-poe>`__ all have an integrated IMU onboard.  
 
 Can I Use Microphones with DepthAI?
 ###################################
 
 Yes.  
 
- - The `BW2099 <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW2099/BW2099_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
+ - The `OAK-SoM-Pro <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-PRO/OAK-SOM-PRO_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
  - Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.  
- - It is important to note that the `BW1099 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1099.html>`__ and BW1099EMB SoMs do not have I2S support.
+ - It is important to note that the `OAK-SoM <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1099.html>`__ and OAK-SoM-IoT do not have I2S support.
 
-We have tested audio input on the `BW2099 SoM <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__ using 3x `CMM-4030D-261-I2S-TR <https://www.cuidevices.com/product/audio/microphones/mems-microphones/cmm-4030d-261-i2s-tr>`__ and have found the audio quality to be good.  
+We have tested audio input on the `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__ using 3x `CMM-4030D-261-I2S-TR <https://www.cuidevices.com/product/audio/microphones/mems-microphones/cmm-4030d-261-i2s-tr>`__ and have found the audio quality to be good.  
 Theoretically many other microphones should work, however. We have not tested audio output.
 
 Where are Product Brochures and/or Datasheets?
 ##############################################
 
+For more information about OAK devices, go to `Hardware Documentation Page <https://docs.luxonis.com/projects/hardware/en/latest/>`__.
+
 Brochures:
 **********
 
 - Editions Summary `here <https://drive.google.com/open?id=1z7QiCn6SF3Yx977oH41Kcq68Ay6e9h3_>`__
-- System on Module (BW1099) `here <https://drive.google.com/open?id=1WQMhlh-5Z1YKm4u4i_SVPKxRwgPlfNr8>`__
-- USB3 Modular Cameras Edition (BW1098FFC) `here <https://drive.google.com/open?id=1-OWgbJvrdlzRVKtnXDdVKLL9Oba5Nhx3>`__
-- USB3 Onboard Cameras Edition (BW1098OBC) `here <https://drive.google.com/open?id=1g0bQDLNnpVC_1-AGaPmC8BaXtGaNNdTR>`__
-- Raspberry Pi Compute Edition Module (BW1097) `here <https://drive.google.com/open?id=1QmPQ58NkaxO_Tz1Uzj9LlZcsyZ4Vw7hi>`__
+- OAK-SoM (System on Module) `here <https://drive.google.com/open?id=1WQMhlh-5Z1YKm4u4i_SVPKxRwgPlfNr8>`__
+- OAK-FFC-3P-OG (USB3 Modular Cameras Edition) `here <https://drive.google.com/open?id=1-OWgbJvrdlzRVKtnXDdVKLL9Oba5Nhx3>`__
+- OAK-D-PCBA `here <https://drive.google.com/open?id=1g0bQDLNnpVC_1-AGaPmC8BaXtGaNNdTR>`__
+- OAK-D-CM3 (Raspberry Pi Compute Edition Module) `here <https://drive.google.com/open?id=1QmPQ58NkaxO_Tz1Uzj9LlZcsyZ4Vw7hi>`__
 - Raspberry Pi HAT (BW1094) `here <https://drive.google.com/open?id=1QrpV8GXMevqj_ikDJVpaJioXM8axdUEJ>`__
-- megaAI (BW1093) `here <https://drive.google.com/open?id=1ji3K_Q3XdExdID94rHVSL7MvAV2bwKC9>`__
+- OAK-1 `here <https://drive.google.com/open?id=1ji3K_Q3XdExdID94rHVSL7MvAV2bwKC9>`__
 
 Datasheets:
 ***********
 
-- DepthAI System on Module (BW1099) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__
+- DepthAI System on Module (OAK-SoM) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099/BW1099_Datasheet.pdf>`__
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
 
-How Much does OAK-D Weigh?
-##########################
+How Much Does OAK Devices Weight?
+#################################
 
-- 114.5 grams
+- OAK-D - 114.5 grams
+- OAK-1 - 53.1 grams
+- OAK-D-PCBA - 22 grams
+- OAK-D-IoT-40 - 45.5 grams
 
-How can I cite Luxonis products in publications?
+How Can I Cite Luxonis Products in Publications?
 ################################################
 
 If DepthAI and OAK-D products has been significantly used in your research and if you would like to acknowledge the DepthAI and OAK-D in your academic publication, we suggest citing them using the following bibtex format.
@@ -1824,4 +1824,3 @@ As such, we have many mechanisms to allow direct communication:
 
 
 .. include::  /pages/includes/footer-short.rst
-
