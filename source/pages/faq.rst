@@ -575,7 +575,7 @@ How to enable depthai to perceive closer distances
 
 If the depth results for close-in objects look weird, this is likely because they are below the minimum depth-perception distance of DepthAI/OAK-D.
 
-For DepthAI Onboard Cameras (OAK-D-PCBA) and OAK-D, the standard-settings minimum depth is around 70cm.
+For OAK-D, the standard-settings minimum depth is around 70cm.
 
 This can be cut in 1/2 and 1/4 with the following options:
 
@@ -1824,4 +1824,3 @@ As such, we have many mechanisms to allow direct communication:
 
 
 .. include::  /pages/includes/footer-short.rst
-
