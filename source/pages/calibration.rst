@@ -3,13 +3,14 @@ Calibration
 
 .. note::
 
-   All non-modular OAK devices like OAK-D, OAK-1, OAK-D-PoE, OAK-1-PoE are calibrated before shipment. It is not required to (re-)calibrate any of these, but for PCBA-only 
-   models like OAK-D-IoT-75, OAK-D-IoT-40, OAK-D-CM4 it can be desirable to do so if the depth quality degrades from mounting the PCBA (into an enclosure).  
-   
-For the `OAK-FFC-3P <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__ (Modular Camera Design)
+
+   All non-modular DepthAI (OAK-D, OAK-D-WIFI, LUX-ESP32, LUX-RCM4-AB, etc.) devices are calibrated before shipment.  It is not required to (re-)calibrate any of these, but for PCBA-only models like OAK-D-WIFI, LUX-ESP32, LUX-RCM4-AB, etc. it can be desirable to do so if the depth quality degrades from mounting the PCBA (into an enclosure).  
+
+For the modular camera editions of DepthAI (`OAK-FFC-3P <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__ and `DepthAI RaspberryPi Hat <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1094.html>`__)
 it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
 
-Below is a quick video showing the (re-) calibration of the `OAK-D <https://shop.luxonis.com/collections/usb/products/1098obcenclosure>`__.
+Below is a quick video showing the (re-) calibration of the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__.
+
 In short, the calibration uses the intersections to determine the orientation and distance of the charuco board.
 So the greatest accuracy will be obtained by a clear print or display of the provided board image on a flat plane.
 
@@ -68,7 +69,8 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Retrieve the size of the squares from the calibration target by measuring them with a ruler or calipers and enter that number (in cm) in place of [SQUARE_SIZE_IN_CM].
 
-    For example, the arguments for the OAK-D (BW1098OBC) look like the following if the square size is 2.35 cm:
+    For example, the arguments for the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ look like the following if the square size is 2.35 cm:
+
 
     .. code-block:: bash
 
@@ -125,7 +127,6 @@ So for example if you setup your OAK-FFC-3P with a stereo baseline of 2.5cm, wit
 the two grayscale cameras, as shown below, use the JSON further below:
 
 .. image:: /_static/images/products/mono-cameras-min-dist.png
-  :alt: Color Camera
 
 .. code-block:: json
 
@@ -192,7 +193,6 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
   The script launches a window, starts the cameras, and displays a depth video stream:
 
   .. image:: /_static/images/products/calibration-depth.png
-    :alt: Depth projection
 
   In the screenshot above, the hand is closer to the camera.
 
