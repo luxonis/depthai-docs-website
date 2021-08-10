@@ -68,4 +68,35 @@ PoE Troubleshooting
     **Workaround solution: disconnect from one of the interfaces; so disconnecting (from the) WiFi should resolve this issue.**
 
 
+Manually specify device IP
+**************************
+
+In case you are able to :code:`ping` the device but the autodiscovery doesn't work (eg. device itself isn't in the same LAN), you
+can manually specify the IP address of the POE device.
+
+.. code-block:: python
+
+  import cv2
+  import depthai as dai
+
+  pipeline = dai.Pipeline()
+
+  camRgb = pipeline.createColorCamera()
+
+  xoutRgb = pipeline.createXLinkOut()
+  xoutRgb.setStreamName("rgb")
+  camRgb.preview.link(xoutRgb.input)
+
+  device_info = dai.DeviceInfo()
+  device_info.state = dai.XLinkDeviceState.X_LINK_BOOTLOADER
+  device_info.desc.protocol = dai.XLinkProtocol.X_LINK_TCP_IP
+  device_info.desc.name = "169.254.1.222"
+
+  with dai.Device(pipeline, device_info) as device:
+      qRgb = device.getOutputQueue(name="rgb", maxSize=4, blocking=False)
+      while True:
+          cv2.imshow("rgb", qRgb.get().getCvFrame())
+          if cv2.waitKey(1) == ord('q'):
+              break
+
 .. include::  /pages/includes/footer-short.rst
