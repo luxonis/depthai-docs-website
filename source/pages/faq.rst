@@ -74,14 +74,18 @@ DepthAI has been used in effectively every industry, from farming/ranch, to clea
 - Sports monitoring (automatically losslessly zooming in on action)
 - Smart agriculture (e.g guiding lasers to kill weeds, pests, or targeting watering)
 
-What distinguishes OAK-D from other cameras?
+What Distinguishes OAK-D From Other Cameras?
 ############################################
 
-DepthAI purpose is the tight fusion of real-time, hardware-accelerated depth estimation, neural inference, and computer vision into a single, simple to use interface. It is the equivalent of combining a 12MP/4K camera, a stereo depth camera, an AI processor into one product. And to boot, it has accelerated CV capabilities to tie this all together.
+DepthAI purpose is the tight fusion of real-time, hardware-accelerated depth estimation, neural inference, and computer vision into a single, simple to use interface. It 
+is the equivalent of combining a 12MP/4K camera, a stereo depth camera, an AI processor into one product. And to boot, it has accelerated CV capabilities to tie this all 
+together.
 
-So this produces a smaller, lower power, more performant, significantly easier-to-use, and lower-cost solution than what would be otherwise required, which would be to purchase each of these components independently, and do the lifting to physically integrate them and also write the code to combine disparate codebases.
+So this produces a smaller, lower power, more performant, significantly easier-to-use, and lower-cost solution than what would be otherwise required, which would be to 
+purchase each of these components independently, and do the lifting to physically integrate them and also write the code to combine disparate codebases.
 
-With DepthAI, this is all done for you, and is available in a device that you can buy and plug into a computer (as below) - and also a module (here ) with all these capabilities that can be integrated into your product - to allow your products to have these capabilities built-in.
+With DepthAI, this is all done for you, and is available in a device that you can buy and plug into a computer (as below) - and also a module (here ) with all these 
+capabilities that can be integrated into your product - to allow your products to have these capabilities built-in.
 
 .. image:: https://user-images.githubusercontent.com/32992551/116603344-11d64200-a8ea-11eb-8af8-b26aa3fb757b.png
   :alt: DepthAI comparison
@@ -257,9 +261,11 @@ Below is a quick/dirty summary for the ~10,000-foot view of the options:
   this one has a built-in Raspberry Pi Compute Module 4. So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
 
 - **Embedded with WiFi/BT** (`OAK-D-IoT-40 <https://shop.luxonis.com/products/bw1092>`__ and `OAK-D-IoT-75 <https://shop.luxonis.com/collections/iot/products/oak-d-iot-75>`__) - We have two models that have additional 128MB NOR flash, so they can boot
-  on their own out of the NOR flash, and not host needs to be present to run. In contrast, the `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ can also run on its own,
+  on their own out of the NOR flash, and not host needs to be present to run. In contrast, the `OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__ can also run on its own,
   but it is still booting over USB from the Raspberry Pi. On OAK-D-IoT-40 and OAK-D-IoT-75, the Myriad X can run completely standalone and with no other devices.
   The built-in ESP32 then provides easy/convenient WiFi/BT support (`more info here <https://docs.luxonis.com/en/latest/pages/tutorials/esp32/>`) as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
+
+More products in `store <https://shop.luxonis.com/>`__.
 
 More details - including open source 3D files and schematics, can be found in `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__.
 
@@ -573,7 +579,7 @@ The full designs (including source Altium files) for all the carrier boards are 
 How to enable depthai to perceive closer distances
 ##################################################
 
-If the depth results for close-in objects look weird, this is likely because they are below the minimum depth-perception distance of DepthAI/OAK-D.
+If the depth results for close-in objects look weird, this is likely because they are below the minimum depth-perception distance of OAK-D.
 
 For OAK-D, the standard-settings minimum depth is around 70cm.
 
@@ -677,7 +683,7 @@ Monocular Neural Inference fused with Stereo Depth Mode
 
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
 
-- OAK-D-CM3 (`OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__) the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
+- `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__ the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
 
 .. code-block:: python
 
@@ -685,10 +691,11 @@ For DepthAI units with onboard cameras, this works out to the following minimum 
 
 calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg9E4O1fSrB4IFp04AQw%3A1607995753791&ei=aRHYX57zL9P9-gTk5rmADA&q=857.06*.09%2F96&oq=857.06*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CqJ1i8OmDlPGgAcAB4AIABX4gB9ASSAQE4mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwjey9H96s7tAhXTvp4KHWRzDsAQ4dUDCA0&uact=5>`__
 
-**OAK-D** and USB3C Onboard Camera Edition (`OAK-D-PCBA <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1098OBC.html>`__) is
-- **0.689** meters for standard disparity,
-- **0.345** meters for Extended Disparity (192 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and
-- **0.196** meters for Extended Disparity at 640x400 resolution (this distance is limited by the focal distance of the cameras on OAK-D)
+- `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is
+  
+  - **0.689** meters for standard disparity,
+  - **0.345** meters for Extended Disparity (192 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and
+  - **0.196** meters for Extended Disparity at 640x400 resolution (this distance is limited by the focal distance of the cameras on OAK-D)
 
 .. code-block:: python
 
@@ -699,7 +706,7 @@ calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03HLvlfCWau
 Stereo Neural Inference Mode
 ----------------------------
 
-For DepthAI units with onboard cameras, all models (`OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ and `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) are
+For DepthAI units with onboard cameras, all models (`OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__ and `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) are
 limited by the hyperfocal distance of the stereo cameras, so their minimum depth is **0.196** meters.
 
 Modular Camera Minimum Depths:
@@ -717,9 +724,9 @@ The minimum baseline is set simply by how close the two boards can be spaced bef
 .. image:: /_static/images/faq/modular-stereo-cam-min-dist.png
   :alt: Jetson Tx2
 
-For any stereo baseline under 29cm, the minimum depth is dictated by the hyperfocal distance (the distance above which objects are in focus) of 19.6cm.
+For any stereo baseline under 29 cm, the minimum depth is dictated by the hyperfocal distance (the distance above which objects are in focus) of 19.6cm.
 
-For stereo baselines wider than 29cm, the minimum depth is limited by the horizontal field of view (HFOV):
+For stereo baselines wider than 29 cm, the minimum depth is limited by the horizontal field of view (HFOV):
 
 .. code-block:: python
 
@@ -733,9 +740,9 @@ Extended Disparity Depth Mode
 
 The :code:`extended disparity` mode affords a closer minimum distance for the given baseline. This increases the maximum disparity search from 96 to 192. So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
 
-- `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__): **0.414** meters
-- `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__) is **0.345** meters
-- `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__) is **0.115** meters
+- `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__: **0.414** meters
+- `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is **0.345** meters
+- `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__ is **0.115** meters
 
 See `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__ for examples of how to use Extended Disparity Mode.
 
@@ -772,12 +779,12 @@ So if the object detector is not the limit, the maximum distance will be limited
 
   Dm = (baseline/2) * tan_d((90 - HFOV / HPixels)*pi/2)
 
-For DepthAI HFOV = 73.5(+/-0.5) degrees, and HPixels = 1280.  And for the OAK-D-PCBA, the baseline is 7.5cm.
+For DepthAI HFOV = 73.5(+/-0.5) degrees, and HPixels = 1280.  And for the OAK-D, the baseline is 7.5cm.
 
 So using this formula for existing models the *theoretical* max distance is:
 
-- OAK-D-PCBA (OAK-D; 7.5cm baseline): 38.4 meters
-- `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ (9cm baseline): 46 meters
+- `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ (7.5cm baseline): 38.4 meters
+- `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__ (9cm baseline): 46 meters
 - Custom baseline: Dm = (baseline/2) * tan_d(90 - 73.5 / 1280)
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
@@ -827,9 +834,9 @@ DepthAI does convert to depth onboard for both the :code:`depth` stream and also
 
 But we also allow the actual disparity results to be retrieved so that if you would like to use the disparity map directly, you can.
 
-To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for OAK-D-PCBA, 4.0cm for OAK-D-IoT-40, and 9.0cm for `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__, and the focal length is :code:`883.15` (:code:`focal_length = 1280/(2*tan(73.5/2/180*pi)) = 857.06`) for all current DepthAI models.
+To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, 4.0cm for `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__, and 9.0cm for `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__, and the focal length is :code:`883.15` (:code:`focal_length = 1280/(2*tan(73.5/2/180*pi)) = 857.06`) for all current DepthAI models.
 
-So for example, for a OAK-D-IoT-40 (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 40 * 857.06 / 60 = 571 mm (0.571m)`).
+So for example, for a `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 40 * 857.06 / 60 = 571 mm (0.571m)`).
 
 How Do I Display Multiple Streams?
 ##################################
@@ -925,7 +932,7 @@ So for example to run a default model with both the RGB and both grayscale camer
 
   ./depthai_demo.py -rgbf 24 -monof 24 -sync
 
-Synchronizing on the host
+Synchronizing on the Host
 *************************
 
 The two methods :func:`FrameMetadata.getTimestamp` and :func:`FrameMetadata.getSequenceNum` can be used to guarantee the synchronization on host side.
@@ -1068,7 +1075,7 @@ And we have also since done several optimizations since these measurements, so t
     - left, right, depth, :code:`metaout`, :code:`previewout`
     - 300
 
-How to do a letterboxing (thumbnailing) on the color camera?
+How To Do a Letterboxing (Thumbnailing) on the Color Camera?
 ############################################################
     
 To get the black bars on the top and the bottom of the video, the :code:`y` component of the points needs to be adjusted (for 16:9 to 1:1 transform).
@@ -1121,7 +1128,7 @@ Note! Interleaved RGB input with ImageManip is not yet supported, so set:
     colorCam.setInterleaved(False)
 
 
-Is it Possible to Use the RGB camera and/or the Stereo Pair as a Regular UVC Camera?
+Is it Possible to Use the RGB Camera and/or the Stereo Pair as a Regular UVC Camera?
 ####################################################################################
 
 Yes, but currently not currently implemented in our API.  It's on our roadmap, `here <https://github.com/luxonis/depthai/issues/283>`__
@@ -1158,7 +1165,7 @@ The other way is using the :code:`-usbs usb2` (or :code:`--usb_speed usb2`) comm
 
   python3 depthai_demo.py -usbs usb2
 
-Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants coming, see `here <https://discuss.luxonis.com/d/30-luxonis-depthai-for-raspberry-pi-overview-and-status/29>`__, 
+Note that if you would like to use DepthAI at distances that are even greater than what USB2 can handle, we do have DepthAI PoE variants, see `here <https://shop.luxonis.com/collections/poe>`__, 
 which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data and power - at 1 gigabit per second (1gbps).
 
 .. _ncsmode:
@@ -1186,13 +1193,13 @@ What Information is Stored on the DepthAI Boards
 ################################################
 
 Initial Crowd Supply backers received boards which had literally nothing stored on them.  All information was loaded
-from the host to the board.  This includes the OAK-D-CM3 (`OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__), which had the calibration stored on the included microSD card.
+from the host to the board.  This includes the `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__), which had the calibration stored on the included microSD card.
 
-So each hardware model which has stereo cameras (e.g. `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__,
+So each hardware model which has stereo cameras (e.g. `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__,
 `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__, `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, and
 `BW1094 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1094.html>`__) has the capability to store the calibration data and field-of-view,
 stereo baseline (:code:`L-R distance`) and relative location of the color camera to the stereo cameras (:code:`L-RGB distance`)
-as well as camera orientation (:code:`L/R swapped`).  To retrieve this information, simply run :code:`python3 depthai_demo.py` and look for
+as well as camera orientation (:code:`L/R swapped`). To retrieve this information, simply run :code:`python3 depthai_demo.py` and look for
 :code:`EEPROM data:`.
 
 Example of information pulled from a `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is below:
@@ -1230,10 +1237,10 @@ Among those was the discovery that a dual-homography approach, although mathemat
 As a result, we switched our calibration system in September 2020 to use dual-homography instead of single homography.  So any units produced after September 2020 include dual homography.  Any units with single homography can be recalibrated (see :ref:`here <Calibration>`) to use this updated dual-homography calibration.
 
 
-What is the Field of View of DepthAI and megaAI?
-################################################
+What is the Field of View of OAK?
+#################################
 
-DepthAI and megaAI use the same 12MP RGB Camera module based on the IMX378.
+OAK devices use the same 12MP RGB Camera module based on the IMX378.
 
 - 12MP RGB Horizontal Field of View (HFOV): 68.7938 deg
 - 1MP Global Shutter Grayscale Camera Horizontal Field of View (HFOV): 73.5 deg
@@ -1357,10 +1364,10 @@ You can also try using `Flask Opencv Streamer <https://pypi.org/project/flask-op
 
 We work on adding UVC descriptor on-demand to a device preboot configuration as a feature.
 
-How Much Compute Is Available?  How Much Neural Compute is Available?
-#####################################################################
+How Much Compute Is Available? How Much Neural Compute is Available?
+####################################################################
 
-DepthAI and megaAI are built around the Intel Movidius [Myriad X](https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html).  More details/background on this part are `here <https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf>`__
+OAKs are built around the `Intel Movidius Myriad X <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html>`__.  More details/background on this part are `here <https://newsroom.intel.com/wp-content/uploads/sites/11/2017/08/movidius-myriad-xvpu-product-brief.pdf>`__
 and also `here <https://www.anandtech.com/show/11771/intel-announces-movidius-myriad-x-vpu>`__.
 
 A brief overview of the capabilities of DepthAI/megaAI hardware/compute capabilities:
@@ -1414,7 +1421,7 @@ In addition to SHAVE and CMX distribution, the :code:`CPU usage, DDR, CMX, heap`
 What Auto-Focus Modes Are Supported? Is it Possible to Control Auto-Focus From the Host?
 ########################################################################################
 
-DepthAI (OAK-D, OAK-1, OAK-D-IoT-40, etc.) and megaAI all support continuous video autofocus ('2' below, where the system is constantly autonomously
+OAK-D, OAK-1, OAK-D-IoT-40, etc. all support continuous video autofocus ('2' below, where the system is constantly autonomously
 searching for the best focus) and also and :code:`auto` mode which waits to focus until directed by the host, in addition to region-of-interest based focus, where the focus is automatically focused around a region provided to DepthAI (e.g. from a neural network bounding box, or some other real-time or apriori setting).
 
 - See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
@@ -1446,7 +1453,7 @@ but the total height of the color module is 6.05mm, so using that as a worst-cas
 
 So what does this mean for your application?
 
-Anything further than 10 feet away from DepthAI/megaAI will be in focus when the focus is set to 10 feet or beyond.
+Anything further than 10 feet (~3m) away from OAK will be in focus when the focus is set to 10 feet or beyond.
 In other words, as long as you don't have something closer than 10 feet which the camera is trying to focus on, everything 10 feet or beyond will be in focus.
 
 Is it Possible to Control the Exposure and White Balance and Auto-Focus (3A) Settings of the RGB Camera From the Host?
@@ -1625,7 +1632,7 @@ And note that we now have a specific ARMv6 (Pi Zero) specific build of DepthAI.
 How Much Power Does the DepthAI Raspberry Pi CME Consume?
 #########################################################
 
-The OAK-D-CM3 (Raspberry Pi CME or `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
+The `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
 
 - Idle: 2.5W (0.5A @ 5V)
 - DepthAI Full-Out: 6W (1.2A @ 5V)
