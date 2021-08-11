@@ -592,7 +592,6 @@ Ecosystem
 
    C++/Python API <https://docs.luxonis.com/projects/api/en/latest/>
    Hardware Products <https://docs.luxonis.com/projects/hardware/en/latest/>
-   GUI <https://docs.luxonis.com/projects/gui/en/latest/>
 
 
 .. toctree::
