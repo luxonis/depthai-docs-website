@@ -21,22 +21,22 @@ function addNavbar() {
     "        <li><a href=\"https://luxonis.com\">\n" +
     "          <img src=\"https://discuss.luxonis.com/assets/logo-fuhmgk6r.png\" alt=\"Luxonis\">\n" +
     "        </a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"https://docs.luxonis.com/\" class=\"lux-navbar-active\">Documentation</a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"https://discuss.luxonis.com/\">Discuss</a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"https://luxonis.com/careers\">Careers</a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"https://luxonis.com/team\">Team</a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"https://luxonis.com/contact\">Contact</a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"http://shop.luxonis.com\">Shop</a></li>\n" +
+    "        <li><a href=\"https://docs.luxonis.com/\" class=\"lux-navbar-active\">Documentation</a></li>\n" +
+    "        <li><a href=\"https://discuss.luxonis.com/\">Discuss</a></li>\n" +
+    "        <li><a href=\"https://luxonis.com/careers\">Careers</a></li>\n" +
+    "        <li><a href=\"https://luxonis.com/team\">Team</a></li>\n" +
+    "        <li><a href=\"https://luxonis.com/contact\">Contact</a></li>\n" +
+    "        <li><a href=\"http://shop.luxonis.com\">Shop</a></li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
     "  </div>\n" +
     "  <div id=\"lux-doc-navbar\" class=\"lux-navbar-container\">\n" +
     "    <div class=\"lux-navbar\">\n" +
     "      <ul>\n" +
-    "        <li><a target=\"_blank\" href=\"/en/latest/\">Main</a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"/projects/api/\">API</a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"/projects/gui/\">GUI</a></li>\n" +
-    "        <li><a target=\"_blank\" href=\"/projects/hardware/\">Hardware</a></li>\n" +
+    "        <li><a href=\"/en/latest/\">Main</a></li>\n" +
+    "        <li><a href=\"/projects/api/\">API</a></li>\n" +
+    "        <li><a href=\"/projects/gui/\">GUI</a></li>\n" +
+    "        <li><a href=\"/projects/hardware/\">Hardware</a></li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
     "  </div>"
