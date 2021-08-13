@@ -1543,7 +1543,7 @@ It is the standard 1/4-20 "Tripod" mount used on most cameras.  More information
 How to use DepthAI under VirtualBox
 ###################################
 
-If you want to use VirtualBox to run the DepthAI source code, please check our tutorial `here <https://docs.luxonis.com/projects/api/en/latest/install/#virtualbox>`__.
+If you want to use VirtualBox to run the DepthAI source code, please check our tutorial `here <https://docs.luxonis.com/projects/api/en/latest/install/#virtual-box>`__.
 
 .. _parameters_upgrade:
 
