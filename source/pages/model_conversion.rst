@@ -37,8 +37,8 @@ An example notebook with the compilation steps is `here <https://colab.research.
 Using online converter
 **********************
 
-You can also visit our online MyriadX Blob converter at `http://luxonis.com:8080/ <http://luxonis.com:8080/>`__,
-that allows to specify different OpenVINO target versions and supports conversions from **TensorFlow, Caffe, OpenVINO IR and OpenVINO Model Zoo**
+You can also visit our online `MyriadX Blob converter <http://blobconverter.luxonis.com/>`__
+that allows specifying different OpenVINO target versions and supports conversions from **TensorFlow, Caffe, OpenVINO IR and OpenVINO Model Zoo**
 
 .. image:: /_static/images/blobconverter_web.png
   :alt: BlobConverter Web
