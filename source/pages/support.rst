@@ -35,7 +35,7 @@ At Luxonis, we are customer-focused. Our success is only possible if our custome
 
 If you desire a refund, please contact support@luxonis.com with your order number and reason for the return. Refund requests within 60 days of the purchase date will be honored in full.
 
-Shipping costs for returns within 60 days of purchase will be covered by Emporia Energy using USPS or Fedex. Shipping costs for returns after 60 days from the purchase date will be born by the customer.
+Shipping costs for returns within 60 days of purchase will be covered by Luxonis. Shipping costs for returns after 60 days from the purchase date will be born by the customer.
 
 If a return is initiated because of damaged, defective, or incorrect goods, Luxonis will provide a replacement order at no cost to the customer.
 
