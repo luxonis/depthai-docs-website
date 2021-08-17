@@ -263,7 +263,7 @@ Below is a quick/dirty summary for the ~10,000-foot view of the options:
 - **Embedded with WiFi/BT** (`OAK-D-IoT-40 <https://shop.luxonis.com/products/bw1092>`__ and `OAK-D-IoT-75 <https://shop.luxonis.com/collections/iot/products/oak-d-iot-75>`__) - We have two models that have additional 128MB NOR flash, so they can boot
   on their own out of the NOR flash, and not host needs to be present to run. In contrast, the `OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__ can also run on its own,
   but it is still booting over USB from the Raspberry Pi. On OAK-D-IoT-40 and OAK-D-IoT-75, the Myriad X can run completely standalone and with no other devices.
-  The built-in ESP32 then provides easy/convenient WiFi/BT support (`more info here <https://docs.luxonis.com/en/latest/pages/tutorials/esp32/>`) as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
+  The built-in ESP32 then provides easy/convenient WiFi/BT support (:ref:`more info here <Getting started with OAK IoT devices>`) as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
 
 More products in `store <https://shop.luxonis.com/>`__.
 
@@ -465,7 +465,7 @@ In this case, DepthAI boot off of internal flash on the `OAK-SoM-IoT <https://sh
 We even have an embedded reference design for ESP32 (`OAK-D-IoT-40 (BW1092) <https://github.com/luxonis/depthai-hardware/issues/10>`__) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092>`__.  
 And it's open-source! You can check design files `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__.
 
-We have prepared a `guide <https://docs.luxonis.com/en/latest/pages/tutorials/esp32/>`__ and a `demo <https://github.com/luxonis/esp32-spi-message-demo/>`__ on how to work with ESP32.
+We have prepared a :ref:`guide <Getting started with OAK IoT devices>` and a `demo <https://github.com/luxonis/esp32-spi-message-demo/>`__ on how to work with ESP32.
 
 .. _standalone:
 

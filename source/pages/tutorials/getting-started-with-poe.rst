@@ -1,5 +1,5 @@
-Getting started with PoE
-########################
+Getting started with OAK PoE devices
+====================================
 
 We currently have two Power-over-Ethernet (PoE) devices:
  - `OAK-D-POE <https://docs.luxonis.com/projects/hardware/en/latest/pages/SJ2088POE.html>`__ and
@@ -13,7 +13,7 @@ at 1,000 Mbps (1 Gbps) full-duplex at up to 100 meters (328 feet).
 *After connecting the PoE device, the Ethernet connectivity LED (shown above) should turn on and start occasionally flashing.*
 
 Step by step tutorial
-*********************
+#####################
 
 #. You will need a PoE switch or Injector **to power the PoE device**. `Click here for the full tutorial <https://docs.luxonis.com/projects/hardware/en/latest/pages/powering_poe_devices.html>`__. After powering the device, LED should start blinking, as on the GIF above.
 #. Connect your computer to the same `LAN <https://en.wikipedia.org/wiki/Local_area_network>`__ as the PoE device
@@ -25,7 +25,7 @@ Step by step tutorial
 *After these steps, the depthai_demo is working on the OAK-D-POE!*
 
 How it works
-************
+############
 
 When your program tried to create the device (:code:`with dai.Device(pipeline) as device:`),
 the library will search for available devices that are connected either by USB port or on the LAN.
@@ -36,7 +36,7 @@ the Mx ID to specify to which DepthAI PoE device you would want to connect to
 
 
 PoE Troubleshooting
-*******************
+###################
 
 - **DHCP and Static IP**
     By default, PoE devices will try to pull an IP address from DHCP. If a DHCP server isn't available on the network,
@@ -69,7 +69,7 @@ PoE Troubleshooting
 
 
 Manually specify device IP
-**************************
+##########################
 
 In case you are able to :code:`ping` the device but the autodiscovery doesn't work (eg. device itself isn't in the same LAN), you
 can manually specify the IP address of the POE device.
