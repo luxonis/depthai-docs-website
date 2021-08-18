@@ -1,5 +1,5 @@
-ESP32 tutorial
-==============
+Getting started with OAK IoT devices
+====================================
 
 .. note::
   This tutorial is intended for `OAK-D-IoT-75 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1098OBC.html>`__

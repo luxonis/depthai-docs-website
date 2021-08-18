@@ -582,7 +582,7 @@ Ecosystem
    pages/tutorials/first_steps.rst
    pages/tutorials/local_convert_openvino.rst
    pages/tutorials/pretrained_openvino.rst
-   pages/tutorials/esp32.rst
+   pages/tutorials/getting-started-with-iot.rst
    pages/tutorials/getting-started-with-poe.rst
 
 .. toctree::
