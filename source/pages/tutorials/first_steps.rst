@@ -258,6 +258,10 @@ models that you can use, having just the demo script downloaded
     - License plate detection
     - 27.8
     - :ref:`Usage <vehicle-license-plate-detection-barrier-0106>`
+  * - :code:`openpose2`
+    - Pose estimation
+    - 6.5
+    - /
 
 .. _deeplabv3p_person:
 
