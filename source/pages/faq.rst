@@ -540,18 +540,18 @@ Available in DepthAI API Today:
 - Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
 - Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__)
 - Integrated IMU Support (`here <https://github.com/luxonis/depthai-hardware/issues/8>`__)
-- Edge Detection (`here <https://github.com/luxonis/depthai/issues/247>`__)
+- Edge Detection (`here <https://docs.luxonis.com/projects/api/en/latest/samples/edge_detector/#edge-detector>`__, `video <https://youtu.be/bG15mpK4z2s>`__)
+- On-Device Python Scripting Support, `here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/script/>`__
 
 The above features are available in the Luxonis Pipeline Builder Gen2 which is now the main API for DepthAI. The Gen1 API is still supported, and can be accessed via the version switcher at the bottom left of this page.  See below for in-progress additional functionality/flexibility which will be added as modular nodes to the Luxonis pipeline builder for DepthAI.
 
 On our Roadmap (Most are in development/integration)
 ****************************************************
 
-- CPython Support, `here <https://github.com/luxonis/depthai/issues/207>`__
 - Feature Tracking (including IMU-assisted feature tracking, `here <https://github.com/luxonis/depthai/issues/146>`__)
+- Harris Filtering (`here <https://github.com/luxonis/depthai/issues/248>`__)
 - Motion Estimation (`here <https://github.com/luxonis/depthai/issues/245>`__)
 - Background Subtraction (`here <https://github.com/luxonis/depthai/issues/136>`__)
-- Harris Filtering (`here <https://github.com/luxonis/depthai/issues/248>`__)
 - AprilTags (PR `here <https://github.com/luxonis/depthai-python/pull/298>`__)
 - OpenCL Support (supported through OpenVINO (`here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__))
 
