@@ -1,32 +1,25 @@
 Custom training
 ===============
 
-.. toctree::
-  :maxdepth: 2
-  :hidden:
 
-   Tutorial - SSD MobileNetv2 training <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_Demo_Training.ipynb>
-   Tutorial - SSD MobileNetv2 training with custom data <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb>
-   Tutorial - YOLOv4-tiny based Mask Detector <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYOLOv4_Object_Detector_Training_on_Custom_Data.ipynb>
-   Tutorial - YOLOv3-tiny based Mask Detector <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYolov3_Object_Detector_Training_on_Custom_Data.ipynb>
-   Tool - Google Drive image batch resizer <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb>
+Overview
+********
 
+On our Github repo `depthai-ml-training <https://github.com/luxonis/depthai-ml-training>`__ we provide several ML training notebooks trained
+on various data sets. You can run these notebooks on `Google Colab <https://colab.research.google.com/notebooks/intro.ipynb>`__ - they provide
+free CPU/GPU instances, so great for prototyping and even simple production models.
 
-.. raw:: html
+We currently have these ML training tutorials:
 
-   <h1>Overview</h1>
+- `Tutorial - SSD MobileNetv2 training <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_Demo_Training.ipynb>`__
+- `Tutorial - SSD MobileNetv2 training with custom data <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb>`__
+- `Tutorial - YOLOv4-tiny based Mask Detector <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYOLOv4_Object_Detector_Training_on_Custom_Data.ipynb>`__
+- `Tutorial - YOLOv3-tiny based Mask Detector <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYolov3_Object_Detector_Training_on_Custom_Data.ipynb>`__
+- `Tutorial - DeepLabV3+ MNV2 semantic segmetnation <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/DeepLabV3plus_MNV2.ipynb>`__
+- `Tool - Google Drive image batch resizer <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/GDrive-Resize.ipynb>`__
 
-Here we have examples of `Google Colab <https://colab.research.google.com/notebooks/intro.ipynb>`__ notebooks trained on various data sets. They are free GPU instances, so great for prototyping and even simple production models.
-
-.. raw:: html
-
-   <h2>The Tutorials</h2>
-
-The below tutorials cover MobileNetv2-SSD, tiny-YOLOv3, tiny-YOLOv4, and Deeplabv3+ (semantic segmentation).  A bunch of other object detectors and neural networks could be trained/supported on Colab and run on DepthAI, so if you have a request for a different object detector/network backend, please feel free to make a Github Issue!
-
-And please feel free to work directly from our Github of :code:`depthai-ml-training` for the latest models we support:
-
-- `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#tiny-yolov3-object-detector-training->`__
+The Tutorials
+*************
 
 .. raw:: html
 
@@ -64,15 +57,14 @@ Depending on which GPU the Colab lottery assigns to the notebook instance, train
 Either way, a short period for such a good quality proof of concept for such a difficult task.
 We then performed the steps above for converting to blob and then running it on our DepthAI module.
 
-Below is a quick test of the model produced with this notebook on Luxonis DepthAI Onboard Cameras Edition (`BW1098OBC <https://shop.luxonis.com/products/bw10980bc>`__):
+Below is a quick test of the model produced with this notebook on OAK device:
 
 .. image:: http://img.youtube.com/vi/d_oUxDzWHd0/0.jpg
   :alt: COVID19 Mask Detector
   :target: https://www.youtube.com/watch?v=d_oUxDzWHd0
 
-.. raw:: html
-
-   <h2>Supporting Notebooks</h2>
+Supporting Notebooks
+********************
 
 .. raw:: html
 
