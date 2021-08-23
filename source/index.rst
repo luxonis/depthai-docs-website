@@ -600,8 +600,9 @@ Ecosystem
    :caption: Contents
 
    pages/faq.rst
+   pages/model_conversion.rst
+   pages/calibration.rst
    pages/support.rst
    pages/troubleshooting.rst
-   pages/calibration.rst
    pages/training.rst
-   pages/model_conversion.rst
+   pages/slam_oak.rst
