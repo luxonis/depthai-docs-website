@@ -260,8 +260,8 @@ models that you can use, having just the demo script downloaded
     - :ref:`Usage <vehicle-license-plate-detection-barrier-0106>`
   * - :code:`openpose2`
     - Pose estimation
-    - 6.5
-    - /
+    - 7.3
+    - :ref:`Usage <openpose2>`
 
 .. _deeplabv3p_person:
 
@@ -383,6 +383,17 @@ models that you can use, having just the demo script downloaded
 
   .. image:: https://user-images.githubusercontent.com/5244214/117147703-cd4d1980-adb5-11eb-8109-769cc3a2091a.png
     :alt: vehicle-license-plate-detection-barrier-0106
+
+.. _openpose2:
+
+- :code:`openpose2` - Human pose estimation model
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn openpose2
+
+  .. image:: https://user-images.githubusercontent.com/18037362/130475911-1c7d57dd-0222-4dd1-a621-be14ce6a095b.png
+    :alt: openpose2
 
 All of the data we use to download and compile a model can be found `here <https://github.com/luxonis/depthai/tree/main/resources/nn>`__.
 
