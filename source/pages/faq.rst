@@ -907,7 +907,7 @@ The following example sets the :code:`depth` stream to 8 FPS and the :code:`prev
 
   python3 depthai_demo.py -co '{"streams": [{"name": "depth", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'
 
-You can pick/choose whatever streams you want, and their frame rate, but pasting in additional :code:`{"name": "streamname", "max_fps": FPS}` into the expression above.
+You can pick/choose whatever streams you want, and their frame rate, by pasting in additional :code:`{"name": "streamname", "max_fps": FPS}` into the expression above.
 
 How do I Synchronize Streams and/or Meta Data (Neural Inference Results)
 ########################################################################
@@ -1131,7 +1131,7 @@ Note! Interleaved RGB input with ImageManip is not yet supported, so set:
 Is it Possible to Use the RGB Camera and/or the Stereo Pair as a Regular UVC Camera?
 ####################################################################################
 
-Yes, but currently not currently implemented in our API.  It's on our roadmap, `here <https://github.com/luxonis/depthai/issues/283>`__
+Yes, but it is not currently implemented in our API.  It's on our roadmap, `here <https://github.com/luxonis/depthai/issues/283>`__
 
 The :code:`why` of our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__).  So what we plan to do is to support UVC as part of our Gen2 Pipeline builder, so you can build a complex spatial AI/CV pipeline and then have the UVC endpoints output the results, so that DepthAI could then work on any system without drivers.  For our embedded variants, this could then be flashed to the device so that the whole pipeline will automatically run on boot-up and show up to a computer a UVC device (a webcam).
 
@@ -1498,8 +1498,8 @@ Specifications:
  - Resolution: 1280 x 800 pixel
  - Pixel Size: 3x3 micrometer (um)
 
-Am I able to attached alternate lenses to the camera? What sort of mounting system? S mount? C mount?
-#####################################################################################################
+Am I able to attach alternate lenses to the camera? What sort of mounting system? S mount? C mount?
+###################################################################################################
 
 The color camera on megaAI and DepthAI is a fully-integrated camera module, so the lens, auto-focus, auto-focus
 motor etc. are all self-contained and none of it is replaceable or serviceable.  You'll see it's all very small. 
