@@ -84,7 +84,7 @@ together.
 So this produces a smaller, lower power, more performant, significantly easier-to-use, and lower-cost solution than what would be otherwise required, which would be to 
 purchase each of these components independently, and do the lifting to physically integrate them and also write the code to combine disparate codebases.
 
-With DepthAI, this is all done for you, and is available in a device that you can buy and plug into a computer (as below) - and also a module with all these 
+With DepthAI, this is all done for you, and is available in a device that you can buy and plug into a computer (as below) - and also a module (`here <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1099.html>`__) with all these 
 capabilities that can be integrated into your product - to allow your products to have these capabilities built-in.
 
 .. image:: https://user-images.githubusercontent.com/32992551/116603344-11d64200-a8ea-11eb-8af8-b26aa3fb757b.png
