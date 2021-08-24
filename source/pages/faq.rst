@@ -139,10 +139,10 @@ And if you'd like to know more about the underlying math that DepthAI is using t
 What is the Max Stereo Disparity Depth Resolution?
 **************************************************
 
-The maximum resolution for the depthai depth map is 1280x800 (1MP), with either a 92-pixel (default) or 192-pixel disparity search (when :ref:`Extended Disparity <extended_disparity>` is enabled) and either a full-pixel (default) or sub-pixel matching with precision of 32 sub-pixel steps (when :ref:`Sub-Pixel Disparity <subpixel_disparity>` is enabled), resulting in a maximum theoretical depth precision of 192 (extended disparity search mode) * 32 (sub-pixel disparity search enabled) of 6,144.  Note however that sub-pixel and extended disparity, as of this writing, are not supported simultaneously (but will be Q2 2021), so the maximum depth precision is 3,072 depth steps.  More information on the disparity depth modes are below:
+The maximum resolution for the depthai depth map is 1280x800 (1MP), with either a 96-pixel (default) or 191-pixel disparity search (when :ref:`Extended Disparity <extended_disparity>` is enabled) and either a full-pixel (default) or sub-pixel matching with precision of 32 sub-pixel steps (when :ref:`Sub-Pixel Disparity <subpixel_disparity>` is enabled), resulting in a maximum theoretical depth precision of 191 (extended disparity search mode) * 32 (sub-pixel disparity search enabled) of 6,112.  However sub-pixel and extended disparity are not yet supported simultaneously, but should be available in the near future (`Pull Request <https://github.com/luxonis/depthai-python/pull/347>`__), so the maximum depth precision is 3,072 depth steps.  More information on the disparity depth modes are below:
 
-#. Default (96-pixel disparity search): 1280x800 or 640x400, 96 depth steps
-#. Extended Disparity (192-pixel disparity search), :ref:`here <extended_disparity>`: 1280x800 or 640x400, 192 depth steps
+#. Default (96-pixel disparity search, **range: [0..95]**): 1280x800 or 640x400, 96 depth steps
+#. Extended Disparity (191-pixel disparity search, **range: [0..190]**), :ref:`here <extended_disparity>`: 1280x800 or 640x400, 191 depth steps
 #. Subpixel Disparity (32 sub-pixel steps), :ref:`here <subpixel_disparity>`, 1280x800 or 640x400, 96 depth steps * 32 subpixel depth steps = 3,072 depth steps.
 #. LR-Check Disparity, :ref:`here <lrcheck_disparity>`: 1280x800, with disparity run in both directions for allowing recentering of the depth.
 
@@ -591,7 +591,7 @@ Since the disparity-search of 96 is what limits the minimum depth, this means th
 
 2. Enable Extended Disparity.
 
-In Gen2, Extended Disparity is supported, which extends the disparity search to 192 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.
+In Gen2, Extended Disparity is supported, which extends the disparity search to 191 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.
 
 See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
 
@@ -613,7 +613,7 @@ OAK-D:
 - ~ 35cm with 640x400 resolution
 - ~ 19.6cm with extended disparity and 640x400 resolution
 
-In this mode, the AI (object detection) is run on the left, right, or RGB camera, and the results are fused with stereo disparity depth, based on semi global matching (SGBM).  The minimum depth is limited by the maximum disparity search, which is by default 96, but is extendable to 192 in extended disparity modes (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below).
+In this mode, the AI (object detection) is run on the left, right, or RGB camera, and the results are fused with stereo disparity depth, based on semi global matching (SGBM).  The minimum depth is limited by the maximum disparity search, which is by default 96, but is extendable to 191 in extended disparity modes (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below).
 
 To calculate the minimum distance in this mode, use the following formula, where base_line_dist and min_distance are in meters [m]:
 
@@ -621,11 +621,11 @@ To calculate the minimum distance in this mode, use the following formula, where
 
   min_distance = focal_length * base_line_dist / 96
 
-Where 96 is the standard maximum disparity search used by DepthAI and so for extended disparity (192 pixels), the minimum distance is:
+Where 96 is the standard maximum disparity search used by DepthAI and so for extended disparity (191 pixels), the minimum distance is:
 
 .. code-block:: python
 
-  min_distance = focal_length * base_line_dist / 192
+  min_distance = focal_length * base_line_dist / 191
 
 For DepthAI, the HFOV of the the grayscale global shutter cameras is 73.5 degrees (this can be found on your board, see
 `here <https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai>`__, so the focal length is
@@ -648,7 +648,7 @@ What Disparity Depth Modes are Supported?
 *****************************************
 
 #. Default (96-pixel disparity search)
-#. Extended Disparity (192-pixel disparity search), :ref:`here <extended_disparity>`
+#. Extended Disparity (191-pixel disparity search), :ref:`here <extended_disparity>`
 #. Subpixel Disparity (32 sub-pixel steps), :ref:`here <subpixel_disparity>`
 #. LR-Check Disparity, :ref:`here <lrcheck_disparity>`
 
@@ -694,7 +694,7 @@ calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg
 - `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is
   
   - **0.689** meters for standard disparity,
-  - **0.345** meters for Extended Disparity (192 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and
+  - **0.345** meters for Extended Disparity (191 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and
   - **0.196** meters for Extended Disparity at 640x400 resolution (this distance is limited by the focal distance of the cameras on OAK-D)
 
 .. code-block:: python
@@ -752,7 +752,7 @@ Extended disparity: allows detecting closer distance objects, without compromisi
 
 #. Computes disparity on the original size images (e.g. 1280x720)
 #. Computes disparity on 2x downscaled images (e.g. 640x360)
-#. Combines the two level disparities on Shave, effectively covering a total disparity range of 192 pixels (in relation to the original resolution).
+#. Combines the two level disparities on Shave, effectively covering a total disparity range of 191 pixels (in relation to the original resolution).
 
 
 .. _lrcheck_disparity:
