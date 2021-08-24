@@ -39,7 +39,7 @@ To install and run the demo script on your DepthAI device, type the following co
 
 .. code-block:: bash
 
-  git clone git@github.com:luxonis/depthai.git
+  git clone https://github.com/luxonis/depthai.git
   cd depthai
   python3 install_requirements.py
   python3 depthai_demo.py
