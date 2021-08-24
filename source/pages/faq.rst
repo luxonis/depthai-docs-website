@@ -84,7 +84,7 @@ together.
 So this produces a smaller, lower power, more performant, significantly easier-to-use, and lower-cost solution than what would be otherwise required, which would be to 
 purchase each of these components independently, and do the lifting to physically integrate them and also write the code to combine disparate codebases.
 
-With DepthAI, this is all done for you, and is available in a device that you can buy and plug into a computer (as below) - and also a module (here ) with all these 
+With DepthAI, this is all done for you, and is available in a device that you can buy and plug into a computer (as below) - and also a module with all these 
 capabilities that can be integrated into your product - to allow your products to have these capabilities built-in.
 
 .. image:: https://user-images.githubusercontent.com/32992551/116603344-11d64200-a8ea-11eb-8af8-b26aa3fb757b.png
@@ -738,7 +738,7 @@ For stereo baselines wider than 29 cm, the minimum depth is limited by the horiz
 Extended Disparity Depth Mode
 *****************************
 
-The :code:`extended disparity` mode affords a closer minimum distance for the given baseline. This increases the maximum disparity search from 96 to 192. So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 192` instead of :code:`focal_length * base_line_dist / 96`).
+The :code:`extended disparity` mode affords a closer minimum distance for the given baseline. This increases the maximum disparity search from 96 to 191. So this cuts the minimum perceivable distance in half (given that the minimum distance is now :code:`focal_length * base_line_dist / 190` instead of :code:`focal_length * base_line_dist / 95`).
 
 - `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__: **0.414** meters
 - `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is **0.345** meters
@@ -771,7 +771,7 @@ To run LR-Check on DepthAI/OAK, use the example `here <https://github.com/luxoni
 What Are The Maximum Depths Visible by DepthAI?
 ###############################################
 
-The maximum depth perception for 3D object detection is is practically limited by how far the object detector (or other neural network) can detect what it's looking for. We've found that OpenVINO people detectors work to about 22 meters or so. But generally this distance will be limited by how far away the object detector can detect objects, and then after that, the minimum angle difference between the objects.
+The maximum depth perception for 3D object detection is practically limited by how far the object detector (or other neural network) can detect what it's looking for. We've found that OpenVINO people detectors work to about 22 meters or so. But generally this distance will be limited by how far away the object detector can detect objects, and then after that, the minimum angle difference between the objects.
 
 So if the object detector is not the limit, the maximum distance will be limited by the physics of the baseline and the number of pixels. So once an object is less than 0.056 degrees (which corresponds to 1 pixel difference) difference between one camera to the other, it is past the point where full-pixel disparity can be done.  The formula used to calculate this distance is an approximation, but is as follows:
 
@@ -1632,7 +1632,7 @@ And note that we now have a specific ARMv6 (Pi Zero) specific build of DepthAI.
 How Much Power Does the DepthAI Raspberry Pi CME Consume?
 #########################################################
 
-The `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ for short) consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
+The `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ for short consumes around 2.5W idle and 5.5W to 6W when DepthAI is running full-out.
 
 - Idle: 2.5W (0.5A @ 5V)
 - DepthAI Full-Out: 6W (1.2A @ 5V)
