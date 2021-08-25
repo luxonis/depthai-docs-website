@@ -606,3 +606,4 @@ Ecosystem
    pages/troubleshooting.rst
    pages/training.rst
    pages/slam_oak.rst
+   pages/education.rst
