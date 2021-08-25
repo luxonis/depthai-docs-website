@@ -67,6 +67,10 @@ PoE Troubleshooting
     We have seen that in some rare circumstances when your host computer is connected to the same LAN, it can happen that device discovery finds the same POE device twice, so it will print the IP address of that device 2 times. In some rare occasions this can lead to an error (we have seen this when using multiple devices) on initialization; `RuntimeError: Failed to find device after booting, error message: X_LINK_DEVICE_NOT_FOUND`.  We will try to fix this bug as soon as possible.
     **Workaround solution: disconnect from one of the interfaces; so disconnecting (from the) WiFi should resolve this issue.**
 
+- **Insufficient power supply**
+    If your PoE device does not work, or in some rare cases, it works for a period of time and then suddenly stops working, there might be an issue with your PoE switch. For example when the power budget per port seems to be sufficient, but the overall power budget for the switch is being exceeded due to demands from devices on other ports.
+	It is worth checking the specifications of your PoE switch / injector with respect to its overall power budget.
+
 
 Manually specify device IP
 ##########################
