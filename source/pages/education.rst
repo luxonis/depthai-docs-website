@@ -14,7 +14,7 @@ Cortic AI Toolkit
     </div>
     <br/>
     <a href="https://github.com/cortictechnology/cait" target="_blank" class="btn item-cta">Available on GitHub!</a>
-    <br/>
+    <p/>
 
 The Cortic A.I. Toolkit is a software package that enables makers and students to learn and experiment with A.I.
 algorithms on the popular Raspberry Pi 4B single board computer. Provides a gentle introduction to A.I. for
