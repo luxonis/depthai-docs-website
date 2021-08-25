@@ -1,8 +1,8 @@
 OAK for Education
 =================
 
-By creating OpenCV AI Kit (OAK) product, our goal is to make Spatial AI accessible and easy to use by anyone.
-That's why we want to share some of the community projects built around OAK devices that helps us in achieving our common goal.
+By creating OAK devices, our goal is to make Spatial AI accessible and easy to use by anyone.
+That's why we want to share some of the community projects built around it that help us in achieving our common goal.
 
 Cortic AI Toolkit
 #################
@@ -17,8 +17,8 @@ Cortic AI Toolkit
     <p/>
 
 The Cortic A.I. Toolkit is a software package that enables makers and students to learn and experiment with A.I.
-algorithms on the popular Raspberry Pi 4B single board computer. Provides a gentle introduction to A.I. for
-beginners while offering a lot of customization possibilities and depth so that users can progressively grow with it
+algorithms on the popular Raspberry Pi 4B single-board computer. Provides a gentle introduction to A.I. for
+beginners while offering a lot of customization possibilities and depth perception so that users can progressively grow with it
 
 .. image:: https://github.com/cortictechnology/cep/raw/main/resources/Visual-Programming.gif
   :target: https://github.com/cortictechnology/cep/blob/main/resources/Visual-Programming.gif
@@ -34,6 +34,6 @@ Looking for more?
 #################
 
 You can also check out our :code:`#community` channel on our `Discord server <https://discord.gg/EPsZHkg9Nx>`__, where you can
-meet people behind these projects or share your own idea / demo - we're looking forward to meet you there!
+meet people behind these projects or share your idea/demo - we're looking forward to meeting you there!
 
 .. include::  /pages/includes/footer-short.rst
