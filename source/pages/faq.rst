@@ -139,7 +139,7 @@ And if you'd like to know more about the underlying math that DepthAI is using t
 What is the Max Stereo Disparity Depth Resolution?
 **************************************************
 
-The maximum resolution for the depthai depth map is 1280x800 (1MP), with either a 96-pixel (default) or 191-pixel disparity search (when :ref:`Extended Disparity <extended_disparity>` is enabled) and either a full-pixel (default) or sub-pixel matching with precision of 32 sub-pixel steps (when :ref:`Sub-Pixel Disparity <subpixel_disparity>` is enabled), resulting in a maximum theoretical depth precision of 191 (extended disparity search mode) * 32 (sub-pixel disparity search enabled) of 6,112.  However sub-pixel and extended disparity are not yet supported simultaneously, but should be available in the near future (`Pull Request <https://github.com/luxonis/depthai-python/pull/347>`__), so the maximum depth precision is 3,072 depth steps.  More information on the disparity depth modes are below:
+The maximum resolution for the depthai depth map is 1280x800 (1MP), with either a 96-pixel (default) or 191-pixel disparity search (when :ref:`Extended Disparity <extended_disparity>` is enabled) and either a full-pixel (default) or sub-pixel matching with precision of 32 sub-pixel steps (when :ref:`Sub-Pixel Disparity <subpixel_disparity>` is enabled), resulting in a maximum theoretical depth precision of 191 (extended disparity search mode) * 32 (sub-pixel disparity search enabled) of 6,112.  However sub-pixel and extended disparity are not yet supported simultaneously, but should be available in the near future (`Pull Request <https://github.com/luxonis/depthai-python/pull/347>`__). More information on the disparity depth modes are below:
 
 #. Default (96-pixel disparity search, **range: [0..95]**): 1280x800 or 640x400, 96 depth steps
 #. Extended Disparity (191-pixel disparity search, **range: [0..190]**), :ref:`here <extended_disparity>`: 1280x800 or 640x400, 191 depth steps
@@ -147,7 +147,6 @@ The maximum resolution for the depthai depth map is 1280x800 (1MP), with either 
 #. LR-Check Disparity, :ref:`here <lrcheck_disparity>`: 1280x800, with disparity run in both directions for allowing recentering of the depth.
 
 (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below
-
 
 .. _stereo_inference:
 
@@ -591,9 +590,11 @@ Since the disparity-search of 96 is what limits the minimum depth, this means th
 
 2. Enable Extended Disparity.
 
-In Gen2, Extended Disparity is supported, which extends the disparity search to 191 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.
+This extends the disparity search to 191 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.
 
 See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
+
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Min-stereo-depth-distance>`__.
 
 What are the Minimum Depths Visible by DepthAI?
 ###############################################
@@ -619,23 +620,24 @@ To calculate the minimum distance in this mode, use the following formula, where
 
 .. code-block:: python
 
-  min_distance = focal_length * base_line_dist / 96
+  min_distance = focal_length * base_line_dist / 95
 
-Where 96 is the standard maximum disparity search used by DepthAI and so for extended disparity (191 pixels), the minimum distance is:
-
-.. code-block:: python
-
-  min_distance = focal_length * base_line_dist / 191
-
-For DepthAI, the HFOV of the the grayscale global shutter cameras is 73.5 degrees (this can be found on your board, see
-`here <https://docs.luxonis.com/faq/#what-are-the-minimum-and-maximum-depth-visible-by-depthai>`__, so the focal length is
+Where 95 is the standard maximum disparity search used by DepthAI and so for extended disparity (191 pixels), the minimum distance is:
 
 .. code-block:: python
 
-  focal_length = 1280/(2*tan(73.5/2/180*pi)) = 857.06
+  min_distance = focal_length * base_line_dist / 190
 
-Calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk01DFgdNHlMBEkcIJdWmArcgB8Afzg%3A1607995029124&ei=lQ7YX6X-Bor_-gSo7rHIAg&q=1280%2F%282*tan%2873.5%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2873.5%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoECAAQR1D2HljILmDmPWgAcAJ4AIABywGIAZMEkgEFNC4wLjGYAQCgAQGqAQdnd3Mtd2l6yAEFwAEB&sclient=psy-ab&ved=0ahUKEwjlnIuk6M7tAhWKv54KHSh3DCkQ4dUDCA0&uact=5>`__
+For DepthAI, the HFOV of the the grayscale global shutter cameras is 71.9 degrees, so the focal length is
+
+.. code-block:: python
+
+  focal_length = 1280/(2*tan(71.9/2/180*pi)) = 882.5
+
+Calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk01DFgdNHlMBEkcIJdWmArcgB8Afzg%3A1607995029124&ei=lQ7YX6X-Bor_-gSo7rHIAg&q=1280%2F%282*tan%2871.9%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.9%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoECAAQR1D2HljILmDmPWgAcAJ4AIABywGIAZMEkgEFNC4wLjGYAQCgAQGqAQdnd3Mtd2l6yAEFwAEB&sclient=psy-ab&ved=0ahUKEwjlnIuk6M7tAhWKv54KHSh3DCkQ4dUDCA0&uact=5>`__
 (and for disparity depth data, the value is stored in :code:`uint16`, where 0 is a special value, meaning that distance is unknown.)
+
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Calculate-depth-using-dispairty-map>`__.
 
 How Does DepthAI Calculate Disparity Depth?
 *******************************************
@@ -687,9 +689,9 @@ For DepthAI units with onboard cameras, this works out to the following minimum 
 
 .. code-block:: python
 
-  min_distance = 857.06.15 * 0.09 / 96 = 0.803 # m
+  min_distance = 882.5 * 0.09 / 95 = 0.836 # m
 
-calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg9E4O1fSrB4IFp04AQw%3A1607995753791&ei=aRHYX57zL9P9-gTk5rmADA&q=857.06*.09%2F96&oq=857.06*.09%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CqJ1i8OmDlPGgAcAB4AIABX4gB9ASSAQE4mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwjey9H96s7tAhXTvp4KHWRzDsAQ4dUDCA0&uact=5>`__
+calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg9E4O1fSrB4IFp04AQw%3A1607995753791&ei=aRHYX57zL9P9-gTk5rmADA&q=882.5*.09%2F95&oq=882.5*.09%2F95&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CqJ1i8OmDlPGgAcAB4AIABX4gB9ASSAQE4mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwjey9H96s7tAhXTvp4KHWRzDsAQ4dUDCA0&uact=5>`__
 
 - `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is
   
@@ -699,9 +701,9 @@ calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg
 
 .. code-block:: python
 
-  min_distance = 857.06*.075/96 = 0.669 # m
+  min_distance = 882.5 * 0.075 / 95 = 0.697 # m
 
-calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03HLvlfCWau-bIGeYWJk_S6PBSnqw%3A1607995818683&ei=qhHYX4yeKZHr-gSv2JqoAw&q=857.06*.075%2F96&oq=857.06*.075%2F96&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CIFliUGmDvHGgAcAB4AIABUIgBrwKSAQE0mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwiMm8qc687tAhWRtZ4KHS-sBjUQ4dUDCA0&uact=5>`__
+calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk03HLvlfCWau-bIGeYWJk_S6PBSnqw%3A1607995818683&ei=qhHYX4yeKZHr-gSv2JqoAw&q=882.5*.075%2F95&oq=882.5*.075%2F95&gs_lcp=CgZwc3ktYWIQAzIECCMQJ1CIFliUGmDvHGgAcAB4AIABUIgBrwKSAQE0mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwiMm8qc687tAhWRtZ4KHS-sBjUQ4dUDCA0&uact=5>`__
 
 Stereo Neural Inference Mode
 ----------------------------
@@ -777,19 +779,21 @@ So if the object detector is not the limit, the maximum distance will be limited
 
 .. code-block:: python
 
-  Dm = (baseline/2) * tan_d((90 - HFOV / HPixels)*pi/2)
+  Dm = (baseline/2) * tan_d(90 - HFOV / HPixels)
 
-For DepthAI HFOV = 73.5(+/-0.5) degrees, and HPixels = 1280.  And for the OAK-D, the baseline is 7.5cm.
+For DepthAI HFOV = 71.9(+/-0.5) degrees, and HPixels = 1280.
 
 So using this formula for existing models the *theoretical* max distance is:
 
 - `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ (7.5cm baseline): 38.4 meters
 - `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__ (9cm baseline): 46 meters
-- Custom baseline: Dm = (baseline/2) * tan_d(90 - 73.5 / 1280)
+- Custom baseline: Dm = (baseline/2) * tan_d(90 - 71.9 / 1280)
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
 
 We also support subpixel depth mode, which extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
+
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Max-stereo-depth-distance>`__.
 
 .. _subpixel_disparity:
 
@@ -834,9 +838,11 @@ DepthAI does convert to depth onboard for both the :code:`depth` stream and also
 
 But we also allow the actual disparity results to be retrieved so that if you would like to use the disparity map directly, you can.
 
-To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, 4.0cm for `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__, and 9.0cm for `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__, and the focal length is :code:`883.15` (:code:`focal_length = 1280/(2*tan(73.5/2/180*pi)) = 857.06`) for all current DepthAI models.
+To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, 4.0cm for `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__, and 9.0cm for `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__, and the focal length is :code:`882.5` (:code:`focal_length = 1280/(2*tan(71.9/2/180*pi)) = 882.5`) for all current DepthAI models.
 
 So for example, for a `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 40 * 857.06 / 60 = 571 mm (0.571m)`).
+
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Calculate-depth-using-dispairty-map>`__.
 
 How Do I Display Multiple Streams?
 ##################################
@@ -1209,7 +1215,7 @@ Example of information pulled from a `OAK-D <https://docs.luxonis.com/projects/h
   EEPROM data: valid (v2)
     Board name     : BW1098OBC
     Board rev      : R0M0E0
-    HFOV L/R       : 73.5 deg
+    HFOV L/R       : 71.9 deg
     HFOV RGB       : 68.7938 deg
     L-R   distance : 7.5 cm
     L-RGB distance : 3.75 cm
@@ -1243,7 +1249,7 @@ What is the Field of View of OAK?
 OAK devices use the same 12MP RGB Camera module based on the IMX378.
 
 - 12MP RGB Horizontal Field of View (HFOV): 68.7938 deg
-- 1MP Global Shutter Grayscale Camera Horizontal Field of View (HFOV): 73.5 deg
+- 1MP Global Shutter Grayscale Camera Horizontal Field of View (HFOV): 71.9 deg
 
 How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
 ######################################################################
@@ -1490,7 +1496,7 @@ Specifications:
  - F-number (F.NO): 2.2 +/- 5%
  - Field of View (FOV):
    - Diagonal (DFOV): 82.6(+/-0.5) deg.
-   - Horizontal (HFOV): 73.5(+/-0.5) deg.
+   - Horizontal (HFOV): 71.9(+/-0.5) deg.
    - Vertical (VFOV): 50.0(+/-0.5) deg.
  - Distortion: < 1%
  - Lens Size: 1/4 inch
