@@ -685,7 +685,7 @@ Monocular Neural Inference fused with Stereo Depth Mode
 
 For DepthAI units with onboard cameras, this works out to the following minimum depths:
 
-- `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__ the minimum depth is **0.827** meters for full 1280x800 stereo resolution and  **0.414** meters for 640x400 stereo resolution:
+- `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__ the minimum depth is **0.836** meters for full 1280x800 stereo resolution and  **0.418** meters for 640x400 stereo resolution:
 
 .. code-block:: python
 
@@ -695,8 +695,8 @@ calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk00zuPUIqtKg
 
 - `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is
   
-  - **0.689** meters for standard disparity,
-  - **0.345** meters for Extended Disparity (191 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and
+  - **0.697** meters for standard disparity,
+  - **0.348** meters for Extended Disparity (191 pixel) at 1280x800 resolution or standard disparity at 640x400 resolution, and
   - **0.196** meters for Extended Disparity at 640x400 resolution (this distance is limited by the focal distance of the cameras on OAK-D)
 
 .. code-block:: python
@@ -787,7 +787,8 @@ So using this formula for existing models the *theoretical* max distance is:
 
 - `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ (7.5cm baseline): 38.4 meters
 - `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__ (9cm baseline): 46 meters
-- Custom baseline: Dm = (baseline/2) * tan_d(90 - 71.9 / 1280)
+- `OAK-D-IOT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (4cm baseline): 20.4 meters
+- `OAK-FFC-3P <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__ (Custom baseline): Dm = (baseline/2) * tan_d(90 - 71.9 / 1280)
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
 
