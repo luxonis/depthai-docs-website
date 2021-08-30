@@ -1781,11 +1781,11 @@ Brochures:
 **********
 
 - Editions Summary `here <https://drive.google.com/open?id=1z7QiCn6SF3Yx977oH41Kcq68Ay6e9h3_>`__
-- OAK-SoM (System on Module) `here <https://drive.google.com/open?id=1WQMhlh-5Z1YKm4u4i_SVPKxRwgPlfNr8>`__
-- OAK-FFC-3P-OG (USB3 Modular Cameras Edition) `here <https://drive.google.com/open?id=1-OWgbJvrdlzRVKtnXDdVKLL9Oba5Nhx3>`__
-- OAK-D-PCBA `here <https://drive.google.com/open?id=1g0bQDLNnpVC_1-AGaPmC8BaXtGaNNdTR>`__
-- OAK-D-CM3 (Raspberry Pi Compute Edition Module) `here <https://drive.google.com/open?id=1QmPQ58NkaxO_Tz1Uzj9LlZcsyZ4Vw7hi>`__
-- Raspberry Pi HAT (BW1094) `here <https://drive.google.com/open?id=1QrpV8GXMevqj_ikDJVpaJioXM8axdUEJ>`__
+- OAK-SoM (System on Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099_Datasheet.pdf>`__
+- OAK-FFC-3P-OG (USB3 Modular Cameras Edition) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098FFC_DepthAI_USB3/BW1098FFC_Datasheet.pdf>`__
+- OAK-D-PCBA `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098OBC_DepthAI_USB3C/BW1098OBC_Datasheet.pdf>`__
+- OAK-D-CM3 (Raspberry Pi Compute Edition Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1097_DepthAI_Compute_Module/BW1097_Datasheet.pdf>`__
+- Raspberry Pi HAT (BW1094) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1094_DepthAI_HAT/BW1094_Datasheet.pdf>`__
 - OAK-1 `here <https://drive.google.com/open?id=1ji3K_Q3XdExdID94rHVSL7MvAV2bwKC9>`__
 
 Datasheets:
