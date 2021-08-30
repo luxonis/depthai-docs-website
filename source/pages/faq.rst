@@ -146,7 +146,7 @@ The maximum resolution for the depthai depth map is 1280x800 (1MP), with either 
 #. Subpixel Disparity (32 sub-pixel steps), :ref:`here <subpixel_disparity>`, 1280x800 or 640x400, 96 depth steps * 32 subpixel depth steps = 3,072 depth steps.
 #. LR-Check Disparity, :ref:`here <lrcheck_disparity>`: 1280x800, with disparity run in both directions for allowing recentering of the depth.
 
-(see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below
+(see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below)
 
 .. _stereo_inference:
 
@@ -214,7 +214,7 @@ What is the Gen2 Pipeline Builder?
 UPDATE: The Gen2 Pipeline Builder is now the standard release of DepthAI.
 This Gen2 API system was architected to be next-generation software suite for DepthAI and OAK.  All DepthAI and OAK hardware work with Gen1 and Gen2 software, as Gen2 is purely a software re-write, no hardware changes.
 Gen2 is infinitely more flexible, and is the result of all that we learned from the customer deployments of Gen1.
-Amassing all the requests and need for flexibility from user of Gen1, we made Gen2.
+Amassing all the requests and need for flexibility from users of Gen1, we made Gen2.
 In short, Gen2 allows theoretically-infinite permutations of parallel and series CV + AI (neural inference) nodes,
 limited only by hardware capabilities, whereas Gen1 was limited for example to 2-series and 2-parallel neural inference.
 Full background on the Gen2 Pipeline Builder is `here <https://github.com/luxonis/depthai/issues/136>`__.
@@ -260,7 +260,7 @@ Below is a quick/dirty summary for the ~10,000-foot view of the options:
   this one has a built-in Raspberry Pi Compute Module 4. So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
 
 - **Embedded with WiFi/BT** (`OAK-D-IoT-40 <https://shop.luxonis.com/products/bw1092>`__ and `OAK-D-IoT-75 <https://shop.luxonis.com/collections/iot/products/oak-d-iot-75>`__) - We have two models that have additional 128MB NOR flash, so they can boot
-  on their own out of the NOR flash, and not host needs to be present to run. In contrast, the `OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__ can also run on its own,
+  on their own out of the NOR flash, and no host needs to be present to run. In contrast, the `OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__ can also run on its own,
   but it is still booting over USB from the Raspberry Pi. On OAK-D-IoT-40 and OAK-D-IoT-75, the Myriad X can run completely standalone and with no other devices.
   The built-in ESP32 then provides easy/convenient WiFi/BT support (:ref:`more info here <Getting started with OAK IoT devices>`) as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
 
@@ -460,7 +460,7 @@ In this case, DepthAI can be used in two modalities:
 Use-Case 2: Using DepthAI with a MicroController like ESP32, ATTiny8, etc.
 **************************************************************************
 
-In this case, DepthAI boot off of internal flash on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  
+In this case, DepthAI boots off of internal flash on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  
 We even have an embedded reference design for ESP32 (`OAK-D-IoT-40 (BW1092) <https://github.com/luxonis/depthai-hardware/issues/10>`__) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092>`__.  
 And it's open-source! You can check design files `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__.
 
@@ -657,7 +657,7 @@ What Disparity Depth Modes are Supported?
 Stereo Neural Inference
 ***********************
 
-In this mode, the neural inference (object detection, landmark detection, etc.) is run on the left *and* right cameras to produce stereo inference results.  Unlike monocular neural inference fused with stereo depth - there is no max disparity search limit - so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the stereo cameras themselves and (b) the hyperfocal distance of the cameras.
+In this mode, the neural inference (object detection, landmark detection, etc.) is run on the left **and** right cameras to produce stereo inference results.  Unlike monocular neural inference fused with stereo depth - there is no max disparity search limit - so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the stereo cameras themselves and (b) the hyperfocal distance of the cameras.
 
 The hyperfocal distance of the global shutter synchronized stereo pair is 19.6cm.  So objects closer than 19.6cm will appear out of focus.  This is
 effectively the minimum distance for this mode of operation, as in most cases (except for very wide stereo baselines with the `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__),
@@ -792,7 +792,7 @@ So using this formula for existing models the *theoretical* max distance is:
 
 But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
 
-We also support subpixel depth mode, which extend this theoretical max, but again this will likely not be the -actual- limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
+We also support subpixel depth mode, which extend this theoretical max, but again this will likely not be the **actual** limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
 
 For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Max-stereo-depth-distance>`__.
 
@@ -886,7 +886,7 @@ This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as
 How Do I Limit The FrameRate Per Stream?
 ########################################
 
-So the simple way to select streams is to just use the :code:`-s` option.  But in some cases (say when you have a slow host or only USB2 connection -and- you want to display a lot of streams) it may be necessary to limit the frame rate of streams to not overwhelm the host/USB2 with too much data.
+So the simple way to select streams is to just use the :code:`-s` option.  But in some cases (say when you have a slow host or only USB2 connection **and** you want to display a lot of streams) it may be necessary to limit the frame rate of streams to not overwhelm the host/USB2 with too much data.
 
 So to set streams to a specific frame rate to reduce the USB2 load and host load, simply specify the stream with :code:`-s streamname` with a comma and FPS after the stream name like :code:`-s streamname,FPS`.
 
@@ -1147,7 +1147,7 @@ Theoretically we can implement support for 3 UVC endpoints (so showing up as 3 U
 We've prototyped 2x w/ internal proof of concept (but grayscale) but have not yet tried 3 but it would probably work.
 We could support a UVC stream per camera if it is of interest.
 
-So if you would like this functionality please feel subscribe to the Github feature request `here <https://github.com/luxonis/depthai/issues/283>`__.
+So if you would like this functionality please feel free to subscribe to the Github feature request `here <https://github.com/luxonis/depthai/issues/283>`__.
 
 And in the meantime, if you would like to use depthai as a standard UVC camera, it is possible to use V4L2 loopback device (and some users have informed 
 us that they have done so), but linking the output of the depthai API config into this loopback device on the host.  
@@ -1200,7 +1200,7 @@ What Information is Stored on the DepthAI Boards
 ################################################
 
 Initial Crowd Supply backers received boards which had literally nothing stored on them.  All information was loaded
-from the host to the board.  This includes the `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__), which had the calibration stored on the included microSD card.
+from the host to the board.  This includes the `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__, which had the calibration stored on the included microSD card.
 
 So each hardware model which has stereo cameras (e.g. `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__,
 `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__, `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, and
@@ -1479,7 +1479,7 @@ Exposure (AE)
 It is possible to set frame duration (us), exposure time (us), sensitivity (iso) via the API.  And we have a small example for the color camera to show how to do this for the color camera, which is here:
 https://github.com/luxonis/depthai/pull/279
 
-We have now made the Exposure commands more self-documenting per `here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/>`__ for controlling exposure, and setting auto or manual for exposure.
+We have now made the Exposure commands more self-documenting (`here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/>`__ for controlling exposure, and setting auto or manual for exposure.
 
 
 White Balance (AWB)
@@ -1519,7 +1519,7 @@ the ArduCam M12 or CS mount series of OV9281 and/or IMX477 modules.
  - `IMX477 CS-Mount <https://www.arducam.com/product/b0242-arducam-imx477-hq-camera/>`__
  - `OV9281 M12-Mount <https://www.arducam.com/product/ov9281-mipi-1mp-monochrome-global-shutter-camera-module-m12-mount-lens-raspberry-pi/>`__
 
-Note that these are require an adapter (`here <https://shop.luxonis.com/collections/all/products/rpi-hq-camera-imx477-adapter-kit>`__), and :ref:`below <rpi_hq>` and this adapter connects to the RGB port of the `DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__.  
+Note that these require an adapter (`here <https://shop.luxonis.com/collections/all/products/rpi-hq-camera-imx477-adapter-kit>`__), and :ref:`below <rpi_hq>` and this adapter connects to the RGB port of the `DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__.  
 It is possible to make other adapters such that more than one of these cameras could be used at a time, or to modify the `open-source OAK-FFC-3P-OG <https://github.com/luxonis/depthai-hardware/tree/master/BW1098FFC_DepthAI_USB3>`__ to accept the ArduCam FFC directly, but these have not yet been made.
 
 That said, we have seen users attach the same sort of optics that they would to smartphones to widen field of view, zoom, etc. 
@@ -1595,7 +1595,7 @@ For more info, please see :ref:`Converting model to MyriadX blob`
 Can I Use DepthAI with the New Raspberry Pi HQ Camera?
 ######################################################
 
-OAK-FFC-3P-OG model `here <https://shop.luxonis.com/products/depthai-usb3-edition>`__) also works via an adapter board with the Raspberry Pi HQ camera (IMX477 based), which then does work with a ton of C- and CS-mount
+OAK-FFC-3P-OG model (`here <https://shop.luxonis.com/products/depthai-usb3-edition>`__) also works via an adapter board with the Raspberry Pi HQ camera (IMX477 based), which then does work with a ton of C- and CS-mount
 lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`__).
 And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`__ for the adapter board for OAK-FFC-3P-OG.
 
