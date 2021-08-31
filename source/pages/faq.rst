@@ -383,7 +383,7 @@ No.
 That's the beauty of DepthAI. It takes standard object detectors (2D, pixel space) and fuses these neural networks with stereo disparity depth to give you 3D results in physical space.
 
 Now, could you train a model to take advantage of depth information?  Yes, and it would likely be even more accurate than the 2D version. To do so, record all the streams (left, right, and color) and
-retrain on all of those (which would require modifying the front-end of say MobileNet-SSD to allow 5 layers instead of 3 (1 for each grayscale, 3 for the color R, G, B).
+retrain on all of those (which would require modifying the front-end of say MobileNet-SSD to allow 5 layers instead of 3 (1 for each grayscale, 3 for the color R, G, B)).
 
 If I train my own network, which Neural Operations are supported by DepthAI?
 ############################################################################
@@ -421,7 +421,7 @@ Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>
 Can DepthAI do Arbitrary Crop, Resize, Thumbnail, etc.?
 #######################################################
 
-Yes, see `here <https://github.com/luxonis/depthai-python/blob/main/examples/14_color_camera_control.py>`__ for ane example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
+Yes, see `here <https://docs.luxonis.com/projects/api/en/latest/samples/rgb_camera_control/#rgb-camera-control>`__ for an example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
 
 Can DepthAI Run Custom CV Code?  Say CV Code From PyTorch?
 ##########################################################
@@ -848,22 +848,21 @@ For more information see the `StereoDepth documentation <https://docs.luxonis.co
 How Do I Display Multiple Streams?
 ##################################
 
-To specify which streams you would like displayed, use the :code:`-s` option.  For example for metadata (e.g. bounding box results from an object detector), the color stream (:code:`previewout`), and for depth results (:code:`depth`), use the following command:
+To specify which streams you would like displayed, use the :code:`-s` option.  For example for the raw disparity map (:code:`disparity`), and for depth results (:code:`depth`), use the following command:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -s metaout previewout depth
+  python3 depthai_demo.py -s disparity depth
 
 
 The available streams are:
-  - :code:`metaout` - Meta data results from the neural network
   - :code:`previewout` - Small preview stream from the color camera
   - :code:`color` - 4K color camera, biggest camera on the board with lens
   - :code:`left` - Left grayscale camera (marked `L` or `LEFT` on the board)
   - :code:`right` - Right grayscale camera (marked `R` or `RIGHT` on the board)
   - :code:`rectified_left` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ left camera frames
   - :code:`rectified_right` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ right camera frames
-  - :code:`depth` - Depth in `uint16` (see `here <https://docs.luxonis.com/faq/-what-are-the-minimum-and-maximum-depth-visible-by-depthai>`__ for the format.
+  - :code:`depth` - Depth in `uint16`
   - :code:`disparity` - Raw disparity
   - :code:`disparity_color` - Disparity colorized on the host (:code:`JET` colorized visualization of depth)
   - :code:`meta_d2h` - Device die temperature (max temp should be < 105C)
@@ -906,16 +905,6 @@ It's worth noting that the frame rate limiting works best for lower rates.  So i
 
 Specifying no limit will default to 30FPS.
 
-One can also use the following override command structure, which allows you to set the frame rate per stream.
-
-The following example sets the :code:`depth` stream to 8 FPS and the :code:`previewout` to 12 FPS:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -co '{"streams": [{"name": "depth", "max_fps": 8.0},{"name": "previewout", "max_fps": 12.0}]}'
-
-You can pick/choose whatever streams you want, and their frame rate, by pasting in additional :code:`{"name": "streamname", "max_fps": FPS}` into the expression above.
-
 How do I Synchronize Streams and/or Meta Data (Neural Inference Results)
 ########################################################################
 
@@ -957,7 +946,7 @@ The timestamp corresponds to the moment the frames are captured from the camera,
 
 Also, the left and right cameras will both have the same sequence number (timestamps will not be precisely the same, but few microseconds apart -- that's because the timestamp is assigned separately to each from different interrupt handlers. But the cameras are started at the same time using an I2C broadcast write, and also use the same MCLK source, so shouldn't drift).
 
-In this case we also need to check the camera source of the NN and Data packets. Currently, depthai.py uses getMetadata().getCameraName() for this purpose, that returns a string: :code:`rgb`, :code:`left` or :code:`right` .
+In this case we also need to check the camera source of the NN and Data packets. Currently, `depthai.py` uses :code:`getMetadata().getCameraName()` for this purpose, that returns a string: :code:`rgb`, :code:`left` or :code:`right` .
 
 It is also possible to use :code:`getMetadata().getInstanceNum()`, that returns a number: 0, 1 or 2 , respectively.
 
@@ -966,12 +955,11 @@ How do I Record (or Encode) Video with DepthAI?
 
 DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai_demo.py` script shows and example of how to access this functionality.
 
-In Gen2 (current main line), see our encoding examples:
+See our encoding examples for Gen2 (current main line), which uses `VideoEncoder node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/video_encoder/>`__:
 
  - RGB and Mono Encoding in parallel with MobileNetSSDv2, `here <https://docs.luxonis.com/projects/api/en/latest/samples/11_rgb_encoding_mono_mobilenet/>`__.
  - RGB and Mono Encoding in parallel with MobileNetSSDv2 and stereo depth, `here <https://docs.luxonis.com/projects/api/en/latest/samples/12_rgb_encoding_mono_mobilenet_depth/>`__.
  - RGB, and both left/right camera encoding at maximum resolution and frame-rate, `here <https://docs.luxonis.com/projects/api/en/latest/samples/13_encoding_max_limit/>`__.
-
 
 Alternatively, to leverage this functionality from the depthai_demo.py (Gen1 API) command line, use the `-v` (or `--video`) command line argument as below:
 
@@ -1409,7 +1397,7 @@ The allocated resources can be printed with :code:`DEPTHAI_LEVEL` environment va
  - [system] [info] SpatialCalculator allocated resources: shaves: [14-14] no cmx slices.
 
 - :code:`ImageManip` node requires 80640+19456 bytes of CMX memory and shave 15.
-- :code:`SpatialLocationCalculator` node (used by :code:`SpatialDetectionNetwork` requires 11264 bytes of CMX memory and shave 15.
+- :code:`SpatialLocationCalculator` node (used by :code:`SpatialDetectionNetwork` requires 11264 bytes of CMX memory and shave 15).
 - :code:`SIPP (Signal Image Processing Pipeline)` requires 143360 bytes of CMX memory, which is used by stereo node, camera ISP.
 - :code:`NeuralNetwork` takes shaves [0-12] and cmx slices [0-12].
 - :code:`ColorCamera` takes cmx slices [13-15], a total of 3 at 1080p. At 4k/12MP it requires 6 slices.
@@ -1757,7 +1745,7 @@ And a note on building for **Windows**: Windows does not use `libusb`, but rathe
 Can I Use an IMU With DepthAI?
 ##############################
 
-Yes, all of our System on Modules (`OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__), OAK-SoM-IoT, and `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__) have support for the BNO086 (and BNO080/BNO085) IMU.  
+Yes, all of our System on Modules (`OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__, OAK-SoM-IoT, and `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__) have support for the BNO086 (and BNO080/BNO085) IMU.  
 And `OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__, `OAK-D-IoT-40 <https://shop.luxonis.com/collections/all/products/bw1092>`__, `OAK-FFC-3P <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__, `OAK-D-IoT-75 <https://github.com/luxonis/depthai-hardware/tree/master/DM1098OBC_DepthAI_USB3C_WIFI>`__, `OAK-D-PoE <https://shop.luxonis.com/collections/poe/products/oak-d-poe>`__ all have an integrated IMU onboard.  
 
 Can I Use Microphones with DepthAI?
@@ -1770,7 +1758,7 @@ Yes.
  - It is important to note that the `OAK-SoM <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1099.html>`__ and OAK-SoM-IoT do not have I2S support.
 
 We have tested audio input on the `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__ using 3x `CMM-4030D-261-I2S-TR <https://www.cuidevices.com/product/audio/microphones/mems-microphones/cmm-4030d-261-i2s-tr>`__ and have found the audio quality to be good.  
-Theoretically many other microphones should work, however. We have not tested audio output.
+Theoretically many other microphones should work, however we have not tested audio output.
 
 Where are Product Brochures and/or Datasheets?
 ##############################################
