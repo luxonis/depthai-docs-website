@@ -1590,10 +1590,8 @@ Note! You'll need to know the PCI ID of the USB host controller to replace the "
 How Do I Get Shorter or Longer Flexible Flat Cables (FFC)?
 ##########################################################
 
-For all cameras we use a 0.5mm 26-pin, same-side contact flex cable.
-
-One can purchase Molex's 15166 series FFCs directly to support shorter or longer lengths.
-Make sure you get **same-side** contacts, Molex calls this "**Type A**"
+For all cameras we use a 0.5mm 26-pin, same-side 152 mm contact flex cable.
+Follow the `link <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html#ffc-cables>`__ for more details.
 
 What are CSS MSS UPA and DSS Returned By meta_d2h?
 ##################################################
