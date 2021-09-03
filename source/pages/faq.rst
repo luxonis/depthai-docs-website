@@ -834,7 +834,7 @@ But we also allow the actual disparity results to be retrieved so that if you wo
 
 To calculate the depth map from the disparity map, it is (approximately) :code:`depth = focal_length_in_pixels * baseline / disparity_in_pixels`.  Where the baseline is 7.5cm for `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, 4.0cm for `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__, and 9.0cm for `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__, and the focal_length_in_pixels is :code:`882.5` (:code:`focal_length = 1280 * 0.5 / tan(71.9 * 0.5 * PI / 180) = 882.5`) for all current DepthAI models.
 
-So for example, for a `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 857.06 * 40 / 60 = 571 mm (0.571m)`).
+So for example, for a `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 882.5 * 40mm / 60 = 588 mm (0.588m)`).
 
 For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#calculate-depth-using-dispairty-map>`__.
 
