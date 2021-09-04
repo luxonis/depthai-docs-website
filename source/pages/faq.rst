@@ -587,7 +587,7 @@ This can be cut in 1/2 and 1/4 with the following options:
 
 See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
 
-For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Min-stereo-depth-distance>`__.
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#min-stereo-depth-distance>`__.
 
 
 .. _mindepths:
