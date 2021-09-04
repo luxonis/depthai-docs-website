@@ -22,7 +22,7 @@ This formula implements the maximum of the HFOV-imposed minimum distance, and 19
 Demo
 ****
 
-.. image:: /_static/gifs/stereo_inference.gif
+.. image:: https://user-images.githubusercontent.com/59799831/132098832-70a2d0b9-1a30-4994-8dad-dc880a803fb3.gif
   :target: https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation
   :alt: Triangulation Demo
 
