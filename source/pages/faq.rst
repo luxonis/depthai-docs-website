@@ -572,6 +572,23 @@ Yes.
 
 The full designs (including source Altium files) for all the carrier boards are in our `depthai-hardware <https://github.com/luxonis/depthai-hardware>`__ Github.
 
+How to enable depthai to perceive closer distances
+##################################################
+
+If the depth results for close-in objects look weird, this is likely because they are below the minimum depth-perception distance of OAK-D.
+
+For OAK-D, the standard-settings minimum depth is around 70cm.
+
+This can be cut in 1/2 and 1/4 with the following options:
+
+1. Change the resolution to 640x400, instead of the standard 1280x800.
+
+2. Enable Extended Disparity.
+
+See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
+
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Min-stereo-depth-distance>`__.
+
 
 .. _mindepths:
 
