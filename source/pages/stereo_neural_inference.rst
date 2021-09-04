@@ -19,6 +19,13 @@ Accordingly, to calculate the minimum distance for this mode of operation, use t
 
 This formula implements the maximum of the HFOV-imposed minimum distance, and 19.6cm, which is the hyperfocal-distance-imposed minimum distance.
 
-We have a `gen2-triangulation demo <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__  that performs the stereo neural interface.
+Demo
+****
+
+.. image:: /_static/gifs/stereo_inference.gif
+  :target: https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation
+  :alt: Triangulation Demo
+
+For more infromation check out the `gen2-triangulation demo <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__  that performs the stereo neural interface.
 
 .. include::  /pages/includes/footer-short.rst
