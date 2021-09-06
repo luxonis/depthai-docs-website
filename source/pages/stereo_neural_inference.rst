@@ -11,7 +11,7 @@ will be fully out of the field of view of both grayscale cameras when less than 
 (marked **M** on the picture below) from the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm, marked as **Y**),
 so the actual minimum depth is this hyperfocal distance.
 
-.. image:: https://user-images.githubusercontent.com/59799831/132247970-be954848-1f83-4097-af96-960eaf8df720.jpeg
+.. image:: https://user-images.githubusercontent.com/59799831/132250213-661fb1de-e5ae-4640-b28a-8e2742919079.jpeg
   :alt: Minimum perceiving distance
 
 Accordingly, to calculate the minimum distance for this mode of operation, use the following formula:
