@@ -8,8 +8,11 @@ effectively the minimum distance for this mode of operation, as in most cases (e
 this **effective** minimum distance is higher than the **actual** minimum distance as a result of the stereo camera field of views. For example, the objects 
 will be fully out of the field of view of both grayscale cameras when less than `5.25cm
 <https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`__
-from the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm),
+(marked **M** on the picture below) from the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm, marked as **Y**),
 so the actual minimum depth is this hyperfocal distance.
+
+.. image:: https://user-images.githubusercontent.com/59799831/132247970-be954848-1f83-4097-af96-960eaf8df720.jpeg
+  :alt: Minimum perceiving distance
 
 Accordingly, to calculate the minimum distance for this mode of operation, use the following formula:
 
