@@ -572,9 +572,6 @@ Yes.
 
 The full designs (including source Altium files) for all the carrier boards are in our `depthai-hardware <https://github.com/luxonis/depthai-hardware>`__ Github.
 
-
-.. _mindepths:
-
 How to enable depthai to perceive closer distances
 ##################################################
 
@@ -586,15 +583,15 @@ This can be cut in 1/2 and 1/4 with the following options:
 
 1. Change the resolution to 640x400, instead of the standard 1280x800.
 
-Since the disparity-search of 96 is what limits the minimum depth, this means the minimum depth is now 1/2 of standard settings - 35cm instead of 70cm.  To do this with the example script, run `python3 depthai_demo.py -monor 400 -s previewout metaout depth -bb`.  In Gen1 software, this is the only option.  But in Gen2, Extended Disparity can again cut this min depth in 1/2.
-
 2. Enable Extended Disparity.
-
-This extends the disparity search to 191 pixels from the standard 96 pixels, thereby 1/2-ing the minimum depth, so making the minimum depth for OAK-D 35cm for 1280x800 resolution and around 19.6cm (limited by the focal distance of the grayscale cameras) for 640x400 resolution.
 
 See `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
 
-For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Min-stereo-depth-distance>`__.
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#min-stereo-depth-distance>`__.
+
+
+.. _mindepths:
+
 
 What are the Minimum Depths Visible by DepthAI?
 ###############################################
@@ -607,52 +604,51 @@ There are two ways to use DepthAI for 3D object detection and/or using neural in
 Monocular Neural Inference fused with Stereo Depth
 **************************************************
 
-OAK-D:
+In this mode, the AI (object detection) is run on the left, right, or RGB camera, and the results are fused with stereo disparity depth, based on semi global matching (SGBM).  The minimum depth is limited by the maximum disparity search, which is by default 96, but is extendable to 191 in extended disparity modes (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below).
+
+To calculate the minimum distance in this mode, use the following formula:
+
+.. code-block:: python
+
+  min_distance = focal_length_in_pixels * base_line_dist / max_disparity_in_pixels
+
+Where the focal_length_in_pixels is (HFOV of the grayscale global shutter cameras is 71.9 degrees):
+
+.. code-block:: python
+
+  focal_length_in_pixels = 1280 * 0.5 / tan(71.9 * 0.5 * PI / 180) = 882.5
+
+Calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk01DFgdNHlMBEkcIJdWmArcgB8Afzg%3A1607995029124&ei=lQ7YX6X-Bor_-gSo7rHIAg&q=1280%2F%282*tan%2871.9%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.9%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoECAAQR1D2HljILmDmPWgAcAJ4AIABywGIAZMEkgEFNC4wLjGYAQCgAQGqAQdnd3Mtd2l6yAEFwAEB&sclient=psy-ab&ved=0ahUKEwjlnIuk6M7tAhWKv54KHSh3DCkQ4dUDCA0&uact=5>`__
+(and for disparity depth data, the value is stored in :code:`uint16`, where 0 is a special value, meaning that distance is unknown.)
+
+By using the formula above with the default settings of OAK-D (base_line_dist = **7.5cm**, max_disparity_in_pixels = **95**), we get:
+
+.. code-block:: python
+
+  min_distance = 882.5 * 7.5cm / 95 = 69.67cm
+
+Note that this distance can be halved by either:
+
+- Changing the resolution to 640x400, instead of the standard 1280x800.
+
+- Enabling Extended Disparity - see `these examples <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#real-time-depth-from-depthai-stereo-pair>`__ for how to enable Extended Disparity.
+
+Extended disparity mode sets the max_disparity_in_pixels to **190**, thus the min_distance for the above OAK-D example is:
+
+.. code-block:: python
+
+  min_distance = 882.5 * 7.5cm / 190 = 34.84cm
+
+Note that applying both options is possible, but at such short distances, the minimum distance is limited by focal length, which is 19.6cm, so minumum distance cannot be lower than 19.6cm.
+
+Calculation examples for OAK-D:
 
 - ~ 70cm with standard disparity (1280x800 resolution)
 - ~ 35cm with extended disparity (1280x800 resolution)
 - ~ 35cm with 640x400 resolution
 - ~ 19.6cm with extended disparity and 640x400 resolution
 
-In this mode, the AI (object detection) is run on the left, right, or RGB camera, and the results are fused with stereo disparity depth, based on semi global matching (SGBM).  The minimum depth is limited by the maximum disparity search, which is by default 96, but is extendable to 191 in extended disparity modes (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below).
-
-To calculate the minimum distance in this mode, use the following formula, where base_line_dist and min_distance are in meters [m]:
-
-.. code-block:: python
-
-  min_distance = focal_length * base_line_dist / 95
-
-Where 95 is the standard maximum disparity search used by DepthAI and so for extended disparity (191 pixels), the minimum distance is:
-
-.. code-block:: python
-
-  min_distance = focal_length * base_line_dist / 190
-
-For DepthAI, the HFOV of the the grayscale global shutter cameras is 71.9 degrees, so the focal length is
-
-.. code-block:: python
-
-  focal_length = 1280/(2*tan(71.9/2/180*pi)) = 882.5
-
-Calculation `here <https://www.google.com/search?safe=off&sxsrf=ALeKk01DFgdNHlMBEkcIJdWmArcgB8Afzg%3A1607995029124&ei=lQ7YX6X-Bor_-gSo7rHIAg&q=1280%2F%282*tan%2871.9%2F2%2F180*pi%29%29&oq=1280%2F%282*tan%2871.9%2F2%2F180*pi%29%29&gs_lcp=CgZwc3ktYWIQAzIECCMQJzoECAAQR1D2HljILmDmPWgAcAJ4AIABywGIAZMEkgEFNC4wLjGYAQCgAQGqAQdnd3Mtd2l6yAEFwAEB&sclient=psy-ab&ved=0ahUKEwjlnIuk6M7tAhWKv54KHSh3DCkQ4dUDCA0&uact=5>`__
-(and for disparity depth data, the value is stored in :code:`uint16`, where 0 is a special value, meaning that distance is unknown.)
-
-For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Calculate-depth-using-dispairty-map>`__.
-
-How Does DepthAI Calculate Disparity Depth?
-*******************************************
-
-DepthAI makes use of a combination of hardware-blocks (a semi-global-matching disparity (SGBM) hardware block) as well as accelerated vector processing code in the SHAVES of the Myriad X to produce the disparity depth.  This block is accessible via the Gen2 Pipeline Builder system, with an example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
-
-The SGBM hardware-block can process up to 1280x800 pixels, this is its hardware limit.  Using higher-resolution sensors is technically possible via downscaling.  So for example, using the 12MP color camera with the 1280x800 grayscale camera is possible (and has been prototyped by some users with the Gen2 pipeline builder).  Or 2x 12MP image sensors could be used for depth (theoretically).  But in both cases, the image data needs to be either decimated down to 1280x800, or converted in some other way (e.g. selectively cropped/windowed).
-
-What Disparity Depth Modes are Supported?
-*****************************************
-
-#. Default (96-pixel disparity search)
-#. Extended Disparity (191-pixel disparity search), :ref:`here <extended_disparity>`
-#. Subpixel Disparity (32 sub-pixel steps), :ref:`here <subpixel_disparity>`
-#. LR-Check Disparity, :ref:`here <lrcheck_disparity>`
+For a more detailed explanation refer to the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#min-stereo-depth-distance>`__.
 
 Stereo Neural Inference
 ***********************
@@ -664,14 +660,14 @@ effectively the minimum distance for this mode of operation, as in most cases (e
 this **effective** minimum distance is higher than the **actual** minimum distance as a result of the stereo camera field of views. For example, the objects 
 will be fully out of the field of view of both grayscale cameras when less than `5.25cm
 <https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`__
-from the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__), but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm),
+from the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm),
 so the actual minimum depth is this hyperfocal distance.
 
 Accordingly, to calculate the minimum distance for this mode of operation, use the following formula:
 
 .. code-block:: python
 
-  min_distance = max(tan((90-HFOV/2)*pi/2)*base_line_dist/2, 19.6)
+  min_distance = max(tan((90 - HFOV/2) * pi/2) * base_line_dist/2, 19.6)
 
 This formula implements the maximum of the HFOV-imposed minimum distance, and 19.6cm, which is the hyperfocal-distance-imposed minimum distance.
 
@@ -794,7 +790,7 @@ But these theoretical maximums are not achievable in the real-world, as the disp
 
 We also support subpixel depth mode, which extend this theoretical max, but again this will likely not be the **actual** limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
 
-For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Max-stereo-depth-distance>`__.
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#max-stereo-depth-distance>`__.
 
 .. _subpixel_disparity:
 
@@ -822,15 +818,29 @@ Subpixel Disparity (3,072 depth steps):
 
 To run Subpixel on DepthAI/OAK, use the example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
 
+How Does DepthAI Calculate Disparity Depth?
+###########################################
+
+DepthAI makes use of a combination of hardware-blocks (a semi-global-matching disparity (SGBM) hardware block) as well as accelerated vector processing code in the SHAVES of the Myriad X to produce the disparity depth.  This block is accessible via the Gen2 Pipeline Builder system, with an example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
+
+The SGBM hardware-block can process up to 1280x800 pixels, this is its hardware limit.  Using higher-resolution sensors is technically possible via downscaling.  So for example, using the 12MP color camera with the 1280x800 grayscale camera is possible (and has been prototyped by some users with the Gen2 pipeline builder).  Or 2x 12MP image sensors could be used for depth (theoretically).  But in both cases, the image data needs to be either decimated down to 1280x800, or converted in some other way (e.g. selectively cropped/windowed).
 
 What Is the Format of the Depth Data in depth stream?
-#####################################################
+*****************************************************
 
 The output array is in uint16, so 0 to 65,535 with direct mapping to millimeters (mm).
 
 So a value of 3,141 in the array is 3,141 mm, or 3.141 meters.  So this whole array is the z-dimension of each pixel off of the camera plane, where the :code:`center of the universe` is the camera marked :code:`RIGHT`.
 
 And the specific value of 65,535 is a special value, meaning an invalid disparity/depth result.
+
+What Disparity Depth Modes are Supported?
+*****************************************
+
+#. Default (96-pixel disparity search)
+#. Extended Disparity (191-pixel disparity search), :ref:`here <extended_disparity>`
+#. Subpixel Disparity (32 sub-pixel steps), :ref:`here <subpixel_disparity>`
+#. LR-Check Disparity, :ref:`here <lrcheck_disparity>`
 
 How Do I Calculate Depth from Disparity?
 ########################################
@@ -839,11 +849,11 @@ DepthAI does convert to depth onboard for both the :code:`depth` stream and also
 
 But we also allow the actual disparity results to be retrieved so that if you would like to use the disparity map directly, you can.
 
-To calculate the depth map from the disparity map, it is (approximately) :code:`baseline * focal / disparity`.  Where the baseline is 7.5cm for `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, 4.0cm for `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__, and 9.0cm for `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__, and the focal length is :code:`882.5` (:code:`focal_length = 1280/(2*tan(71.9/2/180*pi)) = 882.5`) for all current DepthAI models.
+To calculate the depth map from the disparity map, it is (approximately) :code:`depth = focal_length_in_pixels * baseline / disparity_in_pixels`.  Where the baseline is 7.5cm for `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, 4.0cm for `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__, and 9.0cm for `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__, and the focal_length_in_pixels is :code:`882.5` (:code:`focal_length = 1280 * 0.5 / tan(71.9 * 0.5 * PI / 180) = 882.5`) for all current DepthAI models.
 
-So for example, for a `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 40 * 857.06 / 60 = 571 mm (0.571m)`).
+So for example, for a `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 882.5 * 40mm / 60 = 588 mm (0.588m)`).
 
-For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#Calculate-depth-using-dispairty-map>`__.
+For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#calculate-depth-using-dispairty-map>`__.
 
 How Do I Display Multiple Streams?
 ##################################

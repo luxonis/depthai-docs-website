@@ -606,4 +606,6 @@ Ecosystem
    pages/troubleshooting.rst
    pages/training.rst
    pages/slam_oak.rst
+   pages/stereo_neural_inference.rst
+   pages/oak_on_drones.rst
    pages/education.rst
