@@ -1776,7 +1776,7 @@ Brochures:
 **********
 
 - Editions Summary `here <https://drive.google.com/open?id=1z7QiCn6SF3Yx977oH41Kcq68Ay6e9h3_>`__
-- OAK-SoM (System on Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099_Datasheet.pdf>`__
+- OAK-SoM (System on Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM/BW1099_Brochure.pdf>`__
 - OAK-FFC-3P-OG (USB3 Modular Cameras Edition) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098FFC_DepthAI_USB3/BW1098FFC_Datasheet.pdf>`__
 - OAK-D-PCBA `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098OBC_DepthAI_USB3C/BW1098OBC_Datasheet.pdf>`__
 - OAK-D-CM3 (Raspberry Pi Compute Edition Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1097_DepthAI_Compute_Module/BW1097_Datasheet.pdf>`__
