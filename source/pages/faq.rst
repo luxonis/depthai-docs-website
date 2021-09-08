@@ -1786,7 +1786,7 @@ Brochures:
 Datasheets:
 ***********
 
-- DepthAI System on Module (OAK-SoM) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM/OAK-SOM_Datasheet.pdf>`__
+- DepthAI System on Module (OAK-SoM) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM/BW1099_Brochure.pdf>`__
 - DepthAI System on Module Pro (OAK-SoM-Pro) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-PRO/OAK-SOM-PRO_Datasheet.pdf>`__
 - DepthAI System on Module IoT (OAK-SoM-IoT) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-IoT/OAK-SOM-IoT_Datasheet.pdf>`__
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
