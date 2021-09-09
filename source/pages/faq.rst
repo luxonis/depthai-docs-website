@@ -1760,7 +1760,7 @@ Can I Use Microphones with DepthAI?
 
 Yes.  
 
- - The `OAK-SoM-Pro <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-PRO/OAK-SOM-PRO_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
+ - The `OAK-SoM-Pro <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-PRO/OAK-SoM-PRO_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
  - Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.  
  - It is important to note that the `OAK-SoM <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1099.html>`__ and OAK-SoM-IoT do not have I2S support.
 
@@ -1776,7 +1776,7 @@ Brochures:
 **********
 
 - Editions Summary `here <https://drive.google.com/open?id=1z7QiCn6SF3Yx977oH41Kcq68Ay6e9h3_>`__
-- OAK-SoM (System on Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM/BW1099_Brochure.pdf>`__
+- OAK-SoM (System on Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM/BW1099_Brochure.pdf>`__
 - OAK-FFC-3P-OG (USB3 Modular Cameras Edition) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098FFC_DepthAI_USB3/BW1098FFC_Datasheet.pdf>`__
 - OAK-D-PCBA `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098OBC_DepthAI_USB3C/BW1098OBC_Datasheet.pdf>`__
 - OAK-D-CM3 (Raspberry Pi Compute Edition Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1097_DepthAI_Compute_Module/BW1097_Datasheet.pdf>`__
@@ -1786,9 +1786,9 @@ Brochures:
 Datasheets:
 ***********
 
-- DepthAI System on Module (OAK-SoM) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM/BW1099_Brochure.pdf>`__
-- DepthAI System on Module Pro (OAK-SoM-Pro) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-PRO/OAK-SOM-PRO_Datasheet.pdf>`__
-- DepthAI System on Module IoT (OAK-SoM-IoT) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-IoT/OAK-SOM-IoT_Datasheet.pdf>`__
+- DepthAI System on Module (OAK-SoM) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM/BW1099_Brochure.pdf>`__
+- DepthAI System on Module Pro (OAK-SoM-Pro) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-PRO/OAK-SoM-PRO_Datasheet.pdf>`__
+- DepthAI System on Module IoT (OAK-SoM-IoT) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-IoT/OAK-SoM-IoT_Datasheet.pdf>`__
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
 
 How Much Does OAK Devices Weight?
