@@ -584,7 +584,7 @@ Ecosystem
    pages/tutorials/pretrained_openvino.rst
    pages/tutorials/getting-started-with-iot.rst
    pages/tutorials/getting-started-with-poe.rst
-   pages/tutorials/custom_device_functionaliy.rst
+   pages/tutorials/on-device-programming.rst
 
 .. toctree::
    :maxdepth: 1

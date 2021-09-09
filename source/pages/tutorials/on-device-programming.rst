@@ -1,10 +1,11 @@
-Custom device functionality
-===========================
+On-device programming
+=====================
 
-In this tutorial we will take a look at few options on how to run custom functioanlity on the device itself. Due to the fact that device
-firmware is not open-source, some would think that users are completely limited to the firmware functionalitites - but that's not the case.
+In this tutorial we will take a look at few options on how to develop custom functioanlities on the device itself. Due to the fact that
+device firmware is not open-source, some would think that users are completely limited to the existing firmware functionalitites -
+but that's **not** the case.
 
-There are a few ways on how to add custom functionality that would run on the device:
+There are a few ways on how to develop custom functionality that would run on the device itself:
 
 #. Using `Script node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/script/>`__
 #. Creating your own NN model to run more computationally heavy features
