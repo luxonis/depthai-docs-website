@@ -51,6 +51,20 @@ readonly ubuntu_arm_pkgs=(
     libilmbase-dev
     libopenexr-dev
     libgstreamer1.0-dev
+    # https://raspberrypi.stackexchange.com/a/116119
+    tk-dev
+    libncurses5-dev
+    libncursesw5-dev
+    libreadline6-dev
+    libdb5.3-dev
+    libgdbm-dev
+    libsqlite3-dev
+    libssl-dev
+    libbz2-dev
+    libexpat1-dev
+    liblzma-dev
+    zlib1g-dev
+    libffi-dev
 )
 
 readonly fedora_pkgs=(
@@ -136,7 +150,16 @@ elif [[ $(uname -m) =~ ^arm* ]]; then
     # TODO(PM): Support ARM processors not running apt-get
     sudo apt-get update
     sudo apt-get install -y "${ubuntu_arm_pkgs[@]}"
-    python3 -m pip install --upgrade pip
+    version=3.8.5
+    echo "Installing Python $version..."
+    wget https://www.python.org/ftp/python/$version/Python-$version.tgz
+    tar zxf Python-$version.tgz
+    cd Python-$version
+    ./configure --enable-optimizations
+    make -j4
+    sudo make altinstall
+    echo "Python $version installed"
+    python3.8 -m pip install --upgrade pip
 
     # Allow all users to read and write to Myriad X devices
     echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
