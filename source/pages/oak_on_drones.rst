@@ -30,7 +30,7 @@ To decrease the camera vibrations, we suggest firmly mounting the device on the 
 rubbers (eg. `these <http://bit.ly/ShockMountRubber>`__) to decreate the vibrations. AugmentedStartup has also designed an `OAK-1 anti-vibration mount <https://www.thingiverse.com/thing:4888638>`__
 for his drone project:
 
-.. image:: /_static/images/tutorial/drone/vibration-damping.jpeg
+.. image:: /_static/images/tutorials/drone/vibration-damping.jpeg
   :alt: Vibration damping mount
 
 We are also planning on adding **EIS** (Electronic Image Stabilization) feature to the OAK - you can read more about it on our
