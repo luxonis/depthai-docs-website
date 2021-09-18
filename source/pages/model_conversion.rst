@@ -57,6 +57,12 @@ Troubleshooting
 When converting your model to the OpenVINO format or compiling it to a :code:`.blob`, you might come across an issue. This usually
 means that a **connection between two layers is not supported** or that the **layer is not supported**.
 
+For **visualization of NN models** we suggest using `Netron app <https://netron.app/>`__.
+
+.. image:: /_static/images/tutorials/netron.jpeg
+  :alt: Netron
+
+
 Supported layers
 ****************
 
@@ -70,10 +76,11 @@ When using `compile_tool <https://docs.openvinotoolkit.org/latest/openvino_infer
 
 .. code-block:: bash
 
-  Failed to compile layer "CumSum_4": unsupported layer type "CumSum"
+  Failed to compile layer "Resize_230": unsupported layer type "Interpolate"
 
 This means that the layer type is not supported by the VPU (Intels Myriad X). You can find supported OpenVINO layers by the VPU `here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html#supported_layers>`__,
-under the **Supported Layers** header, in the third column (**VPU**). Here are `official Intel's troubleshooting docs <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_supported_plugins_VPU.html#troubleshooting>`__ about this issue.
+under the **Supported Layers** header, in the third column (**VPU**). Refer to `official Intel's troubleshooting docs <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_supported_plugins_VPU.html#troubleshooting>`__ for more information.
+
 
 Incorrect data types
 ********************
