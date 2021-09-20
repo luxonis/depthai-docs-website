@@ -245,7 +245,7 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-face-recognition/images/face_reg.png" alt="Face Recognition"/>
+                  <img class="item-img" src="https://user-images.githubusercontent.com/18037362/134054837-eed40899-7c1d-4160-aaf0-1d7c405bb7f4.gif" alt="Face Recognition"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">Face Recognition</h5>
@@ -327,7 +327,7 @@ In this section, you'll find an inspiration what can you build right away with D
             <div class="item">
                <div class="item-img-wrapper">
                   <a href="https://www.youtube.com/watch?v=M1LTqGy-De4" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/18037362/128168573-452ed273-cf2d-457a-9771-a4b3faf6b221.gif" alt="Deeplabv3"/>
+                    <img class="item-img" src="https://user-images.githubusercontent.com/18037362/134072030-102f4567-2071-491e-b97f-049d558dd812.gif" alt="Deeplabv3"/>
                   </a>
                </div>
                <div class="item-body">
