@@ -585,6 +585,7 @@ Ecosystem
    pages/tutorials/getting-started-with-iot.rst
    pages/tutorials/getting-started-with-poe.rst
    pages/tutorials/on-device-programming.rst
+   pages/tutorials/creating-custom-nn-models
 
 .. toctree::
    :maxdepth: 1

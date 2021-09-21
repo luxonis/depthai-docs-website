@@ -28,10 +28,7 @@ Creating custom NN models
 You can create custom models with your favourite NN library, convert the model into OpenVINO and then compile it into the :code:`.blob`.
 More information on this topic can be found on :ref:`Converting model to MyriadX blob` documentation.
 
-Here are two implementations of this workflow:
-
-- `Tutorial on running custom models on OAK <https://rahulrav.com/blog/depthai_camera.html>`__ by Rahul Ravikumar
-- `Harris corner detection in Pytorch <https://github.com/kunaltyagi/pytorch_harris/>`__ by Kunal Tyagi
+Refer to :ref:`Creating custom NN model` tutorial to find out more.
 
 Creating custom OpenCL kernel
 #############################
