@@ -964,6 +964,8 @@ How do I Record (or Encode) Video with DepthAI?
 
 DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai_demo.py` script shows and example of how to access this functionality.
 
+Note that hardware limit for the encoder is: 3840x2160 pixels at 30FPS or :code:`248 million pixels/second`. The resolution and frame rate can be divided up to 3 streams - but the sum of all the pixels/second needs to be below 248 million.
+
 See our encoding examples for Gen2 (current main line), which uses `VideoEncoder node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/video_encoder/>`__:
 
  - RGB and Mono Encoding in parallel with MobileNetSSDv2, `here <https://docs.luxonis.com/projects/api/en/latest/samples/11_rgb_encoding_mono_mobilenet/>`__.
