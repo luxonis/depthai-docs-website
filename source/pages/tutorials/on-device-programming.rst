@@ -28,7 +28,7 @@ Creating custom NN models
 You can create custom models with your favourite NN library, convert the model into OpenVINO and then compile it into the :code:`.blob`.
 More information on this topic can be found on :ref:`Converting model to MyriadX blob` documentation.
 
-Refer to :ref:`Creating custom NN model` tutorial to find out more.
+Refer to :ref:`Run your own CV functions on-device` tutorial to find out more.
 
 Creating custom OpenCL kernel
 #############################

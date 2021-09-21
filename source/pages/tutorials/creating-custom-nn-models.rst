@@ -1,14 +1,16 @@
-Creating custom NN model
-========================
+Run your own CV functions on-device
+===================================
 
-As mentioned in :ref:`On-device programming`, you can create custom models with your favorite NN library, convert the model into OpenVINO and then compile it
-into the :code:`.blob`. This tutorial will cover how to do just that.
+As mentioned in :ref:`On-device programming`, you can create **custom CV models** with your favorite NN library, convert & compile it into the
+:code:`.blob` and run it on the device. This tutorial will cover how to do just that.
+
+If you are interested in **training & deploying your own AI models**, refer to :ref:`Custom training`.
 
 **Demos:**
 
-- `Frame concatenation <https://github.com/luxonis/depthai-experiments/blob/master/gen2-custom-models/generate_model/pytorch_concat.py>`__ - using `PyTorch <https://pytorch.org/>`__
-- `Laplacian edge detection <https://github.com/luxonis/depthai-experiments/blob/master/gen2-custom-models/generate_model/kornia_edge.py>`__ - using :ref:`Kornia`
-- `Frame blurring <https://github.com/luxonis/depthai-experiments/blob/master/gen2-custom-models/generate_model/kornia_blur.py>`__ - using :ref:`Kornia`
+- `Frame concatenation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-custom-models/generate_model#concatenate-frames>`__ - using `PyTorch <https://pytorch.org/>`__
+- `Laplacian edge detection <https://github.com/luxonis/depthai-experiments/tree/master/gen2-custom-models/generate_model#blur-frames>`__ - using :ref:`Kornia`
+- `Frame blurring <https://github.com/luxonis/depthai-experiments/tree/master/gen2-custom-models/generate_model#corner-detection>`__ - using :ref:`Kornia`
 - `Tutorial on running custom models on OAK <https://rahulrav.com/blog/depthai_camera.html>`__ by Rahul Ravikumar
 - `Harris corner detection in PyTorch <https://github.com/kunaltyagi/pytorch_harris/>`__ by Kunal Tyagi
 
