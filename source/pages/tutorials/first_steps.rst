@@ -220,43 +220,43 @@ models that you can use, having just the demo script downloaded
     - :ref:`Usage <deeplabv3p_person>`
   * - :code:`face-detection-adas-0001`
     - Face detection
-    - 6.4
+    - 13.4
     - :ref:`Usage <face-detection-adas-0001>`
   * - :code:`face-detection-retail-0004`
     - Face detection
-    - 26.7
+    - 30.0
     - :ref:`Usage <face-detection-retail-0004>`
   * - :code:`mobilenet-ssd`
     - Object detection (20 classes)
-    - 22.3
+    - 30.0
     - :ref:`Usage <mobilenet-ssd>`
   * - :code:`pedestrian-detection-adas-0002`
     - People detection
-    - 5.6
+    - 13.1
     - :ref:`Usage <pedestrian-detection-adas-0002>`
   * - :code:`person-detection-retail-0013`
     - People detection
-    - 9.4
+    - 10.7
     - :ref:`Usage <person-detection-retail-0013>`
   * - :code:`person-vehicle-bike-detection-crossroad-1016`
     - People, vehicle and bike detection
-    - 5.7
+    - 6.2
     - :ref:`Usage <person-vehicle-bike-detection-crossroad-1016>`
   * - :code:`yolo-v3`
     - Object detection (80 classes)
-    - 1.6
+    - 1.9
     - :ref:`Usage <yolo-v3>`
   * - :code:`tiny-yolo-v3`
     - Object detection (80 classes)
-    - 26.2
+    - 29.9
     - :ref:`Usage <tiny-yolo-v3>`
   * - :code:`vehicle-detection-adas-0002`
     - Vehicle detection
-    - 5.5
+    - 14.0
     - :ref:`Usage <vehicle-detection-adas-0002>`
   * - :code:`vehicle-license-plate-detection-barrier-0106`
     - License plate detection
-    - 27.8
+    - 30.0
     - :ref:`Usage <vehicle-license-plate-detection-barrier-0106>`
   * - :code:`openpose2`
     - Pose estimation

@@ -954,7 +954,7 @@ So in that case, :code:`getMetadata().getTimestamp()` returns the device time (i
 
 The timestamp corresponds to the moment the frames are captured from the camera, and is forwarded through the pipeline.  And the method :code:`getMetadata().getSequenceNum()` returns an incrementing number per camera frame. The same number is associated to the NN packet, so it could be an easier option to use, rather than comparing timestamps. The NN packet and Data packet sequence numbers should match.
 
-Also, the left and right cameras will both have the same sequence number (timestamps will not be precisely the same, but few microseconds apart -- that's because the timestamp is assigned separately to each from different interrupt handlers. But the cameras are started at the same time using an I2C broadcast write, and also use the same MCLK source, so shouldn't drift).
+Also, the left and right cameras will both have the same sequence number (timestamps will not be precisely the same, but few microseconds apart - that's because the timestamp is assigned separately to each from different interrupt handlers. But the cameras are started at the same time using an I2C broadcast write, and also use the same MCLK source, so shouldn't drift).
 
 In this case we also need to check the camera source of the NN and Data packets. Currently, `depthai.py` uses :code:`getMetadata().getCameraName()` for this purpose, that returns a string: :code:`rgb`, :code:`left` or :code:`right` .
 
@@ -964,6 +964,8 @@ How do I Record (or Encode) Video with DepthAI?
 ###############################################
 
 DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai_demo.py` script shows and example of how to access this functionality.
+
+Note that hardware limit for the encoder is: 3840x2160 pixels at 30FPS or :code:`248 million pixels/second`. The resolution and frame rate can be divided up to 3 streams - but the sum of all the pixels/second needs to be below 248 million.
 
 See our encoding examples for Gen2 (current main line), which uses `VideoEncoder node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/video_encoder/>`__:
 
@@ -1164,7 +1166,7 @@ You can force USB2 mode by setting :code:`usb2Mode` to :code:`True` when creatin
 
   dai.Device(pipeline, usb2Mode=True)
 
-The other way is using the :code:`-usbs usb2` (or :code:`--usb_speed usb2`) command line option as below:
+The other way is using the :code:`-usbs usb2` (or :code:`--usbSpeed usb2`) command line option as below:
 
 .. code-block:: bash
 
@@ -1683,10 +1685,8 @@ Note! You'll need to know the PCI ID of the USB host controller to replace the "
 How Do I Get Shorter or Longer Flexible Flat Cables (FFC)?
 ##########################################################
 
-For all cameras we use a 0.5mm 26-pin, same-side contact flex cable.
-
-One can purchase Molex's 15166 series FFCs directly to support shorter or longer lengths.
-Make sure you get **same-side** contacts, Molex calls this "**Type A**"
+For all cameras we use a 0.5mm 26-pin, same-side 152 mm contact flex cable.
+Follow the `link <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html#ffc-cables>`__ for more details.
 
 What are CSS MSS UPA and DSS Returned By meta_d2h?
 ##################################################
@@ -1763,7 +1763,7 @@ Can I Use Microphones with DepthAI?
 
 Yes.  
 
- - The `OAK-SoM-Pro <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-PRO/OAK-SOM-PRO_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
+ - The `OAK-SoM-Pro <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-Pro/OAK-SoM-Pro_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
  - Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.  
  - It is important to note that the `OAK-SoM <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1099.html>`__ and OAK-SoM-IoT do not have I2S support.
 
@@ -1779,7 +1779,7 @@ Brochures:
 **********
 
 - Editions Summary `here <https://drive.google.com/open?id=1z7QiCn6SF3Yx977oH41Kcq68Ay6e9h3_>`__
-- OAK-SoM (System on Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/BW1099_Datasheet.pdf>`__
+- OAK-SoM (System on Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM/BW1099_Brochure.pdf>`__
 - OAK-FFC-3P-OG (USB3 Modular Cameras Edition) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098FFC_DepthAI_USB3/BW1098FFC_Datasheet.pdf>`__
 - OAK-D-PCBA `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098OBC_DepthAI_USB3C/BW1098OBC_Datasheet.pdf>`__
 - OAK-D-CM3 (Raspberry Pi Compute Edition Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1097_DepthAI_Compute_Module/BW1097_Datasheet.pdf>`__
@@ -1789,9 +1789,9 @@ Brochures:
 Datasheets:
 ***********
 
-- DepthAI System on Module (OAK-SoM) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM/OAK-SOM_Datasheet.pdf>`__
-- DepthAI System on Module Pro (OAK-SoM-Pro) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-PRO/OAK-SOM-PRO_Datasheet.pdf>`__
-- DepthAI System on Module IoT (OAK-SoM-IoT) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SOM-IoT/OAK-SOM-IoT_Datasheet.pdf>`__
+- DepthAI System on Module (OAK-SoM) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM/BW1099_Brochure.pdf>`__
+- DepthAI System on Module Pro (OAK-SoM-Pro) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-Pro/OAK-SoM-Pro_Datasheet.pdf>`__
+- DepthAI System on Module IoT (OAK-SoM-IoT) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-IoT/OAK-SoM-IoT_Datasheet.pdf>`__
 - PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
 
 How Much Does OAK Devices Weight?

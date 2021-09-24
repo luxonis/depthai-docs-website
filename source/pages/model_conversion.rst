@@ -57,15 +57,30 @@ Troubleshooting
 When converting your model to the OpenVINO format or compiling it to a :code:`.blob`, you might come across an issue. This usually
 means that a **connection between two layers is not supported** or that the **layer is not supported**.
 
+For **visualization of NN models** we suggest using `Netron app <https://netron.app/>`__.
+
+.. image:: /_static/images/tutorials/netron.jpeg
+  :alt: Netron
+
+
 Supported layers
 ****************
 
-When converting your model to OpenVINO format (:code:`.bin` and :code:`.xml`), you have to check if the OpenVINO supports layers
+When converting your model to OpenVINO's IR format (:code:`.bin` and :code:`.xml`), you have to check if the OpenVINO supports layers
 that were used. Here are supported layers and their limitations for `Caffee <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#caffe_supported_layers>`__, `MXNet <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#mxnet_supported_symbols>`__, `TensorFlow <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#tensorflow_supported_operations>`__, `TensorFlow 2 Keras <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#tensorflow_2_keras_supported_operations>`__, `Kaldi <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#kaldi_supported_layers>`__, and `ONNX <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#onnx_supported_operators>`__.
 
-After the conversion to OpenVINO, there might be a possibility that the VPU (Intels MyriadX) does not support the layer.
-You can find supported OpenVINO layers by the VPU `here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html#supported_layers>`__,
-under the **Supported Layers** header, in the third column (**VPU**).
+Unsupported layer type "layer_type"
+***********************************
+
+When using `compile_tool <https://docs.openvinotoolkit.org/latest/openvino_inference_engine_tools_compile_tool_README.html>`__ to compile from IR (.xml/.bin) into .blob, you might get an error like this:
+
+.. code-block:: bash
+
+  Failed to compile layer "Resize_230": unsupported layer type "Interpolate"
+
+This means that the layer type is not supported by the VPU (Intels Myriad X). You can find supported OpenVINO layers by the VPU `here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_supported_plugins_Supported_Devices.html#supported_layers>`__,
+under the **Supported Layers** header, in the third column (**VPU**). Refer to `official Intel's troubleshooting docs <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_supported_plugins_VPU.html#troubleshooting>`__ for more information.
+
 
 Incorrect data types
 ********************

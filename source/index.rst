@@ -32,7 +32,7 @@ Demo script
 Demo script is our multipurpose command line demo tool, built around Gen2 Pipeline, that allows you to check
 DepthAI features straight from the command line - no coding required!  It works USB and POE equally, automatically discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple are connected, it will prompt you on which to use for the demo.
 
-.. image:: https://user-images.githubusercontent.com/5244214/127166676-3f043ec7-4448-4233-aa13-cfaae95fe090.png
+.. image:: https://user-images.githubusercontent.com/18037362/132068313-e6db90c2-823b-42f2-86fb-148e798f55de.png
   :alt: Default run
 
 To install and run the demo script on your DepthAI device, type the following commands in the terminal.
@@ -245,7 +245,7 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-face-recognition/images/face_reg.png" alt="Face Recognition"/>
+                  <img class="item-img" src="https://user-images.githubusercontent.com/18037362/134054837-eed40899-7c1d-4160-aaf0-1d7c405bb7f4.gif" alt="Face Recognition"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">Face Recognition</h5>
@@ -327,7 +327,7 @@ In this section, you'll find an inspiration what can you build right away with D
             <div class="item">
                <div class="item-img-wrapper">
                   <a href="https://www.youtube.com/watch?v=M1LTqGy-De4" target="_blank">
-                    <img class="item-img" src="https://user-images.githubusercontent.com/18037362/128168573-452ed273-cf2d-457a-9771-a4b3faf6b221.gif" alt="Deeplabv3"/>
+                    <img class="item-img" src="https://user-images.githubusercontent.com/18037362/134072030-102f4567-2071-491e-b97f-049d558dd812.gif" alt="Deeplabv3"/>
                   </a>
                </div>
                <div class="item-body">
@@ -584,6 +584,8 @@ Ecosystem
    pages/tutorials/pretrained_openvino.rst
    pages/tutorials/getting-started-with-iot.rst
    pages/tutorials/getting-started-with-poe.rst
+   pages/tutorials/on-device-programming.rst
+   pages/tutorials/creating-custom-nn-models.rst
 
 .. toctree::
    :maxdepth: 1
@@ -592,6 +594,7 @@ Ecosystem
 
    C++/Python API <https://docs.luxonis.com/projects/api/en/latest/>
    Hardware Products <https://docs.luxonis.com/projects/hardware/en/latest/>
+   DepthAI SDK <https://docs.luxonis.com/projects/sdk/en/latest/>
 
 
 .. toctree::
