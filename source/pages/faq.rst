@@ -953,7 +953,7 @@ So in that case, :code:`getMetadata().getTimestamp()` returns the device time (i
 
 The timestamp corresponds to the moment the frames are captured from the camera, and is forwarded through the pipeline.  And the method :code:`getMetadata().getSequenceNum()` returns an incrementing number per camera frame. The same number is associated to the NN packet, so it could be an easier option to use, rather than comparing timestamps. The NN packet and Data packet sequence numbers should match.
 
-Also, the left and right cameras will both have the same sequence number (timestamps will not be precisely the same, but few microseconds apart -- that's because the timestamp is assigned separately to each from different interrupt handlers. But the cameras are started at the same time using an I2C broadcast write, and also use the same MCLK source, so shouldn't drift).
+Also, the left and right cameras will both have the same sequence number (timestamps will not be precisely the same, but few microseconds apart - that's because the timestamp is assigned separately to each from different interrupt handlers. But the cameras are started at the same time using an I2C broadcast write, and also use the same MCLK source, so shouldn't drift).
 
 In this case we also need to check the camera source of the NN and Data packets. Currently, `depthai.py` uses :code:`getMetadata().getCameraName()` for this purpose, that returns a string: :code:`rgb`, :code:`left` or :code:`right` .
 
@@ -1165,7 +1165,7 @@ You can force USB2 mode by setting :code:`usb2Mode` to :code:`True` when creatin
 
   dai.Device(pipeline, usb2Mode=True)
 
-The other way is using the :code:`-usbs usb2` (or :code:`--usb_speed usb2`) command line option as below:
+The other way is using the :code:`-usbs usb2` (or :code:`--usbSpeed usb2`) command line option as below:
 
 .. code-block:: bash
 
