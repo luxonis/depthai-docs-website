@@ -471,7 +471,7 @@ We have prepared a :ref:`guide <Getting started with OAK IoT devices>` and a `de
 Use-Case 3: Using DepthAI as the Only Processor on a Device.
 ************************************************************
 
-This is supported through running microPython directly on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__.
+This is supported through running microPython directly on the `OAK-SoM-Pro <https://shop.luxonis.com/products/bw2099>`__ or `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__.
 
 The microPython nodes allow custom logic, driving I2C, SPI, GPIO, UART, etc. controls, letting direct controls of actuators, direct reading of sensors, etc. from/to the pipeline of CV/AI functions.
 A target example is making an entire autonomous, visually-controlled robotic platform with DepthAI as the only processor in the system.
@@ -481,6 +481,7 @@ Hardware for Each Case:
 
 - `OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the OAK-SoM over USB
 - `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (which comes with the OAK-SoM-IoT pre-installed).
+- `OAK-SoM-Pro <https://shop.luxonis.com/products/bw2099>`__: Supports multiple boot options: NOR (128MB), eMMC (SD-Card support), USB, Ethernet (EEPROM, 32KB). All those boot options make OAK-SoM-Pro very flexible in terms of use cases and most apropriate as a standalone device. It is designed for integration into a top-level system with a need for a low power AI vision system.
 
 Getting Started with Development
 ********************************
