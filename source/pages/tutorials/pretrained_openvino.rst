@@ -134,7 +134,7 @@ Spatial AI - Augmenting the Model with 3D Position
 ##################################################
 
 So by default DepthAI is set to return the full 3D position.  So in the command above, we actually specify for it to not
-be calculated with :code:`-dd` (or :code:`--disable_depth`).
+be calculated with :code:`-dd` (or :code:`--disableDepth`).
 
 So let's run that same command, but with that line omitted, such that 3D results are returned (and displayed):
 

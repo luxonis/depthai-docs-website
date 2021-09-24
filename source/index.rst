@@ -594,6 +594,7 @@ Ecosystem
 
    C++/Python API <https://docs.luxonis.com/projects/api/en/latest/>
    Hardware Products <https://docs.luxonis.com/projects/hardware/en/latest/>
+   DepthAI SDK <https://docs.luxonis.com/projects/sdk/en/latest/>
 
 
 .. toctree::
