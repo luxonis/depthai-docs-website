@@ -274,9 +274,9 @@ System on Modules
 For designing products around DepthAI, we offer system on modules. You can then design your own variants, leveraging our
 `open source hardware <https://github.com/luxonis/depthai-hardware>`__.  There are three system on modules available:
 
-#. `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/bw1099>`__ - USB-boot system on module. For making devices which interface over USB to a host processor running Linux, MacOS, or Windows. In this case, the host processor stores everything, and the OAK-SoM boots up over USB from the host.
-#. `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ - NOR-flash boot (also capable of USB-boot). For making devices that run standalone, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
-#. `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/bw2099>`__ - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors). For making devices that run standalone and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE interface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
+#. `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__ - USB-boot system on module. For making devices which interface over USB to a host processor running Linux, MacOS, or Windows. In this case, the host processor stores everything, and the OAK-SoM boots up over USB from the host.
+#. `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__ - NOR-flash boot (also capable of USB-boot). For making devices that run standalone, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
+#. `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__ - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors). For making devices that run standalone and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE interface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
 
 Check our `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__ for more details.
 
@@ -452,7 +452,7 @@ Use-Case 1: DepthAI are a co-processor to a processor running Linux, MacOS, or W
 
 In this case, DepthAI can be used in two modalities:
 
- - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__.
+ - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__.
  - DepthAI Mode (USB, using our USB API, `here <https://docs.luxonis.com/projects/api/en/latest/install/>`__) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
 
 .. _withmicrocontroller:
@@ -460,7 +460,7 @@ In this case, DepthAI can be used in two modalities:
 Use-Case 2: Using DepthAI with a MicroController like ESP32, ATTiny8, etc.
 **************************************************************************
 
-In this case, DepthAI boots off of internal flash on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  
+In this case, DepthAI boots off of internal flash on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  
 We even have an embedded reference design for ESP32 (`OAK-D-IoT-40 (BW1092) <https://github.com/luxonis/depthai-hardware/issues/10>`__) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092>`__.  
 And it's open-source! You can check design files `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__.
 
@@ -471,7 +471,7 @@ We have prepared a :ref:`guide <Getting started with OAK IoT devices>` and a `de
 Use-Case 3: Using DepthAI as the Only Processor on a Device.
 ************************************************************
 
-This is supported through running microPython directly on the `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__ or `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__.
+This is supported through running microPython directly on the `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__ or `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__.
 
 The microPython nodes allow custom logic, driving I2C, SPI, GPIO, UART, etc. controls, letting direct controls of actuators, direct reading of sensors, etc. from/to the pipeline of CV/AI functions.
 A target example is making an entire autonomous, visually-controlled robotic platform with DepthAI as the only processor in the system.
@@ -479,8 +479,8 @@ A target example is making an entire autonomous, visually-controlled robotic pla
 Hardware for Each Case:
 ***********************
 
-- `OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the OAK-SoM over USB
-- `OAK-SoM-IoT <https://shop.luxonis.com/collections/all/products/bw1099emb>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (which comes with the OAK-SoM-IoT pre-installed).
+- `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the OAK-SoM over USB
+- `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (which comes with the OAK-SoM-IoT pre-installed).
 - `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__: Supports multiple boot options: NOR (128MB), eMMC (SD-Card support), USB, Ethernet (EEPROM, 32KB). All those boot options make OAK-SoM-Pro very flexible in terms of use cases and most apropriate as a standalone device. It is designed for integration into a top-level system with a need for a low power AI vision system.
 
 Getting Started with Development
@@ -1755,7 +1755,7 @@ And a note on building for **Windows**: Windows does not use `libusb`, but rathe
 Can I Use an IMU With DepthAI?
 ##############################
 
-Yes, all of our System on Modules (`OAK-SoM <https://shop.luxonis.com/collections/all/products/bw1099>`__, OAK-SoM-IoT, and `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__) have support for the BNO086 (and BNO080/BNO085) IMU.  
+Yes, all of our System on Modules (`OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__, OAK-SoM-IoT, and `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__) have support for the BNO086 (and BNO080/BNO085) IMU.  
 And `OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__, `OAK-D-IoT-40 <https://shop.luxonis.com/collections/all/products/bw1092>`__, `OAK-FFC-3P <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__, `OAK-D-IoT-75 <https://github.com/luxonis/depthai-hardware/tree/master/DM1098OBC_DepthAI_USB3C_WIFI>`__, `OAK-D-PoE <https://shop.luxonis.com/collections/poe/products/oak-d-poe>`__ all have an integrated IMU onboard.  
 
 Can I Use Microphones with DepthAI?
