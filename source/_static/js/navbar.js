@@ -34,9 +34,9 @@ function addNavbar() {
     "    <div class=\"lux-navbar\">\n" +
     "      <ul>\n" +
     "        <li><a href=\"/en/latest/\">Main</a></li>\n" +
+    "        <li><a href=\"/projects/sdk/\">SDK</a></li>\n" +
     "        <li><a href=\"/projects/api/\">API</a></li>\n" +
     "        <li><a href=\"/projects/hardware/\">Hardware</a></li>\n" +
-    "        <li><a href=\"/projects/sdk/\">SDK</a></li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
     "  </div>"
