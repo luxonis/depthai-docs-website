@@ -1825,6 +1825,10 @@ If DepthAI and OAK-D products has been significantly used in your research and i
   year={2020},
   }
 
+Where can I find your Logo?
+###########################
+
+You can find official **Luxonis**, **DepthAI**, and **megaAI** logos `here <https://drive.google.com/drive/folders/12-McMXfMO_M9GjvAZzAjgbdiTddVQt7Q>`__.
 
 How Do I Talk to an Engineer?
 #############################
