@@ -641,6 +641,49 @@ the conversion for you and run the received blob
 
   $ python3 depthai_demo.py -cnn <name>
 
+Callbacks - customize the demo code
+***********************************
+
+If you'd like to add some custom functionalities to the demo yourself or just check how do certain variables look like,
+you can use a callbacks file, that should contain methods that the demo will call during execution on specific events.
+
+An example of a callbacks file that `is available in the repo <https://github.com/luxonis/depthai/blob/main/callbacks.py>`__ is below
+
+.. code-block:: python
+
+    def onNewFrame(frame, source):
+      pass  # Called when a new frame is available
+
+
+    def onShowFrame(frame, source):
+        pass  # Called when a frame is about to be displayed
+
+
+    def onNn(nn_packet):
+        pass  # Called when a new NN packet is available
+
+
+    def onReport(report):
+        pass  # Called when a new report is available
+
+
+    def onSetup(**kwargs):
+        pass  # Called when the demo script is setting up
+
+
+    def onTeardown(**kwargs):
+        pass  # Called when the demo script is finishing
+
+
+    def onIter(**kwargs):
+        pass  # Called on each demo script iteration (internal loop)
+
+These methods allow building custom functionalities on top of the demo script itself, whether it's just printing or counting
+the data from NN or modifying how to display the frames or even make custom database/API connections to send the data to
+external destination.
+
+By default, the demo script will use :code:`callbacks.py` file in the repository, but this path cam be changed using
+:code:`-cb <path> / --callback <path>` flags
 
 Next steps
 ##########
