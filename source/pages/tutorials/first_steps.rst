@@ -490,7 +490,7 @@ You can use these configuration examples to customize your :code:`custom_model.j
       {
           "output_format" : "detection",
           "NN_family" : "YOLO",
-          "input_size": "300x300",
+          "input_size": "416x416",
           "NN_specific_metadata" :
           {
               "classes" : 80,
