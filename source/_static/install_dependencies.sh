@@ -147,6 +147,8 @@ elif [[ $(uname -m) =~ ^arm* ]]; then
     if [[ ver_row != "Version: 2.28-10+rpi1" ]]; then
 	    sudo apt install -y --allow-downgrades libc6=2.28-10+rpi1
     fi
+    # RPI OS Lite doesn't have libgtk installed
+    sudo apt install -y libgtk-3-0
 else
     echo "ERROR: Host not supported"
     exit 99
