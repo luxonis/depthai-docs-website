@@ -137,7 +137,11 @@ So make sure to unplug and then plug the DepthAI back in after having run these.
 Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.
 #######################################################################
 
-If you recieve :code:`RuntimeError: Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.`, it means that you have the same issue as above, udev rules aren't set. Check the solution :ref:`here <Failed to boot the device: 1.3-ma2480, err code 3>`.
+When you recieve the error below, it means that you have the same issue as above, udev rules aren't set. Check the solution :ref:`here <Failed to boot the device: 1.3-ma2480, err code 3>`.
+
+.. code-block:: bash
+
+  RuntimeError: Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.
 
 CTRL-C Is Not Stopping It!
 ##########################
