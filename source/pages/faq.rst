@@ -1595,14 +1595,22 @@ For more info, please see :ref:`Converting model to MyriadX blob`
 Can I Use DepthAI with the New Raspberry Pi HQ Camera?
 ######################################################
 
-OAK-FFC-3P-OG model (`here <https://shop.luxonis.com/products/depthai-usb3-edition>`__) also works via an adapter board with the Raspberry Pi HQ camera (IMX477 based), which then does work with a ton of C- and CS-mount
-lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`__).
+This is a particularly interesting application of DepthAI, as it allows the Raspberry Pi HQ camera to be encoded to h.265 4K video
+(and 12MP stills) even with a Raspberry Pi 1 or :ref:`Raspberry Pi Zero <Can I use DepthAI with Raspberry Pi Zero?>` - because DepthAI
+does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW
+stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera
+directly, can only do 1080p video and not 4K video recording).
+
+`OAK-FFC-3P <https://shop.luxonis.com/collections/modular-cameras/products/dm1090ffc>`__ and **OAK-FFC-4P will work with** the `Raspberry Pi HQ Camera <
+https://www.arducam.com/product/b0240-arducam-imx477-hq-quality-camera/>`__ **without an adapter board**, as you can connect the camera via the
+22-26 pin adapter cable (SKU: A00403, which you get with the OAK-FFC-3P/OAK-FFC-4P) to the FFC board.
+
+`OAK-FFC-3P-OG <https://shop.luxonis.com/products/depthai-usb3-edition>`__ model **also works via an adapter board** with the Raspberry Pi HQ camera
+(IMX477 based), which then does work with a ton of C- and CS-mount lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`__).
 And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`__ for the adapter board for OAK-FFC-3P-OG.
 
 .. image:: https://github.com/luxonis/depthai-hardware/raw/master/BW0253_R0M0E0_RPIHQ_ADAPTER/Images/RPI_HQ_CAM_SYSTEM_2020-May-14_08-35-31PM-000_CustomizedView42985702451.png
   :alt: Raspberry Pi HQ with DepthAI FFC
-
-This is a particularly interesting application of DepthAI, as it allows the Raspberry Pi HQ camera to be encoded to h.265 4K video (and 12MP stills) even with a Raspberry Pi 1 or :ref:`Raspberry Pi Zero <Can I use DepthAI with Raspberry Pi Zero?>` - because DepthAI does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera directly, can only do 1080p video and not 4K video recording).
 
 Here are some quick images and videos of it in use:
 
@@ -1616,7 +1624,7 @@ Here are some quick images and videos of it in use:
   :alt: Raspberry Pi HQ Camera Support in DepthAI
   :target: https://www.youtube.com/watch?v=KsK-XakrpK8
 
-You can buy this adapter kit for the DepthAI FFC Edition (`DepthAI FFC <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__) `here <https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit>`__
+You can buy this adapter kit for the `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__ `here <https://shop.luxonis.com/products/rpi-hq-camera-imx477-adapter-kit>`__
 
 .. _rpi_zero:
 
