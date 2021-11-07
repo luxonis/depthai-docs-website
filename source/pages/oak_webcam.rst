@@ -1,5 +1,5 @@
-OAK webcam
-==========
+OAK as a webcam
+===============
 
 OAK devices can be used as webcams as well. This feature hasn't been mainlined yet, so you have to checkout to a custom branch to use this
 feature.
