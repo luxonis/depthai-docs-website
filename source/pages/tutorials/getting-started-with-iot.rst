@@ -62,7 +62,7 @@ Overview explained:
 Limitations
 ###########
 
-Currently, the bottleneck for use cases is the SPI throughput, which is about **200kbps**.
+Currently, the bottleneck for use cases is the SPI throughput, which is about **1MB/s** (8Mbps).
 This means you can't stream frames over SPI in real-time. This is the current limitation by the SPI driver, but we are planning
 to look into it and increase the throughput of the SPI to **~8mbps** (no ETA yet).
 
