@@ -62,9 +62,8 @@ Overview explained:
 Limitations
 ###########
 
-Currently, the bottleneck for use cases is the SPI throughput, which is about **1MB/s** (8Mbps).
-This means you can't stream frames over SPI in real-time. This is the current limitation by the SPI driver, but we are planning
-to look into it and increase the throughput of the SPI to **~8mbps** (no ETA yet).
+Currently, the bottleneck for some use cases is the SPI throughput, which is about **1MB/s** (8Mbps).
+This means that you can stream frames over the SPI, just not high-resolution / unencoded streams.
 
 As of now we only support `ESP-IDF <https://www.espressif.com/en/products/sdks/esp-idf>`__ as the development framework. In the future,
 we might support `Arduino <https://github.com/espressif/arduino-esp32>`__.
@@ -76,7 +75,7 @@ Common use cases for the ESP32
 
 - Sending metadata results (spatial coordinates, NN results, tracklets etc.)
 - OTA updates
-- Capturing and sending (part of) an image
+- Capturing and streaming video/images
 - System information logging
 - Sending data to the cloud (eg. AWS/Azure/GCP or any other IOT platform)
 - Sending data to a Bluetooth device (eg. smartphone)
