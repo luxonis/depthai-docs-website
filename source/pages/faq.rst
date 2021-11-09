@@ -421,7 +421,7 @@ Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>
 Can DepthAI do Arbitrary Crop, Resize, Thumbnail, etc.?
 #######################################################
 
-Yes, see `here <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/>`__ for an example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
+Yes, see `here <https://docs.luxonis.com/projects/api/en/latest/samples/ColorCamera/rgb_camera_control/#rgb-camera-control>`__ for an example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
 
 Can DepthAI Run Custom CV Code?  Say CV Code From PyTorch?
 ##########################################################
