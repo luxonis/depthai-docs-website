@@ -984,7 +984,7 @@ To then play the video in mp4/mkv format use the following muxing command:
 
 .. code-block:: bash
 
-  ffmpeg -frame rate 30 -i [path/to/output/video.h264] -c copy [outputfile.mp4/mkv]
+  ffmpeg -frame rate 30 -i [path/to/output/video.h264]
 
 For more information about the script and its arguments, see our GitHub repository `here <https://github.com/luxonis/depthai#usage>`__.
 
