@@ -1408,7 +1408,7 @@ What Auto-Focus Modes Are Supported? Is it Possible to Control Auto-Focus From t
 OAK-D, OAK-1, OAK-D-IoT-40, etc. all support continuous video autofocus ('2' below, where the system is constantly autonomously
 searching for the best focus) and also and :code:`auto` mode which waits to focus until directed by the host, in addition to region-of-interest based focus, where the focus is automatically focused around a region provided to DepthAI (e.g. from a neural network bounding box, or some other real-time or apriori setting).
 
-- See `here <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
+- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/ColorCamera/rgb_camera_control/#rgb-camera-control>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl>`__ for autofocus controls, region of interest (to set autofocus to only consider a certain region), and triggering.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.setManualFocus>`__ for the API for manually setting the focus level.
 
