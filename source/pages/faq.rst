@@ -421,7 +421,7 @@ Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>
 Can DepthAI do Arbitrary Crop, Resize, Thumbnail, etc.?
 #######################################################
 
-Yes, see `here <https://docs.luxonis.com/projects/api/en/latest/samples/rgb_camera_control/#rgb-camera-control>`__ for an example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
+Yes, see `here <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/>`__ for an example of how to do this, with WASD controls of a cropped section.  And see `here <https://github.com/luxonis/depthai-shared/pull/16>`__ for extension of the cropping for non-rectangular crops, and warping those to be rectangular (which can be useful for OCR).
 
 Can DepthAI Run Custom CV Code?  Say CV Code From PyTorch?
 ##########################################################
@@ -497,20 +497,20 @@ before. And this work is usually not heavy lifting. See some examples `here <htt
 For common object detector formats (**MobileNet**-SSD, (Tiny) **YOLO** V3/V4) there's effectively no work to go from NCS2 mode to DepthAI mode because
 we have added the support for decoding their results on the device side. To use the device side decoding with gen2, have a look at
 `YoloDetectionNetwork <https://docs.luxonis.com/projects/api/en/latest/components/nodes/yolo_detection_network/>`__ for **YOLO**
-(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/tiny_yolo_v4_decoding_on_device/#rgb-tinyyolov4-decoding-on-device>`__)
+(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/Yolo/tiny_yolo/#rgb-tiny-yolo>`__)
 or `MobileNetDetectionNetwork <https://docs.luxonis.com/projects/api/en/latest/components/nodes/mobilenet_detection_network/>`__ for **MobileNet**
-(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/mono_mobilenet/#mono-mobilenetssd>`__) decoding.
+(`demo here <https://docs.luxonis.com/projects/api/en/latest/samples/mixed/mono_depth_mobilenetssd/#mono-mobilenetssd-depth>`__) decoding.
 
 To use your own trained **Yolo** model with the DepthAI, you should start with the
-`demo <https://docs.luxonis.com/projects/api/en/latest/samples/tiny_yolo_v4_decoding_on_device/#rgb-tinyyolov4-decoding-on-device>`__ and modify its code a bit:
+`demo <https://docs.luxonis.com/projects/api/en/latest/samples/Yolo/tiny_yolo/#rgb-tiny-yolo>`__ and modify its code a bit:
 
-- Change the labels at :code:`label_map = ["label1", "label2", "..."]`, depending on your model
+- Change the labels at :code:`labelMap = ["label1", "label2", "..."]`, depending on your model
 - Set the number of classes at :code:`detectionNetwork.setNumClasses()` depending on your model
 - If you haven't compiled the model with the latest OpenVINO version, set the :ref:`OpenVINO version <Neural network blob compiled with uncompatible openvino version>`
 - Don't forget to change the path to the model (:code:`.blob` file)
 
 For **MobileNet** you should follow the same steps (skip the 2nd one) but start with the
-`MobileNet demo <https://docs.luxonis.com/projects/api/en/latest/samples/mono_mobilenet/#mono-mobilenetssd>`__.
+`MobileNet demo <https://docs.luxonis.com/projects/api/en/latest/samples/MobileNet/mono_mobilenet/>`__.
 
 Interested in how to train an object detector with your data? You can check our **Yolo V4** training tutorial
 `here <https://github.com/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_TinyYOLOv4_Object_Detector_Training_on_Custom_Data.ipynb>`__!
@@ -534,13 +534,13 @@ Available in DepthAI API Today:
 - Warp/Dewarp (for RGB-depth alignment/etc.)
 - Enhanced Disparity Depth Modes (Sub-Pixel, LR-Check, and Extended Disparity), `here <https://github.com/luxonis/depthai/issues/163>`__
 - SPI Support, `here <https://github.com/luxonis/depthai/issues/140>`__
-- Arbitrary crop/rescale/reformat and ROI return (e.g. `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/>`__)
+- Arbitrary crop/rescale/reformat and ROI return (e.g. `here <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/>`__)
 - Integrated Text Detection (e.g. `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr#gen2-text-detection--optical-character-recognition-ocr-pipeline>`__)
 - Pipeline Builder Gen2 (arbitrary series/parallel combination of neural nets and CV functions, background `here <https://github.com/luxonis/depthai/issues/136>`__ and API documentation is `here <https://docs.luxonis.com/projects/api/en/latest/>`__).
 - Lossless zoom (from 12MP full to 4K, 1080p, or 720p, `here <https://github.com/luxonis/depthai/issues/135>`__)
 - Improved Stereo Neural Inference Support (`here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__)
 - Integrated IMU Support (`here <https://github.com/luxonis/depthai-hardware/issues/8>`__)
-- Edge Detection (`here <https://docs.luxonis.com/projects/api/en/latest/samples/edge_detector/#edge-detector>`__, `video <https://youtu.be/bG15mpK4z2s>`__)
+- Edge Detection (`here <https://docs.luxonis.com/projects/api/en/latest/samples/EdgeDetector/edge_detector/>`__, `video <https://youtu.be/bG15mpK4z2s>`__)
 - On-Device Python Scripting Support, `here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/script/>`__
 
 The above features are available in the Luxonis Pipeline Builder Gen2 which is now the main API for DepthAI. The Gen1 API is still supported, and can be accessed via the version switcher at the bottom left of this page.  See below for in-progress additional functionality/flexibility which will be added as modular nodes to the Luxonis pipeline builder for DepthAI.
@@ -1408,7 +1408,7 @@ What Auto-Focus Modes Are Supported? Is it Possible to Control Auto-Focus From t
 OAK-D, OAK-1, OAK-D-IoT-40, etc. all support continuous video autofocus ('2' below, where the system is constantly autonomously
 searching for the best focus) and also and :code:`auto` mode which waits to focus until directed by the host, in addition to region-of-interest based focus, where the focus is automatically focused around a region provided to DepthAI (e.g. from a neural network bounding box, or some other real-time or apriori setting).
 
-- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
+- See `here <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl>`__ for autofocus controls, region of interest (to set autofocus to only consider a certain region), and triggering.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.setManualFocus>`__ for the API for manually setting the focus level.
 
@@ -1446,7 +1446,7 @@ Is it Possible to Control the Exposure and White Balance and Auto-Focus (3A) Set
 Auto-Focus (AF)
 ***************
 
-- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
+- See `here <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl>`__ for autofocus controls, region of interest (to set autofocus to only consider a certain region), and triggering.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.setManualFocus>`__ for the API for manually setting the focus level.
 
@@ -1456,7 +1456,7 @@ Exposure (AE)
 It is possible to set frame duration (us), exposure time (us), sensitivity (iso) via the API.  And we have a small example for the color camera to show how to do this for the color camera, which is here:
 https://github.com/luxonis/depthai/pull/279
 
-We have now made the Exposure commands more self-documenting (`here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/latest/samples/14_color_camera_control/>`__ for controlling exposure, and setting auto or manual for exposure.
+We have now made the Exposure commands more self-documenting (`here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/>`__ for controlling exposure, and setting auto or manual for exposure.
 
 
 White Balance (AWB)
