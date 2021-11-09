@@ -969,21 +969,24 @@ Note that hardware limit for the encoder is: 3840x2160 pixels at 30FPS or :code:
 
 See our encoding examples for Gen2 (current main line), which uses `VideoEncoder node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/video_encoder/>`__:
 
- - RGB and Mono Encoding in parallel with MobileNetSSDv2, `here <https://docs.luxonis.com/projects/api/en/latest/samples/11_rgb_encoding_mono_mobilenet/>`__.
- - RGB and Mono Encoding in parallel with MobileNetSSDv2 and stereo depth, `here <https://docs.luxonis.com/projects/api/en/latest/samples/12_rgb_encoding_mono_mobilenet_depth/>`__.
- - RGB, and both left/right camera encoding at maximum resolution and frame-rate, `here <https://docs.luxonis.com/projects/api/en/latest/samples/13_encoding_max_limit/>`__.
+ - RGB and Mono Encoding, `here <https://docs.luxonis.com/projects/api/en/latest/samples/VideoEncoder/rgb_mono_encoding/#rgb-mono-encoding>`__.
+ - RGB Encoding and MobilenetSSD, `here <https://docs.luxonis.com/projects/api/en/latest/samples/mixed/rgb_encoding_mobilenet/#rgb-encoding-mobilenetssd>`__.
+ - RGB Encoding and Mono with MobilenetSSD and Depth, `here <https://docs.luxonis.com/projects/api/en/latest/samples/mixed/rgb_encoding_mono_mobilenet_depth/#rgb-encoding-mono-with-mobilenetssd-depth>`__.
+ - Encoding Max Limit, `here <https://docs.luxonis.com/projects/api/en/latest/samples/VideoEncoder/encoding_max_limit/#encoding-max-limit>`__.
 
-Alternatively, to leverage this functionality from the depthai_demo.py (Gen1 API) command line, use the `-v` (or `--video`) command line argument as below:
+Alternatively, to leverage this functionality from the :code:`depthai_demo.py` script, use the `-enc` (or `--encode`) to specify which cameras to encode (record), with optional `-encout` arguemnt to specify path to directory where to store encoded files. An example is below:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -v [path/to/video.h264]
+  python3 depthai_demo.py -enc left color -encout [path/to/output]
 
 To then play the video in mp4/mkv format use the following muxing command:
 
 .. code-block:: bash
 
-  ffmpeg -frame rate 30 -i [path/to/video.h264] -c copy [outputfile.mp4/mkv]
+  ffmpeg -frame rate 30 -i [path/to/output/video.h264] -c copy [outputfile.mp4/mkv]
+
+For more information about the script and its arguments, see our GitHub repository `here <https://github.com/luxonis/depthai#usage>`__.
 
 By default there are keyframes every 1 second which resolve the previous issues with traversing the video as well as provide the capability to start recording anytime (worst case 1 second of video is lost if just missed the keyframe)
 
@@ -994,32 +997,6 @@ An example video encoded on DepthAI `OAK-D-CM3 <https://docs.luxonis.com/project
 .. image:: https://i.imgur.com/xjBEPKc.jpg
   :alt: 4K Video in 3.125MB/s on DepthAI with Raspberry Pi 3B
   :target: https://www.youtube.com/watch?v=vEq7LtGbECs
-
-Gen1 Video Encoding Options
-***************************
-
-Additional options can be configured in the video encoding system by adding a :code:`video_config` section to the JSON configuration file for the DepthAI pipeline builder, `here <https://github.com/luxonis/depthai/blob/d357bbda64403f69e3f493f14999445b46214264/depthai.py#L342>`__, an example of which is `here <https://github.com/luxonis/depthai/blob/dd42668f02fb3ba4e465f29915c8ca586dfc99cc/depthai.py#L342>`__.
-
-.. code-block:: python
-
-  config = {
-    ...
-    'video_config':
-    {
-        'rateCtrlMode': 'cbr', # Options: 'cbr' / 'vbr' (constant bit rate or variable bit rate)
-        'profile': 'h265_main', # Options: 'h264_baseline' / 'h264_main' / 'h264_high' / 'h265_main'
-        'bitrate': 8000000, # When using CBR
-        'maxBitrate': 8000000, # When using CBR
-        'keyframeFrequency': 30, # In number of frames
-        'numBFrames': 0,
-        'quality': 80 # (0 - 100%) When using VBR
-    }
-    ...
-  }
-
-The options above are all current options exposed for video encoding and not all must be set.
-
-If the :code:`video_config` member is **NOT** present in :code:`config` dictionary then default is used: H264_HIGH, constant bit rate 8500 Kbps, key frame every 30 frames (once per second), :code:`num B frames: 0`.
 
 What are the Capabilities of the Video Encoder on DepthAI?
 ##########################################################
