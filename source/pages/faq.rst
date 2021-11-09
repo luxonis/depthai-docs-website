@@ -1446,7 +1446,7 @@ Is it Possible to Control the Exposure and White Balance and Auto-Focus (3A) Set
 Auto-Focus (AF)
 ***************
 
-- See `here <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/#source-code>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
+- See `here <https://docs.luxonis.com/projects/api/en/latest/samples/ColorCamera/rgb_camera_control/#rgb-camera-control>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl>`__ for autofocus controls, region of interest (to set autofocus to only consider a certain region), and triggering.  
 - See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.setManualFocus>`__ for the API for manually setting the focus level.
 
