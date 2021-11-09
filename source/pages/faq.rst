@@ -1456,7 +1456,7 @@ Exposure (AE)
 It is possible to set frame duration (us), exposure time (us), sensitivity (iso) via the API.  And we have a small example for the color camera to show how to do this for the color camera, which is here:
 https://github.com/luxonis/depthai/pull/279
 
-We have now made the Exposure commands more self-documenting (`here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/v2.2.1.0/samples/14_1_color_camera_control/>`__ for controlling exposure, and setting auto or manual for exposure.
+We have now made the Exposure commands more self-documenting (`here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/latest/samples/ColorCamera/rgb_camera_control/#rgb-camera-control>`__ for controlling exposure, and setting auto or manual for exposure.
 
 
 White Balance (AWB)
