@@ -4,7 +4,7 @@ SLAM with OAK
 `SLAM <https://en.wikipedia.org/wiki/Simultaneous_localization_and_mapping>`__ (Simultaneous Localization And Mapping) can be performed using
 our OAK devices.
 
-We plan on creating our own visual-inertial SLAM project that would use on-device feature tracking (using `FeatureTracker <https://github.com/luxonis/depthai-python/blob/develop/examples/feature_tracker.py>`__ node)
+We plan on creating our own visual-inertial SLAM project that would use on-device feature tracking (using `FeatureTracker <https://docs.luxonis.com/projects/api/en/latest/components/nodes/feature_tracker/>`__ node)
 and intertial data (using `IMU <https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/>`__ node), if the device has an IMU sensor onboard.
 
 Our awesome community has also created several projects that use OAK for SLAM:
