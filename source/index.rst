@@ -608,6 +608,7 @@ Ecosystem
    pages/support.rst
    pages/troubleshooting.rst
    pages/training.rst
+   pages/oak_webcam.rst
    pages/slam_oak.rst
    pages/stereo_neural_inference.rst
    pages/oak_on_drones.rst

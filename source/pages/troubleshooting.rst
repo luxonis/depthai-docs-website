@@ -134,6 +134,15 @@ And in some cases, these were already set, but DepthAI was plugged in the entire
 
 So make sure to unplug and then plug the DepthAI back in after having run these.
 
+Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.
+#######################################################################
+
+When you recieve the error below, it means that you have the same issue as above, udev rules aren't set. Check the solution :ref:`here <Failed to boot the device: 1.3-ma2480, err code 3>`.
+
+.. code-block:: bash
+
+  RuntimeError: Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.
+
 CTRL-C Is Not Stopping It!
 ##########################
 
@@ -195,6 +204,14 @@ The reason for this error is that depthai can't resolve the OpenVINO version fro
   pipeline = depthai.Pipeline()
   # Set the correct version:
   pipeline.setOpenVINOVersion(depthai.OpenVINO.Version.VERSION_2020_1)
+
+"realloc(): invalid pointer\n Aborted" on RPi
+#############################################
+
+On RPi, after running :code:`sudo apt upgrade`, you might get the error :code:`realloc(): invalid pointer\n Aborted` when importing cv2 after depthai library. We have observed the same issue, and have found a **solution**:
+
+- Downgrade libc6 by running :code:`sudo apt install -y --allow-downgrades libc6=2.28-10+rpi1`, OR
+- Re-install DepthAI dependencies by running :code:`sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash`
 
 
 .. include::  /pages/includes/footer-short.rst
