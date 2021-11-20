@@ -866,16 +866,16 @@ To specify which streams you would like displayed, use the :code:`-s` option.  F
 
 
 The available streams are:
-  - :code:`nn_input` - Neural Network passthrough frames on which inference was made on (300x300 in case of MobileNet)
+  - :code:`nnInput` - Neural Network passthrough frames on which inference was made on (300x300 in case of MobileNet)
   - :code:`color` - 4K color camera, biggest camera on the board with lens
   - :code:`left` - Left grayscale camera (marked `L` or `LEFT` on the board)
   - :code:`right` - Right grayscale camera (marked `R` or `RIGHT` on the board)
-  - :code:`rectified_left` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ left camera frames
-  - :code:`rectified_right` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ right camera frames
+  - :code:`rectifiedLeft` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ left camera frames
+  - :code:`rectifiedRight` - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ right camera frames
   - :code:`depth` - Depth in `uint16`
-  - :code:`depth_raw` - Raw frames which are used to calculate depth
+  - :code:`depthRaw` - Raw frames which are used to calculate depth
   - :code:`disparity` - Raw disparity
-  - :code:`disparity_color` - Disparity colorized on the host (:code:`JET` colorized visualization of depth)
+  - :code:`disparityColor` - Disparity colorized on the host (:code:`JET` colorized visualization of depth)
 
 Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
 ************************************************************************
