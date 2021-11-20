@@ -7,22 +7,10 @@ In this guide, I assume you just got your DepthAI device (e.g. `OAK-1 <https://d
 and you want to give it the first try to explore what is possible with it and what you can achieve when working with it.
 
 - First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
-- Next, I will explain what the script does and describe basic terms used in the DepthAI world.
-- Following up, I will show which models you can run on the DepthAI out-of-the-box and how to run a custom model.
+- Following up, I will go through some of the options available in the demo script and show their usage / results
 - Last, you will receive useful links to expand your knowledge further, and check open-sourced use-case implementations, code examples and tutorials, that you can use as a starting point for your projects.
 
 Let's start with the device setup below
-
-Watch the video
-###############
-
-If you prefer, we've encapsulated this tutorial in a short YouTube video you can follow along while scrolling this page
-
-.. raw:: html
-
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto;">
-        <iframe src="https://www.youtube.com/embed/LN1O9vhPJA0" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>
 
 Connect the DepthAI device
 ##########################
@@ -45,22 +33,31 @@ On Ubuntu, you can check if a new USB device was detected by running
   `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__, together with discord support
   channels where you can chat with us live if you have any issues or questions.
 
-Download demo script
-####################
+Use Windows Installer
+#####################
 
-Our goal is to make engineering efficiency higher with DepthAI. As a part of this effort, we created an all-in-one script that
-allows you to check DepthAI features using command line arguments - no coding required!
+If you prefer, we've encapsulated all setup procedures inside a single :code:`.exe` file you can download `here <https://github.com/luxonis/depthai/releases/download/v2.0.0/DepthAI_setup.exe>`__ and skip the :ref:`Setup` section.
+
+When downloaded and ran, it will install all necessary components and package requirements. Once finished, it will run the demo script automatically
+
+Setup
+#####
+
+In this section, I will describe how to install the demo script manually with command line
+
+Download demo script
+********************
 
 To download the demo script, you can either use :code:`git` or directly download a zip file
 
 From zip file
-*************
+-------------
 
 First, download a repository package from `here <https://github.com/luxonis/depthai/archive/refs/heads/main.zip>`__
 and then unpack the archive to a directory of preference. Next open a terminal session in this directory.
 
 From git
-********
+--------
 
 First, open the terminal session and go to a directory of preference, where you'd like to download your demo script.
 Then, run the following code to download the demo script
@@ -76,7 +73,7 @@ After the repository is downloaded, make sure to enter the downloaded repository
   $ cd depthai
 
 Create python virtualenv (optional)
-###################################
+***********************************
 
 To create and use the virtualenv, you can follow an `official python guide to virtualenvs <https://docs.python.org/3/tutorial/venv.html>`__ or
 follow os-specific guides on the web, like `"How to Create Python 3 Virtual Environment on Ubuntu 20.04" <https://linoxide.com/how-to-create-python-virtual-environment-on-ubuntu-20-04/>`__
@@ -98,7 +95,7 @@ And this may require installing these packages prior
   $ apt-get install python3-pip python3-venv
 
 Install requirements
-####################
+********************
 
 Once the demo source code is downloaded, and you have your terminal session set up, the next thing that has to be done
 is to install all additional packages that this script requires (together with the :code:`depthai` Python API itself).
@@ -122,7 +119,7 @@ To install these packages, run the :code:`install_requirements.py` script
 Now, you should be able to start using the demo script, which we will do now
 
 Run demo script
-###############
+***************
 
 Having everything set up, we are now ready to use the demo script by running
 
@@ -130,36 +127,72 @@ Having everything set up, we are now ready to use the demo script by running
 
   $ python3 depthai_demo.py
 
-This will compile and download a default `mobilenet-ssd` model, configure the DepthAI and then display
-:code:`rgb` window that will contain a scaled preview from the RGB camera from your device.
+Default run
+###########
 
-If you're using OAK-D, it will also display :code:`depth` window, that will show the depth projection calculated from
-left & right camera images by DepthAI.
+Running the demo for the first time, the script will compile and download a default `mobilenet-ssd` model,
+configure the DepthAI device and then show a default :code:`color` preview that will contain a scaled preview from the RGB camera from your device.
 
-
-.. image:: https://user-images.githubusercontent.com/5244214/127166676-3f043ec7-4448-4233-aa13-cfaae95fe090.png
+.. image:: https://user-images.githubusercontent.com/5244214/142722740-47e545b7-c7fe-4132-9704-ae3b47d60957.png
   :alt: Default run
 
-Change input camera to left/right (OAK-D only)
-##############################################
+Change preview
+##############
 
-To run the demo script and get a preview from the left camera, run
+To see other previews from the device, you can use preview switcher that is visible in the top-left section of the GUI
 
-.. code-block:: bash
+.. image:: https://user-images.githubusercontent.com/5244214/141984256-4f9b9479-0907-4b04-bfcd-aae15ac28a0a.png
+  :alt: preview selector location
 
-  $ python3 depthai_demo.py -cam left
+.. list-table:: Available previews
+  :widths: 15 65 20
+  :header-rows: 1
+  :align: center
 
-.. image:: https://user-images.githubusercontent.com/5244214/127310731-be1a8bde-5cbf-4dcb-b1db-c863e682007c.png
-  :alt: Run from left
+  * - Name
+    - Description
+    - Limitations
 
-Respectively, to get a preview from the right camera, run
+  * - :code:`color`
+    - Shows preview from color camera
+    -
 
-.. code-block:: bash
+  * - :code:`nnInput`
+    - Shows preview from right mono camera
+    - Disabled if no AI model is running
 
-  $ python3 depthai_demo.py -cam right
+  * - :code:`left`
+    - Shows preview from left mono camera
+    - **OAK-D** needed
 
-.. image:: https://user-images.githubusercontent.com/5244214/127167139-c22021d5-46d7-47ae-b45d-1420d3a9ad8b.png
-  :alt: Run from right
+  * - :code:`right`
+    - Shows preview from right mono camera
+    - **OAK-D** needed
+
+  * - :code:`depth`
+    - Shows disparity map calculated from :code:`depthRaw` preview and JET colored. Best for visualizing depth
+    - **OAK-D** needed
+
+  * - :code:`depthRaw`
+    - Shows raw depth map. Best for depth-based calculations
+    - **OAK-D** needed
+
+  * - :code:`disparity`
+    - Shows disparity map produced on device
+    - **OAK-D** needed
+
+  * - :code:`disparityColor`
+    - Shows disparity map produced on device and JET colored. Should be the same as :code:`depth` preview but produced on device.
+    - **OAK-D** needed
+
+  * - :code:`rectifiedLeft`
+    - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ left camera frames
+    - **OAK-D** needed
+
+  * - :code:`rectifiedRight`
+    - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ right camera frames
+    - **OAK-D** needed
+
 
 Default model
 #############
@@ -176,32 +209,31 @@ The model that is used by default is a MobileNetv2 SSD object detector trained o
 
 So give it a try to detect different objects, like bottles or apples
 
-.. image:: https://user-images.githubusercontent.com/5244214/116867984-4447ae00-ac0e-11eb-9ed1-fac37f78634d.png
+.. image:: https://user-images.githubusercontent.com/5244214/142192279-71e479ae-fef2-4ddb-a4d2-7ae677e1544d.png
   :alt: bottles and apples
 
 Or even cats
 
-.. image:: https://user-images.githubusercontent.com/5244214/117653608-e6c6da80-b194-11eb-80c9-2fbb459639cf.png
+.. image:: https://user-images.githubusercontent.com/5244214/142493174-85b894fb-7a2b-40a1-8fad-0937ca5f27e1.png
   :alt: cat
 
 Using other models
 ##################
 
-We have prepared other models, which you can try and evaluate by simply changing one command line parameter.
-To run the demo script with a different model, e.g. :code:`face-detection-retail-0004`, run the following command
+We have prepared other models, which you can try and evaluate with ease.
+To run the demo script with e.g. :code:`face-detection-retail-0004`, click on the :code:`CNN Model` combo box and select mentioned model
 
 
-.. code-block:: bash
-
-  $ python3 depthai_demo.py -cnn face-detection-retail-0004
+.. image:: https://user-images.githubusercontent.com/5244214/141984256-4f9b9479-0907-4b04-bfcd-aae15ac28a0a.png
+  :alt: preview selector location
 
 Which will allow you to detect human faces, like below
 
 
-.. image:: https://user-images.githubusercontent.com/5244214/116868791-ba004980-ac0f-11eb-9dcf-36ab2852d08e.png
+.. image:: https://user-images.githubusercontent.com/5244214/142645887-f04b90e4-c69f-4764-93d3-37bfb05fe67c.png
   :alt: face
 
-You can use :code:`-cnn <name>` flag to change the model that is being run on the DepthAI. Below, there is a list of
+You can use this combo box to change the model that is being run on the DepthAI. Below, there is a list of
 models that you can use, having just the demo script downloaded
 
 
@@ -267,75 +299,47 @@ models that you can use, having just the demo script downloaded
 
 - :code:`deeplabv3p_person` - Allows to highlight parts of the image where a person is detected
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn deeplabv3p_person
-
-  .. image:: https://user-images.githubusercontent.com/5244214/118824955-90574b80-b8ba-11eb-863a-a7c3f866f71a.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142645574-2da1b6cd-278b-44d8-8f1a-1d9921d976bf.png
     :alt: deeplabv3p_person
 
 .. _face-detection-adas-0001:
 
 - :code:`face-detection-adas-0001` - Allows to detect faces on the image (slower)
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn face-detection-adas-0001
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117137299-c8826880-ada9-11eb-89b6-fafc3be0937f.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142645887-f04b90e4-c69f-4764-93d3-37bfb05fe67c.png
     :alt: face-detection-adas-0001
 
 .. _face-detection-retail-0004:
 
 - :code:`face-detection-retail-0004` - Allows to detect faces on the image (faster)
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn face-detection-retail-0004
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117137578-30d14a00-adaa-11eb-9352-b3cfbc9c69d7.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142645887-f04b90e4-c69f-4764-93d3-37bfb05fe67c.png
     :alt: face-detection-retail-0004
 
 .. _mobilenet-ssd:
 
 - :code:`mobilenet-ssd` - Object detector that detects 20 different classes (default)
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn mobilenet-ssd
-
-  .. image:: https://user-images.githubusercontent.com/5244214/116867984-4447ae00-ac0e-11eb-9ed1-fac37f78634d.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142192279-71e479ae-fef2-4ddb-a4d2-7ae677e1544d.png
     :alt: mobilenet-ssd
 
 .. _pedestrian-detection-adas-0002:
 
 - :code:`pedestrian-detection-adas-0002` - allows to detect people on the image (slower)
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn pedestrian-detection-adas-0002
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117141406-c969c900-adae-11eb-93b0-f69a2ca31512.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142723213-93cfed86-cb53-4b9b-85cb-4435a0be631d.png
     :alt: pedestrian-detection-adas-0002
 
 .. _person-detection-retail-0013:
 
 - :code:`person-detection-retail-0013` - allows to detect people on the image (faster)
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn person-detection-retail-0013
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117142161-adb2f280-adaf-11eb-9c83-b7b4aa027093.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142723320-51d004ea-1163-4aa1-a53c-126ab2c259cb.png
     :alt: person-detection-retail-0013
 
 .. _person-vehicle-bike-detection-crossroad-1016:
 
 - :code:`person-vehicle-bike-detection-crossroad-1016` - allows to detect both people, bikes and vehicles on the image
-
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn person-vehicle-bike-detection-crossroad-1016
 
   .. image:: https://user-images.githubusercontent.com/5244214/117144527-4fd3da00-adb2-11eb-89a4-2733cd9a39af.png
     :alt: person-vehicle-bike-detection-crossroad-1016
@@ -344,68 +348,144 @@ models that you can use, having just the demo script downloaded
 
 - :code:`yolo-v3` - Object detector that detects 80 different classes (slower)
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn yolo-v3
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117146045-1603d300-adb4-11eb-86d5-4a4d86b58b4e.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142192279-71e479ae-fef2-4ddb-a4d2-7ae677e1544d.png
     :alt: yolo-v3
 
 .. _tiny-yolo-v3:
 
 - :code:`tiny-yolo-v3` - Object detector that detects 80 different classes (faster)
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn tiny-yolo-v3
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117146045-1603d300-adb4-11eb-86d5-4a4d86b58b4e.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142192279-71e479ae-fef2-4ddb-a4d2-7ae677e1544d.png
     :alt: tiny-yolo-v3
 
 .. _vehicle-detection-adas-0002:
 
 - :code:`vehicle-detection-adas-0002` - allows to detect vehicles on the image
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn vehicle-detection-adas-0002
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117147219-54e65880-adb5-11eb-8089-c38d09a21076.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142653915-cce665f1-d646-4621-a3a5-0006dc2273cb.png
     :alt: vehicle-detection-adas-0002
 
 .. _vehicle-license-plate-detection-barrier-0106:
 
 - :code:`vehicle-license-plate-detection-barrier-0106` - allows to detect both vehicle and license plate on the image (only Chineese license plates)
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn vehicle-license-plate-detection-barrier-0106
-
-  .. image:: https://user-images.githubusercontent.com/5244214/117147703-cd4d1980-adb5-11eb-8109-769cc3a2091a.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142654408-9e16c2bb-2ca7-451b-a384-d1fc631a365f.png
     :alt: vehicle-license-plate-detection-barrier-0106
 
 .. _openpose2:
 
 - :code:`openpose2` - Human pose estimation model
 
-  .. code-block:: bash
-
-    $ python3 depthai_demo.py -cnn openpose2
-
-  .. image:: https://user-images.githubusercontent.com/18037362/130475911-1c7d57dd-0222-4dd1-a621-be14ce6a095b.png
+  .. image:: https://user-images.githubusercontent.com/5244214/142654924-7286b066-2ccc-4879-8d88-c5580dbbfcb4.png
     :alt: openpose2
 
 All of the data we use to download and compile a model can be found `here <https://github.com/luxonis/depthai/tree/main/resources/nn>`__.
 
+Demo usage
+##########
+
+In this section, we'll go through the config options available in the demo script, that will allow you to try out different configurations
+
+  .. image:: https://user-images.githubusercontent.com/5244214/142490950-61518cce-e6c0-429a-a381-e8082bc3fe9f.png
+    :alt: Config options
+
+AI Properties
+*************
+
+
+  .. image:: https://user-images.githubusercontent.com/5244214/142454791-4da7aaf1-9b89-4201-970e-1f0814e82322.png
+    :alt: AI config
+
+Switches:
+
+- **Enabled**: Turns AI on/off. Turning it off will prevent any neural network from being run, which will also save some of the memory. Useful for situations where we're more focused on Depth/Encoding rather than AI processing
+
+Basic properties:
+
+- **CNN Model**: Choose which model to run on DepthAI, see more at :ref:`Using other models`
+- **SHAVEs**: Determines the amount of SHAVE cores used to compile the neural network. The higher the value, the faster network can run, but this also limits the amount of features that can be enabled at once.
+- **Model source**: Specify which camera preview will be taken as a model input, so which frames will be sent to neural network to perform inference
+- **Full FOV**: If enabled, it will scale down the camera image to meet the nn input size. If disabled, before scaling, it will crop the image to meet the NN aspect ratio
+
+Advanced:
+
+- **OpenVINO version**: Specify OpenVINIO version that will be used to compile the MyriadX blob and run the pipeline. It's recommended to use the latest version for most cases
+- **Label to count**: Allows to display a count of a specific label visible in the demo (e.g. if you want to count the amount of cats in the preview with the default model, you can do so by selecting :code:`cat` as a count label and restarting the script)
+- **Spatial bounding box**: When enabled, will draw a bounding box on depth previews that shows which part of the detection area was taken into depth estimation.
+- **SBB Scale Factor**: Determines the size of spatial bounding box in compare to the detection bounding box.
+
+
+Depth Properties
+****************
+
+  .. image:: https://user-images.githubusercontent.com/5244214/142464446-5c358c7b-4770-4416-8a4d-ae397e8c2657.png
+    :alt: Depth config
+
+Switches:
+
+- **Enabled**: Turns Depth on/off. Turning it off will prevent stereo node from being created, which will also save some of the memory. Useful for situations where we're more focused on AI processing/Encoding rather than depth.
+- **Use Disparity**: If not set (default), the demo script will calculate the disparity map on host based on depth map. If enabled, the same processing will be performed on device, consuming some of the memory but limiting host resource usage.
+
+Basic properties:
+
+- **Median Filtering**: Specifies the type of noise removing median filter applied to the depth map
+- **Subpixel**: Enables subpixel mode, that improves the depth precision and is especially useful for long range measurements
+- **Left Right Check**: Enables left-right check, that is used to remove incorrectly calculated disparity pixels due to occlusions at object borders
+- **Extended Disparity**: Enables extended disparity mode, that allows a closer minimum distance for the given baseline
+- **Depth Range**: Specifies the minimum and maximum distance calculated by the device
+- **LRC Threshold**: Specifies the max difference between disparity pixels that will make the pixel invalidated (the higher threshold, the more points will get through)
+
+Camera Properties
+*****************
+
+  .. image:: https://user-images.githubusercontent.com/5244214/142468945-2c0374ee-ffa7-4ff6-8332-6dc134cc10aa.png
+    :alt: Camera config
+
+Basic properties:
+
+- **FPS**: Specifies how fast should the camera capture the frames
+- **Resolution**:  Specifies camera sensor resolution, and thus captured frame size
+
+Advanced:
+
+- **ISO**: Controls the light gathering ability of the camera
+- **Exposure**: Controls the exposure time of the camera
+- **Saturation**: Controls the intensity of colors in a frame
+- **Contrast**: Controls the visual ratio of different tones in a frame
+- **Brightness**: Controls how dark or light the colors are in a frame
+- **Sharpness**: Controls the clarity of details in a frame
+
+Misc
+****
+
+  .. image:: https://user-images.githubusercontent.com/5244214/142469155-e02593ae-80f4-452d-9bed-a3e50dc31e4f.png
+    :alt: Misc
+
+Recording:
+
+- **Switches**: enable recording of specified camera
+- **FPS inputs**: specifies recording FPS (default 30)
+- **Destination**: specifies a **directory path** where the recordings will be stored
+
+Reporting:
+
+- **Switches**: enable logging of specified feature
+- **Destination**: specifies a **file path** where the report file will be stored
+
 Using custom models
 ###################
+
+.. warning::
+
+  Using custom models require a locally downloaded version of depthai repository.
+  **If you've been using installer** to download and run the script, **adding custom models won't work**.
+  Please follow :ref:`Setup` section on how to download and setup the repository.
 
 Let’s assume you want to run a custom model which you downloaded from the model zoo or trained yourself (or both).
 In order to prepare your model to be runnable on DepthAI, it has to be compiled into MyriadX blob format - which
 is an optimized version of your model, capable of utilizing MyriadX chip as a processing unit.
 
-
-our demo script, we support a few ways you can run your custom blob, which will be covered below. As an example,
+In our demo script, we support a few ways you can run your custom blob, which will be covered below. As an example,
 I’ll add a custom face detection network called :code:`custom_model` (substitute with your preferred name)
 and run it with the demo script
 
@@ -459,7 +539,7 @@ to decode and display the NN results.
 
 You can use these configuration examples to customize your :code:`custom_model.json` inside :code:`resources/nn/custom_model` directory
 
-- **MobileNetSSD**
+- **MobileNetSSD** (we will use this config)
 
 .. code-block:: json
 
@@ -533,14 +613,13 @@ Run the demo script
 
 Having the files in place, we can now run the demo with our custom model
 
-.. code-block:: bash
-
-  $ python3 depthai_demo.py -cnn custom_model
+.. image:: https://user-images.githubusercontent.com/5244214/142723365-a3f1e369-1b2f-4e22-b0e6-600463134352.png
+  :alt: custom model location
 
 And you should see the output and your NN results displayed (or printed in the console if :code:`raw` was selected and
 there is no handler file)
 
-.. image:: https://user-images.githubusercontent.com/5244214/120194749-4ce7d000-c21e-11eb-80f1-86c35080161e.png
+.. image:: https://user-images.githubusercontent.com/5244214/142645887-f04b90e4-c69f-4764-93d3-37bfb05fe67c.png
   :alt: custom model
 
 Be sure to check the advanced sections below or see :ref:`Next steps <Next steps>`
@@ -609,7 +688,7 @@ Below, you can find an example :code:`handle.py` file that decodes and displays 
 
 With the custom face detection model, using this code we receive the following output
 
-.. image:: https://user-images.githubusercontent.com/5244214/120194166-908e0a00-c21d-11eb-8806-95b1ad9c43f5.png
+.. image:: https://user-images.githubusercontent.com/5244214/142723407-0dde0f8c-1ce6-4fa7-94bb-9fce5dff9804.png
   :alt: custom model custom handler
 
 We already use this handler mechanism to decode `deeplabv3p_person <https://github.com/luxonis/depthai/blob/main/resources/nn/deeplabv3p_person/handler.py>`__,
@@ -641,8 +720,11 @@ the conversion for you and run the received blob
 
   $ python3 depthai_demo.py -cnn <name>
 
-Callbacks - customize the demo code
-***********************************
+Customize the demo code
+#######################
+
+Callbacks file
+**************
 
 If you'd like to add some custom functionalities to the demo yourself or just check how do certain variables look like,
 you can use a callbacks file, that should contain methods that the demo will call during execution on specific events.
@@ -650,6 +732,10 @@ you can use a callbacks file, that should contain methods that the demo will cal
 An example of a callbacks file that `is available in the repo <https://github.com/luxonis/depthai/blob/main/callbacks.py>`__ is below
 
 .. code-block:: python
+
+    def shouldRun():
+      pass  # Called to determine if the demo shold be running
+
 
     def onNewFrame(frame, source):
       pass  # Called when a new frame is available
@@ -667,15 +753,15 @@ An example of a callbacks file that `is available in the repo <https://github.co
         pass  # Called when a new report is available
 
 
-    def onSetup(**kwargs):
+    def onSetup(*args, **kwargs):
         pass  # Called when the demo script is setting up
 
 
-    def onTeardown(**kwargs):
+    def onTeardown(*args, **kwargs):
         pass  # Called when the demo script is finishing
 
 
-    def onIter(**kwargs):
+    def onIter(*args, **kwargs):
         pass  # Called on each demo script iteration (internal loop)
 
 These methods allow building custom functionalities on top of the demo script itself, whether it's just printing or counting
@@ -684,6 +770,26 @@ external destination.
 
 By default, the demo script will use :code:`callbacks.py` file in the repository, but this path cam be changed using
 :code:`-cb <path> / --callback <path>` flags
+
+Importing demo as a class
+*************************
+
+If preferred, the Demo script can also be imported like a regular class - this allows to control when the demo is starting up
+and when does it run. A simple example on how to run the demo from Python code is shown below
+
+.. code-block:: python
+
+    from depthai_demo import Demo
+    from depthai_helpers.arg_manager import parseArgs
+    from depthai_helpers.config_manager import ConfigManager
+
+    args = parseArgs()
+    conf = ConfigManager(args)
+    demo = Demo(onNewFrame=<fn>, onShowFrame=<fn>, onNn=<fn>, onReport=<fn>, onSetup=<fn>, onTeardown=<fn>, onIter=<fn>) # all params are optional
+    demo.run_all(conf)
+
+Remember that :code:`PYTHONPATH` env variable must contain a path do depthai repository in order for the imports to work.
+Alternatively, you can place the script along :code:`depthai_demo.py` in the repository
 
 Next steps
 ##########
