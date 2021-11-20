@@ -7,8 +7,8 @@ In this guide, I assume you just got your DepthAI device (e.g. `OAK-1 <https://d
 and you want to give it the first try to explore what is possible with it and what you can achieve when working with it.
 
 - First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
-- Following up, I will go through some of the options available in the demo script and show their usage / results
-- Last, you will receive useful links to expand your knowledge further, and check open-sourced use-case implementations, code examples and tutorials, that you can use as a starting point for your projects.
+- Following up, I will go through some of the options available in the demo script and show their usage/results
+- Last, you will receive useful links to expand your knowledge further and check open-sourced use-case implementations, code examples, and tutorials, that you can use as a starting point for your projects.
 
 Let's start with the device setup below
 
@@ -38,12 +38,12 @@ Use Windows Installer
 
 If you prefer, we've encapsulated all setup procedures inside a single :code:`.exe` file you can download `here <https://github.com/luxonis/depthai/releases/download/v2.0.0/DepthAI_setup.exe>`__ and skip the :ref:`Setup` section.
 
-When downloaded and ran, it will install all necessary components and package requirements. Once finished, it will run the demo script automatically
+When downloaded and run, it will install all necessary components and package requirements. Once finished, it will run the demo script automatically
 
 Setup
 #####
 
-In this section, I will describe how to install the demo script manually with command line
+In this section, I will describe how to install the demo script manually with a command line
 
 Download demo script
 ********************
@@ -54,7 +54,7 @@ From zip file
 -------------
 
 First, download a repository package from `here <https://github.com/luxonis/depthai/archive/refs/heads/main.zip>`__
-and then unpack the archive to a directory of preference. Next open a terminal session in this directory.
+and then unpack the archive to a directory of preference. Next, open a terminal session in this directory.
 
 From git
 --------
@@ -139,7 +139,7 @@ configure the DepthAI device and then show a default :code:`color` preview that 
 Change preview
 ##############
 
-To see other previews from the device, you can use preview switcher that is visible in the top-left section of the GUI
+To see other previews from the device, you can use the preview switcher that is visible in the top-left section of the GUI
 
 .. image:: https://user-images.githubusercontent.com/5244214/141984256-4f9b9479-0907-4b04-bfcd-aae15ac28a0a.png
   :alt: preview selector location
@@ -182,7 +182,7 @@ To see other previews from the device, you can use preview switcher that is visi
     - **OAK-D** needed
 
   * - :code:`disparityColor`
-    - Shows disparity map produced on device and JET colored. Should be the same as :code:`depth` preview but produced on device.
+    - Shows disparity map produced on device and JET colored. Should be the same as :code:`depth` preview but produced on the device.
     - **OAK-D** needed
 
   * - :code:`rectifiedLeft`
@@ -367,7 +367,7 @@ models that you can use, having just the demo script downloaded
 
 .. _vehicle-license-plate-detection-barrier-0106:
 
-- :code:`vehicle-license-plate-detection-barrier-0106` - allows to detect both vehicle and license plate on the image (only Chineese license plates)
+- :code:`vehicle-license-plate-detection-barrier-0106` - allows to detect both vehicle and license plate on the image (only Chinese license plates)
 
   .. image:: https://user-images.githubusercontent.com/5244214/142654408-9e16c2bb-2ca7-451b-a384-d1fc631a365f.png
     :alt: vehicle-license-plate-detection-barrier-0106
@@ -384,7 +384,7 @@ All of the data we use to download and compile a model can be found `here <https
 Demo usage
 ##########
 
-In this section, we'll go through the config options available in the demo script, that will allow you to try out different configurations
+In this section, we'll go through the config options available in the demo script, allowing you to try out different configurations
 
   .. image:: https://user-images.githubusercontent.com/5244214/142490950-61518cce-e6c0-429a-a381-e8082bc3fe9f.png
     :alt: Config options
@@ -403,16 +403,16 @@ Switches:
 Basic properties:
 
 - **CNN Model**: Choose which model to run on DepthAI, see more at :ref:`Using other models`
-- **SHAVEs**: Determines the amount of SHAVE cores used to compile the neural network. The higher the value, the faster network can run, but this also limits the amount of features that can be enabled at once.
-- **Model source**: Specify which camera preview will be taken as a model input, so which frames will be sent to neural network to perform inference
+- **SHAVEs**: Determines the number of SHAVE cores used to compile the neural network. The higher the value, the faster network can run, but this also limits features that can be enabled at once.
+- **Model source**: Specify which camera preview will be taken as model input, so which frames will be sent to a neural network to perform inference
 - **Full FOV**: If enabled, it will scale down the camera image to meet the nn input size. If disabled, before scaling, it will crop the image to meet the NN aspect ratio
 
 Advanced:
 
-- **OpenVINO version**: Specify OpenVINIO version that will be used to compile the MyriadX blob and run the pipeline. It's recommended to use the latest version for most cases
-- **Label to count**: Allows to display a count of a specific label visible in the demo (e.g. if you want to count the amount of cats in the preview with the default model, you can do so by selecting :code:`cat` as a count label and restarting the script)
-- **Spatial bounding box**: When enabled, will draw a bounding box on depth previews that shows which part of the detection area was taken into depth estimation.
-- **SBB Scale Factor**: Determines the size of spatial bounding box in compare to the detection bounding box.
+- **OpenVINO version**: Specify the OpenVINIO version that will be used to compile the MyriadX blob and run the pipeline. It's recommended to use the latest version for most cases
+- **Label to count**: Allows to display a count of a specific label visible in the demo (e.g. if you want to count the number of cats in the preview with the default model, you can do so by selecting :code:`cat` as a count label and restarting the script)
+- **Spatial bounding box**: When enabled, will draw a bounding box on depth previews that show which part of the detection area was taken into depth estimation.
+- **SBB Scale Factor**: Determines the size of the spatial bounding box in comparison to the detection bounding box.
 
 
 Depth Properties
@@ -423,13 +423,13 @@ Depth Properties
 
 Switches:
 
-- **Enabled**: Turns Depth on/off. Turning it off will prevent stereo node from being created, which will also save some of the memory. Useful for situations where we're more focused on AI processing/Encoding rather than depth.
-- **Use Disparity**: If not set (default), the demo script will calculate the disparity map on host based on depth map. If enabled, the same processing will be performed on device, consuming some of the memory but limiting host resource usage.
+- **Enabled**: Turns Depth on/off. Turning it off will prevent the stereo node from being created, which will also save some of the memory. Useful for situations where we're more focused on AI processing/Encoding rather than depth.
+- **Use Disparity**: If not set (default), the demo script will calculate the disparity map on host, based on the depth map. If enabled, the same processing will be performed on the device, consuming some of the memory but limiting host resource usage.
 
 Basic properties:
 
 - **Median Filtering**: Specifies the type of noise removing median filter applied to the depth map
-- **Subpixel**: Enables subpixel mode, that improves the depth precision and is especially useful for long range measurements
+- **Subpixel**: Enables subpixel mode, which improves the depth precision and is especially useful for long-range measurements
 - **Left Right Check**: Enables left-right check, that is used to remove incorrectly calculated disparity pixels due to occlusions at object borders
 - **Extended Disparity**: Enables extended disparity mode, that allows a closer minimum distance for the given baseline
 - **Depth Range**: Specifies the minimum and maximum distance calculated by the device
@@ -444,7 +444,7 @@ Camera Properties
 Basic properties:
 
 - **FPS**: Specifies how fast should the camera capture the frames
-- **Resolution**:  Specifies camera sensor resolution, and thus captured frame size
+- **Resolution**:  Specifies camera sensor resolution and thus captured frame size
 
 Advanced:
 
@@ -469,7 +469,7 @@ Recording:
 
 Reporting:
 
-- **Switches**: enable logging of specified feature
+- **Switches**: enable logging of the specified feature
 - **Destination**: specifies a **file path** where the report file will be stored
 
 Using custom models
@@ -477,12 +477,12 @@ Using custom models
 
 .. warning::
 
-  Using custom models require a locally downloaded version of depthai repository.
+  Using custom models requires a locally downloaded version of the depthai repository.
   **If you've been using installer** to download and run the script, **adding custom models won't work**.
-  Please follow :ref:`Setup` section on how to download and setup the repository.
+  Please follow :ref:`Setup` section on how to download and set up the repository.
 
 Let’s assume you want to run a custom model which you downloaded from the model zoo or trained yourself (or both).
-In order to prepare your model to be runnable on DepthAI, it has to be compiled into MyriadX blob format - which
+To prepare your model to be runnable on DepthAI, it has to be compiled into MyriadX blob format - which
 is an optimized version of your model, capable of utilizing MyriadX chip as a processing unit.
 
 In our demo script, we support a few ways you can run your custom blob, which will be covered below. As an example,
@@ -492,7 +492,7 @@ and run it with the demo script
 Compile MyriadX blob
 ********************
 
-To receive MyriadX blob, the network has to be already in OpenVINO IR format (consisting of :code:`.xml` and :code:`.bin`
+To receive a MyriadX blob, the network has to be already in OpenVINO IR format (consisting of :code:`.xml` and :code:`.bin`
 files) that will be used for compilation. We won't focus here on how to obtain this representation for your model, but be sure
 to check `official OpenVINO conversion guide <https://docs.openvinotoolkit.org/latest/openvino_docs_MO_DG_prepare_model_convert_model_Converting_Model.html>`__.
 
@@ -641,7 +641,7 @@ The :code:`handler.py` file should contain two methods - :code:`decode(nn_manage
   def draw(nn_manager, data, frames):
     pass
 
-First method, :code:`decode`, is called whenever a NN packet arrives from the pipeline (stored as a :code:`packet` param)
+The first method, :code:`decode`, is called whenever a NN packet arrives from the pipeline (stored as a :code:`packet` param)
 also providing a :code:`nn_manager` object that contains all nn-related info that was used by the script (like input size etc.).
 The goal of this function is to decode the received packets from the NN blob into meaningful results that can later be displayed.
 
@@ -698,7 +698,7 @@ On-demand compilation
 *********************
 
 Since files in the IR format can be large, and we're both downloading the blob and uploading IR format to the server,
-we have incorporated an OpenVINO-like :code:`model.yml` file structure that BlobConverter server uses internally as well.
+we have incorporated an OpenVINO-like :code:`model.yml` file structure that the BlobConverter server uses internally as well.
 You can check how this file looks like `in OpenVINO model zoo <https://github.com/openvinotoolkit/open_model_zoo/blob/master/models/intel/face-detection-retail-0004/model.yml>`__
 or in `available models in demo script <https://github.com/luxonis/depthai/blob/main/resources/nn/tiny-yolo-v3/model.yml>`__.
 
@@ -713,7 +713,7 @@ To download the blob using :code:`model.yml` file, run
 
   $ python3 -m blobconverter --raw-config /path/to/model.yml --raw-name custom_model
 
-You can also leave the `model.yml` file inside `resources/nn/<name>` directory. This will make the demo script perform
+You can also leave the `model.yml` file inside the `resources/nn/<name>` directory. This will make the demo script perform
 the conversion for you and run the received blob
 
 .. code-block:: bash
@@ -734,7 +734,7 @@ An example of a callbacks file that `is available in the repo <https://github.co
 .. code-block:: python
 
     def shouldRun():
-      pass  # Called to determine if the demo shold be running
+      pass  # Called to determine if the demo should be running
 
 
     def onNewFrame(frame, source):
@@ -775,7 +775,7 @@ Importing demo as a class
 *************************
 
 If preferred, the Demo script can also be imported like a regular class - this allows to control when the demo is starting up
-and when does it run. A simple example on how to run the demo from Python code is shown below
+and when does it run. A simple example of how to run the demo from Python code is shown below
 
 .. code-block:: python
 
@@ -788,7 +788,7 @@ and when does it run. A simple example on how to run the demo from Python code i
     demo = Demo(onNewFrame=<fn>, onShowFrame=<fn>, onNn=<fn>, onReport=<fn>, onSetup=<fn>, onTeardown=<fn>, onIter=<fn>) # all params are optional
     demo.run_all(conf)
 
-Remember that :code:`PYTHONPATH` env variable must contain a path do depthai repository in order for the imports to work.
+Remember that :code:`PYTHONPATH` env variable must contain a path do depthai repository for the imports to work.
 Alternatively, you can place the script along :code:`depthai_demo.py` in the repository
 
 Next steps
