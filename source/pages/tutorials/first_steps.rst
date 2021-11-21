@@ -36,7 +36,7 @@ On Ubuntu, you can check if a new USB device was detected by running
 Use Windows Installer
 #####################
 
-If you prefer, we've encapsulated all setup procedures inside a single :code:`.exe` file you can download `here <https://github.com/luxonis/depthai/releases/download/v2.0.0/DepthAI_setup.exe>`__ and skip the :ref:`Setup` section.
+If you prefer, we've encapsulated all setup procedures inside a single :code:`.exe` file you can download `here <https://github.com/luxonis/depthai/releases/download/v3.0.1/DepthAI_setup.exe>`__ and skip the :ref:`Setup` section.
 
 When downloaded and run, it will install all necessary components and package requirements. Once finished, it will run the demo script automatically
 
