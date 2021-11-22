@@ -78,29 +78,64 @@ Manually specify device IP
 In case you are able to :code:`ping` the device but the autodiscovery doesn't work (eg. device itself isn't in the same LAN), you
 can manually specify the IP address of the POE device.
 
-.. code-block:: python
 
-  import cv2
-  import depthai as dai
+.. tabs::
 
-  pipeline = dai.Pipeline()
+    .. tab:: Python
 
-  camRgb = pipeline.createColorCamera()
+        .. code-block:: python
 
-  xoutRgb = pipeline.createXLinkOut()
-  xoutRgb.setStreamName("rgb")
-  camRgb.preview.link(xoutRgb.input)
+            import cv2
+            import depthai as dai
 
-  device_info = dai.DeviceInfo()
-  device_info.state = dai.XLinkDeviceState.X_LINK_BOOTLOADER
-  device_info.desc.protocol = dai.XLinkProtocol.X_LINK_TCP_IP
-  device_info.desc.name = "169.254.1.222"
+            pipeline = dai.Pipeline()
 
-  with dai.Device(pipeline, device_info) as device:
-      qRgb = device.getOutputQueue(name="rgb", maxSize=4, blocking=False)
-      while True:
-          cv2.imshow("rgb", qRgb.get().getCvFrame())
-          if cv2.waitKey(1) == ord('q'):
-              break
+            camRgb = pipeline.createColorCamera()
+
+            xoutRgb = pipeline.createXLinkOut()
+            xoutRgb.setStreamName("rgb")
+            camRgb.preview.link(xoutRgb.input)
+
+            device_info = dai.DeviceInfo()
+            device_info.state = dai.XLinkDeviceState.X_LINK_BOOTLOADER
+            device_info.desc.protocol = dai.XLinkProtocol.X_LINK_TCP_IP
+            device_info.desc.name = "169.254.1.222"
+
+            with dai.Device(pipeline, device_info) as device:
+                qRgb = device.getOutputQueue(name="rgb", maxSize=4, blocking=False)
+                while True:
+                    cv2.imshow("rgb", qRgb.get().getCvFrame())
+                    if cv2.waitKey(1) == ord('q'):
+                        break
+
+    .. tab:: C++
+
+        .. code-block:: c++
+
+            #include "depthai/depthai.hpp"
+
+            int main(int argc, char** argv) {
+                dai::Pipeline pipeline;
+                auto camRgb = pipeline.create<dai::node::ColorCamera>();
+
+                auto xoutRgb = pipeline.create<dai::node::XLinkOut>();
+                xoutRgb->setStreamName("rgb");
+                camRgb->preview.link(xoutRgb->input);
+
+                auto deviceInfo = dai::DeviceInfo();
+                deviceInfo.state = X_LINK_BOOTLOADER;
+                deviceInfo.desc.protocol = X_LINK_TCP_IP;
+                strcpy(deviceInfo.desc.name, "169.254.1.222");
+
+                dai::Device device(pipeline, deviceInfo);
+
+                auto qRgb = device.getOutputQueue("rgb");
+                while(true) {
+                    cv::imshow("video", qRgb->get<dai::ImgFrame>()->getCvFrame());
+                    int key = cv::waitKey(1);
+                    if(key == 'q' || key == 'Q') return 0;
+                }
+                return 0;
+            }
 
 .. include::  /pages/includes/footer-short.rst
