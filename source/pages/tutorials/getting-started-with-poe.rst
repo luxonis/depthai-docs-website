@@ -69,15 +69,18 @@ PoE Troubleshooting
 
 - **Insufficient power supply**
     If your PoE device does not work, or in some rare cases, it works for a period of time and then suddenly stops working, there might be an issue with your PoE switch. For example when the power budget per port seems to be sufficient, but the overall power budget for the switch is being exceeded due to demands from devices on other ports.
-	It is worth checking the specifications of your PoE switch / injector with respect to its overall power budget.
+    It is worth checking the specifications of your PoE switch / injector with respect to its overall power budget.
 
+Flash static IP
+###############
+
+You can flash static/dynamic IP of an OAK-POE device, `demo here <https://docs.luxonis.com/projects/api/en/latest/samples/bootloader/poe_set_ip/>`__. You can also specify DNS and MAC address, but that's not included into this demo.
 
 Manually specify device IP
 ##########################
 
 In case you are able to :code:`ping` the device but the autodiscovery doesn't work (eg. device itself isn't in the same LAN), you
 can manually specify the IP address of the POE device.
-
 
 .. tabs::
 
