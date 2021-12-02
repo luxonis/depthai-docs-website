@@ -223,12 +223,8 @@ Using other models
 We have prepared other models, which you can try and evaluate with ease.
 To run the demo script with e.g. :code:`face-detection-retail-0004`, click on the :code:`CNN Model` combo box and select mentioned model
 
-.. code-block:: bash
-
-  $ python3 depthai_demo.py -cnn face-detection-retail-0004
-
-.. image:: https://user-images.githubusercontent.com/5244214/141984256-4f9b9479-0907-4b04-bfcd-aae15ac28a0a.png
-  :alt: preview selector location
+.. image:: https://user-images.githubusercontent.com/5244214/144452804-b776461b-0b93-4397-a702-15cb1ec04fb7.png
+  :alt: cnn model location
 
 Which will allow you to detect human faces, like below
 
@@ -236,8 +232,13 @@ Which will allow you to detect human faces, like below
 .. image:: https://user-images.githubusercontent.com/5244214/142645887-f04b90e4-c69f-4764-93d3-37bfb05fe67c.png
   :alt: face
 
-You can use this combo box to change the model that is being run on the DepthAI. Below, there is a list of
-models that you can use, having just the demo script downloaded
+You can use this combo box to change the model that is being run on the DepthAI. It's also possible to use command line to select
+
+.. code-block:: bash
+
+  $ python3 depthai_demo.py -cnn face-detection-retail-0004
+
+Below, there is a list of models that you can use, having just the demo script downloaded
 
 
 .. list-table:: Available models
