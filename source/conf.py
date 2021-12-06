@@ -87,8 +87,6 @@ for demo_release in requests.get("https://api.github.com/repos/luxonis/depthai/r
 
 
 variables_to_export = {
-    "windows_installer_url": "`here <{}>`__",
+    "windows_installer_url": f"`here <{windows_installer_url}>`__",
 }
-frozen_locals = dict(locals())
-rst_epilog = '\n'.join(map(lambda x: f".. |{x}| replace:: {variables_to_export[x].format(frozen_locals[x])}", variables_to_export))
-del frozen_locals
+rst_epilog = '\n'.join(map(lambda x: f".. |{x}| replace:: {variables_to_export[x]}", variables_to_export))
