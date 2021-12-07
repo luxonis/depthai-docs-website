@@ -218,6 +218,6 @@ You’re on your way! You can find the `complete code for this tutorial on GitHu
 .. note::
     You should also check out the :ref:`Use a Pre-trained OpenVINO model` tutorial, where this process is significaly simplified.
 
-.. include::  /includes/footer-short.rst
+.. include::  /pages/includes/footer-short.rst
 
 
