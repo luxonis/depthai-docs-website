@@ -1,0 +1,12 @@
+name: Run scheduled jobs
+on:
+  push:
+    branches:
+    - master
+  schedule:
+    - cron:  '0 0 * * *'
+jobs:
+  trigger-rtd:
+    runs-on: ubuntu-latest
+    steps:
+      - run:  curl -X POST -d "token=$RTD_TOKEN" https://readthedocs.com/api/v2/webhook/luxonis-docs-website/7037/
