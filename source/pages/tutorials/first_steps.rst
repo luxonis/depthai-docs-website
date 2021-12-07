@@ -223,9 +223,8 @@ Using other models
 We have prepared other models, which you can try and evaluate with ease.
 To run the demo script with e.g. :code:`face-detection-retail-0004`, click on the :code:`CNN Model` combo box and select mentioned model
 
-
-.. image:: https://user-images.githubusercontent.com/5244214/141984256-4f9b9479-0907-4b04-bfcd-aae15ac28a0a.png
-  :alt: preview selector location
+.. image:: https://user-images.githubusercontent.com/5244214/144452804-b776461b-0b93-4397-a702-15cb1ec04fb7.png
+  :alt: cnn model location
 
 Which will allow you to detect human faces, like below
 
@@ -233,8 +232,13 @@ Which will allow you to detect human faces, like below
 .. image:: https://user-images.githubusercontent.com/5244214/142645887-f04b90e4-c69f-4764-93d3-37bfb05fe67c.png
   :alt: face
 
-You can use this combo box to change the model that is being run on the DepthAI. Below, there is a list of
-models that you can use, having just the demo script downloaded
+You can use this combo box to change the model that is being run on the DepthAI. It's also possible to use command line to select
+
+.. code-block:: bash
+
+  $ python3 depthai_demo.py -cnn face-detection-retail-0004
+
+Below, there is a list of models that you can use, having just the demo script downloaded
 
 
 .. list-table:: Available models
@@ -291,13 +295,21 @@ models that you can use, having just the demo script downloaded
     - 30.0
     - :ref:`Usage <vehicle-license-plate-detection-barrier-0106>`
   * - :code:`openpose2`
-    - Pose estimation
-    - 7.3
+    - Pose estimation (openpose)
+    - 6.5
     - :ref:`Usage <openpose2>`
+  * - :code:`human-pose-estimation-0001`
+    - Pose estimation (intel)
+    - 7.3
+    - :ref:`Usage <human-pose-estimation-0001>`
 
 .. _deeplabv3p_person:
 
 - :code:`deeplabv3p_person` - Allows to highlight parts of the image where a person is detected
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn deeplabv3p_person
 
   .. image:: https://user-images.githubusercontent.com/5244214/142645574-2da1b6cd-278b-44d8-8f1a-1d9921d976bf.png
     :alt: deeplabv3p_person
@@ -306,12 +318,20 @@ models that you can use, having just the demo script downloaded
 
 - :code:`face-detection-adas-0001` - Allows to detect faces on the image (slower)
 
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn face-detection-adas-0001
+
   .. image:: https://user-images.githubusercontent.com/5244214/142645887-f04b90e4-c69f-4764-93d3-37bfb05fe67c.png
     :alt: face-detection-adas-0001
 
 .. _face-detection-retail-0004:
 
 - :code:`face-detection-retail-0004` - Allows to detect faces on the image (faster)
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn face-detection-retail-0004
 
   .. image:: https://user-images.githubusercontent.com/5244214/142645887-f04b90e4-c69f-4764-93d3-37bfb05fe67c.png
     :alt: face-detection-retail-0004
@@ -320,12 +340,20 @@ models that you can use, having just the demo script downloaded
 
 - :code:`mobilenet-ssd` - Object detector that detects 20 different classes (default)
 
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn mobilenet-ssd
+
   .. image:: https://user-images.githubusercontent.com/5244214/142192279-71e479ae-fef2-4ddb-a4d2-7ae677e1544d.png
     :alt: mobilenet-ssd
 
 .. _pedestrian-detection-adas-0002:
 
 - :code:`pedestrian-detection-adas-0002` - allows to detect people on the image (slower)
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn pedestrian-detection-adas-0002
 
   .. image:: https://user-images.githubusercontent.com/5244214/142723213-93cfed86-cb53-4b9b-85cb-4435a0be631d.png
     :alt: pedestrian-detection-adas-0002
@@ -334,12 +362,20 @@ models that you can use, having just the demo script downloaded
 
 - :code:`person-detection-retail-0013` - allows to detect people on the image (faster)
 
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn person-detection-retail-0013
+
   .. image:: https://user-images.githubusercontent.com/5244214/142723320-51d004ea-1163-4aa1-a53c-126ab2c259cb.png
     :alt: person-detection-retail-0013
 
 .. _person-vehicle-bike-detection-crossroad-1016:
 
 - :code:`person-vehicle-bike-detection-crossroad-1016` - allows to detect both people, bikes and vehicles on the image
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn person-vehicle-bike-detection-crossroad-1016
 
   .. image:: https://user-images.githubusercontent.com/5244214/117144527-4fd3da00-adb2-11eb-89a4-2733cd9a39af.png
     :alt: person-vehicle-bike-detection-crossroad-1016
@@ -348,12 +384,20 @@ models that you can use, having just the demo script downloaded
 
 - :code:`yolo-v3` - Object detector that detects 80 different classes (slower)
 
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn yolo-v3
+
   .. image:: https://user-images.githubusercontent.com/5244214/142192279-71e479ae-fef2-4ddb-a4d2-7ae677e1544d.png
     :alt: yolo-v3
 
 .. _tiny-yolo-v3:
 
 - :code:`tiny-yolo-v3` - Object detector that detects 80 different classes (faster)
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn tiny-yolo-v3
 
   .. image:: https://user-images.githubusercontent.com/5244214/142192279-71e479ae-fef2-4ddb-a4d2-7ae677e1544d.png
     :alt: tiny-yolo-v3
@@ -362,12 +406,20 @@ models that you can use, having just the demo script downloaded
 
 - :code:`vehicle-detection-adas-0002` - allows to detect vehicles on the image
 
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn vehicle-detection-adas-0002
+
   .. image:: https://user-images.githubusercontent.com/5244214/142653915-cce665f1-d646-4621-a3a5-0006dc2273cb.png
     :alt: vehicle-detection-adas-0002
 
 .. _vehicle-license-plate-detection-barrier-0106:
 
 - :code:`vehicle-license-plate-detection-barrier-0106` - allows to detect both vehicle and license plate on the image (only Chinese license plates)
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn vehicle-license-plate-detection-barrier-0106
 
   .. image:: https://user-images.githubusercontent.com/5244214/142654408-9e16c2bb-2ca7-451b-a384-d1fc631a365f.png
     :alt: vehicle-license-plate-detection-barrier-0106
@@ -376,8 +428,26 @@ models that you can use, having just the demo script downloaded
 
 - :code:`openpose2` - Human pose estimation model
 
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn openpose2
+
   .. image:: https://user-images.githubusercontent.com/5244214/142654924-7286b066-2ccc-4879-8d88-c5580dbbfcb4.png
     :alt: openpose2
+
+.. _human-pose-estimation-0001:
+
+- :code:`human-pose-estimation-0001` - Human pose estimation model from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/human-pose-estimation-0001>`__
+
+
+  .. code-block:: bash
+
+    $ python3 depthai_demo.py -cnn human-pose-estimation-0001
+
+  .. image:: https://user-images.githubusercontent.com/5244214/107493701-35f97100-6b8e-11eb-8b13-02a7a8dbec21.gif
+    :alt: human-pose-estimation-0001
+
 
 All of the data we use to download and compile a model can be found `here <https://github.com/luxonis/depthai/tree/main/resources/nn>`__.
 
