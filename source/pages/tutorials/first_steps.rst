@@ -438,7 +438,7 @@ Below, there is a list of models that you can use, having just the demo script d
 
 .. _human-pose-estimation-0001:
 
-- :code:`human-pose-estimation-0001` - Human pose estimation model from Intel Model Zoo
+- :code:`human-pose-estimation-0001` - Human pose estimation model from `Open Model Zoo <https://github.com/openvinotoolkit/open_model_zoo/tree/master/models/intel/human-pose-estimation-0001>`__
 
 
   .. code-block:: bash
