@@ -1,5 +1,5 @@
 Converting model to MyriadX blob
-################################
+================================
 
 To allow DepthAI to use your custom trained models, you need to convert them into a MyriadX blob file format - so that
 they are optimized for the best inference on MyriadX VPU processor.
@@ -17,7 +17,7 @@ Image below (from `OpenCV Courses site <https://courses.opencv.org/>`__) shows t
 Below, please find instructions on how to perform these steps using different methods
 
 Local compilation
-*****************
+#################
 
 If you want to perform model conversion and compilation, you can follow:
 
@@ -27,7 +27,7 @@ If you want to perform model conversion and compilation, you can follow:
 - `Custom model conversion & compilation notes <https://github.com/luxonis/depthai/blob/main/README.md#conversion-of-existing-trained-models-into-intel-movidius-binary-format>`__
 
 Using Google Colab
-******************
+##################
 
 You can also train and convert models using Google Colab notebook. You can take a look at our :ref:`Custom training` page, where
 every tutorial contains also conversion & compilation steps performed directly inside the notebooks.
@@ -35,7 +35,7 @@ every tutorial contains also conversion & compilation steps performed directly i
 An example notebook with the compilation steps is `here <https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Easy_Object_Detection_With_Custom_Data_Demo_Training.ipynb#scrollTo=_PlfZAR1OCK2>`__
 
 Using online converter
-**********************
+######################
 
 You can also visit our online `MyriadX Blob converter <http://blobconverter.luxonis.com/>`__
 that allows specifying different OpenVINO target versions and supports conversions from **TensorFlow, Caffe, OpenVINO IR and OpenVINO Model Zoo**
@@ -44,7 +44,7 @@ that allows specifying different OpenVINO target versions and supports conversio
   :alt: BlobConverter Web
 
 Using blobconverter package
-***************************
+###########################
 
 For automated usage of our blobconverter tool, we have released a `blobconverter PyPi package <https://pypi.org/project/blobconverter/>`__,
 that allows compiling MyriadX blobs both from the command line and from the Python script directly.

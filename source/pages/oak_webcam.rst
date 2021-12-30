@@ -16,10 +16,44 @@ feature.
 
 Now you can open up your favourite meeting app, like Zoom or Slack, and select **Luxonis Device: UVC Video Contr** in the webcam selection menu.
 
-On some apps, Luxonis Device: UVC doesn't work
-##############################################
+Webcam workarounds
+##################
 
-We have noticed that on some apps, like Discord or Google Meet, **Luxonis Device: UVC** won't work. The current workaround is to use `OBS <https://obsproject.com/>`__
+There are currently a few issues with the approach above. Even on Linux, **UVC node currently doesn't work for all apps**.
+Since UVC stands for :code:`USB Video Class`, using UVC pipeline on **OAK POE models won't work**. Another known issue is
+using UVC pipeline on **Windows**, as it **doesn't work** due to UVC descriptors. Here are workarounds:
+
+**1. Python virtual camera**
+
+One option is to use virtual camera, such as the `pyvirtualcam <https://pypi.org/project/pyvirtualcam/>`__ module.
+You would need to pip install the package and install it's dependencies (as mentioned in the link). Here's
+a demo code:
+
+.. code-block:: python
+
+    import pyvirtualcam
+    import depthai as dai
+    # Create pipeline
+    pipeline = dai.Pipeline()
+    cam = pipeline.create(dai.node.ColorCamera)
+    cam.setColorOrder(dai.ColorCameraProperties.ColorOrder.RGB)
+    cam.setPreviewSize(1280,720)
+
+    xout = pipeline.create(dai.node.XLinkOut)
+    xout.setStreamName("rgb")
+    cam.preview.link(xout.input)
+
+    # Connect to device and start pipeline
+    with dai.Device(pipeline) as device, pyvirtualcam.Camera(width=1280, height=720, fps=20, device="/dev/video2") as uvc:
+        qRgb = device.getOutputQueue(name="rgb", maxSize=4, blocking=False)
+        print("UVC running")
+        while True:
+            frame = qRgb.get().getFrame()
+            uvc.send(frame)
+
+**2. OBS forwarding UVC stream**
+
+We have noticed that on some apps, like Discord or Google Meet, **Luxonis Device: UVC** won't work. One workaround is to use `OBS <https://obsproject.com/>`__
 to proxy the stream and use the virtual camera inside the OBS. I am running Linux so I had to install :code:`sudo apt install v4l2loopback-dkms`
 for the virtual camera to work (this is also mentioned in `install instructions <https://obsproject.com/wiki/install-instructions#linux>`__).
 
@@ -31,11 +65,9 @@ for the virtual camera to work (this is also mentioned in `install instructions 
 
 This video will show you how to do just that.
 
-POE models as webcams
-#####################
+**3. OBS capturing cv2 window**
 
-Since UVC stands for :code:`USB Video Class`, using UVC pipeline on OAK POE models won't work. One solution is to stream video to the host,
-and capture the :code:`cv2.imshow` window inside the OBS:
+Another solution is to stream the video to the host, and capture the :code:`cv2.imshow` window inside the OBS:
 
 - Inside depthai-python repo, run :code:`python3 examples/ColorCamera/rgb_video.py`. This will open a new window where 1080P video stream will be shown.
 - Inside OBS, under Sources menu, click :code:`+`, Add new source
