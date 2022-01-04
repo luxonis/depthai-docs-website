@@ -314,7 +314,7 @@ How to Identify the which OAK device is connected ?
 ###################################################
 
 Calibrated devices can be identified using the boardName.
-Once the device is connected read the calibration using `calib = device.readCalibration()` followed by `calib.getEepromData().boardName` to get the board name.
+Once the device is connected read the calibration using :code:`calib = device.readCalibration()` followed by :code:`calib.getEepromData().boardName` to get the board name.
 
 Following are the board names assigned to the device during Factory calibration.
 
