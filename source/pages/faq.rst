@@ -312,6 +312,7 @@ Here is a single-camera version (megaAI) running with :code:`python3 depthai_dem
 
 How to Identify the which OAK device is connected ?
 ###################################################
+
 Calibrated devices can be identified using the boardName.
 Once the device is connected read the calibration using `calib = device.readCalibration()` followed by `calib.getEepromData().boardName` to get the board name.
 
