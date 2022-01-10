@@ -1,8 +1,26 @@
 OAK as a webcam
 ===============
 
-OAK devices can be used as webcams as well. This feature hasn't been mainlined yet, so you have to checkout to a custom branch to use this
-feature.
+OAK devices can be used as webcams as well. To enable this feature, you can run the DepthAI demo UVC application or use uvc feature branch
+
+Using DepthAI Demo Script
+#########################
+
+First, follow the steps required to install DepthAI Demo script :ref:`here <First steps with DepthAI>`.
+
+If using QT GUI, please select the UVC app here
+
+.. image:: https://user-images.githubusercontent.com/5244214/148781175-af475fa0-5785-47b6-be5b-294fed72260c.png
+  :alt: UVC App Qt GUI
+
+Or, running directly from terminal
+
+.. code-block:: bash
+
+    python3 depthai_demo.py --app uvc
+
+Using UVC Feature Branch
+########################
 
 .. code-block:: bash
 
