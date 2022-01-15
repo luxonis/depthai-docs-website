@@ -19,7 +19,7 @@ before feeding an image to the second one. **Example** here would be `face age/g
 demo - first NN would detect faces, pass detections to the Script node which would create `ImageManip configurations <https://docs.luxonis.com/projects/api/en/latest/components/messages/image_manip_config/>`__
 to crop the original frame and feed the `face age/gender recognition <https://docs.openvinotoolkit.org/latest/omz_models_model_age_gender_recognition_retail_0013.html>`__ NN only the cropped face frame.
 
-For running computationally heavy features (eg. image filters), due to performance reasons you might want to avoud using Script node
+For running computationally heavy features (eg. image filters), due to performance reasons you might want to avoid using Script node
 and rather go with one of the 2 options described below.
 
 Creating custom NN models
