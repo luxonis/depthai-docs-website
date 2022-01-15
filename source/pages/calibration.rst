@@ -4,11 +4,11 @@ Calibration
 .. note::
 
 
-   All non-modular OAK devices devices are calibrated before shipment. It is not required to (re-)calibrate any of these, but for PCBA-only models like OAK-D-IoT-75, OAK-D-IoT-40, OAK-D-CM4, OAK-D-CM3, OAK-D-PCBA
+   All non-modular OAK devices are calibrated before shipment. It is not required to (re-)calibrate any of these, but for PCBA-only models like OAK-D-IoT-75, OAK-D-IoT-40, OAK-D-CM4, OAK-D-CM3, OAK-D-PCBA
    it can be desirable to do so if the depth quality degrades from mounting the PCBA (into an enclosure).  
 
 For the modular camera editions of DepthAI (`OAK-FFC-3P <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__ and `DepthAI RaspberryPi Hat <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1094.html>`__)
-it is necesssary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
+it is necessary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.
 
 Below is a quick video showing the (re-) calibration of the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__.
 
@@ -144,7 +144,7 @@ the two grayscale cameras, as shown below, use the JSON further below:
       }
   }
 
-Note that in this orientation of of the cameras, :code:`"swap_left_and_right_cameras"` is set to true.
+Note that in this orientation of the cameras, :code:`"swap_left_and_right_cameras"` is set to true.
 
 Then, run calibration with this board name:
 

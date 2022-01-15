@@ -128,7 +128,7 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">License Plates & Car Attributes Recognition</h5>
                   <p class="item-descr">
-                      <p>This experiment allows you to run multiple neural networks at once to collect car attributes and license plates (only Chineese)</p>
+                      <p>This experiment allows you to run multiple neural networks at once to collect car attributes and license plates (only Chinese)</p>
                   </p>
                </div>
                <footer class="item-footer">

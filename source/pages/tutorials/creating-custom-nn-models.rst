@@ -35,6 +35,9 @@ Create a custom model with PyTorch
 
     For a more complex module, please refer to `Harris corner detection in PyTorch <https://github.com/kunaltyagi/pytorch_harris/>`__ demo by Kunal Tyagi.
 
+    **Keep in mind** that VPU supports only `FP16 <https://en.wikipedia.org/wiki/Half-precision_floating-point_format#Half_precision_examples>`__,
+    which means that max value is 65504. When multiplying a few values you can quickly overflow if you don't properly normalize/divide values.
+
 #. **Export the NN module to onnx**
 
     Since PyTorch isn't directly supported by OpenVINO, we first need to export the model to `onnx format <https://onnx.ai/>`__ and then to OpenVINO.

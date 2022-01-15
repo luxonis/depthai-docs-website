@@ -480,7 +480,7 @@ Hardware for Each Case:
 ***********************
 
 - `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the OAK-SoM over USB
-- `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (which comes with the OAK-SoM-IoT pre-installed).
+- `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (which comes with the OAK-SoM-IoT pre-installed).
 - `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__: Supports multiple boot options: NOR (128MB), eMMC (SD-Card support), USB, Ethernet (EEPROM, 32KB). All those boot options make OAK-SoM-Pro very flexible in terms of use cases and most apropriate as a standalone device. It is designed for integration into a top-level system with a need for a low power AI vision system.
 
 Getting Started with Development
@@ -506,7 +506,7 @@ To use your own trained **Yolo** model with the DepthAI, you should start with t
 
 - Change the labels at :code:`labelMap = ["label1", "label2", "..."]`, depending on your model
 - Set the number of classes at :code:`detectionNetwork.setNumClasses()` depending on your model
-- If you haven't compiled the model with the latest OpenVINO version, set the :ref:`OpenVINO version <Neural network blob compiled with uncompatible openvino version>`
+- If you haven't compiled the model with the latest OpenVINO version, set the :ref:`OpenVINO version <Neural network blob compiled with incompatible openvino version>`
 - Don't forget to change the path to the model (:code:`.blob` file)
 
 For **MobileNet** you should follow the same steps (skip the 2nd one) but start with the
@@ -710,7 +710,7 @@ limited by the hyperfocal distance of the stereo cameras, so their minimum depth
 Modular Camera Minimum Depths:
 ******************************
 
-Below are the minimum depth perception possible in the disparity disparity depth and stereo neural inference modes.
+Below are the minimum depth perception possible in the disparity depth and stereo neural inference modes.
 
 Monocular Neural Inference fused with Stereo Depth Mode
 -------------------------------------------------------
@@ -799,7 +799,7 @@ Subpixel Disparity Depth Mode
 
 Subpixel improves the precision and is especially useful for long range measurements.  It also helps for better estimating surface normals (comparison of normal disparity vs. subpixel disparity is `here <https://github.com/luxonis/depthai/issues/184>`__).
 
-Beside the integer disparity output, the Stereo engine is programmed to dump to memory the cost volume, that is 96 bytes (disparities) per pixel, then software interpolation is done on Shave, resulting a final disparity with 5 fractional bits, resulting in significantly more granual depth steps (32 additional steps between the integer-pixel depth steps), and also theoretically, longer-distance depth viewing - as the maximum depth is no longer limited by a feature being a full integer pixel-step apart, but rather 1/32 of a pixel.
+Beside the integer disparity output, the Stereo engine is programmed to dump to memory the cost volume, that is 96 bytes (disparities) per pixel, then software interpolation is done on Shave, resulting a final disparity with 5 fractional bits, resulting in significantly more granular depth steps (32 additional steps between the integer-pixel depth steps), and also theoretically, longer-distance depth viewing - as the maximum depth is no longer limited by a feature being a full integer pixel-step apart, but rather 1/32 of a pixel.
 
 Examples of the difference in depth steps from standard disparity to subpixel disparity are shown below:
 
@@ -962,7 +962,7 @@ It is also possible to use :code:`getMetadata().getInstanceNum()`, that returns 
 How do I Record (or Encode) Video with DepthAI?
 ###############################################
 
-DepthAI suppots h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai_demo.py` script shows and example of how to access this functionality.
+DepthAI supports h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai_demo.py` script shows and example of how to access this functionality.
 
 Note that hardware limit for the encoder is: 3840x2160 pixels at 30FPS or :code:`248 million pixels/second`. The resolution and frame rate can be divided into multiple streams - but the sum of all the pixels/second needs to be below 248 million.
 
@@ -1804,7 +1804,7 @@ If DepthAI and OAK-D products has been significantly used in your research and i
   @misc{OAK-D,
   title={ {OAK-D}: Stereo camera with Edge AI},
   url={https://luxonis.com/},
-  note={Stereo Camera with Edge AI capabilites from Luxonis and OpenCV},
+  note={Stereo Camera with Edge AI capabilities from Luxonis and OpenCV},
   author={luxonis},
   year={2020},
   }
