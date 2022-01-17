@@ -132,7 +132,7 @@ A visualization of this mode is below.
 
 In this case the neural inference (20-class object detection per :ref:`here <Run DepthAI Default Model>`)
 was run on the RGB camera and the results were overlaid onto the depth stream.
-The DepthAI reference Python script can be used to show this out (:code:`python3 depthai_demo.py -s metaout depth -bb` is the command used to produce the video above).
+The DepthAI reference Python script can be used to show this out (:code:`python3 depthai_demo.py -gt cv -s depth -sbb` is the command used to produce the video above).
 
 And if you'd like to know more about the underlying math that DepthAI is using to perform the stereo depth, see this excellent blog post here `here <https://www.learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/>`__.  And if you'd like to run the same example run in that blog, on DepthAI, see this  `depthai-experiment <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#depth-from-rectified-host-images/>`__.
 
@@ -302,13 +302,13 @@ The command to get the above output is
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -s metaout previewout depth -ff -bb
+  python3 depthai_demo.py -gt cv -s color depth -sbb
 
-Here is a single-camera version (megaAI) running with :code:`python3 depthai_demo.py -dd` (to disable showing depth info):
+Here is a single-camera version (megaAI) running with :code:`python3 depthai_demo.py -gt cv -s color`:
 
 .. image:: /_static/images/faq/lego.png
   :alt: DepthAI on Mac
-  :target: https://www.youtube.com/watch?v=SWDQekolM8o
+  :target: https://www.youtube.com/watch?v=dZzg4sTeE3M
 
 
 Is DepthAI and MegaAI easy to use with Raspberry Pi?
@@ -858,11 +858,11 @@ For more information see the `StereoDepth documentation <https://docs.luxonis.co
 How Do I Display Multiple Streams?
 ##################################
 
-To specify which streams you would like displayed, use the :code:`-s` option.  For example for the raw disparity map (:code:`disparity`), and for depth results (:code:`depth`), use the following command:
+To specify which streams you would like displayed, use the :code:`-s` option.  For example for the raw disparity map (:code:`disparity`), and for depth results (:code:`depthRaw`), use the following command:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -s disparity depth
+  python3 depthai_demo.py -gt cv -s disparity depthRaw
 
 
 The available streams are:
@@ -884,31 +884,54 @@ Yes, to get the raw stereo pair stream on the host use the following command:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -s left right
+  python3 depthai_demo.py -gt cv -s left right
 
 This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as below:
 
 .. image:: https://i.imgur.com/oKVrZAV.jpg
   :alt: RAW Stereo Pair Streams
 
-How Do I Limit The FrameRate Per Stream?
+How to choose the DepthAI Demo GUI type?
+########################################
+
+Since Depthai Demo v3.0.0, we introduced two GUI types available:
+
+- Qt-based interactive GUI (:code:`qt`), that allows to change demo options with mouse clicks
+- OpenCV-based preview (:code:`cv`, being the default prior v3), that allows to preview requested streams and control the demo using CLI arguments
+
+For most of the platforms, :code:`qt` is selected as a default GUI type and :code:`cv` serves as a fallback in case QT installation doesn't work.
+You can also choose GUI type yourself with :code:`-gt / --guiType` argument.
+
+For example, to enforce OpenCV GUI, run the following command:
+
+.. code-block:: bash
+
+  python3 depthai_demo.py -gt cv
+
+Or, to enforce QT GUI:
+
+.. code-block:: bash
+
+  python3 depthai_demo.py -gt qt
+
+How Do I Limit The Camera FrameRate?
 ########################################
 
 So the simple way to select streams is to just use the :code:`-s` option.  But in some cases (say when you have a slow host or only USB2 connection **and** you want to display a lot of streams) it may be necessary to limit the frame rate of streams to not overwhelm the host/USB2 with too much data.
 
-So to set streams to a specific frame rate to reduce the USB2 load and host load, simply specify the stream with :code:`-s streamname` with a comma and FPS after the stream name like :code:`-s streamname,FPS`.
+So to set streams to a specific frame rate to reduce the USB2 load and host load, use :code:`-rgbf / --rgbFps` to limit the RGB camera framerate and :code:`-monof / --monoFps` to limit mono cameras framerate.
 
-So for limiting `depth` to 5 FPS, use the following command:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -s depth,5
-
-And this works equally for multiple streams:
+So for limiting color camera to 5 FPS, use the following command:
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -s left,2 right,2 previewout depth,5
+  python3 depthai_demo.py -gt cv -rgbf 5
+
+And same way to limit mono cameras to 5 FPS:
+
+.. code-block:: bash
+
+  python3 depthai_demo.py -gt cv -monof 5
 
 It's worth noting that the frame rate limiting works best for lower rates.  So if you're say trying to hit 25FPS, it's best to just leave no frame-rate specified and let the system go to full 30FPS instead.
 
@@ -935,7 +958,7 @@ So for example to run a default model with both the RGB and both grayscale camer
 
 .. code-block:: bash
 
-  ./depthai_demo.py -rgbf 24 -monof 24 -sync
+  python3 depthai_demo.py -gt cv -rgbf 24 -monof 24
 
 Synchronizing on the Host
 *************************
@@ -977,7 +1000,7 @@ Alternatively, to leverage this functionality from the :code:`depthai_demo.py` s
 
 .. code-block:: bash
 
-  python3 depthai_demo.py -enc left color -encout [path/to/output]
+  python3 depthai_demo.py -gt cv -enc left color -encout [path/to/output]
 
 To then play the video in mp4/mkv format use the following muxing command:
 
@@ -1544,25 +1567,22 @@ So the higher the resolution, the more SHAVES are consumed for this.
 
 There is an internal resource manager inside DepthAI firmware that coordinates the use of SHAVES, and warns if too many resources are requested by a given pipeline configuration.
 
-How to increase NCE, SHAVES and CMX parameters?
-###############################################
+How to increase SHAVES parameter?
+#################################
 
-If you want to specify how many Neural Compute Engines (NCE) to use, or how many SHAVE cores, or how many
-Connection MatriX blocks, you can do this with the DepthAI.
-
-We have implemented the :code:`-nce`, :code:`-sh` and :code:`-cmx` command line params in our example script. Just clone the
+We have implemented the :code:`-sh` command line param in our example script. Just follow the instructions on
 `DepthAI repository <https://github.com/luxonis/depthai>`__ and do
 
 .. code-block:: bash
 
-  ./depthai_demo.py -nce 2 -sh 14 -cmx 14
+  python3 depthai_demo.py -sh 9
 
-And it will run the default MobilenetSSD, compiled to use 2 NCEs, 14 SHAVEs and 14 CMXes. Note that
-these values **cannot be greater than the ones you can see above**, so you cannot use 15 SHAVEs or 3 NCEs.
-14 is the limit for both SHAVE and CMX parameters, and 2 is the limit for NCE.
+And it will run the default MobilenetSSD, compiled to use 9 SHAVEs. Note that
+the allowed shave value **can vary depending on the amount of features enabled, but cannot be greater than 16**, so you cannot use 17 or more SHAVEs, and the more features are enabled (like ImageManips or VideoEncoders)
+the less SHAVEs will be available for NeuralNetwork node.
 
-You can try it out yourself either by following `local OpenVINO model conversion tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/>`__
-or by using our `online Myriad X blob converter <http://blobconverter.luxonis.com/>`__.
+You can try compiling the model yourself either by following `local OpenVINO model conversion tutorial <https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/>`__
+or by using our `online Myriad X blob converter <https://blobconverter.luxonis.com/>`__.
 For more info, please see :ref:`Converting model to MyriadX blob`
 
 
