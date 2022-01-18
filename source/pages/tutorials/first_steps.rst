@@ -479,7 +479,7 @@ Basic properties:
 
 Advanced:
 
-- **OpenVINO version**: Specify the OpenVINIO version that will be used to compile the MyriadX blob and run the pipeline. It's recommended to use the latest version for most cases
+- **OpenVINO version**: Specify the OpenVINO version that will be used to compile the MyriadX blob and run the pipeline. It's recommended to use the latest version for most cases
 - **Label to count**: Allows to display a count of a specific label visible in the demo (e.g. if you want to count the number of cats in the preview with the default model, you can do so by selecting :code:`cat` as a count label and restarting the script)
 - **Spatial bounding box**: When enabled, will draw a bounding box on depth previews that show which part of the detection area was taken into depth estimation.
 - **SBB Scale Factor**: Determines the size of the spatial bounding box in comparison to the detection bounding box.
