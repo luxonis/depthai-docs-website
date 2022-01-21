@@ -12,10 +12,6 @@
       </select>
     {% endif %}
   </div>
-  <div style="background-color: #eb9950; padding: 10px; border-radius: 20px; text-align: center">
-    <h1>This website is <u>outdated</u></h1>
-    <h3>Latest docs available at <a href="https://docs.luxonis.com">docs.luxonis.com</a></h3>
-  </div>
 
   <ul class="nav flex-column">
     {% assign sorted = (site.html_pages | sort: 'order' | where_exp: "item", "item.hide != true") %}
