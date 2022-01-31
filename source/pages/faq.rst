@@ -314,9 +314,7 @@ Here is a single-camera version (megaAI) running with :code:`python3 depthai_dem
 Is DepthAI and MegaAI easy to use with Raspberry Pi?
 ####################################################
 
-Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy.
-
-See `here <https://docs.luxonis.com/projects/api/en/latest/install/#raspberry-pi-os>`__ to get up and running quickly!
+Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy. You can find additional `information here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi.html>`__.
 
 
 Can all the models be used with the Raspberry Pi?
@@ -330,7 +328,7 @@ Yes, every model can be used, including:
 - `OAK-1 <https://shop.luxonis.com/collections/usb/products/megaai-kit>`__
 - Raspberry Pi HAT (`BW1094 <https://github.com/luxonis/depthai-hardware/tree/master/BW1094_DepthAI_HAT>`__) - this can also be used with other hosts as its interface is USB3
 
-We even have some basic ROS support going as well which can be used on the Pi also.
+We even have some `ROS support <https://github.com/luxonis/depthai-ros>`__ going as well which can be used on the Pi also.
 
 
 Does DepthAI Work on the Nvidia Jetson Series?
@@ -364,7 +362,7 @@ See `here <https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/>`
 Is DepthAI OpenVINO Compatible?
 ###############################
 
-Yes.  DepthAI is fully compatible with OpenVINO 2020.1, 2020.2, 2020.3, 2020.4, 2021.1 and 2021.2.
+Yes, DepthAI is fully compatible with OpenVINO.
 
 Can I Train My Own Models for DepthAI?
 ######################################
@@ -416,7 +414,9 @@ More model converting options `here <https://docs.openvinotoolkit.org/latest/ope
 Can I Run Multiple Neural Models in Parallel or in Series (or Both)?
 ####################################################################
 
-Yes.  The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__ is what allows you to do this. And we have several example implementations of parallel, series, and parallel+series in `depthai-experiments <https://github.com/luxonis/depthai-experiments>`__ repository.  A notable example is the Gaze estimation example, `here <https://github.com/luxonis/depthai-experiments/tree/master/gaze-estimation>`__, which shows series and parallel all together in one example.
+Yes. The `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__ is what allows you to do this.
+And we have several example implementations of parallel, series, and parallel+series in `depthai-experiments <https://github.com/luxonis/depthai-experiments>`__ repository.  A notable example is the Gaze estimation example, `here <https://github.com/luxonis/depthai-experiments/tree/master/gaze-estimation>`__,
+which shows series and parallel all together in one example.
 
 Can DepthAI do Arbitrary Crop, Resize, Thumbnail, etc.?
 #######################################################
@@ -426,7 +426,7 @@ Yes, see `here <https://docs.luxonis.com/projects/api/en/latest/samples/ColorCam
 Can DepthAI Run Custom CV Code?  Say CV Code From PyTorch?
 ##########################################################
 
-Yes, although we have yet to personally do this. But folks in the community have. Rahul Ravikumar is one, and was quite nice to have written up the process on how to do this, see `here <https://rahulrav.com/blog/depthai_camera.html>`__.  This code can then be run as a node in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__, to be paired with other CV nodes, neural inference, depth processing, etc. that are supported on the platform.
+Yes, see :ref:`documentation here <Run your own CV functions on-device>`.
 
 How do I Integrate DepthAI into Our Product?
 ############################################
@@ -1585,20 +1585,19 @@ You can try compiling the model yourself either by following `local OpenVINO mod
 or by using our `online Myriad X blob converter <https://blobconverter.luxonis.com/>`__.
 For more info, please see :ref:`Converting model to MyriadX blob`
 
-
 .. _rpi_hq:
 
 Can I Use DepthAI with the New Raspberry Pi HQ Camera?
 ######################################################
 
 This is a particularly interesting application of DepthAI, as it allows the Raspberry Pi HQ camera to be encoded to h.265 4K video
-(and 12MP stills) even with a Raspberry Pi 1 or :ref:`Raspberry Pi Zero <Can I use DepthAI with Raspberry Pi Zero?>` - because DepthAI
+(and 12MP stills) even with a Raspberry Pi 1 or `Raspberry Pi Zero <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi.html#raspberry-pi-zero>`__ - because DepthAI
 does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW
 stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera
 directly, can only do 1080p video and not 4K video recording).
 
-`OAK-FFC-3P <https://shop.luxonis.com/collections/modular-cameras/products/dm1090ffc>`__ and **OAK-FFC-4P will work with** the `Raspberry Pi HQ Camera <
-https://www.arducam.com/product/b0240-arducam-imx477-hq-quality-camera/>`__ **without an adapter board**, as you can connect the camera via the
+`OAK-FFC-3P <https://shop.luxonis.com/collections/modular-cameras/products/dm1090ffc>`__ and **OAK-FFC-4P will work with** the `Raspberry Pi HQ Camera <https://www.arducam.com/product/b0240-arducam-imx477-hq-quality-camera/>`__
+**without an adapter board**, as you can connect the camera via the
 22-26 pin adapter cable (SKU: A00403, which you get with the OAK-FFC-3P/OAK-FFC-4P) to the FFC board.
 
 `OAK-FFC-3P-OG <https://shop.luxonis.com/products/depthai-usb3-edition>`__ model **also works via an adapter board** with the Raspberry Pi HQ camera
@@ -1627,18 +1626,7 @@ You can buy this adapter kit for the `OAK-FFC-3P-OG <https://docs.luxonis.com/pr
 Can I use DepthAI with Raspberry Pi Zero?
 #########################################
 
-Yes, DepthAI is fully functional on it, you can see the example below:
-
-
-.. image:: /_static/images/faq/pizerosetup.png
-  :alt: pizerosetup
-
-.. image:: /_static/images/faq/pizeroruntime.png
-  :alt: pizeroruntime
-
-Thanks to `Connor Christie <https://github.com/ConnorChristie>`__ for his help building this setup!
-
-And note that we now have a specific ARMv6 (Pi Zero) specific build of DepthAI.
+Yes, DepthAI is fully functional on it, additional `documentation here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi.html#raspberry-pi-zero>`__.
 
 How Much Power Does the DepthAI Raspberry Pi CME Consume?
 #########################################################
