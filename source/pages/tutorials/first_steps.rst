@@ -15,7 +15,10 @@ Let's start with the device setup below
 Connect the DepthAI device
 ##########################
 
-After unboxing your DepthAI package, you will receive your device together with a USB-C cable (and a power supply if you ordered OAK-D)
+After unboxing your DepthAI package, you will receive your device together with a USB-C cable.
+
+.. warning::
+  Make sure to use **USB3 cable!** If you aren't, :ref:`force USB2 communication <Forcing USB2 Communication>` in the program.
 
 Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable device) directly to a USB port,
 or via a powered USB hub.
@@ -28,10 +31,8 @@ On Ubuntu, you can check if a new USB device was detected by running
   Bus 003 Device 002: ID 03e7:2485 Intel Movidius MyriadX
 
 .. note::
-
   If you are running other OS than Ubuntu, or you think something has gone wrong, we have detailed OS-specific installation guides
-  `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__, together with discord support
-  channels where you can chat with us live if you have any issues or questions.
+  `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__.
 
 Use Windows Installer
 #####################
