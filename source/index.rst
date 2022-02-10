@@ -19,7 +19,7 @@ In the following sections, we will showcase what you can build with DepthAI. Dif
 of DepthAI capabilities, which can both encourage you to develop your own ideas or dive deeper into DepthAI capabilities
 to discover them yourself.
 
-Demo script
+Demo Script
 -----------
 
 Demo script is our multipurpose command line demo tool, built around Gen2 Pipeline, that allows you to check
