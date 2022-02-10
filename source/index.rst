@@ -1,16 +1,9 @@
-.. Luxonis Docs documentation master file, created by
-   sphinx-quickstart on Tue Nov  3 14:34:56 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
 DepthAI's documentation
 =======================
 
 .. note::
 
    New to DepthAI? Start :ref:`here <First steps with DepthAI>`!
-
-*Learn about DepthAI ecosystem, available devices, calibration instructions, and more*
 
 DepthAI is the embedded :ref:`spatial <spatialai>` AI platform built around `Myriad X <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu/movidius-myriad-x.html>`__
 - a complete ecosystem of custom `hardware <https://docs.luxonis.com/projects/hardware/en/latest/>`__, firmware, `software <https://docs.luxonis.com/projects/api/en/latest/>`__,
@@ -27,7 +20,7 @@ of DepthAI capabilities, which can both encourage you to develop your own ideas 
 to discover them yourself.
 
 Demo script
-###########
+-----------
 
 Demo script is our multipurpose command line demo tool, built around Gen2 Pipeline, that allows you to check
 DepthAI features straight from the command line - no coding required!  It works USB and POE equally, automatically discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple are connected, it will prompt you on which to use for the demo.
@@ -51,7 +44,7 @@ If you have issues during the installation, see our `Installation page <https://
 instructions
 
 Example Use Cases
-#################
+-----------------
 
 In this section, you'll find an inspiration what can you build right away with DepthAI
 
@@ -385,47 +378,8 @@ In this section, you'll find an inspiration what can you build right away with D
       </div>
    </div>
 
-Tutorials
-#########
-
-In this section, you'll find a way to expand your knowledge in DepthAI-related topics. Tutorials listed below are a complete
-walkthrough in a specific topic.
-
-
-.. raw:: html
-
-  <ul class="tutorials-list">
-    <li class="tutorials-list-item">
-      <div class="tutorials-list-item-desc">
-        <h3>Hello World</h3>
-        <p>Learn how to use the DepthAI Python API to display a color video stream</p>
-      </div>
-      <div class="tutorials-list-item-cta">
-          <a href="https://docs.luxonis.com/projects/api/en/latest/tutorials/hello_world/" class="btn item-cta">Start now ›</a>
-      </div>
-    </li>
-    <li class="tutorials-list-item">
-      <div class="tutorials-list-item-desc">
-        <h3>Multiple DepthAI per Host</h3>
-        <p>Learn how to use the DepthAI Python API to display a color video stream</p>
-      </div>
-      <div class="tutorials-list-item-cta">
-          <a href="https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/" class="btn item-cta">Start now ›</a>
-      </div>
-    </li>
-    <li class="tutorials-list-item">
-      <div class="tutorials-list-item-desc">
-        <h3>Local OpenVINO Model Conversion</h3>
-        <p>Learn how to convert OpenVINO IR models into the format required to run on DepthAI</p>
-      </div>
-      <div class="tutorials-list-item-cta">
-          <a href="https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/" class="btn item-cta">Start now ›</a>
-      </div>
-    </li>
-  </ul>
-
 Tools & API Examples
-####################
+--------------------
 
 In this section, you'll see examples of various API usage permutations, to show what the API is capable of or to solve
 some meta problem, like how to stream the data, how to collect it and alike.
@@ -450,50 +404,8 @@ some meta problem, like how to stream the data, how to collect it and alike.
   * - `WLS Filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
     - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI Gen2 API.
 
-Available interfaces
-####################
-
-.. raw:: html
-
-   <div class="items-container">
-      <div class="items-row">
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/depthai-api.jpg" alt="DepthAI API"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">DepthAI API (Python / C++)</h5>
-                  <p class="item-descr">
-                     Start here if you want to interact with DepthAI using programming interfaces, available both in Python and C++
-                  </p>
-               </div>
-               <footer class="item-footer">
-                  <a href="https://docs.luxonis.com/projects/api/" class="btn item-cta">Get Started ›</a>
-               </footer>
-            </div>
-         </div>
-         <div class="items-col">
-            <div class="item">
-               <div class="item-img-wrapper">
-                  <img class="item-img" src="./_images/depthai-gui.png" alt="DepthAI GUI"/>
-               </div>
-               <div class="item-body">
-                  <h5 class="item-title">DepthAI GUI</h5>
-                  <p class="item-descr">
-                     Start here if you want to use a drag'n'drop interface to communicate with DepthAI
-                  </p>
-               </div>
-               <footer class="item-footer">
-                  <a href="#" class="btn btn-disabled item-cta">Under construction</a>
-               </footer>
-            </div>
-         </div>
-      </div>
-   </div>
-
 Ecosystem
-#########
+---------
 
 .. list-table:: Core Repositories
   :widths: 10 90
@@ -505,9 +417,15 @@ Ecosystem
   * - `depthai-shared <https://github.com/luxonis/depthai-shared/>`__
     - This repository contains shared data between our main firmware
       and depthai-core host library.
-  * - `depthai_ros2 <https://github.com/luxonis/depthai_ros2/>`__
-    - DepthAI ROS2 Wrapper. This is an attempt at basic DepthAI to ROS2
-      interface. It's largely leveraging the existing depthai python demo on `luxonis/depthai <https://github.com/luxonis/depthai>`__.
+  * - `depthai-ros <https://github.com/luxonis/depthai-ros/>`__
+    - DepthAI ROS Wrapper. This is an attempt at basic DepthAI to ROS2
+      interface. It's largely leveraging the existing depthai-python examples.
+  * - `depthai-unity <https://github.com/luxonis/depthai-unity>`__
+    - DepthAI Unity Wrapper projects and examples. Useful for synthetic dataset generation.
+  * - `depthai-hardware <https://github.com/luxonis/depthai-hardware/>`__
+    - This repository contains Luxonis open sourced baseboards, and contains
+      Altium design files, documentation, and pictures to help you
+      understand more about the embedded hardware that powers DepthAI.
   * - `depthai-spi-api <https://github.com/luxonis/depthai-spi-api/>`__
     - API of the SPI protocol
   * - `depthai-spi-library <https://github.com/luxonis/depthai-spi-library/>`__
@@ -515,38 +433,36 @@ Ecosystem
   * - `depthai-bootloader-shared <https://github.com/luxonis/depthai-bootloader-shared/>`__
     - The depthai-bootloader-shared repository contains shared data
       between our bootloader firmware and depthai-core host library.
-  * - `depthai-hardware <https://github.com/luxonis/depthai-hardware/>`__
-    - This repository contains Luxonis open sourced baseboards, and contains
-      Altium design files, documentation, and pictures to help you
-      understand more about the embedded hardware that powers DepthAI.
 
 
 .. list-table:: Tools & Docs Repositories
   :widths: 10 90
 
-  * - `depthai-docs-website <https://github.com/luxonis/depthai-docs-website/>`__
-    - If you want to contribute and update our docs, you can simply create a pull request.
-  * - `depthai-gui <https://github.com/luxonis/depthai-gui/>`__
-    - DepthAI GUI is a WYSIWYG tool that allows to create a custom DepthAI pipelines, run them and see the results - all in one tool.
   * - `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/>`__
     - Here you can find repositories to help you connect your NN and create BLOBs.
-  * - `depthai-tutorials <https://github.com/luxonis/depthai-tutorials/>`__
-    - This repo contains source code for tutorials published on docs.luxonis.com.
+  * - `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/>`__
+    - Here you can find repositories to help you connect your NN and create BLOBs.
   * - `blobconverter <https://github.com/luxonis/blobconverter/>`__
     - Web-based tool to convert model into MyriadX blob
+  * - `depthai-gui <https://github.com/luxonis/depthai-gui/>`__
+    - DepthAI GUI is a WYSIWYG tool that allows to create a custom DepthAI pipelines, run them and see the results - all in one tool.
+  * - `depthai-tutorials <https://github.com/luxonis/depthai-tutorials/>`__
+    - This repo contains source code for tutorials published on docs.luxonis.com.
   * - `Factory-calibration-DepthAI <https://github.com/luxonis/Factory-calibration-DepthAI/>`__
     - Factory Calibration (WIP); This package contains two ROS workspace one is for depthai capture and calibration node and another is for Interbotix ViperX 300 Robot Arm 6DOF (KIT-VIPX300-6DOF) arm bot control using moveit.
   * - `depthai-docker <https://github.com/luxonis/depthai-docker/>`__
     - This repository contains a Dockerfile, that allows you to run OpenVINO on DepthAI inside a Docker container.
-  * - `depthai-mock <https://github.com/luxonis/depthai-mock/>`__
-    - This tool allows you to record the packets produced by DepthAI device into your disk and then play them back again as they would be produced normally - but without actually running the DepthAI
   * - `sbr-util <https://github.com/luxonis/sbr-util/>`__
     - Utility to view and manipulate SBR binary images
+  * - `depthai-docs-website <https://github.com/luxonis/depthai-docs-website/>`__
+    - If you want to contribute and update our docs, you can simply create a pull request.
 
 
 .. list-table:: Demo Repositories
   :widths: 10 90
 
+  * - `depthai-experiments <https://github.com/luxonis/depthai-experiments/>`__
+    - In this repository, you'll find various experiments using DepthAI. You can use those examples as a basis or a reference in your application.
   * - `depthai <https://github.com/luxonis/depthai/>`__
     - This repo contains a demo application, which can load different networks, create pipelines, record video, etc. This program includes an example of depth & CNN inference and ready to use models.
   * - `esp32-spi-message-demo <https://github.com/luxonis/esp32-spi-message-demo/>`__
@@ -554,22 +470,11 @@ Ecosystem
   * - `depthai-core-example <https://github.com/luxonis/depthai-core-example/>`__
     - CMake example project which serves as a template on how to quickly get started with C++ and depthai library
 
-
-.. list-table:: Experiments Repositories
-  :widths: 10 90
-
-  * - `depthai-experiments <https://github.com/luxonis/depthai-experiments/>`__
-    - In this repository, you'll find various experiments using DepthAI. You can use those examples as a basis or a reference in your application.
-  * - `remote-monitoring <https://github.com/luxonis/remote-monitoring/>`__
-    - Application that allows user to report an incident when a person or a car will be detected in specified zone.
-
-
-
 .. include::  /pages/includes/footer-long.rst
 
 .. toctree::
    :hidden:
-   :maxdepth: 2
+   :maxdepth: 0
 
    index
 
@@ -580,8 +485,7 @@ Ecosystem
    :caption: Tutorials
 
    pages/tutorials/first_steps.rst
-   pages/tutorials/local_convert_openvino.rst
-   pages/tutorials/pretrained_openvino.rst
+   pages/ai_ml_nn.rst
    pages/tutorials/getting-started-with-iot.rst
    pages/tutorials/getting-started-with-poe.rst
    pages/tutorials/on-device-programming.rst
@@ -593,8 +497,8 @@ Ecosystem
    :caption: Modules:
 
    C++/Python API <https://docs.luxonis.com/projects/api/en/latest/>
-   Hardware Products <https://docs.luxonis.com/projects/hardware/en/latest/>
    DepthAI SDK <https://docs.luxonis.com/projects/sdk/en/latest/>
+   Hardware Products <https://docs.luxonis.com/projects/hardware/en/latest/>
 
 
 .. toctree::
@@ -603,7 +507,6 @@ Ecosystem
    :caption: Contents
 
    pages/faq.rst
-   pages/model_conversion.rst
    pages/calibration.rst
    pages/support.rst
    pages/troubleshooting.rst
