@@ -1,4 +1,4 @@
-DepthAI's documentation
+DepthAI's Documentation
 =======================
 
 .. note::
