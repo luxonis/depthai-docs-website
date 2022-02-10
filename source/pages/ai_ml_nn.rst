@@ -16,7 +16,7 @@ To run a custom AI model on the device, you need to **convert it** to the .blob 
 You can also choose to use one of **250+ pretrained AI models** from either `OpenVINO Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__
 or `DepthAI Model Zoo <https://github.com/luxonis/depthai-model-zoo>`__, read more at :ref:`Use a Pre-trained OpenVINO model`.
 
-Model performance
+Model Performance
 -----------------
 
 You can estimate the performance of your model with the help of the chart below. It contains FPS estimations
