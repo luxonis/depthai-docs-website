@@ -46,7 +46,7 @@ instructions
 Example Use Cases
 -----------------
 
-In this section, you'll find an inspiration what can you build right away with DepthAI
+In this section, you'll find an inspiration what can you build right away with DepthAI.
 
 .. raw:: html
 
