@@ -9,8 +9,8 @@ DepthAI is a :ref:`Spatial AI <spatialai>` **platform**, which allows **robots a
 human** can - what objects or features are - and **where they are in physical world.**
 It focuses on the combination of these **5 key features**:
 
-#. :ref:`AI <AI / ML / NN>`
-#. CV
+#. :ref:`Artificial Intelligence <AI / ML / NN>`
+#. Computer Vision
 #. Depth perception (`Stereo <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#internal-block-diagram-of-stereodepth-node>`__, `ToF <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM0255.html#oak-ffc-ptof>`__)
 #. Performance (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
 #. Embedded, low power solution
