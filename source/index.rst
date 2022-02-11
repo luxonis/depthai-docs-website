@@ -3,26 +3,26 @@ DepthAI's Documentation
 
 .. note::
 
-   New to DepthAI? Start :ref:`here <First steps with DepthAI>`!
+   Just recieved an OAK camera? Start :ref:`here <First steps with DepthAI>`!
 
-DepthAI is the embedded :ref:`spatial <spatialai>` AI platform built around `Myriad X <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu/movidius-myriad-x.html>`__
-- a complete ecosystem of custom `hardware <https://docs.luxonis.com/projects/hardware/en/latest/>`__, firmware, `software <https://docs.luxonis.com/projects/api/en/latest/>`__,
-and AI training. It combines neural inference, depth vision, and feature tracking into an easy-to-use, works-in-30-seconds solution.
+DepthAI is a :ref:`Spatial AI <spatialai>` **platform**, which allows **robots and computers** to **perceive the world like a
+human** can - what objects or features are - and **where they are in physical world.**
+It focuses on the combination of these **5 key features**:
 
-DepthAI offloads AI, depth vision and more - processed direct from built-in cameras - freeing your host to process application-specific data.
+#. :ref:`AI <AI / ML / NN>`
+#. CV
+#. Depth perception (`Stereo <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#internal-block-diagram-of-stereodepth-node>`__, `ToF <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM0255.html#oak-ffc-ptof>`__)
+#. Performance (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
+#. Embedded, low power solution
 
-DepthAI gives you power of AI, depth, and tracking in a single device with a simple, easy-to-use API, written in Python and C++.
-
-Best of all, it is modular (System on Module) and built on `MIT-licensed open source hardware <https://github.com/luxonis/depthai-hardware>`__, affording adding these Spatial AI/CV super powers to real commercial products.
-
-In the following sections, we will showcase what you can build with DepthAI. Different examples will showcase a different usage
-of DepthAI capabilities, which can both encourage you to develop your own ideas or dive deeper into DepthAI capabilities
-to discover them yourself.
+DepthAI platform is built around Intel's `Movidius VPU <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html>`__
+- it's a complete ecosystem of custom `hardware <https://docs.luxonis.com/projects/hardware/en/latest/>`__, firmware, and `software API <https://docs.luxonis.com/projects/api/en/latest/>`__. 
+Best of all, it is modular and you can **integrate** this technology **into your products** (`docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/integrating_depthai_into_products.html>`__).
 
 Demo Script
 -----------
 
-Demo script is our multipurpose command line demo tool, built around Gen2 Pipeline, that allows you to check
+Demo script is our multipurpose command line demo tool, built around pipeline builder API, that allows you to check
 DepthAI features straight from the command line - no coding required!  It works USB and POE equally, automatically discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple are connected, it will prompt you on which to use for the demo.
 
 .. image:: https://user-images.githubusercontent.com/18037362/132068313-e6db90c2-823b-42f2-86fb-148e798f55de.png
@@ -397,12 +397,12 @@ some meta problem, like how to stream the data, how to collect it and alike.
     - This example shows how to present the neural network inference results on the inferenced frames
   * - `Frames Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-seq-num-sync>`__
     - This example demonstrates how to synchronize incoming frames using their sequence numbers. This allows displaying frames taken in exact same moment
-  * - `Gen2 SPI <https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi>`__
-    - This directory contains a few examples of how to use the SPI interface with the Gen2 Pipeline builder
+  * - `SPI <https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi>`__
+    - This directory contains a few examples of how to use the SPI interface with the Pipeline builder API
   * - `TensorFlow Image Classification <https://github.com/luxonis/depthai-experiments/tree/master/gen2-tf-image-classification>`__
     - This example demonstrates how to run a neural network created using TensorFlow Image Classification tutorial
   * - `WLS Filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
-    - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI Gen2 API.
+    - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI API.
 
 Ecosystem
 ---------
@@ -498,7 +498,7 @@ Ecosystem
 
    C++/Python API <https://docs.luxonis.com/projects/api/en/latest/>
    DepthAI SDK <https://docs.luxonis.com/projects/sdk/en/latest/>
-   Hardware Documentation <https://docs.luxonis.com/projects/hardware/en/latest/>
+   Hardware Products <https://docs.luxonis.com/projects/hardware/en/latest/>
 
 
 .. toctree::
