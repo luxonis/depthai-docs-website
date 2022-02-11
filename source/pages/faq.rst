@@ -181,18 +181,8 @@ And this is actually an interesting case as it demonstrates two things on DepthA
 #. Stereo inference (i.e. running the neural network(s) running on both the left and right cameras in parallel)
 #. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
 
-We have a `gen2-triangulation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__ demo that performs the stereo neural interface. **You should use the gen2 demo,** as we are focusing only on the gen2.
-
-If you would like to use the (old) gen1 API, you would have to download gen1 depthai library (:code:`python3 -mpip install depthai==1.0.0.0`) and checkout the :code:`gen1_main` branch of the `depthai repo <https://github.com/luxonis/depthai>`__. After that, you can run
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -cnn face-detection-retail-0004 -cnn2 landmarks-regression-retail-0009 -cam left_right -dd -sh 12 -cmx 12 -nce 2 -monor 400 -monof 30
-
-
-Where :code:`cam` specifies to run the neural network on both cameras, :code:`-cnn` specifies the first-stage network to
-run (face detection, in this case), :code:`-cnn2` specifies the second-stage network (facial landmark detection, in this case),
-and :code:`-dd` disables running disparity depth calculations (since they are unused in this mode).
+We have a `triangulation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__ demo that
+performs the stereo neural interface.
 
 Notes
 *****
@@ -224,7 +214,7 @@ Several Gen2 Examples are `here <https://github.com/luxonis/depthai-experiments#
 What is megaAI?
 ###############
 
-The monocular (single-camera) version of DepthAI is megaAI. Because not all solutions to embedded AI/CV problems require spatial information.
+MegaAI (later named OAK-1) is the single-camera version of OAK-D. Because not all solutions to embedded AI/CV problems require spatial information.
 
 We named it :code:`mega` because it's tiny:
 

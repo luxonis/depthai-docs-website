@@ -3,7 +3,7 @@ First steps with DepthAI
 
 Hello DepthAI users!
 
-In this guide, I assume you just got your DepthAI device (e.g. `OAK-1 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BK1096.html>`__ or `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__)
+In this guide, I assume you just got your OAK camera (e.g. `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__)
 and you want to give it the first try to explore what is possible with it and what you can achieve when working with it.
 
 - First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
@@ -12,10 +12,13 @@ and you want to give it the first try to explore what is possible with it and wh
 
 Let's start with the device setup below
 
-Connect the DepthAI device
-##########################
+Connect the OAK camera (USB)
+############################
 
-After unboxing your DepthAI package, you will receive your device together with a USB-C cable (and a power supply if you ordered OAK-D)
+If your OAK came with an inlcuded USB cable, we suggest using that to connect OAK camera to the host computer.
+
+.. warning::
+  Make sure to use **USB3 cable!** If you aren't, :ref:`force USB2 communication <Forcing USB2 Communication>` in the program.
 
 Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable device) directly to a USB port,
 or via a powered USB hub.
@@ -28,10 +31,13 @@ On Ubuntu, you can check if a new USB device was detected by running
   Bus 003 Device 002: ID 03e7:2485 Intel Movidius MyriadX
 
 .. note::
-
   If you are running other OS than Ubuntu, or you think something has gone wrong, we have detailed OS-specific installation guides
-  `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__, together with discord support
-  channels where you can chat with us live if you have any issues or questions.
+  `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__.
+
+Connect the OAK camera (PoE)
+############################
+
+If you are using PoE device, you should follow the :ref:`Getting started with OAK PoE devices` tutorial.
 
 Use Windows Installer
 #####################

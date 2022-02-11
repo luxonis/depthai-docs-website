@@ -90,33 +90,32 @@ So if you have see this problem with your host, potentially 3 options:
 Forcing USB2 Communication
 ##########################
 
-If you are having trouble with communication with DepthAI/OAK, forcing USB2 can sometimes resolve the issue.  
+If you aren't using a (working) USB3 cable or your host computer doesn't support USB3, you should force the
+USB2 communication. It's also recommended to use USB2 communication if you are using a longer USB cable (2m+).
 
-.. code-block:: bash
+For API usage, set the **usb2Mode=True** when creating the device:
 
-  python3 depthai_demo.py --usbSpeed usb2
+.. code-block:: python
 
-Or, the shorter form:
+  # Force USB2 communication
+  with dai.Device(pipeline, usb2Mode=True) as device:
+
+If you are using `depthai_demo <https://github.com/luxonis/depthai>`__ you can specify USB speed
+with :code:`-usbs` argument:
 
 .. code-block:: bash
 
   python3 depthai_demo.py -usbs usb2
 
-For gen2, set the **usb2Mode** to **True** when creating the device:
-
-.. code-block:: python
-
-  dai.Device(pipeline, usb2Mode=True)
-
-We've also seen an unconfirmed issue of running Ubuntu-compiled libraries on Linux Mint.  If running on not
-Ubuntu 18.04/16.04 or Raspbian, please `compile DepthAI from source <https://docs.luxonis.com/projects/api/en/latest/install/#install-from-source>`__.
-
 Output from DepthAI keeps freezing
 ##################################
 
-If the output from the device keeps freezing every few seconds, there may be a problem with the USB3 connection and forcing the device into USB2 mode could resolve this issue - instructions are in the chapter above.
+If the output from the device keeps freezing every few seconds, there may be a problem with the USB3 connection and
+forcing the device into USB2 mode could resolve this issue - instructions are in the chapter above.
 
-When connection speed is USB2 (due to some hosts - Windows in particular - or USB controller/port/cable being USB2) - initialization of USB3-enabled firmware or streaming after a few frames may fail. The workaround here is to force the device to use the USB2-only firmware (mentioned in the chapter above).
+When connection speed is USB2 (due to some hosts - Windows in particular - or USB controller/port/cable being USB2) -
+initialization of USB3-enabled firmware or streaming after a few frames may fail. The workaround here is to force the
+device to use the USB2-only firmware (mentioned in the chapter above).
 
 Failed to boot the device: 1.3-ma2480, err code 3
 #################################################
