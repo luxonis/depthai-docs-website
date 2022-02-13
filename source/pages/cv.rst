@@ -18,6 +18,8 @@ you can use many of its supported functions. With DepthAI pipeline builder you c
 If you would like to use any **other CV functions**, see :ref:`Run your own CV functions on-device`
 documentation on how to implement and run CV functions efficiently on the device's hardware-accelerated blocks.
 
+.. image:: https://user-images.githubusercontent.com/18037362/153769346-f5aed759-d398-44f1-a397-3cb185b68f2e.gif
+
 **Some other CV examples**:
 
 - `Lossless zooming <https://github.com/luxonis/depthai-experiments/tree/master/gen2-lossless-zooming>`__
