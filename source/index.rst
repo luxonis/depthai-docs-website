@@ -3,7 +3,7 @@ DepthAI's Documentation
 
 .. note::
 
-   Just recieved an OAK camera? Start :ref:`here <First steps with DepthAI>`!
+   Just received an OAK camera? Start :ref:`here <First steps with DepthAI>`!
 
 DepthAI is a :ref:`Spatial AI <spatialai>` **platform**, which allows **robots and computers** to **perceive the world like a
 human** can - what objects or features are - and **where they are in physical world.**
