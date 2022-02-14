@@ -12,8 +12,8 @@ you can use many of its supported functions. With DepthAI pipeline builder you c
 - **Crop, rotate, warp/dewarp, mirror, flip, transform perspective**, etc. with `ImageManip <https://docs.luxonis.com/projects/api/en/latest/components/nodes/image_manip/>`__ node
 - **Detect edges** (Sobel filter) with `EdgeDetector <https://docs.luxonis.com/projects/api/en/latest/components/nodes/edge_detector/>`__ node
 - **Detect and track features** with `FeatureTracker <https://docs.luxonis.com/projects/api/en/latest/components/nodes/feature_tracker/>`__ node
-- **Track objects** (Kalman filter, Hungarian algorithm) with `ObjectTracker <https://docs.luxonis.com/projects/api/en/latest/components/nodes/object_tracker/>`__ node. Currently supported Yolo and MobileNet object detectors.
-
+- **Track objects** (Kalman filter, Hungarian algorithm) with `ObjectTracker <https://docs.luxonis.com/projects/api/en/latest/components/nodes/object_tracker/>`__ node. Out-of-the-box support for Yolo and MobileNet object detectors.
+- **Perceive stereo depth** (Census Tranform, Cost Matching and Aggregation) with `StereoDepth <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/>`__ node
 
 If you would like to use any **other CV functions**, see :ref:`Run your own CV functions on-device`
 documentation on how to implement and run CV functions efficiently on the device's hardware-accelerated blocks.
