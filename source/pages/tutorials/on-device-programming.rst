@@ -38,4 +38,7 @@ these limitations, you could consider creating custom OpenCL kernel and compile 
 the VPU. One should also take into the account that this option is not super user friendly. We plan on creating a tutorial on how to
 develop these and run them on OAK cameras.
 
-- `Tutorial on how to implement custom layers with OpenCL <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__ by Intel
+- `Tutorial on how to implement custom layers with OpenCL <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__ by OpenVINO
+- `Custom kernel implementations in OpenCL <https://github.com/openvinotoolkit/openvino/tree/2021.4.2/inference-engine/src/vpu/custom_kernels>`__
+
+.. include::  /pages/includes/footer-short.rst
