@@ -20,6 +20,10 @@ If your OAK came with an inlcuded USB cable, we suggest using that to connect OA
 .. warning::
   Make sure to use **USB3 cable!** If you aren't, :ref:`force USB2 communication <Forcing USB2 Communication>` in the program.
 
+.. image:: /_static/images/tutorials/usb3.png
+
+**USB3 cable is colored blue** in the inside of the USB-A connector of the USB-C cable.
+
 Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable device) directly to a USB port,
 or via a powered USB hub.
 
@@ -137,7 +141,7 @@ Default run
 ###########
 
 Running the demo for the first time, the script will compile and download a default `mobilenet-ssd` model,
-configure the DepthAI device and then show a default :code:`color` preview that will contain a scaled preview from the RGB camera from your device.
+configure the OAK camera and then show a default :code:`color` preview that will contain a scaled preview from the RGB camera from your device.
 
 .. image:: https://user-images.githubusercontent.com/5244214/142722740-47e545b7-c7fe-4132-9704-ae3b47d60957.png
   :alt: Default run
