@@ -251,8 +251,9 @@ Below is a quick/dirty summary for the ~10,000-foot view of the options:
 
 - **Embedded with WiFi/BT** (`OAK-D-IoT-40 <https://shop.luxonis.com/products/bw1092>`__ and `OAK-D-IoT-75 <https://shop.luxonis.com/collections/iot/products/oak-d-iot-75>`__) - We have two models that have additional 128MB NOR flash, so they can boot
   on their own out of the NOR flash, and no host needs to be present to run. In contrast, the `OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__ can also run on its own,
-  but it is still booting over USB from the Raspberry Pi. On OAK-D-IoT-40 and OAK-D-IoT-75, the Myriad X can run completely standalone and with no other devices.
-  The built-in ESP32 then provides easy/convenient WiFi/BT support (:ref:`more info here <Getting started with OAK IoT devices>`) as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
+  but it is still booting over USB from the Raspberry Pi. On OAK-D-IoT-40 and OAK-D-IoT-75, the Myriad X can run completely `standalone <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__ and with no other devices.
+  The built-in ESP32 then provides easy/convenient WiFi/BT support (`more info here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-iot.html>`__)
+  as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
 
 More products in `store <https://shop.luxonis.com/>`__.
 
@@ -265,8 +266,8 @@ For designing products around DepthAI, we offer system on modules. You can then 
 `open source hardware <https://github.com/luxonis/depthai-hardware>`__.  There are three system on modules available:
 
 #. `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__ - USB-boot system on module. For making devices which interface over USB to a host processor running Linux, MacOS, or Windows. In this case, the host processor stores everything, and the OAK-SoM boots up over USB from the host.
-#. `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__ - NOR-flash boot (also capable of USB-boot). For making devices that run standalone, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
-#. `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__ - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors). For making devices that run standalone and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE interface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
+#. `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__ - NOR-flash boot (also capable of USB-boot). For making devices that run `standalone <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__, or work with embedded MCUs like ESP32, AVR, STM32F4, etc.  Can also USB-boot if/as desirable.
+#. `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__ - NOR flash, eMMC, SD-Card, and USB-boot (selectable via IO on the 2x 100-pin connectors). For making devices that run `standalone <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__ and require onboard storage (16GB eMMC) and/or Ethernet Support (the onboard PCIE interface through one of the 2x 100-pin connectors, paired with an Ethernet-capable base-board provides Ethernet support).
 
 Check our `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__ for more details.
 
@@ -431,7 +432,7 @@ We offer hardware to support all 3 use-cases, but firmware/software maturity var
 
 #. Using our `Python API and/or C++ API <https://docs.luxonis.com/projects/api/en/latest/install/>`__ (equal capabilities)
 #. Using our C++ SPI API (see `here <https://github.com/luxonis/depthai-spi-api>`__),
-#. Using our standalone flashing utility to flash a depthai application for standalone boot (as part of Pipeline Builder Gen2, leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`__).
+#. Using our standalone flashing utility to flash a depthai application for `standalone mode <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__ (leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`__).
 
 In all cases, DepthAI is compatible with OpenVINO for neural models. The only thing that changes between the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
 
@@ -454,17 +455,20 @@ In this case, DepthAI boots off of internal flash on the `OAK-SoM-IoT <https://s
 We even have an embedded reference design for ESP32 (`OAK-D-IoT-40 (BW1092) <https://github.com/luxonis/depthai-hardware/issues/10>`__) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092>`__.  
 And it's open-source! You can check design files `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__.
 
-We have prepared a :ref:`guide <Getting started with OAK IoT devices>` and a `demo <https://github.com/luxonis/esp32-spi-message-demo/>`__ on how to work with ESP32.
+We have prepared a `Getting started with OAK IoT devices <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-iot.html>`__ guide and a `demo <https://github.com/luxonis/esp32-spi-message-demo/>`__ on how to work with ESP32.
 
 .. _standalone:
 
 Use-Case 3: Using DepthAI as the Only Processor on a Device.
 ************************************************************
 
-This is supported through running microPython directly on the `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__ or `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__ as nodes in the `Gen2 Pipeline Builder <https://github.com/luxonis/depthai/issues/136>`__.
+This is supported through running Python directly on the
+`OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__ or `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__
+inside `Script <https://docs.luxonis.com/projects/api/en/latest/components/nodes/script/>`__ node.
 
-The microPython nodes allow custom logic, driving I2C, SPI, GPIO, UART, etc. controls, letting direct controls of actuators, direct reading of sensors, etc. from/to the pipeline of CV/AI functions.
-A target example is making an entire autonomous, visually-controlled robotic platform with DepthAI as the only processor in the system.
+The Script node allows custom logic, driving GPIO, UART, network protocols etc., letting direct controls of actuators,
+direct reading of sensors, etc. from/to the pipeline of CV/AI functions. A target example is making an entire autonomous,
+visually-controlled robotic platform with DepthAI as the only processor in the system.
 
 Hardware for Each Case:
 ***********************
@@ -1169,9 +1173,10 @@ which allow DepthAI to use up to a 328.1 foot (100 meter) cable for both data an
 What is "NCS2 Mode"?
 ####################
 
-All DepthAI devices come with support of what we call 'NCS2 mode'. This allows any DepthAI device to pretend to be an NCS2.
+All OAK cameras come with support of what we call 'NCS2 mode'. This allows any OAK camera to pretend to be an NCS2.
 
-So in fact, if you power your unit, plug it into a computer, and follow the instructions/examples/etc. of an NCS2 with OpenVINO, DepthAI device will behave identically.
+So in fact, if you power your unit, plug it into a computer, and follow the instructions/examples/etc. of
+an NCS2 with OpenVINO, OAK camera will behave identically.
 
 We also have an `example code here <https://github.com/luxonis/depthai-experiments/tree/master/depthai-inference-engine>`__.
 It runs facial cartoonization model (IR format) on the device using OpenVINOs `Inference Engine (IE) <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Deep_Learning_Inference_Engine_DevGuide.html>`__.
@@ -1700,7 +1705,7 @@ Overall
 
 Embedded Use Case
 *****************
-- https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi - user examples of SPI api and standalone mode.
+- https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi - user examples of SPI api and `standalone mode <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__.
 
 The above examples include a few submodules of interest. You can read a bit more about them in their respective README files:
 

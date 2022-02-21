@@ -28,7 +28,7 @@ DepthAI features straight from the command line - no coding required!  It works 
 .. image:: https://user-images.githubusercontent.com/18037362/132068313-e6db90c2-823b-42f2-86fb-148e798f55de.png
   :alt: Default run
 
-To install and run the demo script on your DepthAI device, type the following commands in the terminal.
+To install and run the demo script on your OAK camera, type the following commands in the terminal.
 
 .. code-block:: bash
 
@@ -487,8 +487,6 @@ Ecosystem
    pages/tutorials/first_steps.rst
    pages/ai_ml_nn.rst
    pages/cv.rst
-   pages/tutorials/getting-started-with-iot.rst
-   pages/tutorials/getting-started-with-poe.rst
    pages/tutorials/on-device-programming.rst
 
 .. toctree::
