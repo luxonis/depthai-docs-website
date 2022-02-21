@@ -12,7 +12,7 @@ It focuses on the combination of these **5 key features**:
 #. :ref:`Artificial Intelligence <AI / ML / NN>`
 #. :ref:`Computer Vision`
 #. Depth perception (`Stereo <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#internal-block-diagram-of-stereodepth-node>`__, `ToF <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM0255.html#oak-ffc-ptof>`__)
-#. Performance (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
+#. Performant (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
 #. Embedded, low power solution
 
 DepthAI platform is built around Intel's `Movidius VPU <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html>`__
