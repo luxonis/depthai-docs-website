@@ -12,7 +12,7 @@ It focuses on the combination of these **5 key features**:
 #. :ref:`Artificial Intelligence <AI / ML / NN>`
 #. :ref:`Computer Vision`
 #. Depth perception (`Stereo <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#internal-block-diagram-of-stereodepth-node>`__, `ToF <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM0255.html#oak-ffc-ptof>`__)
-#. Performance (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
+#. Performant (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
 #. Embedded, low power solution
 
 DepthAI platform is built around Intel's `Movidius VPU <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html>`__
@@ -28,7 +28,7 @@ DepthAI features straight from the command line - no coding required!  It works 
 .. image:: https://user-images.githubusercontent.com/18037362/132068313-e6db90c2-823b-42f2-86fb-148e798f55de.png
   :alt: Default run
 
-To install and run the demo script on your DepthAI device, type the following commands in the terminal.
+To install and run the demo script on your OAK camera, type the following commands in the terminal.
 
 .. code-block:: bash
 
@@ -487,8 +487,6 @@ Ecosystem
    pages/tutorials/first_steps.rst
    pages/ai_ml_nn.rst
    pages/cv.rst
-   pages/tutorials/getting-started-with-iot.rst
-   pages/tutorials/getting-started-with-poe.rst
    pages/tutorials/on-device-programming.rst
 
 .. toctree::

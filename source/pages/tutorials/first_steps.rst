@@ -41,7 +41,7 @@ On Ubuntu, you can check if a new USB device was detected by running
 Connect the OAK camera (PoE)
 ############################
 
-If you are using PoE device, you should follow the :ref:`Getting started with OAK PoE devices` tutorial.
+If you are using PoE device, you should follow the `Getting started with OAK PoE devices <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html>`__ tutorial.
 
 Use Windows Installer
 #####################
