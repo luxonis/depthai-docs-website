@@ -33,7 +33,7 @@ Kudos to the Cortic AI team for sharing their awesome tool!
 Looking for more?
 #################
 
-You can also check out our :code:`#community` channel on our `Discord server <https://discord.gg/EPsZHkg9Nx>`__, where you can
+You can also check out our :code:`#community` channel on our `Discord server <https://discord.gg/luxonis>`__, where you can
 meet people behind these projects or share your idea/demo - we're looking forward to meeting you there!
 
 .. include::  /pages/includes/footer-short.rst

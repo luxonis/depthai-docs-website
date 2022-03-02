@@ -54,4 +54,4 @@ Username and password are the credentials you use to access the RTD website
 
 ### Need help?
 
-Join our Discord Community: [https://discord.gg/EPsZHkg9Nx](https://discord.gg/EPsZHkg9Nx)
+Join our Discord Community: [https://discord.gg/luxonis](https://discord.gg/luxonis)

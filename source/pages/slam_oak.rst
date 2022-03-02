@@ -13,7 +13,7 @@ Our awesome community has also created several projects that use OAK for SLAM:
 - `OAKD_ORBSLAM3 <https://github.com/duncanrhamill/oakd_orbslam3>`__
 - `DepthAI-SLAM <https://github.com/bharath5673/depthai-slam>`__
 
-You can also check out our :code:`#slam` channel on our `Discord server <https://discord.gg/EPsZHkg9Nx>`__, where there are tons of
+You can also check out our :code:`#slam` channel on our `Discord server <https://discord.gg/luxonis>`__, where there are tons of
 useful information about how to perform SLAM on OAK devices.
 
 .. include::  /pages/includes/footer-short.rst

@@ -20,7 +20,7 @@ trigger a certain action:
 - `Distance Sensors <https://docs.px4.io/master/en/sensor/rangefinders.html>`__
 
 For additonal useful information about OAK on drones projects you can check out our :code:`#drone` channel on our
-`Discord server <https://discord.gg/EPsZHkg9Nx>`__.
+`Discord server <https://discord.gg/luxonis>`__.
 
 Camera vibration
 ################

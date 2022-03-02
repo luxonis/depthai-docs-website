@@ -151,7 +151,7 @@ You can then choose other models and get real-time 3D position for the class of 
 
 Play with the feature and please share demos that you come up with (especially if you make a robot that stalks your cat)
 on `discuss.luxonis.com <https://discuss.luxonis.com/>`__ and if you run into any issues, please ping us on our
-`Discord server <https://discord.gg/EPsZHkg9Nx>`__.
+`Discord server <https://discord.gg/luxonis>`__.
 
 And if you find any errors in these documents, please report an issue on the `Github <https://github.com/luxonis/depthai-docs-website>`__.
 
