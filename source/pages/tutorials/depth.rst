@@ -7,8 +7,6 @@ DepthAI platform supports different ways of perceiving depth:
 #. :ref:`Active stereo depth perception` - Used by `Pro version <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s2.html#pro-version>`__ of OAK-D cameras
 #. :ref:`Time-of-Flight depth perception` - Used by `OAK-pToF <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM0255.html>`__
 
-We currently don't have any plans to support other ways to support depth (ultrasound, radar, etc.).
-
 Passive stereo depth perception
 ###############################
 
