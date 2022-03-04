@@ -9,12 +9,14 @@ they are in the physical world. DepthAI platform laverages Spatial AI by fusing 
 
 There are a few different approaches to achieve AI + depth fusion:
 
-- :ref:`Object detection fused with depth map`
-- :ref:`Semantic depth`
-- :ref:`Stereo neural inference`
+#. :ref:`Neural inference fused with depth map <object-localization>`
+#. :ref:`Semantic depth <semantic-depth>`
+#. :ref:`Stereo neural inference <stereo-inference>`
 
-Neural inference fused with depth map
-#####################################
+.. _object-localization:
+
+1. Neural inference fused with depth map
+########################################
 
 DepthAI can fuse neural inference (object/landmark detection) results with depth map to estimate spatial coordinates (XYZ) of
 all objects/landmarks in the scene.
@@ -26,21 +28,21 @@ averaged to produce a more accurate location.
 3D Object Localization
 ----------------------
 
-First, it is necessary to define what '`Object Detection <https://pjreddie.com/darknet/yolo/>`__' is:
+First, let's define what '`Object Detection <https://pjreddie.com/darknet/yolo/>`__' is. It is the technical term
+for finding the bounding box of an object of interest, in pixel space (i.e. pixel coordinates), in an image.
 
-.. image:: https://www.crowdsupply.com/img/7c80/depthai-dog-porch-ai_png_project-body.jpg
+.. image:: /_static/images/tutorials/object-detection.jpg
   :alt: Object Detection
 
-It is the technical term for finding the bounding box of an object of interest, in pixel space (i.e. pixel coordinates), in an image.
-
-3D Object Localization (or 3D Object Detection) is all about finding such objects in physical space, instead of pixel space.
+**3D Object Localization** (or 3D Object Detection) is all about finding such objects in physical space, instead of pixel space.
 This is useful when trying to real-time measure or interact with the physical world.
 
 Below is a visualization to showcase the difference between Object Detection and 3D Object Localization:
 
-.. image:: https://i.imgur.com/ABacp7x.png
+.. image:: /_static/images/tutorials/detection-vs-localization.png
   :target: https://www.youtube.com/watch?v=2J5YFehJ3N4
   :alt: Spatial AI Visualization
+
 
 Spatial AI is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them
 3D context. So in other words, it's not limited to object detectors being extended to 3D object localizers.
@@ -59,14 +61,16 @@ An example would be a hand landmark detector on DepthAI.  With a normal camera t
 the 2D (XY) coordinates of all 21 hand landmarks (contours of all joints in fingers). Using this same network
 with DepthAI, each of these 21 hand landmarks is now a 3D point in physical space instead of 2D points in pixel space.
 
-.. image:: todo
+.. image:: https://user-images.githubusercontent.com/18037362/156813885-146602d9-e5f9-4afa-9542-7904c7e236b3.gif
 
 Demos: `hand landmark <https://github.com/geaxgx/depthai_hand_tracker>`__ (above),
 `human pose landmark <https://github.com/geaxgx/depthai_blazepose>`__, and `facial landmark <https://github.com/luxonis/depthai-experiments/tree/master/gen2-facemesh#gen2-facial-landmarks-on-depthai>`__
 detection demos.
 
-Semantic depth
-##############
+.. _semantic-depth:
+
+2. Semantic depth
+#################
 
 One of the classic problems in autonomous robotic navigation/actuation are the **unknown objects**.
 Known objects are things that are known a-priori to the installation to be encountered - such as tools, other machines,
@@ -79,22 +83,26 @@ completely unknowable or never-before-seen. For known objects, training an objec
 This is where a “negative” object detection system is required in such generic obstacle avoidance scenarios.  And a very
 effective technique is to use **semantic segmentation** of RGB, Depth, or RGB+Depth.
 
-.. image:: /_static/images/tutorials/semantic.jpeg
+.. image:: /_static/images/tutorials/segmentation.jpeg
+    :target: https://youtu.be/LGGtF_4v5sQ?t=3405
 
-The image above was taken from Greenzie's robotic landmowers (`video here <https://youtu.be/LGGtF_4v5sQ?t=3405>`__).
-
-
+The image above was taken from `Greenzie <https://www.greenzie.com/>`__'s robotic landmowers (from OpenCV `weekly livestream <https://youtu.be/LGGtF_4v5sQ?t=3405>`__).
 
 In such a “negative” system, the semantic segmentation system is trained on all the surfaces that are not objects. So
 anything that is not that surface is considered an object - allowing the navigation to know it’s location and to take
 commensurate action (stop, go around, turn around, etc.). So the semantic depth is extremely valuable for **object avoidance**
 and **navigation planing** application.
 
+.. image:: https://user-images.githubusercontent.com/18037362/156813894-eced8fd7-90b5-4331-a7fd-4ad10307f14f.gif
+    :target: https://github.com/luxonis/depthai-experiments/tree/master/gen2-deeplabv3_depth
 
+On the image there's a person semantic segmentation model running on RGB frames, and based on the results it crops depth maps
+to only include the person's depth.
 
+.. _stereo-inference:
 
-Stereo neural inference
-#######################
+3. Stereo neural inference
+##########################
 
 In this mode, the neural inference (landmark detection) is run on the left **and** right cameras to
 produce stereo inference results. Unlike monocular neural inference fused with stereo depth - there is no max disparity
