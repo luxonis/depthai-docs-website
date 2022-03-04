@@ -11,7 +11,7 @@ It focuses on the combination of these **5 key features**:
 
 #. :ref:`Artificial Intelligence <AI / ML / NN>`
 #. :ref:`Computer Vision`
-#. Depth perception (`Stereo <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#internal-block-diagram-of-stereodepth-node>`__, `ToF <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM0255.html#oak-ffc-ptof>`__)
+#. :ref:`Depth perception` (`Stereo <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#internal-block-diagram-of-stereodepth-node>`__, `ToF <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM0255.html#oak-ffc-ptof>`__)
 #. Performant (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
 #. Embedded, low power solution
 
@@ -487,6 +487,7 @@ Ecosystem
    pages/tutorials/first_steps.rst
    pages/ai_ml_nn.rst
    pages/cv.rst
+   pages/tutorials/depth.rst
    pages/tutorials/on-device-programming.rst
 
 .. toctree::
