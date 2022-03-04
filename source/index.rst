@@ -485,6 +485,7 @@ Ecosystem
    :caption: Tutorials
 
    pages/tutorials/first_steps.rst
+   pages/spatial-ai.rst
    pages/ai_ml_nn.rst
    pages/cv.rst
    pages/tutorials/depth.rst
