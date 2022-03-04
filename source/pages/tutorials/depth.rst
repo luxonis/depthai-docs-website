@@ -15,7 +15,7 @@ difference of what our left eye sees versus what our right eye sees. On OAK-D ca
 stereo camera pair - left and right monocular cameras - and the VPU (brains of the OAK cameras) does the
 **disparity matching** to estimate the depth of objects and scenes.
 
-The **Disparity** is the distance (in pixels) between the same point in the left and right image of the stereo pair camera.
+The **disparity** is the distance (in pixels) between the same point in the left and right image of the stereo pair camera.
 A great demo of disparity is below - the disparity is visualized with a red line between points/features - which in this
 case are facial landmarks (eyes, nose, mouth).
 
