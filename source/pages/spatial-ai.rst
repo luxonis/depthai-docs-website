@@ -44,7 +44,7 @@ Below is a visualization to showcase the difference between Object Detection and
   :alt: Spatial AI Visualization
 
 
-Spatial AI is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them
+**Spatial AI** is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them
 3D context. So in other words, it's not limited to object detectors being extended to 3D object localizers.
 Other network types can be extended as well, including any network which returns results in pixel space.
 
