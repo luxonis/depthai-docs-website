@@ -15,7 +15,7 @@ It focuses on the combination of these **5 key features**:
 #. Performant (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
 #. Embedded, low power solution
 
-DepthAI platform is built around Intel's `Movidius VPU <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html>`__
+DepthAI platform is built around `Movidius VPU <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html>`__
 - it's a complete ecosystem of custom `hardware <https://docs.luxonis.com/projects/hardware/en/latest/>`__, firmware, and `software API <https://docs.luxonis.com/projects/api/en/latest/>`__. 
 Best of all, it is modular and you can **integrate** this technology **into your products** (`docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/integrating_depthai_into_products.html>`__).
 
@@ -485,6 +485,7 @@ Ecosystem
    :caption: Tutorials
 
    pages/tutorials/first_steps.rst
+   pages/spatial-ai.rst
    pages/ai_ml_nn.rst
    pages/cv.rst
    pages/tutorials/depth.rst

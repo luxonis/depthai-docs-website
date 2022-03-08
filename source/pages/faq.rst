@@ -32,35 +32,10 @@ and productize solutions quickly, autonomously, and at low risk.
 
 See the summary of our (MIT-Licensed) Github repositories :ref:`below <githubs>`, which include open-source hardware, firmware, software, and machine-learning training.
 
-
-.. _spatialai:
-
 What is SpatialAI?  What is 3D Object Localization?
 ###################################################
 
-First, it is necessary to define what '`Object Detection <https://pjreddie.com/darknet/yolo/>`__' is:
-
-.. image:: https://www.crowdsupply.com/img/7c80/depthai-dog-porch-ai_png_project-body.jpg
-  :alt: Object Detection
-
-It is the technical term for finding the bounding box of an object of interest, in pixel space (i.e. pixel coordinates), in an image.
-
-3D Object Localization (or 3D Object Detection), is all about finding such objects in physical space, instead of pixel space.
-This is useful when trying to real-time measure or interact with the physical world.
-
-Below is a visualization to showcase the difference between Object Detection and 3D Object Localization:
-
-.. image:: https://i.imgur.com/ABacp7x.png
-  :target: https://www.youtube.com/watch?v=2J5YFehJ3N4
-  :alt: Spatial AI Visualization
-
-Spatial AI is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them 3D context.
-So in other words, it's not limited to object detectors being extended to 3D object localizers.
-Other network types can be extended as well, including any network which returns results in pixel space.
-
-An example of such an extension is using a facial landmark detector on DepthAI.  With a normal camera this network returns
-the 2D coordinates of all 45 facial landmarks (contours of eyes, ears, mouth, eyebrows, etc.)  Using this same network
-with DepthAI, each of these 45 facial landmarks is now a 3D point in physical space instead of 2D points in pixel space.
+Spatial AI :ref:`documentation here <spatialai>`. 3D Object Localization :ref:`documentation here <3D Object Localization>`.
 
 How is DepthAI Used? In What Industries is it Used?
 ###################################################
@@ -147,42 +122,6 @@ The maximum resolution for the depthai depth map is 1280x800 (1MP), with either 
 #. LR-Check Disparity, :ref:`here <lrcheck_disparity>`: 1280x800, with disparity run in both directions for allowing recentering of the depth.
 
 (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below)
-
-.. _stereo_inference:
-
-Stereo Neural Inference
-***********************
-
-In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.
-The disparity of the results are then triangulated with the calibrated camera intrinsics (programmed into the
-EEPROM of each DepthAI unit) to give 3D position of all the detected features.
-
-This **stereo neural inference** mode affords accurate 3D Spatial AI for networks which produce single-pixel locations
-of features such as facial landmark estimation, pose estimation, or other meta-data which provides feature locations like this.
-
-Examples include finding the 3D locations of:
-
- - Facial landmarks (eyes, ears, nose, edges of mouth, etc.)
- - Features on a product (screw holes, blemishes, etc.)
- - Joints on a person (e.g. elbow, knees, hips, etc.)
- - Features on a vehicle (e.g. mirrors, headlights, etc.)
- - Pests or disease on a plant (i.e. features that are too small for object detection + stereo depth)
-
-Again, this mode does not require the neural networks to be trained with depth data.  DepthAI takes standard, off-the-shelf 2D networks (which are significantly more common) and uses this stereo inference to produce accurate 3D results.
-
-An example of stereo neural inference is below.
-
-.. image:: https://i.imgur.com/3kjFMt6.png
-  :target: https://www.youtube.com/watch?v=eEnDW0WQ3bo
-  :alt: DepthAI parallel multi-stage inference
-
-And this is actually an interesting case as it demonstrates two things on DepthAI:
-
-#. Stereo inference (i.e. running the neural network(s) running on both the left and right cameras in parallel)
-#. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
-
-We have a `triangulation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__ demo that
-performs the stereo neural interface.
 
 Notes
 *****
@@ -302,8 +241,8 @@ Here is a single-camera version (megaAI) running with :code:`python3 depthai_dem
   :target: https://www.youtube.com/watch?v=dZzg4sTeE3M
 
 
-Is DepthAI and MegaAI easy to use with Raspberry Pi?
-####################################################
+Is OAK camera easy to use with Raspberry Pi?
+############################################
 
 Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy. You can find additional `information here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi.html>`__.
 
@@ -545,7 +484,6 @@ On our Roadmap (Most are in development/integration)
 
 - Motion Estimation (`here <https://github.com/luxonis/depthai/issues/245>`__)
 - Background Subtraction (`here <https://github.com/luxonis/depthai/issues/136>`__)
-- AprilTags (PR `here <https://github.com/luxonis/depthai-python/pull/298>`__)
 - OpenCL Support (supported through OpenVINO (`here <https://docs.openvinotoolkit.org/latest/openvino_docs_IE_DG_Extensibility_DG_VPU_Kernel.html>`__))
 
 And see our Github project `here <https://github.com/orgs/luxonis/projects/2>`__ to follow along with the progress of these implementations.
@@ -585,7 +523,6 @@ For more information see the `StereoDepth documentation <https://docs.luxonis.co
 
 
 .. _mindepths:
-
 
 What are the Minimum Depths Visible by DepthAI?
 ###############################################
@@ -643,27 +580,6 @@ Calculation examples for OAK-D:
 - ~ 19.6cm with extended disparity and 640x400 resolution
 
 For a more detailed explanation refer to the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#min-stereo-depth-distance>`__.
-
-Stereo Neural Inference
-***********************
-
-In this mode, the neural inference (object detection, landmark detection, etc.) is run on the left **and** right cameras to produce stereo inference results.  Unlike monocular neural inference fused with stereo depth - there is no max disparity search limit - so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the stereo cameras themselves and (b) the hyperfocal distance of the cameras.
-
-The hyperfocal distance of the global shutter synchronized stereo pair is 19.6cm.  So objects closer than 19.6cm will appear out of focus.  This is
-effectively the minimum distance for this mode of operation, as in most cases (except for very wide stereo baselines with the `OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__),
-this **effective** minimum distance is higher than the **actual** minimum distance as a result of the stereo camera field of views. For example, the objects 
-will be fully out of the field of view of both grayscale cameras when less than `5.25cm
-<https://www.google.com/search?ei=GapBX-y3BsuxtQa3-YaQBw&q=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&oq=%3Dtan%28%2890-71%2F2%29*pi%2F180%29*7.5%2F2&gs_lcp=CgZwc3ktYWIQAzoECAAQR1DZkwxYmaAMYPilDGgAcAF4AIABS4gB1AKSAQE1mAEAoAEBqgEHZ3dzLXdpesABAQ&sclient=psy-ab&ved=0ahUKEwisqPat-6_rAhXLWM0KHbe8AXIQ4dUDCAw&uact=5>`__
-from the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, but that is closer than the hyperfocal distance of the grayscale cameras (which is 19.6cm),
-so the actual minimum depth is this hyperfocal distance.
-
-Accordingly, to calculate the minimum distance for this mode of operation, use the following formula:
-
-.. code-block:: python
-
-  min_distance = max(tan((90 - HFOV/2) * pi/2) * base_line_dist/2, 19.6)
-
-This formula implements the maximum of the HFOV-imposed minimum distance, and 19.6cm, which is the hyperfocal-distance-imposed minimum distance.
 
 Onboard Camera Minimum Depths
 *****************************
@@ -763,28 +679,9 @@ To run LR-Check on DepthAI/OAK, use the example `here <https://github.com/luxoni
 What Are The Maximum Depths Visible by DepthAI?
 ###############################################
 
-The maximum depth perception for 3D object detection is practically limited by how far the object detector (or other neural network) can detect what it's looking for. We've found that OpenVINO people detectors work to about 22 meters or so. But generally this distance will be limited by how far away the object detector can detect objects, and then after that, the minimum angle difference between the objects.
+The max depth perception is limited by the physics of the baseline and the number of pixels (see `documentation here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#max-stereo-depth-distance>`__).
 
-So if the object detector is not the limit, the maximum distance will be limited by the physics of the baseline and the number of pixels. So once an object is less than 0.056 degrees (which corresponds to 1 pixel difference) difference between one camera to the other, it is past the point where full-pixel disparity can be done.  The formula used to calculate this distance is an approximation, but is as follows:
-
-.. code-block:: python
-
-  Dm = (baseline/2) * tan_d(90 - HFOV / HPixels)
-
-For DepthAI HFOV = 71.9(+/-0.5) degrees, and HPixels = 1280.
-
-So using this formula for existing models the *theoretical* max distance is:
-
-- `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ (7.5cm baseline): 38.4 meters
-- `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__ (9cm baseline): 46 meters
-- `OAK-D-IOT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (4cm baseline): 20.4 meters
-- `OAK-FFC-3P <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__ (Custom baseline): Dm = (baseline/2) * tan_d(90 - 71.9 / 1280)
-
-But these theoretical maximums are not achievable in the real-world, as the disparity matching is not perfect, nor are the optics, image sensor, etc., so the actual maximum depth will be application-specific depending on lighting, neural model, feature sizes, baselines, etc.
-
-We also support subpixel depth mode, which extend this theoretical max, but again this will likely not be the **actual** limit of the max object detection distance, but rather the neural network itself will be.  And this subpixel use will likely have application-specific benefits.
-
-For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#max-stereo-depth-distance>`__.
+Each OAK camera has max depth perception specified in it's `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__ page.
 
 .. _subpixel_disparity:
 
@@ -815,39 +712,24 @@ To run Subpixel on DepthAI/OAK, use the example `here <https://github.com/luxoni
 How Does DepthAI Calculate Disparity Depth?
 ###########################################
 
-DepthAI makes use of a combination of hardware-blocks (a semi-global-matching disparity (SGBM) hardware block) as well as accelerated vector processing code in the SHAVES of the Myriad X to produce the disparity depth.  This block is accessible via the Gen2 Pipeline Builder system, with an example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
+DepthAI makes use of a combination of hardware-blocks (a semi-global-matching disparity (SGBM) hardware block) as well as
+accelerated vector processing code in the SHAVES of the Myriad X to produce the disparity depth.
 
-The SGBM hardware-block can process up to 1280x800 pixels, this is its hardware limit.  Using higher-resolution sensors is technically possible via downscaling.  So for example, using the 12MP color camera with the 1280x800 grayscale camera is possible (and has been prototyped by some users with the Gen2 pipeline builder).  Or 2x 12MP image sensors could be used for depth (theoretically).  But in both cases, the image data needs to be either decimated down to 1280x800, or converted in some other way (e.g. selectively cropped/windowed).
-
-What Is the Format of the Depth Data in depth stream?
-*****************************************************
-
-The output array is in uint16, so 0 to 65,535 with direct mapping to millimeters (mm).
-
-So a value of 3,141 in the array is 3,141 mm, or 3.141 meters.  So this whole array is the z-dimension of each pixel off of the camera plane, where the :code:`center of the universe` is the camera marked :code:`RIGHT`.
-
-And the specific value of 65,535 is a special value, meaning an invalid disparity/depth result.
+The SGBM hardware-block can process up to 1280x800 pixels, this is its hardware limit.  Using higher-resolution sensors is
+technically possible via downscaling.  So for example, using the 12MP color camera with the 1280x800 grayscale camera is
+possible (and has been prototyped by some users with the Gen2 pipeline builder).  Or 2x 12MP image sensors could be used
+for depth (theoretically).  But in both cases, the image data needs to be either decimated down to 1280x800, or converted in
+some other way (e.g. selectively cropped/windowed).
 
 What Disparity Depth Modes are Supported?
 *****************************************
 
-#. Default (96-pixel disparity search)
-#. Extended Disparity (191-pixel disparity search), :ref:`here <extended_disparity>`
-#. Subpixel Disparity (32 sub-pixel steps), :ref:`here <subpixel_disparity>`
-#. LR-Check Disparity, :ref:`here <lrcheck_disparity>`
+See **Stereo Mode** tab on `SterepDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#currently-configurable-blocks>`__.
 
 How Do I Calculate Depth from Disparity?
 ########################################
 
-DepthAI does convert to depth onboard for both the :code:`depth` stream and also for object detectors like MobileNet-SSD, YOLO, etc.
-
-But we also allow the actual disparity results to be retrieved so that if you would like to use the disparity map directly, you can.
-
-To calculate the depth map from the disparity map, it is (approximately) :code:`depth = focal_length_in_pixels * baseline / disparity_in_pixels`.  Where the baseline is 7.5cm for `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, 4.0cm for `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__, and 9.0cm for `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__, and the focal_length_in_pixels is :code:`882.5` (:code:`focal_length = 1280 * 0.5 / tan(71.9 * 0.5 * PI / 180) = 882.5`) for all current DepthAI models.
-
-So for example, for a `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (stereo baseline of 4.0cm), a disparity measurement of 60 is a depth of 58.8cm (:code:`depth = 882.5 * 40mm / 60 = 588 mm (0.588m)`).
-
-For more information see the `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#calculate-depth-using-dispairty-map>`__.
+See `StereoDepth documentation <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#calculate-depth-using-dispairty-map>`__.
 
 How Do I Display Multiple Streams?
 ##################################
@@ -874,16 +756,13 @@ The available streams are:
 Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
 ************************************************************************
 
-Yes, to get the raw stereo pair stream on the host use the following command:
+Yes, see `example code here <https://docs.luxonis.com/projects/api/en/latest/samples/MonoCamera/mono_preview/#mono-preview>`__
+(using API). You can also get the raw stereo pair stream with DepthAI demo using the following command:
 
 .. code-block:: bash
 
   python3 depthai_demo.py -gt cv -s left right
 
-This will show the full RAW (uncompressed) 1280x720 stereo synchronized pair, as below:
-
-.. image:: https://i.imgur.com/oKVrZAV.jpg
-  :alt: RAW Stereo Pair Streams
 
 How to choose the DepthAI Demo GUI type?
 ########################################
@@ -934,12 +813,14 @@ Specifying no limit will default to 30FPS.
 How do I Synchronize Streams and/or Meta Data (Neural Inference Results)
 ########################################################################
 
-The :code:`-sync` option is used to synchronize the neural inference results and the frames on which they were run.  When this option is used, the device-side firmware makes a best effort to send metadata and frames in order of metadata first, immediately followed by the corresponding image.
+The :code:`--sync` option is used to synchronize the neural inference results and the frames on which they were run.  When this option is used, the device-side firmware makes a best effort to send metadata and frames in order of metadata first, immediately followed by the corresponding image.
 
 When running heavier stereo neural inference, particularly with high host load, this system can break down, and there are two options which can keep synchronization:
 
 #. Reduce the frame rate of the cameras running the inference to the speed of the neural inference itself, or just below it.
 #. Or pull the timestamps or sequence numbers from the results (frames or metadata) and match them on the host.
+
+See demo `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-nn-sync>`__.
 
 Reducing the Camera Frame Rate
 ******************************
@@ -957,40 +838,37 @@ So for example to run a default model with both the RGB and both grayscale camer
 Synchronizing on the Host
 *************************
 
-The two methods :func:`FrameMetadata.getTimestamp` and :func:`FrameMetadata.getSequenceNum` can be used to guarantee the synchronization on host side.
+`ImgFrame <https://docs.luxonis.com/projects/api/en/latest/components/messages/img_frame/#imgframe>`__ message
+has two functions; :func:`ImgFrame.getTimestamp()` and :func:`ImgFrame.getSequenceNum()` which can be used for synchronization
+on host side or on the device using `Script <https://docs.luxonis.com/projects/api/en/latest/components/nodes/script/>`__ node.
 
-The NNPackets and DataPackets are being sent separately from device side, and get into individual queues per stream on host side.
-The function :func:`CNNPipeline.get_available_nnet_and_data_packets` returns what's available in the queues at the moment the function is called (it could be that just one NN packet is unread, or just one frame packet).
+You can use sequence number when syncing streams from one device, but when you have multiple OAK cameras and want to sync streams
+across multiple OAKs, you should use timestamp syncing, as host time is used (`std::chrono::steady_clock <https://en.cppreference.com/w/cpp/chrono/steady_clock>`__)
+for the timestamps.
 
-With the :code:`-sync` CLI option from depthai.py, we are doing a best effort on the device side (i.e. on the Myriad X) to synchronize NN and previewout, and send them in order: first the NN packet is being sent (and in depthai.py it gets  saved as the latest), then the previewout frame is being sent (and when received in depthai_demo.py, the latest saved NN data is overlaid on).
+We have both timestamp and sequence number syncing demos `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-seq-num-sync#gen2-frames-sync>`__.
 
-In most cases this works well, but there is a risk (especially under high system load on host side), that the packets may still get desynchronized, as the queues are handled by different threads (in the C++ library).
-
-So in that case, :code:`getMetadata().getTimestamp()` returns the device time (in seconds, as float) and is also `used in the stereo calibration script <https://github.com/luxonis/depthai/blob/f26f8c6/calibrate.py#L114>`__ to synchronize the Left and Right frames.
-
-The timestamp corresponds to the moment the frames are captured from the camera, and is forwarded through the pipeline.  And the method :code:`getMetadata().getSequenceNum()` returns an incrementing number per camera frame. The same number is associated to the NN packet, so it could be an easier option to use, rather than comparing timestamps. The NN packet and Data packet sequence numbers should match.
-
-Also, the left and right cameras will both have the same sequence number (timestamps will not be precisely the same, but few microseconds apart - that's because the timestamp is assigned separately to each from different interrupt handlers. But the cameras are started at the same time using an I2C broadcast write, and also use the same MCLK source, so shouldn't drift).
-
-In this case we also need to check the camera source of the NN and Data packets. Currently, `depthai.py` uses :code:`getMetadata().getCameraName()` for this purpose, that returns a string: :code:`rgb`, :code:`left` or :code:`right` .
-
-It is also possible to use :code:`getMetadata().getInstanceNum()`, that returns a number: 0, 1 or 2 , respectively.
+..
+  TODO add Synchronization docs in API
 
 How do I Record (or Encode) Video with DepthAI?
 ###############################################
 
-DepthAI supports h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The `depthai_demo.py` script shows and example of how to access this functionality.
+DepthAI supports h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The :ref:`DepthAI demo app <Default run>`
+shows and example of how to access this functionality.
 
-Note that hardware limit for the encoder is: 3840x2160 pixels at 30FPS or :code:`248 million pixels/second`. The resolution and frame rate can be divided into multiple streams - but the sum of all the pixels/second needs to be below 248 million.
+.. image:: /_static/images/faq/recording.png
+  :alt: Recording with DepthAI Demo App
 
-See our encoding examples for Gen2 (current main line), which uses `VideoEncoder node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/video_encoder/>`__:
+See our encoding examples which use `VideoEncoder node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/video_encoder/>`__:
 
  - RGB and Mono Encoding, `here <https://docs.luxonis.com/projects/api/en/latest/samples/VideoEncoder/rgb_mono_encoding/#rgb-mono-encoding>`__.
  - RGB Encoding and MobilenetSSD, `here <https://docs.luxonis.com/projects/api/en/latest/samples/mixed/rgb_encoding_mobilenet/#rgb-encoding-mobilenetssd>`__.
  - RGB Encoding and Mono with MobilenetSSD and Depth, `here <https://docs.luxonis.com/projects/api/en/latest/samples/mixed/rgb_encoding_mono_mobilenet_depth/#rgb-encoding-mono-with-mobilenetssd-depth>`__.
  - Encoding Max Limit, `here <https://docs.luxonis.com/projects/api/en/latest/samples/VideoEncoder/encoding_max_limit/#encoding-max-limit>`__.
 
-Alternatively, to leverage this functionality from the :code:`depthai_demo.py` script, use the `-enc` (or `--encode`) to specify which cameras to encode (record), with optional `-encout` arguemnt to specify path to directory where to store encoded files. An example is below:
+Alternatively, to leverage this functionality from the :code:`depthai_demo.py` script, use the `-enc` (or `--encode`) to specify
+which cameras to encode (record), with optional `-encout` arguemnt to specify path to directory where to store encoded files. An example is below:
 
 .. code-block:: bash
 
@@ -1017,19 +895,13 @@ An example video encoded on DepthAI `OAK-D-CM3 <https://docs.luxonis.com/project
 What are the Capabilities of the Video Encoder on DepthAI?
 ##########################################################
 
-The max total encoding for h.264 and h.265 has 3 limits:
-- 4096 pixel max width for a frame.
-- Maximum pixels per second of 248 MegaPixel/second.
-- Maximum of 3 parallel encoding streams
-
-The JPEG encoder is capable of 16384x8192 resolution at 500Mpixel/second.
-
-Note the processing resources of the encoder are shared between H.26x and JPEG and both the width and height should be a multiple of 8 (which is usually the case with standard resolutions).
+See capabilities and limitations in the `documentation here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/video_encoder/#limitations>`__.
 
 What Is The Stream Latency?
 ###########################
 
-When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from light hitting an image sensor to when the results are available to a user, the :code:`photon-to-results` latency.
+When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from light hitting an image
+sensor to when the results are available to a user, the :code:`photon-to-results` latency.
 
 So the following results are an approximation of this :code:`photon-to-results` latency, and are likely an over-estimate
 as we tested by actually seeing when results were updated on a monitor, and the monitor itself has some latency, so the
@@ -1044,109 +916,40 @@ And we have also since done several optimizations since these measurements, so t
   * - measured
     - requested
     - avg latency, ms
+    - DepthAI demo arguments
   * - left
     - left
-    - 100
+    - 90
+    - :code:`python3 depthai_demo.py -gt cv -s left -dnn`
   * - left
     - left, right
-    - 100
+    - 90
+    - :code:`python3 depthai_demo.py -gt cv -s left right -dnn`
   * - left
     - left, right, depth
-    - 100
+    - 90
+    - :code:`python3 depthai_demo.py -gt cv -s left right depth -dnn`
   * - left
-    - left, right, depth, :code:`metaout`, :code:`previewout`
+    - left, right, depth, color, object detection
     - 100
-  * - :code:`previewout`
-    - :code:`previewout`
-    - 65
-  * - :code:`previewout`
-    - :code:`metaout`, :code:`previewout`
-    - 100
-  * - :code:`previewout`
-    - left, right, depth, :code:`metaout`, :code:`previewout`
-    - 100
-  * - :code:`metaout`
-    - :code:`metaout`
-    - 300
-  * - :code:`metaout`
-    - :code:`metaout`, :code:`previewout`
-    - 300
-  * - :code:`metaout`
-    - left, right, depth, :code:`metaout`, :code:`previewout`
-    - 300
+    - :code:`python3 depthai_demo.py -gt cv -s left right depth color`
+  * - left
+    - left, right, depth, color, object detection (synced)
+    - 200
+    - :code:`python3 depthai_demo.py -gt cv --sync -s left right depth color`
+
+Note that object detection results are not synced with the color camera if :code:`--sync` isn't added to the arguments.
 
 How To Do a Letterboxing (Thumbnailing) on the Color Camera?
 ############################################################
-    
-To get the black bars on the top and the bottom of the video, the :code:`y` component of the points needs to be adjusted (for 16:9 to 1:1 transform).
-    
-The :code:`ImageMAnip` `node <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManip>`__ could be used for this kind of transform, e.g created as:
-    
-  .. code-block:: python
-    
-    manip = pipeline.createImageManip()
-    manip.setMaxOutputFrameSize(1280*720*3)
-    
-There are two possible options:
-    
-1. Using :code:`setResizeThumbnail` (`details <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManipConfig.setResizeThumbnail>`__)
-     
-  .. code-block:: python 
-    
-      manip.initialConfig.setResizeThumbnail(1280, 1280)
-    
-2. Using :code:`setWarpTransformFourPoints` (`details <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.ImageManipConfig.setWarpTransformFourPoints>`__)
-    
-  .. code-block:: python
-    
-    adj = (16-9)/9 / 2
-    point2f_list = [depthai.Point2f(0,-adj), depthai.Point2f(1,-adj), depthai.Point2f(1,1+adj), depthai.Point2f(0,1+adj)]
-    
-    normalized = True
-    manip.initialConfig.setWarpTransformFourPoints(point2f_list, normalized)
-    manip.setResize(1280, 1280)  # Optional, for a final resize of the frame
-    
-If large resolutions are set, this could result in a latency build-up. Performance-wise, instead of reducing FPS, it is recommended to configure the on-device queue as non-blocking with a single slot:
-    
-  .. code-block:: python
-    
-    manip.inputImage.setQueueSize(1)
-    manip.inputImage.setBlocking(False)
-    
-For now, it will work only for lower resolution (i.e. 1280x720), so we suggest resizing before starting the pipeline:
-    
-  .. code-block:: python
-    
-    manip = pipeline.createImageManip()
-    manip.setMaxOutputFrameSize(1280*720*3)
-    manip.initialConfig.setResizeThumbnail(1280, 1280)
-    
-Note! Interleaved RGB input with ImageManip is not yet supported, so set: 
-    
-  .. code-block:: python
-    
-    colorCam.setInterleaved(False)
 
+You can achieve letterboxing with the `ImageManip <https://docs.luxonis.com/projects/api/en/latest/components/nodes/image_manip/#imagemanip>`__
+node, see `documentation here <https://docs.luxonis.com/projects/api/en/latest/tutorials/maximize_fov/#letterboxing>`__.
 
 Is it Possible to Use the RGB Camera and/or the Stereo Pair as a Regular UVC Camera?
 ####################################################################################
 
-Yes, but it is not currently implemented in our API.  It's on our roadmap, `here <https://github.com/luxonis/depthai/issues/283>`__
-
-The :code:`why` of our DepthAI API provides more flexibility in formats (unencoded, encoded, metadata, processing, frame-rate, etc.) and already works on any operating system (see `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__).  So what we plan to do is to support UVC as part of our Gen2 Pipeline builder, so you can build a complex spatial AI/CV pipeline and then have the UVC endpoints output the results, so that DepthAI could then work on any system without drivers.  For our embedded variants, this could then be flashed to the device so that the whole pipeline will automatically run on boot-up and show up to a computer a UVC device (a webcam).
-
-Theoretically we can implement support for 3 UVC endpoints (so showing up as 3 UVC cameras), on for each of the 3 cameras. 
-
-We've prototyped 2x w/ internal proof of concept (but grayscale) but have not yet tried 3 but it would probably work.
-We could support a UVC stream per camera if it is of interest.
-
-So if you would like this functionality please feel free to subscribe to the Github feature request `here <https://github.com/luxonis/depthai/issues/283>`__.
-
-And in the meantime, if you would like to use depthai as a standard UVC camera, it is possible to use V4L2 loopback device (and some users have informed 
-us that they have done so), but linking the output of the depthai API config into this loopback device on the host.  
-
-Check our quick guide on how to do that :ref:`here <oak-d-as-video-device>`.
-
+Yes, see :ref:`documentation here <OAK as a webcam>`.
 
 How Do I Force USB2 Mode?
 #########################
@@ -1190,84 +993,42 @@ Another common use case to run your model with IE (Inference Engine) first is to
 (eg. from TF/ONNX) was successful. After you run it successfully with the IE you can then proceed with
 :ref:`compiling the IR model <Converting model to MyriadX blob>` into the **.blob**, which is required by the DepthAI library.
 
-What Information is Stored on the DepthAI Boards
-################################################
+What Information is Stored on the OAK cameras
+#############################################
 
-Initial Crowd Supply backers received boards which had literally nothing stored on them.  All information was loaded
-from the host to the board.  This includes the `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__, which had the calibration stored on the included microSD card.
-
-So each hardware model which has stereo cameras (e.g. `OAK-D-CM4 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1097.html>`__,
-`OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__, `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__, and
-`BW1094 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1094.html>`__) has the capability to store the calibration data and field-of-view,
-stereo baseline (:code:`L-R distance`) and relative location of the color camera to the stereo cameras (:code:`L-RGB distance`)
-as well as camera orientation (:code:`L/R swapped`). To retrieve this information, simply run :code:`python3 depthai_demo.py` and look for
-:code:`EEPROM data:`.
-
-Example of information pulled from a `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ is below:
-
-.. code-block::
-
-  EEPROM data: valid (v2)
-    Board name     : BW1098OBC
-    Board rev      : R0M0E0
-    HFOV L/R       : 71.9 deg
-    HFOV RGB       : 68.7938 deg
-    L-R   distance : 7.5 cm
-    L-RGB distance : 3.75 cm
-    L/R swapped    : yes
-    L/R crop region: top
-    Calibration homography:
-      1.002324,   -0.004016,   -0.552212,
-      0.001249,    0.993829,   -1.710247,
-      0.000008,   -0.000010,    1.000000,
-
-
-Current (those April 2020 and after) DepthAI boards with on-board stereo cameras
-(`OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__,
-`OAK-D <https://shop.luxonis.com/collections/usb/products/1098obcenclosure>`__,
-and `OAK-D-IoT-40 <https://shop.luxonis.com/collections/iot/products/bw1092>`__)
-ship calibration and board parameters pre-programmed into DepthAI's onboard EEPROM.
+All OAK-D (and newer OAK-1) cameras have on-board EEPROM that is used to save calibration data - things like
+board revision, camera intrinsics/extrinsics/distortion coefficients, FOV, IMU extrinsics, stereo rectification data etc.
+See `Calibration reader <https://docs.luxonis.com/projects/api/en/latest/samples/calibration/calibration_reader/#calibration-reader>`__
+API code on how to read this information from the OAK camera.
 
 Dual-Homography vs. Single-Homography Calibration
 #################################################
 
-As a result of some great feedback/insight from the `OpenCV Spatial AI Competition <https://opencv.org/opencv-spatial-ai-competition/>`__ we discovered and implemented many useful features (summary `here <https://github.com/luxonis/depthai/issues/183>`__).
+As a result of some great feedback/insight from the `OpenCV Spatial AI Competition <https://opencv.org/opencv-spatial-ai-competition/>`__
+we discovered and implemented many useful features (summary `here <https://github.com/luxonis/depthai/issues/183>`__).
 
-Among those was the discovery that a dual-homography approach, although mathematically equivalent to a single-homography (as you can collapse the two homographies into one) actually outperforms single-homography in real-world practice.
+Among those was the discovery that a dual-homography approach, although mathematically equivalent to a single-homography (as
+you can collapse the two homographies into one) actually outperforms single-homography in real-world practice.
 
-As a result, we switched our calibration system in September 2020 to use dual-homography instead of single homography.  So any units produced after September 2020 include dual homography.  Any units with single homography can be recalibrated (see :ref:`here <Calibration>`) to use this updated dual-homography calibration.
-
-
-What is the Field of View of OAK?
-#################################
-
-OAK devices use the same 12MP RGB Camera module based on the IMX378.
-
-- 12MP RGB Horizontal Field of View (HFOV): 68.7938 deg
-- 1MP Global Shutter Grayscale Camera Horizontal Field of View (HFOV): 71.9 deg
+As a result, we switched our calibration system in September 2020 to use dual-homography instead of single homography.  So any
+units produced after September 2020 include dual homography.  Any units with single homography can be recalibrated
+(see :ref:`here <Calibration>`) to use this updated dual-homography calibration.
 
 How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
 ######################################################################
 
-`ArduCam <https://www.arducam.com/product-category/opencv-ai-kit/>`__ has built a variety of camera modules specifically for Luxonis' devices, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
+`ArduCam <https://www.arducam.com/product-category/opencv-ai-kit/>`__ has built a variety of camera modules specifically for
+Luxonis' devices, including a variety of M12-mount options (so that the optics/view-angles/etc. are change-able by you the user).
 
- - M12-Mount IMX477 `here <https://github.com/luxonis/depthai-hardware/issues/16>`__
- - M12-Mount Global Shutter Grayscale OV9282 `here <https://www.arducam.com/product/arducam-1mp-ov9282-global-shutter-mono-mipi-camera-module-22pin-for-depthai-oak-dm1090ffc/>`__
- - M12-Mount Global Shutter Color OV9782 `here <https://www.arducam.com/product/arducam-1mp-ov9782-global-shutter-color-mipi-camera-module-22pin-for-depthai-oak-dm1090ffc/>`__
- - Compact Camera Module (CCM) Fish-Eye OV9282 (for better SLAM) `here <https://www.arducam.com/product/arducam-1mp-ov9282-fisheye-mono-global-shutter-drop-in-replacement-for-depthai-oak-dnoir/>`__
- - Mechanical, Optical, and Electrical equivalent OV9282 module with visible and IR capability `here <https://www.arducam.com/product/arducam-1mp-ov9282-ccm-drop-in-replacement-for-oak-d/>`__
- - Global-Shutter Color Camera (OV9782) with same intrinsics as OV9282 grayscale `here <https://github.com/luxonis/depthai-hardware/issues/21>`__ is in progress.
- - C/CS-Mount IMX283 (1" diagonal sensor, which is huge) `here <https://github.com/luxonis/depthai-hardware/issues/30>`__ is in progress.
-
-With these, there will be a variety of options for view angle, focal length, filtering (IR, no IR, NDVI, etc.) and image sensor formats. `Click here <https://docs.luxonis.com/projects/hardware/en/latest/pages/arducam.html>`__ for more information.
+See additional `documentation here <https://docs.luxonis.com/projects/hardware/en/latest/pages/arducam.html>`__.
 
 .. _maxfps:
 
-What are the Highest Resolutions and Recording FPS Possible with DepthAI and megaAI?
-####################################################################################
+What are the Highest Resolutions and Recording FPS Possible with OAK cameras?
+#############################################################################
 
-MegaAI can be used to stream raw/uncompressed video with USB3.  Gen1 USB3 is capable of 5gbps and Gen2 USB3 is capable of 10gbps.
-DepthAI and MegaAI are capable of both Gen1 and Gen2 USB3 - but not all USB3 hosts will support Gen2, so check your hosts specifications to see if Gen2 rates are possible.
+OAK cameras can be used to stream raw/uncompressed video with USB3.  Gen1 USB3 is capable of 5gbps and Gen2 USB3 is capable of 10gbps.
+All OAK cameras are capable of both Gen1 and Gen2 USB3 - but not all USB3 hosts will support Gen2, so check your hosts specifications to see if Gen2 rates are possible.
 
 .. list-table::
   :widths: 33 33 33
@@ -1284,20 +1045,16 @@ DepthAI and MegaAI are capable of both Gen1 and Gen2 USB3 - but not all USB3 hos
     - 30.01fps (373MB/s)
     - 60.0fps (746MB/s)
 
-DepthAI and megaAI can do h.264 and h.265 (HEVC) encoding on-device. The max resolution/rate is 4K at 30FPS.
-With the default encoding settings in DepthAI/megaAI, this brings the throughput down from 373MB/s (raw/unencoded 4K/30) to
-3.125MB/s (h.265/HEVC at 25mbps bit rate).  An example video encoded on DepthAI `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ (Raspberry Pi Compute Module Edition) is below:
+OAK cameras can do h.264 and h.265 (HEVC) encoding on-device. The max resolution/rate is 4K at 30FPS.
+With the default encoding settings on OAK camera, this brings the throughput down from 373MB/s (raw/unencoded 4K/30) to
+3.125MB/s (h.265/HEVC at 25mbps bit rate).  An example video encoded on `OAK-D-CM3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1097.html>`__ is below:
 
 .. image:: https://i.imgur.com/uC2sfpj.jpg
   :alt: 4K Video on DepthAI with Raspberry Pi 3B
   :target: https://www.youtube.com/watch?v=ZGERgBTS2T4
 
-It's worth noting that all DepthAI and megaAI products share the same color camera specs and encoding capabilities.  So footage filmed on a DepthAI unit with the color camera will be identical to that taken with a megaAI unit.
+It's worth noting that all OAK cameras (except Lite versions) share the same color camera specs and encoding capabilities.
 
-Encoded:
-  - 12MP (4056x3040) : JPEG Pictures/Stills
-  - 4K   (3840x2160) : 30.00fps (3.125MB/s)
-  
 What are the theoretical maximum transmission rate for USB3 Gen1 and Gen2?
 ##########################################################################
 
@@ -1316,54 +1073,15 @@ So interestingly, in Gen2 USB3, not only is the PHY rate 2x as high, the encodin
 What is the best way to get FullHD in good quality?
 ###################################################
 
-The solution for now is to configure the sensor to 4K, but downscale further in the pipeline:
-  - with the existing FW, the ColorCamera :code:`preview` set as :code:`colorCam.setPreviewSize(1920, 1080)` - will output RGB/BGR. But the :code:`video` output is still 4K (unless cropped).
-  - using the branch :code:`stereo_fixes` from `here <https://github.com/luxonis/depthai-python/pull/147>`__, it is possible to set an ISP downscale as :code:`colorCam.setIspScale(1, 2)` , while keeping the sensor at 4K, and then both :code:`preview` and :code:`video` will act (resolution-wise) as if the sensor was configured at 1080p.
+See `RGB Full Resolution Saver <https://docs.luxonis.com/projects/api/en/latest/samples/VideoEncoder/rgb_full_resolution_saver/>`__ sample code to save 4K .jpeg files to the host.
 
 .. _oak-d-as-video-device:
 
 How to run OAK-D as video device
 ################################
 
-Luxonis devices do not appear as standard cameras. To run them as a video device, consider running them as UVC (USB Video Class). 
-To run UVC directly (still needing the depthai library, but just for initialization), inside a clone of `dephtai-python repo <https://github.com/luxonis/depthai-python>`__, run:
+OAK cameras do not appear as standard webcam by default. To use it as a webcam, follow the :ref:`tutorial here <OAK as a webcam>`.
 
-.. code-block:: bash
-
-  git fetch --all
-  git checkout origin/gen2_uvc
-  python3 examples/install_requirements.py
-  python3 examples/19_uvc_video.py
-
-Keep the script open. It’s needed to periodically feed the device watchdog (would reset the device on close). And then open some UVC viewer. It should work 
-all good on Linux. On macOS, it needs a workaround (having some app looking for devices and opening the stream quickly after the depthai pipeline is started), 
-while on Windows, it doesn’t work yet.
-
-You can also try using `Flask Opencv Streamer <https://pypi.org/project/flask-opencv-streamer/>`__ to generate a local stream, pick it up with `FFmpeg <https://www.ffmpeg.org/documentation.html>`__ and pipe it to a v4l loopback device.
-
-.. code-block:: python
-
-  with dai.Device(pipeline) as device:
-
-      video = device.getOutputQueue(name="video", maxSize=1, blocking=False)
-
-      while True:
-          video_capture = video.get()
-          frame = video_capture.getCvFrame()
-          streamer.update_frame(frame)
-
-          if not streamer.is_streaming:
-              streamer.start_streaming()
-
-          cv2.waitKey(30)
-
-
-.. code-block:: bash
-
-  ffmpeg  -i "http://192.168.***.***:3030/video_feed" -vf format=yuv420p -f v4l2 /dev/video0
-
-
-We work on adding UVC descriptor on-demand to a device preboot configuration as a feature.
 
 How Much Compute Is Available? How Much Neural Compute is Available?
 ####################################################################
@@ -1434,7 +1152,7 @@ What is the Hyperfocal Distance of the Auto-Focus Color Camera?
 
 The hyperfocal distance is important, as it's the distance beyond which everything is in good focus.  Some refer to this as 'infinity focus' colloquially.
 
-The 'hyperfocal distance' (H) of DepthAI/megaAI's color camera module is quite close because of it's f.no and focal length.
+The 'hyperfocal distance' (H) of OAK's color camera module is quite close because of it's f.no and focal length.
 
 From WIKIPEDIA, `here <https://en.wikipedia.org/wiki/Hyperfocal_distance>`__, the hyperfocal distance is as follows:
 
@@ -1446,16 +1164,6 @@ Where:
 - f = 4.52mm  (the 'effective focal length' of the camera module)
 - N = 2.0 (+/- 5%, FWIW)
 - c = C=0.00578mm (see `here <https://sites.google.com/site/doftesting/>`__, someone spelling it out for the 1/2.3" format, which is the sensor format of the IMX378)
-
-So H = (4.52mm)^2/(2.0 * 0.00578mm) + 4.52mm ~= 1,772mm, or **1.772 meters** (**5.8 feet**).
-
-We are using the effective focal length, and since we're not optics experts, we're not 100% sure if this is appropriate here,
-but the total height of the color module is 6.05mm, so using that as a worst-case focal length, this still puts the hyperfocal distance at **10.4 feet**.
-
-So what does this mean for your application?
-
-Anything further than 10 feet (~3m) away from OAK will be in focus when the focus is set to 10 feet or beyond.
-In other words, as long as you don't have something closer than 10 feet which the camera is trying to focus on, everything 10 feet or beyond will be in focus.
 
 Is it Possible to Control the Exposure and White Balance and Auto-Focus (3A) Settings of the RGB Camera From the Host?
 ######################################################################################################################
@@ -1470,10 +1178,8 @@ Auto-Focus (AF)
 Exposure (AE)
 *************
 
-It is possible to set frame duration (us), exposure time (us), sensitivity (iso) via the API.  And we have a small example for the color camera to show how to do this for the color camera, which is here:
-https://github.com/luxonis/depthai/pull/279
-
-We have now made the Exposure commands more self-documenting (`here <https://github.com/luxonis/depthai-core/issues/11>`__).  And see `this example <https://docs.luxonis.com/projects/api/en/latest/samples/ColorCamera/rgb_camera_control/#rgb-camera-control>`__ for controlling exposure, and setting auto or manual for exposure.
+It is possible to set frame duration (us), exposure time (us), sensitivity (iso) via the API.
+See `this example <https://docs.luxonis.com/projects/api/en/latest/samples/ColorCamera/rgb_camera_control/#rgb-camera-control>`__ for controlling exposure, and setting auto or manual for exposure.
 
 
 White Balance (AWB)
@@ -1481,23 +1187,6 @@ White Balance (AWB)
 
 See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.AutoWhiteBalanceMode>`__ for Auto White Balance modes and controls.  
 
-What Are the Specifications of the Global Shutter Grayscale Cameras?
-####################################################################
-
-The stereo pair is composed of synchronized global shutter OV9282-based camera modules.
-
-Specifications:
- - Effective Focal Length (EFL): 2.55
- - F-number (F.NO): 2.2 +/- 5%
- - Field of View (FOV):
-   - Diagonal (DFOV): 82.6(+/-0.5) deg.
-   - Horizontal (HFOV): 71.9(+/-0.5) deg.
-   - Vertical (VFOV): 50.0(+/-0.5) deg.
- - Distortion: < 1%
- - Lens Size: 1/4 inch
- - Focusing: Fixed Focus, 0.196 meter (hyperfocal distance) to infinity
- - Resolution: 1280 x 800 pixel
- - Pixel Size: 3x3 micrometer (um)
 
 Am I able to attach alternate lenses to the camera? What sort of mounting system? S mount? C mount?
 ###################################################################################################
@@ -1697,7 +1386,7 @@ Overall
 *******
 
 - https://github.com/luxonis/depthai-hardware - DepthAI hardware designs themselves.
-- https://github.com/luxonis/depthai - Python demo and Examples
+- https://github.com/luxonis/depthai - DepthAI demo app and DepthAI SDK
 - https://github.com/luxonis/depthai-python - Python API
 - https://github.com/luxonis/depthai-api - C++ Core and C++ API
 - https://github.com/luxonis/depthai-ml-training - Online AI/ML training leveraging Google Colab (so it's free)
@@ -1742,13 +1431,13 @@ And a note on building for **Windows**: Windows does not use `libusb`, but rathe
 Can I Use an IMU With DepthAI?
 ##############################
 
-Yes, all of our System on Modules (`OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__, OAK-SoM-IoT, and `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__) have support for the BNO086 (and BNO080/BNO085) IMU.  
-And `OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__, `OAK-D-IoT-40 <https://shop.luxonis.com/collections/all/products/bw1092>`__, `OAK-FFC-3P <https://shop.luxonis.com/collections/all/products/dm1090ffc>`__, `OAK-D-IoT-75 <https://github.com/luxonis/depthai-hardware/tree/master/DM1098OBC_DepthAI_USB3C_WIFI>`__, `OAK-D-PoE <https://shop.luxonis.com/collections/poe/products/oak-d-poe>`__ all have an integrated IMU onboard.  
+Yes, all of our `System on Modules <https://docs.luxonis.com/projects/hardware/en/latest/#system-on-module-designs>`__ have support for the BNO086 (and BNO080/BNO085) IMU.
+See documentation on IMU `here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/>`__.
 
 Can I Use Microphones with DepthAI?
 ###################################
 
-Yes.  
+Yes.
 
  - The `OAK-SoM-Pro <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-Pro/OAK-SoM-Pro_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
  - Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.  
@@ -1784,10 +1473,7 @@ Datasheets:
 How Much Does OAK Devices Weight?
 #################################
 
-- OAK-D - 114.5 grams
-- OAK-1 - 53.1 grams
-- OAK-D-PCBA - 22 grams
-- OAK-D-IoT-40 - 45.5 grams
+Every OAK model's weight is specified in the `DepthAI Hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__.
 
 How Can I Cite Luxonis Products in Publications?
 ################################################
