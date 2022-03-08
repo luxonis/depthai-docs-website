@@ -123,40 +123,6 @@ The maximum resolution for the depthai depth map is 1280x800 (1MP), with either 
 
 (see :ref:`Extended Disparity <Extended Disparity Depth Mode>` below)
 
-Stereo Neural Inference
-***********************
-
-In this mode DepthAI runs the neural network in parallel on both the left and right stereo cameras.
-The disparity of the results are then triangulated with the calibrated camera intrinsics (programmed into the
-EEPROM of each DepthAI unit) to give 3D position of all the detected features.
-
-This **stereo neural inference** mode affords accurate 3D Spatial AI for networks which produce single-pixel locations
-of features such as facial landmark estimation, pose estimation, or other meta-data which provides feature locations like this.
-
-Examples include finding the 3D locations of:
-
- - Facial landmarks (eyes, ears, nose, edges of mouth, etc.)
- - Features on a product (screw holes, blemishes, etc.)
- - Joints on a person (e.g. elbow, knees, hips, etc.)
- - Features on a vehicle (e.g. mirrors, headlights, etc.)
- - Pests or disease on a plant (i.e. features that are too small for object detection + stereo depth)
-
-Again, this mode does not require the neural networks to be trained with depth data.  DepthAI takes standard, off-the-shelf 2D networks (which are significantly more common) and uses this stereo inference to produce accurate 3D results.
-
-An example of stereo neural inference is below.
-
-.. image:: https://i.imgur.com/3kjFMt6.png
-  :target: https://www.youtube.com/watch?v=eEnDW0WQ3bo
-  :alt: DepthAI parallel multi-stage inference
-
-And this is actually an interesting case as it demonstrates two things on DepthAI:
-
-#. Stereo inference (i.e. running the neural network(s) running on both the left and right cameras in parallel)
-#. Multi-stage inference (i.e. face detection flowed directly into facial landmark directly on DepthAI)
-
-We have a `triangulation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation>`__ demo that
-performs the stereo neural interface.
-
 Notes
 *****
 

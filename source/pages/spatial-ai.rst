@@ -3,9 +3,9 @@
 Spatial AI
 ==========
 
-Spatial AI allows robots or computers to perceive the world as a human can - what objects or features are - and where
-they are in the physical world. DepthAI platform leverages Spatial AI by fusing :ref:`AI capabilities <AI / ML / NN>` with
-:ref:`depth perception` on the OAK camera itself.
+**Spatial AI** allows robots or computers to perceive the world as a human can - what objects or features are - and where
+they are in the physical world. DepthAI platform **leverages Spatial AI by fusing** :ref:`AI capabilities <AI / ML / NN>` with
+:ref:`depth perception <Depth perception>` on the OAK camera itself.
 
 There are a few different approaches to achieve AI + depth fusion:
 
@@ -21,9 +21,9 @@ There are a few different approaches to achieve AI + depth fusion:
 DepthAI can fuse neural inference (object/landmark detection) results with a depth map to estimate spatial coordinates (XYZ) of
 all objects/landmarks in the scene.
 
-This technique is excellent for object/feature detectors as it provides the physical location of the object’s centroid.
-It takes advantage of the fact that most objects are usually many pixels wide, so the disparity depth results can be
-averaged to produce a more accurate location.
+This technique is excellent for existing (pre-trained) 2D object/feature detectors as it runs inference on color/mono frames,
+and uses resulting bounding boxes to determine ROIs (regions-of-interest). DepthAI then averages depth from depth map inside
+these ROIs and calculates spatial coordinates from that (`calculation here <https://github.com/luxonis/depthai-experiments/blob/master/gen2-calc-spatials-on-host/calc.py#L39-L64>`__).
 
 3D Object Localization
 ----------------------
@@ -44,9 +44,7 @@ Below is a visualization to showcase the difference between Object Detection and
   :alt: Spatial AI Visualization
 
 
-**Spatial AI** is then the super-set of such 2D-equivalent neural networks being extended with spatial information to give them
-3D context. So, in other words, it is not limited to object detectors being extended to 3D object localizers.
-Other network types can be extended, including any network that returns results in pixel space.
+DepthAI extends these 2D neural networks (eg. MobileNet, Yolo) with spatial information to give them 3D context.
 
 .. image:: https://user-images.githubusercontent.com/18037362/132068313-e6db90c2-823b-42f2-86fb-148e798f55de.png
   :alt: Default run
@@ -62,6 +60,7 @@ the 2D (XY) coordinates of all 21 hand landmarks (contours of all joints in fing
 with DepthAI, these 21 hand landmarks are now 3D points in physical space instead of 2D points in pixel space
 
 .. image:: https://user-images.githubusercontent.com/18037362/156813885-146602d9-e5f9-4afa-9542-7904c7e236b3.gif
+  :target: https://www.youtube.com/watch?v=xXXsT6afW6E
 
 Demos: `hand landmark <https://github.com/geaxgx/depthai_hand_tracker>`__ (above),
 `human pose landmark <https://github.com/geaxgx/depthai_blazepose>`__, and `facial landmark <https://github.com/luxonis/depthai-experiments/tree/master/gen2-facemesh#gen2-facial-landmarks-on-depthai>`__
