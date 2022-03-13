@@ -2,7 +2,7 @@ On-device Pointcloud NN model
 =============================
 
 At the time of writing, DepthAI firmware (2.15) doesn't support converting depth to pointcloud.
-In the :ref:`On-device programming` page it's mentioned that Script node shouldn't be used for any kind
+On the :ref:`On-device programming` page it's mentioned that Script node shouldn't be used for any kind
 of heavy computing, so to convert depth to pointcloud, we would need to :ref:`create a custom NN model`.
 
 `Kornia <https://kornia.github.io/>`__ library has a function called `depth_to_3d <https://kornia.readthedocs.io/en/latest/geometry.depth.html?highlight=depth_to_3d#kornia.geometry.depth.depth_to_3d>`__
@@ -39,16 +39,16 @@ Optimizing the Pointcloud model
 
 A few improvements could be made, as:
 
-- Camera matrix is hard-coded into the NN model. This means users would have to create their own NN models, which adds unnecesary package dependencies (pytorch, onnx, onnxsim, blobconverter).
-- It's fairly slow - pointcloud calculation (without visulization) runs at ~19FPS for 640x400 depth frames
+- The camera matrix is hard-coded into the NN model. This means users would have to create their own NN models, which adds unnecesary package dependencies (pytorch, onnx, onnxsim, blobconverter).
+- It's fairly slow - pointcloud calculation (without visualization) runs at ~19FPS for 640x400 depth frames
 
 Since the camera matrix (intrinsics) is static, the part below in red could be calculated once instead of being calculated
 every single depth frame. This should reduce the complexity of the model and improve FPS.
 
 .. image:: /_static/images/tutorials/custom_model/graph.png
 
-Since Kornia library is opensource, we can start with the architecture of the **depth_to_3d** function (`code here <https://github.com/kornia/kornia/blob/15fb1aebd8f9e16af61efb130efb004f7a7b7e20/kornia/geometry/depth.py#L24>`__)
-and remove the unnecesary part of the model. After moving all the logic to the same function, we end with `this code <https://gist.github.com/Erol444/0a9f4ae505ef9208edb144e0237f1050>`__.
+Since Kornia library is open source, we can start with the architecture of the **depth_to_3d** function (`code here <https://github.com/kornia/kornia/blob/15fb1aebd8f9e16af61efb130efb004f7a7b7e20/kornia/geometry/depth.py#L24>`__)
+and remove the unnecessary part of the model. After moving all the logic to the same function, we end with `this code <https://gist.github.com/Erol444/0a9f4ae505ef9208edb144e0237f1050>`__.
 
 We can remove the part of the model that calculates :code:`xyz` vector and calculate it once on the host, then send it to the
 model and reuse it for every inference. I have also converted the code so it uses **numpy functions** instead of pytorch ones,
@@ -81,14 +81,14 @@ to avoid pytorch dependency:
         xyz = np.stack([x_coord, y_coord], axis=-1)
         return np.pad(xyz, ((0,0),(0,0),(0,1)), "constant", constant_values=1.0)
 
-Moving this logic to the host side has significantly reduced model's complexity, as seen below.
+Moving this logic to the host side has significantly reduced the model's complexity, as seen below.
 
 .. image:: /_static/images/tutorials/custom_model/new_graph.png
 
 On-device Pointcloud demo
 #########################
 
-Altering the model has improved performance of it, but not as much as I would have expected. The demo now runs at about
+Altering the model has improved the performance of it, but not as much as I would have expected. The demo now runs at about
 24FPS (previously 19FPS) for the 640x400 depth frames.
 
 This **demo can be found at** `depthai-experiments <https://github.com/luxonis/depthai-experiments/tree/master/gen2-pointcloud/device-pointcloud>`__.
