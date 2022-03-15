@@ -909,7 +909,6 @@ results below are likely overestimated by whatever the latency of the monitor is
 And we have also since done several optimizations since these measurements, so the latency could be quite a bit lower than these.
 
 .. list-table:: Worst-case estimates of stream latency
-  :widths: 25 50 25
   :header-rows: 1
   :align: center
 

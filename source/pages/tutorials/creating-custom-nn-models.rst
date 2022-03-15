@@ -132,3 +132,5 @@ as shown below:
     during our testing, we have found that **several algorithms aren't supported** by either the OpenVINO framework or by the VPU. We have
     submitted an `Issue <https://github.com/openvinotoolkit/openvino/issues/7557>`__ for `Sobel filter <https://kornia.readthedocs.io/en/latest/filters.html?highlight=sobel#kornia.filters.Sobel>`__
     already.
+
+.. include::  /pages/includes/footer-short.rst
