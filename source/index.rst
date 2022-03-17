@@ -487,6 +487,7 @@ Ecosystem
    pages/tutorials/first_steps.rst
    pages/spatial-ai.rst
    pages/ai_ml_nn.rst
+   pages/depth.rst
    pages/cv.rst
    pages/tutorials/depth.rst
    pages/tutorials/on-device-programming.rst
@@ -506,10 +507,10 @@ Ecosystem
    :hidden:
    :caption: Contents
 
-   pages/calibration.rst
-   pages/troubleshooting.rst
-   pages/oak_webcam.rst
    pages/faq.rst
+   pages/calibration.rst
+   pages/oak_webcam.rst
+   pages/troubleshooting.rst
    pages/slam_oak.rst
    pages/oak_on_drones.rst
    pages/education.rst
