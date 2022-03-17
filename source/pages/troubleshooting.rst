@@ -133,15 +133,6 @@ And in some cases, these were already set, but DepthAI was plugged in the entire
 
 So make sure to unplug and then plug the DepthAI back in after having run these.
 
-Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.
-#######################################################################
-
-When you recieve the error below, it means that you have the same issue as above, udev rules aren't set. Check the solution :ref:`here <Failed to boot the device: 1.3-ma2480, err code 3>`.
-
-.. code-block:: bash
-
-  RuntimeError: Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.
-
 CTRL-C Is Not Stopping It!
 ##########################
 
@@ -212,5 +203,23 @@ On RPi, after running :code:`sudo apt upgrade`, you might get the error :code:`r
 - Downgrade libc6 by running :code:`sudo apt install -y --allow-downgrades libc6=2.28-10+rpi1`, OR
 - Re-install DepthAI dependencies by running :code:`sudo curl -fL http://docs.luxonis.com/_static/install_dependencies.sh | bash`
 
+[error] Attempted to start camera - NOT detected!
+#################################################
+
+If you are facing any of the errors above for either Mono Left/Right or Color camera, first try using the latest depthai version (:code:`python3 -mpip install depthai -U`).
+If that doesn't help, there are 2 probable causes:
+
+- You are using OAK FFC and a camera sensor that isn't supported by default, so you should use a different branch, see `docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html#supported-sensors>`__.
+- A camera got disconnected during the shipping. This has been reported only a handful of times, but it's possible. The solution here is to open up the enclosure and re-attach the connector to the camera, see the `image here <https://github.com/luxonis/depthai-hardware/issues/224#issue-1166269781>`__ for the OAK-D (left mono camera not detected).
+
+Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.
+#######################################################################
+
+When you recieve this error, it means that the **udev rules** aren't set. Check the solution :ref:`here <Failed to boot the device: 1.3-ma2480, err code 3>`.
+
+[warning] skipping X_LINK_UNBOOTED device having name "<error>"
+###############################################################
+
+When you recieve this error, it might mean that the **udev rules** aren't set. Check the solution :ref:`here <Failed to boot the device: 1.3-ma2480, err code 3>`.
 
 .. include::  /pages/includes/footer-short.rst

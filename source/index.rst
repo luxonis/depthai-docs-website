@@ -506,13 +506,11 @@ Ecosystem
    :hidden:
    :caption: Contents
 
-   pages/faq.rst
    pages/calibration.rst
-   pages/support.rst
    pages/troubleshooting.rst
-   pages/training.rst
    pages/oak_webcam.rst
+   pages/faq.rst
    pages/slam_oak.rst
-   pages/stereo_neural_inference.rst
    pages/oak_on_drones.rst
    pages/education.rst
+   pages/support.rst
