@@ -32,6 +32,12 @@ The depth map is calculated from the disparity map (on the camera) using `this f
 depth perception.** That's because disparity matching will have a hard time matching points/features from left/right images - as
 there are no distinctive points/features in either frame. That's where active stereo depth perception is needed.
 
+**Passive stereo accuracy/smoothness depends on**:
+
+#. **Lighting**/**Texture**. Stereo depth depends on feature matching, and in a low light environment, features aren't as visible. As mentioned in the paragraph above, featureless surfaces (like walls) aren't suited for passive stereo depth perception. Active stereo resolves both texture and lighting requirements.
+#. **Calibration**. Factory calibration should be optimal.
+#. **Postprocessing filters**, documentation `here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#currently-configurable-blocks>`__ (under *Depth Filters*). Additional filtering can be performed on the host-side as well, eg. `WLS <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__.
+
 Active stereo depth perception
 ##############################
 

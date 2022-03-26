@@ -7,6 +7,7 @@ AI / ML / NN
    model_conversion.rst
    tutorials/pretrained_openvino.rst
    tutorials/local_convert_openvino.rst
+   training.rst
 
 `OAK cameras <https://docs.luxonis.com/projects/hardware/en/latest/>`__ can **run any AI model**, even custom
 architectured/built ones. You can even run multiple AI models at the same time, either in parallel or series (a `demo here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation#gen2-gaze-estimation>`__).
