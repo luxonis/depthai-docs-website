@@ -1,6 +1,37 @@
 Troubleshooting
 ===============
 
+DepthAI can't connect to an OAK camera
+######################################
+
+For **USB OAK cameras**, DepthAI can throw an error code like :code:`X_LINK_COMMUNICATION_NOT_OPEN` or :code:`X_LINK_ERROR`,
+which is usually a sign of a **bad USB3 cable** (or a USB2 cable). If you are using USB2 cable (and want USB2 bandwidth),
+you have to specify USB2 protocol, see :ref:`Forcing USB2 Communication` for more information. Another common
+issue is that users haven't set :ref:`udev rules <Udev rules on Linux>` on their Linux machine.
+
+If you still can't connect to the OAK camera, you should execute :code:`lsusb | grep 03e7`. You should see a similar line:
+
+.. code-block:: bash
+
+  $ lsusb | grep 03e7
+  Bus 001 Device 120: ID 03e7:2485 Intel Movidius MyriadX
+
+Another thing to check is the :code:`dmesg -w`. After executing that and pressing enter a few times (for separator), connect
+your OAK camera to the host. You should see a similar output in the terminal:
+
+.. code-block:: bash
+
+  /~$ dmesg -w
+
+  [223940.862544] usb 1-3.2: new high-speed USB device number 120 using xhci_hcd
+  [223940.963357] usb 1-3.2: New USB device found, idVendor=03e7, idProduct=2485, bcdDevice= 0.01
+  [223940.963364] usb 1-3.2: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+  [223940.963368] usb 1-3.2: Product: Movidius MyriadX
+  [223940.963371] usb 1-3.2: Manufacturer: Movidius Ltd.
+  [223940.963373] usb 1-3.2: SerialNumber: 03e72485
+
+If these commands didn't return the expected log, please send us an email to support@luxonis.com.
+
 How can the start-up demo on the Raspberry Pi Compute Edition be disabled?
 ##########################################################################
 
@@ -117,10 +148,14 @@ When connection speed is USB2 (due to some hosts - Windows in particular - or US
 initialization of USB3-enabled firmware or streaming after a few frames may fail. The workaround here is to force the
 device to use the USB2-only firmware (mentioned in the chapter above).
 
-Failed to boot the device: 1.3-ma2480, err code 3
-#################################################
+Udev rules on Linux
+###################
 
-This error often can occur if the udev rules are not set on Linux.  This will coincide with :code:`depthai: Error initializing xlink`.
+- :code:`Failed to boot the device: 1.3-ma2480, err code 3`
+- :code:`Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND`
+- :code:`[warning] skipping X_LINK_UNBOOTED device having name "<error>"`
+
+If you are getting any of the errors above, it's most likely that udev rules are not set on your Linux machine.
 
 To fix this, set the udev rules using the commands below, unplugging DepthAI and then plugging it back into USB afterwards.
 
@@ -128,10 +163,6 @@ To fix this, set the udev rules using the commands below, unplugging DepthAI and
 
   echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
   sudo udevadm control --reload-rules && sudo udevadm trigger
-  
-And in some cases, these were already set, but DepthAI was plugged in the entire time, so Linux could not reset the rules.
-
-So make sure to unplug and then plug the DepthAI back in after having run these.
 
 CTRL-C Is Not Stopping It!
 ##########################
@@ -163,7 +194,7 @@ If you are seeing the following error after installing DepthAI for Windows:
      File "C:\Users\Context\depthai\venv\lib\site-packages\cv2\__init__.py", line 5, in <module>
        from .cv2 import *
    ImportError: DLL load failed while importing cv2: The specified module could not be found.
-   
+
 Then installing the Windows Media Feature Pack (`here <https://support.microsoft.com/en-us/help/3145500/media-feature-pack-list-for-windows-n-editions>`__) is often the resolution, as Media Feature Pack must be installed for Windows 10 N editions.
 
 (And more background from OpenCV directly is `here <https://github.com/skvark/opencv-python/blob/master/README.md#:~:text=Q%3A%20Import%20fails%20on%20Windows%3A%20ImportError%3A%20DLL%20load%20failed%3A%20The%20specified%20module%20could%20not%20be%20found.%3F>`__)
@@ -212,14 +243,15 @@ If that doesn't help, there are 2 probable causes:
 - You are using OAK FFC and a camera sensor that isn't supported by default, so you should use a different branch, see `docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html#supported-sensors>`__.
 - A camera got disconnected during the shipping. This has been reported only a handful of times, but it's possible. The solution here is to open up the enclosure and re-attach the connector to the camera, see the `image here <https://github.com/luxonis/depthai-hardware/issues/224#issue-1166269781>`__ for the OAK-D (left mono camera not detected).
 
-Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND.
-#######################################################################
+[error] input tesnor exceeds available data range
+#################################################
 
-When you recieve this error, it means that the **udev rules** aren't set. Check the solution :ref:`here <Failed to boot the device: 1.3-ma2480, err code 3>`.
+.. code-block::
 
-[warning] skipping X_LINK_UNBOOTED device having name "<error>"
-###############################################################
+  [NeuralNetwork(3)] [error] Input tensor '0' (0) exceeds available data range. Data size (6336B), tensor offset (0), size (6912B) - skipping inference
 
-When you recieve this error, it might mean that the **udev rules** aren't set. Check the solution :ref:`here <Failed to boot the device: 1.3-ma2480, err code 3>`.
+This error is usually thrown when we use :code:`NNData` message and we don't provide the amount of bytes that the NN model
+expects for the inference. For example, in the error above, the NN model expects 6912 bytes (48x48x3), but only 6336 bytes
+were sent to it.
 
 .. include::  /pages/includes/footer-short.rst
