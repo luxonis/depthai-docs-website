@@ -24,6 +24,6 @@ documentation on how to implement and run CV functions efficiently on the device
 
 - `Lossless zooming <https://github.com/luxonis/depthai-experiments/tree/master/gen2-lossless-zooming>`__
 - `Host-side WLS depth filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
-- `PointCloud visualization <https://github.com/luxonis/depthai-experiments/tree/master/gen2-rgbd-projection>`__
+- `PointCloud visualization <https://github.com/luxonis/depthai-experiments/tree/master/gen2-pointcloud>`__
 
 .. include::  /pages/includes/footer-short.rst
