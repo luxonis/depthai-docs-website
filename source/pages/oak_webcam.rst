@@ -1,7 +1,8 @@
 OAK as a webcam
 ===============
 
-OAK devices can be used as webcams as well. To enable this feature, you can run the DepthAI demo UVC application or use uvc feature branch
+OAK devices can be used as webcams as well. To enable this feature, you can run the DepthAI demo UVC application
+or use uvc feature branch. Make sure to use **USB3 cable**, as we have noticed that in some cases, **USB2 won't work**.
 
 Using DepthAI Demo Script
 #########################
