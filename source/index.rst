@@ -390,19 +390,17 @@ some meta problem, like how to stream the data, how to collect it and alike.
   * - `OCR <https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr>`__
     - This pipeline implements text detection (EAST) followed by optical character recognition of the detected text
   * - `Multiple Devices <https://github.com/luxonis/depthai-experiments/tree/master/gen2-multiple-devices>`__
-    - This example shows how you can use multiple DepthAI's on a single host. The demo will find all devices connected to the host and display an RGB preview from each of them.
+    - This example shows how you can use multiple DepthAI's on a single host. The demo will find all devices connected to the host and display an RGB preview from each of them
   * - `Class Saver <https://github.com/luxonis/depthai-experiments/tree/master/gen2-class-saver-jpeg>`__
     - This example demonstrates how to run MobilenetSSD and collect images of detected objects, grouped by detection label
-  * - `NN Frame Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-nn-sync>`__
-    - This example shows how to present the neural network inference results on the inferenced frames
-  * - `Frames Sync <https://github.com/luxonis/depthai-experiments/tree/master/gen2-seq-num-sync>`__
-    - This example demonstrates how to synchronize incoming frames using their sequence numbers. This allows displaying frames taken in exact same moment
+  * - `Message Syncing <https://github.com/luxonis/depthai-experiments/tree/master/gen2-syncing>`__
+    - This example shows how to sync messages (eg. NN results with frames) with software, based on either timestamps or sequence numbers
   * - `SPI <https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi>`__
     - This directory contains a few examples of how to use the SPI interface with the Pipeline builder API
   * - `TensorFlow Image Classification <https://github.com/luxonis/depthai-experiments/tree/master/gen2-tf-image-classification>`__
     - This example demonstrates how to run a neural network created using TensorFlow Image Classification tutorial
   * - `WLS Filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
-    - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI API.
+    - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI API
 
 Ecosystem
 ---------

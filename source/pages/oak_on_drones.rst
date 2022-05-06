@@ -22,10 +22,17 @@ trigger a certain action:
 For additonal useful information about OAK on drones projects you can check out our :code:`#drone` channel on our
 `Discord server <https://discord.gg/luxonis>`__.
 
+OAK ArduPilot integration
+#########################
+
+`Rishabh Singh <https://discuss.ardupilot.org/u/rishabsingh3003>`__ wrote a few **OAK-ArduPilot integration applications**
+like a follow-me app, obstacle avoidance app, and precision landing app. He also wrote 2 blog posts about the integration;
+`Part 1 <https://discuss.ardupilot.org/t/easy-way-to-integrate-ai-with-ardupilot-oak-d-part-1>`__ and `Part 2 <https://discuss.ardupilot.org/t/easy-way-to-integrate-ai-with-ardupilot-oak-d-part-2>`__.
+
 Camera vibration
 ################
 
-Camera vibrations can be a big challenge in applications such as drones, especially for color cameras that doesn't have fixed lens.
+Camera vibrations can be a big challenge in applications such as drones, especially if you are using Auto-Focus color camera.
 To decrease the camera vibrations, we suggest firmly mounting the device on the drone. One could also consider adding shock absorption
 rubbers (eg. `these <http://bit.ly/ShockMountRubber>`__) to decreate the vibrations. AugmentedStartup has also designed an `OAK-1 anti-vibration mount <https://www.thingiverse.com/thing:4888638>`__
 for his drone project:
@@ -33,7 +40,12 @@ for his drone project:
 .. image:: /_static/images/tutorials/drone/vibration-damping.jpeg
   :alt: Vibration damping mount
 
-We are also planning on adding **EIS** (Electronic Image Stabilization) feature to the OAK - you can read more about it on our
-`Roadmap <https://github.com/orgs/luxonis/projects/4#card-52761137>`__.
+For drone applications we would also suggest Fixed-Focus color camera, more `info here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/af_ff.html#a-handling-high-vibrations>`__.
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/jpnsTsCGbQk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
 .. include::  /pages/includes/footer-short.rst
