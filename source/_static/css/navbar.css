@@ -9,9 +9,8 @@
 }
 
 #lux-doc-navbar {
-    top: 78px;
     background: #eeeeee;
-    padding: 1.5em 1em;
+    padding: 1.5em 0.5em;
     height: auto;
     overflow: auto;
     z-index: 100;
@@ -51,8 +50,13 @@
 }
 
 .wy-nav-side {
-    top: 146px;
     background: #eeeeee;
+    display: flex;
+    flex-direction: column;
+}
+
+.wy-nav-side .wy-side-scroll {
+    flex: 1;
 }
 
 .sticky {

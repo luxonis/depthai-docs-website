@@ -27,23 +27,28 @@ function addNavbar() {
     "        <li><a href=\"http://shop.luxonis.com\">Shop</a></li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
-    "  </div>\n" +
-    "  <div id=\"lux-doc-navbar\">\n" +
-    "    <div class=\"lux-navbar\">\n" +
-    "      <ul>\n" +
-    "        <li><a href=\"/en/latest/\">Main</a></li>\n" +
-    "        <li><a href=\"/projects/sdk/\">SDK</a></li>\n" +
-    "        <li><a href=\"/projects/api/\">API</a></li>\n" +
-    "        <li><a href=\"/projects/hardware/\">Hardware</a></li>\n" +
-    "      </ul>\n" +
-    "    </div>\n" +
-    "  </div>"
+    "  </div>\n"
   document.body.insertAdjacentHTML( 'afterbegin', navbarHtml );
+}
+
+function addSecondaryNavbar() {
+  var html = "" + 
+  "  <div id=\"lux-doc-navbar\">\n" +
+  "    <div class=\"lux-navbar\">\n" +
+  "      <ul>\n" +
+  "        <li><a href=\"/en/latest/\">Main</a></li>\n" +
+  "        <li><a href=\"/projects/sdk/\">SDK</a></li>\n" +
+  "        <li><a href=\"/projects/api/\">API</a></li>\n" +
+  "        <li><a href=\"/projects/hardware/\">Hardware</a></li>\n" +
+  "      </ul>\n" +
+  "    </div>\n" +
+  "  </div>"
+  document.getElementsByClassName("wy-nav-side")[0].insertAdjacentHTML('afterbegin', html);
 }
 
 function adjustNavbarPosition() {
   var navbar = document.getElementsByClassName("wy-nav-side")[0];
-  var offset = 146 - window.pageYOffset;
+  var offset = 78 - window.pageYOffset;
   if (offset >= 0) {
     navbar.style.top = offset + "px";
   } else {
@@ -56,6 +61,7 @@ window.onscroll = adjustNavbarPosition
 document.onreadystatechange = function(e) {
   if (document.readyState === 'interactive') {
     addNavbar()
+    addSecondaryNavbar()
     adjustNavbarPosition()
     document.getElementsByClassName("wy-side-scroll")[0].scrollTop = 0;
     if (location.pathname.startsWith("/projects")) {
