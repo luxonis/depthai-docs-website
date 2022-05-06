@@ -19,33 +19,36 @@ function addNavbar() {
     "    <div class=\"lux-navbar\">\n" +
     "      <ul>\n" +
     "        <li><a href=\"https://luxonis.com\">\n" +
-    "          <img src=\"https://discuss.luxonis.com/assets/logo-fuhmgk6r.png\" alt=\"Luxonis\">\n" +
+    "          <img src=\"https://www.luxonis.com/logo.svg\" width=\"172\" height=\"48\" alt=\"Luxonis\">\n" +
     "        </a></li>\n" +
     "        <li><a href=\"https://docs.luxonis.com/\" class=\"lux-navbar-active\">Documentation</a></li>\n" +
     "        <li><a href=\"https://discuss.luxonis.com/\">Discuss</a></li>\n" +
-    "        <li><a href=\"https://luxonis.com/careers\">Careers</a></li>\n" +
-    "        <li><a href=\"https://luxonis.com/team\">Team</a></li>\n" +
-    "        <li><a href=\"https://luxonis.com/contact\">Contact</a></li>\n" +
+    "        <li><a href=\"https://www.luxonis.com/about-us\">About Us</a></li>\n" +
     "        <li><a href=\"http://shop.luxonis.com\">Shop</a></li>\n" +
     "      </ul>\n" +
     "    </div>\n" +
-    "  </div>\n" +
-    "  <div id=\"lux-doc-navbar\" class=\"lux-navbar-container\">\n" +
-    "    <div class=\"lux-navbar\">\n" +
-    "      <ul>\n" +
-    "        <li><a href=\"/en/latest/\">Main</a></li>\n" +
-    "        <li><a href=\"/projects/sdk/\">SDK</a></li>\n" +
-    "        <li><a href=\"/projects/api/\">API</a></li>\n" +
-    "        <li><a href=\"/projects/hardware/\">Hardware</a></li>\n" +
-    "      </ul>\n" +
-    "    </div>\n" +
-    "  </div>"
+    "  </div>\n"
   document.body.insertAdjacentHTML( 'afterbegin', navbarHtml );
+}
+
+function addSecondaryNavbar() {
+  var html = "" + 
+  "  <div id=\"lux-doc-navbar\">\n" +
+  "    <div class=\"lux-navbar\">\n" +
+  "      <ul>\n" +
+  "        <li><a href=\"/en/latest/\">Main</a></li>\n" +
+  "        <li><a href=\"/projects/sdk/\">SDK</a></li>\n" +
+  "        <li><a href=\"/projects/api/\">API</a></li>\n" +
+  "        <li><a href=\"/projects/hardware/\">Hardware</a></li>\n" +
+  "      </ul>\n" +
+  "    </div>\n" +
+  "  </div>"
+  document.getElementsByClassName("wy-nav-side")[0].insertAdjacentHTML('afterbegin', html);
 }
 
 function adjustNavbarPosition() {
   var navbar = document.getElementsByClassName("wy-nav-side")[0];
-  var offset = 146 - window.pageYOffset;
+  var offset = 78 - window.pageYOffset;
   if (offset >= 0) {
     navbar.style.top = offset + "px";
   } else {
@@ -58,6 +61,7 @@ window.onscroll = adjustNavbarPosition
 document.onreadystatechange = function(e) {
   if (document.readyState === 'interactive') {
     addNavbar()
+    addSecondaryNavbar()
     adjustNavbarPosition()
     document.getElementsByClassName("wy-side-scroll")[0].scrollTop = 0;
     if (location.pathname.startsWith("/projects")) {

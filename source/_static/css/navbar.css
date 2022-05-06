@@ -5,12 +5,15 @@
 
 #lux-global-navbar {
     top: 0px;
-    background: #000;
+    background: #fff;
 }
 
 #lux-doc-navbar {
-    top: 78px;
-    background: #555;
+    background: #eeeeee;
+    padding: 1.5em 0.5em;
+    height: auto;
+    overflow: auto;
+    z-index: 100;
 }
 
 .lux-navbar-container {
@@ -32,7 +35,7 @@
 
 .lux-navbar a {
     padding: 8px 13px;
-    color: #fff;
+    color: #000;
 }
 
 .lux-navbar a > img {
@@ -42,13 +45,18 @@
 }
 
 .lux-navbar .lux-navbar-active {
-    color: #ebd900;
+    color: #5724e8;
     font-weight: bold;
 }
 
 .wy-nav-side {
-    top: 146px;
     background: #eeeeee;
+    display: flex;
+    flex-direction: column;
+}
+
+.wy-nav-side .wy-side-scroll {
+    flex: 1;
 }
 
 .sticky {
@@ -96,5 +104,5 @@ div[role=search] {
 }
 
 .lux-navbar-container .lux-navbar {
-    max-width: 1100px;
+    max-width: 1500px;
 }
