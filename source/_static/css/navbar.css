@@ -59,6 +59,10 @@
     flex: 1;
 }
 
+.wy-side-scroll {
+    padding: 8px
+}
+
 .sticky {
     top: 0;
 }
