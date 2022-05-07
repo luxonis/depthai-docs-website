@@ -7,7 +7,6 @@ Our amazing community has created several OAK on drones projects:
 - Team **CVAR-U.P.Madrid** (OpenCV AI comp) - Researching the autonomous Micro Aerial Vehicle (MAV) solution for catastrophic situations - `video <https://vimeo.com/583816850/3f084d9a9f>`__
 - Team **QUTEagles** (OpenCV AI comp) - Drone-based biosignatures detection system for planetary exploration - `video <http://bit.ly/QUTEaglesVideo>`__
 - **Augmented Startups** built a gesture controlled drone and has 3-part tutorial on YouTube - `video <https://www.youtube.com/watch?v=TYiiLTioecg>`__
-- **@FPSychotic** on discord - Simple ArduPilot avoidance demo with OAK-D - `video <https://www.youtube.com/watch?v=KtecldGqP5U>`__
 
 To use OAK devices with systems like `PX4 <https://px4.io/>`__ or `ArduPilot <https://ardupilot.org/>`__, one would need to develop integration
 of our devices/hardware with such systems.
