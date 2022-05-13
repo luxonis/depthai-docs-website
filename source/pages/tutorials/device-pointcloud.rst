@@ -16,7 +16,7 @@ Depth to NN model
 #################
 
 `StereoDepth <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/>`__'s :code:`depth` output is
-U16 (Unsigned INT 16) datatype. Myriad X only supports FP16 datatype, but with OpenVINO's `Compile Tool <https://docs.openvino.ai/latest/openvino_inference_engine_tools_compile_tool_README.html>`__
+U16 (Unsigned INT 16) datatype. Myriad X only supports FP16 datatype, but with OpenVINO's `Compile Tool <https://docs.openvino.ai/2022.1/openvino_inference_engine_tools_compile_tool_README.html>`__
 you can add conversion layer at the input with :code:`-ip` or :code:`-iop` arguments. These arguments only support **FP16** (so no
 conversion) or **U8** (adds U8 -> FP16 layer before the input).
 
