@@ -188,12 +188,6 @@ Below is a quick/dirty summary for the ~10,000-foot view of the options:
 - **All in One Dev. Kits** (`OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__) -
   this one has a built-in Raspberry Pi Compute Module 4. So you literally plug it into power and HDMI, and it boots up showing off the power of DepthAI.
 
-- **Embedded with WiFi/BT** (`OAK-D-IoT-40 <https://shop.luxonis.com/products/bw1092>`__ and `OAK-D-IoT-75 <https://shop.luxonis.com/collections/iot/products/oak-d-iot-75>`__) - We have two models that have additional 128MB NOR flash, so they can boot
-  on their own out of the NOR flash, and no host needs to be present to run. In contrast, the `OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__ can also run on its own,
-  but it is still booting over USB from the Raspberry Pi. On OAK-D-IoT-40 and OAK-D-IoT-75, the Myriad X can run completely `standalone <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__ and with no other devices.
-  The built-in ESP32 then provides easy/convenient WiFi/BT support (`more info here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-iot.html>`__)
-  as well as popular integrations like plug-and-play AWS-IoT support, great iOS/Android BT examples, etc.
-
 More products in `store <https://shop.luxonis.com/>`__.
 
 More details - including open source 3D files and schematics, can be found in `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__.
@@ -373,7 +367,8 @@ We offer hardware to support all 3 use-cases, but firmware/software maturity var
 #. Using our C++ SPI API (see `here <https://github.com/luxonis/depthai-spi-api>`__),
 #. Using our standalone flashing utility to flash a depthai application for `standalone mode <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__ (leveraging our SBR Util `here <https://github.com/luxonis/sbr-util>`__).
 
-In all cases, DepthAI is compatible with OpenVINO for neural models. The only thing that changes between the modalities is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
+In all cases, DepthAI is compatible with OpenVINO for neural models. The only thing that changes between the modalities
+is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processor is involved.
 
 .. _withos:
 
@@ -390,11 +385,8 @@ In this case, DepthAI can be used in two modalities:
 Use-Case 2: Using DepthAI with a MicroController like ESP32, ATTiny8, etc.
 **************************************************************************
 
-In this case, DepthAI boots off of internal flash on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__ and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.  
-We even have an embedded reference design for ESP32 (`OAK-D-IoT-40 (BW1092) <https://github.com/luxonis/depthai-hardware/issues/10>`__) available on our `store <https://shop.luxonis.com/collections/all/products/bw1092>`__.  
-And it's open-source! You can check design files `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__.
-
-We have prepared a `Getting started with OAK IoT devices <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-iot.html>`__ guide and a `demo <https://github.com/luxonis/esp32-spi-message-demo/>`__ on how to work with ESP32.
+In this case, DepthAI boots off of internal flash on the `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__
+and communicates over SPI, allowing DepthAI to be used with microcontroller such as the STM32, MSP430, ESP32, ATMega/Arduino, etc.
 
 .. _standalone:
 
@@ -413,7 +405,7 @@ Hardware for Each Case:
 ***********************
 
 - `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the OAK-SoM over USB
-- `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI, or an ESP32 like on the `OAK-D-IoT-40 <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1092.html>`__ (which comes with the OAK-SoM-IoT pre-installed).
+- `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI.
 - `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__: Supports multiple boot options: NOR (128MB), eMMC (SD-Card support), USB, Ethernet (EEPROM, 32KB). All those boot options make OAK-SoM-Pro very flexible in terms of use cases and most apropriate as a standalone device. It is designed for integration into a top-level system with a need for a low power AI vision system.
 
 Getting Started with Development
@@ -1139,7 +1131,7 @@ In addition to SHAVE and CMX distribution, the :code:`CPU usage, DDR, CMX, heap`
 What Auto-Focus Modes Are Supported? Is it Possible to Control Auto-Focus From the Host?
 ########################################################################################
 
-OAK-D, OAK-1, OAK-D-IoT-40, etc. all support continuous video autofocus ('2' below, where the system is constantly autonomously
+OAK-D, OAK-1, OAK-D-PoE, etc. all support continuous video autofocus ('2' below, where the system is constantly autonomously
 searching for the best focus) and also and :code:`auto` mode which waits to focus until directed by the host, in addition to region-of-interest based focus, where the focus is automatically focused around a region provided to DepthAI (e.g. from a neural network bounding box, or some other real-time or apriori setting).
 
 - See `here <https://docs.luxonis.com/projects/api/en/latest/samples/ColorCamera/rgb_camera_control/#rgb-camera-control>`__ for an example of switching back/forth between autofocus and manual focus, and commanding specific manual-focus positions.  
@@ -1393,13 +1385,14 @@ Overall
 
 Embedded Use Case
 *****************
-- https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi - user examples of SPI api and `standalone mode <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__.
+
+Standalone docs `here <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__.
 
 The above examples include a few submodules of interest. You can read a bit more about them in their respective README files:
 
 - https://github.com/luxonis/depthai-bootloader-shared - Bootloader source code which allows programming NOR flash of DepthAI to boot autonomously
 - https://github.com/luxonis/depthai-spi-api - SPI interface library for Embedded (microcontroller) DepthAI application
-- https://github.com/luxonis/esp32-spi-message-demo/tree/gen2_common_objdet - ESP32 Example applications for Embedded/ESP32 DepthAI use (e.g. with `OAK-D-IoT-40 <https://github.com/luxonis/depthai-hardware/tree/master/BW1092_ESP32_Embedded_WIFI_BT>`__)
+- https://github.com/luxonis/esp32-spi-message-demo - ESP32 Example applications for Embedded/ESP32 DepthAI use
 
 How Do I Build the C++ API?
 ###########################

@@ -4,8 +4,8 @@ Calibration
 .. note::
 
 
-   All non-modular OAK devices are calibrated before shipment. It is not required to (re-)calibrate any of these, but for PCBA-only models like OAK-D-IoT-75, OAK-D-IoT-40, OAK-D-CM4, OAK-D-CM3, OAK-D-PCBA
-   it can be desirable to do so if the depth quality degrades from mounting the PCBA (into an enclosure).  
+   All non-modular OAK devices are calibrated before shipment. It is not required to (re-)calibrate any of these, but for PCBA-only models like OAK-D-CM4, OAK-D-CM3, OAK-D-PCBA
+   it can be desirable to do so if the depth quality degrades from mounting the PCBA (into an enclosure).
 
 For the modular camera editions of DepthAI (`OAK-FFC-3P <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__ and `DepthAI RaspberryPi Hat <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1094.html>`__)
 it is necessary to do a stereo camera calibration after mounting the cameras in the baseline/configuration for your application.

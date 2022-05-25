@@ -395,8 +395,6 @@ some meta problem, like how to stream the data, how to collect it and alike.
     - This example demonstrates how to run MobilenetSSD and collect images of detected objects, grouped by detection label
   * - `Message Syncing <https://github.com/luxonis/depthai-experiments/tree/master/gen2-syncing>`__
     - This example shows how to sync messages (eg. NN results with frames) with software, based on either timestamps or sequence numbers
-  * - `SPI <https://github.com/luxonis/depthai-experiments/tree/master/gen2-spi>`__
-    - This directory contains a few examples of how to use the SPI interface with the Pipeline builder API
   * - `TensorFlow Image Classification <https://github.com/luxonis/depthai-experiments/tree/master/gen2-tf-image-classification>`__
     - This example demonstrates how to run a neural network created using TensorFlow Image Classification tutorial
   * - `WLS Filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
@@ -424,10 +422,6 @@ Ecosystem
     - This repository contains Luxonis open sourced baseboards, and contains
       Altium design files, documentation, and pictures to help you
       understand more about the embedded hardware that powers DepthAI.
-  * - `depthai-spi-api <https://github.com/luxonis/depthai-spi-api/>`__
-    - API of the SPI protocol
-  * - `depthai-spi-library <https://github.com/luxonis/depthai-spi-library/>`__
-    - DepthAI SPI Library
   * - `depthai-bootloader-shared <https://github.com/luxonis/depthai-bootloader-shared/>`__
     - The depthai-bootloader-shared repository contains shared data
       between our bootloader firmware and depthai-core host library.
