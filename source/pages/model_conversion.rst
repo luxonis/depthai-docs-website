@@ -70,7 +70,7 @@ When converting your model to OpenVINO's IR format (:code:`.bin` and :code:`.xml
 that were used. Here are supported layers and their limitations for
 `Caffee <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#caffe-supported-layers>`__,
 `MXNet <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#mxnet-supported-symbols>`__,
-`https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#tensorflow-supported-operations>`__,
+`TensorFlow <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#tensorflow-supported-operations>`__,
 `TensorFlow 2 Keras <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#tensorflow-2-keras-supported-operations>`__,
 `Kaldi <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#kaldi-supported-layers>`__,
 and `ONNX <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_prepare_model_Supported_Frameworks_Layers.html#onnx-supported-operators>`__.
