@@ -5,8 +5,9 @@ AI / ML / NN
    :hidden:
 
    model_conversion.rst
-   tutorials/pretrained_openvino.rst
+   tutorials/deploying-custom-model.rst
    tutorials/local_convert_openvino.rst
+   tutorials/pretrained_openvino.rst
    training.rst
 
 `OAK cameras <https://docs.luxonis.com/projects/hardware/en/latest/>`__ can **run any AI model**, even custom
