@@ -87,7 +87,7 @@ Compiling the model
 """""""""""""""""""
 
 Now that we have set arguments to the blobconverter, we can click ``Convert``. This will upload the .onnx model
-to blobconverter server, run Model optimizer and Compile tool, and it the blobconverter app will prompt us to save
+to the blobconverter server, run the Model optimizer and Compile tool, and then the blobconverter app will prompt us to save
 the ``.blob`` file.
 
 .. figure:: /_static/images/tutorials/deploying-custom-model/sbd-blobconverter-final.png
