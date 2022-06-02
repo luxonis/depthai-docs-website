@@ -25,7 +25,7 @@ button, we can drag&drop the .onnx file to the ``Browse...`` button.
 
 .. image:: /_static/images/tutorials/deploying-custom-model/sbd-blobconverter.png
 
-Before we click ``Convert``, we should double check the default values for Model Optimizer and Compile params.
+Before we click ``Convert``, we should double-check the default values for Model Optimizer and Compile params.
 
 Model optimizer parameters
 """"""""""""""""""""""""""
