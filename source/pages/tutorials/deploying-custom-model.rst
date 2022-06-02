@@ -1,4 +1,4 @@
-Deploying custom models
+Deploying Custom Models
 =======================
 
 This tutorial will go through the process of deploying a custom trained (or pretrained) model to the OAK camera.
