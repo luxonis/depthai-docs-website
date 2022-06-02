@@ -31,7 +31,7 @@ Model optimizer parameters
 """"""""""""""""""""""""""
 
 Model optimizer converts other model formats to OpenVINO's IR format, which produces .xml/.bin files. This format of
-the model can be deployed accross multiple Intel's devices, CPU, GPU, iGPU, **VPU** (which we are interested in), and FPGA.
+the model can be deployed across multiple Intel devices: CPU, GPU, iGPU, **VPU** (which we are interested in), and FPGA.
 
 **--data_type=FP16** will convert the model to FP16 data type. Since VPU on the OAK cameras only supports FP16,
 we will want this enabled (and is there by default). More `information here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_FP16_Compression.html#doxid-openvino-docs-m-o-d-g-f-p16-compression>`__.
