@@ -242,7 +242,7 @@ which we will use to color the rectangle around the detected face.
 Changing color order
 """"""""""""""""""""
 
-I have noticed that end result wasn't very accurate. This can be a result of variety of things (model is just inaccurate,
+I noticed that the end result wasn't very accurate. This can be a result of variety of things (model is just inaccurate,
 model lost accuracy due to quantization (INT32->FP16), incorrect mean/scale values, etc.), but I like to first check color
 order. ColorCamera node will output BGR color order by default (on ``preview`` output). Model's accuracy won't be best
 if you send BGR frames to it and it was trained on RGB frames - which was the issue here.
