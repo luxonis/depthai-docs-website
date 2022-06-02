@@ -111,7 +111,7 @@ We already have quite a few 2-stage pipeline demos:
 - `Person re-identification demo <https://github.com/luxonis/depthai-experiments/tree/769029ea4e215d03f741bcf085d1bb6c94009856/gen2-pedestrian-reidentification>`__ - First detect people, then run person re-id model
 
 We will start with the age-gender recognition demo and simply replace the recognition model, so instead of running
-age-gender model, we will run the SBD mask model.
+the age-gender model, we will run the SBD mask model.
 
 Face detection
 """"""""""""""
