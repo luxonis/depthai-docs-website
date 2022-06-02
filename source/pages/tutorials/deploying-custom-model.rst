@@ -117,7 +117,7 @@ Face detection
 """"""""""""""
 
 The age-gender demo uses `face-detection-retail-0004 <https://docs.openvino.ai/2021.4/omz_models_model_face_detection_retail_0004.html>`__
-model, which is great in terms of accuracy/performance. So we will leave this part of the code (`lines 0-64 <https://github.com/luxonis/depthai-experiments/blob/769029ea4e215d03f741bcf085d1bb6c94009856/gen2-age-gender/main.py#L1-L64>`__)
+model, which is great in terms of accuracy/performance, so we will leave this part of the code: (`lines 0-64 <https://github.com/luxonis/depthai-experiments/blob/769029ea4e215d03f741bcf085d1bb6c94009856/gen2-age-gender/main.py#L1-L64>`__)
 
 Input shape
 """""""""""
