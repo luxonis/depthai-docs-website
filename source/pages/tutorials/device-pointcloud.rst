@@ -3,7 +3,7 @@ On-device Pointcloud NN model
 
 At the time of writing, DepthAI firmware (2.15) doesn't support converting depth to pointcloud.
 On the :ref:`On-device programming` page it's mentioned that Script node shouldn't be used for any kind
-of heavy computing, so to convert depth to pointcloud, we would need to :ref:`create a custom NN model`.
+of heavy computing, so to convert depth to pointcloud, we would need to :ref:`create a custom NN model <Creating custom NN models>`.
 
 `Kornia <https://kornia.github.io/>`__ library has a function called `depth_to_3d <https://kornia.readthedocs.io/en/latest/geometry.depth.html?highlight=depth_to_3d#kornia.geometry.depth.depth_to_3d>`__
 which does exactly that; it returns pointcloud from depth map and camera matrix. A smart person

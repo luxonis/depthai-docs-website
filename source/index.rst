@@ -457,8 +457,6 @@ Ecosystem
     - In this repository, you'll find various experiments using DepthAI. You can use those examples as a basis or a reference in your application.
   * - `depthai <https://github.com/luxonis/depthai/>`__
     - This repo contains a demo application, which can load different networks, create pipelines, record video, etc. This program includes an example of depth & CNN inference and ready to use models.
-  * - `esp32-spi-message-demo <https://github.com/luxonis/esp32-spi-message-demo/>`__
-    - ESP32 reference app for interfacing with DepthAI over SPI
   * - `depthai-core-example <https://github.com/luxonis/depthai-core-example/>`__
     - CMake example project which serves as a template on how to quickly get started with C++ and depthai library
 
