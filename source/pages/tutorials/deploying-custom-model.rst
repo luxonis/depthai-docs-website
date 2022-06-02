@@ -20,7 +20,7 @@ Converting to .blob
 Since the `.onnx model <https://github.com/sbdcv/sbd_mask/blob/41c6730e6837f63c1285a0fb46f4a2143e02b7d2/model/sbd_mask.onnx>`__
 is already provided, we don't need to export the trained model (to eg. frozen TF model). After downloading the model,
 we can use `blobconverter.luxonis.com <blobconverter.luxonis.com>`__ to convert it to ``.blob``. I will be using the latest
-version of OpenVINO (2021.4 as of time of writing), and I can select ONNX Model as the source. After clicking ``Continue``
+version of OpenVINO (2021.4 as of time of writing), and I can select ONNX Model as the source. After clicking the ``Continue``
 button, we can drag&drop the .onnx file to the ``Browse...`` button.
 
 .. image:: /_static/images/tutorials/deploying-custom-model/sbd-blobconverter.png
