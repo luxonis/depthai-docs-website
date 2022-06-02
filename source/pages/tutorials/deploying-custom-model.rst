@@ -1,7 +1,7 @@
 Deploying Custom Models
 =======================
 
-This tutorial will go through the process of deploying a custom trained (or pretrained) model to the OAK camera.
+This tutorial will review the process of deploying a custom trained (or pre-trained) model to the OAK camera.
 As mentioned in  details in :ref:`Converting model to MyriadX blob` tutorial, you first need to convert the model to
 OpenVINO's IR format (.xml/.bin) and then compile it to .blob in order to then deploy it to the OAK camera.
 
