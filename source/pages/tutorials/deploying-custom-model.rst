@@ -9,7 +9,7 @@ OpenVINO's IR format (.xml/.bin) and then compile it to .blob in order to then d
 ------------------------------
 
 For our first tutorial we will deploy the `SBD_Mask classification <https://github.com/sbdcv/sbd_mask>`__ model, as it
-already has pretrained .onnx model in the `/models folder <https://github.com/sbdcv/sbd_mask/tree/41c6730e6837f63c1285a0fb46f4a2143e02b7d2/model>`__.
+already has pre-trained .onnx model in the `/models folder <https://github.com/sbdcv/sbd_mask/tree/41c6730e6837f63c1285a0fb46f4a2143e02b7d2/model>`__.
 
 From the examples in the repo you can see that they are using CenterFace face detection model, and then SBD_Mask
 classification model to recognize whether the person (more specifically the face image) is wearing a mask.
@@ -36,7 +36,7 @@ the model can be deployed across multiple Intel devices: CPU, GPU, iGPU, **VPU**
 **--data_type=FP16** will convert the model to FP16 data type. Since VPU on the OAK cameras only supports FP16,
 we will want this enabled (and is there by default). More `information here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_FP16_Compression.html#doxid-openvino-docs-m-o-d-g-f-p16-compression>`__.
 
-**Mean** and **Scale** will normalize the input image to the model; ``new_value = (byte - mean) / scale``.
+**Mean** and **Scale** will normalize the input image to the model: ``new_value = (byte - mean) / scale``.
 Color/Mono cameras on OAK camera will output frames in U8 data type (``0..255``). Models are usually trained with
 normalized frames ``-1..1`` or ``0..1``, so we need to normalize our OAK frames as well. Common options:
 
@@ -70,7 +70,7 @@ For Model Optimizer we will use the following arguments:
 Myriad X compile parameters
 """""""""""""""""""""""""""
 
-After converting model to OpenVINO's IR format (.bin/.xml), we need to use `Compile Tool <https://docs.openvino.ai/2021.4/openvino_inference_engine_tools_compile_tool_README.html>`__
+After converting the model to OpenVINO's IR format (.bin/.xml), we need to use `Compile Tool <https://docs.openvino.ai/2021.4/openvino_inference_engine_tools_compile_tool_README.html>`__
 to compile the model to ``.blob``, so it can be deployed to the camera.
 
 Here you can select input layer precision (``-ip``) and number of shave cores used to run the model (using the slider).
@@ -80,7 +80,7 @@ on all input layers of the model - which is what we want, so we will use this de
 
 **Shaves**: Myriad X in total has 16 SHAVE cores, which are like mini GPU units. Compiling with more cores can make
 the model perform faster, but the proportion of shave cores isn't linear with performance. Firmware will warn you
-about possibly optimal number of shave cores, which is ``available_cores/2``, as by default, each model will run on
+about a possibly optimal number of shave cores, which is ``available_cores/2``. As by default, each model will run on
 2 threads. I will use 6 shaves, as that's the optimal number of cores for simple pipelines (which we will create).
 
 Compiling the model
