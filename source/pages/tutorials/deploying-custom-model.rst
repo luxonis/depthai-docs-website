@@ -36,12 +36,14 @@ the model can be deployed across multiple Intel devices: CPU, GPU, iGPU, **VPU**
 **--data_type=FP16** will convert the model to FP16 data type. Since VPU on the OAK cameras only supports FP16,
 we will want this enabled (and is there by default). More `information here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_FP16_Compression.html#doxid-openvino-docs-m-o-d-g-f-p16-compression>`__.
 
-**Mean** and **Scale** will normalize the input image to the model: ``new_value = (byte - mean) / scale``.
-Color/Mono cameras on OAK camera will output frames in U8 data type (``0..255``). Models are usually trained with
-normalized frames ``-1..1`` or ``0..1``, so we need to normalize our OAK frames as well. Common options:
+**Mean** and **Scale** will normalize the input image to the model: ``new_value = (byte - mean) / scale``. Additional
+information can be found on `OpenVINO docs here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_Additional_Optimization_Use_Cases.html#when-to-specify-mean-and-scale-values>`__.
+Color/Mono cameras on OAK camera will output frames in U8 data type (``[0,255]``). Models are usually trained with
+normalized frames ``[-1,1]`` or ``[0,1]``, so we need to normalize our OAK frames as well. Common options:
 
-- If the model requires ``-1..1`` values, mean=127.5 and scale=255 (``(0..255 - 127.5) / 255 = -1..1``)
-- If the model requires ``0..1`` values, mean=0 and scale=255 (``(0..255 - 127.5) / 255 = -1..1``)
+- If the model requires ``[0,1]`` values, mean=0 and scale=255 (``([0,255] - 0) / 255 = [0,1]``)
+- If the model requires ``[-1,1]`` values, mean=127.5 and scale=127.5 (``([0,255] - 127.5) / 127.5 = [-1,1]``)
+- If the model requires ``[-0.5,0.5]`` values, mean=127.5 and scale=255 (``([0,255] - 127.5) / 255 = [-0.5,0.5]``)
 
 We could either read the repository to find out the required input values,
 or `read the code <https://github.com/sbdcv/sbd_mask/blob/41c6730e6837f63c1285a0fb46f4a2143e02b7d2/deploy.py#L10-L19>`__:
@@ -259,6 +261,15 @@ You can change ``preview``'s color order by adding this line:
         cam.setBoardSocket(dai.CameraBoardSocket.RGB)
     +   cam.setColorOrder(dai.ColorCameraProperties.ColorOrder.RGB)
 
+Note that the **face detection model's accuracy will decrease** due to this change, as it expects BGR and will get RGB. The correct
+way would be to specify --reverse_input_channels (`docs here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_Additional_Optimization_Use_Cases.html#when-to-reverse-input-channels>`__)
+argument with the `Model Optimizer <https://pypi.org/project/openvino-dev>`__, which is what was used to generate xml/bin files
+that were uploaded to our `DepthAI Model Zoo <https://github.com/luxonis/depthai-model-zoo/tree/main/models/sbd_mask_classification_224x224>`__.
+
+.. code-block::
+
+    mo --input_model sbd_mask.onnx --data_type=FP16 --mean_values=[0,0,0] --scale_values=[255,255,255] --reverse_input_channels
+
 
 End result
 ^^^^^^^^^^
@@ -271,8 +282,8 @@ You can view all changes we have made on `Github here <https://github.com/luxoni
         <iframe src="https://www.youtube.com/embed/Z61BTUCgGWU" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
 
-You might have noticed that face detection isn't perfect when I have a mask on the face. That's probably because
-the `face-detection-retail-0004 <https://docs.openvino.ai/2021.4/omz_models_model_face_detection_retail_0004.html>`__
+You might have noticed that face detection isn't perfect when I have a mask on the face. That's probably due to RGB/BGR issue
+mentioned :ref:`above <Changing color order>`. It's also likely the accuracy drops because the `face-detection-retail-0004 <https://docs.openvino.ai/2021.4/omz_models_model_face_detection_retail_0004.html>`__
 model wasn't trained on images that had faces covered with masks. The lighting on my face also wasn't the best.
 We might get better results if we used `ObjectTracker node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/object_tracker/>`__
 to track faces, but that's out of the scope of this tutorial.
