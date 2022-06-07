@@ -22,11 +22,13 @@ Best of all, it is modular and you can **integrate** this technology **into your
 Demo Script
 -----------
 
-Demo script is our multipurpose command line demo tool, built around pipeline builder API, that allows you to check
-DepthAI features straight from the command line - no coding required!  It works USB and POE equally, automatically discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple are connected, it will prompt you on which to use for the demo.
-
-.. image:: https://user-images.githubusercontent.com/18037362/132068313-e6db90c2-823b-42f2-86fb-148e798f55de.png
+.. image:: /_static/images/tutorials/depthaidemo.png
   :alt: Default run
+
+Demo script is our multipurpose command line demo tool, built around pipeline builder API, that allows you to check
+DepthAI features straight from the command line - no coding required!  It works USB and POE equally, automatically
+discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple are connected, it
+will prompt you on which to use for the demo.
 
 To install and run the demo script on your OAK camera, type the following commands in the terminal.
 
