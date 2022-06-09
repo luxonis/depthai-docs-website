@@ -292,7 +292,7 @@ to track faces, but that's out of the scope of this tutorial.
 -------------------
 
 This tutorial will focus around deploying the **WeChat** `QR code detector <https://github.com/opencv/opencv_zoo/tree/4fb591053ba1201c07c68929cc324787d5afaa6c/models/qrcode_wechatqrcode>`__.
-I have found this model while going through `OpenCV Model Zoo <https://github.com/opencv/opencv_zoo>`__. There are 2 models in
+I found this model while going through `OpenCV Model Zoo <https://github.com/opencv/opencv_zoo>`__. There are 2 models in
 this folder:
 
 - **detect_2021nov** - QR code detection model
@@ -431,7 +431,7 @@ as it was designed to decode these standard SSD detection results.
     if cv2.waitKey(1) == ord('q'): break
 
 
-After trying a few MEAN/SCALE values, I have found that MEAN=0 and SCALE=255 works the best. We don't need to worry
+After trying a few MEAN/SCALE values, I found that MEAN=0 and SCALE=255 works the best. We don't need to worry
 about color order as the model requires grayscale images.
 
 .. figure:: /_static/images/tutorials/deploying-custom-model/qr-detection.jpg
@@ -441,7 +441,7 @@ about color order as the model requires grayscale images.
 Testing accuracy degredation due to FP16 quantization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now let's try the model with FP16 precision instead of INT32. If you an OAK camera into your computer you can select
+Now let's try the model with FP16 precision instead of INT32. If you connect an OAK camera to your computer you can select
 ``MYRIAD`` as the inference device instead of CPU. **If the model works correctly with IE on Myriad X, it will work
 with DepthAI as well.**
 
@@ -549,7 +549,7 @@ code and **only change blob path, label map, and frame shape**.
 QR Code end result
 ^^^^^^^^^^^^^^^^^^
 
-This is the end result of the script above. You can see that the mono camera sensor on OAK camera performs much better 
+This is the end result of the script above. You can see that the mono camera sensor on OAK cameras performs much better 
 in low-light environment compared to my laptop camera (screenshot above). I uploaded this demo to
 `depthai-experiments/gen2-qr-code-scanner <https://github.com/luxonis/depthai-experiments/tree/master/gen2-qr-code-scanner>`__
 where I have also added blobconvewrter and displaying NN results on high-resolution frames.
