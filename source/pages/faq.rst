@@ -11,7 +11,7 @@ So we built the platform - known as DepthAI and the OpenCV AI Kit (OAK) - which 
 
 What is DepthAI?
 ################
-Test
+
 DepthAI is *the* Embedded, Performant, Spatial AI+CV platform, composed of an open-source hardware, firmware, software ecosystem that
 provides turnkey embedded :ref:`Spatial AI+CV<spatialai>` and hardware-accelerated computer vision.
 
