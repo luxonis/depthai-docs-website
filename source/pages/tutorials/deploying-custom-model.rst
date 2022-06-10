@@ -41,9 +41,9 @@ information can be found on `OpenVINO docs here <https://docs.openvino.ai/2022.1
 Color/Mono cameras on OAK camera will output frames in U8 data type (``[0,255]``). Models are usually trained with
 normalized frames ``[-1,1]`` or ``[0,1]``, so we need to normalize our OAK frames as well. Common options:
 
-- If the model requires ``[0,1]`` values, mean=0 and scale=255 (``([0,255] - 0) / 255 = [0,1]``)
-- If the model requires ``[-1,1]`` values, mean=127.5 and scale=127.5 (``([0,255] - 127.5) / 127.5 = [-1,1]``)
-- If the model requires ``[-0.5,0.5]`` values, mean=127.5 and scale=255 (``([0,255] - 127.5) / 255 = [-0.5,0.5]``)
+- **[0,1]** values, mean=0 and scale=255 (``([0,255] - 0) / 255 = [0,1]``)
+- **[-1,1]** values, mean=127.5 and scale=127.5 (``([0,255] - 127.5) / 127.5 = [-1,1]``)
+- **[-0.5,0.5]** values, mean=127.5 and scale=255 (``([0,255] - 127.5) / 255 = [-0.5,0.5]``)
 
 We could either read the repository to find out the required input values,
 or `read the code <https://github.com/sbdcv/sbd_mask/blob/41c6730e6837f63c1285a0fb46f4a2143e02b7d2/deploy.py#L10-L19>`__:
@@ -288,4 +288,274 @@ model wasn't trained on images that had faces covered with masks. The lighting o
 We might get better results if we used `ObjectTracker node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/object_tracker/>`__
 to track faces, but that's out of the scope of this tutorial.
 
+2. QR code detector
+-------------------
 
+This tutorial will focus around deploying the **WeChat** `QR code detector <https://github.com/opencv/opencv_zoo/tree/4fb591053ba1201c07c68929cc324787d5afaa6c/models/qrcode_wechatqrcode>`__.
+I found this model while going through `OpenCV Model Zoo <https://github.com/opencv/opencv_zoo>`__. There are 2 models in
+this folder:
+
+- **detect_2021nov** - QR code detection model
+- **sr_2021nov** - QR code super resolution (224x224 -> 447x447)
+
+We will be focusing on the first one, the QR code detection model.
+
+Converting QR code detector to OpenVINO
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Compared to the previous model (SBD-Mask), I couldn't find relevant information about mean/scale values for this model.
+For more information on mean/scale values, see the :ref:`1. tutorial <Model optimizer parameters>`. In such cases, I
+usually do the following:
+
+#. Convert the model to OpenVINO (using model optimizer) without specifying mean/scale values
+#. Use OpenVINO's `Inference Engine <https://docs.openvino.ai/latest/openvino_docs_OV_UG_Integrate_OV_with_your_application.html>`__ to run IR model (.bin/.xml)
+#. After getting the decoding correct, I try out different mean/scale values until I fugire out the correct combination
+#. After getting the decoding and mean/scale values right, I convert the model to blob and develop a DepthAI pipeline for it
+
+So let's first convert the model to IR format (xml/bin) using `OpenVINO <https://pypi.org/project/openvino-dev/>`__:
+
+.. code-block::
+    mo --input_model detect_2021nov.caffemodel
+
+Now that we have xml/bin, we can also look at the input/output shape of the model using `Netron <https://netron.app/>`__.
+Input shape is ``1x384x384`` (so grayscale frame, not color) and output shape is ``100x7``.
+
+Using Inference Engine (IE) to evlauate the model
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The code below was modified from our `depthai-inference-engine <https://github.com/luxonis/depthai-experiments/tree/master/depthai-inference-engine>`__.
+I personally like to evaluate the inference on the CPU first and get these values correct:
+
+- `Mean/Scale values <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_Additional_Optimization_Use_Cases.html#when-to-specify-mean-and-scale-values>`__,
+- `Color order <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_Additional_Optimization_Use_Cases.html#when-to-reverse-input-channels>`__,
+- `Model layout <https://docs.openvino.ai/2022.1/openvino_docs_OV_UG_Layout_Overview.html#doxid-openvino-docs-o-v-u-g-layout-overview>`__
+
+So I can estimate **accuracy degredation due to quantization** when going from **CPU (INT32)** to  **Myriad X (FP16)**.
+
+.. code-block:: python
+
+    from openvino.inference_engine import IECore
+    import cv2
+    import numpy as np
+
+    def crop_to_square(frame):
+        height = frame.shape[0]
+        width  = frame.shape[1]
+        delta = int((width-height) / 2)
+        return frame[0:height, delta:width-delta]
+
+    model_xml = 'detect_2021nov.xml'
+    model_bin = "detect_2021nov.bin"
+    shape = (384, 384) # We got this value from Netron
+
+    ie = IECore()
+    print("Available devices:", ie.available_devices)
+    net = ie.read_network(model=model_xml, weights=model_bin)
+    input_blob = next(iter(net.input_info))
+    # You can select device_name="MYRIAD" to run on Myriad X VPU
+    exec_net = ie.load_network(network=net, device_name='CPU')
+
+    MEAN = 127.5 # Also try: 127.5
+    SCALE = 255 # Also try: 0, 127.5
+
+    # Frames from webcam. Could take frames from OAK (running UVC pipeline)
+    # or from video file.
+    cam = cv2.VideoCapture(0)
+    cam.set(cv2.CAP_PROP_FPS, 30)
+    while True:
+        ok, og_image = cam.read()
+        if not ok: continue
+
+        og_img = crop_to_square(og_image) # Crop to 1:1 aspect ratio
+        og_img = cv2.resize(og_img, shape) # Downscale to 384x384
+        image = cv2.cvtColor(og_img, cv2.COLOR_BGR2GRAY) # To grayscale
+        image = (image - MEAN) / SCALE # Normalize the input frame
+        image = image.astype(np.int32) # Change type
+
+        output = exec_net.infer(inputs={input_blob: image}) # Do the NN inference
+        print(output) # Print the output
+
+        cv2.imshow('USB Camera', og_img)
+        if cv2.waitKey(1) == ord('q'): break
+
+
+Decoding QR code detector
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The script above will print full NN output. If you have a QR code in front of the camera, the output array should contain
+some values other than 0. The ``(100,7)`` output is the standard object detection output which contains:
+
+.. code-block:: python
+
+    batch_num = result[0] # Always 0, 1 frame at a time
+    label = result[1] # Always 1, as we only detect one object (QR code)
+    confidence = result[2]
+    bounding_box = result[3:7]
+
+Initially, I thought we would need to perform NMS algorithm on the host, but after checking the model, I saw it has
+the `DetectionOutput <https://docs.openvino.ai/2022.1/openvino_docs_ops_detection_DetectionOutput_1.html>`__ layer at the
+end. This layer performs NMS in the NN, so it's done on the camera itself. When creating a pipeline with the DepthAI we will
+also be able to use `MobileNetDetectionNetwork node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/mobilenet_detection_network/>`__,
+as it was designed to decode these standard SSD detection results.
+
+.. figure:: /_static/images/tutorials/deploying-custom-model/detectionOutput.png
+
+    NMS layer in the model
+
+
+.. code-block:: python
+
+    # Normalize the bounding box to frame resolution.
+    # For example, [0.5, 0.5, 1, 1] bounding box on 300x300 frame
+    # should return [150, 150, 300, 300]
+    def frame_norm(frame, bbox):
+        bbox[bbox < 0] = 0
+        normVals = np.full(len(bbox), frame.shape[0])
+        normVals[::2] = frame.shape[1]
+        return (np.clip(np.array(bbox), 0, 1) * normVals).astype(int)
+
+    # ...
+
+    # Do the NN inference
+    output = exec_net.infer(inputs={input_blob: image})
+    print(output) # Print the output
+
+    results = output['detection_output'].reshape(100, 7)
+    for det in results:
+        conf = det[2]
+        bb = det[3:]
+        bbox = frame_norm(og_img, bb)
+        cv2.rectangle(og_img, (bbox[0], bbox[1]) , (bbox[2], bbox[3]), (255, 127, 0), 3)
+
+    cv2.imshow('USB Camera', og_img)
+    if cv2.waitKey(1) == ord('q'): break
+
+
+After trying a few MEAN/SCALE values, I found that MEAN=0 and SCALE=255 works the best. We don't need to worry
+about color order as the model requires grayscale images.
+
+.. figure:: /_static/images/tutorials/deploying-custom-model/qr-detection.jpg
+
+    Success! Light blue bounding box around the QR code!
+
+Testing accuracy degredation due to FP16 quantization
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now let's try the model with FP16 precision instead of INT32. If you connect an OAK camera to your computer you can select
+``MYRIAD`` as the inference device instead of CPU. **If the model works correctly with IE on Myriad X, it will work
+with DepthAI as well.**
+
+.. code-block:: diff
+
+  - exec_net = ie.load_network(network=net, device_name='CPU')
+  + exec_net = ie.load_network(network=net, device_name='MYRIAD')
+
+    # ...
+    image = cv2.cvtColor(og_img, cv2.COLOR_BGR2GRAY) # To grayscale
+    image = (image - MEAN) / SCALE # Normalize the input frame
+  - image = image.astype(np.int32) # Change type
+  + image = image.astype(np.float16) # Change type
+
+    output = exec_net.infer(inputs={input_blob: image}) # Do the NN inference
+
+I haven't noticed any accuracy degredation loss, so we can proceed with model conversion, this time with correct arguments.
+We will specify scale value 255 and FP16 datatype.
+
+.. code-block::
+
+    mo --input_model detect_2021nov.caffemodel --scale 255 --data_type FP16
+
+Integrating QR code detector into DepthAI
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+We now have our normalized model in IR. I will use `blobconverter app`__ to convert it to ``.blob``, which is required
+by the DepthAI.
+
+.. image:: /_static/images/tutorials/deploying-custom-model/blobconvert-qr-code.jpg
+
+As mentioned above, the model outputs the standard SSD detection results, so we can use ``MobileNetDetectionNetwork`` node.
+I will start with `Mono & MobilenetSSD example <https://docs.luxonis.com/projects/api/en/latest/samples/MobileNet/mono_mobilenet/#mono-mobilenetssd>`__
+code and **only change blob path, label map, and frame shape**.
+
+.. code-block:: python
+
+    import cv2
+    import depthai as dai
+    import numpy as np
+
+    nnPath = "detect_2021nov.blob" # Change blob path
+    labelMap = ["background", "QR-Code"] # Change labelMap
+
+    # Create pipeline
+    pipeline = dai.Pipeline()
+
+    # Define sources and outputs
+    monoRight = pipeline.create(dai.node.MonoCamera)
+    manip = pipeline.create(dai.node.ImageManip)
+    nn = pipeline.create(dai.node.MobileNetDetectionNetwork)
+    manipOut = pipeline.create(dai.node.XLinkOut)
+    nnOut = pipeline.create(dai.node.XLinkOut)
+
+    manipOut.setStreamName("right")
+    nnOut.setStreamName("nn")
+
+    # Properties
+    monoRight.setBoardSocket(dai.CameraBoardSocket.RIGHT)
+    monoRight.setResolution(dai.MonoCameraProperties.SensorResolution.THE_720_P)
+
+    manip.initialConfig.setResize(384, 384) # Input frame shape
+    manip.initialConfig.setFrameType(dai.ImgFrame.Type.GRAY8) # Model expects Grayscale image
+
+    nn.setConfidenceThreshold(0.5)
+    nn.setBlobPath(nnPath)
+    nn.input.setBlocking(False)
+
+    monoRight.out.link(manip.inputImage)
+    manip.out.link(nn.input)
+    manip.out.link(manipOut.input)
+    nn.out.link(nnOut.input)
+
+    with dai.Device(pipeline) as device:
+
+        qRight = device.getOutputQueue("right", maxSize=4, blocking=False)
+        qDet = device.getOutputQueue("nn", maxSize=4, blocking=False)
+
+        frame = None
+        detections = []
+
+        def frameNorm(frame, bbox):
+            normVals = np.full(len(bbox), frame.shape[0])
+            normVals[::2] = frame.shape[1]
+            return (np.clip(np.array(bbox), 0, 1) * normVals).astype(int)
+
+        def displayFrame(name, frame):
+            color = (255, 255, 0)
+            for detection in detections:
+                bbox = frameNorm(frame, (detection.xmin, detection.ymin, detection.xmax, detection.ymax))
+                cv2.putText(frame, labelMap[detection.label], (bbox[0] + 10, bbox[1] + 20), cv2.FONT_HERSHEY_TRIPLEX, 0.5, color)
+                cv2.putText(frame, f"{int(detection.confidence * 100)}%", (bbox[0] + 10, bbox[1] + 40), cv2.FONT_HERSHEY_TRIPLEX, 0.5, color)
+                cv2.rectangle(frame, (bbox[0], bbox[1]), (bbox[2], bbox[3]), color, 2)
+            cv2.imshow(name, frame)
+
+        while True:
+            frame = qRight.get().getCvFrame()
+            frame =  cv2.cvtColor(frame, cv2.COLOR_GRAY2BGR) # For colored visualization
+            detections = inDet = qDet.get().detections
+            displayFrame("right", frame)
+
+            if cv2.waitKey(1) == ord('q'):
+                break
+
+QR Code end result
+^^^^^^^^^^^^^^^^^^
+
+This is the end result of the script above. You can see that the mono camera sensor on OAK cameras performs much better 
+in low-light environment compared to my laptop camera (screenshot above). I uploaded this demo to
+`depthai-experiments/gen2-qr-code-scanner <https://github.com/luxonis/depthai-experiments/tree/master/gen2-qr-code-scanner>`__
+where I have also added blobconvewrter and displaying NN results on high-resolution frames.
+
+.. figure:: /_static/images/tutorials/deploying-custom-model/on-device-decoding.jpg
+
+    On-device decoding using the script above!
+
+.. include::  /pages/includes/footer-short.rst
