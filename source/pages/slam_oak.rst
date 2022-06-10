@@ -9,8 +9,8 @@ and intertial data (using `IMU <https://docs.luxonis.com/projects/api/en/latest/
 
 Our awesome community has also created several projects that use OAK for SLAM:
 
+- `ORB SLAM3 <https://qiita.com/nindanaoto/items/20858eca08aad90b5bab>`__ with an OAK-D and ROS1  by ``@nimda``
 - `ArduCam Visual SLAM tutorial <https://www.arducam.com/docs/opencv-ai-kit-oak/performing-location-with-visual-slam/>`__
-- `OAKD_ORBSLAM3 <https://github.com/duncanrhamill/oakd_orbslam3>`__
 - `DepthAI-SLAM <https://github.com/bharath5673/depthai-slam>`__
 
 You can also check out our :code:`#slam` channel on our `Discord server <https://discord.gg/luxonis>`__, where there are tons of
