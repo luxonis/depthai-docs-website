@@ -386,21 +386,23 @@ Tools & API Examples
 In this section, you'll see examples of various API usage permutations, to show what the API is capable of or to solve
 some meta problem, like how to stream the data, how to collect it and alike.
 
-.. list-table:: Tools / Examples
+.. list-table::
   :widths: 10 90
 
   * - `OCR <https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr>`__
     - This pipeline implements text detection (EAST) followed by optical character recognition of the detected text
   * - `Multiple Devices <https://github.com/luxonis/depthai-experiments/tree/master/gen2-multiple-devices>`__
     - This example shows how you can use multiple DepthAI's on a single host. The demo will find all devices connected to the host and display an RGB preview from each of them
-  * - `Class Saver <https://github.com/luxonis/depthai-experiments/tree/master/gen2-class-saver-jpeg>`__
-    - This example demonstrates how to run MobilenetSSD and collect images of detected objects, grouped by detection label
+  * - `Face recognition <https://github.com/luxonis/depthai-experiments/tree/master/gen2-face-recognition>`__
+    - Detects all faces in the frame, gets face feature vectors and compares it with database to perform face recognition
   * - `Message Syncing <https://github.com/luxonis/depthai-experiments/tree/master/gen2-syncing>`__
     - This example shows how to sync messages (eg. NN results with frames) with software, based on either timestamps or sequence numbers
-  * - `TensorFlow Image Classification <https://github.com/luxonis/depthai-experiments/tree/master/gen2-tf-image-classification>`__
-    - This example demonstrates how to run a neural network created using TensorFlow Image Classification tutorial
+  * - `License plate recognition <https://github.com/luxonis/depthai-experiments/tree/master/gen2-license-plate-recognition>`__
+    - Detects license plates and performs license plate recognition operation on the camera itself
   * - `WLS Filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
     - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI API
+  * - `QR code scanner <https://github.com/luxonis/depthai-experiments/tree/master/gen2-qr-code-scanner>`__
+    - QR Code detection model running on the device combined with on-host QR code decoder
 
 Ecosystem
 ---------
