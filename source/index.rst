@@ -436,8 +436,6 @@ Ecosystem
 
   * - `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/>`__
     - Here you can find repositories to help you connect your NN and create BLOBs.
-  * - `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/>`__
-    - Here you can find repositories to help you connect your NN and create BLOBs.
   * - `blobconverter <https://github.com/luxonis/blobconverter/>`__
     - Web-based tool to convert model into MyriadX blob
   * - `depthai-gui <https://github.com/luxonis/depthai-gui/>`__
