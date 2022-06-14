@@ -153,18 +153,15 @@ Several Gen2 Examples are `here <https://github.com/luxonis/depthai-experiments#
 What is megaAI?
 ###############
 
-MegaAI (later named OAK-1) is the single-camera version of OAK-D. Because not all solutions to embedded AI/CV problems require spatial information.
-
-We named it :code:`mega` because it's tiny:
+OAK-1 (previously MegaAI) is the single-camera version of OAK-D. Because not all solutions to embedded AI/CV problems require spatial information.
 
 .. image:: https://www.crowdsupply.com/img/8182/megaai-quarter-original_png_project-body.jpg
-  :alt: megaAI
+  :alt: OAK-1
 
-megaAI uses all the same hardware, firmware, software, and training stacks as DepthAI (and uses the same DepthAI Github repositories), it is simply the tiny single-camera variant.
+OAK-1 uses all the same hardware, firmware, software, and training stacks as the OAK-D (and uses the same DepthAI
+Github repositories), it is simply the tiny single-camera variant.
 
-More details - including open source 3D files and schematics, can be found `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/BK1096.html>`__.
-
-You can buy megaAI from our distributors and also our online store `here <https://shop.luxonis.com/products/bw1093>`__.
+More details can be found `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1093.html>`__.
 
 Which Model Should I Order?
 ###########################
