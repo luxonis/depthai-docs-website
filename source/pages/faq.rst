@@ -169,10 +169,10 @@ Which Model Should I Order?
 Embedded CV/AI requires all sorts of different shapes/sizes/permutations. And so we have a variety of options to meet these needs in our `store <https://shop.luxonis.com/collections/all>`__. 
 Below is a quick/dirty summary for the ~10,000-foot view of the options:
 
-- **USB3C with Onboard Cameras and Depth** (`OAK-D <https://shop.luxonis.com/collections/all/products/1098obcenclosure>`__) - Great for quickly using DepthAI with a computer.
+- **USB3C with Onboard Cameras and Depth** (`OAK-D <https://shop.luxonis.com/products/oak-d>`__) - Great for quickly using DepthAI with a computer.
   All cameras are onboard, and it has a USB3C connection which can be used with any USB3 or USB2 host.
 
-- **USB3C with Single Camera** (`OAK-1 <https://shop.luxonis.com/collections/usb/products/megaai-kit>`__) - This is just like the OAK-D,
+- **USB3C with Single Camera** (`OAK-1 <https://shop.luxonis.com/products/megaai-kit>`__) - This is just like the OAK-D,
   but for those who don't need depth information. Single, small, plug-and-play USB3C AI/CV camera.
 
 - **USB3C with Modular Cameras** (`OAK-FFC-3P <https://shop.luxonis.com/collections/modular-cameras/products/dm1090ffc>`__) - Great for prototyping flexibility.
