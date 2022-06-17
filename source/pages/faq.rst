@@ -1175,6 +1175,35 @@ White Balance (AWB)
 
 See `here <https://docs.luxonis.com/projects/api/en/latest/references/python/#depthai.CameraControl.AutoWhiteBalanceMode>`__ for Auto White Balance modes and controls.  
 
+Is it possible to control exposure and ISO with separate cameras?
+#################################################################
+In situations where the surrounding brightness differs between cameras, it can be helpful to adjust ISO to help align brightness levels.
+
+The following settings over 3 cameras (B,C,D) have been successful for us:
+
+.. code-block:: bash
+
+  cam['left'] .initialControl.setManualExposure(30000, 400)
+  cam['right'].initialControl.setManualExposure(15000, 400)
+  cam['camd'] .initialControl.setManualExposure( 5000, 400)
+
+Or
+
+.. code-block:: bash
+  
+  cam['left'] .initialControl.setManualExposure(20000, 1600)
+  cam['right'].initialControl.setManualExposure(20000,  800)
+  cam['camd'] .initialControl.setManualExposure(20000,  400)
+
+Controlling separately at runtime is possible as well. In `cam_test.py` you will need to change from linking the same control `XLinkIn` node to all cameras: `control.out.link(cam[c].inputControl)`. This will separate control nodes per camera.
+
+Or, if you want to keep auto exposure, but just change some of the cameras to apply a different exposure compensation (EV), can set values in the range `-9 .. +9` (default is 0):
+
+.. code-block:: bash
+
+  cam['left'] .initialControl.setAutoExposureCompensation(-3)
+  cam['right'].initialControl.setAutoExposureCompensation(1)
+  cam['camd'] .initialControl.setAutoExposureCompensation(6)
 
 Am I able to attach alternate lenses to the camera? What sort of mounting system? S mount? C mount?
 ###################################################################################################
