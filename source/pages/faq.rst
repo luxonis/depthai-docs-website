@@ -1186,17 +1186,17 @@ The following settings over 3 cameras (B,C,D) have been successful for us:
 
 .. code-block:: bash
 
-cam['left'] .initialControl.setManualExposure(30000, 400)
-cam['right'].initialControl.setManualExposure(15000, 400)
-cam['camd'] .initialControl.setManualExposure( 5000, 400)
+  cam['left'] .initialControl.setManualExposure(30000, 400)
+  cam['right'].initialControl.setManualExposure(15000, 400)
+  cam['camd'] .initialControl.setManualExposure( 5000, 400)
 
 Or
 
 .. code-block:: bash
   
-cam['left'] .initialControl.setManualExposure(20000, 1600)
-cam['right'].initialControl.setManualExposure(20000,  800)
-cam['camd'] .initialControl.setManualExposure(20000,  400)
+  cam['left'] .initialControl.setManualExposure(20000, 1600)
+  cam['right'].initialControl.setManualExposure(20000,  800)
+  cam['camd'] .initialControl.setManualExposure(20000,  400)
 
 Controlling separately at runtime is possible as well. In `cam_test.py` you will need to change from linking the same control `XLinkIn` node to all cameras: `control.out.link(cam[c].inputControl)`. This will separate control nodes per camera.
 
@@ -1204,9 +1204,9 @@ Or, if you want to keep auto exposure, but just change some of the cameras to ap
 
 .. code-block:: bash
 
-cam['left'] .initialControl.setAutoExposureCompensation(-3)
-cam['right'].initialControl.setAutoExposureCompensation(1)
-cam['camd'] .initialControl.setAutoExposureCompensation(6)
+  cam['left'] .initialControl.setAutoExposureCompensation(-3)
+  cam['right'].initialControl.setAutoExposureCompensation(1)
+  cam['camd'] .initialControl.setAutoExposureCompensation(6)
 
 Am I able to attach alternate lenses to the camera? What sort of mounting system? S mount? C mount?
 ###################################################################################################
