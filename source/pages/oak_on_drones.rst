@@ -1,24 +1,21 @@
 OAK on drones
 =============
 
-Our amazing community has created several OAK on drones projects:
+OAK cameras are light-weight, low-power and performant :ref:`Spatial AI` devices for edge applications, which make them
+the perfect solution for drone applications, such as:
+
+- **Localization** of the drone and detected objects around it, as presented by the CVAR-U.P.Madrid team (`video here <https://vimeo.com/583816850/3f084d9a9f>`__). See :ref:`SLAM with OAK` for additional information.
+- **Precision landing** on the target, as `demonstrated here <https://www.youtube.com/watch?v=qonVE3Tg8Uw>`__ by Rishabh Singh. This is possible as object detection runs on the OAK camera at about 30 FPS and has below 150ms delay from camera to the controller.
+- **Emergency landing** when your battery is running low. :ref:`Semantic depth <semantic-depth>` provides 3D location (depth points) of suitable areas to land (eg. grass fields). Stephan Sturges has developed `OpenLander <https://github.com/stephansturges/OpenLander>`__ repo for this application.
+- **Follow-me drone** with the help of 3D object detection and tracking, drone is able to follow you around, as `demonstrated here <https://www.youtube.com/watch?v=I0UVoWEmIpA>`__ by Rishabh Singh. One could make this solution more robust when combining this with either `face recognition <https://github.com/luxonis/depthai-experiments/tree/master/gen2-face-recognition>`__ or `person reidentification <https://github.com/luxonis/depthai-experiments/tree/master/gen2-pedestrian-reidentification>`__ AI model.
+
+A few other demos:
 
 - Team **QuetzalC++** (OpenCV AI comp) - Warehouse inspection with autonomous drones - `video <https://youtu.be/juOrtGBb7KQ>`__
-- Team **CVAR-U.P.Madrid** (OpenCV AI comp) - Researching the autonomous Micro Aerial Vehicle (MAV) solution for catastrophic situations - `video <https://vimeo.com/583816850/3f084d9a9f>`__
 - Team **QUTEagles** (OpenCV AI comp) - Drone-based biosignatures detection system for planetary exploration - `video <http://bit.ly/QUTEaglesVideo>`__
 - **Augmented Startups** built a gesture controlled drone and has 3-part tutorial on YouTube - `video <https://www.youtube.com/watch?v=TYiiLTioecg>`__
 
-To use OAK devices with systems like `PX4 <https://px4.io/>`__ or `ArduPilot <https://ardupilot.org/>`__, one would need to develop integration
-of our devices/hardware with such systems.
-
-Here are a couple of examples of **PX4** sensors that could be interfaced by ESP32/other MCU and communicated to OAK to get needed data or
-trigger a certain action:
-
-- `Optical flow <https://docs.px4.io/master/en/sensor/optical_flow.html>`__ (requires a downward facing camera and a distance sensor)
-- `Camera <https://docs.px4.io/master/en/peripherals/camera.html>`__
-- `Distance Sensors <https://docs.px4.io/master/en/sensor/rangefinders.html>`__
-
-For additonal useful information about OAK on drones projects you can check out our :code:`#drone` channel on our
+For additonal information about OAK on drones projects you can check out the :code:`#drone` channel on our
 `Discord server <https://discord.gg/luxonis>`__.
 
 OAK ArduPilot integration
