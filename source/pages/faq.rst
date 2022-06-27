@@ -1247,6 +1247,11 @@ It is the standard 1/4-20 "Tripod" mount used on most cameras.  More information
 
 .. _virtualbox:
 
+Can the auto-focus center/color camera of the OAK-D be replaced with a fixed-focus camera?
+#########################################################
+
+Yes, while not offered as a default option we can swap in a fixed-focus center camera for the OAK-D on request. However, a likely faster solution would be to source any of our other OAK system, which allow for etiher auto-focus or fixed-focus options to be selected standard.
+
 How to use DepthAI under VirtualBox
 ###################################
 
