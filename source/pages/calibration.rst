@@ -48,9 +48,9 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Often, using a monitor to display the calibration target is easier/faster.
 
-    .. image:: https://github.com/luxonis/depthai/raw/main/charuco_297x210_8x11_20_DICT_4X4.png
+    .. image:: https://github.com/luxonis/depthai/blob/2402db26408da6a122d9ae9ae646b0d96ea7e1d9/charuco_11x8.pdf
       :alt: Print this charuco calibration image
-      :target: https://github.com/luxonis/depthai/raw/main/charuco_297x210_8x11_20_DICT_4X4.png
+      :target: https://github.com/luxonis/depthai/blob/2402db26408da6a122d9ae9ae646b0d96ea7e1d9/charuco_11x8.pdf
 
     The entire board should fit on a single piece of paper (scale to fit).  And if displaying on a monitor, full-screen the image with a white background.
 
