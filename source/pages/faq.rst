@@ -665,6 +665,13 @@ Left-Right Check, or LR-Check is used to remove incorrectly calculated disparity
 
 To run LR-Check on DepthAI/OAK, use the example `here <https://github.com/luxonis/depthai-experiments#gen2-subpixel-and-lr-check-disparity-depth-here>`__.
 
+How to Measure Real-world Object Dimensions
+###########################################
+
+Because the depth map contains the Z distance, objects in parallel with the camera are measured accurately standard. For objects not in parallel, the Euclidean distance calculation can be used. Please refer to the below:
+
+.. image:: /_static/images/faq/Euclidian_distance_fig.png
+
 What Are The Maximum Depths Visible by DepthAI?
 ###############################################
 
