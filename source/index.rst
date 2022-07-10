@@ -138,15 +138,12 @@ In this section, you'll find an inspiration what can you build right away with D
          <div class="items-col">
             <div class="item">
                <div class="item-img-wrapper">
-                  <a href="https://www.youtube.com/watch?v=Py3-dHQymko" target="_blank">
-                    <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-head-posture-detection/media/pose.gif" alt="Head posture detection"/>
-                  </a>
+                  <img class="item-img" src="https://user-images.githubusercontent.com/18037362/172148301-45adb7ce-3aab-478f-8cad-0c05f349ce50.gif" alt="Head posture detection"/>
                </div>
                <div class="item-body">
                   <h5 class="item-title">Head posture detection</h5>
                   <span class="item-descr">
-                      <p>This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network</p>
-                      <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
+                      <p>This example demonstrates 2-stage pipeline with depthai - face detection NN and head pose estimation NN</p>
                   </span>
                </div>
                <footer class="item-footer">
@@ -164,7 +161,7 @@ In this section, you'll find an inspiration what can you build right away with D
                   <h5 class="item-title">Sign Language Recognition</h5>
                   <span class="item-descr">
                       <p>This example demonstrates how to recognize American Sign Language (ASL) on DepthAI using hand landmarks </p>
-                      <p>This example was created by <a href="https://www.cortic.ca/post/classifying-american-sign-language-alphabets-on-the-oak-d" target="_blank">Cortic Technology</a></p>
+                      <p>Example by <a href="https://www.cortic.ca/post/classifying-american-sign-language-alphabets-on-the-oak-d" target="_blank">Cortic Technology</a></p>
                   </span>
                </div>
                <footer class="item-footer">
