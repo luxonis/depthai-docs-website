@@ -15,7 +15,7 @@ Let's start with the device setup below
 Connect the OAK camera (USB)
 ############################
 
-If your OAK came with an inlcuded USB cable, we suggest using that to connect OAK camera to the host computer.
+If your OAK came with an included USB cable, we suggest using that to connect the OAK camera to the host computer.
 
 .. warning::
   Make sure to use **USB3 cable!** If you aren't, :ref:`force USB2 communication <Forcing USB2 Communication>` in the program.
