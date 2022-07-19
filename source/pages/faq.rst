@@ -1303,19 +1303,11 @@ will work with** the `Arducam IMX477 HQ Camera <https://www.arducam.com/product/
 **without an adapter board**, as you can connect the camera via the
 22-26 pin adapter cable (SKU: A00403, which you get with the OAK-FFC-3P/OAK-FFC-4P) to the FFC baseboard.
 
-`OAK-FFC-3P-OG <https://shop.luxonis.com/products/depthai-usb3-edition>`__ model **also works via an adapter board** with the Raspberry Pi HQ camera
+`OAK-FFC-3P-OG <https://shop.luxonis.com/products/depthai-usb3-edition>`__ model **also works with Raspberry Pi HQ cam via an adapter board**
 (IMX477 based), which then does work with a ton of C- and CS-mount lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`__).
 And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`__ for the adapter board for OAK-FFC-3P-OG.
 
-.. image:: https://github.com/luxonis/depthai-hardware/raw/master/BW0253_R0M0E0_RPIHQ_ADAPTER/Images/RPI_HQ_CAM_SYSTEM_2020-May-14_08-35-31PM-000_CustomizedView42985702451.png
-  :alt: Raspberry Pi HQ with DepthAI FFC
-
-Here are some quick images and videos of it in use:
-
 .. image:: https://cdn.hackaday.io/images/9159701591761513514.JPG
-  :alt: Raspberry Pi HQ Camera Support in DepthAI
-
-.. image:: https://cdn.hackaday.io/images/775661591761050468.png
   :alt: Raspberry Pi HQ Camera Support in DepthAI
 
 .. image:: https://i.imgur.com/AbCHQgW.jpg
