@@ -1291,15 +1291,17 @@ For more info, please see :ref:`Converting model to MyriadX blob`
 Can I Use DepthAI with the New Raspberry Pi HQ Camera?
 ######################################################
 
-This is a particularly interesting application of DepthAI, as it allows the Raspberry Pi HQ camera to be encoded to h.265 4K video
-(and 12MP stills) even with a Raspberry Pi 1 or `Raspberry Pi Zero <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi.html#raspberry-pi-zero>`__ - because DepthAI
+This is a particularly interesting application of DepthAI, as it allows the `Arducam IMX477 HQ Camera <https://www.arducam.com/product/b0240-arducam-imx477-hq-quality-camera/>`__
+(alternative to RPi HQ cam) to be encoded to h.265 4K video (and 12MP stills) even with a Raspberry Pi 1 or
+`Raspberry Pi Zero <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi.html#raspberry-pi-zero>`__ - because OAK camera
 does all the encoding onboard - so the Pi only receives a 3.125 MB/s encoded 4K h.265 stream instead of the otherwise 373 MB/s 4K RAW
-stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Pi HQ camera
+stream coming off the IMX477 directly (which is too much data for the Pi to handle, and is why the Pi when used with the Arducam HQ camera
 directly, can only do 1080p video and not 4K video recording).
 
-`OAK-FFC-3P <https://shop.luxonis.com/collections/modular-cameras/products/dm1090ffc>`__ and **OAK-FFC-4P will work with** the `Raspberry Pi HQ Camera <https://www.arducam.com/product/b0240-arducam-imx477-hq-quality-camera/>`__
+`OAK-FFC-3P <https://docs.luxonis.com/projects/hardware/en/latest/pages/DM1090.html>`__ and `OAK-FFC-4P <https://docs.luxonis.com/projects/hardware/en/latest/pages/DD2090.html>`__
+will work with** the `Arducam IMX477 HQ Camera <https://www.arducam.com/product/b0240-arducam-imx477-hq-quality-camera/>`__
 **without an adapter board**, as you can connect the camera via the
-22-26 pin adapter cable (SKU: A00403, which you get with the OAK-FFC-3P/OAK-FFC-4P) to the FFC board.
+22-26 pin adapter cable (SKU: A00403, which you get with the OAK-FFC-3P/OAK-FFC-4P) to the FFC baseboard.
 
 `OAK-FFC-3P-OG <https://shop.luxonis.com/products/depthai-usb3-edition>`__ model **also works via an adapter board** with the Raspberry Pi HQ camera
 (IMX477 based), which then does work with a ton of C- and CS-mount lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`__).
