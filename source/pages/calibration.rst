@@ -48,7 +48,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Often, using a monitor to display the calibration target is easier/faster.
 
-    .. image:: https://github.com/luxonis/depthai/blob/2402db26408da6a122d9ae9ae646b0d96ea7e1d9/charuco_11x8.pdf
+    .. image:: /_static/images/charuco_calibration.png
       :alt: Print this charuco calibration image
       :target: https://github.com/luxonis/depthai/blob/2402db26408da6a122d9ae9ae646b0d96ea7e1d9/charuco_11x8.pdf
 
