@@ -111,7 +111,7 @@ We've found that some hosts have trouble with long USB3 cables (above 6ft/2m). I
 as Apple computers have powerful USB controllers.
 
 Note that Ubuntu 16.04 has an independent USB3 issue, seemingly only on new machines though. 
-We think this has to do w/ Ubuntu 16.04 being EOLed prior or around when these new machines having hit the market.
+We think this has to do w/ Ubuntu 16.04 being EOLed prior to or around when these new machines hit the market.
 For example, on this computer (`here <https://pcpartpicker.com/list/KTDFQZ>`__) has rampant USB3 disconnect issues
 under Ubuntu 16.04 (with a 1 meter cable), but has none under Ubuntu 18.04 (with a 1 meter cable).
 
