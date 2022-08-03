@@ -108,7 +108,7 @@ Intermittent Connectivity with Long (2 meter) USB3 Cables
 
 We've found that some hosts have trouble with long USB3 cables (above 6ft/2m). It seems to have something to do with the
 **USB controller on the host side**. For example, all Apple computers we've tested with have never exhibited the problem,
-as Apple computers have powerful USB controller.
+as Apple computers have powerful USB controllers.
 
 Note that Ubuntu 16.04 has an independent USB3 issue, seemingly only on new machines though. 
 We think this has to do w/ Ubuntu 16.04 being EOLed prior or around when these new machines having hit the market.
