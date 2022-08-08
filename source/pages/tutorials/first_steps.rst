@@ -848,7 +848,7 @@ These methods allow building custom functionalities on top of the demo script it
 the data from NN or modifying how to display the frames or even make custom database/API connections to send the data to
 external destination.
 
-By default, the demo script will use :code:`callbacks.py` file in the repository, but this path cam be changed using
+By default, the demo script will use :code:`callbacks.py` file in the repository, but this path can be changed using
 :code:`-cb <path> / --callback <path>` flags
 
 Importing demo as a class
