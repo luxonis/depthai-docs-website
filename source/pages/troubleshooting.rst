@@ -110,16 +110,16 @@ We've found that some hosts have trouble with long USB3 cables (above 6ft/2m). I
 **USB controller on the host side**. For example, all Apple computers we've tested with have never exhibited the problem,
 as Apple computers have powerful USB controllers.
 
-Note that Ubuntu 16.04 has an independent USB3 issue, seemingly only on new machines though. 
-We think this has to do w/ Ubuntu 16.04 being EOLed prior to or around when these new machines hit the market.
-For example, this computer (`here <https://pcpartpicker.com/list/KTDFQZ>`__) has rampant USB3 disconnect issues
-under Ubuntu 16.04 (with a 1 meter cable), but has none under Ubuntu 18.04 (with a 1 meter cable).
-
 So, if you experience this problem with your host, there are potentially **3 options**:
 
 #. Switching to a shorter USB3 cable (say 1 meter) will very likely make the problem disappear.  `These <https://www.amazon.com/gp/product/B07S4G4L4Z/ref=ppx_yo_dt_b_asin_title_o00_s00?ie=UTF8&psc=1>`__ 1 meter (3.3 ft.) cables are a nice length and are shipped with OAK USB3 variants.
 #. :ref:`Force USB2 mode <Forcing USB2 Communication>`.  This will allow use of the long cable still, and many DepthAI use cases do not necessitate USB3 communication bandwidth - USB2 is plenty.
-#. Use `Active USB3 cable <https://www.cablematters.com/blog/USB-C/active-usb-extension-cable>`__
+#. Use `Active USB3 cable <https://www.cablematters.com/blog/USB-C/active-usb-extension-cable>`__. We have tested `this 10m active cable <https://www.amazon.de/-/en/dp/B08T5J3JZ3/ref=twister_B08T61LMP8?_encoding=UTF8&psc=1>`__ and USB3 works as expected (even without powering the repeater).
+
+Note that Ubuntu 16.04 has an independent USB3 issue, seemingly only on new machines though. 
+We think this has to do w/ Ubuntu 16.04 being EOLed prior to or around when these new machines hit the market.
+For example, this computer (`here <https://pcpartpicker.com/list/KTDFQZ>`__) has rampant USB3 disconnect issues
+under Ubuntu 16.04 (with a 1 meter cable), but has none under Ubuntu 18.04 (with a 1 meter cable).
 
 Forcing USB2 Communication
 ##########################
