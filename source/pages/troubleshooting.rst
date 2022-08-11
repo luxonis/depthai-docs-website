@@ -154,9 +154,10 @@ device to use the USB2-only firmware (mentioned in the chapter above).
 Udev rules on Linux
 ###################
 
-- :code:`Failed to boot the device: 1.3-ma2480, err code 3`
-- :code:`Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND`
-- :code:`[warning] skipping X_LINK_UNBOOTED device having name "<error>"`
+- ``Failed to boot the device: 1.3-ma2480, err code 3``
+- ``Failed to find device (ma2480), error message: X_LINK_DEVICE_NOT_FOUND``
+- ``[warning] skipping X_LINK_UNBOOTED device having name "<error>"``
+- ``Insufficient permissions to communicate with X_LINK_UNBOOTED device with name "1.1". Make sure udev rules are set``
 
 If you are getting any of the errors above, it's most likely that udev rules are not set on your Linux machine.
 
