@@ -3,8 +3,8 @@
 Spatial AI
 ==========
 
-**Spatial AI** allows robots or computers to perceive the world as a human can - what objects or features are - and where
-they are in the physical world. DepthAI platform **leverages Spatial AI by fusing** :ref:`AI capabilities <AI / ML / NN>` with
+**Spatial AI** allows robots or computers to perceive the world like a human can, such as what objects or features are and where
+they are in the physical world. The DepthAI platform **leverages Spatial AI by fusing** :ref:`AI capabilities <AI / ML / NN>` with
 :ref:`depth perception <Depth perception>` on the OAK camera itself.
 
 There are a few different approaches to achieve AI + depth fusion:
@@ -56,8 +56,8 @@ a depth map to provide spatial coordinates (XYZ) of objects it sees: person, pot
 ------------------------
 
 An example would be a hand landmark detector on DepthAI. With a regular camera, this network returns
-the 2D (XY) coordinates of all 21 hand landmarks (contours of all joints in fingers). Using this same network
-with DepthAI, these 21 hand landmarks are now 3D points in physical space instead of 2D points in pixel space
+the 2D (XY) coordinates of all 21 hand landmarks (contours of all joints of the fingers). Using this same network
+with DepthAI, these 21 hand landmarks are now 3D points in physical space instead of 2D points in pixel space.
 
 .. image:: https://user-images.githubusercontent.com/18037362/156813885-146602d9-e5f9-4afa-9542-7904c7e236b3.gif
   :target: https://www.youtube.com/watch?v=xXXsT6afW6E
@@ -72,7 +72,7 @@ detection demos.
 #################
 
 One of the classic problems in autonomous robotic navigation/actuation are **unknown objects**.
-Known objects are specified before the installation to be encountered - such as tools, other machines,
+Known objects are specified before the installation to be encountered, such as tools, other machines,
 workers, equipment, and facilities.
 
 We cannot anticipate unknown objects - including those
@@ -104,8 +104,8 @@ only to include the person’s depth.
 ##########################
 
 In this mode, the neural inference (landmark detection) is run on the left **and** right cameras to
-produce stereo inference results. Unlike monocular neural inference fused with stereo depth - there is no max disparity
-search limit - so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the
+produce stereo inference results. Unlike monocular neural inference fused with stereo depth there is no max disparity
+search limit, so the minimum distance is purely limited by the greater of (a) horizontal field of view (HFOV) of the
 stereo cameras themselves and (b) the hyperfocal distance of the cameras (minimal distance for objects to be in focus).
 
 After we have 2D positions of landmarks from both left/right cameras, we can calculate the disparity of the results,
