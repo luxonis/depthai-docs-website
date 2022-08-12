@@ -1,7 +1,7 @@
 Depth perception
 ================
 
-DepthAI platform supports different ways of perceiving depth:
+The DepthAI platform supports different ways of perceiving depth:
 
 #. :ref:`Passive stereo depth perception` - Used by non-Pro version of OAK-D cameras
 #. :ref:`Active stereo depth perception` - Used by `Pro version <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s2.html#pro-version>`__ of OAK-D cameras
@@ -16,14 +16,14 @@ stereo camera pair - left and right monocular cameras - and the VPU (brains of t
 **disparity matching** to estimate the depth of objects and scenes.
 
 The **disparity** is the distance (in pixels) between the same point in the left and right image of the stereo pair camera.
-A great demo of disparity is below - the disparity is visualized with a red line between points/features - which in this
+A great demo of disparity is seen below. The disparity is visualized with a red line between points/features, which in this
 case are facial landmarks (eyes, nose, mouth).
 
 .. image:: https://user-images.githubusercontent.com/59799831/132098832-70a2d0b9-1a30-4994-8dad-dc880a803fb3.gif
   :target: https://github.com/luxonis/depthai-experiments/tree/master/gen2-triangulation
   :alt: Triangulation Demo
 
-OAK-D camera does that for every pixel in the mono frame - it goes through pixels on the first mono frame,
+The OAK-D camera does that for every pixel in the mono frame; it goes through pixels on the first mono frame,
 finds the same point/feature on the second mono frame, and assigns a disparity value (in pixels) with some confidence for every pixel.
 This all happens inside the `StereoDepth node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/>`__.
 The depth map is calculated from the disparity map (on the camera) using `this formula <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#calculate-depth-using-disparity-map>`__.

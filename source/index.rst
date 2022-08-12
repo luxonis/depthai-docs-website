@@ -5,9 +5,9 @@ DepthAI's Documentation
 
    Just received an OAK camera? Start :ref:`here <First steps with DepthAI>`!
 
-DepthAI is a :ref:`Spatial AI <spatialai>` **platform**, which allows **robots and computers** to **perceive the world like a
-human** can - what objects or features are - and **where they are in physical world.**
-It focuses on the combination of these **5 key features**:
+DepthAI is a :ref:`Spatial AI <spatialai>` **platform**, which empowers **robots and computers** to **perceive the world like
+humans** can. It allows for the identification of objects and features, and the understanding of **where those elements are in the physical world.**
+DepthAI focuses on the combination of these **5 key features**:
 
 #. :ref:`Artificial Intelligence <AI / ML / NN>`
 #. :ref:`Computer Vision`
@@ -15,9 +15,9 @@ It focuses on the combination of these **5 key features**:
 #. Performant (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
 #. Embedded, low power solution
 
-DepthAI platform is built around `Movidius VPU <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html>`__
-- it's a complete ecosystem of custom `hardware <https://docs.luxonis.com/projects/hardware/en/latest/>`__, firmware, and `software API <https://docs.luxonis.com/projects/api/en/latest/>`__. 
-Best of all, it is modular and you can **integrate** this technology **into your products** (`docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/integrating_depthai_into_products.html>`__).
+The DepthAI platform is built around the `Movidius VPU <https://www.intel.com/content/www/us/en/products/details/processors/movidius-vpu.html>`__
+and is a complete ecosystem of custom `hardware <https://docs.luxonis.com/projects/hardware/en/latest/>`__, firmware, and `software API <https://docs.luxonis.com/projects/api/en/latest/>`__. 
+Best of all, it's modular, and you can **integrate** this technology **into your products** (`docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/integrating_depthai_into_products.html>`__).
 
 Demo Script
 -----------
@@ -25,12 +25,12 @@ Demo Script
 .. image:: /_static/images/tutorials/depthaidemo.png
   :alt: Default run
 
-Demo script is our multipurpose command line demo tool, built around pipeline builder API, that allows you to check
-DepthAI features straight from the command line - no coding required!  It works USB and POE equally, automatically
-discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple are connected, it
+Demo Script is our multipurpose command line demo tool, built around Pipeline Builder API, that allows you to check
+DepthAI features straight from the command line, with no coding required!  It works with USB and POE equally, automatically
+discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple connections are present it
 will prompt you on which to use for the demo.
 
-To install and run the demo script on your OAK camera, type the following commands in the terminal.
+To install and run the Demo Script on your OAK camera, type the following commands in the terminal.
 
 .. code-block:: bash
 
@@ -39,8 +39,8 @@ To install and run the demo script on your OAK camera, type the following comman
   python3 install_requirements.py
   python3 depthai_demo.py
 
-And then following up with the `README.md <https://github.com/luxonis/depthai/blob/main/README.md>`__ for more usage examples.
-We have also prepared a **step by step guide** :ref:`here <First steps with DepthAI>` with detailed instructions how to set up your DepthAI and run this script.
+Then, be sure to follow up with the `README.md <https://github.com/luxonis/depthai/blob/main/README.md>`__ for more usage examples.
+We have also prepared a **step by step guide** :ref:`here <First steps with DepthAI>` with detailed instructions on how to set up your DepthAI and run this script.
 
 If you have issues during the installation, see our `Installation page <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for additional OS-specific
 instructions
@@ -48,7 +48,7 @@ instructions
 Example Use Cases
 -----------------
 
-In this section, you'll find an inspiration what can you build right away with DepthAI.
+In this section, you'll find inspiration for what can you build right away with DepthAI.
 
 .. raw:: html
 
@@ -63,7 +63,7 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">Pose Estimation</h5>
                   <span class="item-descr">
-                      <p>This example shows how to run Google Mediapipe single body pose tracking models</p>
+                      <p>This example shows how to run Google Mediapipe single body pose tracking models.</p>
                       <p>Created by our contributor - <a href="https://github.com/geaxgx" target="_blank">Geaxgx</a></p>
                   </span>
                </div>
@@ -123,7 +123,7 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">License Plates & Car Attributes Recognition</h5>
                   <p class="item-descr">
-                      <p>This experiment allows you to run multiple neural networks at once to collect car attributes and license plates (only Chinese)</p>
+                      <p>This experiment allows you to run multiple neural networks at once to collect car attributes and license plates (China only).</p>
                   </p>
                </div>
                <footer class="item-footer">
@@ -141,9 +141,9 @@ In this section, you'll find an inspiration what can you build right away with D
                   <img class="item-img" src="https://user-images.githubusercontent.com/18037362/172148301-45adb7ce-3aab-478f-8cad-0c05f349ce50.gif" alt="Head posture detection"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Head posture detection</h5>
+                  <h5 class="item-title">Head Posture Detection</h5>
                   <span class="item-descr">
-                      <p>This example demonstrates 2-stage pipeline with depthai - face detection NN and head pose estimation NN</p>
+                      <p>This example demonstrates 2-stage pipeline with DepthAI: face detection NN and head pose estimation NN.</p>
                   </span>
                </div>
                <footer class="item-footer">
@@ -160,7 +160,7 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">Sign Language Recognition</h5>
                   <span class="item-descr">
-                      <p>This example demonstrates how to recognize American Sign Language (ASL) on DepthAI using hand landmarks </p>
+                      <p>This example demonstrates how to recognize American Sign Language (ASL) on DepthAI using hand landmarks. </p>
                       <p>Example by <a href="https://www.cortic.ca/post/classifying-american-sign-language-alphabets-on-the-oak-d" target="_blank">Cortic Technology</a></p>
                   </span>
                </div>
@@ -201,7 +201,7 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">Fatigue Detection</h5>
                   <span class="item-descr">
-                      <p>This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network</p>
+                      <p>This example demonstrates the Gen2 Pipeline Builder running face detection network and head detection network.</p>
                       <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
                   </span>
                </div>
@@ -225,7 +225,7 @@ In this section, you'll find an inspiration what can you build right away with D
                   <h5 class="item-title">Age Gender Recognition</h5>
                   <span class="item-descr">
                       <p>This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.</p>
-                      <p>First, a face is detected on the image and then the cropped face frame is sent to age gender recognition network, which produces the estimated results</p>
+                      <p>First, a face is detected on the image and then the cropped face frame is sent to an age gender recognition network, which produces the estimated results.</p>
                   </span>
                </div>
                <footer class="item-footer">
@@ -242,7 +242,7 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">Face Recognition</h5>
                   <span class="item-descr">
-                    <p>This example demonstrates the Gen2 Pipeline Builder running face detection network, head posture estimation network and face recognition network</p>
+                    <p>This example demonstrates the Gen2 Pipeline Builder running face detection network, head posture estimation network, and face recognition network.</p>
                     <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
                   </span>
                </div>
@@ -263,10 +263,10 @@ In this section, you'll find an inspiration what can you build right away with D
                   </a>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">COVID-19 mask detection</h5>
+                  <h5 class="item-title">COVID-19 Mask Detection</h5>
                   <p class="item-descr">
-                      <p>This experiment allows you to run the COVID-19 mask/no-mask object detector which was trained via</p>
-                      <p>the Google Colab tutorial <a href="https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#covid-19-maskno-mask-training" target="_blank">here</a>.</p>
+                      <p>This experiment allows you to run the COVID-19 mask/no-mask object detector.</p>
+                      <p>Trained via the Google Colab tutorial <a href="https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks#covid-19-maskno-mask-training" target="_blank">here</a>.</p>
                   </p>
                </div>
                <footer class="item-footer">
@@ -283,7 +283,7 @@ In this section, you'll find an inspiration what can you build right away with D
                   </a>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Pedestrian reidentification</h5>
+                  <h5 class="item-title">Pedestrian Reidentification</h5>
                   <p class="item-descr">
                       <p>This example demonstrates how to run 2 stage inference on DepthAI using Gen2 Pipeline Builder.</p>
                       <p>Original OpenVINO demo, on which this example was made, is <a target="_blank" href="https://docs.openvinotoolkit.org/2020.1/_demos_pedestrian_tracker_demo_README.html">here</a>.</p>
@@ -325,7 +325,7 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">Deeplabv3 (Segmentation)</h5>
                   <span class="item-descr">
-                      <p>This example shows how to run Deeplabv3+ and crop the depth image based on the models output.</p>
+                      <p>This example shows how to run Deeplabv3+ and crop the depth image based on the model's output.</p>
                   </span>
                </div>
                <footer class="item-footer">
@@ -343,9 +343,9 @@ In this section, you'll find an inspiration what can you build right away with D
                   <img class="item-img" src="https://github.com/luxonis/depthai-experiments/raw/master/gen2-fire-detection/images/fire_demo.gif" alt="Fire detection"/>
                </div>
                <div class="item-body">
-                  <h5 class="item-title">Fire detection</h5>
+                  <h5 class="item-title">Fire Detection</h5>
                   <span class="item-descr">
-                      <p>This example demonstrates the Gen2 Pipeline Builder running fire detection network</p>
+                      <p>This example demonstrates the Gen2 Pipeline Builder running fire detection network.</p>
                       <p>This example was created by our partner - <a href="https://www.arducam.com/oak-opencv-ai-kit-camera/" target="_blank">ArduCam</a></p>
                   </span>
                </div>
@@ -365,7 +365,7 @@ In this section, you'll find an inspiration what can you build right away with D
                <div class="item-body">
                   <h5 class="item-title">Text Detection + OCR</h5>
                   <span class="item-descr">
-                    <p>This example demonstrates the Gen2 Pipeline Builder running text detection (EAST) followed by optical character recognition of the detected text</p>
+                    <p>This example demonstrates the Gen2 Pipeline Builder running text detection (EAST) followed by optical character recognition of the detected text.</p>
                   </span>
                </div>
                <footer class="item-footer">
@@ -380,26 +380,26 @@ In this section, you'll find an inspiration what can you build right away with D
 Tools & API Examples
 --------------------
 
-In this section, you'll see examples of various API usage permutations, to show what the API is capable of or to solve
-some meta problem, like how to stream the data, how to collect it and alike.
+In this section, you'll see examples of various API usage permutations. It will help you discover what the API is capable of, as well as how to solve
+certain types of meta problems, such as how to stream and collect data.
 
 .. list-table::
   :widths: 10 90
 
   * - `OCR <https://github.com/luxonis/depthai-experiments/tree/master/gen2-ocr>`__
-    - This pipeline implements text detection (EAST) followed by optical character recognition of the detected text
+    - This pipeline implements text detection (EAST) followed by optical character recognition of the detected text.
   * - `Multiple Devices <https://github.com/luxonis/depthai-experiments/tree/master/gen2-multiple-devices>`__
-    - This example shows how you can use multiple DepthAI's on a single host. The demo will find all devices connected to the host and display an RGB preview from each of them
+    - This example shows how you can use multiple DepthAI's on a single host. The demo will find all devices connected to the host and display an RGB preview from each of them.
   * - `Face recognition <https://github.com/luxonis/depthai-experiments/tree/master/gen2-face-recognition>`__
-    - Detects all faces in the frame, gets face feature vectors and compares it with database to perform face recognition
+    - Detects all faces in the frame, gets face feature vectors, and compares them with a database to perform face recognition.
   * - `Message Syncing <https://github.com/luxonis/depthai-experiments/tree/master/gen2-syncing>`__
-    - This example shows how to sync messages (eg. NN results with frames) with software, based on either timestamps or sequence numbers
+    - This example shows how to sync messages (eg. NN results with frames) with software, based on either timestamps or sequence numbers.
   * - `License plate recognition <https://github.com/luxonis/depthai-experiments/tree/master/gen2-license-plate-recognition>`__
-    - Detects license plates and performs license plate recognition operation on the camera itself
+    - Detects license plates and performs license plate recognition operation on the camera itself.
   * - `WLS Filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
-    - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI API
+    - This example demonstrates how to do host-side WLS filtering using the rectified_right and depth stream from DepthAI API.
   * - `QR code scanner <https://github.com/luxonis/depthai-experiments/tree/master/gen2-qr-code-scanner>`__
-    - QR Code detection model running on the device combined with on-host QR code decoder
+    - A QR Code detection model running on the device combined with an on-host QR code decoder.
 
 Ecosystem
 ---------
@@ -408,9 +408,9 @@ Ecosystem
   :widths: 10 90
 
   * - `depthai-python <https://github.com/luxonis/depthai-python/>`__
-    - Here you’ll find Python bindings creating the Python API of DepthAI
+    - Here you’ll find Python bindings creating the Python API of DepthAI.
   * - `depthai-core <https://github.com/luxonis/depthai-core/>`__
-    - Our core API written in C++
+    - Our core API written in C++.
   * - `depthai-shared <https://github.com/luxonis/depthai-shared/>`__
     - This repository contains shared data between our main firmware
       and depthai-core host library.
@@ -434,17 +434,17 @@ Ecosystem
   * - `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/>`__
     - Here you can find repositories to help you connect your NN and create BLOBs.
   * - `blobconverter <https://github.com/luxonis/blobconverter/>`__
-    - Web-based tool to convert model into MyriadX blob
+    - A Web-based tool to convert a model into a MyriadX blob.
   * - `depthai-gui <https://github.com/luxonis/depthai-gui/>`__
     - DepthAI GUI is a WYSIWYG tool that allows to create a custom DepthAI pipelines, run them and see the results - all in one tool.
   * - `depthai-tutorials <https://github.com/luxonis/depthai-tutorials/>`__
     - This repo contains source code for tutorials published on docs.luxonis.com.
   * - `Factory-calibration-DepthAI <https://github.com/luxonis/Factory-calibration-DepthAI/>`__
-    - Factory Calibration (WIP); This package contains two ROS workspace one is for depthai capture and calibration node and another is for Interbotix ViperX 300 Robot Arm 6DOF (KIT-VIPX300-6DOF) arm bot control using moveit.
+    - Factory Calibration (WIP). This package contains two ROS workspaces: one is for DepthAI capture and calibration node, and another is for Interbotix ViperX 300 Robot Arm 6DOF (KIT-VIPX300-6DOF) arm bot control using moveit.
   * - `depthai-docker <https://github.com/luxonis/depthai-docker/>`__
-    - This repository contains a Dockerfile, that allows you to run OpenVINO on DepthAI inside a Docker container.
+    - This repository contains a Dockerfile that allows you to run OpenVINO on DepthAI inside a Docker container.
   * - `sbr-util <https://github.com/luxonis/sbr-util/>`__
-    - Utility to view and manipulate SBR binary images
+    - Utility to view and manipulate SBR binary images.
   * - `depthai-docs-website <https://github.com/luxonis/depthai-docs-website/>`__
     - If you want to contribute and update our docs, you can simply create a pull request.
 
@@ -457,7 +457,7 @@ Ecosystem
   * - `depthai <https://github.com/luxonis/depthai/>`__
     - This repo contains a demo application, which can load different networks, create pipelines, record video, etc. This program includes an example of depth & CNN inference and ready to use models.
   * - `depthai-core-example <https://github.com/luxonis/depthai-core-example/>`__
-    - CMake example project which serves as a template on how to quickly get started with C++ and depthai library
+    - A CMake example project which serves as a template for how to quickly get started with C++ and depthai library.
 
 .. include::  /pages/includes/footer-long.rst
 
