@@ -8,6 +8,10 @@ alternative ways of running custom code:
 #. Creating your own NN model to run more computationally heavy features
 #. Creating custom `OpenCL <https://en.wikipedia.org/wiki/OpenCL>`__ kernels
 
+.. note::
+
+    With `Series 3 OAK cameras <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s3.html#custom-applications>`__, users will be able to run custom containirized apps on the OAK camera itself. 
+
 Using Script node
 #################
 
