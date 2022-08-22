@@ -30,17 +30,9 @@ your OAK camera to the host. You should see a similar output in the terminal:
   [223940.963371] usb 1-3.2: Manufacturer: Movidius Ltd.
   [223940.963373] usb 1-3.2: SerialNumber: 03e72485
 
-If these commands didn't return the expected log, please send us an email to support@luxonis.com.
+For **PoE OAK cameras**, see `PoE Troubleshooting page <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html#poe-troubleshooting>`__.
 
-How can the start-up demo on the Raspberry Pi Compute Edition be disabled?
-##########################################################################
-
-Delete the :code:`autostart` file:
-
-.. code-block:: bash
-
-  rm /home/pi/.config/autostart/runai.desktop
-
+If these commands didn't return the expected log, see :ref:`Support` page.
 
 ImportError: No module named 'depthai'
 ######################################
@@ -98,10 +90,7 @@ The USB device enumeration could be checked with lsusb | grep 03e7  . It should 
 - :code:`03e7:2485` after reset (boot loader running)
 - :code:`03e7:f63b` after the application was loaded
 
-No :code:`/dev/video*` nodes are created.
-
-DepthAI implements the VSC (Vendor Specific Class) protocol and :code:`libusb`
-is used for communication.
+No :code:`/dev/video*` nodes are created. See :ref:`OAK as a webcam` if you would like to use OAK camera as a webcam.
 
 Intermittent Connectivity with Long (2 meter) USB3 Cables
 #########################################################
@@ -173,20 +162,6 @@ CTRL-C Is Not Stopping It!
 
 If you are trying to kill a program with :code:`CTLR-C`, and it's not working, try :code:`CTRL-\ ` instead.  Usually this will work.
 
-Is Your Raspberry Pi Locking Up or is DepthAI Crashing on Raspberry Pi?
-#######################################################################
-
-The Raspberry Pi has a max limit of 1.2A across all its USB ports, and DepthAI/megaAI/OAK can take up to 1A (at max power, usually closer to 500mA).
-
-So if you are seeing lockups, it could be that you are over this 1.2A limit as a result of the total power of the USB devices drawing from the Pi.  Using a powered hub can prevent this, or powering fewer other things off of the Pi over USB.
-
-This may also manifest in DepthAI randomly crashing on the Pi.  This can become particularly often if DepthAI is configured
-to do many things at once.  This is becoming increasingly likely as we enable DepthAI to do more and more things at
-once - and thereby increase the maximum power that DepthAI can pull.  It is seeming like the peak power (current) spikes
-from DepthAI can go over what the Pi can handle, causing DepthAI to brown-out and return an error.
-
-So if you are experiencing issues with DepthAI stability on Raspberry, try powering DepthAI via a power-supply and/or a powered USB hub to see if the error goes away.  
-
 "DLL load failed while importing cv2" on Windows
 ################################################
 
@@ -215,8 +190,10 @@ This so far has always meant there is a problem with the OpenCV install on the h
 
   python3 -c "import cv2; import numpy as np; blank_image = np.zeros((500,500,3), np.uint8); cv2.imshow('s', blank_image); cv2.waitKey(0)"
 
-If a window is not displayed, or if you get the `:bash: Illegal instruction` result, this means there is a problem with the OpenCV install.  The installation scripts `here <https://docs.luxonis.com/en/latest/pages/api/#supported-platforms>`__ often will fix the OpenCV issues.  But if they do not, running `:bash: python3 -m pip install opencv-python --force-reinstall` will often fix the OpenCV problem.
-
+If a window is not displayed, or if you get the `:bash: Illegal instruction` result, this means there is a problem with
+the OpenCV install.  The installation scripts `here <https://docs.luxonis.com/en/latest/pages/api/#supported-platforms>`__
+often will fix the OpenCV issues.  But if they do not, running
+`:bash: python3 -m pip install opencv-python --force-reinstall` will often fix the OpenCV problem.
 
 Neural network blob compiled with incompatible openvino version
 ###############################################################
@@ -231,7 +208,7 @@ The reason for this error is that depthai can't resolve the OpenVINO version fro
 
   pipeline = depthai.Pipeline()
   # Set the correct version:
-  pipeline.setOpenVINOVersion(depthai.OpenVINO.Version.VERSION_2020_1)
+  pipeline.setOpenVINOVersion(depthai.OpenVINO.Version.VERSION_2021_1)
 
 "realloc(): invalid pointer\n Aborted" on RPi
 #############################################
@@ -248,7 +225,8 @@ If you are facing any of the errors above for either Mono Left/Right or Color ca
 If that doesn't help, there are 2 probable causes:
 
 - You are using OAK FFC and a camera sensor that isn't supported by default, so you should use a different branch, see `docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html#supported-sensors>`__.
-- A camera got disconnected during the shipping. This has been reported only a handful of times, but it's possible. The solution here is to open up the enclosure and re-attach the connector to the camera, see the `image here <https://github.com/luxonis/depthai-hardware/issues/224#issue-1166269781>`__ for the OAK-D (left mono camera not detected).
+- A camera got disconnected during the shipping. This has been reported only a handful of times, but it's possible.
+The solution here is to open up the enclosure and re-attach the connector to the camera, see the `image here <https://github.com/luxonis/depthai-hardware/issues/224#issue-1166269781>`__ for the OAK-D (left mono camera not detected).
 
 [error] input tensor exceeds available data range
 #################################################

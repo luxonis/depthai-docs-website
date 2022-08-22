@@ -370,7 +370,7 @@ is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processo
 .. _withos:
 
 Use-Case 1: DepthAI are a co-processor to a processor running Linux, MacOS, or Windows.
-**********************************************************************************************
+***************************************************************************************
 
 In this case, DepthAI can be used in two modalities:
 

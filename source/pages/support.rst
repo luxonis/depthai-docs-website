@@ -1,7 +1,28 @@
 Support
 =======
 
-Running into issues or have questions? We’re here to help.
+Running into issues or have questions? We're here to help.
+
+Creating Minimal Reproducible Example
+#####################################
+
+**Before requesting support, please also check** :ref:`Troubleshooting documentation page <Troubleshooting>`.
+
+To help you debug the issue you have the fastest and most efficient please provide a Minimal Reproducible Example (**MRE**), docs on `how to create MRE here <https://stackoverflow.com/help/minimal-reproducible-example>`__.
+This means everything, including **minimal script, required model .blobs, and any other assests**, should be compressed into single
+file (zip/7z/tar) as the MRE.
+
+Besides MRE, please also provide the following information when you are requesting support:
+
+* Name of the OAK camera (`all camera names here <https://docs.luxonis.com/projects/hardware/en/latest/>`__).
+* The **Version of the deptahi** you are using. If it's not `the latest <https://github.com/luxonis/depthai-core/releases>`__, please also try updating the depthai version to the latest (``python -mpip install depthai -U``).
+* If you are using an OAK PoE device:
+
+  * We suggest first checking the `PoE troubleshooting page <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html#poe-troubleshooting>`__.
+  * **Bootloader version** you are using. You should have the latest bootloader version, see `OAK Device Manager <https://docs.luxonis.com/projects/api/en/latest/components/bootloader/#device-manager>`__ for checking/updating the bootloader version.
+
+Requesting support
+##################
 
 You can get help in a number of ways:
 
