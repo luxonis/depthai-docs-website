@@ -1,3 +1,8 @@
+.. toctree:
+
+    On-device Pointcloud NN model
+
+
 Run your own CV functions on-device
 ===================================
 

@@ -1338,7 +1338,8 @@ Below is a quick video showing this:
   :target: https://www.youtube.com/watch?v=zQtSzhGR6Xg
 
 A strange noise pattern appears on the OAK-D Lite (RGB), how do I resolve this?
-################################
+###############################################################################
+
 When acquiring images with OAK-D Lite a strange noise pattern appears on RGB images. Left and right cameras are 480p, RGB image camera is 12mp with a preview size of 3840x2160.
 Those artifacts are related to ISP sharpness/denoise operations. These settings should reduce them:
 
