@@ -1,6 +1,13 @@
 On-device programming
 =====================
 
+.. toctree::
+   :maxdepth: 1
+   :hidden:
+
+   creating-custom-nn-models.rst
+   device-pointcloud.rst
+
 While regular (firmware) on-device development is not possible due to closed nature of native tooling, we still expose a couple of
 alternative ways of running custom code:
 

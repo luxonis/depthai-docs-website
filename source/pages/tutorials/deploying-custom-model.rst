@@ -67,6 +67,7 @@ input values - ``scalefactor=1 / 255`` and ``mean=(0, 0, 0)``, so the pretrained
 For Model Optimizer we will use the following arguments:
 
 .. code-block::
+
     --data_type=FP16 --mean_values=[0,0,0] --scale_values=[255,255,255]
 
 Myriad X compile parameters
@@ -315,6 +316,7 @@ usually do the following:
 So let's first convert the model to IR format (xml/bin) using `OpenVINO <https://pypi.org/project/openvino-dev/>`__:
 
 .. code-block::
+
     mo --input_model detect_2021nov.caffemodel
 
 Now that we have xml/bin, we can also look at the input/output shape of the model using `Netron <https://netron.app/>`__.

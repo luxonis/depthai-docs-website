@@ -478,7 +478,6 @@ Ecosystem
    pages/ai_ml_nn.rst
    pages/depth.rst
    pages/cv.rst
-   pages/tutorials/depth.rst
    pages/tutorials/on-device-programming.rst
 
 .. toctree::

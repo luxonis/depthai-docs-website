@@ -226,6 +226,7 @@ If that doesn't help, there are 2 probable causes:
 
 - You are using OAK FFC and a camera sensor that isn't supported by default, so you should use a different branch, see `docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html#supported-sensors>`__.
 - A camera got disconnected during the shipping. This has been reported only a handful of times, but it's possible.
+
 The solution here is to open up the enclosure and re-attach the connector to the camera, see the `image here <https://github.com/luxonis/depthai-hardware/issues/224#issue-1166269781>`__ for the OAK-D (left mono camera not detected).
 
 [error] input tensor exceeds available data range
