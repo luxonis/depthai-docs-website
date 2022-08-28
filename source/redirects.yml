@@ -8,6 +8,7 @@ redirects:
   "/examples/face_selfie_saver/": "/pages/samples/color_camera_selfie/"
   "/examples/minimal_working_example/": "/pages/samples/minimal/"
   "/tutorials/stereo_calibration/": "/pages/calibration/"
+  "/pages/calibration/": "https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/calibration.html"
   "/tutorials/converting_openvino_model/": "https://docs.luxonis.com/projects/api/en/latest/tutorials/local_convert_openvino/"
   "/tutorials/multiple_depthai/": "https://docs.luxonis.com/projects/api/en/latest/tutorials/multiple/"
   "/tutorials/openvino_model_zoo_pretrained_model/": "https://docs.luxonis.com/projects/api/en/latest/tutorials/pretrained_openvino/"

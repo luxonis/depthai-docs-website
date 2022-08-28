@@ -1000,7 +1000,7 @@ you can collapse the two homographies into one) actually outperforms single-homo
 
 As a result, we switched our calibration system in September 2020 to use dual-homography instead of single homography.  So any
 units produced after September 2020 include dual homography.  Any units with single homography can be recalibrated
-(see :ref:`here <Calibration>`) to use this updated dual-homography calibration.
+(see `here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/calibration.html>`__) to use this updated dual-homography calibration.
 
 How Do I Get Different Field of View or Lenses for DepthAI and megaAI?
 ######################################################################

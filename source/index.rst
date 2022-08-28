@@ -496,7 +496,6 @@ Ecosystem
    :caption: Contents
 
    pages/faq.rst
-   pages/calibration.rst
    pages/oak_webcam.rst
    pages/troubleshooting.rst
    pages/slam_oak.rst
