@@ -29,12 +29,13 @@ Besides MRE, please also provide the following information when you are requesti
 Requesting support
 ##################
 
-You can get help in a number of ways:
+To **request support from our engineers**, please **open an issue on** our `DepthAI Github repository <https://github.com/luxonis/depthai/issues>`__.
 
-- Email support@luxonis.com
-- Join our `Discord Community <https://discord.gg/luxonis>`__ for live assistance from us and developers like you
-- Post a message to `our forum <https://discuss.luxonis.com/>`__
-- Open an issue our `DepthAI Github repository <https://github.com/luxonis/depthai/issues>`__
+You can also get help by:
+
+- Emailing support@luxonis.com
+- Joining our `Discord Community <https://discord.gg/luxonis>`__ for live assistance from us and developers like you
+- Posting a message to `our forum <https://discuss.luxonis.com/>`__
 
 ..
   Needed for index.rst bottom
