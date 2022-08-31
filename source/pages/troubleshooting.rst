@@ -140,6 +140,14 @@ When connection speed is USB2 (due to some hosts - Windows in particular - or US
 initialization of USB3-enabled firmware or streaming after a few frames may fail. The workaround here is to force the
 device to use the USB2-only firmware (mentioned in the chapter above).
 
+DepthAI freezes after a few frames
+##################################
+
+If your app freezes and you don't get any new messages from the device after a few messages (eg. 4 frames) after booting, it's likely that queues filled
+up and were set to blocking mode. Additional details on node queues (on the OAK device) can be found `here <https://docs.luxonis.com/projects/api/en/latest/components/device/#blocking-behaviour>`__.
+We also recommend using `Pipeline Graph tool <https://github.com/geaxgx/depthai_pipeline_graph>`__ to quikcly check if there is something wrong with the pipeline
+(eg. a node that isn't connected to anything).
+
 Udev rules on Linux
 ###################
 

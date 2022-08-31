@@ -20,6 +20,7 @@ Besides MRE, please also provide the following information when you are requesti
 
 * Name of the OAK camera (`all camera names here <https://docs.luxonis.com/projects/hardware/en/latest/>`__).
 * The **Version of the deptahi** you are using. If it's not `the latest <https://github.com/luxonis/depthai-core/releases>`__, please also try updating the depthai version to the latest (``python -mpip install depthai -U``).
+* Screenshot of your pipeline using the `Pipeline Graph tool <https://github.com/geaxgx/depthai_pipeline_graph>`__.
 * If you are using an OAK PoE device:
 
   * We suggest first checking the `PoE troubleshooting page <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html#poe-troubleshooting>`__.
