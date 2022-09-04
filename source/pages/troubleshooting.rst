@@ -248,4 +248,46 @@ This error is usually thrown when we use :code:`NNData` message and we don't pro
 expects for the inference. For example, in the error above, the NN model expects 6912 bytes (48x48x3), but only 6336 bytes
 were sent to it.
 
+Converting YUV420 to CV2 frame
+##############################
+
+If you try to convert YUV420 frame to CV using `ImgFrame <https://docs.luxonis.com/projects/api/en/latest/components/messages/img_frame/>`__'s ``.getCvFrame()``
+method, you might come accross the error below:
+
+.. code-block::
+  :emphasize-lines: 2
+
+  cv2.error: OpenCV(4.6.0) d:\a\opencv-python\opencv-python\opencv\modules\imgproc\src\color.simd_helpers.hpp:108: error:
+  (-215:Assertion failed) sz.width % 2 == 0 && sz.height % 3 == 0 in function
+  'cv::impl::`anonymous-namespace'::CvtHelper<struct cv::impl::`anonymous namespace'::Set<1,-1,-1>,
+  struct cv::impl::A0xe823dd8f::Set<3,4,-1>,struct cv::impl::A0xe823dd8f::Set<0,-1,-1>,1>::CvtHelper'
+
+The culprit of the error is that OpenCV requires YUV420 width to be divisible by 2, and height to be divisible by 3. A simple example that will crash:
+
+.. code-block:: python
+  :linenos:
+
+  import depthai as dai
+  import cv2
+
+  pipeline = dai.Pipeline()
+  cam = pipeline.createColorCamera()
+
+  manip = pipeline.createImageManip()
+  # manip.initialConfig.setFrameType(dai.RawImgFrame.Type.BGR888p)
+  manip.initialConfig.setResize(600, 451)
+  cam.isp.link(manip.inputImage)
+
+  xout = pipeline.createXLinkOut()
+  xout.setStreamName("out")
+  manip.out.link(xout.input)
+
+  with dai.Device(pipeline) as device:
+      f = device.getOutputQueue('out').get().getCvFrame()
+      cv2.imshow("frame", f)
+      cv2.waitKey(0)
+
+Since ``isp`` output is **YUV420**, it will crash when calling ``.getCvFrame()``. You could either resize the frame to 600x450 (so height is divisible by 3) on line 9,
+or uncomment the line 8, so frame gets converted to **BGR** on the device itself.
+
 .. include::  /pages/includes/footer-short.rst
