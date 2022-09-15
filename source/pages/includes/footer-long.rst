@@ -1,3 +1,21 @@
+..
+  Needed for index.rst bottom
+
+.. image:: /_static/images/email.png
+  :width: 1
+
+.. image:: /_static/images/forum.png
+  :width: 1
+
+.. image:: /_static/images/discord.png
+  :width: 1
+
+.. image:: /_static/images/depthai-gui.png
+  :width: 1
+
+.. image:: /_static/images/depthai-api.jpg
+  :width: 1
+
 .. raw:: html
 
     <h2>Got questions?</h2>
