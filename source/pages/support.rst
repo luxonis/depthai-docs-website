@@ -58,4 +58,22 @@ If a return is initiated because of damaged, defective, or incorrect goods, Luxo
 
 Refunds will be processed within 14 days after the product has been returned.
 
+..
+  Needed for index.rst bottom
+
+.. image:: /_static/images/email.png
+  :width: 1
+
+.. image:: /_static/images/forum.png
+  :width: 1
+
+.. image:: /_static/images/discord.png
+  :width: 1
+
+.. image:: /_static/images/depthai-gui.png
+  :width: 1
+
+.. image:: /_static/images/depthai-api.jpg
+  :width: 1
+
 .. include::  /pages/includes/footer-long.rst
