@@ -2,7 +2,7 @@
 
     <h2>Got questions?</h2>
 
-We're always happy to help with code or other questions you might have.
+We're always happy to help with development or other questions you might have.
 
 .. raw:: html
 
@@ -22,7 +22,7 @@ We're always happy to help with code or other questions you might have.
          <div class="cta-box">
             <a href="mailto:support@luxonis.com">
                <img src="/_images/email.png" alt="forum"/>
-               <h5 class="cta-title">Email Support</h5>
+               <h5 class="cta-title">Email</h5>
             </a>
          </div>
       </div>
