@@ -1,8 +1,26 @@
+..
+  Needed for index.rst bottom
+
+.. image:: /_static/images/email.png
+  :width: 1
+
+.. image:: /_static/images/forum.png
+  :width: 1
+
+.. image:: /_static/images/discord.png
+  :width: 1
+
+.. image:: /_static/images/depthai-gui.png
+  :width: 1
+
+.. image:: /_static/images/depthai-api.jpg
+  :width: 1
+
 .. raw:: html
 
     <h2>Got questions?</h2>
 
-We're always happy to help with code or other questions you might have.
+We're always happy to help with development or other questions you might have.
 
 .. raw:: html
 
@@ -12,7 +30,7 @@ We're always happy to help with code or other questions you might have.
                <img src="/_images/discord.png" alt="Discord"/>
                <h5 class="cta-title">Community Discord</h5>
             </a>
-            <p class="cta-descr">Chat live with the DepthAI team and devs like you.</p>
+            <p class="cta-descr">Chat live with the our team and devs like you.</p>
          </div>
          <div class="cta-box">
             <a href="https://discuss.luxonis.com/">
@@ -24,8 +42,8 @@ We're always happy to help with code or other questions you might have.
          <div class="cta-box">
             <a href="mailto:support@luxonis.com">
                <img src="/_images/email.png" alt="forum"/>
-               <h5 class="cta-title">Email Support</h5>
+               <h5 class="cta-title">Email</h5>
             </a>
-            <p class="cta-descr">Send a message to our support team.</p>
+            <p class="cta-descr">Send a message to our team.</p>
          </div>
       </div>

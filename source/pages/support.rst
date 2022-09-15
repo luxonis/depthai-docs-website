@@ -26,34 +26,24 @@ Besides MRE, please also provide the following information when you are requesti
   * We suggest first checking the `PoE troubleshooting page <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html#poe-troubleshooting>`__.
   * **Bootloader version** you are using. You should have the latest bootloader version, see `OAK Device Manager <https://docs.luxonis.com/projects/api/en/latest/components/bootloader/#device-manager>`__ for checking/updating the bootloader version.
 
+IP related issues
+-----------------
+
+If you are having an issue with an app that contains your (company's) **Intellectual Property**, eg. NN model or business logic, you should first
+remove this IP before creating MRE:
+
+- For **NN model**, replace your model with a public model. So if you trained an object detection NN, replace it with eg. public pretrained Mobilenet-SSD.
+- For **business logic**, simply remove the code. MRE shouldn't contain much host-side code where your business logic would be.
+
 Requesting support
 ##################
 
 To **request support from our engineers**, please **open an issue on** our `DepthAI Github repository <https://github.com/luxonis/depthai/issues>`__.
+You can also get support by:
 
-You can also get help by:
-
-- Emailing support@luxonis.com
 - Joining our `Discord Community <https://discord.gg/luxonis>`__ for live assistance from us and developers like you
 - Posting a message to `our forum <https://discuss.luxonis.com/>`__
 
-..
-  Needed for index.rst bottom
-
-.. image:: /_static/images/email.png
-  :width: 1
-
-.. image:: /_static/images/forum.png
-  :width: 1
-
-.. image:: /_static/images/discord.png
-  :width: 1
-
-.. image:: /_static/images/depthai-gui.png
-  :width: 1
-
-.. image:: /_static/images/depthai-api.jpg
-  :width: 1
 
 Refunds and returns policy
 ##########################
