@@ -31,7 +31,7 @@ On Ubuntu, you can check if a new USB device was detected by running
 
 .. code-block:: bash
 
-  $ lsusb | grep MyriadX
+  $ lsusb | grep 03e7
   Bus 003 Device 002: ID 03e7:2485 Intel Movidius MyriadX
 
 .. note::
