@@ -16,7 +16,7 @@ A few other demos:
 - **Augmented Startups** built a gesture controlled drone and has 3-part tutorial on YouTube - `video <https://www.youtube.com/watch?v=TYiiLTioecg>`__
 
 For additonal information about OAK on drones projects you can check out the :code:`#drone` channel on our
-`Discord server <https://discord.gg/luxonis>`__.
+`Discord server <https://luxonis.com/discord>`__.
 
 OAK ArduPilot integration
 #########################

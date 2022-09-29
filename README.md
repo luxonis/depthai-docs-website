@@ -1,6 +1,6 @@
 # Luxonis DepthAI Docs Website
 
-[![Discord](https://img.shields.io/discord/790680891252932659?label=Discord)](https://discord.gg/luxonis)
+[![Discord](https://img.shields.io/discord/790680891252932659?label=Discord)](https://luxonis.com/discord)
 [![Forum](https://img.shields.io/badge/Forum-discuss-orange)](https://discuss.luxonis.com/)
 [![Docs](https://img.shields.io/badge/Docs-DepthAI-yellow)](https://docs.luxonis.com)
 
@@ -58,4 +58,4 @@ Username and password are the credentials you use to access the RTD website
 
 ### Need help?
 
-Join our Discord Community: [https://discord.gg/luxonis](https://discord.gg/luxonis)
+Join our [Discord Community](https://luxonis.com/discord)!

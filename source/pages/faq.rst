@@ -1532,7 +1532,7 @@ How Do I Talk to an Engineer?
 At Luxonis we firmly believe in the value of customers being able to communicate directly with our engineers. It helps our engineering efficiency. And it does so by making us make the things that matter, in the ways that matter (i.e. usability in the right ways) to solve real problems.
 
 As such, we have many mechanisms to allow direct communication:
- - `Luxonis Community Discord <https://discord.gg/luxonis>`__. Use this for real-time communication with our engineers. We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
+ - `Luxonis Community Discord <https://luxonis.com/discord>`__. Use this for real-time communication with our engineers. We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
  - `Luxonis Github <https://github.com/luxonis>`__. Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports. We usually respond within a couple hours (and often w/in a couple minutes). For a summary of our Github repositories, see :ref:`here <Where are the Github repositories?  Is DepthAI Open Source?>`.
  - `discuss.luxonis.com <https://discuss.luxonis.com/>`__. Use this for starting any public discussions, ideas, product requests, support requests etc. or generally to engage with the Luxonis Community. While you're there, check out this awesome visual-assistance device being made with DepthAI for the visually-impaired, `here <https://discuss.luxonis.com/d/40-questions-re-depthai-usb3-ffc-edition-cameras>`__.
 

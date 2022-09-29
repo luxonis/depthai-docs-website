@@ -18,7 +18,7 @@ Several SLAM projects that support OAK-D cameras:
 - `ArduCam Visual SLAM tutorial <https://www.arducam.com/docs/opencv-ai-kit-oak/performing-location-with-visual-slam/>`__
 - `DepthAI-SLAM <https://github.com/bharath5673/depthai-slam>`__
 
-You can also check out our ``#slam`` channel on our `Discord server <https://discord.gg/luxonis>`__, where there are tons of
+You can also check out our ``#slam`` channel on our `Discord server <https://luxonis.com/discord>`__, where there are tons of
 useful information on how to perform SLAM with OAK cameras.
 
 .. include::  /pages/includes/footer-short.rst
