@@ -835,7 +835,7 @@ You can use sequence number when syncing streams from one device, but when you h
 across multiple OAKs, you should use timestamp syncing, as host time is used (`std::chrono::steady_clock <https://en.cppreference.com/w/cpp/chrono/steady_clock>`__)
 for the timestamps.
 
-We have both timestamp and sequence number syncing demos `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-seq-num-sync#gen2-frames-sync>`__.
+We have both timestamp and sequence number syncing demos `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-syncing#message-syncing>`__.
 
 ..
   TODO add Synchronization docs in API
