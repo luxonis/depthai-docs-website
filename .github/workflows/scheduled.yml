@@ -6,4 +6,4 @@ jobs:
   trigger-rtd:
     runs-on: ubuntu-latest
     steps:
-      - run:  curl -X POST -d "token=$RTD_TOKEN" https://readthedocs.com/api/v2/webhook/luxonis-docs-website/7037/
+      - run:  curl -X POST -d "token=${{ secrets.RTD_TOKEN }}" https://readthedocs.com/api/v2/webhook/luxonis-docs-website/7037/
