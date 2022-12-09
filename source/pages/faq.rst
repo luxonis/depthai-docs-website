@@ -1472,26 +1472,7 @@ Theoretically many other microphones should work, however we have not tested aud
 Where are Product Brochures and/or Datasheets?
 ##############################################
 
-For more information about OAK devices, go to `Hardware Documentation Page <https://docs.luxonis.com/projects/hardware/en/latest/>`__.
-
-Brochures:
-**********
-
-- Editions Summary `here <https://drive.google.com/open?id=1z7QiCn6SF3Yx977oH41Kcq68Ay6e9h3_>`__
-- OAK-SoM (System on Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM/BW1099_Brochure.pdf>`__
-- OAK-FFC-3P-OG (USB3 Modular Cameras Edition) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098FFC_DepthAI_USB3/BW1098FFC_Datasheet.pdf>`__
-- OAK-D-PCBA `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1098OBC_DepthAI_USB3C/BW1098OBC_Datasheet.pdf>`__
-- OAK-D-CM3 (Raspberry Pi Compute Edition Module) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1097_DepthAI_Compute_Module/BW1097_Datasheet.pdf>`__
-- Raspberry Pi HAT (BW1094) `here <https://github.com/luxonis/depthai-hardware/blob/master/BW1094_DepthAI_HAT/BW1094_Datasheet.pdf>`__
-- OAK-1 `here <https://drive.google.com/open?id=1ji3K_Q3XdExdID94rHVSL7MvAV2bwKC9>`__
-
-Datasheets:
-***********
-
-- DepthAI System on Module (OAK-SoM) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM/BW1099_Brochure.pdf>`__
-- DepthAI System on Module Pro (OAK-SoM-Pro) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-Pro/OAK-SoM-Pro_Datasheet.pdf>`__
-- DepthAI System on Module IoT (OAK-SoM-IoT) `here <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-IoT/OAK-SoM-IoT_Datasheet.pdf>`__
-- PoE Modular Cameras Edition (BW2098FFC) `here <https://drive.google.com/file/d/13gI0mDYRw9-yXKre_AzAAg8L5PIboAa4/view?usp=sharing>`__
+These can be found at `DepthAI Hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__.
 
 How Much Does OAK Devices Weight?
 #################################
