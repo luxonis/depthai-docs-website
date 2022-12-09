@@ -1303,7 +1303,7 @@ will work with** the `Arducam IMX477 HQ Camera <https://www.arducam.com/product/
 **without an adapter board**, as you can connect the camera via the
 22-26 pin adapter cable (SKU: A00403, which you get with the OAK-FFC-3P/OAK-FFC-4P) to the FFC baseboard.
 
-`OAK-FFC-3P-OG <https://shop.luxonis.com/products/depthai-usb3-edition>`__ model **also works with Raspberry Pi HQ cam via an adapter board**
+`OAK-FFC-3P-OG <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098FFC.html>`__ model **also works with Raspberry Pi HQ cam via an adapter board**
 (IMX477 based), which then does work with a ton of C- and CS-mount lenses (see `here <https://www.raspberrypi.org/blog/new-product-raspberry-pi-high-quality-camera-on-sale-now-at-50/>`__).
 And see `here <https://github.com/luxonis/depthai-hardware/tree/master/BW0253_R0M0E0_RPIHQ_ADAPTER>`__ for the adapter board for OAK-FFC-3P-OG.
 
