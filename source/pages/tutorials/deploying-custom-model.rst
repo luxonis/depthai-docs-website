@@ -322,7 +322,7 @@ So let's first convert the model to IR format (xml/bin) using `OpenVINO <https:/
 Now that we have xml/bin, we can also look at the input/output shape of the model using `Netron <https://netron.app/>`__.
 Input shape is ``1x384x384`` (so grayscale frame, not color) and output shape is ``100x7``.
 
-Using Inference Engine (IE) to evlauate the model
+Using Inference Engine (IE) to evaluate the model
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The code below was modified from our `depthai-inference-engine <https://github.com/luxonis/depthai-experiments/tree/master/depthai-inference-engine>`__.
@@ -332,7 +332,7 @@ I personally like to evaluate the inference on the CPU first and get these value
 - `Color order <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_Additional_Optimization_Use_Cases.html#when-to-reverse-input-channels>`__,
 - `Model layout <https://docs.openvino.ai/2022.1/openvino_docs_OV_UG_Layout_Overview.html#doxid-openvino-docs-o-v-u-g-layout-overview>`__
 
-So I can estimate **accuracy degredation due to quantization** when going from **CPU (INT32)** to  **Myriad X (FP16)**.
+So I can estimate **accuracy degradation due to quantization** when going from **CPU (INT32)** to  **Myriad X (FP16)**.
 
 .. code-block:: python
 
@@ -440,7 +440,7 @@ about color order as the model requires grayscale images.
 
     Success! Light blue bounding box around the QR code!
 
-Testing accuracy degredation due to FP16 quantization
+Testing accuracy degradation due to FP16 quantization
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Now let's try the model with FP16 precision instead of INT32. If you connect an OAK camera to your computer you can select
@@ -460,7 +460,7 @@ with DepthAI as well.**
 
     output = exec_net.infer(inputs={input_blob: image}) # Do the NN inference
 
-I haven't noticed any accuracy degredation loss, so we can proceed with model conversion, this time with correct arguments.
+I haven't noticed any accuracy degradation loss, so we can proceed with model conversion, this time with correct arguments.
 We will specify scale value 255 and FP16 datatype.
 
 .. code-block::

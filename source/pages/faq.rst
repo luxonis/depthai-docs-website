@@ -179,7 +179,7 @@ Below is a quick/dirty summary for the ~10,000-foot view of the options:
   Since the cameras are modular, you can place them at various stereo baselines. This flexibility comes with a trade - you have to figure out how/where you will mount them, and then once mounted, do a stereo calibration.
   This is not a TON of work, but keep this in mind, that it's not 'plug and play' like other options - it's more for applications that require custom mounting, custom baseline, or custom orientation of the cameras.
 
-- **PoE models** (`OAK-D-PoE <https://shop.luxonis.com/collections/poe/products/oak-d-poe>`__) - It is the equivalent of the OAK-D, with with PoE instead of USB. 
+- **PoE models** (`OAK-D-PoE <https://shop.luxonis.com/collections/poe/products/oak-d-poe>`__) - It is the equivalent of the OAK-D, with PoE instead of USB. 
   If you don't need depth, we have `OAK-1-PoE <https://shop.luxonis.com/collections/poe/products/oak-1-poe>`__.
 
 - **All in One Dev. Kits** (`OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__) -
@@ -403,7 +403,7 @@ Hardware for Each Case:
 
 - `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__: USB boot. So it is intended for working with a host processor running Linux, Mac, or Windows and this host processor boots the OAK-SoM over USB
 - `OAK-SoM-IoT <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-iot-5-pcs>`__: USB boot or NOR-flash boot. This module can work with a host computer just like the OAK-SoM, but also has a 128MB NOR flash built-in and boot switches onboard - so that it can be programmed to boot off of NOR flash instead of USB. So this allows use of the DepthAI in pure-embedded applications where there is no operating system involved at all. So this module could be paired with an ATTiny8 for example, communicating over SPI.
-- `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__: Supports multiple boot options: NOR (128MB), eMMC (SD-Card support), USB, Ethernet (EEPROM, 32KB). All those boot options make OAK-SoM-Pro very flexible in terms of use cases and most apropriate as a standalone device. It is designed for integration into a top-level system with a need for a low power AI vision system.
+- `OAK-SoM-Pro <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-pro-5-pcs>`__: Supports multiple boot options: NOR (128MB), eMMC (SD-Card support), USB, Ethernet (EEPROM, 32KB). All those boot options make OAK-SoM-Pro very flexible in terms of use cases and most appropriate as a standalone device. It is designed for integration into a top-level system with a need for a low power AI vision system.
 
 Getting Started with Development
 ********************************
@@ -559,7 +559,7 @@ Extended disparity mode sets the max_disparity_in_pixels to **190**, thus the mi
 
   min_distance = 882.5 * 7.5cm / 190 = 34.84cm
 
-Note that applying both options is possible, but at such short distances, the minimum distance is limited by focal length, which is 19.6cm, so minumum distance cannot be lower than 19.6cm.
+Note that applying both options is possible, but at such short distances, the minimum distance is limited by focal length, which is 19.6cm, so minimum distance cannot be lower than 19.6cm.
 
 Calculation examples for OAK-D:
 
@@ -670,7 +670,7 @@ What Are The Maximum Depths Visible by DepthAI?
 
 The max depth perception is limited by the physics of the baseline and the number of pixels (see `documentation here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/stereo_depth/#max-stereo-depth-distance>`__).
 
-Each OAK camera has max depth perception specified in it's `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__ page.
+Each OAK camera has max depth perception specified in its `hardware documentation <https://docs.luxonis.com/projects/hardware/en/latest/>`__ page.
 
 .. _subpixel_disparity:
 
@@ -857,7 +857,7 @@ See our encoding examples which use `VideoEncoder node <https://docs.luxonis.com
  - Encoding Max Limit, `here <https://docs.luxonis.com/projects/api/en/latest/samples/VideoEncoder/encoding_max_limit/#encoding-max-limit>`__.
 
 Alternatively, to leverage this functionality from the :code:`depthai_demo.py` script, use the `-enc` (or `--encode`) to specify
-which cameras to encode (record), with optional `-encout` arguemnt to specify path to directory where to store encoded files. An example is below:
+which cameras to encode (record), with optional `-encout` argument to specify path to directory where to store encoded files. An example is below:
 
 .. code-block:: bash
 
@@ -1209,8 +1209,8 @@ Am I able to attach alternate lenses to the camera? What sort of mounting system
 ###################################################################################################
 
 The color camera on megaAI and DepthAI is a fully-integrated camera module, so the lens, auto-focus, auto-focus
-motor etc. are all self-contained and none of it is replaceable or serviceable.  You'll see it's all very small. 
-It's the same sort of camera you would find in a high-end smart phone.  
+motor etc. are all self-contained and none of it is replaceable or serviceable. You'll see it's all very small.
+It's the same sort of camera you would find in a high-end smartphone.
 
 So the recommended approach, if you'd like custom optics, say IR-capable, UV-capable, different field of view (FOV), etc. is to use
 the ArduCam M12 or CS mount series of OV9281 and/or IMX477 modules.

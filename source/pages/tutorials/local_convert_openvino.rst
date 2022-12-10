@@ -40,7 +40,7 @@ Install OpenVINO
   DepthAI gets support for the new OpenVINO version within a few days of the release, so **you should always use the latest OpenVINO version**.
 
 You can download the OpenVINO toolkit installer from their `download page <https://software.intel.com/content/www/us/en/develop/tools/openvino-toolkit/download.html>`__,
-and we will use the latest version - which is 2021.4 at the time of writting.
+and we will use the latest version - which is 2021.4 at the time of writing.
 
 .. image:: /_static/images/tutorials/openvino_conversion/downloading.png
     :alt: download

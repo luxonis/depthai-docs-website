@@ -39,7 +39,7 @@ Optimizing the Pointcloud model
 
 A few improvements could be made, as:
 
-- The camera matrix is hard-coded into the NN model. This means users would have to create their own NN models, which adds unnecesary package dependencies (pytorch, onnx, onnxsim, blobconverter).
+- The camera matrix is hard-coded into the NN model. This means users would have to create their own NN models, which adds unnecessary package dependencies (pytorch, onnx, onnxsim, blobconverter).
 - It's fairly slow - pointcloud calculation (without visualization) runs at ~19FPS for 640x400 depth frames.
 
 Since the camera matrix (intrinsics) is static, the part below in red could be calculated once instead of being calculated
