@@ -42,9 +42,6 @@ detect objects of your choice and their associated spatial information (i.e. X, 
   :alt: Real-time 3D Strawberry Detector
   :target: https://www.youtube.com/watch?v=Okjh2OCP-o8&
 
-The above example used a DepthAI Modular Cameras Edition (`BW1098FFC <https://shop.luxonis.com/products/depthai-usb3-edition>`__).
-
-
 .. raw:: html
 
    <h3>COVID-19 Mask/No-Mask Training <a href="https://colab.research.google.com/github/luxonis/depthai-ml-training/blob/master/colab-notebooks/Medical_Mask_Detection_Demo_Training.ipynb" target="_blank"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></h2>

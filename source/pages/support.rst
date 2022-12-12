@@ -24,10 +24,9 @@ DepthAI issue (software, firmware)
 
 Provide a Minimal Reproducible Example (**MRE**), docs on `how to create MRE here <https://stackoverflow.com/help/minimal-reproducible-example>`__.
 This means everything, including **minimal script, required model .blobs, and any other assests**, should be compressed into single
-file (zip/7z/tar) as the MRE. A few things to make sure before compressing files
 
 #. That assets/model blobs are located at the right path.
-#. Remove any unnecesary code: commented out code, and code that isn't relevant to the depthai/pipeline code (so host-side code).
+#. Remove any unnecessary code: commented out code, and code that isn't relevant to the depthai/pipeline code (so host-side code).
 #. Please provide **minimal code**. Main script should be as short as possible.
 
 Besides MRE, please also provide the following information when you are requesting support:
