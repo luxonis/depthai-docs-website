@@ -1,14 +1,28 @@
 Support
 =======
 
-Running into issues or have questions? We're here to help.
+Running into issues or have questions? We're here to help. 
 
-Creating Minimal Reproducible Example
-#####################################
 
-**Before requesting support, please also check** :ref:`Troubleshooting documentation page <Troubleshooting>`.
+**Before requesting support, please also check** :ref:`Troubleshooting documentation page <Troubleshooting>`. 
+To help you debug the issue you have the fastest and most efficient way, please provide the details adequate to the issue you are experiencing. 
 
-To help you debug the issue you have the fastest and most efficient please provide a Minimal Reproducible Example (**MRE**), docs on `how to create MRE here <https://stackoverflow.com/help/minimal-reproducible-example>`__.
+
+Requesting support
+##################
+
+To **request support from our engineers**, please **open an issue on** our `DepthAI Github repository <https://github.com/luxonis/depthai/issues>`__.
+You can get support by:
+
+- Joining our `Discord Community <https://discord.gg/luxonis>`__ for live assistance from us and developers like you
+- Posting a message to `our forum <https://discuss.luxonis.com/>`__
+- Sending an email to support@luxonis.com
+
+
+DepthAI issue (software, firmware)
+##################################
+
+Provide a Minimal Reproducible Example (**MRE**), docs on `how to create MRE here <https://stackoverflow.com/help/minimal-reproducible-example>`__.
 This means everything, including **minimal script, required model .blobs, and any other assests**, should be compressed into single
 file (zip/7z/tar) as the MRE. A few things to make sure before compressing files
 
@@ -21,10 +35,6 @@ Besides MRE, please also provide the following information when you are requesti
 * Name of the OAK camera (`all camera names here <https://docs.luxonis.com/projects/hardware/en/latest/>`__).
 * The **Version of the deptahi** you are using. If it's not `the latest <https://github.com/luxonis/depthai-core/releases>`__, please also try updating the depthai version to the latest (``python -mpip install depthai -U``).
 * Screenshot of your pipeline using the `Pipeline Graph tool <https://github.com/geaxgx/depthai_pipeline_graph>`__.
-* If you are using an OAK PoE device:
-
-  * We suggest first checking the `PoE troubleshooting page <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html#poe-troubleshooting>`__.
-  * **Bootloader version** you are using. You should have the latest bootloader version, see `OAK Device Manager <https://docs.luxonis.com/projects/api/en/latest/components/bootloader/#device-manager>`__ for checking/updating the bootloader version.
 
 IP related issues
 -----------------
@@ -35,14 +45,60 @@ remove this IP before creating MRE:
 - For **NN model**, replace your model with a public model. So if you trained an object detection NN, replace it with eg. public pretrained Mobilenet-SSD.
 - For **business logic**, simply remove the code. MRE shouldn't contain much host-side code where your business logic would be.
 
-Requesting support
-##################
 
-To **request support from our engineers**, please **open an issue on** our `DepthAI Github repository <https://github.com/luxonis/depthai/issues>`__.
-You can also get support by:
+Hardware issue
+##############
 
-- Joining our `Discord Community <https://discord.gg/luxonis>`__ for live assistance from us and developers like you
-- Posting a message to `our forum <https://discuss.luxonis.com/>`__
+Provide detailed description of the problem, describe the device behaviour, how and when it fails. When contacing support, please include the following information:
+
+* Device model, and batch number (from the barcode label). If you don't have the box, provide order number
+* Photos of the whole hardware setup, close captures of region of an issue
+* Board revision (if SoM based, also HW revision of SoM)
+
+`Example barcode label with marked batch number:`
+
+.. image:: /_static/images/barcode.png
+  :alt: Barcode label 
+
+
+Imaging issue
+#############
+
+Provide detailed description of the problem, how and when the device fails. When contacing support, please include the following information:
+
+* Device model, and batch number (from the barcode label). If you don't have the box, please let us know your order number and when did you purchase the device.
+* Image captures (high resolution), please add remarks to the images if needed
+
+
+Calibration issue
+#################
+
+Provide detailed description of the problem, how and when the device fails. When contacing support, please include the following information:
+
+* Device model
+* OS name
+* DepthAI branch used
+* Full command used for calibration
+* Dataset folder
+* `Json file from calibration <https://github.com/luxonis/depthai-python/blob/main/examples/calibration/calibration_dump.py>`__
+* Image outputs
+
+
+Blobs and converting NN issues
+##############################
+
+If you encounter any error during convering blob via `tools.luxonis.com <https://tools.luxonis.com>`__, please provide the following information:
+
+* Screenshot of your setup, including error message
+* .pt file used
+* Training procedure - notebook/repo/library name, version, commit
+* Exact input parameters
+* Current output, expected output, and input images for testing
+
+`Example screenshot:`
+
+.. image:: /_static/images/tools_error.png
+  :alt: Blobconverter error screenshot
 
 
 Refunds and returns policy
