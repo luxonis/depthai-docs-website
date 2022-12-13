@@ -58,6 +58,7 @@ Provide detailed description of the problem, describe the device behaviour, how 
 
 .. image:: /_static/images/barcode.png
   :alt: Barcode label 
+  :align: center
 
 
 Imaging issue
@@ -98,6 +99,7 @@ If you encounter any error during convering blob via `tools.luxonis.com <https:/
 
 .. image:: /_static/images/tools_error.png
   :alt: Blobconverter error screenshot
+  :align: center
 
 
 Refunds and returns policy
