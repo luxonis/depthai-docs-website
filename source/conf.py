@@ -33,6 +33,7 @@ extensions = [
     "sphinx_rtd_theme",
     "sphinxcontrib.spelling",
     'notfound.extension',
+    "sphinx_design"
 ]
 
 # See https://github.com/sphinx-doc/sphinx/issues/7728
@@ -87,6 +88,6 @@ for demo_release in requests.get("https://api.github.com/repos/luxonis/depthai/r
 
 
 variables_to_export = {
-    "windows_installer_url": f"`here <{windows_installer_url}>`__",
+    "windows_installer_url": f"`Windows Installer <{windows_installer_url}>`__",
 }
 rst_epilog = '\n'.join(map(lambda x: f".. |{x}| replace:: {variables_to_export[x]}", variables_to_export))

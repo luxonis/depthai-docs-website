@@ -1,135 +1,116 @@
 First steps with DepthAI
 ========================
 
-Hello DepthAI users!
+This guide will go through the first steps with **OAK camera** and **DepthAI library**:
 
-In this guide, I assume you just got your OAK camera (e.g. `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__)
-and you want to give it the first try to explore what is possible with it and what you can achieve when working with it.
+1. Installing dependencies/requirements for the DepthAI library
+2. Device setup - connecting the OAK camera to your host computer
+3. Running `DepthAI Demo <https://github.com/luxonis/depthai#depthai-api-demo-program>`__, a Python-based GUI application
+4. Next steps; examples, demos, API docs
 
-- First, we will run a DepthAI demo script, that will allow you to preview DepthAI functionalities.
-- Following up, I will go through some of the options available in the demo script and show their usage/results
-- Last, you will receive useful links to expand your knowledge further and check open-sourced use-case implementations, code examples, and tutorials, that you can use as a starting point for your projects.
 
-Let's start with the device setup below
+Installing dependencies
+#######################
 
-Connect the OAK camera (USB)
-############################
+.. tabs::
 
-If your OAK came with an included USB cable, we suggest using that to connect the OAK camera to the host computer.
+  .. tab:: **macOS**
 
-.. warning::
-  Make sure to use **USB3 cable!** If you aren't, :ref:`force USB2 communication <Forcing USB2 Communication>` in the program.
+    Execute the script below to install macOS dependencies:
 
-.. image:: /_static/images/tutorials/usb3.png
+    .. code-block:: bash
 
-**USB3 cable is colored blue** in the inside of the USB-A connector of the USB-C cable.
+      bash -c "$(curl -fL https://docs.luxonis.com/install_depthai.sh)"
 
-Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable device) directly to a USB port,
-or via a powered USB hub.
+    Please refer to `this documentation <https://docs.luxonis.com/projects/api/en/latest/install/#macos>`__ if any issues occur.
 
-On Ubuntu, you can check if a new USB device was detected by running
+  .. tab:: **Windows 10/11**
 
-.. code-block:: bash
+    Windows 10/11 users can **install DepthAI** with the |windows_installer_url|.
+    After installer finishes, you can directly run the DepthAI application from the list of applications, which will run the DepthAI demo.
+    You can skip Setup section (as Installer performs the whole setup) of this tutorial and go directly to :ref:`Default run`.
 
-  $ lsusb | grep MyriadX
-  Bus 003 Device 002: ID 03e7:2485 Intel Movidius MyriadX
+    You can also follow `manual installation <https://docs.luxonis.com/projects/api/en/latest/install/#windows-10>`__ and follow the :ref:`Setup` section.
 
-.. note::
-  If you are running other OS than Ubuntu, or you think something has gone wrong, we have detailed OS-specific installation guides
-  `here <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__.
+  .. tab:: **Linux**
 
-Connect the OAK camera (PoE)
-############################
+    Execute the script below to install Linux dependencies:
 
-If you are using PoE device, you should follow the `Getting started with OAK PoE devices <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html>`__ tutorial.
+    .. code-block:: bash
 
-Use Windows Installer
-#####################
+      sudo wget -qO- https://docs.luxonis.com/install_depthai.sh | bash
 
-If you prefer, we've encapsulated all setup procedures inside a single :code:`.exe` file you can download |windows_installer_url| and skip the :ref:`Setup` section.
+    Please refer to `Installation documentation <https://docs.luxonis.com/projects/api/en/latest/install/#supported-platforms>`__ if any issues occur.
 
-When downloaded and run, it will install all necessary components and package requirements. Once finished, it will run the demo script automatically
+
+Device setup
+############
+
+Now that we have installed requirements, we can setup the device. OAK cameras can be separated into two categories depending on how you connect to them;
+either via ethernet (`OAK PoE cameras <https://docs.luxonis.com/projects/hardware/en/latest/#poe-designs>`__) or via USB (all others).
+
+.. tabs::
+
+  .. tab:: **OAK USB camera**
+
+    If your OAK came with an included USB cable, we suggest using that to connect the OAK camera to the host computer.
+
+    .. warning::
+      Make sure to use **USB3 cable**, as this is has been a very common culprit of OAK connectivity issues. If you aren't using USB3 cable, :ref:`force USB2 communication <Forcing USB2 Communication>`.
+
+    .. image:: /_static/images/tutorials/usb3.png
+
+    **USB3 cable is colored blue** in the inside of the USB-A connector of the USB-C cable. If it's not blue, it might be USB2 charging cable.
+
+    Make sure that the device is connected to your host (which can be a PC or Raspberry Pi or another capable computer) directly to a USB3 port,
+    or via a powered USB hub.
+
+  .. tab:: **OAK PoE camera**
+
+      If you are using OAK PoE device, you will first need to connect the device to a PoE switch or a PoE injector.
+      We recommend following the `Getting started with OAK PoE devices <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html>`__
+      for a step-by-step tutorial.
+
 
 Setup
 #####
 
-In this section, I will describe how to install the demo script manually with a command line
-
 Download demo script
 ********************
 
-To download the demo script, you can either use :code:`git` or directly download a zip file
+DepthAI demo is located in `depthai repository <https://github.com/luxonis/depthai>`__ on :octicon:`mark-github;1em;sd-text-info` Github.
 
-From zip file
--------------
+.. tabs::
 
-First, download a repository package from `here <https://github.com/luxonis/depthai/archive/refs/heads/main.zip>`__
-and then unpack the archive to a directory of preference. Next, open a terminal session in this directory.
+  .. tab:: Clone the repository with git
 
-From git
---------
+      `Git <https://en.wikipedia.org/wiki/Git>`__ can be used to download (clone) the code, and later easily update it to get all the newest features.
+      Open the terminal session and go to a directory of preference, where you'd like to download DepthAI demo script.
+      Then, run the following command to download the demo script:
 
-First, open the terminal session and go to a directory of preference, where you'd like to download your demo script.
-Then, run the following code to download the demo script
+      .. code-block:: bash
 
-.. code-block:: bash
+        $ git clone https://github.com/luxonis/depthai.git
+        $ cd depthai
 
-  $ git clone https://github.com/luxonis/depthai.git
+  .. tab:: Download repository zip
 
-After the repository is downloaded, make sure to enter the downloaded repository by running
-
-.. code-block:: bash
-
-  $ cd depthai
-
-Create python virtualenv (optional)
-***********************************
-
-To create and use the virtualenv, you can follow an `official python guide to virtualenvs <https://docs.python.org/3/tutorial/venv.html>`__ or
-follow os-specific guides on the web, like `"How to Create Python 3 Virtual Environment on Ubuntu 20.04" <https://linoxide.com/how-to-create-python-virtual-environment-on-ubuntu-20-04/>`__
-
-This will make sure that you are using a fresh environment and that Python 3 is the default interpreter - this can help to prevent potential issues.
-
-I usually create and use virtualenvs by running
-
-.. code-block:: bash
-
-  $ python3 -m venv myvenv
-  $ source myvenv/bin/activate
-  $ pip install -U pip
-
-And this may require installing these packages prior
-
-.. code-block:: bash
-
-  $ apt-get install python3-pip python3-venv
+      First, download a depthai repository from Github - `shortcut here <https://github.com/luxonis/depthai/archive/refs/heads/main.zip>`__.
+      You can then unpack the archive file to a directory of preference.
 
 Install requirements
 ********************
 
-Once the demo source code is downloaded, and you have your terminal session set up, the next thing that has to be done
-is to install all additional packages that this script requires (together with the :code:`depthai` Python API itself).
+Once the demo source code is downloaded and you have your **terminal opened in the depthai folder**, you can
+install all additional packages that the DepthAI demo requires (together with the `depthai API Python library <https://pypi.org/project/depthai/>`__):
 
-To install these packages, run the :code:`install_requirements.py` script
 
 .. code-block:: bash
 
-  $ python3 install_requirements.py
+  depthai $ python3 install_requirements.py
 
-.. warning::
-
-  If you are using a Linux system, in most cases you have to add a new udev rule for our script to be able to access
-  the device correctly. You can add and apply new rules by running
-
-  .. code-block:: bash
-
-    $ echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
-    $ sudo udevadm control --reload-rules && sudo udevadm trigger
-
-Now, you should be able to start using the demo script, which we will do now
-
-Run demo script
-***************
+Default run
+###########
 
 Having everything set up, we are now ready to use the demo script by running
 
@@ -137,8 +118,6 @@ Having everything set up, we are now ready to use the demo script by running
 
   $ python3 depthai_demo.py
 
-Default run
-###########
 
 Running the demo for the first time, the script will compile and download a default `mobilenet-ssd` model,
 configure the OAK camera and then show a default :code:`color` preview that will contain a scaled preview from the RGB camera from your device.
