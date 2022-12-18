@@ -221,7 +221,7 @@ It's a matter of minutes to be up and running with the power of Spatial AI, on t
 
 The command to get the above output is
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt cv -s color depth -sbb
 
@@ -267,7 +267,7 @@ Installing for NVIDIA Jetson and Xavier is now the same set of instructions as U
 
 Also don't forget about the udev rules after you have that set up.  And make sure to unplug and replug your depthai after having run the following commands (this allows Linux to execute the modification of the USB rules).
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
   sudo udevadm control --reload-rules && sudo udevadm trigger
@@ -725,7 +725,7 @@ How Do I Display Multiple Streams?
 
 To specify which streams you would like displayed, use the :code:`-s` option.  For example for the raw disparity map (:code:`disparity`), and for depth results (:code:`depthRaw`), use the following command:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt cv -s disparity depthRaw
 
@@ -748,7 +748,7 @@ Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
 Yes, see `example code here <https://docs.luxonis.com/projects/api/en/latest/samples/MonoCamera/mono_preview/#mono-preview>`__
 (using API). You can also get the raw stereo pair stream with DepthAI demo using the following command:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt cv -s left right
 
@@ -766,13 +766,13 @@ You can also choose GUI type yourself with :code:`-gt / --guiType` argument.
 
 For example, to enforce OpenCV GUI, run the following command:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt cv
 
 Or, to enforce QT GUI:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt qt
 
@@ -785,13 +785,13 @@ So to set streams to a specific frame rate to reduce the USB2 load and host load
 
 So for limiting color camera to 5 FPS, use the following command:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt cv -rgbf 5
 
 And same way to limit mono cameras to 5 FPS:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt cv -monof 5
 
@@ -820,7 +820,7 @@ A simple/easy way to regain synchronization is to reduce the frame rate to match
 
 So for example to run a default model with both the RGB and both grayscale cameras set to 24FPS, use the following command:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt cv -rgbf 24 -monof 24
 
@@ -859,13 +859,13 @@ See our encoding examples which use `VideoEncoder node <https://docs.luxonis.com
 Alternatively, to leverage this functionality from the :code:`depthai_demo.py` script, use the `-enc` (or `--encode`) to specify
 which cameras to encode (record), with optional `-encout` argument to specify path to directory where to store encoded files. An example is below:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -gt cv -enc left color -encout [path/to/output]
 
 To then play the video in mp4/mkv format use the following muxing command:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   ffmpeg -frame rate 30 -i [path/to/output/video.h264]
 
@@ -952,7 +952,7 @@ You can force USB2 mode by setting :code:`usb2Mode` to :code:`True` when creatin
 
 The other way is using the :code:`-usbs usb2` (or :code:`--usbSpeed usb2`) command line option as below:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -usbs usb2
 
@@ -1181,7 +1181,7 @@ In situations where the surrounding brightness differs between cameras, it can b
 
 The following settings over 3 cameras (B,C,D) have been successful for us:
 
-.. code-block:: bash
+.. code-block:: python
 
   cam['left'] .initialControl.setManualExposure(30000, 400)
   cam['right'].initialControl.setManualExposure(15000, 400)
@@ -1189,7 +1189,7 @@ The following settings over 3 cameras (B,C,D) have been successful for us:
 
 Or
 
-.. code-block:: bash
+.. code-block:: python
   
   cam['left'] .initialControl.setManualExposure(20000, 1600)
   cam['right'].initialControl.setManualExposure(20000,  800)
@@ -1199,7 +1199,7 @@ Controlling separately at runtime is possible as well. In `cam_test.py` you will
 
 Or, if you want to keep auto exposure, but just change some of the cameras to apply a different exposure compensation (EV), can set values in the range `-9 .. +9` (default is 0):
 
-.. code-block:: bash
+.. code-block:: python
 
   cam['left'] .initialControl.setAutoExposureCompensation(-3)
   cam['right'].initialControl.setAutoExposureCompensation(1)
@@ -1274,7 +1274,7 @@ How to increase SHAVES parameter?
 We have implemented the :code:`-sh` command line param in our example script. Just follow the instructions on
 `DepthAI repository <https://github.com/luxonis/depthai>`__ and do
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 depthai_demo.py -sh 9
 
@@ -1354,20 +1354,20 @@ How To Unbind and Bind a Device?
 
 In some cases, you may need to unbind and bind your device, i.e. a controller crashes with the following error messages: 
 
-.. code-block:: bash
+.. code-block::
 
   [345692.730104] xhci_hcd 0000:02:00.0: xHCI host controller not responding, assume dead
   [345692.730113] xhci_hcd 0000:02:00.0: HC died; cleaning up
 
 or you encounter error, such as:
 
-.. code-block:: bash
+.. code-block::
 
   RuntimeError: Failed to find device after booting, error message: X_LINK_DEVICE_NOT_FOUND
 
 or
 
-.. code-block:: bash
+.. code-block::
 
   Cannot enable. Maybe the USB cable is bad?
 
@@ -1375,7 +1375,7 @@ Instead of rebooting a host, you may unbind and bind a device.
 
 Note! You'll need to know the PCI ID of the USB host controller to replace the "0000:00:14.0" part from the command below.
 
-.. code-block:: bash
+.. code-block::
 
   echo -n "0000:00:14.0" | sudo tee /sys/bus/pci/drivers/xhci_hcd/unbind; sleep 1; echo -n "0000:00:14.0" | sudo tee /sys/bus/pci/drivers/xhci_hcd/bind
 
@@ -1439,10 +1439,10 @@ https://github.com/luxonis/depthai-core/tree/main#building Under - And for the d
 
 You can optionally also install it into a desired directory by appending this :code:`cmake` flag:
 
-.. code-block:: bash
+.. code-block::
 
   cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=[desired/installation/path]
-  And then calling the install target
+  # And then calling the install target
   cmake --build . --target install
 
 This should result in the headers and the library being copied to that path.

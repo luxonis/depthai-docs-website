@@ -5,3 +5,4 @@ rtd-redirects==1.1.0
 sphinxcontrib-spelling
 sphinx-notfound-page
 sphinx_design
+sphinx-copybutton

@@ -35,7 +35,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
       Already checked out `depthai <https://github.com/luxonis/depthai>`__? **Skip this step.**
 
-    .. code-block:: bash
+    .. code-block:: qtconsole
 
       git clone https://github.com/luxonis/depthai.git
       cd depthai
@@ -58,7 +58,7 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     Replace the placeholder argument values with valid entries:
 
-    .. code-block:: bash
+    .. code-block:: qtconsole
 
       python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -brd [BOARD] -db
 
@@ -73,14 +73,14 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
     For example, the arguments for the `OAK-D <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1098OAK.html>`__ look like the following if the square size is 2.35 cm:
 
 
-    .. code-block:: bash
+    .. code-block:: qtconsole
 
       python3 calibrate.py -s 2.35 -brd bw1098obc -db
 
     And note that mirroring the display when calibrating is often useful (so that the directions of motion don't seem backwards).
     When seeing ourselves, we're used to seeing ourselves backwards (because that's what we see in a mirror), so do so, use the :code:`-ih` option as below:
 
-    .. code-block:: bash
+    .. code-block:: qtconsole
 
       python3 calibrate.py -s 2.35 -brd bw1098obc -db -ih
 
@@ -88,13 +88,13 @@ please see the steps below and also :code:`./calibrate.py --help` which will pri
 
     - **OAK-D:**
 
-      .. code-block:: bash
+      .. code-block:: qtconsole
 
         python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -db -brd bw1098obc -ih
 
     - **OAK-D-CM4:**
 
-      .. code-block:: bash
+      .. code-block:: qtconsole
 
         python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -db -brd bw1097 -ih
 
@@ -148,7 +148,7 @@ Note that in this orientation of the cameras, :code:`"swap_left_and_right_camera
 
 Then, run calibration with this board name:
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -db -brd ACME01 -ih
 
@@ -181,13 +181,13 @@ We'll view the depth stream to ensure the cameras are calibrated correctly:
 1. Start a terminal session.
 2. Access your local copy of `depthai <https://github.com/luxonis/depthai>`__.
 
-  .. code-block:: bash
+  .. code-block:: qtconsole
 
-    cd [depthai repo]
+    cd path/to/depthai
 
 3. Run test script.
 
-  .. code-block:: bash
+  .. code-block:: qtconsole
 
     python3 depthai_demo.py
 

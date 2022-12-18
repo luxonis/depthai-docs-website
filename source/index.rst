@@ -32,7 +32,7 @@ will prompt you on which to use for the demo.
 
 To install and run the demo script on your OAK camera, type the following commands in the terminal.
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
   git clone https://github.com/luxonis/depthai.git
   cd depthai

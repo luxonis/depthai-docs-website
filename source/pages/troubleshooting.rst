@@ -19,7 +19,7 @@ If you still can't connect to the OAK camera, you should execute :code:`lsusb | 
 Another thing to check is the :code:`dmesg -w`. After executing that and pressing enter a few times (for separator), connect
 your OAK camera to the host. You should see a similar output in the terminal:
 
-.. code-block:: bash
+.. code-block::
 
   /~$ dmesg -w
 

@@ -32,8 +32,9 @@ extensions = [
     "sphinx.ext.autosectionlabel",  # https://github.com/sphinx-doc/sphinx/issues/7697 wait for this and implement
     "sphinx_rtd_theme",
     "sphinxcontrib.spelling",
-    'notfound.extension',
-    "sphinx_design"
+    "notfound.extension",
+    "sphinx_design",
+    "sphinx_copybutton",
 ]
 
 # See https://github.com/sphinx-doc/sphinx/issues/7728
@@ -70,6 +71,7 @@ html_favicon = '_static/images/favicon.png'
 html_css_files = [
     'css/index.css',
     'css/navbar.css',
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
 html_js_files = [
     'js/navbar.js',
