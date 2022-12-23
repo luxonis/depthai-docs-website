@@ -81,7 +81,7 @@ Unsupported layer type "layer_type"
 When using `compile_tool <https://docs.openvino.ai/2022.1/openvino_inference_engine_tools_compile_tool_README.html>`__
 to compile from IR (.xml/.bin) into .blob, you might get an error like this:
 
-.. code-block:: bash
+.. code-block::
 
   Failed to compile layer "Resize_230": unsupported layer type "Interpolate"
 

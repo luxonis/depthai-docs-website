@@ -32,7 +32,9 @@ extensions = [
     "sphinx.ext.autosectionlabel",  # https://github.com/sphinx-doc/sphinx/issues/7697 wait for this and implement
     "sphinx_rtd_theme",
     "sphinxcontrib.spelling",
-    'notfound.extension',
+    "notfound.extension",
+    "sphinx_design",
+    "sphinx_copybutton",
 ]
 
 # See https://github.com/sphinx-doc/sphinx/issues/7728
@@ -69,6 +71,7 @@ html_favicon = '_static/images/favicon.png'
 html_css_files = [
     'css/index.css',
     'css/navbar.css',
+    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
 ]
 html_js_files = [
     'js/navbar.js',
@@ -87,6 +90,6 @@ for demo_release in requests.get("https://api.github.com/repos/luxonis/depthai/r
 
 
 variables_to_export = {
-    "windows_installer_url": f"`here <{windows_installer_url}>`__",
+    "windows_installer_url": f"`Windows Installer <{windows_installer_url}>`__",
 }
 rst_epilog = '\n'.join(map(lambda x: f".. |{x}| replace:: {variables_to_export[x]}", variables_to_export))

@@ -16,7 +16,7 @@ If using QT GUI, please select the UVC app here
 
 Or, running directly from terminal
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
     python3 depthai_demo.py --app uvc
 
@@ -29,7 +29,7 @@ Using UVC Feature Branch
         <iframe src="https://www.youtube.com/embed/UtdfQVPzBCc" frameborder="0" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
     </div>
 
-.. code-block:: bash
+.. code-block:: qtconsole
 
     # Skip cloning if you already have depthai-python repo
     git clone https://github.com/luxonis/depthai-python.git
