@@ -645,4 +645,6 @@ and when does it run. A simple example of how to run the demo from Python code i
     demo.run_all(conf)
 
 Remember that :code:`PYTHONPATH` env variable must contain a path do depthai repository for the imports to work.
-Alternatively, you can place the script along :code:`depthai_demo.py` in the repository
+Alternatively, you can place the script along :code:`depthai_demo.py` in the repository.
+
+.. include::  /pages/includes/footer-short.rst
