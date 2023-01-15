@@ -18,7 +18,7 @@ import requests
 # -- Project information -----------------------------------------------------
 
 project = 'DepthAI Docs'
-copyright = 'by Luxonis'
+copyright = u"@build_year@, Luxonis"
 author = 'Luxonis'
 
 # -- General configuration ---------------------------------------------------
