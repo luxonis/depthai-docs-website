@@ -102,6 +102,18 @@ If you encounter any error during convering blob via `tools.luxonis.com <https:/
   :align: center
 
 
+OAK Device Serial Number
+########################
+
+You can fetch a unique SoC serial number by exectuing the following script:
+
+.. code-block::
+
+  import depthai as dai 
+  with dai.Device() as device:
+      print (device.getMxId())
+
+
 Refunds and returns policy
 ##########################
 
