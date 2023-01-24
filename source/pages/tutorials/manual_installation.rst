@@ -44,15 +44,15 @@ DepthAI demo is located in `depthai repository <https://github.com/luxonis/depth
 
     .. code-block:: bash
 
-    $ python3 -m venv myvenv
-    $ source myvenv/bin/activate
-    $ pip install -U pip
+      $ python3 -m venv myvenv
+      $ source myvenv/bin/activate
+      $ pip install -U pip
 
     And this may require installing these packages prior
 
     .. code-block:: bash
 
-    $ apt-get install python3-pip python3-venv
+      $ apt-get install python3-pip python3-venv
 
 
 Install requirements
