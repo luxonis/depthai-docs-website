@@ -14,25 +14,25 @@ Requesting support
 To **request support from our engineers**, please **open an issue on** our `DepthAI Github repository <https://github.com/luxonis/depthai/issues>`__.
 You can get support by:
 
-- Joining our `Discord Community <https://discord.gg/luxonis>`__ for live assistance from us and developers like you
 - Posting a message to `our forum <https://discuss.luxonis.com/>`__
-- Sending an email to support@luxonis.com
-
+- Joining our `Discord Community <https://discord.gg/luxonis>`__ for live assistance from us and developers like you
 
 DepthAI issue (software, firmware)
 ##################################
 
 Provide a Minimal Reproducible Example (**MRE**), docs on `how to create MRE here <https://stackoverflow.com/help/minimal-reproducible-example>`__.
-This means everything, including **minimal script, required model .blobs, and any other assests**, should be compressed into single
+This means everything, including **minimal script, required model .blobs, and any other assets**, should be compressed into single archive.
+Make sure that:
 
-#. That assets/model blobs are located at the right path.
+#. Assets/model blobs are located at the right path.
 #. Remove any unnecessary code: commented out code, and code that isn't relevant to the depthai/pipeline code (so host-side code).
-#. Please provide **minimal code**. Main script should be as short as possible.
+#. Please provide **minimal reproducible code**. Main script should be as short as possible.
 
 Besides MRE, please also provide the following information when you are requesting support:
 
 * Name of the OAK camera (`all camera names here <https://docs.luxonis.com/projects/hardware/en/latest/>`__).
-* The **Version of the deptahi** you are using. If it's not `the latest <https://github.com/luxonis/depthai-core/releases>`__, please also try updating the depthai version to the latest (``python -mpip install depthai -U``).
+* The **version** of the **depthai library** and **bootloader** you are using (check with `OAK Device Manager <https://docs.luxonis.com/projects/api/en/latest/components/bootloader/#device-manager>`__). If it's not `the latest release <https://github.com/luxonis/depthai-core/releases>`__, please also try updating the depthai version to the latest (``python -mpip install depthai -U``).
+* If there was a crash, provide debug log by `setting depthai log level <https://docs.luxonis.com/projects/api/en/latest/tutorials/debugging/#depthai-debugging-level>`__ to ``debug``.
 * Screenshot of your pipeline using the `Pipeline Graph tool <https://github.com/geaxgx/depthai_pipeline_graph>`__.
 
 IP related issues
