@@ -21,4 +21,13 @@ Several SLAM projects that support OAK-D cameras:
 You can also check out our ``#slam`` channel on our `Discord server <https://luxonis.com/discord>`__, where there are tons of
 useful information on how to perform SLAM with OAK cameras.
 
+Syncing frames and IMU messages
+*******************************
+
+For VIO/SLAM solutions, you would want to sync IMU messages with the middle of the exposure. For exposure timings and timestamps,
+see `Frame capture graphs <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/sync_frames.html#frame-capture-graphs>`__ for details.
+`See here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-syncing#imu--rgb--depth-timestamp-syncing>`__ for **IMU/frame syncing demo**.
+
+Some more advance algorithms weight multiple IMU messages (before/after exposure) and interpolate the final value.
+
 .. include::  /pages/includes/footer-short.rst
