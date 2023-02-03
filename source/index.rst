@@ -400,7 +400,7 @@ some meta problem, like how to stream the data, how to collect it and alike.
   * - `QR code scanner <https://github.com/luxonis/depthai-experiments/tree/master/gen2-qr-code-scanner>`__
     - QR Code detection model running on the device combined with on-host QR code decoder
   * - `Deploy Roboflow models <blog.roboflow.com/deploy-roboflow-model-luxonis-depth-sdk>`__
-    - Deploy over 10,000 pre-trained computer vision models from Roboflow Universe and your own Roboflow custom models
+    - Deploy over 10,000 pre-trained AI models from Roboflow Universe and your own Roboflow custom models
 
 Ecosystem
 ---------
