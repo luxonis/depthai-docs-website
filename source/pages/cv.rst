@@ -25,5 +25,6 @@ documentation on how to implement and run CV functions efficiently on the device
 - `Lossless zooming <https://github.com/luxonis/depthai-experiments/tree/master/gen2-lossless-zooming>`__
 - `Host-side WLS depth filtering <https://github.com/luxonis/depthai-experiments/tree/master/gen2-wls-filter>`__
 - `PointCloud visualization <https://github.com/luxonis/depthai-experiments/tree/master/gen2-pointcloud>`__
+- `Deploy custom models from Roboflow and Roboflow Universe <https://blog.roboflow.com/deploy-roboflow-model-luxonis-depth-sdk>`__
 
 .. include::  /pages/includes/footer-short.rst
