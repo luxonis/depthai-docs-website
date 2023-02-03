@@ -560,4 +560,14 @@ where I have also added blobconvewrter and displaying NN results on high-resolut
 
     On-device decoding using the script above!
 
+
+3. Custom models: Roboflow and Roboflow Universe
+-------------------
+
+Th tutorial linked below is available for deploying **custom Object Detection models** trained with `Roboflow <https://roboflow.com>`__, and pre-trained models available on `Roboflow Universe <https://universe.roboflow.com>`__.
+
+Roboflow Universe is the world's largest collection of open source computer vision datasets and APIs, with over 100 million images, 100,000 datasets, and 10,000 pre-trained models and model API's.
+
+- `Deploy Models from Roboflow with the Luxonis Depth SDK <https://blog.roboflow.com/deploy-roboflow-model-luxonis-depth-sdk/>`__
+
 .. include::  /pages/includes/footer-short.rst
