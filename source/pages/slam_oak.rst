@@ -10,13 +10,14 @@ OAK cameras with `RVC3 <https://docs.luxonis.com/projects/hardware/en/latest/pag
 1.5GHz integrated into the VPU. There will be an **open-source SLAM implementation on the RVC3**. Users are be able to run `custom containarized apps <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s3.html#custom-applications>`__
 on the ARM, which will allow **other companies** (which specialize in VIO/SLAM) to **port their software stacks** to our cameras and license it.
 
-Several SLAM projects that support OAK-D cameras:
+Several SLAM and localization projects that support OAK-D cameras:
 
 - `ORB SLAM3 <https://qiita.com/nindanaoto/items/20858eca08aad90b5bab>`__ with an OAK-D and ROS1  by ``@nimda``
 - `RTAB-Map <https://github.com/introlab/rtabmap>`__ recently (`PR here <https://github.com/introlab/rtabmap/pull/696>`__) added support for depthai and OAK cameras (via ROS)
 - `SpectacularAI's SLAM <https://twitter.com/oseiskar/status/1536344550305763328?s=20&t=YY432W59nsZd6_IhhfBW4A>`__ with OAK-D - Free for non-commercial use
 - `ArduCam Visual SLAM tutorial <https://www.arducam.com/docs/opencv-ai-kit-oak/performing-location-with-visual-slam/>`__
 - `DepthAI-SLAM <https://github.com/bharath5673/depthai-slam>`__
+- :ref:`On-device NN inferencing for localization <drone_vio>`
 
 You can also check out our ``#slam`` channel on our `Discord server <https://luxonis.com/discord>`__, where there are tons of
 useful information on how to perform SLAM with OAK cameras.

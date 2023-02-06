@@ -18,6 +18,20 @@ A few other demos:
 For additonal information about OAK on drones projects you can check out the :code:`#drone` channel on our
 `Discord server <https://luxonis.com/discord>`__.
 
+.. _drone_vio:
+
+Drone on-device NN-based localization
+-------------------------------------
+
+A novel AI approach for spatial localization using an OAK camera. The drone runs on-device neural inferencing to provide positioning of the drone.
+`Paper here <https://link.springer.com/article/10.1007/s11554-023-01259-x>`__.
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/Jtf8e06CZoo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
 OAK ArduPilot integration
 #########################
 
