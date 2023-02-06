@@ -331,18 +331,12 @@ Reporting:
 Using custom models
 *******************
 
-.. warning::
-
-  Using custom models requires a locally downloaded version of the depthai repository.
-  **If you've been using installer** to download and run the script, **adding custom models won't work**.
-  Please follow :ref:`Setup` section on how to download and set up the repository.
-
-Let’s assume you want to run a custom model which you downloaded from the model zoo or trained yourself (or both).
+Let's assume you want to run a custom model which you downloaded from the model zoo or trained yourself (or both).
 To prepare your model to be runnable on DepthAI, it has to be compiled into MyriadX blob format - which
 is an optimized version of your model, capable of utilizing MyriadX chip as a processing unit.
 
 In our demo script, we support a few ways you can run your custom blob, which will be covered below. As an example,
-I’ll add a custom face detection network called :code:`custom_model` (substitute with your preferred name)
+I'll add a custom face detection network called :code:`custom_model` (substitute with your preferred name)
 and run it with the demo script
 
 Compile MyriadX blob

@@ -221,7 +221,7 @@ It's a matter of minutes to be up and running with the power of Spatial AI, on t
 
 The command to get the above output is
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt cv -s color depth -sbb
 
@@ -241,21 +241,13 @@ Very. It's designed for ease of setup and use, and to keep the Pi CPU not-busy. 
 Can all the models be used with the Raspberry Pi?
 #################################################
 
-Yes, every model can be used, including:
-
-- `OAK-D-CM4 <https://shop.luxonis.com/collections/all-in-one-dev-kits/products/depthai-rpi-compute-module-4-edition>`__ - this one has a built-in Raspberry Pi Compute Module 4
-- `OAK-D <https://shop.luxonis.com/collections/usb/products/1098obcenclosure>`__
-- `OAK-FFC-3P <https://shop.luxonis.com/collections/modular-cameras/products/dm1090ffc>`__
-- `OAK-1 <https://shop.luxonis.com/collections/usb/products/megaai-kit>`__
-- Raspberry Pi HAT (`BW1094 <https://github.com/luxonis/depthai-hardware/tree/master/BW1094_DepthAI_HAT>`__) - this can also be used with other hosts as its interface is USB3
-
-We even have some `ROS support <https://github.com/luxonis/depthai-ros>`__ going as well which can be used on the Pi also.
-
+Yep! All the models can be used with the Raspberry Pi. The only difference is that the Raspberry Pi is not as powerful as a desktop computer.
+You can find additional `information here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/raspberrypi.html>`__.
 
 Does DepthAI Work on the Nvidia Jetson Series?
 ##############################################
 
-Yes, DepthAI and megaAI work cleanly on all the Jetson/Xavier series, and installation is easy.
+Yes, DepthAI works cleanly on all the Jetson/Xavier series, and installation is easy.
 Jetson Nano, Jetson Tx1, Jetson Tx2, Jetson Xavier NX, Jetson AGX Xavier, etc. are all supported.
 
 See below for DepthAI running on a Jetson Tx2 I have on my desk:
@@ -267,7 +259,7 @@ Installing for NVIDIA Jetson and Xavier is now the same set of instructions as U
 
 Also don't forget about the udev rules after you have that set up.  And make sure to unplug and replug your depthai after having run the following commands (this allows Linux to execute the modification of the USB rules).
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   echo 'SUBSYSTEM=="usb", ATTRS{idVendor}=="03e7", MODE="0666"' | sudo tee /etc/udev/rules.d/80-movidius.rules
   sudo udevadm control --reload-rules && sudo udevadm trigger
@@ -725,7 +717,7 @@ How Do I Display Multiple Streams?
 
 To specify which streams you would like displayed, use the :code:`-s` option.  For example for the raw disparity map (:code:`disparity`), and for depth results (:code:`depthRaw`), use the following command:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt cv -s disparity depthRaw
 
@@ -748,7 +740,7 @@ Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
 Yes, see `example code here <https://docs.luxonis.com/projects/api/en/latest/samples/MonoCamera/mono_preview/#mono-preview>`__
 (using API). You can also get the raw stereo pair stream with DepthAI demo using the following command:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt cv -s left right
 
@@ -766,13 +758,13 @@ You can also choose GUI type yourself with :code:`-gt / --guiType` argument.
 
 For example, to enforce OpenCV GUI, run the following command:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt cv
 
 Or, to enforce QT GUI:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt qt
 
@@ -785,13 +777,13 @@ So to set streams to a specific frame rate to reduce the USB2 load and host load
 
 So for limiting color camera to 5 FPS, use the following command:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt cv -rgbf 5
 
 And same way to limit mono cameras to 5 FPS:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt cv -monof 5
 
@@ -820,7 +812,7 @@ A simple/easy way to regain synchronization is to reduce the frame rate to match
 
 So for example to run a default model with both the RGB and both grayscale cameras set to 24FPS, use the following command:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt cv -rgbf 24 -monof 24
 
@@ -859,13 +851,13 @@ See our encoding examples which use `VideoEncoder node <https://docs.luxonis.com
 Alternatively, to leverage this functionality from the :code:`depthai_demo.py` script, use the `-enc` (or `--encode`) to specify
 which cameras to encode (record), with optional `-encout` argument to specify path to directory where to store encoded files. An example is below:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -gt cv -enc left color -encout [path/to/output]
 
 To then play the video in mp4/mkv format use the following muxing command:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   ffmpeg -frame rate 30 -i [path/to/output/video.h264]
 
@@ -952,7 +944,7 @@ You can force USB2 mode by setting :code:`usb2Mode` to :code:`True` when creatin
 
 The other way is using the :code:`-usbs usb2` (or :code:`--usbSpeed usb2`) command line option as below:
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -usbs usb2
 
@@ -1274,7 +1266,7 @@ How to increase SHAVES parameter?
 We have implemented the :code:`-sh` command line param in our example script. Just follow the instructions on
 `DepthAI repository <https://github.com/luxonis/depthai>`__ and do
 
-.. code-block:: qtconsole
+.. code-block:: bash
 
   python3 depthai_demo.py -sh 9
 
@@ -1505,7 +1497,7 @@ If DepthAI and OAK-D products has been significantly used in your research and i
 Where can I find your Logo?
 ###########################
 
-You can find official **Luxonis**, **DepthAI**, and **megaAI** logos `here <https://drive.google.com/drive/folders/12-McMXfMO_M9GjvAZzAjgbdiTddVQt7Q>`__.
+You can find official **Luxonis** logo `here <https://www.luxonis.com/marketing>`__.
 
 How Do I Talk to an Engineer?
 #############################
@@ -1513,9 +1505,9 @@ How Do I Talk to an Engineer?
 At Luxonis we firmly believe in the value of customers being able to communicate directly with our engineers. It helps our engineering efficiency. And it does so by making us make the things that matter, in the ways that matter (i.e. usability in the right ways) to solve real problems.
 
 As such, we have many mechanisms to allow direct communication:
- - `Luxonis Community Discord <https://luxonis.com/discord>`__. Use this for real-time communication with our engineers. We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
- - `Luxonis Github <https://github.com/luxonis>`__. Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports. We usually respond within a couple hours (and often w/in a couple minutes). For a summary of our Github repositories, see :ref:`here <Where are the Github repositories?  Is DepthAI Open Source?>`.
  - `discuss.luxonis.com <https://discuss.luxonis.com/>`__. Use this for starting any public discussions, ideas, product requests, support requests etc. or generally to engage with the Luxonis Community. While you're there, check out this awesome visual-assistance device being made with DepthAI for the visually-impaired, `here <https://discuss.luxonis.com/d/40-questions-re-depthai-usb3-ffc-edition-cameras>`__.
+ - `Luxonis Github <https://github.com/luxonis>`__. Feel free to make Github issues in any/all of the pertinent repositories with questions, feature requests, or issue reports. We usually respond within a couple hours (and often w/in a couple minutes). For a summary of our Github repositories, see :ref:`here <Where are the Github repositories?  Is DepthAI Open Source?>`.
+ - `Luxonis Community Discord <https://luxonis.com/discord>`__. Use this for real-time communication with our engineers. We can even make dedicated channels for your project/effort public or private in here for discussions as needed.
 
 
 .. include::  /pages/includes/footer-short.rst

@@ -25,7 +25,7 @@ Follow instructions below to install DepthAI (and its dependencies/requirements)
 
     Execute the script below to install DepthAI on macOS:
 
-    .. code-block:: qtconsole
+    .. code-block:: bash
 
       bash -c "$(curl -fL https://docs.luxonis.com/install_depthai.sh)"
 
