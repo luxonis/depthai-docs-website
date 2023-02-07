@@ -1446,8 +1446,8 @@ And a note on building for **Windows**: Windows does not use `libusb`, but rathe
 Can I Use an IMU With DepthAI?
 ##############################
 
-Yes, all of our `System on Modules <https://docs.luxonis.com/projects/hardware/en/latest/#system-on-module-designs>`__ have support for the BNO086 (and BNO080/BNO085) IMU.
-See documentation on IMU `here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/>`__.
+Yes, all of our `System on Modules <https://docs.luxonis.com/projects/hardware/en/latest/#system-on-module-designs>`__ have software support for both **9-axis BNO086**
+(and BNO080/BNO085) and **6-axis BMI270** IMU. See IMU `documentation here <https://docs.luxonis.com/projects/api/en/latest/components/nodes/imu/>`__.
 
 Can I Use Microphones with DepthAI?
 ###################################
@@ -1455,7 +1455,7 @@ Can I Use Microphones with DepthAI?
 Yes.
 
  - The `OAK-SoM-Pro <https://github.com/luxonis/depthai-hardware/blob/master/SoMs/OAK-SoM-Pro/OAK-SoM-Pro_Datasheet.pdf>`__ SoM supports up to 3x I2S stereo inputs (up to 6x physical microphones) and one I2S stereo output (e.g. for a stereo speaker drive).
- - Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.  
+ - Any I2S mics should work, and may be possible to also use audio codecs, but those might need extra I2C config.
  - It is important to note that the `OAK-SoM <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW1099.html>`__ and OAK-SoM-IoT do not have I2S support.
 
 We have tested audio input on the `OAK-SoM-Pro <https://docs.luxonis.com/projects/hardware/en/latest/pages/BW2099.html>`__ using 3x `CMM-4030D-261-I2S-TR <https://www.cuidevices.com/product/audio/microphones/mems-microphones/cmm-4030d-261-i2s-tr>`__ and have found the audio quality to be good.  
