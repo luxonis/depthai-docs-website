@@ -114,7 +114,7 @@ And if you'd like to know more about the underlying math that DepthAI is using t
 What is the Max Stereo Disparity Depth Resolution?
 **************************************************
 
-The maximum resolution for the depthai depth map is 1280x800 (1MP), with either a 96-pixel (default) or 191-pixel disparity search (when :ref:`Extended Disparity <extended_disparity>` is enabled) and either a full-pixel (default) or sub-pixel matching with precision of 32 sub-pixel steps (when :ref:`Sub-Pixel Disparity <subpixel_disparity>` is enabled), resulting in a maximum theoretical depth precision of 191 (extended disparity search mode) * 32 (sub-pixel disparity search enabled) of 6,112.  However sub-pixel and extended disparity are not yet supported simultaneously, but should be available in the near future (`Pull Request <https://github.com/luxonis/depthai-python/pull/347>`__). More information on the disparity depth modes are below:
+The maximum resolution for the depthai depth map is 1280x800 (1MP), with either a 96-pixel (default) or 191-pixel disparity search (when :ref:`Extended Disparity <extended_disparity>` is enabled) and either a full-pixel (default) or sub-pixel matching with precision of 32 sub-pixel steps (when :ref:`Sub-Pixel Disparity <subpixel_disparity>` is enabled), resulting in a maximum theoretical depth precision of 191 (extended disparity search mode) * 32 (sub-pixel disparity search enabled) of 6,112. More information on the disparity depth modes are below:
 
 #. Default (96-pixel disparity search, **range: [0..95]**): 1280x800 or 640x400, 96 depth steps
 #. Extended Disparity (191-pixel disparity search, **range: [0..190]**), :ref:`here <extended_disparity>`: 1280x800 or 640x400, 191 depth steps
