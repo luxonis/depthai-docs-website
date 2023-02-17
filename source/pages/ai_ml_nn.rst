@@ -34,18 +34,13 @@ There are also many other AI vision tasks that don't fall in any of the categori
 `monocular depth estimation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-depth-mbnv2>`__, `gaze estimation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-gaze-estimation>`__, or
 `age/gender estimation <https://github.com/luxonis/depthai-experiments/tree/master/gen2-age-gender>`__.
 
-**All of the demos above run on color/grayscale frames**. Many of these vision tasks can be **fused with the depth perception**
-(on the OAK camera itself), which unlocks the power of :ref:`Spatial AI <spatialai>`.
+All of the demos above run on color/grayscale frames. Many of these vision tasks can be **fused with the depth perception**
+(on the OAK camera itself), which unlocks the **power of** :ref:`Spatial AI <spatialai>`.
 
 Model Performance
 #################
 
-You can estimate the performance of your model with the help of the chart below. It contains FPS estimations
-of models on OAK devices in dependence of FLOPs and parameters.
-
-.. image:: /_static/images/fps_models.png
-
-You can find more detailed evaluation of FPS for commond models `in this sheet <https://docs.google.com/spreadsheets/u/8/d/e/2PACX-1vQ_tVk2PhOhnFeJrL5t2rtncxHeDVYX8j1o52vdZozRzXJ5C3gq8EngVvx32suCPasIelIwU5Ny6tLE/pubhtml?gid=41416082&single=true>`__.
-
+AI model performance depends on the accelerator that's on the OAK device. For current devices that use
+RVC2 you can find the `performance results here <https://docs.luxonis.com/projects/hardware/en/latest/pages/rvc/rvc2.html#rvc2-nn-performance>`__.
 
 .. include::  /pages/includes/footer-short.rst
