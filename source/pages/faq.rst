@@ -364,10 +364,10 @@ is the communication (USB, Ethernet, SPI, etc.) and what (if any) other processo
 Use-Case 1: DepthAI are a co-processor to a processor running Linux, MacOS, or Windows.
 ***************************************************************************************
 
-In this case, DepthAI can be used in two modalities:
+In this case, OAK camera can be used in two modalities:
 
+ - DepthAI Mode (USB, using **depthai API**, `here <https://docs.luxonis.com/projects/api/en/latest/install/>`__) - this uses the onboard cameras directly into the VPU, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
  - NCS2 Mode (USB, :ref:`here <ncsmode>`) - in this mode, the device appears as an NCS2 and the onboard cameras are not used and it's as if they don't exist.  This mode is often use for initial prototyping, and in some cases, where a product simply needs an 'integrated NCS2' - accomplished by integrating a `OAK-SoM <https://shop.luxonis.com/collections/system-on-module-som/products/oak-som-5-pcs>`__.
- - DepthAI Mode (USB, using our USB API, `here <https://docs.luxonis.com/projects/api/en/latest/install/>`__) - this uses the onboard cameras directly into the Myriad X, and boots the firmware over USB from a host processor running Linux, Mac, or Windows.  This is the main use-case of DepthAI/megaAI when used with a host processor capable of running an operating system (e.g Raspberry Pi, i.MX8, etc.).
 
 .. _withmicrocontroller:
 

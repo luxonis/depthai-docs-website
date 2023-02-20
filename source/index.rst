@@ -435,7 +435,7 @@ Ecosystem
   * - `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/>`__
     - Here you can find repositories to help you connect your NN and create BLOBs.
   * - `blobconverter <https://github.com/luxonis/blobconverter/>`__
-    - Web-based tool to convert model into MyriadX blob
+    - Web-based tool to convert model into VPU blob
   * - `depthai-gui <https://github.com/luxonis/depthai-gui/>`__
     - DepthAI GUI is a WYSIWYG tool that allows to create a custom DepthAI pipelines, run them and see the results - all in one tool.
   * - `depthai-tutorials <https://github.com/luxonis/depthai-tutorials/>`__

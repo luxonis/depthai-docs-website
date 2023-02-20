@@ -4,10 +4,9 @@ AI / ML / NN
 .. toctree::
    :hidden:
 
-   tutorials/deploying-custom-model.rst
    model_conversion.rst
+   tutorials/deploying-custom-model.rst
    tutorials/pretrained_openvino.rst
-   tutorials/local_convert_openvino.rst
    training.rst
 
 `OAK cameras <https://docs.luxonis.com/projects/hardware/en/latest/>`__ can **run any AI model**, even custom
@@ -15,8 +14,8 @@ architectured/built ones. You can even run multiple AI models at the same time, 
 
 **Subpages:**
 
+- :ref:`Converting model to MyriadX blob` tutorial showcases model conversion and compilation steps to .blob format so you can **run the model on the device**.
 - :ref:`Deploying Custom Models` provides step-by-step tutorial on how to convert, compile and deploy the model to OAK device
-- Converting and compiling custom model to .blob format to run it on the device :ref:`here <Converting model to MyriadX blob>`
 - :ref:`Use one of 250+ pre-trained models <Use a Pre-trained OpenVINO model>`; either from `OpenVINO Model Zoo <https://github.com/openvinotoolkit/open_model_zoo>`__ or `DepthAI Model Zoo <https://github.com/luxonis/depthai-model-zoo>`__
 
 AI vision tasks

@@ -7,7 +7,7 @@ low-powered Raspberry Pi. I'll introduce you to the OpenVINO toolset, the Open M
 model), and show you how to generate the **.blob** file needed to run model inference on your DepthAI board.
 
 .. note::
-  Besides local model conversion (which is more time-consuming), you can also use :ref:`Google colab <Using Google Colab>`, our :ref:`online converter <Using online converter>` or the :ref:`blobconverter package <Using blobconverter package>`.
+  Besides local model conversion (which is more time-consuming), you can also use :ref:`Blobconverter web app <1. Using online blobconverter>` or :ref:`blobconverter package <2. Using blobconverter package>`.
 
 Haven't heard of OpenVINO or the Open Model Zoo? I'll start with a quick introduction of why we need these tools.
 

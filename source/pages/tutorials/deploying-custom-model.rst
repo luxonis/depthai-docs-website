@@ -30,22 +30,9 @@ Before we click ``Convert``, we should double-check the default values for Model
 Model optimizer parameters
 """"""""""""""""""""""""""
 
-Model optimizer converts other model formats to OpenVINO's IR format, which produces .xml/.bin files. This format of
-the model can be deployed across multiple Intel devices: CPU, GPU, iGPU, **VPU** (which we are interested in), and FPGA.
+:ref:`Model Optimizer` converts other model formats to OpenVINO's IR format, which produces .xml/.bin files.
 
-**--data_type=FP16** will convert the model to FP16 data type. Since VPU on the OAK cameras only supports FP16,
-we will want this enabled (and is there by default). More `information here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_FP16_Compression.html#doxid-openvino-docs-m-o-d-g-f-p16-compression>`__.
-
-**Mean** and **Scale** will normalize the input image to the model: ``new_value = (byte - mean) / scale``. Additional
-information can be found on `OpenVINO docs here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_Additional_Optimization_Use_Cases.html#when-to-specify-mean-and-scale-values>`__.
-Color/Mono cameras on OAK camera will output frames in U8 data type (``[0,255]``). Models are usually trained with
-normalized frames ``[-1,1]`` or ``[0,1]``, so we need to normalize our OAK frames as well. Common options:
-
-- **[0,1]** values, mean=0 and scale=255 (``([0,255] - 0) / 255 = [0,1]``)
-- **[-1,1]** values, mean=127.5 and scale=127.5 (``([0,255] - 127.5) / 127.5 = [-1,1]``)
-- **[-0.5,0.5]** values, mean=127.5 and scale=255 (``([0,255] - 127.5) / 255 = [-0.5,0.5]``)
-
-We could either read the repository to find out the required input values,
+To decide Model Optimizer parameters, we could either read the repository to find out the required input values,
 or `read the code <https://github.com/sbdcv/sbd_mask/blob/41c6730e6837f63c1285a0fb46f4a2143e02b7d2/deploy.py#L10-L19>`__:
 
 .. code-block:: python
@@ -64,7 +51,7 @@ or `read the code <https://github.com/sbdcv/sbd_mask/blob/41c6730e6837f63c1285a0
 These few lines actually contain both logic for decoding (which we will use later) AND contain info about the required
 input values - ``scalefactor=1 / 255`` and ``mean=(0, 0, 0)``, so the pretrained model expects ``0..1`` input values.
 
-For Model Optimizer we will use the following arguments:
+For Model Optimizer we will use the arguments below. See :ref:`Model Optimizer docs here <Model Optimizer>` for **more info**.
 
 .. code-block::
 
@@ -73,18 +60,8 @@ For Model Optimizer we will use the following arguments:
 Myriad X compile parameters
 """""""""""""""""""""""""""
 
-After converting the model to OpenVINO's IR format (.bin/.xml), we need to use `Compile Tool <https://docs.openvino.ai/2021.4/openvino_inference_engine_tools_compile_tool_README.html>`__
+After converting the model to OpenVINO's IR format (.bin/.xml), we need to use :ref:`Compile Tool`
 to compile the model to ``.blob``, so it can be deployed to the camera.
-
-Here you can select input layer precision (``-ip``) and number of shave cores used to run the model (using the slider).
-
-**Input layer precision**: Myriad X only supports FP16 precision, so ``-ip U8`` will add conversion layer U8->FP16
-on all input layers of the model - which is what we want, so we will use this default argument.
-
-**Shaves**: Myriad X in total has 16 SHAVE cores, which are like mini GPU units. Compiling with more cores can make
-the model perform faster, but the proportion of shave cores isn't linear with performance. Firmware will warn you
-about a possibly optimal number of shave cores, which is ``available_cores/2``. As by default, each model will run on
-2 threads. I will use 6 shaves, as that's the optimal number of cores for simple pipelines (which we will create).
 
 Compiling the model
 """""""""""""""""""
@@ -263,8 +240,8 @@ You can change ``preview``'s color order by adding this line:
     +   cam.setColorOrder(dai.ColorCameraProperties.ColorOrder.RGB)
 
 Note that the **face detection model's accuracy will decrease** due to this change, as it expects BGR and will get RGB. The correct
-way would be to specify --reverse_input_channels (`docs here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_Additional_Optimization_Use_Cases.html#when-to-reverse-input-channels>`__)
-argument with the `Model Optimizer <https://pypi.org/project/openvino-dev>`__, which is what was used to generate xml/bin files
+way would be to specify --reverse_input_channels (See :ref:`Color order` documentation)
+argument using the :ref:`Model Optimizer`, which is what was used to generate xml/bin files
 that were uploaded to our `DepthAI Model Zoo <https://github.com/luxonis/depthai-model-zoo/tree/main/models/sbd_mask_classification_224x224>`__.
 
 .. code-block::
@@ -460,8 +437,8 @@ with DepthAI as well.**
 
     output = exec_net.infer(inputs={input_blob: image}) # Do the NN inference
 
-I haven't noticed any accuracy degradation loss, so we can proceed with model conversion, this time with correct arguments.
-We will specify scale value 255 and FP16 datatype.
+I haven't noticed any accuracy degradation loss, so we can use :ref:`Model Optimizer` and proceed with
+correct arguments this time. We will specify scale value 255 and FP16 datatype.
 
 .. code-block::
 
