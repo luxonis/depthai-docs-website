@@ -24,7 +24,7 @@ Drone on-device NN-based localization
 -------------------------------------
 
 A novel AI approach for spatial localization using an OAK camera. The drone runs on-device neural inferencing to provide positioning of the drone.
-`Paper here <https://link.springer.com/article/10.1007/s11554-023-01259-x>`__.
+`Paper here <https://link.springer.com/article/10.1007/s11554-023-01259-x>`__, `Github repo here <https://github.com/QuetzalCpp/DeepPilot4Pose>`__.
 
 .. raw:: html
 
