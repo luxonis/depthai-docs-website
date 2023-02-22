@@ -34,6 +34,17 @@ For **PoE OAK cameras**, see `PoE Troubleshooting page <https://docs.luxonis.com
 
 If these commands didn't return the expected log, see :ref:`Support` page.
 
+Reporting firmware crash dump
+#############################
+
+On our latest ``develop`` branch (to be released on version **2.21**) of depthai API we have added crash dump feature. Steps to create a crash dump:
+
+1. [Prerequisite] Have correct depthai version installed. Checkout to ``develop`` branch and execute `this file <https://github.com/luxonis/depthai-python/blob/develop/examples/install_requirements.py>`__ by running ``python3 examples/install_requirements.py``
+2. Run a code that causes the firmware crash
+3. On depthai-python repo, execute `this file <https://github.com/luxonis/depthai-python/blob/develop/examples/CrashReport/crash_report.py>`__ by running ``python3 examples/CrashReport/crash_report.py``
+
+Afterwards, please send the generated .txt file to us (email/github/forum), and our development team will try to fix the cause of the crash as soon as possible.
+
 ImportError: No module named 'depthai'
 ######################################
 
