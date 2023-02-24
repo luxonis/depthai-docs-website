@@ -409,12 +409,9 @@ Ecosystem
   :widths: 10 90
 
   * - `depthai-python <https://github.com/luxonis/depthai-python/>`__
-    - Here you’ll find Python bindings creating the Python API of DepthAI
+    - Here you'll find Python bindings creating the Python API of DepthAI
   * - `depthai-core <https://github.com/luxonis/depthai-core/>`__
     - Our core API written in C++
-  * - `depthai-shared <https://github.com/luxonis/depthai-shared/>`__
-    - This repository contains shared data between our main firmware
-      and depthai-core host library.
   * - `depthai-ros <https://github.com/luxonis/depthai-ros/>`__
     - DepthAI ROS Wrapper. This is an attempt at basic DepthAI to ROS2
       interface. It's largely leveraging the existing depthai-python examples.
@@ -424,30 +421,8 @@ Ecosystem
     - This repository contains Luxonis open sourced baseboards, and contains
       Altium design files, documentation, and pictures to help you
       understand more about the embedded hardware that powers DepthAI.
-  * - `depthai-bootloader-shared <https://github.com/luxonis/depthai-bootloader-shared/>`__
-    - The depthai-bootloader-shared repository contains shared data
-      between our bootloader firmware and depthai-core host library.
-
-
-.. list-table:: Tools & Docs Repositories
-  :widths: 10 90
-
   * - `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/>`__
     - Here you can find repositories to help you connect your NN and create BLOBs.
-  * - `blobconverter <https://github.com/luxonis/blobconverter/>`__
-    - Web-based tool to convert model into VPU blob
-  * - `depthai-gui <https://github.com/luxonis/depthai-gui/>`__
-    - DepthAI GUI is a WYSIWYG tool that allows to create a custom DepthAI pipelines, run them and see the results - all in one tool.
-  * - `depthai-tutorials <https://github.com/luxonis/depthai-tutorials/>`__
-    - This repo contains source code for tutorials published on docs.luxonis.com.
-  * - `Factory-calibration-DepthAI <https://github.com/luxonis/Factory-calibration-DepthAI/>`__
-    - Factory Calibration (WIP); This package contains two ROS workspace one is for depthai capture and calibration node and another is for Interbotix ViperX 300 Robot Arm 6DOF (KIT-VIPX300-6DOF) arm bot control using moveit.
-  * - `depthai-docker <https://github.com/luxonis/depthai-docker/>`__
-    - This repository contains a Dockerfile, that allows you to run OpenVINO on DepthAI inside a Docker container.
-  * - `sbr-util <https://github.com/luxonis/sbr-util/>`__
-    - Utility to view and manipulate SBR binary images
-  * - `depthai-docs-website <https://github.com/luxonis/depthai-docs-website/>`__
-    - If you want to contribute and update our docs, you can simply create a pull request.
 
 
 .. list-table:: Demo Repositories
@@ -459,6 +434,10 @@ Ecosystem
     - This repo contains a demo application, which can load different networks, create pipelines, record video, etc. This program includes an example of depth & CNN inference and ready to use models.
   * - `depthai-core-example <https://github.com/luxonis/depthai-core-example/>`__
     - CMake example project which serves as a template on how to quickly get started with C++ and depthai library
+  * - `depthai-tutorials <https://github.com/luxonis/depthai-tutorials/>`__
+    - This repo contains source code for tutorials published on docs.luxonis.com.
+  * - `depthai-docker <https://github.com/luxonis/depthai-docker/>`__
+    - This repository contains a Dockerfile, that allows you to run OpenVINO on DepthAI inside a Docker container.
 
 .. include::  /pages/includes/footer-long.rst
 
