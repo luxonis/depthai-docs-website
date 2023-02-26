@@ -213,7 +213,7 @@ The flow we walked through works for other pre-trained object detection models i
 
 #. Use this model in your script
 
-You’re on your way! You can find the `complete code for this tutorial on GitHub. <https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py>`__
+You're on your way! You can find the `complete code for this tutorial on GitHub. <https://github.com/luxonis/depthai-tutorials/blob/master/2-face-detection-retail/face-detection-retail-0004.py>`__
 
 .. note::
     You should also check out the :ref:`Use a Pre-trained OpenVINO model` tutorial, where this process is significaly simplified.

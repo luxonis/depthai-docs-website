@@ -80,7 +80,7 @@ Create a custom model with PyTorch
         onnx.save(model_simpified, "path/to/simplified/model.onnx")
 
     Here is an example of how significant was the simplification using the onnx-simplifier. On the left, there's a blur model (from Kornia) exported
-    directly from PyTorch, and on the right, there’s a simplified network of **the same functionality**:
+    directly from PyTorch, and on the right, there's a simplified network of **the same functionality**:
 
     .. image:: /_static/images/tutorials/custom_model/blur_comparison.png
 

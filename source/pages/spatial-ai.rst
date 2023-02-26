@@ -77,9 +77,9 @@ workers, equipment, and facilities.
 
 We cannot anticipate unknown objects - including those
 unknowable or never-before-seen. Training an object detector is sufficient for known objects as this is a
-“positive” form of object detection: “Pile in the path, stop.” “Shovel in the path, stop.” etc.
+"positive" form of object detection: "Pile in the path, stop." "Shovel in the path, stop." etc.
 
-Such generic obstacle avoidance scenarios require a “negative” object detection system, and a very
+Such generic obstacle avoidance scenarios require a "negative" object detection system, and a very
 effective technique is to use **semantic segmentation** of RGB, Depth, or RGB+Depth.
 
 .. image:: /_static/images/tutorials/segmentation.jpeg
@@ -87,7 +87,7 @@ effective technique is to use **semantic segmentation** of RGB, Depth, or RGB+De
 
 The image above was taken from `Greenzie <https://www.greenzie.com/>`__'s robotic landmowers (from OpenCV `weekly livestream <https://youtu.be/LGGtF_4v5sQ?t=3405>`__).
 
-In such a “negative” system, the semantic segmentation system is trained on all the surfaces that are not objects. So
+In such a "negative" system, the semantic segmentation system is trained on all the surfaces that are not objects. So
 anything that is not that surface is considered an object - allowing the navigation to know its location and take
 commensurate action (stop, go around, turn around, etc.). So the semantic depth is extremely valuable for **object avoidance**
 and **navigation planning** application.
@@ -96,7 +96,7 @@ and **navigation planning** application.
     :target: https://github.com/luxonis/depthai-experiments/tree/master/gen2-deeplabv3_depth
 
 On the image above, a person semantic segmentation model is running on RGB frames, and, based on the results, it crops depth maps
-only to include the person’s depth.
+only to include the person's depth.
 
 .. _stereo-inference:
 
