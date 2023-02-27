@@ -85,7 +85,7 @@ effective technique is to use **semantic segmentation** of RGB, Depth, or RGB+De
 .. image:: /_static/images/tutorials/segmentation.jpeg
     :target: https://youtu.be/LGGtF_4v5sQ?t=3405
 
-The image above was taken from `Greenzie <https://www.greenzie.com/>`__'s robotic landmowers (from OpenCV `weekly livestream <https://youtu.be/LGGtF_4v5sQ?t=3405>`__).
+The image above was taken from `Greenzie <https://www.greenzie.com/>`__'s robotic lawnmowers (from OpenCV `weekly livestream <https://youtu.be/LGGtF_4v5sQ?t=3405>`__).
 
 In such a "negative" system, the semantic segmentation system is trained on all the surfaces that are not objects. So
 anything that is not that surface is considered an object - allowing the navigation to know its location and take
