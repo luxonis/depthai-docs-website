@@ -68,7 +68,12 @@ Model layout parameter
 ----------------------
 
 OpenVINO's `documentation here <https://docs.openvino.ai/2022.1/openvino_docs_MO_DG_Additional_Optimization_Use_Cases.html#when-to-specify-layout>`__.
-Model layout can be specified with ``--layout`` parameter. We use **Planar / CHW** layout convention.
+Model layout can be specified with ``--layout`` parameter. We use **Planar / CHW** layout convention. A similar DepthAI error message will be shown if the
+image layout is not matching the model layout:
+
+.. code-block:: bash
+
+  [NeuralNetwork(0)] [warning] Input image (416x416) does not match NN (3x416)
 
 Note that by default, `ColorCamera node <https://docs.luxonis.com/projects/api/en/latest/components/nodes/color_camera/>`__
 will output ``preview`` frames in **Interleaved / HWC** layout (as it's native to OpenCV), and can be changed to
