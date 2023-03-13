@@ -8,7 +8,7 @@ of heavy computing, so to convert depth to pointcloud, we would need to :ref:`cr
 `Kornia <https://kornia.github.io/>`__ library has a function called `depth_to_3d <https://kornia.readthedocs.io/en/latest/geometry.depth.html?highlight=depth_to_3d#kornia.geometry.depth.depth_to_3d>`__
 which does exactly that; it returns pointcloud from depth map and camera matrix. A smart person
 from our Discord community called **jjd9** created a `working demo <https://github.com/jjd9/depthai-experiments/tree/kornia-depth-deprojection/gen2-kornia-depth-deprojection>`__
-of the depth_to_3d logic running on the OAK camera.
+of the depth_to_3d logic running on the OAK camera. For C++ version, see `code here <https://discuss.luxonis.com/d/1212-on-device-pointcloud-nn-model-with-c/7>`__.
 
 .. image:: /_static/images/tutorials/custom_model/jjd9.png
 
