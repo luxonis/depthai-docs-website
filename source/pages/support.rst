@@ -4,17 +4,16 @@ Support
 Running into issues or have questions? We're here to help. **Before requesting support, please check** :ref:`Troubleshooting documentation page <Troubleshooting>`.
 To help you debug the issue you have the fastest and most efficient way, please provide all the details of the issue you are experiencing.
 
-
 Requesting support
 ##################
 
-To **request support from our engineers**, please **open an issue on** our `DepthAI Github repository <https://github.com/luxonis/depthai/issues>`__.
-You can get support by:
+To **request support from our engineers**, **create a new post at** `our Forum <https://discuss.luxonis.com/>`__. Please provide as much
+information as possible, and follow the guidelines below.
 
-- Creating a post on `our Forum <https://discuss.luxonis.com/>`__
-- Joining our `Discord Community <https://luxonis.com/discord>`__ for live assistance from us and engineers like you
+DepthAI issue
+-------------
 
-.. dropdown:: DepthAI issue - pipeline issues
+.. dropdown:: DepthAI (pipeline) issue
 
   If you are experiencing depthai pipeline issues (freezing, crashing, etc.), please provide a Minimal Reproducible Example (**MRE**)
   docs on `how to create MRE here <https://stackoverflow.com/help/minimal-reproducible-example>`__.
@@ -41,6 +40,9 @@ You can get support by:
   - For **business logic**, simply remove the code. MRE shouldn't contain much host-side code where your business logic would be.
 
 
+Hardware issue
+--------------
+
 .. dropdown:: Hardware (OAK) issue
 
   Provide detailed description of the problem, describe the device behavior, how and when it fails. When contacting support, please include the following information:
@@ -56,7 +58,10 @@ You can get support by:
     :align: center
 
 
-.. dropdown:: Image Quality issues
+Image Quality issue
+-------------------
+
+.. dropdown:: Image Quality (IQ) issue
 
   If you are experiencing image quality issues (blurry, noisy, etc.), please first check `Improving Image Quality <https://docs.luxonis.com/projects/api/en/latest/tutorials/image_quality/>`__ docs.
   For reporting an issue, please provide detailed description of the problem, how and when the device fails. Please include the following information:
@@ -64,8 +69,10 @@ You can get support by:
   * Device model, and batch number (from the barcode label). If you don't have the box, please let us know your order number and when did you purchase the device.
   * Image captures (high resolution), please add remarks to the images if needed
 
+Calibration issue
+-----------------
 
-.. dropdown:: Calibration issues
+.. dropdown:: Calibration issue
 
   If you encountered an issue while `calibrating an OAK <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/calibration.html>`__,
   please provide a detailed description of the problem. When contacting support, please include the following information:
@@ -79,7 +86,10 @@ You can get support by:
   * Image outputs
 
 
-.. dropdown:: Converting the NN issues
+Converting NN model issue
+-------------------------
+
+.. dropdown:: Issue when converting a Neural Network model
 
   We officially support models for which we have notebooks at `depthai-ml-training <https://github.com/luxonis/depthai-ml-training/tree/master/colab-notebooks>`__.
   If you encounter any error during converting blob via `tools.luxonis.com <https://tools.luxonis.com>`__ or `blobconverter <https://blobconverter.luxonis.com>`__,
