@@ -39,6 +39,38 @@ DepthAI issue
   - For **NN model**, replace your model with a public model. So if you trained an object detection NN, replace it with eg. public pretrained Mobilenet-SSD.
   - For **business logic**, simply remove the code. MRE shouldn't contain much host-side code where your business logic would be.
 
+Connectivity issue
+------------------
+
+.. dropdown:: Can't connect to an OAK USB camera
+
+  **Check first:**
+
+  1. If you're on Linux, check whether you have setup :ref:`udev rules <Udev rules on Linux>`
+  2. Check whether you are using a **working USB3 cable** - this is a common issue. If you are using USB2 cable, please see :ref:`Forcing USB2 Communication` tutorial
+  3. If you are using a longer USB3 cable (above 1 meter), we'd recommend first trying a shorter USB3 cable, and checking :ref:`Using longer USB cables <Intermittent Connectivity with Long (2 meter) USB3 Cables>`
+
+  If you are experiencing connectivity issues with your OAK USB device, please provide the following information:
+
+  * OAK device model
+  * DepthAI version
+  * Cable specification you are using
+
+.. dropdown:: Can't connect to an OAK PoE camera
+
+  **Check first:**
+
+  1. `Getting started with OAK PoE devices <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html>`__
+  2. From the same page, please check `PoE Troubleshooting <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html#poe-troubleshooting>`__ page
+  3. Try `Manually specify device IP <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html#manually-specify-device-ip>`__ of your OAK device
+  4. If you have flashed invalid static IP and device isn't accessible anymore, we suggest performing a `Factory reset <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe.html#factory-reset>`__
+
+  If you are experiencing connectivity issues with your OAK PoE device, please provide the following information:
+
+  * OAK device model
+  * DepthAI version and Bootloader version (ideally `OAK Device Manager <https://docs.luxonis.com/projects/api/en/latest/components/bootloader/#device-manager>`__ screenshot)
+  * Terminal output of ``ipconfig`` / ``ifconfig`` command
+  * IP address of the device. This can be obtained either from pinging the device, by checking the DHCP server logs, or using IP scanner application.
 
 Hardware issue
 --------------
