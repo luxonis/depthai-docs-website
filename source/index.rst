@@ -439,7 +439,7 @@ Ecosystem
   * - `depthai-docker <https://github.com/luxonis/depthai-docker/>`__
     - This repository contains a Dockerfile, that allows you to run OpenVINO on DepthAI inside a Docker container.
 
-.. include::  /pages/includes/footer-long.rst
+.. include::  /pages/includes/footer-short.rst
 
 .. toctree::
    :hidden:
