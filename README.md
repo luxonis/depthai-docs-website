@@ -1,6 +1,5 @@
 # Luxonis DepthAI Docs Website
 
-[![Discord](https://img.shields.io/discord/790680891252932659?label=Discord)](https://luxonis.com/discord)
 [![Forum](https://img.shields.io/badge/Forum-discuss-orange)](https://discuss.luxonis.com/)
 [![Docs](https://img.shields.io/badge/Docs-DepthAI-yellow)](https://docs.luxonis.com)
 
@@ -56,6 +55,4 @@ Username and password are the credentials you use to access the RTD website
 
 **You need to have sufficient privileges on the RTD to change the redirects**
 
-### Need help?
-
-Join our [Discord Community](https://luxonis.com/discord)!
+Join our [Discuss Forum](https://discuss.luxonis.com/)!

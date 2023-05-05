@@ -19,9 +19,6 @@ Several SLAM and localization projects that support OAK-D cameras:
 - `DepthAI-SLAM <https://github.com/bharath5673/depthai-slam>`__
 - :ref:`On-device NN inferencing for localization <drone_vio>`
 
-You can also check out our ``#slam`` channel on our `Discord server <https://luxonis.com/discord>`__, where there are tons of
-useful information on how to perform SLAM with OAK cameras.
-
 Syncing frames and IMU messages
 *******************************
 

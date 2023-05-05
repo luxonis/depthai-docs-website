@@ -149,12 +149,6 @@ And there you find the 3D position of my face!
 
 You can then choose other models and get real-time 3D position for the class of interest.
 
-Play with the feature and please share demos that you come up with (especially if you make a robot that stalks your cat)
-on `discuss.luxonis.com <https://discuss.luxonis.com/>`__ and if you run into any issues, please ping us on our
-`Discord server <https://luxonis.com/discord>`__.
-
-And if you find any errors in these documents, please report an issue on the `Github <https://github.com/luxonis/depthai-docs-website>`__.
-
 .. 
   There's no support for this yet
   Stereo Neural Inference
