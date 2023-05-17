@@ -35,7 +35,7 @@ Using UVC Feature Branch
     git clone https://github.com/luxonis/depthai-python.git
     cd depthai-python
     # Navigate to the custom branch
-    git checkout gen2_uvc
+    git checkout develop
     python3 examples/install_requirements.py
     python3 examples/rgb_uvc.py
 
