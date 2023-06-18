@@ -116,7 +116,7 @@ So, if you experience this problem with your host, there are potentially **3 opt
 #. :ref:`Force USB2 mode <Forcing USB2 Communication>`.  This will allow use of the long cable still, and many DepthAI use cases do not necessitate USB3 communication bandwidth - USB2 is plenty.
 #. Use `Active USB3 cable <https://www.cablematters.com/blog/USB-C/active-usb-extension-cable>`__. We have tested `this 10m active cable <https://www.amazon.de/-/en/dp/B08T5J3JZ3/ref=twister_B08T61LMP8?_encoding=UTF8&psc=1>`__ and USB3 works as expected (even without powering the repeater).
 
-Note that Ubuntu 16.04 has an independent USB3 issue, seemingly only on new machines though. 
+Note that Ubuntu 16.04 has an independent USB3 issue, seemingly only on new machines though.
 We think this has to do w/ Ubuntu 16.04 being EOLed prior to or around when these new machines hit the market.
 For example, this computer (`here <https://pcpartpicker.com/list/KTDFQZ>`__) has rampant USB3 disconnect issues
 under Ubuntu 16.04 (with a 1 meter cable), but has none under Ubuntu 18.04 (with a 1 meter cable).
@@ -127,12 +127,13 @@ Forcing USB2 Communication
 If you aren't using a (working) USB3 cable or your host computer doesn't support USB3, you should force the
 USB2 communication. It's also recommended to use USB2 communication if you are using a longer USB cable (2m+).
 
-For API usage, set the **usb2Mode=True** when creating the device:
+For API usage, set the **maxUsbSpeed=dai.UsbSpeed.HIGH** when creating the dai.Device object
 
 .. code-block:: python
 
   # Force USB2 communication
-  with dai.Device(pipeline, usb2Mode=True) as device:
+  with dai.Device(pipeline, maxUsbSpeed=dai.UsbSpeed.HIGH) as device:
+    # ...
 
 If you are using `depthai_demo <https://github.com/luxonis/depthai>`__ you can specify USB speed
 with :code:`-usbs` argument:
