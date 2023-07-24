@@ -69,8 +69,7 @@ html_static_path = ['_static']
 html_favicon = '_static/images/favicon.png'
 html_css_files = [
     'css/index.css',
-    'css/navbar.css',
-    "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    'css/navbar.css'
 ]
 html_js_files = [
     'js/navbar.js',

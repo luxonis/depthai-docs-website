@@ -21,7 +21,7 @@ Follow instructions below to install DepthAI (and its dependencies/requirements)
 
 .. tabs::
 
-  .. tab:: :fab:`apple;fa-xl` macOS
+  .. tab:: :fa:`apple;fa-xl` macOS
 
     Execute the script below to install DepthAI on macOS:
 
@@ -31,13 +31,13 @@ Follow instructions below to install DepthAI (and its dependencies/requirements)
 
     Please refer to `this documentation <https://docs.luxonis.com/projects/api/en/latest/install/#macos>`__ if any issues occur.
 
-  .. tab:: :fab:`windows;fa-xl` Windows
+  .. tab:: :fa:`windows;fa-xl` Windows
 
     Windows 10/11 users can **install DepthAI** with the |windows_installer_url|.
     After installer finishes, you can directly run the DepthAI application from the list of applications, which will run the DepthAI demo.
     You can skip Setup section (as Installer performs the whole setup) of this tutorial and go directly to :ref:`Default run`.
 
-  .. tab:: :fab:`linux;fa-xl` Linux
+  .. tab:: :fa:`linux;fa-xl` Linux
 
     Execute the script below to install DepthAI on Linux systems:
 
