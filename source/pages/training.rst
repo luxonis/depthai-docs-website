@@ -54,12 +54,6 @@ Depending on which GPU the Colab lottery assigns to the notebook instance, train
 Either way, a short period for such a good quality proof of concept for such a difficult task.
 We then performed the steps above for converting to blob and then running it on our DepthAI module.
 
-Below is a quick test of the model produced with this notebook on OAK device:
-
-.. image:: http://img.youtube.com/vi/d_oUxDzWHd0/0.jpg
-  :alt: COVID19 Mask Detector
-  :target: https://www.youtube.com/watch?v=d_oUxDzWHd0
-
 Supporting Notebooks
 ********************
 
