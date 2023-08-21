@@ -20,8 +20,8 @@ Or, running directly from terminal
 
     python3 depthai_demo.py --app uvc
 
-Using UVC Feature Branch
-########################
+Using UVC
+#########
 
 .. raw:: html
 
