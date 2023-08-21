@@ -936,13 +936,13 @@ How Do I Force USB2 Mode?
 
 USB2 Communication may be desirable if you'd like to use extra-long USB cables and don't need USB3 speeds.
 
-You can force USB2 mode by setting :code:`usb2Mode` to :code:`True` when creating the device (note - it works for gen2):
+You can force USB2 mode by setting :code:`maxUsbSpeed` to :code:`dai.UsbSpeed.HIGH` when creating the device (note - it works for gen2):
 
 .. code-block:: python
 
-  dai.Device(pipeline, usb2Mode=True)
+  dai.Device(pipeline, maxUsbSpeed=dai.UsbSpeed.HIGH)
 
-The other way is using the :code:`-usbs usb2` (or :code:`--usbSpeed usb2`) command line option as below:
+The other way is using the :code:`-usbs usb2` (or :code:`--usbSpeed usb2`) command line option as below (this option only works with depthai_demo.py script):
 
 .. code-block:: bash
 
