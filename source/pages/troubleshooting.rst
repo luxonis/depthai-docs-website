@@ -45,6 +45,53 @@ On our latest ``develop`` branch (to be released on version **2.21**) of depthai
 
 Afterwards, please send the generated .txt file to us (email/github/forum), and our development team will try to fix the cause of the crash as soon as possible.
 
+Ping was missed, closing the device connection
+##############################################
+
+.. code-block:: bash
+
+  [host]   [warning] Monitor thread (device: 194435108198757340 [169.254.1.222]) - ping was missed, closing the device connection
+
+This error is mostly seen on POE cameras, and can sometimes occur after a few hours or even days of running
+the pipeline. It happens because device doesn't reply to ping messages, which usually happens if device is too busy (high CPU consumption), or there's
+a networking issue. Potential solutions include:
+
+1. **Lower OAK CPU consumption**
+
+  If CPU usage is above 95% that can be a bad sign. You can measure CPU usage by running the depthai in `debug mode <https://docs.luxonis.com/projects/api/en/latest/tutorials/debugging/#depthai-debugging-level>`__. 
+  A few options to reduce CPU consumption are:
+
+  - `lower 3A FPS <https://docs.luxonis.com/projects/api/en/latest/tutorials/debugging/#cpu-usage>`__ 
+  - Update networking settings on host computer - using ``ethtool``, some have reported that increasing ``rx-usecs`` from 0 to 400 decreased Leon CPU usage from 99% to 93%
+  - Reducing the pipeline / resolution / FPS, so there's less computation happening on the camera
+
+2. **Increasing watchdog timeout**
+
+  Another solution is to increase watchdog timeout, so it isn't as "trigger happy". Default value for POE devices is 4000 ms, and user can set it to 4500ms (max value).
+  This can be done by setting environmental variable ``DEPTHAI_WATCHDOG``, so for example on linux: ``DEPTHAI_WATCHDOG=4500 python3 my_app.py``.
+
+3. **Implementing re-connection**
+
+This would be quite recommended, as it would allow the application to recover from the error. So whenever there's an error, re-connect to the device and continue running the pipeline.
+
+For depthai API, this could be implemented as:
+
+.. code-block:: py
+
+  pipeline = dai.Pipeline()
+  # ...
+  while True:
+    # Every time it crashes, re-initialize the device and upload the pipeline to it
+    with dai.Device(pipeline) as device:
+      queue = device.getOutputQueue("name")
+      while True:
+        q.get()
+
+4. **Standalone mode**
+
+If you run your device in `Standalone mode <https://docs.luxonis.com/projects/api/en/latest/tutorials/standalone_mode/>`__ and communicate with it via networking protocols (`TCP/UDP/HTTP/MQTT <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/getting-started-with-poe/#video-streaming-with-oak>`__) 
+and not XLink, there's no ping mechanism, so this error won't occur. If there were an issue on device side (which is why we have watchdog in the first place), device would auto-restart.
+
 ImportError: No module named 'depthai'
 ######################################
 
