@@ -6,4 +6,4 @@ sphinxcontrib-spelling
 sphinx-notfound-page
 sphinx_design
 sphinx-copybutton
-urllib3==1.26.15
+urllib3==1.26.17
