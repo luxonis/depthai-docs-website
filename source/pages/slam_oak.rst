@@ -19,16 +19,30 @@ Several SLAM and localization projects that support OAK-D cameras:
 - `DepthAI-SLAM <https://github.com/bharath5673/depthai-slam>`__
 - :ref:`On-device NN inferencing for localization <drone_vio>`
 
-On-device SuperBase for localization and SLAM
+On-device SuperPoint for localization and SLAM
 **********************************************
 
-A customer shared with us a solution that was running the SuperBase (`Github repo <https://github.com/rpautrat/SuperPoint>`__, `Arxiv paper <https://arxiv.org/abs/1712.07629>`__)
-feature extraction NN on-device and then used the features for localization and SLAM (on the host computer).
+A customer shared with us a solution that was running the SuperPoint (`Github repo <https://github.com/rpautrat/SuperPoint>`__, `Arxiv paper <https://arxiv.org/abs/1712.07629>`__)
+feature extraction NN on-device (on `RVC2-based <https://docs.luxonis.com/projects/hardware/en/latest/pages/rvc/rvc2/>`__ OAK-D) and then used the features for localization and SLAM (on the host computer).
 
 .. raw:: html
 
     <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
       <iframe width="560" height="315" src="https://www.youtube.com/embed/WiyaTdKvOmg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+RAE on-device VIO & SLAM
+************************
+
+The demo below shows how you can run on-device VIO & SLAM on the `RAE robot <https://docs.luxonis.com/projects/hardware/en/latest/pages/rae/>`__ using `Spectacular AI <https://www.spectacularai.com/>`__
+SDK. Disparity matching and feature extraction + tracking
+are done on accelerated blocks on the `RVC3 chip <https://docs.luxonis.com/projects/hardware/en/latest/pages/rvc/rvc3>`__. Features are then combined with disparity
+to provide tracked 3D points used by VO, and Spectacular AI SDK fuses that with IMU data to provide accurate localization of the robot.
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/HMQnjOf3n4A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
 Syncing frames and IMU messages
