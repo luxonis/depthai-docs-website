@@ -19,6 +19,18 @@ Several SLAM and localization projects that support OAK-D cameras:
 - `DepthAI-SLAM <https://github.com/bharath5673/depthai-slam>`__
 - :ref:`On-device NN inferencing for localization <drone_vio>`
 
+On-device SuperBase for localization and SLAM
+**********************************************
+
+A customer shared with us a solution that was running the SuperBase (`Github repo <https://github.com/rpautrat/SuperPoint>`__, `Arxiv paper <https://arxiv.org/abs/1712.07629>`__)
+feature extraction NN on-device and then used the features for localization and SLAM (on the host computer).
+
+.. raw:: html
+
+    <div style="position: relative; height: 0; overflow: hidden; max-width: 100%; height: auto;">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/WiyaTdKvOmg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
 Syncing frames and IMU messages
 *******************************
 
