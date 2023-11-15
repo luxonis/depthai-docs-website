@@ -12,8 +12,8 @@ DepthAI's Documentation
                   <h3 class="item-title" style="text-align: center;">OAK Camera</h3>
                </div>
                <div class="item-img-wrapper">
-                  <a href='tutorials/first_steps/#first-steps-with-depthai'>
-                     <img class="item-img" src="https://docs.luxonis.com/en/latest/_images/oak_cam.png"
+                  <a href='pages/tutorials/first_steps/#first-steps-with-depthai'>
+                     <img class="item-img" src="/oak_cam.png"
                         alt="OAK Camera" />
                   </a>
                </div>
@@ -27,7 +27,7 @@ DepthAI's Documentation
                </div>
                <div class="item-img-wrapper">
                   <a href='https://docs-beta.luxonis.com/hardware/rae/get-started'>
-                        <img class="item-img" src="https://docs.luxonis.com/en/latest/_images/rae_robot.png"
+                        <img class="item-img" src="/rae_robot.png"
                               alt="RAE Robot" />
                   </a>
                </div>
