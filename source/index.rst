@@ -1,13 +1,44 @@
 DepthAI's Documentation
 =======================
 
-.. note::
+.. raw:: html
 
-   Just received an OAK camera? Start :ref:`here <First steps with DepthAI>`!
+   <h5>Just received a device? Select the device you have below to get started:</h5>
+   <div class="items-container">
+      <div class="items-row">
+         <div class="items-col">
+            <div class="item" style="border-right-style: solid;border-right-width: 1px;">
+               <div class="item-body">
+                  <h3 class="item-title" style="text-align: center;">OAK Camera</h3>
+               </div>
+               <div class="item-img-wrapper">
+                  <a href='tutorials/first_steps/#first-steps-with-depthai'>
+                     <img class="item-img" src="https://docs.luxonis.com/en/latest/_images/oak_cam.png"
+                        alt="OAK Camera" />
+                  </a>
+               </div>
+            </div>
+         </div>
 
-DepthAI is a :ref:`Spatial AI <spatialai>` **platform**, which allows **robots and computers** to **perceive the world like a
-human** can - what objects or features are - and **where they are in physical world.**
-It focuses on the combination of these **5 key features**:
+         <div class="items-col">
+            <div class="item">
+               <div class="item-body">
+                  <h3 class="item-title" style="text-align: center;">RAE Robot</h3>
+               </div>
+               <div class="item-img-wrapper">
+                  <a href='https://docs-beta.luxonis.com/hardware/rae/get-started'>
+                        <img class="item-img" src="https://docs.luxonis.com/en/latest/_images/rae_robot.png"
+                              alt="RAE Robot" />
+                  </a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+
+DepthAI is a :ref:`Spatial AI <spatialai>` **platform** that is used for communication with and development of our devices; OAK cameras and RAE robots.
+
+It allows you to develop projects and products that require:
 
 #. :ref:`Artificial Intelligence <AI / ML / NN>`
 #. :ref:`Computer Vision`
@@ -15,8 +46,7 @@ It focuses on the combination of these **5 key features**:
 #. Performant (high resolution and FPS, `multiple sensors <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/supported_sensors.html>`__)
 #. Embedded, low power solution
 
-DepthAI platform is a complete ecosystem of custom `hardware <https://docs.luxonis.com/projects/hardware/en/latest/>`__, firmware, and `software <https://docs.luxonis.com/projects/api/en/latest/>`__.
-Best of all, it is modular and you can **integrate** this technology **into your products** (`docs here <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/integrating_depthai_into_products.html>`__).
+Best of all, it is modular and you can **integrate** this technology `into your products <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/integrating_depthai_into_products.html>`__.
 
 Demo Script
 -----------
