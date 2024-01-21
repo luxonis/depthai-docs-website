@@ -779,7 +779,7 @@ We also have both timestamp and sequence number syncing demos `here <https://git
 How do I Record (or Encode) Video with DepthAI?
 ###############################################
 
-DepthAI supports h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The :ref:`DepthAI demo app <Default run>`
+DepthAI supports h.264 and h.265 (HEVC) and JPEG encoding directly itself - without any host support.  The :ref:`DepthAI demo app <DepthAI Demo>`
 shows and example of how to access this functionality.
 
 .. image:: /_static/images/faq/recording.png
