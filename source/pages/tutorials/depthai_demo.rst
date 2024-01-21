@@ -1,6 +1,8 @@
 DepthAI Demo
 ############
 
+
+
 DepthAI demo is a GUI application that was designed to quickly test some camera features. It is located at `luxonis/depthai repository <https://github.com/luxonis/depthai#depthai-api-demo-program>`__ on Github.
 
 Using other models

@@ -107,9 +107,10 @@ A visualization of this mode is below.
 
 In this case the neural inference (20-class object detection per :ref:`here <Run DepthAI Default Model>`)
 was run on the RGB camera and the results were overlaid onto the depth stream.
-The DepthAI reference Python script can be used to show this out (:code:`python3 depthai_demo.py -gt cv -s depth -sbb` is the command used to produce the video above).
 
-And if you'd like to know more about the underlying math that DepthAI is using to perform the stereo depth, see this excellent blog post here `here <https://www.learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/>`__.  And if you'd like to run the same example run in that blog, on DepthAI, see this  `depthai-experiment <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#depth-from-rectified-host-images/>`__.
+And if you'd like to know more about the underlying math that DepthAI is using to perform the stereo depth, see this excellent blog post
+`here <https://www.learnopencv.com/introduction-to-epipolar-geometry-and-stereo-vision/>`__.  And if you'd like to run the same example
+run in that blog, on DepthAI, see this `depthai-experiment <https://github.com/luxonis/depthai-experiments/tree/master/gen2-camera-demo#depth-from-rectified-host-images/>`__.
 
 What is the Max Stereo Disparity Depth Resolution?
 **************************************************
@@ -225,7 +226,7 @@ The command to get the above output is
 
   python3 depthai_demo.py -gt cv -s color depth -sbb
 
-Here is a single-camera version (megaAI) running with :code:`python3 depthai_demo.py -gt cv -s color`:
+Here is a single-camera version (OAK-1) running with :code:`python3 depthai_demo.py -gt cv -s color`:
 
 .. image:: /_static/images/faq/lego.png
   :alt: DepthAI on Mac
@@ -737,71 +738,17 @@ The available streams are:
 Is It Possible to Have Access to the Raw Stereo Pair Stream on the Host?
 ************************************************************************
 
-Yes, see `example code here <https://docs.luxonis.com/projects/api/en/latest/samples/MonoCamera/mono_preview/#mono-preview>`__
-(using API). You can also get the raw stereo pair stream with DepthAI demo using the following command:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -gt cv -s left right
-
-
-How to choose the DepthAI Demo GUI type?
-########################################
-
-Since Depthai Demo v3.0.0, we introduced two GUI types available:
-
-- Qt-based interactive GUI (:code:`qt`), that allows to change demo options with mouse clicks
-- OpenCV-based preview (:code:`cv`, being the default prior v3), that allows to preview requested streams and control the demo using CLI arguments
-
-For most of the platforms, :code:`qt` is selected as a default GUI type and :code:`cv` serves as a fallback in case QT installation doesn't work.
-You can also choose GUI type yourself with :code:`-gt / --guiType` argument.
-
-For example, to enforce OpenCV GUI, run the following command:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -gt cv
-
-Or, to enforce QT GUI:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -gt qt
-
-How Do I Limit The Camera FrameRate?
-########################################
-
-So the simple way to select streams is to just use the :code:`-s` option.  But in some cases (say when you have a slow host or only USB2 connection **and** you want to display a lot of streams) it may be necessary to limit the frame rate of streams to not overwhelm the host/USB2 with too much data.
-
-So to set streams to a specific frame rate to reduce the USB2 load and host load, use :code:`-rgbf / --rgbFps` to limit the RGB camera framerate and :code:`-monof / --monoFps` to limit mono cameras framerate.
-
-So for limiting color camera to 5 FPS, use the following command:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -gt cv -rgbf 5
-
-And same way to limit mono cameras to 5 FPS:
-
-.. code-block:: bash
-
-  python3 depthai_demo.py -gt cv -monof 5
-
-It's worth noting that the frame rate limiting works best for lower rates.  So if you're say trying to hit 25FPS, it's best to just leave no frame-rate specified and let the system go to full 30FPS instead.
-
-Specifying no limit will default to 30FPS.
+Yes, you can access raw stereo pair streams using the depthai (API) library. We have an `example code here <https://docs.luxonis.com/projects/api/en/latest/samples/MonoCamera/mono_preview/#mono-preview>`__.
 
 How do I Synchronize Streams and/or Meta Data (Neural Inference Results)
 ########################################################################
-
-The :code:`--sync` option is used to synchronize the neural inference results and the frames on which they were run.  When this option is used, the device-side firmware makes a best effort to send metadata and frames in order of metadata first, immediately followed by the corresponding image.
 
 When running heavier stereo neural inference, particularly with high host load, this system can break down, and there are two options which can keep synchronization:
 
 #. Reduce the frame rate of the cameras running the inference to the speed of the neural inference itself, or just below it.
 #. Or pull the timestamps or sequence numbers from the results (frames or metadata) and match them on the host.
 
-See demo `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-nn-sync>`__.
+See the demo `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-nn-sync>`__.
 
 Reducing the Camera Frame Rate
 ******************************
@@ -819,18 +766,15 @@ So for example to run a default model with both the RGB and both grayscale camer
 Synchronizing on the Host
 *************************
 
-`ImgFrame <https://docs.luxonis.com/projects/api/en/latest/components/messages/img_frame/#imgframe>`__ message
-has two functions; :func:`ImgFrame.getTimestamp()` and :func:`ImgFrame.getSequenceNum()` which can be used for synchronization
+`DepthAI messages <https://docs.luxonis.com/projects/api/en/latest/components/messages/>`__
+has two functions - :func:`msg.getTimestamp()` and :func:`msg.getSequenceNum()` - which can be used for synchronization
 on host side or on the device using `Script <https://docs.luxonis.com/projects/api/en/latest/components/nodes/script/>`__ node.
 
 You can use sequence number when syncing streams from one device, but when you have multiple OAK cameras and want to sync streams
 across multiple OAKs, you should use timestamp syncing, as host time is used (`std::chrono::steady_clock <https://en.cppreference.com/w/cpp/chrono/steady_clock>`__)
-for the timestamps.
+for the timestamps. Further documentation can be found here: `Message Syncing <https://docs.luxonis.com/projects/api/en/latest/tutorials/message_syncing/>`__.
 
-We have both timestamp and sequence number syncing demos `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-syncing#message-syncing>`__.
-
-..
-  TODO add Synchronization docs in API
+We also have both timestamp and sequence number syncing demos `here <https://github.com/luxonis/depthai-experiments/tree/master/gen2-syncing#message-syncing>`__.
 
 How do I Record (or Encode) Video with DepthAI?
 ###############################################
@@ -882,43 +826,9 @@ What Is The Stream Latency?
 ###########################
 
 When implementing robotic or mechatronic systems it is often quite useful to know how long it takes from light hitting an image
-sensor to when the results are available to a user, the :code:`photon-to-results` latency.
+sensor to when the results are available to a user, the ``photon-to-results`` latency.
 
-So the following results are an approximation of this :code:`photon-to-results` latency, and are likely an over-estimate
-as we tested by actually seeing when results were updated on a monitor, and the monitor itself has some latency, so the
-results below are likely overestimated by whatever the latency of the monitor is that we used during the test.
-And we have also since done several optimizations since these measurements, so the latency could be quite a bit lower than these.
-
-.. list-table:: Worst-case estimates of stream latency
-  :header-rows: 1
-  :align: center
-
-  * - measured
-    - requested
-    - avg latency, ms
-    - DepthAI demo arguments
-  * - left
-    - left
-    - 90
-    - :code:`python3 depthai_demo.py -gt cv -s left -dnn`
-  * - left
-    - left, right
-    - 90
-    - :code:`python3 depthai_demo.py -gt cv -s left right -dnn`
-  * - left
-    - left, right, depth
-    - 90
-    - :code:`python3 depthai_demo.py -gt cv -s left right depth -dnn`
-  * - left
-    - left, right, depth, color, object detection
-    - 100
-    - :code:`python3 depthai_demo.py -gt cv -s left right depth color`
-  * - left
-    - left, right, depth, color, object detection (synced)
-    - 200
-    - :code:`python3 depthai_demo.py -gt cv --sync -s left right depth color`
-
-Note that object detection results are not synced with the color camera if :code:`--sync` isn't added to the arguments.
+We have a documentation page here that describes the latency of the various streams available on DepthAI: `DepthAI Latency <https://docs.luxonis.com/projects/api/en/latest/tutorials/low-latency/>`__.
 
 How To Do a Letterboxing (Thumbnailing) on the Color Camera?
 ############################################################

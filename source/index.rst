@@ -48,31 +48,26 @@ It allows you to develop projects and products that require:
 
 Best of all, it is modular and you can **integrate** this technology `into your products <https://docs.luxonis.com/projects/hardware/en/latest/pages/guides/integrating_depthai_into_products.html>`__.
 
-Demo Script
------------
+DepthAI Viewer
+--------------
 
-.. image:: /_static/images/tutorials/depthaidemo.png
-  :alt: Default run
+.. image:: /_static/images/tutorials/viewer_demo.png
+  :alt: DepthAI Viewer demo
 
-Demo script is our multipurpose command line demo tool, built around pipeline builder API, that allows you to check
-DepthAI features straight from the command line - no coding required!  It works USB and POE equally, automatically
-discovering any POE DepthAI on your LAN and/or USB DepthAI connected to your computer.  If multiple are connected, it
-will prompt you on which to use for the demo.
+`DepthAI Viewer <https://github.com/luxonis/depthai-viewer#depthai-viewer-the-visualization-tool-for-depthai>`__ is the
+visualization tool for DepthAI and OAK cameras. It's a GUI application that will run a demo app by default, which
+will visualize all streams and run inference on the device. It also allows you to change the configuration of the device.
+DepthAI viewer works for USB and POE cameras.
 
-To install and run the demo script on your OAK camera, type the following commands in the terminal.
+To install and run the DepthAI Viewer, run the following commands in the terminal:
 
 .. code-block:: bash
 
-  git clone https://github.com/luxonis/depthai.git
-  cd depthai
-  python3 install_requirements.py
-  python3 depthai_demo.py
+   python3 -m pip install depthai-viewer
+   # Run the DepthAI Viewer
+   python3 -m depthai_viewer
 
-And then following up with the `README.md <https://github.com/luxonis/depthai/blob/main/README.md>`__ for more usage examples.
 We have also prepared a **step by step guide** :ref:`here <First steps with DepthAI>` with detailed instructions how to set up your DepthAI and run this script.
-
-If you have issues during the installation, see our `Installation page <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for additional OS-specific
-instructions
 
 Example Use Cases
 -----------------

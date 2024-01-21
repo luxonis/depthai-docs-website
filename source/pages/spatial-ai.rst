@@ -49,7 +49,7 @@ DepthAI extends these 2D neural networks (eg. MobileNet, Yolo) with spatial info
 .. image:: /_static/images/tutorials/depthaidemo.png
   :alt: Object localization
 
-On the image above, the :ref:`depthai demo <Default run>` runs MobileNet object detector and fuses object detections with
+On the image above, a depthai application runs MobileNet object detector and fuses object detections with
 a depth map to provide spatial coordinates (XYZ) of objects it sees: person, potted plant, bottle, and chair.
 
 3D Landmark Localization
