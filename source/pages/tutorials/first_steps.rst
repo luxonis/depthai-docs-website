@@ -1,23 +1,17 @@
 First steps with DepthAI
 ========================
 
-.. toctree::
-   :maxdepth: 1
-   :hidden:
-
-   depthai_demo.rst
-
 This guide will go through the first steps with **OAK camera** and **DepthAI library**:
 
 1. Installing DepthAI
-2. Device setup - connecting the OAK camera to your host computer
-3. Running :ref:`DepthAI Demo` a Python-based GUI application
+2. Device setup - connecting the OAK camera to your (host) computer
+3. Running :ref:`DepthAI Viewer`, the visualization GUI app for DepthAI
 4. Next steps; examples, demos, API docs
 
 Installing DepthAI
 ##################
 
-Follow instructions below to install DepthAI (and its dependencies/requirements) with an installer.
+Follow instructions below to install DepthAI and its dependencies/requirements with an installer.
 
 .. tabs::
 
@@ -34,8 +28,12 @@ Follow instructions below to install DepthAI (and its dependencies/requirements)
   .. tab:: :fa:`windows;fa-xl` Windows
 
     Windows 10/11 users can **install DepthAI** with the |windows_installer_url|.
-    After installer finishes, you can directly run the DepthAI application from the list of applications, which will run the DepthAI demo.
-    You can skip Setup section (as Installer performs the whole setup) of this tutorial and go directly to :ref:`Default run`.
+
+    Installer will install either the **newer** `DepthAI Viewer <https://github.com/luxonis/depthai-viewer/>`__ (visualization GUI application),
+    or DepthAI Demo (python script, older GUI application) or and all the dependencies. **We suggest using** the DepthAI Viewer.
+
+    After the installer finishes, you can directly run the DepthAI app from the list of applications, which will run the installed demo.
+    You can skip Setup section (as Installer performs the whole setup) of this tutorial and go directly to :ref:`DepthAI Viewer`.
 
   .. tab:: :fa:`linux;fa-xl` Linux
 
@@ -78,85 +76,29 @@ either via ethernet (`OAK PoE cameras <https://docs.luxonis.com/projects/hardwar
       for a step-by-step tutorial.
 
 
-Default run
-###########
+DepthAI Viewer
+##############
 
-After installer finishes, it should automatically run the DepthAI Demo script. You can also manually run with command below:
+After the installer finishes, you can run the DepthAI Viewer by running:
 
 .. code-block:: bash
 
-  $ python3 depthai_demo.py
+  depthai-viewer
+  # OR
+  python3 -m depthai_viewer
 
 
-Running the demo for the first time, the script will compile and download a default `mobilenet-ssd` model,
-configure the OAK camera and then show a default :code:`color` preview that will contain a scaled preview from the RGB camera from your device.
+Running the Viewer for the first time, the app will download a default `mobilenet-ssd` model,
+configure the OAK camera and then show default streams from the camera.
 
-.. image:: https://user-images.githubusercontent.com/5244214/142722740-47e545b7-c7fe-4132-9704-ae3b47d60957.png
-  :alt: Default run
-
-Change preview
-##############
-
-To see other previews from the device, you can use the preview switcher that is visible in the top-left section of the GUI
-
-.. image:: https://user-images.githubusercontent.com/5244214/141984256-4f9b9479-0907-4b04-bfcd-aae15ac28a0a.png
-  :alt: preview selector location
-
-.. list-table:: Available previews
-  :widths: 15 65 20
-  :header-rows: 1
-  :align: center
-
-  * - Name
-    - Description
-    - Limitations
-
-  * - :code:`color`
-    - Shows preview from color camera
-    -
-
-  * - :code:`nnInput`
-    - Shows preview from right mono camera
-    - Disabled if no AI model is running
-
-  * - :code:`left`
-    - Shows preview from left mono camera
-    - Stereo required
-
-  * - :code:`right`
-    - Shows preview from right mono camera
-    - Stereo required
-
-  * - :code:`depth`
-    - Shows disparity map calculated from :code:`depthRaw` preview and JET colored. Best for visualizing depth
-    - Stereo required
-
-  * - :code:`depthRaw`
-    - Shows raw depth map. Best for depth-based calculations
-    - Stereo required
-
-  * - :code:`disparity`
-    - Shows disparity map produced on device
-    - Stereo required
-
-  * - :code:`disparityColor`
-    - Shows disparity map produced on device and JET colored. Should be the same as :code:`depth` preview but produced on the device.
-    - Stereo required
-
-  * - :code:`rectifiedLeft`
-    - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ left camera frames
-    - Stereo required
-
-  * - :code:`rectifiedRight`
-    - `Rectified <https://en.wikipedia.org/wiki/Image_rectification>`__ right camera frames
-    - Stereo required
-
+.. image:: /_static/images/tutorials/viewer_demo.png
+  :alt: DepthAI Viewer demo
 
 Default model
 #############
 
-While the demo was running, you could see the detection results - and if you were standing in front of the camera,
-you should see yourself detected as a person with a pretty high probability.
+While the Viewer is running, you can see detection results, and if you are standing in front of the camera,
+you should see yourself detected as a person with a high probability.
 
 The model that is used by default is a MobileNetv2 SSD object detector trained on the `PASCAL 2007 VOC <http://host.robots.ox.ac.uk/pascal/VOC/voc2007/>`__ classes, which are:
 
@@ -169,10 +111,6 @@ So give it a try to detect different objects, like bottles or apples
 
 .. image:: https://user-images.githubusercontent.com/5244214/142192279-71e479ae-fef2-4ddb-a4d2-7ae677e1544d.png
   :alt: bottles and apples
-
-.. note::
-
-  See for :ref:`DepthAI Demo` additional documentation about DepthAI demo.
 
 Next steps
 ##########

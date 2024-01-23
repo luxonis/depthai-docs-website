@@ -1,24 +1,8 @@
 OAK as a webcam
 ===============
 
-OAK devices can be used as webcams as well. To enable this feature, you can run the DepthAI demo UVC application
-or use uvc feature branch. Make sure to use **USB3 cable**, as we have noticed that in some cases, **USB2 won't work**.
-
-Using DepthAI Demo Script
-#########################
-
-First, follow the steps required to install DepthAI Demo script :ref:`here <First steps with DepthAI>`.
-
-If using QT GUI, please select the UVC app here
-
-.. image:: https://user-images.githubusercontent.com/5244214/148781175-af475fa0-5785-47b6-be5b-294fed72260c.png
-  :alt: UVC App Qt GUI
-
-Or, running directly from terminal
-
-.. code-block:: bash
-
-    python3 depthai_demo.py --app uvc
+OAK devices can be used as webcams as well. Make sure to use **USB3 cable**, as we have noticed that in some
+cases, **USB2 won't work**.
 
 Using UVC
 #########
@@ -34,12 +18,10 @@ Using UVC
     # Skip cloning if you already have depthai-python repo
     git clone https://github.com/luxonis/depthai-python.git
     cd depthai-python
-    # Navigate to the custom branch
-    git checkout develop
     python3 examples/install_requirements.py
-    python3 examples/rgb_uvc.py
+    python3 examples/UVC/uvc_rgb.py
 
-Now you can open up your favourite meeting app, like Zoom or Slack, and select **Luxonis Device: UVC Video Contr** in the webcam selection menu.
+Now you can open up your favorite meeting app, like Zoom or Slack, and select **Luxonis Device: UVC Video Contr** in the webcam selection menu.
 
 Webcam workarounds
 ##################
