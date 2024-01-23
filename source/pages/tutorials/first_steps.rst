@@ -29,8 +29,8 @@ Follow instructions below to install DepthAI and its dependencies/requirements w
 
     Windows 10/11 users can **install DepthAI** with the |windows_installer_url|.
 
-    Installer will install either DepthAI Demo (python script, older GUI application) or the **newer** `DepthAI Viewer <https://github.com/luxonis/depthai-viewer/>`__
-    (GUI application) and all the dependencies. **We suggest using** the DepthAI Viewer.
+    Installer will install either the **newer** `DepthAI Viewer <https://github.com/luxonis/depthai-viewer/>`__ (visualization GUI application),
+    or DepthAI Demo (python script, older GUI application) or and all the dependencies. **We suggest using** the DepthAI Viewer.
 
     After the installer finishes, you can directly run the DepthAI app from the list of applications, which will run the installed demo.
     You can skip Setup section (as Installer performs the whole setup) of this tutorial and go directly to :ref:`DepthAI Viewer`.
