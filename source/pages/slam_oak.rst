@@ -7,7 +7,7 @@ on current OAK cameras (`RVC2 <https://docs.luxonis.com/projects/hardware/en/lat
 Our upcoming `Series 3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s3.html>`__
 OAK cameras with `RVC3 <https://docs.luxonis.com/projects/hardware/en/latest/pages/rvc/rvc3.html>`__ have
 `Quad-core ARM A53 <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s3.html#quad-core-arm>`__
-1.5GHz integrated into the VPU. There will be an **open-source SLAM implementation on the RVC3**. Users are be able to run `custom containarized apps <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s3.html#custom-applications>`__
+1.5GHz integrated into the VPU. There will be an **open-source SLAM implementation on the RVC3**. Users will be able to run `custom containarized apps <https://docs.luxonis.com/projects/hardware/en/latest/pages/articles/oak-s3.html#custom-applications>`__
 on the ARM, which will allow **other companies** (which specialize in VIO/SLAM) to **port their software stacks** to our cameras and license it.
 
 Several SLAM and localization projects that support OAK-D cameras:
