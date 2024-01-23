@@ -229,6 +229,27 @@ CTRL-C Is Not Stopping It!
 
 If you are trying to kill a program with :code:`CTLR-C`, and it's not working, try :code:`CTRL-\ ` instead.  Usually this will work.
 
+Nothing happening when running a DepthAI script
+###############################################
+
+If upon running a DepthAI script, nothing happens (the script just hangs) and you cannot :code:`CTRL-C` out of it.
+Try running :code:`cam_test.py` script from the :code:`depthai-python/utilities` folder. The script should error out with something like:
+
+.. code-block:: bash
+
+  QObject::moveToThread: Current thread (0x55b9d0a00320) is not the object's thread (0x55b9d0cad7e0).
+  Cannot move to target thread (0x55b9d0a00320)
+
+          .
+          .
+          .
+
+  Aborted (Signal sent by tkill() 32104 1001)
+  Aborted (core dumped)
+
+This means there is a problem with PyQt5 installation. Follow this `issue <https://github.com/wkentaro/labelme/issues/842>`__ for a resolution.
+
+
 "DLL load failed while importing cv2" on Windows
 ################################################
 
