@@ -257,10 +257,15 @@ This so far has always meant there is a problem with the OpenCV install on the h
 
   python3 -c "import cv2; import numpy as np; blank_image = np.zeros((500,500,3), np.uint8); cv2.imshow('s', blank_image); cv2.waitKey(0)"
 
-If a window is not displayed, or if you get the `:bash: Illegal instruction` result, this means there is a problem with
+If a window is not displayed, or if you get the :code:`Illegal instruction` result, this means there is a problem with
 the OpenCV install.  The installation scripts `here <https://docs.luxonis.com/en/latest/pages/api/#supported-platforms>`__
 often will fix the OpenCV issues.  But if they do not, running
-`:bash: python3 -m pip install opencv-python --force-reinstall` will often fix the OpenCV problem.
+
+.. code-block:: bash
+
+  python3 -m pip install opencv-python --force-reinstall
+
+will often fix the OpenCV problem.
 
 Neural network blob compiled with incompatible openvino version
 ###############################################################
