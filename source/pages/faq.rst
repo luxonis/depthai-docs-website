@@ -401,10 +401,9 @@ Hardware for Each Case:
 Getting Started with Development
 ********************************
 
-Whether intending to use DepthAI with an :ref:`OS-capable host <withos>`, a :ref:`microcontroller over SPI <withmicrocontroller>`
-(in development), or :ref:`completely standalone <standalone>` - we recommend starting with either
-:ref:`NCS2 mode <ncsmode>` or with the `DepthAI USB API <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for prototype/test/etc. as it allows faster iteration/feedback on
-neural model performance/etc. And in particular, with NCS2 mode, all the images/video can be used directly from the host (so that you don't have to point the camera at the thing you want to test).
+Whether intending to use DepthAI with an :ref:`OS-capable host <withos>` or :ref:`completely standalone <standalone>` - we recommend starting with
+the `DepthAI API <https://docs.luxonis.com/projects/api/en/latest/install/>`__ for prototype/test/etc. as it allows faster iteration/feedback on
+neural model performance/etc.
 
 In DepthAI mode, theoretically, anything that will run in NCS2 mode will run - but sometimes it needs host-side processing if it's a network we've never run
 before. And this work is usually not heavy lifting. See some examples `here <https://docs.luxonis.com/en/latest/#example-use-cases>`__ and in out `Github <https://github.com/luxonis/depthai-experiments>`__.
