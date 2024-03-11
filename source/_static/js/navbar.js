@@ -75,5 +75,9 @@ document.onreadystatechange = function(e) {
       var main = document.querySelector("#lux-doc-navbar a:not([href^='/projects'])")
       main.classList.add('lux-navbar-active')
     }
+    // Put a script <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25303733.js"></script> at the end of the body
+    var html = '<script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25303733.js"><\/script>';
+    document.body.insertAdjacentHTML('beforeend', html);
+    // Append the script element to the body (or any other target element)
   }
 }
