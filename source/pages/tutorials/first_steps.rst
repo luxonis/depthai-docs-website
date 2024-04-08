@@ -21,7 +21,7 @@ Follow instructions below to install DepthAI and its dependencies/requirements w
 
     .. code-block:: bash
 
-      bash -c "$(curl -fL https://docs.luxonis.com/install_depthai.sh)"
+      curl -fL https://docs.luxonis.com/install_dependencies.sh | bash
 
     Please refer to `this documentation <https://docs.luxonis.com/projects/api/en/latest/install/#macos>`__ if any issues occur.
 
