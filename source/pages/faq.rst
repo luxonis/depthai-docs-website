@@ -232,6 +232,39 @@ Here is a single-camera version (OAK-1) running with :code:`python3 depthai_demo
   :alt: DepthAI on Mac
   :target: https://www.youtube.com/watch?v=dZzg4sTeE3M
 
+How to Identify the which OAK device is connected ?
+###################################################
+
+Calibrated devices can be identified using the boardName.
+Once the device is connected read the calibration using :code:`calib = device.readCalibration()` followed by :code:`calib.getEepromData().boardName` to get the board name.
+
+Following are the board names assigned to the device during Factory calibration.
+
+.. list-table::
+   :widths: 20 20
+   :header-rows: 1
+
+   * - Device Name
+     - OnBoard Name
+   * - OAK-D
+     - BW1098OBC or OAK-D
+   * - OAK-D-LITE
+     - OAK-D-LITE
+   * - OAK-D-IoT-40 
+     - BW1092 or OAK-D-IoT-40
+   * - OAK-D-IoT-75
+     - DM1098OAKD_WIFI or OAK-D-IoT-75
+   * - OAK-D-POE
+     - OAK-D-POE
+   * - OAK-D-CM3
+     - BW1097 or OAK-D-CM3
+   * - OAK-D-CM4
+     - OAK-D-CM4
+   * - OAK-1
+     - BW1093OAK or OAK-1
+   * - OAK-1-POE
+     - OAK-1-POE
+
 
 Is OAK camera easy to use with Raspberry Pi?
 ############################################
