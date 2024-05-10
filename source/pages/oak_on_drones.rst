@@ -14,6 +14,7 @@ A few other demos:
 - Team **QuetzalC++** (OpenCV AI comp) - Warehouse inspection with autonomous drones - `video <https://youtu.be/juOrtGBb7KQ>`__
 - Team **QUTEagles** (OpenCV AI comp) - Drone-based biosignatures detection system for planetary exploration - `video <http://bit.ly/QUTEaglesVideo>`__
 - **Augmented Startups** built a gesture controlled drone and has 3-part tutorial on YouTube - `video <https://www.youtube.com/watch?v=TYiiLTioecg>`__
+- There is a `tutorial <https://ardupilot.org/copter/docs/common-vio-oak-d.html>`__ about how to use an OAK-D for non-gps navigation for Ardupilot - `video <https://youtu.be/Xxh8CUwEE1M>`__
 
 .. _drone_vio:
 
