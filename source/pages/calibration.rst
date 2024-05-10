@@ -155,6 +155,92 @@ Then, run calibration with this board name:
 
 Run :code:`python3 calibrate.py --help` (or :code:`-h`) for a full list of arguments and usage examples.
 
+Multi camera setup calibration
+******************************
+
+Create a new board config JSON file inside :code:`/resources/boards/` with the following format:
+
+.. code-block:: json
+
+  {
+      "board_config":
+      {
+          "cameras": {
+              "CAM_A": {
+                  "name": "rgb",
+                  "hfov": 68.7938,
+                  "type": "color"
+              }
+          },
+          "CAM_B": {
+              "name": "left",
+              "hfov": 71.86,
+              "type": "mono",
+              "extrinsics": {
+                  "to_cam": "CAM_C",
+                  "specTranslation": {
+                      "x": -7.5,
+                      "y": 0,
+                      "z": 0
+                  },
+                  "rotation":{
+                      "r": 0,
+                      "p": 0,
+                      "y": 0
+                  }
+              }
+          },
+          "CAM_C": {
+              "name": "right",
+              "hfov": 71.86,
+              "type": "mono",
+              "extrinsics": {
+                  "to_cam": "CAM_A",
+                  "specTranslation": {
+                      "x": 3.75,
+                      "y": 0,
+                      "z": 0
+                  },
+                  "rotation":{
+                      "r": 0,
+                      "p": 0,
+                      "y": 0
+                  }
+              }
+          }
+      },
+      "stereo_config":{
+          "left_cam": "CAM_B",
+          "right_cam": "CAM_C"
+      }
+  }
+
+The :code:`cameras` object contains the camera socket names as keys and the camera properties as values.
+
+Each camera needs to have the following properties:
+
+- :code:`name`: The name of the camera that can be used to reference it later. Usually, the name describes the camera position (e.g. :code:`rgb`, :code:`left`, :code:`right`). The name must be unique.
+- :code:`hfov`: The horizontal field of view of the camera in degrees.
+- :code:`type`: The type of the camera. Can be one of the following: :code:`color`, :code:`mono`
+
+Additionally, the :code:`extrinsics` property should be set for all cameras except one. The :code:`extrinsics` property contains an object with the following properties:
+
+- :code:`to_cam`: The socket name of the camera with respect to which the extrinsics are defined.
+- :code:`specTranslation`: The translation vector (:code:`x`, :code:`y`, :code:`z` in centimeters) from the :code:`to_cam` camera to the current camera.
+- :code:`rotation`: The rotation vector (roll :code:`r`, pitch :code:`p`, yaw :code:`y` in degrees) 
+
+
+The :code:`stereo_config` object sets the default stereo pair. The :code:`left_cam` and :code:`right_cam` properties should be set to the socket names of the left and right cameras respectively.
+
+
+Then, run calibration with this command:
+
+.. code-block:: qtconsole
+
+  python3 calibrate.py -s [SQUARE_SIZE_IN_CM] -db -brd [NAME_OF_CREATED_JSON_FILE] -ih
+
+
+
 Position the charuco board and capture images
 *********************************************
 
