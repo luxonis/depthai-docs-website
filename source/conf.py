@@ -46,7 +46,12 @@ spelling_word_list_filename = '../ci/spelling_wordlist.txt'
 templates_path = ['_templates']
 
 # Folder for extra files like robots.txt
-html_extra_path = ['_extra']
+# html_extra_path = ['_extra']
+
+# HTML Context for maain file
+html_context = {
+    'meta_robots': '<meta name="robots" content="noindex, nofollow" />',
+}
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
